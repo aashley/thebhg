@@ -26,7 +26,15 @@
 	    $current = new MissionMaster($this->CurrentMM());
 	    $current->EndTerm();
 	    
-	    $sql = "INSERT INTO `arena_mission` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    $sql = "SELECT * FROM `arena_mission` WHERE `bhg_id` = '$bhg_id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $info = mysql_fetch_array($query);
+		    $sql = "UPDATE `arena_mission` SET `start_date` = '".time()."', `end_date` = 0";
+	    } else {
+	    	$sql = "INSERT INTO `arena_mission` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+		}
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;

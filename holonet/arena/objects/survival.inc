@@ -49,8 +49,15 @@
     function NewRanger($bhg_id){
 	    $current = new Ranger($this->CurrentRanger());
 	    $current->EndTerm();
+	    $sql = "SELECT * FROM `arena_rangers` WHERE `bhg_id` = '$bhg_id'";
+	    $query = mysql_query($sql, $this->connect);
 	    
-	    $sql = "INSERT INTO `arena_rangers` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    if (mysql_num_rows($query)){
+		    $info = mysql_fetch_array($query);
+		    $sql = "UPDATE `arena_rangers` SET `start_date` = '".time()."', `end_date` = 0";
+	    } else {
+	    	$sql = "INSERT INTO `arena_rangers` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+    	}
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;
