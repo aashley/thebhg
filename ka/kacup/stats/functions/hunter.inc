@@ -81,8 +81,8 @@ function output(){
 			arsort($season_data);			
 			$last = new KAC(array_shift($season_data));
 			
-			$table->AddRow('First KAC', $first->GetSeasonID());
-			$table->AddRow('Most Recent KAC', $last->GetSeasonID());
+			$table->AddRow('First KAC', $first->GetID());
+			$table->AddRow('Most Recent KAC', $last->GetID());
 			$table->AddRow('Total Events', number_format(count($stat['events'])));
 			$table->AddRow('Total Points', number_format($stat['points']));
 			$table->AddRow('Average Points per Event', number_format($stat['points']/count($stat['events'])));
@@ -126,7 +126,7 @@ function output(){
 				
 				$kabal = new Division($kabal);
 				
-				$table->AddRow('<a href="/kac/stats.php?flag=hunter&hunter='.$person->GetID().'&season='.$season->GetSeasonID().'">'.
+				$table->AddRow('<a href="/kac/stats.php?flag=hunter&hunter='.$person->GetID().'&season='.$season->GetSeasonID().'">KAC '.
 					roman($season->GetID()).'</a>', '<a href="/kac/stats.php?flag=kabal&kabal='.$kabal->GetID().'&season='.$season->GetSeasonID()
 					.'">'.$kabal->GetName().'</a>', number_format($stat['points']), number_format($marked), number_format($stat['points']/$marked));
 			}
@@ -172,7 +172,7 @@ function output(){
 			foreach ($events as $event) {
 				$round = $event['event']->GetRound();
 				$table->StartRow();
-				$table->AddCell('<a href="/kac/stats.php?flag=kac&season=' . $event['kac']->GetID() . '">'.roman($event['kac']->GetSeasonID()).'</a>');
+				$table->AddCell('<a href="/kac/stats.php?flag=kac&season=' . $event['kac']->GetID() . '">KAC '.roman($event['kac']->GetID()).'</a>');
 				$table->AddCell('<a href="/kac/stats.php?flag=event&event=' . $event['event']->GetID() . '">' . $event['type'] . '</a>');
 				$table->AddCell('<a href="/kac/stats.php?flag=round&round=' . $round->GetID() . '">Round ' . $round->GetID() . '</a>');
 				$table->AddCell('<div style="text-align: right">' . $event['status'] . '</div>');
