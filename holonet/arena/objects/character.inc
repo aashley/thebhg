@@ -1211,8 +1211,6 @@
     	}
     	$project = $this->project;
     	
-    	echo $id;
-    	
     	if ($this->HasValue($look, $col, $id)){
 	    	foreach ($this->ModFields($project) as $id){
 	    		$field = new Field($id);
@@ -1221,6 +1219,7 @@
 				$table->EndRow();
 		    	foreach($this->GetStats($id) as $stat){
 			    	if ($this->Permit(1, $stat->GetID(), $project)){
+				    	echo $id;
 			    		$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look, $id, $col));
 		    		}
 		    	}
