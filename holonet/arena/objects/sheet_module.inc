@@ -229,18 +229,6 @@
 	    return $return;
     }
     
-    function GetSheets(){
-	    $sql = "SELECT * FROM `character_sheets` WHERE `pending` = 1 AND `approved` = 0 ORDER BY `pending` ASC, `approved` ASC, `last_change` DESC";
-	    $query = mysql_query($sql, $this->connect);
-	    $return = array();
-	    
-	    while ($info = mysql_fetch_array($query)){
-			$return[] = new Character($info['bhg_id']);
-	    }
-	    
-	    return $return;
-    }
-    
     function HasSheet($bhg_id){
 	    $new = new Character($bhg_id);
 	    return ($new->Includeable() ? true : false);
