@@ -46,8 +46,10 @@ function acn_nav(){
 	echo '<small>Arena<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_arena_challenge') . '">Arena&nbsp;Challenges</a><br />';
 	
-	//echo '<br />Starfield Arena<br />';
-    //echo '&nbsp;<a href="' . internal_link('acn_starfield_challenge') . '">Starfield&nbsp;Arena&nbsp;Challenges</a><br />';
+	/*Removed until fixed.
+	echo '<br />Starfield Arena<br />';
+    echo '&nbsp;<a href="' . internal_link('acn_starfield_challenge') . '">Starfield&nbsp;Arena&nbsp;Challenges</a><br />';
+    */
     
     echo '<br />Solo Missions<br />';
     echo '&nbsp;<a href="' . internal_link('acn_solo_contract') . '">Request&nbsp;Contract</a><br />';
@@ -60,11 +62,13 @@ function acn_nav(){
     echo '<br />IRC Arena<br />';
     echo '&nbsp;<a href="' . internal_link('acn_irca_submit') . '">Submit&nbsp;Match</a><br />';
     
+    /*More Elite nonsense
     echo '<br />Twilight Gauntlet<br />';
     echo '&nbsp;<a href="' . internal_link('acn_ttg_challenge') . '">Request&nbsp;Challenge</a><br />';
 
-    /*echo '<br />Tempestuous Group<br />';
-    echo '&nbsp;<a href="' . internal_link('acn_tempy_petition') . '">Admittance&nbsp;Petition</a><br />'; */
+    echo '<br />Tempestuous Group<br />';
+    echo '&nbsp;<a href="' . internal_link('acn_tempy_petition') . '">Admittance&nbsp;Petition</a><br />'; 
+    */
 }
 
 function atn_nav(){
@@ -78,9 +82,11 @@ function atn_nav(){
 	echo '&nbsp;<a href="' . internal_link('atn_dojo') . '">Dojo&nbsp;Learners</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_dojo_grad') . '">Dojo&nbsp;Graduates</a><br />';
     
+	/*Commented out till it's fixed.
 	echo '<br />Starfield Arena<br />';
     echo '&nbsp;<a href="' . internal_link('atn_starfield') . '">Matches</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_starfield_ladder') . '">Ladder</a><br />';
+    */
     
     echo '<br />Solo Missions<br />';
     echo '&nbsp;<a href="' . internal_link('atn_solo') . '">Contracts</a><br />';
@@ -98,11 +104,13 @@ function atn_nav(){
     echo '&nbsp;<a href="' . internal_link('atn_irca') . '">Matches</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_irca_ladder') . '">Ladder</a><br />';
     
+    /*Removing the Elite RP stuff
     echo '<br />Twilight Gauntlet<br />';
     echo '&nbsp;<a href="' . internal_link('atn_ttg') . '">Members</a><br />';
     
     echo '<br />Tempestuous Group<br />';
     echo '&nbsp;<a href="' . internal_link('atn_tempy') . '">Members</a><br />';
+    */
     
     echo '<br />Arena Tournament<br />';
     echo '&nbsp;<a href="' . internal_link('atn_tournament') . '">Brackets</a><br />';
@@ -225,16 +233,17 @@ function get_auth_data($hunter) {
         $auth_data['star'] = true;
     }
     
+    if ($hunter->GetID() == $ladder->CurrentMaster()){
+	    $auth_data['dojo'] = true;
+    }
+    
+    /*Elite RP nonsense.
     $auth_data['fin_ttg'] = false;
     $auth_data['tempy_sub'] = false;
     
     if (in_array($hunter->GetID(), $ttg->Members())){
 	    $auth_data['ttg'] = true;
 	    $auth_data['elite'] = true;
-    }
-    
-    if ($hunter->GetID() == $ladder->CurrentMaster()){
-	    $auth_data['dojo'] = true;
     }
     
     if (in_array($hunter->GetID(), $tempy->ActiveMods())){
@@ -255,6 +264,7 @@ function get_auth_data($hunter) {
 	    $auth_data['tempy_sub'] = true;
 	    $auth_data['elite'] = true;
     }
+    */
     
     if (in_array($hunter->GetID(), $lw->Members())){
 	    $auth_data['lw'] = true;
@@ -431,6 +441,7 @@ function admin_footer($auth_data) {
     
     if ($auth_data['rp']) {
 	    
+        /* Cut out, because it's the worst contribution to the RP system since Holo himself.
         echo '<br />Twilight&nbsp;Gauntlet&nbsp;Admin<br />';   
 	    echo '&nbsp;<a href="' . internal_link('admin_ttg_queue') . '">Queue</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_ttg_members') . '">Edit&nbsp;Members</a><br />';
@@ -441,7 +452,8 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_ttg_next') . '">Progress&nbsp;Challenge</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ttg_win') . '">Declare&nbsp;Winner</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ttg_post') . '">Post&nbsp;Final&nbsp;Match</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_fin') . '">Complete&nbsp;Challenge</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_ttg_fin') . '">Complete&nbsp;Challenge</a><br />'; 
+        */
         
         echo '<br />Arena&nbsp;Manuals&nbsp;Admin<small><br />';
     
@@ -456,6 +468,8 @@ function admin_footer($auth_data) {
 		}		
 	}
 	
+	/*
+	All the elite RP is gone (TTG) or needs reworking, so, it's gone.
 	if ($auth_data['elite']) {
 	    echo '<br /><br /><b>Elite&nbsp;Role-Play&nbsp;Groups</b><br />';
     }
@@ -491,6 +505,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_tempy_signups') . '">Edit&nbsp;Jury&nbsp;Signups</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_tempy_solidify') . '">Solidify&nbsp;Jury</a><br />';
     }
+    */
 
     echo '</small></td></tr></table>';
 }

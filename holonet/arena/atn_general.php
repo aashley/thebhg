@@ -45,7 +45,7 @@ function output() {
 	    $table->AddRow('Experience History:', '<a href="' . internal_link('point_history', array('id'=>$hunter->GetID())) . '">View Experience/BP History</a>');
 	    
 	    $arr = $arena_ladder->Search($hunter->GetID());
-	    $sar = $starfield_ladder->Search($hunter->GetID());
+	    //$sar = $starfield_ladder->Search($hunter->GetID());
 	    $sor = $solo->Search($hunter->GetID());
 	    $lwr = $lw->Search($hunter->GetID());
 	    $irr = $irca->Search($hunter->GetID());
@@ -53,7 +53,7 @@ function output() {
 	    $rod = $ro->Search($hunter->GetID());
 	    
 	    if ($arr){ $table->AddRow('Arena Ladder Rank:', $arr); }
-	    if ($sar){ $table->AddRow('Starfield Arena Ladder Rank:', $sar); }
+	    //if ($sar){ $table->AddRow('Starfield Arena Ladder Rank:', $sar); }
 	    if ($sor){ $table->AddRow('Solo Mission Ladder Rank:', $sor); }
 	    if ($lwr){ $table->AddRow('Lone Wolf Mission Ladder Rank:', $lwr); }
 	    if ($irr){ $table->AddRow('IRC Arena Ladder Rank:', $irr); }
@@ -70,6 +70,7 @@ function output() {
 	    
 	    echo '</td><td align="center"><div style="text-align: left">';
 	
+	    /*Elite references. Blecho.
 	    $ttgm = false;
 	    $tempym = false;
 	    
@@ -105,6 +106,7 @@ function output() {
 		}
 	    
 	    echo '</div></td></tr><tr><td><div style="text-align: left">';
+	    */
 	    
 	    $comiss = new Comissioner($hunter->GetID());
 	    $master = new Master($hunter->GetID());
