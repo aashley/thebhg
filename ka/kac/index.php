@@ -2,7 +2,7 @@
 include_once('header.php');
 
 page_header('Index');
-
+ 
 $table = new Table();
 
 $table->StartRow();
