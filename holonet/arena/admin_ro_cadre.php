@@ -75,6 +75,9 @@ function output() {
     elseif ($_REQUEST['post']) {    
 	    $form = new Form($page);
 	    
+	    $ro = $ros[$_REQUEST['ro']];
+	    
+	    $form->AddHidden('ro', $_REQUEST['ro']);
 	    $form->table->AddRow('Title:', $ro['title']);
 	    $form->table->AddRow('Plot:', $ro['plot']);
 	    
