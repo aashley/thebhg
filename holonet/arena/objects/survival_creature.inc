@@ -5,6 +5,7 @@
     var $npc_string;
     var $npc_stats;
     var $npc_id;
+    var $name;
     var $type;
 
     function Creature($id, $difficulty = 2) {
@@ -23,7 +24,7 @@
             }
             
             $this->npc_stats = unserialize($this->npc_stats);
-
+			$this->name = array_shift($this->npc_stats);
         }
 
     }
@@ -41,8 +42,7 @@
 		    $namemod = 'Elder ';
 	    }
 	    
-	    $stat = array_shift($this->npc_stats);
-	    return $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8");
+	    return $namemod.mb_convert_case($this->name, MB_CASE_TITLE, "UTF-8");
     }
     
     function GetStats($table){
