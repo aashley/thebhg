@@ -24,15 +24,19 @@ function output() {
 		
 		$errors = 0;
 		
-		foreach ($_REQUEST['approve'] as $id=>$bhg_id) {
-			if (!$control->New_Contract($bhg_id, $_REQUEST['contract'][$id])){
-				$errors++;
+		if (is_array($_REQUEST['approve'])){
+			foreach ($_REQUEST['approve'] as $id=>$bhg_id) {
+				if (!$control->New_Contract($bhg_id, $_REQUEST['contract'][$id])){
+					$errors++;
+				}
 			}
 		}
-		
-		foreach ($_REQUEST['deny'] as $id=>$bhg_id) {
-			if (!$control->Deny($bhg_id, $_REQUEST['contract'][$id])){
-				$errors++;
+			
+		if (is_array($_REQUEST['deny'])){
+			foreach ($_REQUEST['deny'] as $id=>$bhg_id) {
+				if (!$control->Deny($bhg_id, $_REQUEST['contract'][$id])){
+					$errors++;
+				}
 			}
 		}
 		
