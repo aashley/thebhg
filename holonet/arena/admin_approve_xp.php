@@ -49,6 +49,8 @@ function output() {
 	    
     }
 
+    print_r($arena->GetPendingXP());
+    
     if (count($arena->GetPendingXP())){
     
 		$form = new Form($page);
@@ -82,7 +84,7 @@ function output() {
 		$form->AddHidden('total', $i);
 		
 	    $form->table->StartRow();
-		$form->table->AddCell('<input type="submit" name="submit" value="Approve Experience Points" size="50">', 3);
+		$form->table->AddCell('<input type="submit" name="submit" value="Approve Experience Points" size="50">', 6);
 		$form->table->EndRow();
 	    $form->EndForm();
     } else {
