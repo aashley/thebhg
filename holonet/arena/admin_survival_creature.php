@@ -48,7 +48,7 @@ function output() {
     		}
 	    }
 	    
-		if ($solo->NewCreature($stats, $_REQUEST['string'])){
+		if (!$solo->NewCreature($stats, $_REQUEST['string'])){
 			NEC(195);
 		} else {
 			echo 'Creature Created.';
