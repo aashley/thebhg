@@ -25,6 +25,8 @@ function output() {
 				echo 'Could not create a new sheet. Report this to the Overseer.';
 				admin_footer($auth_data);
 				return;
+			} else {
+				echo 'Sheet created.';
 			}
 		} else {
 			echo 'Character has a sheet.';
