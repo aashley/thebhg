@@ -19,16 +19,7 @@ function output(){
 	
 	$show = true;
 	
-	if ($_REQUEST['submit']){
-		if ($arena->NewRow($_REQUEST['data'])){
-			echo 'Addition performed.';
-		} else {
-			echo 'Error encountered.';
-		}
-		
-		echo '<p><a href="'.internal_link($page).'">View All</a>';
-		hr();
-	} elseif ($_REQUEST['op']){
+	if ($_REQUEST['op']){
 		$obj = new Obj('ams_activities', $_REQUEST['id'], 'holonet');
 		switch ($_REQUEST['op']){
 			case 'ud':
@@ -55,6 +46,15 @@ function output(){
 		}
 		
 		if (!$show)
+		echo '<p><a href="'.internal_link($page).'">View All</a>';
+		hr();
+	} elseif ($_REQUEST['submit']){
+		if ($arena->NewRow($_REQUEST['data'])){
+			echo 'Addition performed.';
+		} else {
+			echo 'Error encountered.';
+		}
+		
 		echo '<p><a href="'.internal_link($page).'">View All</a>';
 		hr();
 	} else {
@@ -90,6 +90,7 @@ function output(){
 		//'Add New' Block
 		$form = new Form($page);
 		$form->AddSectionTitle(($_REQUEST['op'] ? 'Edit' : 'Add New'));
+		($_REQUEST['op'] ? $form->AddHidden('op', 'ed') : '');
 		$form->AddHidden('data[table]', 'ams_activities');
 		$form->AddHidden('stage', '2');
 		$form->AddTextBox('Name', 'data[values][]', $name);
