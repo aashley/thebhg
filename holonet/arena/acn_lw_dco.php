@@ -31,7 +31,7 @@ function output() {
 		
 		        $contract = new LW_Contract($_REQUEST['contract_id']);
 		
-		        if ($contract->SetHunter($hunter->GetID())) {
+		        if ($contract->SetHunter($hunter->GetID(), 1)) {
 		            echo 'Contract Request Sent.';
 	    
 		            $solo->NotifyComissioner(2, $contract->GetMBID(), $hunter->GetName());

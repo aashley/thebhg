@@ -8,6 +8,7 @@
     var $contract_grade;
     var $contract_creds;
     var $contract_xp;
+    var $contract_requested;
     var $contract_completed;
 
     function LW_Contract($id) {
@@ -117,6 +118,10 @@
         }
 
     }
+    
+    function IsRequested() {
+        return ($this->contract_requested == 0);
+    }
 
     function SetMBID($mb_id) {
         $sql = "UPDATE `arena_lw_contracts` SET `mb_id` = '$mb_id' WHERE `id` = '".$this->contract_id."'";
@@ -133,8 +138,8 @@
 
     }
 
-    function SetHunter($bhg_id) {
-        $sql = "UPDATE `arena_lw_contracts` SET `bhg_id` = '$bhg_id' WHERE `id` = '".$this->contract_id."'";
+    function SetHunter($bhg_id, $requested = 0) {
+        $sql = "UPDATE `arena_lw_contracts` SET `bhg_id` = '$bhg_id', `requested` = '$requested' WHERE `id` = '".$this->contract_id."'";
 
         if (mysql_query($sql, $this->connect)) {
 
