@@ -91,7 +91,7 @@
 
     }
 
-    function Signup($bhg_id){
+    function Signup($bhg_id, $ship_id){
 
         if ($this->ValidSignup()){
 
@@ -105,7 +105,7 @@
 
             } else {
 
-                $sql = "INSERT INTO `arena_sa_tournament_data` (`bhg_id`, `season`) VALUES ('$bhg_id', '".$this->season."')";
+                $sql = "INSERT INTO `arena_sa_tournament_data` (`bhg_id`, `season`, `ship_id`) VALUES ('$bhg_id', '".$this->season."', '$ship_id')";
                 if (mysql_query($sql, $this->connect)){
 
                     return true;
@@ -464,7 +464,7 @@
             $work = array();
             
             while ($info = mysql_fetch_array($query)){
-                array_push($work, $info['bhg_id']);
+                $work[] = array('bhg_id'=>$info['bhg_id'], 'ship_id'=>$info['ship_id']);
             }
             
             if ($this->doubleelim){
@@ -475,7 +475,7 @@
 		            $sql = "SELECT * FROM `arena_sa_tournament_data` WHERE `bhg_id` = '".$info['bhg_id']."' AND `season` = '".$this->season."' AND `eliminated` = '1'";
 		            $check = mysql_query($sql, $this->connect);
 	                if (mysql_num_rows($check) <= 1){
-		                array_push($work, $info['bhg_id']);
+		                $work[] = array('bhg_id'=>$info['bhg_id'], 'ship_id'=>$info['ship_id']);
 	                }
 	            }
             }
@@ -485,9 +485,13 @@
 			
 			if (is_int($brackets/2)){
 
-                $bhg_id = array_pop($work);
+                $piece1 = array_pop($work);
 
-                $sql = "INSERT INTO `arena_sa_tournament_data` (`bhg_id`, `bracket`, `round`, `season`) VALUES ('$bhg_id', '99', '$new_round', '".$this->season."')";
+                $bhgid1 = $piece1['bhg_id'];
+                
+                $ship1 = $piece1['ship_id'];
+                
+                $sql = "INSERT INTO `arena_sa_tournament_data` (`bhg_id`, `bracket`, `round`, `season`, `ship_id`) VALUES ('$bhgid1', '99', '$new_round', '".$this->season."', '$ship1')";
                 mysql_query($sql, $this->connect);
 
             }
@@ -495,20 +499,27 @@
             for ($i = 1; $i <= $brackets; $i++){
                 $piece1 = array_pop($work);
                 $piece2 = array_pop($work);
-
-                $person1 = new Person($piece1);
-                $person2 = new Person($piece2);
                 
-                $sql = "INSERT INTO `arena_sa_tournament_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('$i', '$new_round', '$piece1', '".$this->season."')";
+                $bhgid1 = $piece1['bhg_id'];
+                $bhgid2 = $piece2['bhg_id'];
+                
+                $ship1 = $piece1['ship_id'];
+                $ship2 = $piece2['ship_id'];
+                
+                $sql = "INSERT INTO `arena_sa_tournament_data` (`bracket`, `round`, `bhg_id`, `season`, `ship_id`) VALUES ('$i', '$new_round', '$bhgid1', '".$this->season."', '$ship1')";
                 mysql_query($sql, $this->connect);
-                $sql = "INSERT INTO `arena_sa_tournament_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('$i', '$new_round', '$piece2', '".$this->season."')";
+                $sql = "INSERT INTO `arena_sa_tournament_data` (`bracket`, `round`, `bhg_id`, `season`, `ship_id`) VALUES ('$i', '$new_round', '$bhgid2', '".$this->season."', '$ship2')";
                 mysql_query($sql, $this->connect);
             }
 
             if (count($work)){
                 $pop = array_pop($work);
 
-                $sql = "INSERT INTO `arena_sa_tournament_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('1', '$new_round', '$pop', '".$this->season."')";
+                $bhgid = $pop['bhg_id'];
+                
+                $ship = $pop['ship_id'];
+                
+                $sql = "INSERT INTO `arena_sa_tournament_data` (`bracket`, `round`, `bhg_id`, `season`, `ship_id`) VALUES ('1', '$new_round', '$bhgid', '".$this->season."', '$ship')";
                 mysql_query($sql, $this->connect);
                 
 		        $sql = "INSERT INTO `arena_sa_tournament_gladius` VALUES ('$pop')";
@@ -517,18 +528,7 @@
         }
     }
 
-    function AddToATN($location = '', $type = 3, $posts = 3, $weapons = 3, $weapon_type = 3){
-	 
-	    $random = false;
-	    
-	    if (!$location){
-            $ladder = new Ladder();
-            
-            $locations = $ladder->Locations();
-            
-            $random = true;
-        }
-	    
+    function AddToATN($type = 4, $setting = 3, $posts = 3, $location = '', $restruction = array()){	    
         $errors = false;
         
 	    for ($i = 1; $i <= $this->RoundBrackets($this->CurrentRound()); $i++){
@@ -537,24 +537,22 @@
 		    		"`bracket` = '$i'";
 		    $query = mysql_query($sql, $this->connect);
 		    $people = array();
+		    $ships = array();
 		    
 		    while ($info = mysql_fetch_array($query)){
 			    $people[] = new Person($info['bhg_id']);
+			    $ships[] = $info['ship_id'];
 		    }
 		    
 		    $person1 = $people[0];
+		    $ship1 = $ships[0];
 		    $person2 = $people[1];
+		    $ship2 = $ships[1];
 		    
-            $name = "Arena Tournament Round ".$this->CurrentRound().": ".$person1->GetName()." vs. ".$person2->GetName();
+            $name = "Starfield Arena Tournament Round ".$this->CurrentRound().": ".$person1->GetName()." vs. ".$person2->GetName();
             
-            if ($random){
-	            $location = key(array_rand($locations));
-            }
-            
-            $local = explode('_', $location);
-            
-            $control = new Control();
-            if (!$control->OldMatch($type, $local[0], $local[1], $posts, $weapons, $person1->GetID(), $person2->GetID(), $weapon_type, $name, 0, 0, 0)){
+            $control = new StarfieldControl();
+            if (!$control->OldMatch($type, $restriction, $setting, $location, $posts, $person1->GetID(), $person2->GetID(), $ship1, $ship2, $name)){
 	            $errors = true;
             }
 

@@ -92,7 +92,7 @@ function output() {
 	    if (count($rewards)){ $table->AddRow('Administrative History:', '<a href="' . internal_link('atn_award', array('id'=>$hunter->GetID())) . '">Credits/Medals/XP Awarding History</a>'); }
 	    
 	    $arr = $arena_ladder->Search($hunter->GetID());
-	    //$sar = $starfield_ladder->Search($hunter->GetID());
+	    $sar = $starfield_ladder->Search($hunter->GetID());
 	    $sor = $solo->Search($hunter->GetID());
 	    $lwr = $lw->Search($hunter->GetID());
 	    $irr = $irca->Search($hunter->GetID());
@@ -101,7 +101,7 @@ function output() {
 	    $bast = $arena->BastionPlayer($hunter->GetID());
 	    
 	    if ($arr){ $table->AddRow('Arena Ladder Rank:', $arr); }
-	    //if ($sar){ $table->AddRow('Starfield Arena Ladder Rank:', $sar); }
+	    if ($sar){ $table->AddRow('Starfield Arena Ladder Rank:', $sar); }
 	    if ($sor){ $table->AddRow('Solo Mission Ladder Rank:', $sor); }
 	    if ($lwr){ $table->AddRow('Lone Wolf Mission Ladder Rank:', $lwr); }
 	    if ($irr){ $table->AddRow('IRC Arena Ladder Rank:', $irr); }

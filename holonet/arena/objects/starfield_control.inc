@@ -15,22 +15,14 @@
 
         $name = $person1->GetName()." vs. ".$person2->GetName();
 
-        $rest = "";
-
-        foreach($restrictions as $value){
-            $rest .= $value."_";
-        }
-
-        $rest .= "0";
-
-        $restriction = serialize($rest);
+        $restriction = serialize($restrictions);
 
         $new = new Starfield();
     	$skip = $new->CurrentSkipper();
     	$skipper = new Skipper($skip);
         
         $sql = "INSERT INTO `arena_starfield_match` (`name`, `type`, `restrictions`, `location`, `settings`, `num_posts`) "
-                ."VALUES ('".addslashes($name)."', '$type', '".$restriction[0]."', '$location', '$settings', '$posts', '".$skipper->GetID()."')";
+                ."VALUES ('".addslashes($name)."', '$type', '".$restriction."', '$location', '$settings', '$posts', '".$skipper->GetID()."')";
 
         if (mysql_query($sql, $this->connect)) {
 
@@ -58,6 +50,35 @@
 
     }
 
+    function OldMatch($type, $restrictions, $settings, $location, $posts, $challenger, $challengee, $ship_id1, $ship_id2, $name){
+
+        $person1 = new Person($challenger);
+        $person2 = new Person($challengee);
+
+        if ($name == ''){
+        	$name = $person1->GetName()." vs. ".$person2->GetName();
+    	}
+
+        $restriction = serialize($restrictions);
+        
+        $sql = "INSERT INTO `arena_starfield_match` (`name`, `type`, `restrictions`, `location`, `settings`, `num_posts`) "
+                ."VALUES ('".addslashes($name)."', '$type', '".$restriction."', '$location', '$settings', '$posts', '".$skipper->GetID()."')";
+
+        if (mysql_query($sql, $this->connect)) {
+
+	        $this->Fighter($challenger, 1, $ship_id1);
+            $this->Fighter($challengee, 0, $ship_id2);
+	        
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+    
     function Fighter($id, $challenger = '0', $ship_id) {
         $sql = "INSERT INTO `arena_starfield_records` (`bhg_id`, `match_id`, `challenger`, `ship_id`) VALUES ($id, ".$this->new_match_id.", $challenger, $ship_id)";
 

@@ -20,7 +20,7 @@ function output() {
 
     $at = new SATournament();
 
-    if ($at->Signup($hunter->GetID())){
+    if ($at->Signup($hunter->GetID(), $_REQUEST['my_ship'])){
 	    
 	    echo "Signed up successfully.";
 	    

@@ -108,10 +108,8 @@ function acn_nav(){
 	echo '<br />Arena<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_arena_challenge') . '">Arena&nbsp;Challenges</a><br />';
 	
-	/*Removed until fixed.
 	echo '<br />Starfield Arena<br />';
     echo '&nbsp;<a href="' . internal_link('acn_starfield_challenge') . '">Starfield&nbsp;Arena&nbsp;Challenges</a><br />';
-    */
     
     echo '<br />Solo Missions<br />';
     echo '&nbsp;<a href="' . internal_link('acn_solo_contract') . '">Request&nbsp;Contract</a><br />';
@@ -151,7 +149,7 @@ function atn_nav(){
     
     echo '<br />Ladders<br />';
     echo '&nbsp;<a href="' . internal_link('atn_arena_ladder') . '">Arena Ladder</a><br />';
-    //echo '&nbsp;<a href="' . internal_link('atn_starfield_ladder') . '">Starfield Arena Ladder</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_starfield_ladder') . '">Starfield Arena Ladder</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_irca_ladder') . '">IRC Arena Ladder</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_solo_ladder') . '">Solo Missions Ladder</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_lw_ladder') . '">Lone Wolf Ladder</a><br />';
@@ -160,7 +158,7 @@ function atn_nav(){
 	
 	echo '<br />History<br />';
 	echo '&nbsp;<a href="' . internal_link('atn_arena') . '">Arena Matches</a><br />';
-	//echo '&nbsp;<a href="' . internal_link('atn_starfield') . '">Starfield Arena Matches</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_starfield') . '">Starfield Arena Matches</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_irca') . '">IRC Arena Matches</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_solo') . '">Solo Contracts</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_lw') . '">Lone Wolf Contracts</a><br />';

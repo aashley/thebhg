@@ -23,13 +23,22 @@ function output() {
     echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 
     if ($sheet->HasSheet($hunter->GetID())){
-
-	    echo "By clicking the below link, you will enter yourself into the current roster for the next Arena Tournament. Once you are entered, you can not"
-	    	." be removed, so please, <b>do not click on the link which says 'Sign me up' if you do not intend to sign up</b>.";
-	    
-	    hr();
 	
-	    echo '<a href="' . internal_link('acn_sa_tournament_confirm') . '">Sign me up!</a>';
+	    if (count($starfield->Ships($hunter->GetID()))){
+	    
+		    $form = new Form('acn_sa_tournament_confirm');
+		    
+		    $form->StartSelect('Your Ship:', 'my_ship');
+	            foreach ($starfield->Ships($hunter->GetID()) as $value){
+	                $form->AddOption(key($value), current($value));
+	            }
+	        $form->EndSelect();
+		    
+	        $form->AddSubmitButton('submit', 'Sign me up!');
+	        $form->EndForm();
+	    } else {
+		    echo 'You need a ship to participate in the Starfield Arena Tournament.';
+	    }
 	} else {	    
 	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
     }

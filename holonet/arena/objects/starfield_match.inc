@@ -127,7 +127,7 @@
     function GetRestrictions() {
 
 	    $restrictions = unserialize($this->arena_starfield_restrictions);
-		
+	    
         return $restrictions;
     }
 
