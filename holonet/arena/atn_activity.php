@@ -61,7 +61,7 @@ function output() {
 	    foreach ($pending as $obj){	
 			$pendings[] = $obj;
 	
-		    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$obj->Get(id), 'outcome'=>0))) as $yarm){		   				    
+		    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$obj->Get(id)))) as $yarm){		   				    
 				$chal[$obj->Get(id)][$yarm->Get(challenger)] = new Person($yarm->Get(bhg_id));
 		    }
 	    }
