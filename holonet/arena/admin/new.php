@@ -8,6 +8,10 @@ function display(){
 	    
 	    $id = $arena->NewRow($_REQUEST['data']);
 	    
+	    if ($type->Get(submit)){
+		    $_REQUEST['fading'] = true;
+	    }
+	    
 	    if ($id){		    
 		    $aux = false;
 		    $aide_types = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id))));

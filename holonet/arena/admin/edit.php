@@ -53,6 +53,9 @@ if ($_REQUEST['match']){
 			    $form->AddHidden('data[fields][]', 'data');
 		    }
 		    
+		    $form->AddTextArea(($type->Get(submit) ? 'Grade' : 'Comment').':', 'data[values][]', $obj->Get(comments));
+			$form->AddHidden('data[fields][]', 'comments');
+		    
 		    $form->StartSelect('Accepted', 'data[values][]', $obj->Get(accepted));
 			$form->AddOption(0, 'No');
 			$form->AddOption(1, 'Yes');
