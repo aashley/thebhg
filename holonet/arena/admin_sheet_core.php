@@ -28,13 +28,13 @@ function output() {
 	    if (count($saves)){
 		    $table = new Table('', true);
 		    $table->StartRow();
-		    $table->AddHeader('My CORE Submissions', 5);
+		    $table->AddHeader('My CORE Submissions', 7);
 		    $table->EndRow();
 		    
 		    $table->AddRow('Save Name', 'Date', 'Approved', 'Pending Approval', '&nbsp', '&nbsp', '&nbsp');
 		    
 		    foreach ($saves as $data){
-			    $table->AddRow('<a href="'.internal_link($page, array('view'=>1, 'sheet'=>$data['id'])).'">'.$character->GetName('cores', $_REQUEST['sheet'], 'id').'</a>', $data['date'], ($data['app'] ? 'Yes' : 'No'), ($data['pending'] ? 'Yes' : 'No'),
+			    $table->AddRow('<a href="'.internal_link($page, array('view'=>1, 'sheet'=>$data['id'])).'">'.$character->GetName('cores', $data['id'], 'id').'</a>', $data['date'], ($data['app'] ? 'Yes' : 'No'), ($data['pending'] ? 'Yes' : 'No'),
 			    	'<a href="'.internal_link($page, array('sheet'=>$data['id'])).'">Load to Edit</a>', 
 			    	($data['share'] ? '' : '<a href="'.internal_link($page, array('save'=>1, 'delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>'), 
 			    	($data['share'] ? '' : '<a href="'.internal_link($page, array('save'=>1, 'share'=>1, 'sheet'=>$data['id'])).'">Submit for Approval</a>'));
