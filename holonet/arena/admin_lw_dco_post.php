@@ -37,6 +37,7 @@ function output() {
         $form->table->EndRow();
         $form->AddHidden('contract_id', $_REQUEST['contract_id']);
         $form->AddSubmitButton('submit', 'Complete Process');
+        $form->AddSubmitButton('dco', 'Deny');
         $form->EndForm();
 
     }
@@ -51,10 +52,21 @@ function output() {
 
             echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 59';
         }
+	}
+    elseif (isset($_REQUEST['dco'])) {
+
+        if ($contract->DeDCO()){
+	        $contract->SetHunter(0)
+            echo "Denied reacquisition of dead contract.";
+
+        } else {
+
+            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 59';
+        }
 
     }
     else {
-	    if (count($solo->RequestedContracts())){
+	    if (count($solo->DCORequests())){
 	        $form = new Form($page);
 	        $form->StartSelect('Contract:', 'contract_id');
 	        foreach ($solo->DCORequests() as $value) {

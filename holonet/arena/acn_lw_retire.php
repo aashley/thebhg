@@ -33,7 +33,7 @@ function output() {
 	
 	        $contract = new LW_Contract($_REQUEST['contract_id']);
 	
-	        if ($contract->SetHunter(0)) {
+	        if ($contract->Retire(0)) {
 	            echo 'Contract Retired.';
 	            
 	            $solo->NotifyComissioner(3, $contract->GetMBID(), $hunter->GetName());

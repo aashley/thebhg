@@ -158,7 +158,20 @@
     }
 
     function DCORequests(){
-	    $sql = "SELECT * FROM `arena_solo_contracts` WHERE `requested` = 1";
+	    $sql = "SELECT * FROM `arena_solo_contracts` WHERE `requested` = 1 AND `bhg_id` > 0";
+        $query = mysql_query($sql, $this->connect);
+        $return = array();
+
+        while ($info = mysql_fetch_array($query)){
+            $new = new Contract($info['id']);
+            array_push($return, $new);
+        }
+
+        return $return;
+    }
+    
+    function RetireRequests(){
+	    $sql = "SELECT * FROM `arena_solo_contracts` WHERE `requested` = 1 AND `bhg_id` = 0";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 

@@ -78,6 +78,27 @@ function output() {
 		    $table->EndTable();
 	    }
 	    
+	    $ret = $atn->GetRetires();
+	    
+	    if (count($ret)){
+		    hr();
+		    
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('Retiring Hunters', 2);
+		    $table->EndRow();
+		    $table->StartRow();
+		    $table->AddHeader('Hunter');
+		    $table->AddHeader('Date');
+		    $table->EndRow();
+		    
+		    foreach ($ret as $data){
+			    $table->AddRow($data['writedate'], '<a href="' . internal_link('atn_general', array('id'=>$data['hunter']->GetID())) . '">' . $data['hunter']->GetName() . '</a>');
+		    }
+		    
+		    $table->EndTable();
+	    }
+	    
 	    hr();
 	
 	    $table = new Table('', true);

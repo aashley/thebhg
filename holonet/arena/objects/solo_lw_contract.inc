@@ -181,6 +181,38 @@
         }
 
     }
+    
+    function Retire($bhg_id) {	    
+	    $sql = "INSERT INTO `arena_lw_retire` VALUES ('".$this->contract_id."', '".$this->contract_bhg_id."', '".time()."')";
+	    mysql_query($sql, $this->connect);
+	    
+        $sql = "UPDATE `arena_lw_contracts` SET `bhg_id` = '$0' WHERE `id` = '".$this->contract_id."'";
+
+        if (mysql_query($sql, $this->connect)) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+    
+    function GetRetires(){
+	    $sql = "SELECT * FROM `arena_lw_retire` WHERE `contract` = '".$this->contract_id."' ORDER BY `date` ASC";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $new = new Person($info['bhg_id']);
+		    $date = getdate($info['date']);
+		    $return[] = array('date'=>$info['date'], 'hunter'=>$new, 'writedate'=>$date['mon']."/".$date['mday']."/".$date['year']);
+	    }
+	    
+	    return $return;
+    }
 
     function Edit($bhg_id, $mbid){
         $sql = "UPDATE `arena_lw_contracts` SET ";

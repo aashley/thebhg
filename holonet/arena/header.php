@@ -303,9 +303,9 @@ function admin_footer($auth_data) {
         echo '<br />General&nbsp;Management<br />';
         echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
-	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';	    
+	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
     }
     
     if ($auth_data['overseer']) {   
@@ -387,6 +387,12 @@ function admin_footer($auth_data) {
     }
     
     if ($auth_data['dojo']){
+	    
+	    echo '<br />General&nbsp;Dojo&nbsp;Management<br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_dojo_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_dojo_credits') . '">Award&nbsp;Credits</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_dojo_medals') . '">Award&nbsp;Medals</a><br />';
+	    
 	    echo '<br />Dojo&nbsp;of&nbsp;Shadows<br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_post') . '">Post&nbsp;New&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_complete') . '">Complete&nbsp;Dojo&nbsp;Match</a><br />';
@@ -399,15 +405,22 @@ function admin_footer($auth_data) {
     
     if ($auth_data['solo']){
 	    
+	    echo '<br />General&nbsp;Solo&nbsp;Management<br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_solo_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_solo_credits') . '">Award&nbsp;Credits</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_solo_medals') . '">Award&nbsp;Medals</a><br />';	    
+	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
+	    
 	    echo '<br />Solo&nbsp;Contracts<br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_complete') . '">Complete&nbsp;a&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Contracts</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_dco') . '">Declare&nbsp;Dead&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_editor') . '">Edit&nbsp;Contracts</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_solo_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_solo_retire') . '">Process&nbsp;Retired&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_type') . '">Edit&nbsp;Types</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_grade') . '">Edit&nbsp;Grades</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_solo_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
         
         echo '<br />Lone&nbsp;Wolf&nbsp;Contracts<br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_members') . '">Edit&nbsp;Lone&nbsp;Wolves</a><br />';
@@ -417,6 +430,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_lw_editor') . '">Edit&nbsp;Contracts</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_lw_retire') . '">Process&nbsp;Retired&nbsp;Contract</a><br />';
         
     }
     
