@@ -104,7 +104,8 @@ function output() {
 	    $form->AddCheckBox('Multiple Answers?', 'multiple', 1);
 	    $form->AddCheckBox('Restrict to Certain People?', 'restrict', 1);
 	    $form->AddDateBox('Starts', 'start', time());
-	    $form->AddDateBox('Ends', 'end', time()+(60*60*24*7));
+	    $week = time()+(60*60*24*7);
+	    $form->AddDateBox('Ends', 'end', $week);
 	    $form->AddSubmitButton('next', 'Add Options');
 	    
 	    $form->EndForm();
