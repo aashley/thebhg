@@ -94,9 +94,9 @@ Index: header.php
 -			$name = current($mod->get_elements_by_tagname('name'));
 -			$title = $name->get_content() . ' :: ' . title();
 +	if ($mod->nodeName == 'module') {
-+		$dir = current($mod->getElementsByTagName('directory'));
++		$dir = $mod->getElementsByTagName('directory')->item(0);
 +		if ($dir->textContent == $module) {
-+			$name = current($mod->getElementsByTagName('name'));
++			$name = $mod->getElementsByTagName('name')->item(0);
 +			$title = $name->testContent . ' :: ' . title();
  			break;
  		}
