@@ -195,7 +195,7 @@ function output() {
 			    	$table->StartRow();
 					$table->AddHeader($field->GetName(), 2);
 					$table->EndRow();
-			    	foreach($this->GetStats($i) as $stat){
+			    	foreach($sheet->GetStats($i) as $stat){
 				    	$value = '';
 				    	if (array_key_exists($stat->GetID(), $value_set)){
 					    	$value = $value_set[$stat->GetID()];
