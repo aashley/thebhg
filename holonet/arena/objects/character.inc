@@ -693,9 +693,10 @@
 			$new = "INSERT INTO `character_sheet_core` VALUES ('', '".$this->GetID()."', 0, '".time()."', '', '')";
 		    $store = mysql_query($new, $this->connect);
 		    $id = mysql_insert_id($this->connect);
-		    $this->LastID = $id;
 		    $errors = array();
 	    }
+	    
+	    $this->LastID = $id;
 	    
 	    $new = "INSERT INTO `character_sheet_record` VALUES ('', '".$this->GetID()."', '".time()."')";
 	    $store = mysql_query($new, $this->connect);
