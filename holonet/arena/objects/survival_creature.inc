@@ -44,7 +44,7 @@
        $table = new Sheet('', true);
        
        $this->GetStats($table);
-       $table->AddRow('Description: ', stripslashes($this->npc_string));
+       $table->AddRow('Description: ', nl2br(stripslashes($this->npc_string)));
        $table->EndTable();
     }
 
