@@ -104,7 +104,7 @@
     }
 
     function DeadContracts(){
-        $sql = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` = 0";
+        $sql = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` = 0 AND `requested` = 0";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 
