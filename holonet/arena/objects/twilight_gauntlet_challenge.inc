@@ -61,7 +61,7 @@
             
             $text = $person->GetName().' has challenged the Gauntlet. Go and defend yourselves. Sign up to challenge via the Holonet in admin.';
             
-            $tg = new TTG();
+            $ttg = new TTG();
             $subject = "New Gauntlet Challenger";
             
             foreach ($ttg->GetMembers(1) as $member){
