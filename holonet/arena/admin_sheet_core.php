@@ -20,7 +20,7 @@ function output() {
     $character = new Character($hunter->GetID());
     
     $saves = $character->GetCores();
-
+print_r($saves);
     if (!$_REQUEST['sheet'] && !$_REQUEST['new'] && !$_REQUEST['view'] && !$_REQUEST['save']){
 	    echo '<a href="'.internal_link($page, array('new'=>1)).'">Make new CORE Sheet</a>.';
 		hr();

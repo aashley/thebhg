@@ -722,7 +722,7 @@
 	    
 	    //No errors, update status
 	    
-	    return 'Your core sheet has been saved. The save ID is '.$sid.' for your records.';	    
+	    return 'Your core sheet has been saved.';	    
     }
     
     function SubmitCore($id){
