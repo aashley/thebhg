@@ -43,10 +43,7 @@
     function NewCreature($stats, $string){
 	    $sql = "INSERT INTO `arena_survival_npc` (`stats`, `string`) VALUES ('".serialize($stats)."', '".addslashes($string)."')";
 	    
-	    echo $sql;
-	    
 	    if (mysql_query($sql, $this->connect)){
-		    echo mysql_error($this->connect);
 		    return true;
 	    } else {
 		    return false;
