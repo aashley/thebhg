@@ -239,7 +239,7 @@
         $subject = "Notice of Graduation";
 	    
 	    $person = new Person($bhg_id);
-	    $person->SendMail($from, $subject, $text);
+	    $person->Sendemail($from, $subject, $text);
 	    
 	    return ($query ? true : false);
     }
@@ -254,7 +254,7 @@
         $subject = "Notice of Retraining";
 	    
 	    $person = new Person($bhg_id);
-	    $person->SendMail($from, $subject, $text);
+	    $person->Sendemail($from, $subject, $text);
 	    
 	    return ($query ? true : false);
     }
