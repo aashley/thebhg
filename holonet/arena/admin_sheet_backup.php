@@ -58,6 +58,13 @@ function output() {
 	    }
     }
     
+    if (isset($_REQUEST['delshare'])){
+	    if ($character->ValidLoad($_REQUEST['sheet'], 1)){
+		    echo $character->RemoveShare($_REQUEST['hunt'], $_REQUEST['sheet']);
+		    hr();		
+	    }
+    }
+    
     if (isset($_REQUEST['share'])){
 	    if ($character->ValidLoad($_REQUEST['sheet'], 1)){
 		    if ($_REQUEST['challengee']){
@@ -277,6 +284,26 @@ function output() {
 				    	'<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>', 
 				    	($data['share'] ? '' : '<a href="'.internal_link($page, array('delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>'), 
 				    	($data['share'] ? '' : '<a href="'.internal_link($page, array('share'=>1, 'sheet'=>$data['id'])).'">Share</a>'));
+			    }
+			    
+			    $table->EndTable();
+		    }
+		    
+		    $shares = $character->MyShares();
+		    
+		    if (count($shares)){
+			    hr();
+			    $table = new Table('', true);
+			    $table->StartRow();
+			    $table->AddHeader('Shared Sheets', 5);
+			    $table->EndRow();
+			    
+			    $table->AddRow('Sheet', 'Person', '&nbsp');
+			    
+			    foreach ($saves as $data){
+				    $hunt = new Person($data['hunter']);
+				    $table->AddRow($data['name'], '<a href="'.internal_link('atn_general', array('id'=>$data['hunter'])).'">'.$hunt->GetName().'</a>',
+				    '<a href="'.internal_link($page, array('delshare'=>1, 'sheet'=>$data['id'], 'hunt'=>$data['hunter'])).'">Delete Share</a>');
 			    }
 			    
 			    $table->EndTable();

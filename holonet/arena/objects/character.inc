@@ -668,6 +668,21 @@
 		}
 	}
 	
+	function MyShares(){
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$sqla = "SELECT * FROM `cs_shares` WHERE `sheet` = '".$info['id']."'";
+			$querya = mysql_query($sqla, $this->connect);
+			$infer = mysql_fetch_array($querya);
+			$return[] = array('hunter'=>$infer['bhg_id'], 'name'=>stripslashes($info['save_name']));
+		}
+		
+		return $return;
+	}		
+	
 	function Share($bhg_id, $sheet){
 		$sql = "INSERT INTO `cs_shares` VALUES ('$bhg_id', '$sheet')";
 		if (mysql_query($sql, $this->connect)){
@@ -691,6 +706,9 @@
 		mysql_query($delsql, $this->connect);
 
 	    $delsql = "DELETE FROM `character_sheet_backups` WHERE `id` = '".$id."'";
+	    mysql_query($delsql, $this->connect);
+	    
+	    $delsql = "DELETE FROM `cs_shares` WHERE `sheet` = '".$id."'";
 	    mysql_query($delsql, $this->connect);
 	}
 	
