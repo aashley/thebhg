@@ -92,17 +92,17 @@ function acn_nav(){
 	
 	if ($at->ValidSignup()){
 		echo '<br />Arena Tournament<br />';
-	    echo '&nbsp;<a href="' . internal_link('acn_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br /><br />';
+	    echo '&nbsp;<a href="' . internal_link('acn_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
 	}
 	
 	if ($iat->ValidSignup()){
 		echo '<br />IRC Arena Tournament<br />';
-	    echo '&nbsp;<a href="' . internal_link('acn_irc_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br /><br />';
+	    echo '&nbsp;<a href="' . internal_link('acn_irc_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
 	}
 	
 	if ($sat->ValidSignup()){
 		echo '<br />Starfield Arena Tournament<br />';
-	    echo '&nbsp;<a href="' . internal_link('acn_sa_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br /><br />';
+	    echo '&nbsp;<a href="' . internal_link('acn_sa_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
 	}
 	
 	echo '<br />Arena<br />';

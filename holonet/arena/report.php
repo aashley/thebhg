@@ -1,6 +1,6 @@
 <?php
 function title() {
-	return 'View Report';
+	return 'AMS Tracking Network :: View Report';
 }
 
 function output() {

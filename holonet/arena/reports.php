@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Latest Reports';
+    return 'AMS Tracking Network :: Latest Reports';
 }
 
 function output() {
