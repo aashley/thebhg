@@ -41,7 +41,7 @@ function output() {
 			$form = new Form($page);
 			$form->AddHidden('id', $_REQUEST['id']);
 			$form->AddTextBox('Reason (for denial): ', 'reason');
-			'<center><input style="background-color: red; font-weight: bold; border: dotted" type="submit" name="submit" value="Confirm Character Assassination"><center>';
+			echo '<center><input style="background-color: red; font-weight: bold; border: dotted" type="submit" name="submit" value="Confirm Character Assassination"><center>';
 			$form->EndForm();
 		}
 	}
