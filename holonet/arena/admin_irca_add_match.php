@@ -72,7 +72,8 @@ function output() {
 	                $table->AddCell($location->GetName());
 	                $table->AddCell($weapon->GetWeapon());
 	                $table->AddCell($value->GetWeapons());
-	                $table->AddCell($value->GetActions());
+	                $table->AddCell($value->GetActions());	                
+	                $table->AddCell('<a href="' . internal_link($page, array('id'=>$value->GetID())) . '">Add Match Text</a>');
 	                $table->AddCell('<a href="' . internal_link('admin_irca_complete', array('id'=>$value->GetID())) . '">Complete</a>');
 	                $table->EndRow();
                 }
