@@ -84,7 +84,10 @@ function output() {
 	        $form->table->AddCell("<select name=\"kabal$i\" "
 	        ."onChange=\"swap_kabal(this.form, $i)\">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
-			//hunter_dropdown($form);
+
+			$form->table->AddCell("<select name=\"position$i\">"
+	        ."<option value=\"-1\">N/A</option>$positions</select>");
+			$form->table->AddCell($cell);
 			$form->table->EndRow();
 			$i++;
         }
