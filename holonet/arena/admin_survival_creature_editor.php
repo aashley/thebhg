@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Creature Maker';
+    return 'Administration :: Survival Missions :: Creature Editor';
 }
 
 function auth($person) {
@@ -24,7 +24,8 @@ function output() {
 		
 		$form = new Form($page);
 		$form->AddHidden('creature', $_REQUEST['creature']);
-		$form->AddSectionTitle('Stats for <input type="text" value="'.$npc->GetName().'" name="name">');
+		$form->AddSectionTitle('Stats for Creature');
+		$form->AddTextBox('Name', 'name', $npc->GetName());
 		$form->table->AddRow('Stat Name', 'Stat Value');
 		$form->table->StartRow();
 		$form->table->AddHeader('[EXAMPLE] Barbed Tail: Melee');
