@@ -117,7 +117,7 @@ function output() {
 	    		return;
 			}
 			
-			
+		}
 	}
 	
 	admin_footer($auth_data);
