@@ -277,7 +277,10 @@
 	    $return = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
-		    $return[] = $this->CharacterAttributes($info['ca']);
+		    $ca = $this->GetCa($info['ca']);
+		    if (!$ca['date_deleted']){
+		    	$return[] = $this->CharacterAttributes($info['ca']);
+	    	}
 	    }
 	    
 	    return $return;
