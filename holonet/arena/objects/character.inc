@@ -53,7 +53,7 @@
 	    return $this->cs_id;
     }
     
-    function GetName($look = 'values', $id = 0, $col = 'bhg_id'){
+    function GetName($look = 'values', $id = 0, $col = 'id'){
 	    
 	    $stat = $this->Point(33, 'SHEET', $look, $id, $col);
 	    
