@@ -106,7 +106,7 @@
 	    $current = new Skipper($this->CurrentSkipper());
 	    $current->EndTerm();
 	    
-	    $sql = "INSERT INTO `arena_kippers` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    $sql = "INSERT INTO `arena_skippers` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;
