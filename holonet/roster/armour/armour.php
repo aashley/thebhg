@@ -173,7 +173,7 @@ if (   isset($medals)
 			imagedestroy($temp_img);
 		}
 		elseif ($mclass == 'm') {
-			$temp_img = imagecreatefrompng("medal/$medal.png");
+			$temp_img = imagecreatefrompng("medal/$mname.png");
 			imagecopy($img, $temp_img, $medals_info[$mclass][0], $medals_info[$mclass][1], 0, 0, $medals_info[$mclass][2], $medals_info[$mclass][3]);
 			imagedestroy($temp_img);
 		}
