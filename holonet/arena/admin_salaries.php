@@ -53,7 +53,7 @@ function output() {
 		    	
 		    	$time = $time / $pp;
 		    	
-		    	echo $time;
+		    	echo $time.'|';
 		    	
 		    	$creds = round($time * 350000);
 		    	
