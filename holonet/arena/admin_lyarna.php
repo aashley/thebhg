@@ -64,11 +64,10 @@ function output() {
 			$kabals = array();
 			$names = array();
 			foreach ($roster->GetPositions() as $name){
-				$names[] = $name->GetName();
+				$names[] = '<option value="'.$name->GetID().'">'.$name->GetName().'</option>';
 			}
 			print_r($names);
 			$positions = implode('', $names);
-			echo $positions;
 	    
 			foreach ($kabals_result as $kabal) {
 	      
