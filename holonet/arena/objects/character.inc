@@ -733,7 +733,7 @@
 		}
 	}
     
-	function HasValue($look = 'values', $col = 'bhg_id', $id){
+	function HasValue($look = 'values', $col = 'bhg_id', $id = 0){
 		if ($id){
 			$id = $id;
 		} else {
