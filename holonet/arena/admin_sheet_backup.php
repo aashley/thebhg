@@ -31,7 +31,7 @@ function output() {
     
     $values = array();
     
-    if ($_REQUEST['submit']){
+    if ($_REQUEST['view']){
 	    
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Backup Resource');
