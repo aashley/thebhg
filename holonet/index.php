@@ -22,6 +22,11 @@ echo '<?xml version="1.0" encoding="iso-8859-1"?>';
 	<meta http-equiv="content-style-type" content="text/css" />
 	<link rel="stylesheet" href="/undohtml.css" type="text/css" />
 	<link rel="stylesheet" href="/holonet.css" type="text/css" />
+	<!-- compliance patch for microsoft browsers -->
+	<!--[if lt IE 7]>
+	<script src="/ie7/ie7-standard.js" type="text/javascript">
+	</script>
+	<![endif]-->
 </head>
 <body>
 	<div id="header">
