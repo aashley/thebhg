@@ -141,7 +141,10 @@ function output() {
 		if (count($rewards)){			
 			$setups = array();
 			
-			foreach ($rewards as $info=>$reward){				
+			foreach ($rewards as $info=>$reward){		
+				if (!$reward['page']){
+					$reward['page'] = $page;
+				}
 				$setups[] = '<a href="'.internal_link($reward['page'], array('id'=>$hunter->GetID())).'#'.$reward['anch'].'" title="'.$info.
 							'"><img border=0 src="arena/images/distinctions/'.$reward['pic'].'.png"></a>';				
 			}
