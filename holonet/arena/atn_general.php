@@ -38,7 +38,6 @@ function output() {
 	    $irca = new IRCADetails();
 	    $at = new Tournament();
 	    $lw = new LW_Solo();
-	    $ttg = new TTG();
 	    $tempy = new Tempy();
 	    $ro = new RODetails();
 	    $survival = new Survival();
@@ -97,7 +96,6 @@ function output() {
 	    $sor = $solo->Search($hunter->GetID());
 	    $lwr = $lw->Search($hunter->GetID());
 	    $irr = $irca->Search($hunter->GetID());
-	    $tgc = $ttg->QueueHistory($hunter->GetID());
 	    $rod = $ro->Search($hunter->GetID());
 	    $sur = $survival->Search($hunter->GetID());
 	    $bast = $arena->BastionPlayer($hunter->GetID());
