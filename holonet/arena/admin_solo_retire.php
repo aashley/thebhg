@@ -27,10 +27,9 @@ function output() {
     if (isset($_REQUEST['next'])) {
 	    
         $type = $contract->GetType();
-        $person = $contract->GetHunter();
 
         echo $contract->GetLink();
-        echo '<br />[b]Contract Retired by[/b]: '.$person->GetName();
+        echo '<br />[b]Contract Retired[/b]';
         echo '<br />Available in the Dead Contract Office';
 
         hr();

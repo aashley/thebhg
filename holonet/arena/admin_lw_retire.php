@@ -26,7 +26,7 @@ function output() {
         $person = $contract->GetHunter();
 
         echo $contract->GetLink();
-        echo '<br />[b]Contract Retired by[/b]: '.$person->GetName();
+        echo '<br />[b]Contract Retired by[/b]';
         echo '<br />Available in the Dead Contract Office';
 
         hr();
