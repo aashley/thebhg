@@ -145,19 +145,13 @@
 	    }
     }
     
-    function LatestReport($id){
+    function LatestReport($posi){
 	    
 	    $roster = new Roster();
 	    
-	    if ($id == 1){
-            $pos = new Position('29');
-        } else {
-            $pos = new Position('9');
-        }
-	    
-        $reports = mysql_query('SELECT * FROM hn_reports WHERE position=' . $pos->GetID() . ' ORDER BY time DESC LIMIT 1', $roster->roster_db);
+        $reports = mysql_query('SELECT * FROM arena_reports WHERE admin="' . $posi . '" ORDER BY time DESC LIMIT 1', $roster->roster_db);
 		if ($reports && mysql_num_rows($reports)) {
-			$table = new Table($pos->GetName().' Report');
+			$table = new Table($this->ArenaPosition($posi).' Report');
 			$table->StartRow();
 			$table->AddHeader('Latest');
 			$table->AddHeader('Author');
