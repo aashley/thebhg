@@ -39,12 +39,12 @@ Class Obj extends Arena {
 	    
 
     function Edit($input) {
+	    $add = array();
+	    $return = array();
         $sql = "UPDATE `".$this->table."` SET ";
+        
         foreach ($input as $key=>$value){
-	        echo $value;
-	        echo '<br />'.$this->Get($key);
 	        if ($value != $this->Get($key)){
-		        echo 'Here';
 		        $add[] = "`".$key."` = '".addslashes($value)."'";
 		        $return[] = str_replace('_', '&nbsp;', ucfirst($key));
 	        }
@@ -52,7 +52,7 @@ Class Obj extends Arena {
         
         if (count($add)){
 	        $sql .= implode(', ', $add)." WHERE `id` = '".$this->id."'";
-	        
+	        echo $sql;
 	        if (mysql_query($sql, $this->con)){
 	            return implode(' Edited.<br />', $return).' Edited.<br />';	
 	        } else {
