@@ -12,13 +12,13 @@ $sheet = new Sheet();
 
 function Overseer(){
 	global $roster;
-    $search = $this->SearchPosition('29');
+    $search = $roster->SearchPosition('29');
     return (is_object($search[0]) ? $search[0] : false);
 }
 
 function Adjunct(){
 	global $roster;
-     $search = $this->SearchPosition('9');
+    $search = $roster->SearchPosition('9');
     return (is_object($search[0]) ? $search[0] : false);
 }
 
