@@ -60,6 +60,7 @@ function output() {
 	    
 	    $values = $sheet->GetCAValues($ca['id']);
 	    foreach ($values as $id=>$val){
+		    print_r($val);
 		    $skval = 0;
 		    $stval = 0;
 	    	if ($val['skill']){
@@ -73,8 +74,7 @@ function output() {
 			    if ($sheet->Permit(2, $value->GetID(), 1)){
 			    	$form->AddOption($value->GetID(), $value->GetName());
 		    	}
-		    }
-		    
+		    }		    
 		    $form->EndSelect();
 		    
 		    $form->StartSelect('Statribute', 'stat['.$id.']', $stval);
