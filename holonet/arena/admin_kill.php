@@ -36,10 +36,11 @@ function output() {
 		$character = new Character($_REQUEST['id']);
 	
 		if (isset($_REQUEST['submit'])){
-			echo $character->Kill();
+			echo $character->Kill($_REQUEST['reason']);
 		} else {
 			$form = new Form($page);
 			$form->AddHidden('id', $_REQUEST['id']);
+			$form->AddTextBox('Reason (for denial): ', 'reason');
 			echo '<center><input style="background-color: red; font-weight: bold; border: dotted" type="submit" name="submit" value="Confirm Character Assassination"><center>';
 			$form->EndForm();
 		}

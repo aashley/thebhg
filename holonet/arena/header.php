@@ -78,7 +78,7 @@ function atn_nav(){
 	
 	echo '<small>';
 	
-	echo '&nbsp;Division Tracking';
+	echo 'Division Tracking';
 
     $cats = $roster->GetDivisionCategories();
     foreach ($cats as $dc) {

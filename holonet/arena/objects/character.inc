@@ -393,6 +393,16 @@
     function SubmitSheet(){
 	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
 		if (mysql_query($sql, $this->connect)){
+			$adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+            
+            $text = "A new sheet has been submitted. Please go and review it at your earliest convenience.\n\n-Office of Character Development";
+
+            $from = "Office of Character Development <overseer@thebhg.org>";
+            $subject = "Character Pending Approval";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
 			return 'Your character sheet has been submitted for approval. It is now pending review by the Overseer or Adjunct.';
 		} else {
 			return 'Error in update: '.mysql_error($this->connect);
@@ -538,25 +548,53 @@
 	    
 	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";
 		if (mysql_query($sql, $this->connect)){
+			$adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+            $hunter = new Person($this->GetID());
+            
+            $text = "Your sheet has been approved by the RP staff.";
+
+            $from = "Office of Character Development <overseer@thebhg.org>";
+            $subject = "Character Approved";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
+            $hunter->SendEmail($from, $subject, $text);
 			return 'Sheet approved.';
 		} else {
 			return 'Error in update: '.mysql_error($this->connect);
 		}	   
 	}
 	
-	function Deny(){
+	function Deny($reason = ''){
 		$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
 		mysql_query($sql, $this->connect);
 
 		$sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";		
 		if (mysql_query($sql, $this->connect)){
+			$adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+            $hunter = new Person($this->GetID());
+            
+            $text = "Your sheet has been denied by the RP staff.";
+            
+            if ($reason){
+	            $text .= "\n\nReason: ".$reason;
+            }
+
+            $from = "Office of Character Development <overseer@thebhg.org>";
+            $subject = "Character Denied";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
+            $hunter->SendEmail($from, $subject, $text);
 			return 'Character Denyed.';
 		} else {
 			return 'Error in update: '.mysql_error($this->connect);
 		}	   
 	}
 	
-	function Kill(){
+	function Kill($reason = ''){
 		$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
 		mysql_query($sql, $this->connect);
 		
@@ -566,6 +604,22 @@
 	    $sql = "DELETE FROM `character_sheets` WHERE `bhg_id` = '".$this->GetID()."'";
 
 		if (mysql_query($sql, $this->connect)){
+			$adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+            $hunter = new Person($this->GetID());
+            
+            $text = "Your sheet has been killed by the RP staff.";
+            
+            if ($reason){
+	            $text .= "\n\nReason: ".$reason;
+            }
+
+            $from = "Office of Character Assassinations<overseer@thebhg.org>";
+            $subject = "Notice of Character Wipe";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
+            $hunter->SendEmail($from, $subject, $text);
 			return 'Character Killed.';
 		} else {
 			return 'Error in update: '.mysql_error($this->connect);

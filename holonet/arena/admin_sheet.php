@@ -109,7 +109,7 @@ function output() {
 					if ($_REQUEST['approve']){
 						echo $character->Approve();
 					} else {
-						echo $character->Deny();
+						echo $character->Deny($_REQUEST['reason']);
 					}
 				} else {
 					echo $character->SubmitSheet();
@@ -128,8 +128,9 @@ function output() {
 				    $form = new Form($page);	
 				    $form->AddHidden('id', $_REQUEST['id']);    	
 				    $form->AddHidden('save', 1);
-				    $form->table->AddRow('<input type="submit" name="approve" Value="Approve Sheet">');
-				    $form->table->AddRow('<input type="submit" name="deny" Value="Deny Sheet">');
+				    $form->AddTextBox('Reason (for denial): ', 'reason');
+				    $form->table->AddRow('<input type="submit" name="deny" Value="Deny Sheet"> || <input type="submit" name="approve" Value="Approve Sheet">');
+				    $form->table->AddRow();
 			    	$form->EndForm();
 		    	} else {
 			    	$form = new Form($page);	
