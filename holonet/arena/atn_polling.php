@@ -39,7 +39,7 @@ function output() {
 
     arena_header();
 
-    if ($_REQUEST['vote']){
+    if ($_REQUEST['submit']){
 	    if (is_array($_REQUEST['votes'])){
 		    foreach ($_REQUEST['votes'] as $vote){
 			    $vote = new Option($vote);
