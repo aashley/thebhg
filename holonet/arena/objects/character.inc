@@ -615,7 +615,7 @@
 	    $errors = 0;
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_backups` VALUES ('$id', '".$info['statribute']."', '".$info['value']."')";
+		    $sql = "INSERT INTO `character_sheet_backups` VALUES ('$id', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    if (!mysql_query($sql, $this->connect)){
 			    $errors++;
 		    }
@@ -648,7 +648,7 @@
 	    $errors = 0;
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".$info['value']."')";
+		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    if (!mysql_query($sql, $this->connect)){
 			    echo mysql_error($this->connect);
 			    $errors++;
