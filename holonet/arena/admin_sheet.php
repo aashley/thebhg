@@ -247,7 +247,7 @@ function output() {
 		    	$form->EndForm();
 	    	}		    	
     	} else {
-	    	echo 'Can not make edit.';
+	    	echo 'Can not make any edits to this sheet.';
 	    	if ($character->GetBan()){
 		    	echo ' You are on an Edit Ban until '.$character->GetBan('HUMAN');
 	    	} else {
