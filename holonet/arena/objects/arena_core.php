@@ -36,6 +36,8 @@
 	    $query = mysql_query($sql, $this->holonet);
 	    $return = array();
 	    
+	    echo mysql_error($this->holonet);
+	    
 	    while ($info = mysql_fetch_assoc($query)){
 		    $outcome = new Obj('ams_specifics', $info['outcome'], 'holonet');
 		    $return[$info['bhg_id']]['points'] += $outcome->Get(points);
