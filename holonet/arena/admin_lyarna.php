@@ -61,8 +61,6 @@ function output() {
         $form->AddHidden('table', $table);
         $locations = mysql_query('SELECT * FROM ' . $table . ' ORDER BY name', $lyarna);        
 			
-		include_once 'javathehutt.php';
-
 		$form->table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
 		$i = 0;
 		
@@ -86,16 +84,7 @@ function output() {
 	        $form->table->AddCell("<select name=\"kabal$i\" "
 	        ."onChange=\"swap_kabal(this.form, $i)\">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
-	
-	    	$cell = "<select name=\"person$i\">";
-	    
-				$cell .= "<option value=\"-1\" selected>N/A</option>\n";
-	    
-			$cell .= "</select>";
-
-			$form->table->AddCell("<select name=\"position$i\">"
-	        ."<option value=\"-1\">N/A</option>$positions</select>");
-			$form->table->AddCell($cell);
+			hunter_dropdown($form);
 			$form->table->EndRow();
 			$i++;
         }
