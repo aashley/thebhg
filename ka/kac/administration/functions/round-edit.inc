@@ -105,7 +105,7 @@ function output(){
 		if (isset($_REQUEST['kac'])){
 			$kac = new KAC($_REQUEST['kac']);
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Round Delete Management');
 			
@@ -136,7 +136,7 @@ function output(){
 			
 			hr();
 
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Edit Round Stats');
 			
@@ -177,7 +177,7 @@ function output(){
 			
 			if (count($events)){
 			
-				$form = new Form($PHP_SELF);
+				$form = new Form($_SERVER['PHP_SELF']);
 				
 				$form->AddSectionTitle('Select Season');
 				

@@ -256,12 +256,12 @@ class Event extends KA_1 {
 	            $text .= "\nAnswer ".$count."/".count($answers).": ".stripslashes($value);
             }
 
-            $from = "Kabal Authority <ka@thebhg.org>";
+            $from = "ka@thebhg.org";
             $subject = "KAC Event Answered";
 
             $person->SendEmail($from, $subject, $text);
             
-            mail('ka@thebhg.org', $subject, $text, "From: Kabal Authority <ka@thebhg.org>\r\nReply-To: unanswered@thebhg.org\r\nX-Mailer: PHP/" . phpversion());
+            mail('ka@thebhg.org', $subject, $text, "From: ka@thebhg.org\r\nReply-To: unanswered@thebhg.org\r\nX-Mailer: PHP/" . phpversion());
 	    } else {
 		    $this->roster_error = 'Error from Database: '.mysql_error($this->connect);
 	    }

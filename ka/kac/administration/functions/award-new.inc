@@ -13,7 +13,7 @@ function output(){
 		hr();
 	}
 	
-	$form = new Form($PHP_SELF);
+	$form = new Form($_SERVER['PHP_SELF']);
 	
 	$form->AddSectionTitle('Enter Award Stats');
 	

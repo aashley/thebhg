@@ -52,7 +52,7 @@ function output(){
 		if (isset($_REQUEST['award'])){
 			$award = new Awards($_REQUEST['award']);
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Award Delete Management');
 			
@@ -74,7 +74,7 @@ function output(){
 			
 			hr();
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Edit Award Superstructure');
 			
@@ -189,7 +189,7 @@ function output(){
 	
 	} else {
 	
-		$form = new Form($PHP_SELF);
+		$form = new Form($_SERVER['PHP_SELF']);
 		
 		$form->AddSectionTitle('Select Award to Edit');
 		

@@ -52,7 +52,7 @@ function output(){
 		if (isset($_REQUEST['event'])){
 			$event = new Type($_REQUEST['event']);
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Event Type Delete Management');
 			
@@ -74,7 +74,7 @@ function output(){
 			
 			hr();
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 		
 			$form->AddSectionTitle('Edit Event Type Stats');
 			
@@ -107,7 +107,7 @@ function output(){
 		
 	} else {
 	
-		$form = new Form($PHP_SELF);
+		$form = new Form($_SERVER['PHP_SELF']);
 		
 		$form->AddSectionTitle('Select Event Type');
 		

@@ -43,7 +43,7 @@ function output(){
 		foreach ($events as $event){
 			$type = $event->GetTypes();
 			$round = $event->GetRound();
-			$table->AddRow($event->Dates('HUMAN', 'end'), '<a href="'.$PHP_SELF.'?function=event&flag=submit&id='.$event->GetID().'">Round '
+			$table->AddRow($event->Dates('HUMAN', 'end'), '<a href="'.$_SERVER['PHP_SELF'].'?function=event&flag=submit&id='.$event->GetID().'">Round '
 					.$round->GetRoundID().' '.$type->GetName().'</a>');
 		}
 		

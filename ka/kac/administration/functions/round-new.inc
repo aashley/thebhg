@@ -73,7 +73,7 @@ function output(){
 			$kac = new KAC($_REQUEST['kac']);
 		
 			if (!count($kac->GetRounds())){
-				$form = new Form($PHP_SELF);
+				$form = new Form($_SERVER['PHP_SELF']);
 				
 				$form->AddSectionTitle('Enter Round Stats');
 				
@@ -108,7 +108,7 @@ function output(){
 	} else {
 	
 		if (count($ka->GetNextKACs())){
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Select Season & Establish Number of Rounds');
 			

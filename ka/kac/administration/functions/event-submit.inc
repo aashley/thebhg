@@ -33,7 +33,7 @@ function output(){
 			} else {
 				$type = $event->GetTypes();
 				
-				$form = new Form($PHP_SELF);
+				$form = new Form($_SERVER['PHP_SELF']);
 				
 				$content = $event->GetContent();
 				$answers = $content['answers'];

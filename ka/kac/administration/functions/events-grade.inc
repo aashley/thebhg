@@ -222,7 +222,7 @@ function output(){
 			} else {
 				$type = $event->GetTypes();
 				
-				$form = new Form($PHP_SELF);
+				$form = new Form($_SERVER['PHP_SELF']);
 				
 				$content = $event->GetContent();
 				$answers = $content['answers'];
@@ -262,7 +262,7 @@ function output(){
 		        
 		        hr();
 		        
-		        $form = new Form($PHP_SELF);
+		        $form = new Form($_SERVER['PHP_SELF']);
 				
 				foreach ($event->GetSubmissions() as $sub){
 				
@@ -319,7 +319,7 @@ function output(){
 			foreach ($events as $event){
 				$type = $event->GetTypes();
 				$round = $event->GetRound();
-				$table->AddRow($event->Dates('HUMAN', 'end'), '<a href="'.$PHP_SELF.'?function=events&flag=grade&id='.$event->GetID().'">Round '
+				$table->AddRow($event->Dates('HUMAN', 'end'), '<a href="'.$_SERVER['PHP_SELF'].'?function=events&flag=grade&id='.$event->GetID().'">Round '
 						.$round->GetRoundID().' '.$type->GetName().'</a>');
 			}
 			

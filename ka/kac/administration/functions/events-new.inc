@@ -64,7 +64,7 @@ function output(){
 		if (isset($_REQUEST['kac'])){
 			$kac = new KAC($_REQUEST['kac']);
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 				
 			$form->AddSectionTitle('Select Round and Event Type');
 			
@@ -97,7 +97,7 @@ function output(){
 		
 			hr();
 			
-			$form = new Form($PHP_SELF, 'post', '', 'multipart/form-data');
+			$form = new Form($_SERVER['PHP_SELF'], 'post', '', 'multipart/form-data');
 			
 			$form->AddSectionTitle('Enter Event Stats');
 			
@@ -160,7 +160,7 @@ function output(){
 			
 			if (count($events)){
 			
-				$form = new Form($PHP_SELF);
+				$form = new Form($_SERVER['PHP_SELF']);
 				
 				$form->AddSectionTitle('Select Season');
 				

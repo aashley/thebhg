@@ -16,7 +16,7 @@ function output(){
 		}
 		hr();
 	} else {	
-		$form = new Form($PHP_SELF);
+		$form = new Form($_SERVER['PHP_SELF']);
 		
 		$form->AddSectionTitle('Select Season to Import Kabal Data');
 		

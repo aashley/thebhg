@@ -36,7 +36,7 @@ function output(){
 			$table->StartRow();
 			$table->AddCell('E-mail sent. Details follow.', 2);
 			$table->EndRow();
-			$table->AddRow('From:', htmlspecialchars('Kabal Authority <ka@thebhg.org>'));
+			$table->AddRow('From:', htmlspecialchars('ka@thebhg.org'));
 			$table->AddRow('To:', htmlspecialchars(implode(', ', $addresses)));
 			$table->AddRow('Subject:', $_REQUEST['subject']);
 			$table->AddRow('Message:', '<pre>' . $_REQUEST['message'] . '</pre>');
@@ -47,7 +47,7 @@ function output(){
 	} elseif ($_REQUEST['emailround']) {
 		
 		if (isset($_REQUEST['round'])){
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Compose eMail');
 			
@@ -68,7 +68,7 @@ function output(){
 		if (isset($_REQUEST['kac'])){
 			$kac = new KAC($_REQUEST['kac']);
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 				
 			$form->AddSectionTitle('Select Round');
 			
@@ -97,7 +97,7 @@ function output(){
 			
 			if (count($events)){
 			
-				$form = new Form($PHP_SELF);
+				$form = new Form($_SERVER['PHP_SELF']);
 				
 				$form->AddSectionTitle('Select Season');
 				

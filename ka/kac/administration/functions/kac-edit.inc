@@ -71,7 +71,7 @@ function output(){
 		if (isset($_REQUEST['kac'])){
 			$kac = new KAC($_REQUEST['kac']);
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Season Delete Management');
 			
@@ -93,7 +93,7 @@ function output(){
 			
 			hr();
 	
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Edit Season Stats');
 			
@@ -125,7 +125,7 @@ function output(){
 	
 	} else {
 	
-		$form = new Form($PHP_SELF);
+		$form = new Form($_SERVER['PHP_SELF']);
 		
 		$form->StartSelect('Select KAC', 'kac');
 		foreach ($ka->AllSeasons() as $type){

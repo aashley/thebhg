@@ -99,7 +99,7 @@ function output(){
 			
 			if ($round->GetEvents()){
 			
-				$form = new Form($PHP_SELF);
+				$form = new Form($_SERVER['PHP_SELF']);
 					
 				$form->AddSectionTitle('Select Event');
 				
@@ -127,7 +127,7 @@ function output(){
 		if (isset($_REQUEST['kac'])){
 			$kac = new KAC($_REQUEST['kac']);
 			
-			$form = new Form($PHP_SELF);
+			$form = new Form($_SERVER['PHP_SELF']);
 				
 			$form->AddSectionTitle('Select Round');
 			
@@ -156,7 +156,7 @@ function output(){
 		    $question = $content['questions'];
 		    $answer = $content['answers'];
 		    
-		    $form = new Form($PHP_SELF);
+		    $form = new Form($_SERVER['PHP_SELF']);
 			
 			$form->AddSectionTitle('Event Delete Management');
 			
@@ -183,7 +183,7 @@ function output(){
 		
 			hr();
 			
-			$form = new Form($PHP_SELF, 'post', '', 'multipart/form-data');
+			$form = new Form($_SERVER['PHP_SELF'], 'post', '', 'multipart/form-data');
 			
 			$form->AddSectionTitle('Edit Event Stats');
 			
@@ -246,7 +246,7 @@ function output(){
 			
 			if (count($events)){
 			
-				$form = new Form($PHP_SELF);
+				$form = new Form($_SERVER['PHP_SELF']);
 				
 				$form->AddSectionTitle('Select Season');
 				

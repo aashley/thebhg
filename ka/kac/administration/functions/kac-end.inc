@@ -147,7 +147,7 @@ function output(){
 		}
 				
 	} else {
-		$form = new Form($PHP_SELF);
+		$form = new Form($_SERVER['PHP_SELF']);
 		
 		$seasons = array();
 		
