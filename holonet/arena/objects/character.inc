@@ -51,7 +51,7 @@
     }
     
     function Status($output){
-	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 5=>'Pending Approval', 4=>'Denied Character', 6=>'Pending Approval', 7=>'Blank Sheet');
+	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 5=>'Pending Approval', 4=>'Denied Character', 6=>'Pending Approval', -1=>'Blank Sheet');
 	    if ($this->cs_bhg_id){
 		    if ($this->cs_last_change){
 			    if ($this->cs_approved){
@@ -73,7 +73,7 @@
 		    	$return = 4;
 	    	} else {
 		    	if ($this->cs_pending){
-		    		$return = 7;
+		    		$return = -1;
 	    		} else {
 		    		$return = 6;
 	    		}
@@ -631,7 +631,7 @@
             $adjunct->SendEmail($from, $subject, $text);
             $overseer->SendEmail($from, $subject, $text);
             $hunter->SendEmail($from, $subject, $text);
-			return 'Character Denyed.';
+			return 'Character Denied.';
 		} else {
 			return 'Error in update: '.mysql_error($this->connect);
 		}	   
