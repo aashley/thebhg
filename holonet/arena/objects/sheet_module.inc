@@ -107,7 +107,7 @@
     }
     
     function Permit($type, $value, $project){
-	    $sql = "SELECT * FROM `cs_mod` WHERE `type` = '$type' AND `value` = '$value' AND `project` = '$project' AND `date_deleted` = 0";
+	    $sql = "SELECT * FROM `cs_mod` WHERE `type` = '$type' AND `value` = '$value' AND `project` = '$project' AND `date_deleted` = 0  AND `lock` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    return mysql_num_rows($query);
