@@ -28,6 +28,26 @@
 	    mysql_query($sql, $this->holonet);
     }		    
     
+    function Ladder($activity, $bhg_id = 0){
+	    $sql = "SELECT `ams_records.bhg_id` as `bhg_id`, `ams_records.xp` as `xp`, `ams_records.outcome` as `outcome`, `ams_records.creds` as `creds`, `ams_records.medal` as `medal`"
+	    	." FROM `ams_records`, `ams_match` WHERE `ams_records.match` = `ams_match.id` AND `ams_match.type` = '$activity' AND `ams_match.date_deleted` = 0 AND"
+	    	." `ams_records.date_deleted` = 0 AND `ams_records.outcome` > 0";
+	    	
+	    $query = mysql_query($sql, $this->holonet);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_assoc($query)){
+		    $outcome = new Obj('ams_specifics', $info['outcome'], 'holonet');
+		    $return[$info['bhg_id']]['points'] += $outcome->Get(points);
+		    $return[$info['bhg_id']]['xp'] += $info['xp'];
+		    $return[$info['bhg_id']]['creds'] += $info['creds'];
+		    $return[$info['bhg_id']]['medals'] += ($info['medal'] ? 1 : 0);
+	    }
+	    
+	    print_r($return);
+    }
+	    
+    
     function GetPayData($start, $end){
 	    $table = "`arena_$table`";
 	    $sql = "SELECT * FROM `ams_aides` WHERE (`end_date` = 0 OR (`end_date` <= '$end' AND `end_date` >= '$start')) AND `start_date` <= '$end'";

@@ -93,6 +93,18 @@ function output() {
 		    $form->EndForm();
 	    }
 	    
+	    hr();
+	    
+	    $table = new Table();
+	    
+	    $table->StartRow();
+	    $table->AddHeader('Ladder', 2);
+	    $table->EndRow();
+	    
+	    $table->EndTable();
+	    
+	    $arena->Ladder($activity->Get(id));
+	    
     }
 
     arena_footer();
