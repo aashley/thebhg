@@ -300,7 +300,7 @@ function output() {
 			    
 			    $table->AddRow('Sheet', 'Person', '&nbsp');
 			    
-			    foreach ($saves as $data){
+			    foreach ($shares as $data){
 				    $hunt = new Person($data['hunter']);
 				    $table->AddRow($data['name'], '<a href="'.internal_link('atn_general', array('id'=>$data['hunter'])).'">'.$hunt->GetName().'</a>',
 				    '<a href="'.internal_link($page, array('delshare'=>1, 'sheet'=>$data['id'], 'hunt'=>$data['hunter'])).'">Delete Share</a>');
