@@ -41,9 +41,10 @@
 	    
 	    $stat = array_shift($this->npc_stats);
 	    $table->AddRow('Name: ', $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8"));
-	    
-	    $sorted = arsort($this->npc_stats);
-	    $highest = array_shift($sorted);
+	   
+	    $sorted = $this->npc_stats;
+	    arsort($sorted);
+	    $highest = array_shift($sorted)
 	    
 	    foreach ($this->npc_stats as $name=>$stat){
 		    $point = $stat*$this->type->GetPoints();
