@@ -820,7 +820,8 @@
 		
 		echo '<table border=0 width="100%"><tr valign="top"><td>';
 		
-		echo $look;
+		echo $id;
+		echo $col;
 		
 		$table = new Table();
 				$table->StartRow();
