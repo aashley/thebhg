@@ -31,11 +31,17 @@ function output() {
     
     $values = array();
     
+    if ($_REQEUST['save']){
+	    echo $character->Backup($_REQEUST['save'], $_REQUEST['sheet']);
+	    hr();		     
+    }
+    
     if ($_REQUEST['view']){
 	    
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Backup Resource');
 	    $form->AddTextBox('Save name:', 'save');
+	    $form->AddHidden('sheet', $_REQUEST['sheet']);
 	    $form->AddSubmitButton('save', 'Save Sheet');
 	    
 	    hr();
