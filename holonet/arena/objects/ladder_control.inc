@@ -66,7 +66,7 @@
 	    	$dojo = new Master($ladder->CurrentMaster());
 	    	$dojo = $dojo->GetID();
     	}
-	    	     
+	    
     	$new = new Ladder();
     	$stew = $new->CurrentSteward();
     	$steward = new Steward($stew);
