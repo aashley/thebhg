@@ -30,11 +30,11 @@ function output() {
 	    
 	    $control = new Control();
 
-    	if ($_REQUEST['person'][1] != $_REQUEST['person'][2]) {
+    	if ($_REQUEST['person1'] != $_REQUEST['person2']) {
             $local = explode("_", $_REQUEST['location']);
 
             $new = $control->OldMatch($_REQUEST['rules'], $local[0], $local[1], $_REQUEST['posts'],
-            $_REQUEST['num_weapon'], $_REQUEST['person'][1], $_REQUEST['person'][2], $_REQUEST['type_weapon'], $_REQUEST['name'], 
+            $_REQUEST['num_weapon'], $_REQUEST['person1'], $_REQUEST['person2'], $_REQUEST['type_weapon'], $_REQUEST['name'], 
             parse_date_box('start'), parse_date_box('end'), $_REQUEST['mbid'], $_REQUEST['dojo']);
             
             if ($new){               
@@ -175,6 +175,7 @@ function output() {
 	    $form->AddTextBox('Message Board ID', 'mbid', '', 10);
 	
 	    for ($i = 1; $i <= 2; $i++){
+		    $form->table->StartRow();
 		    $form->table->AddCell("<select name=\"kabal$i\" "
 	        ."onChange=\"swap_kabal(this.form, $i)\">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
@@ -186,6 +187,7 @@ function output() {
 			$cell .= "</select>";
 	    
 			$form->table->AddCell($cell);
+			$form->table->EndRow();
 		}
 	    
 	    $form->AddTextBox('Match Name', 'name', '', 50);
