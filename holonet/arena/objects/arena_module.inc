@@ -62,6 +62,48 @@
         return "<i><font face='Lucida Handwriting'>$name</font></i>";
     }
     
+    function CurrentOV(){
+        $sql = "SELECT * FROM `arena_overseer` WHERE `end_date` = '0'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        return $info['bhg_id'];
+    }
+    
+    function NewOV($bhg_id){
+	    $current = new Overseer($this->CurrentOV());
+	    $current->EndTerm();
+	    
+	    $sql = "INSERT INTO `arena_overseer` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
+    function CurrentAJ(){
+        $sql = "SELECT * FROM `arena_adjunct` WHERE `end_date` = '0'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        return $info['bhg_id'];
+    }
+    
+    function NewAJ($bhg_id){
+	    $current = new Adjunct($this->CurrentAJ());
+	    $current->EndTerm();
+	    
+	    $sql = "INSERT INTO `arena_adjunct` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
     function LatestReport($id){
 	    
 	    $roster = new Roster();
@@ -116,6 +158,10 @@
 		$positions['mm']['desc'] = 'Mission Master of Run-Ons';
 		$aas['cbo'] = new Comissioner($bhg_id);
 		$positions['cbo']['desc'] = 'Commissioner of the Bounty Office';
+		$aas['ov'] = new Overseer($bhg_id);
+		$positions['ov']['desc'] = 'Overseer of the Guild';
+		$aas['aj'] = new Adjunct($bhg_id);
+		$positions['aj']['desc'] = 'Adjunct of the Guild';
 		
 		$output = array();
 		
@@ -149,6 +195,12 @@
 		$aas['cbo'] = new Comissioner($bhg_id);
 		$positions['cbo']['desc'] = 'Commissioner of the Bounty Office';
 		$positions['cbo']['table'] = 'solo_comissioners';
+		$aas['ov'] = new Overseer($bhg_id);
+		$positions['ov']['desc'] = 'Overseer of the Guild';
+		$positions['ov']['table'] = 'overseer';
+		$aas['aj'] = new Adjunct($bhg_id);
+		$positions['aj']['desc'] = 'Adjunct of the Guild';
+		$positions['aj']['table'] = 'adjunct';
 		
 		foreach ($aas as $class=>$object){
 			if ($object->GetStatus() == 'Current '){

@@ -15,6 +15,9 @@ include_once 'ladder_stats.inc';
 include_once 'ladder_type.inc';
 include_once 'ladder_weapon_type.inc';
 
+include_once 'overseer.inc';
+include_once 'adjunct.inc';
+
 include_once 'dojo_master.inc';
 include_once 'registrar.inc';
 include_once 'mission.inc';
