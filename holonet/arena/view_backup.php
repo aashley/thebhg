@@ -18,7 +18,7 @@ function title() {
 }
 
 function output() {
-    global $auth_data, $hunter, $page, $roster, $sheet, $saves;
+    global $auth_data, $hunter, $page, $roster, $sheet, $saves, $character;
     
     arena_header();
     
