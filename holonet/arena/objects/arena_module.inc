@@ -13,6 +13,7 @@
 			
 		$this->lyarna = $this->LyarnaConnect();
 		$this->fiction = $this->FictionConnect();
+		$this->bastion = $this->BastionConnect();
     }
     
     function FictionConnect(){
@@ -29,7 +30,7 @@
         return $lyarna;
     }
     
-    function Bastion(){
+    function BastionConnect(){
 	    $bastion = mysql_connect('localhost', 'thebhg_overseer', '01c81257');
 		mysql_select_db('thebhg_overseer', $bastion);
         
