@@ -10,7 +10,7 @@
  */
 
 // Include roster 3.
-ini_set('include_path', ini_get('include_path').':/var/www/html/include');
+ini_set('include_path', ini_get('include_path').':/home/virtual/site5/fst/usr/share/roster3/include');
 include_once('roster.inc');
 $roster = new Roster('roster-69god');
 

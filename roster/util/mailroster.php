@@ -1,6 +1,6 @@
 <?php
 
-ini_set('include_path', ini_get('include_path').':/var/www/html/include:/home/aashley/php/roster/include');
+ini_set('include_path', ini_get('include_path').':/home/virtual/site5/fst/usr/share/roster3/include:/home/aashley/php/roster/include');
 
 include_once('roster.inc');
 include_once('util/zip.lib.php');

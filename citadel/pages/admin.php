@@ -184,7 +184,15 @@ function AdminMain($crumbTrail, &$login) {
 
   }
 
-  $exams = &$citadel->GetExamsMarkedBy($login);
+	if ($loginpos->getID() == 5) {
+
+		$exams = &$citadel->getExams();
+
+	} else {
+
+	  $exams = &$citadel->GetExamsMarkedBy($login);
+
+	}
 
   $table = new HTML_Table();
 

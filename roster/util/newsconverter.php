@@ -1,6 +1,6 @@
 <?php
 
-include_once('../include/roster.inc');
+include_once('/home/virtual/site5/fst/usr/share/roster3/include');
 
 print '<HTML><HEAD><TITLE>Convert News Script</TITLE></HEAD><BODY>';
 

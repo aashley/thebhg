@@ -19,12 +19,12 @@
 	$base_size = "12px";	
 
 	//Include Local Objects  
-	ini_set('include_path', ini_get('include_path').':/home/virtual/site4/fst/home/podracer/public_html/objects');
+	ini_set('include_path', ini_get('include_path').':/home/virtual/site5/fst/home/podracer/public_html/objects');
 	include_once ('podracer.inc');
 	$podracer_obj = new Podracer ();
 	
 	//Roster Objects
-	ini_set('include_path', ini_get('include_path').':/var/www/html/include');
+	ini_set('include_path', ini_get('include_path').':/home/virtual/site5/fst/usr/share/roster3/include');
 	include_once ('roster.inc');
 	$roster_obj = new Roster ();
 	

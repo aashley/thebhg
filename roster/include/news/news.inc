@@ -91,7 +91,7 @@ class News extends BHGObject {
    */
   function LoadConfig($config) {
 
-    $dirname = dirname($_SERVER['SCRIPT_FILENAME']);
+    $dirname = dirname(realpath($_SERVER['SCRIPT_FILENAME']));
 
     $config = realpath($config);
 

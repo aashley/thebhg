@@ -60,7 +60,7 @@ class Settings extends BHGObject {
   function Settings($coder = '') {
     BHGObject::BHGObject($coder);
     
-    $this->roster_settings['imagecache_dir'] = "/home/virtual/site4/fst/var/www/html/cache";
+    $this->roster_settings['imagecache_dir'] = "/home/virtual/site5/fst/var/www/html/cache";
     $this->roster_settings['imagecache_url'] = "http://www.thebhg.org/cache";
 
     $sql = "SELECT * "
