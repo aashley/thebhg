@@ -23,7 +23,7 @@ function output() {
             echo 'New Steward Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 136';
+            NEC(136);
         }
     } elseif (isset($_REQUEST['end'])){
 		$steward = new Steward($ladder->CurrentSteward());
@@ -31,7 +31,7 @@ function output() {
 		if ($steward->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 137';
+			NEC(137);
         }
     }
     else {

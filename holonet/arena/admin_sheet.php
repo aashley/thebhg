@@ -90,7 +90,7 @@ function output() {
 		
 		if ($character->IsNew()){
 			if (!$character->NewSheet()){
-				echo 'Could not create a new sheet. Report this to the Overseer.';
+				NEC(161);
 				admin_footer($auth_data);
 				return;
 			} else {

@@ -21,7 +21,7 @@ function output() {
 	    if ($sheet->NewSkill($_REQUEST['name'], $_REQUEST['desc'], $_REQUEST['field'])){
 		    echo 'New Skill Added Successfully!';
 	    } else {
-		    echo 'Error.';
+		    NEC(157);
 	    }
 	    
 	    hr();

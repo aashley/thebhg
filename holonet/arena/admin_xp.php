@@ -19,21 +19,29 @@ function output() {
 
     if (isset($_REQUEST['submit'])){
 	    
+	    $error = false;
+	    
 	    for ($i = 0; $i < 20; $i++) {
       
 			$person = "person$i";
       
 			$xp = "xp$i";
 			
-			if ($_REQUEST[$person]){
+			if ($_REQUEST[$person] > 0){
 				$message = $arena->Tracker($hunter, 'XP', $_REQUEST[$xp], $_REQUEST['use']);
 				$character = new Character($_REQUEST[$person]);
-	            $character->XPEvent($_REQUEST[$xp], $message.$_REQUEST['reason']);
+	            if (!$character->XPEvent($_REQUEST[$xp], $message.$_REQUEST['reason'])){
+		            $error = true;
+	            }
             }
 			
 		}
 		
-		echo 'Experience points added.';
+		if ($error){
+			NEC(169);
+		} else {
+			echo 'Experience points added.';
+		}
 		
 		hr();
 	    

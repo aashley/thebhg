@@ -21,7 +21,7 @@ function output() {
             echo 'New Registrar Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 128';
+            NEC(128);
         }
     } elseif (isset($_REQUEST['end'])){
 		$reg = new Registrar($sheet->CurrentRegistrar());
@@ -29,7 +29,7 @@ function output() {
 		if ($reg->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 129';
+			NEC(129);
         }
     }
     else {

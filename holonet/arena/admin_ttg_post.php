@@ -39,7 +39,7 @@ function output() {
             	echo 'Final match started.';
             	$challenge->FinalUp();
         	} else {
-            	echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 20';
+            	NEC(20);
         	}    		                
 
 	    } 

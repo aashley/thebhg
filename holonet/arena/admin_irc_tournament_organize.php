@@ -30,7 +30,7 @@ function output() {
 	    	if ($at->Organize($bracket[0], $brackets[$bracket[1]], $bracket[1], $brackets[$bracket[0]])){
 		        echo "Brackets Switched";
 		    } else {
-		        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 114';
+		        NEC(114);
 		    }
 	    	
     	}		    

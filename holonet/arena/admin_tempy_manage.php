@@ -30,9 +30,9 @@ function output() {
 		    echo "Can not remove yourself as a juror, as the jury has been solidified by a Moderator.";
 	    } else {
 	        if ($petition->RemoveSignup($hunter->GetID())) {
-		        echo 'Signup removed.';
+		       echo 'Signup removed.';
 	        } else {
-	           echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 46';
+	           NEC(46);
 	        }
         }
     }

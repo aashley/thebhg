@@ -24,7 +24,7 @@ function output() {
 	    if ($match->Accept()){
 	        echo "Match accepted! Notification has been sent to the Overseer and Adjunct.";
 	    } else {
-	        echo "Error accepting match.";
+		    NEC(140);
 	    }
 	    
     }

@@ -462,7 +462,9 @@
 
         } else {
 
-            return 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 50';
+            $arena = new Arena();
+	        
+            return $arena->NEC(50);
 
         }
 

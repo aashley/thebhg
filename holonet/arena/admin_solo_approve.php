@@ -41,7 +41,7 @@ function output() {
 		}
 		
 		if ($errors){
-			echo 'Errors occured during processing';
+			NEC(156);
 		} else {
 			echo 'Contracts processed.';
 		}

@@ -20,7 +20,7 @@ function output() {
 		if ($arena->RemoveTeta($_REQUEST['challengee'])){
 			echo 'Hunter got their pointy friends taken from them.';
 		} else {
-			echo 'Error.';
+			NEC(167);
 		}
 		hr();
     }

@@ -21,7 +21,7 @@ function output() {
 	    if ($sheet->NewField($_REQUEST['name'], $_REQUEST['desc'])){
 		    echo 'New Field Added Successfully!';
 	    } else {
-		    echo 'Error.';
+		    NEC(152);
 	    }
 	    
 	    hr();

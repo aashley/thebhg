@@ -37,21 +37,21 @@ function output() {
         if ($tempy->UpdateMod($_REQUEST['bhg_id'], $_REQUEST['status'])) {
 	        echo 'Tempestuous Moderator Status Edited.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 44';
+            NEC(44);
         }
     }
     elseif (isset($_REQUEST['grant'])) {
         if ($tempy->UpdateMod($_REQUEST['bhg_id'], 1)) {
 	        echo 'Tempestuous Moderator Status Granted.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 44';
+            NEC(44);
         }
     } 
     elseif (isset($_REQUEST['remove'])) {
         if ($tempy->UpdateMod($_REQUEST['bhg_id'], 0)) {
 	        echo 'Tempestuous Moderator Status Removed.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 44';
+            NEC(44);
         }
     }
     elseif (isset($_REQUEST['bhg_id'])){

@@ -23,7 +23,7 @@ function output() {
         if ($tempy->DeleteMember($_REQUEST['bhg_id'])) {
 	        echo 'Tempestuous Member Deleted.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 45';
+            NEC(45);
         }
     }
     else {

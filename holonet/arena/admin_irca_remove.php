@@ -22,7 +22,7 @@ function output() {
 	    if ($match->Remove()){
 	        echo "Match removed!";
 	    } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 68';
+	        NEC(68);
 	    }
     }
     

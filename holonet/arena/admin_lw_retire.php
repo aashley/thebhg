@@ -43,12 +43,14 @@ function output() {
     elseif (isset($_REQUEST['dco'])) {
 
         if ($contract->DeDCO()){
-	        $contract->SetHunter(0);
-            echo "Process finished.";
+	        if ($contract->SetHunter(0)){
+		        echo "Process finished.";
+	        } else {
+		        NEC(163);
+	        }
 
         } else {
-
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 59';
+			NEC(162);
         }
 
     }

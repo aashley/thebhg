@@ -45,7 +45,7 @@ function output() {
     	}
     	
     	if ($errors){
-	    	echo 'Errors occured while compiling';
+	    	NEC(151);
     	} else {
 	    	echo 'Hunters updated';
     	}		    

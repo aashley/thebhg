@@ -20,7 +20,7 @@ function output() {
 		if ($arena->AddTeta($_REQUEST['challengee'])){
 			echo 'Hunter awarded Teta\'s Knives.';
 		} else {
-			echo 'Error.';
+			NEC(166);
 		}
 		hr();
     }

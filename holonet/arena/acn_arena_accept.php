@@ -24,7 +24,7 @@ function output() {
 	    if ($match->Accept()){
 	        echo "Match accepted! Notification has been sent to the Overseer and Adjunct.";
 	    } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 1';
+	        NEC(1);
 	    }	   
 	    
     } 

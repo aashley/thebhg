@@ -11,57 +11,6 @@ function auth($person) {
     return $auth_data['ro'];
 }
 
-function next_medal($person, $group) {
-	global $mb;
-
-	$mg = $mb->GetMedalGroup($group);
-	if ($mg->GetDisplayType() != 0) {
-		echo 'Numeric medal, leaving immediately.<br>';
-		$medals = $mg->GetMedals();
-		return $medals[0];
-	}
-	
-	$medals = $person->GetMedals();
-	if (count($medals)) {
-		$orders = array();
-		$group_medals = $mg->GetMedals();
-		foreach ($group_medals as $medal) {
-			$orders[$medal->GetOrder()] = 0;
-		}
-		foreach ($medals as $am) {
-			$medal = $am->GetMedal();
-			$mgroup = $medal->GetGroup();
-			if ($mgroup->GetID() == $group) {
-				$orders[$medal->GetOrder()]++;
-			}
-		}
-		ksort($orders);
-		$last = 0;
-		foreach ($orders as $key=>$o) {
-			if ($o < $last) {
-				$order = $key;
-				break;
-			}
-			$last = $o;
-		}
-		if (empty($order)) {
-			$order = min(array_keys($orders));
-		}
-		
-		$medals = $mg->GetMedals();
-		foreach ($medals as $medal) {
-			if ($medal->GetOrder() == $order) {
-				return $medal;
-			}
-		}
-		return $medals[0];
-	}
-	else {
-		$medals = $mg->GetMedals();
-		return $medals[0];
-	}
-}
-
 function output() {
     global $arena, $auth_data, $hunter, $page, $roster, $sheet, $mb;
 
@@ -265,7 +214,7 @@ function output() {
 	    }
 	    
 	    if ($errors) {
-	    	echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 125';
+	    	NEC(125);
     	} else {
             echo 'Results added successfully.'; 
         }

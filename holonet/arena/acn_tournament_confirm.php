@@ -26,7 +26,7 @@ function output() {
 	    
     } else {
 	    
-	    echo "Error signing up. If you have already signed up, then why you're here, I don't know. But please go away. Otherwise, contact the OV/AJ ASAP.";
+	    echo $at->denied;
 	    
     }
 

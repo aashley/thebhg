@@ -23,7 +23,7 @@ function output() {
 	    if ($at->Win($_REQUEST['id'], $at->CurrentRound(), $_REQUEST['bracket'])){
 	        echo "Winner declared.";
 	    } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 110';
+	        NEC(110);
 	    }
 	    
 	    $at->NewRound();

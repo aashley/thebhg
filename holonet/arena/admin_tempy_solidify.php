@@ -28,7 +28,7 @@ function output() {
         if ($petition->SolidifyJury()) {
 	        echo 'Jury Solidified.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 38';
+            NEC(38);
         }
     } 
     else {

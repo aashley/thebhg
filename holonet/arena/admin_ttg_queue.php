@@ -28,7 +28,7 @@ function output() {
         if ($challenge->Approve()) {
 	        echo 'Gauntlet Challenge Approved.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 17';
+            NEC(17);
         }
     } 
     elseif (isset($_REQUEST['edit'])) {
@@ -37,13 +37,13 @@ function output() {
 		    if ($challenge->Deny()) {
 		        echo 'Gauntlet Challenge Denied.';
 	        } else {
-	            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 18';
+	            NEC(18);
 	        }
         } else {
 	        if ($challenge->Remove()) {
 		        echo 'Gauntlet Challenge Removed.';
 	        } else {
-	            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 19';
+	            NEC(19);
 	        }
         }        
     }

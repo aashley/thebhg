@@ -50,11 +50,11 @@ function output() {
 			            if ($challenge->StartChallenge($control->LastInsert())){ 
 		                	echo 'New Match added.';
 	                	} else {
-		                	echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 14';
+		                	NEC(14);
 	                	}    		                
 		            }
 		            else {
-		                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 15';
+		                NEC(15);
 		            }
 		            
 		        } else {

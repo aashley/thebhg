@@ -23,7 +23,7 @@ function output() {
 	    if ($at->Tie($at->CurrentRound(), $_REQUEST['id'])){
 	        echo "Tie declared.";
 	    } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 112';
+	        NEC(112);
 	    }
 	    
 	    $at->NewRound();

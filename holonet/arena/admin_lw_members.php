@@ -22,14 +22,14 @@ function output() {
         if ($lw->NewMember($_REQUEST['bhg_id'])) {
 	        echo 'Lone Wolf Added.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 60';
+            NEC(60);
         }
     } 
     elseif (isset($_REQUEST['remove'])) {
         if ($lw->DeleteMember($_REQUEST['bhg_id'])) {
 	        echo 'Lone Wolf Removed.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 61';
+            NEC(61);
         }
     }
     else {

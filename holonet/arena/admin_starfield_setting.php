@@ -53,21 +53,21 @@ function output() {
 		if ($new){
 			echo "Successfully added new setting.";
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 96';
+			NEC(96);
         }
     }
     elseif (isset($_REQUEST['delete'])) {
         if ($type->Delete()) {
             echo "Deleted successfully.";
         } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 98';
+	        NEC(98);
         }
     }
     elseif (isset($_REQUEST['undelete'])) {
         if ($type->Undelete()) {
             echo "Undeleted successfully.";
         } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 99';
+	        NEC(99);
         }
     }
     else {

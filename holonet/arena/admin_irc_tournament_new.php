@@ -23,7 +23,7 @@ function output() {
 	    if ($at->SetSignup(parse_date_box('start'), parse_date_box('end'), $_REQUEST['double_elim'])){
 		    echo "New season information added.";
 	    } else {
-		    echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 115';
+		    NEC(115);
 	    }
 	    
     } else {

@@ -23,7 +23,7 @@ function output() {
             echo 'New Master Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 104';
+            NEC(104);
         }
     } elseif (isset($_REQUEST['end'])){
 		$master = new Master($ladder->CurrentMaster());
@@ -31,7 +31,7 @@ function output() {
 		if ($master->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 120';
+			NEC(120);
         }
     }
     else {

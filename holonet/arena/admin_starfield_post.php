@@ -66,8 +66,7 @@ function output() {
             echo "Match process completed.";
 
         } else {
-
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 49';
+			NEC(49);
         }
 
     }

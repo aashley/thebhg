@@ -23,7 +23,7 @@ function output() {
             echo 'New Skipper Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 138';
+            NEC(138);
         }
     } elseif (isset($_REQUEST['end'])){
 		$skipper = new Skipper($ladder->CurrentSkipper());
@@ -31,7 +31,7 @@ function output() {
 		if ($skipper->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 139';
+			NEC(139);
         }
     }
     else {

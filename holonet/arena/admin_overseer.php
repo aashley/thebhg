@@ -21,7 +21,7 @@ function output() {
             echo 'New Overseer Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 132';
+            NEC(132);
         }
     } elseif (isset($_REQUEST['end'])){
 		$ov = new Overseer($ladder->CurrentOV());
@@ -29,7 +29,7 @@ function output() {
 		if ($ov->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 133';
+			NEC(133);
         }
     }
     else {

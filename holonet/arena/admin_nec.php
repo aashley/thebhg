@@ -19,7 +19,7 @@ function output() {
     if (isset($_REQUEST['submit'])){
 	    $sql = "INSERT INTO `arena_errors` (`page`, `class`, `function`) VALUES ('".$_REQUEST['erp']."', '".$_REQUEST['class']."', '"
 	    	.$_REQUEST['function']."')";
-	    if (mysql_query($sql, $db)) { echo "New NEC Code Added"; }
+	    if (mysql_query($sql, $db)) { echo "New NEC Code (Error #".mysql_insert_id($db).") Added"; }
     }
     
     hr();

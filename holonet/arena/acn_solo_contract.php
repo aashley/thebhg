@@ -49,7 +49,7 @@ function output() {
 		                echo 'Contract Requested.';
 		            }
 		            else {
-		                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 7';
+		                NEC(7);
 		            }
 		        }
 		        else {

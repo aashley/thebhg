@@ -22,7 +22,7 @@ function output() {
 	    if ($at->Wildcard($_REQUEST['bhg_id'])){
 	        echo "Wildcard added.";
 	    } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 106';
+	        NEC(106);
 	    }
     } else {
 	    $form = new Form($page);

@@ -53,21 +53,21 @@ function output() {
 		if ($new){
 			echo "Successfully added new type.";
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 95';
+			NEC(95);
         }
     }
     elseif (isset($_REQUEST['delete'])) {
         if ($type->Delete()) {
             echo "Deleted successfully.";
         } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 93';
+	        NEC(93);
         }
     }
     elseif (isset($_REQUEST['undelete'])) {
         if ($type->Undelete()) {
             echo "Undeleted successfully.";
         } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 94';
+	        NEC(94);
         }
     }
     else {

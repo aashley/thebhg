@@ -37,8 +37,7 @@ function output() {
         if ($run_on->Post($_REQUEST['mbid'])){
             echo "Run-On posting process completed.";
         } else {
-
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 124';
+            NEC(124);
         }
 
     }

@@ -26,7 +26,7 @@ function output() {
                 echo "Challenge made successfully.";
             }
             else {
-                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 12';
+                NEC(12);
             }
         }
         else {

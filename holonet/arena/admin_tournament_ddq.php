@@ -23,7 +23,7 @@ function output() {
 	    if ($at->DoubleDQ($at->CurrentRound(), $_REQUEST['id'])){
 	        echo "DDQ declared.";
 	    } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 35';
+	        NEC(35);
 	    }
 	    
 	    $at->NewRound();

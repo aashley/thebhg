@@ -19,6 +19,8 @@ function output() {
 
     if (isset($_REQUEST['submit'])){
 	    
+	    $error = false;
+	    
 	    for ($i = 0; $i < 20; $i++) {
       
 			$person = "person$i";
@@ -27,14 +29,21 @@ function output() {
 			
 			$reason = "reason$i";
 			
-			$character = new Character($_REQUEST[$person]);
-			for ($run = 1; $run <= $_REQUEST[$dp]; $run++){
-            	$character->RemovePoint($_REQUEST[$reason]);
-        	}
-			
+			if ($_REQUEST[$person] > 0){
+				$character = new Character($_REQUEST[$person]);
+				for ($run = 1; $run <= $_REQUEST[$dp]; $run++){
+	            	if (!$character->RemovePoint($_REQUEST[$reason])){
+		            	$error = true;
+	            	}
+	        	}		
+        	}	
 		}
 		
-		echo 'Bonus points added.';
+		if ($error){
+			NEC(148);
+		} else {
+			echo 'Bonus points added.';
+		}
 		
 		hr();
 	    

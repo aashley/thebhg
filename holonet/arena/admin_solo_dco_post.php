@@ -48,13 +48,16 @@ function output() {
     elseif (isset($_REQUEST['submit'])) {
 
         if ($contract->DeDCO()){
-	        $contact = $contract->GetHunter();
-            $contact->Notify($_REQUEST['mbid']);
-            echo "Contract process completed.";
+	        if ($contact = $contract->GetHunter()){
+		        $contact->Notify($_REQUEST['mbid']);
+            	echo "Contract process completed.";
+        	} else {
+	        	NEC(155);
+        	}
 
         } else {
 
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 52';
+            NEC(52);
         }
 
     }
@@ -66,7 +69,7 @@ function output() {
 
         } else {
 
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 52';
+            NEC(52);
         }
 
     }

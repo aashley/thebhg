@@ -61,11 +61,11 @@ function output() {
 				            
 		                	echo 'New Match added.';
 	                	} else {
-		                	echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 21';
+		                	NEC(21);
 	                	}    		                
 		            }
 		            else {
-		                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 22';
+		                NEC(22);
 		            }
 		            
 		        } else {

@@ -625,7 +625,8 @@
 		if (!$errors){
 			return 'Sheet stored.';
 		} else {
-			return 'Error in storage. Report to Overseer.';
+			$arena = new Arena();
+			return $arena->NEC(160);
 		}	   
 	}
 	
@@ -659,7 +660,8 @@
 		if (!$errors && mysql_query($sql, $this->connect)){
 			return 'Backup loaded as edit sheet.';
 		} else {
-			return 'Error in update. Contact Overseer.';
+			$arena = new Arena();
+			return $arena->NEC(159);
 		}	   
 	}
 	
@@ -755,7 +757,8 @@
             $hunter->SendEmail($from, $subject, $text);
 			return 'Character Killed.';
 		} else {
-			return 'Error in update: '.mysql_error($this->connect);
+			$arena = new Arena();
+			return $arena->NEC(165);
 		}	   
 	}
 	

@@ -48,7 +48,7 @@ function output() {
 		if ($new){
 			echo "Weapon Type Changed.";
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 80';
+			NEC(80);
 		}
     }
     elseif (isset($_REQUEST['new'])) {
@@ -56,21 +56,21 @@ function output() {
 		if ($new){
 			echo "Successfully added new weapon type.";
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 83';
+			NEC(83);
         }
     }
     elseif (isset($_REQUEST['delete'])) {
         if ($type->Delete()) {
             echo "Deleted successfully.";
         } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 81';
+	        NEC(81);
         }
     }
     elseif (isset($_REQUEST['undelete'])) {
         if ($type->Undelete()) {
             echo "Undeleted successfully.";
         } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 82';
+	        NEC(82);
         }
     }
     else {

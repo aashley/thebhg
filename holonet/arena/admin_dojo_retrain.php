@@ -20,7 +20,7 @@ function output() {
 		if ($arena->RemoveApproved($_REQUEST['challengee'])){
 			echo 'Hunter declared as Dojo Learner.';
 		} else {
-			echo 'Error.';
+			NEC(146);
 		}
 		hr();
     }

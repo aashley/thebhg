@@ -23,7 +23,7 @@ function output() {
             echo 'New Mission Master Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 130';
+            NEC(130);
         }
     } elseif (isset($_REQUEST['end'])){
 		$mm = new MissionMaster($ro->CurrentMM());
@@ -31,7 +31,7 @@ function output() {
 		if ($mm->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 131';
+			NEC(131);
         }
     }
     else {

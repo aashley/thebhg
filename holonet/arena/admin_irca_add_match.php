@@ -36,7 +36,7 @@ function output() {
 	    if ($match->AddMatchText($_REQUEST['match_text'])){
 		    echo 'Match Text added!';
 	    } else {
-		    echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 109';
+		    NEC(109);
     	}
 
     }

@@ -41,7 +41,7 @@ function output() {
 	        
         	echo 'Winner declared.';
     	} else {
-        	echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 13';
+        	NEC(13);
     	}    	                
 	    
     } else {

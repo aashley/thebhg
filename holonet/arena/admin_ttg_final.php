@@ -48,11 +48,11 @@ function output() {
 			            if ($challenge->FinalChallenge($control->LastInsert(), $_REQUEST['challengee'])){ 
 		                	echo 'Final challenge made.';
 	                	} else {
-		                	echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 26';
+		                	NEC(26);
 	                	}    		                
 		            }
 		            else {
-		                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 27';
+		                NEC(27);
 		            }
 		            
 		        } else {

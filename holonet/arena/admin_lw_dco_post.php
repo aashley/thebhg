@@ -49,8 +49,7 @@ function output() {
             echo "Contract process completed.";
 
         } else {
-
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 59';
+            NEC(59);
         }
 	}
     elseif (isset($_REQUEST['dco'])) {
@@ -58,10 +57,8 @@ function output() {
         if ($contract->DeDCO()){
 	        $contract->SetHunter(0);
             echo "Denied reacquisition of dead contract.";
-
         } else {
-
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 59';
+            NEC(59);
         }
 
     }

@@ -23,7 +23,7 @@ function output() {
             echo 'New Comimssioner Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 57';
+            NEC(57);
         }
     } elseif (isset($_REQUEST['end'])){
 		$commie = new Comissioner($solo->CurrentComissioner());
@@ -31,7 +31,7 @@ function output() {
 		if ($commie->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 121';
+			NEC(121);
         }
     }
     else {

@@ -29,14 +29,14 @@ function output() {
         if ($ttg->InsertMember($_REQUEST['bhg_id'])) {
 	        echo 'Gauntlet Member Added.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 23';
+            NEC(23);
         }
     } 
     elseif (isset($_REQUEST['remove'])) {
         if ($ttg->DeleteMember($_REQUEST['bhg_id'])) {
 	        echo 'Gauntlet Member Removed.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 24';
+            NEC(24);
         }
     }
     else {

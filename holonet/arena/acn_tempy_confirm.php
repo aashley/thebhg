@@ -28,7 +28,7 @@ function output() {
                 echo "Petition sent successfully.";
             }
             else {
-                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 11';
+                NEC(11);
             }
             
         }

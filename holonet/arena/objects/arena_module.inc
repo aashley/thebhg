@@ -28,6 +28,10 @@
         return $lyarna;
     }
 
+    function NEC($error){
+	    return 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: '.$error;
+    }
+    
     function Overseer(){
 	    $roster = new Roster();
         $overseer = $roster->SearchPosition('29');

@@ -23,7 +23,7 @@ function output() {
 	    if ($at->AddToATN($_REQUEST['location'], $_REQUEST['rules'], $_REQUEST['posts'], $_REQUEST['num_weapon'], $_REQUEST['type_weapon'])){
 	        echo "Matches Added to Arena Tracking Network.";
 	    } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 118';
+	        NEC(118);
 	    }
 	    
     } else {

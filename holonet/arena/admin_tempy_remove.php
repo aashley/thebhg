@@ -28,7 +28,7 @@ function output() {
 	        if ($petition->RemoveSignUp($_REQUEST['bhg_id'])){
 		        echo "Successfully removed as juror.";
 	        } else {
-		        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 40';
+		        NEC(40);
 	        }
         } else {
 	        echo "Can not remove juror.";

@@ -31,7 +31,7 @@ function output() {
 	        if ($petition->Signup($hunter->GetID())) {
 		        echo 'Signed up as Juror';
 	        } else {
-	            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 47';
+	            NEC(47);
 	        }
 	        
         } else {

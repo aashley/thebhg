@@ -29,7 +29,7 @@ function output() {
 	        if ($challenge->PickUp($_REQUEST['bhg_id'])){
 		        echo "Successfully removed as challenger.";
 	        } else {
-		        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 16';
+		        NEC(16);
 	        }
         } else {
 	        echo "Can not be removed as a challenger.";

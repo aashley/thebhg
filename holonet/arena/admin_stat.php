@@ -26,7 +26,7 @@ function output() {
 	    if ($sheet->NewStatribute($_REQUEST['name'], $_REQUEST['desc'], $int, $_REQUEST['field'])){
 		    echo 'New Statribute Added Successfully!';
 	    } else {
-		    echo 'Error.';
+		    NEC(168);
 	    }
 	    
 	    hr();

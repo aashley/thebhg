@@ -31,14 +31,14 @@ function output() {
 		    if ($ro){
 			    echo 'Run On Undeleted';
 		    } else {
-			    echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 126';
+			    NEC(126);
 		    }  	    
 	    } else {
 		    $ro = $run_on->Delete();
 		    if ($ro){
 			    echo 'Run On Deleted';
 		    } else {
-			    echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 127';
+			    NEC(127);
 		    } 
 	    }
 	      

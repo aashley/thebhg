@@ -49,7 +49,7 @@ function output() {
 			            $solo->NotifyComissioner(2, $contract->GetMBID(), $hunter->GetName());
 			        }
 			        else {
-			            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 6';
+			            NEC(6);
 			        }
 			    }
 			    else {

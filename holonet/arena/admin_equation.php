@@ -22,7 +22,7 @@ function output() {
 	    if ($sheet->NewVaraible($_REQUEST['skill'], $_REQUEST['stat'], $_REQUEST['mod'])){
 		    echo 'New Variable Added successfully!';
 	    } else {
-		    echo 'Error.';
+		    NEC(145);
 	    }
 	    
 	    hr();

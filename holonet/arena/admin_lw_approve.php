@@ -19,7 +19,7 @@ function output() {
     $solo = new LW_Solo();
     if (isset($_REQUEST['submit'])) {
 		
-		$control = new SoloControl();
+		$control = new LW_SoloControl();
 		
 		$errors = 0;
 		
@@ -40,7 +40,7 @@ function output() {
 		}
 		
 		if ($errors){
-			echo 'Errors occured during processing';
+			NEC(164);
 		} else {
 			echo 'Contracts processed.';
 		}

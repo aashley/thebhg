@@ -18,21 +18,29 @@ function output() {
 
     if (isset($_REQUEST['submit'])){
 	    
+	    $error = false;
+	    
 	    for ($i = 0; $i < 20; $i++) {
       
 			$person = "person$i";
       
 			$credits = "credits$i";
 			
-			if ($_REQUEST[$person]){
+			if ($_REQUEST[$person] > 0){
 				$message = $arena->Tracker($hunter, 'CREDS', $_REQUEST[$credits], $_REQUEST['use']);
 				$awarded = $roster->GetPerson($_REQUEST[$person]);
-				$awarded->AddCredits($_REQUEST[$credits], $message.$_REQUEST['reason']);
+				if (!$awarded->AddCredits($_REQUEST[$credits], $message.$_REQUEST['reason'])){
+					$error = true;
+				}
 			}
 			
 		}
 		
-		echo 'Credits Awarded.';
+		if ($error){
+			NEC(149);
+		} else {
+			echo 'Credits Awarded.';
+		}
 		
 		hr();
 	    

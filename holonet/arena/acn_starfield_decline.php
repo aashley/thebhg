@@ -24,7 +24,7 @@ function output() {
 	    if ($match->Decline()){
 	        echo "Match declined!";
 	    } else {
-	        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 10';
+	        NEC(10);
 	    }
 	    
     }

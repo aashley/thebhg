@@ -77,7 +77,7 @@ function output() {
                 echo 'Match Results Added for Contender!';
             }
             else {
-                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 69';
+            	NEC(69);
             }
 
             echo "<br />";

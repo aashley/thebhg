@@ -27,6 +27,11 @@ function rp_staff($person){
 	return ($position->GetID() == 9 || $position->GetID() == 29);
 }
 
+function NEC($error){
+	global $arena;
+	echo $arena->NEC($error);
+}
+
 function next_medal($person, $group) {
 	global $mb;
 

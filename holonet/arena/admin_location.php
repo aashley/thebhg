@@ -32,7 +32,7 @@ function output() {
                 echo 'Saved location list.';
             }
             else {
-                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 66';
+                NEC(66);
             }
         }
         else {
@@ -40,7 +40,7 @@ function output() {
                 echo 'Saved location list.';
             }
             else {
-                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 67';
+                NEC(67);
             }
         }
     }

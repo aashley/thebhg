@@ -4,6 +4,7 @@
 
 	var $season;
 	var $doubleelim;
+	var $denied;
 	 
     function Tournament($id = 0){
         Arena::Arena();
@@ -99,6 +100,7 @@
 
             if (mysql_num_rows($query) > 0){
 				
+	            $this->denied = 'You are already signed up for this tournament.';
                 return false;
 
             } else {
@@ -110,6 +112,8 @@
 
                 } else {
 
+	                $arena = new Arena();
+                    $this->denied = $arena->NEC(144);
                     return false;
 
                 }
@@ -118,6 +122,7 @@
 
         } else {
 
+	        $this->denied = 'Invalid signup dates.';
             return false;
 
         }

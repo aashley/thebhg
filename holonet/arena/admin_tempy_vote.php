@@ -31,7 +31,7 @@ function output() {
 	        if ($petition->Vote($petition->JurorID($hunter->GetID()), $_REQUEST['approve'], $_REQUEST['comments'])){
 		        echo "Vote cast successfully.";
 	        } else {
-		        echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 36';
+		        NEC(36);
 	        }
 	        
         } else {

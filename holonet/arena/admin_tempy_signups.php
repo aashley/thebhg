@@ -29,7 +29,7 @@ function output() {
 				if ($petition->SignUp($_REQUEST['bhg_id_1'])){
 					echo "Juror added.";
 				} else {
-					echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 39';
+					NEC(39);
 				}
 				
 			} else {

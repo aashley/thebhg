@@ -26,7 +26,7 @@ function output() {
             echo 'Contract DCOed.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 55';
+            NEC(55);
         }
     }
     else {

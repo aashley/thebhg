@@ -28,7 +28,7 @@ function output() {
         if ($petition->Approve($hunter->GetID())) {
 	        echo 'Petition Approved.';
         } else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 41';
+            NEC(41);
         }
     } 
     elseif (isset($_REQUEST['edit'])) {

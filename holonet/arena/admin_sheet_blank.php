@@ -22,7 +22,7 @@ function output() {
 	    $character = new Character($_REQUEST['bhg_id']);
 		if ($character->IsNew()){
 			if (!$character->NewSheet()){
-				echo 'Could not create a new sheet. Report this to the Overseer.';
+				NEC(158);
 				admin_footer($auth_data);
 				return;
 			} else {

@@ -32,7 +32,7 @@ function output() {
 	        if ($challenge->ThrowDown($hunter->GetID())) {
 		        echo 'You have taken this challenge.';
 	        } else {
-	            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 30';
+	            NEC(30);
 	        } 
         }    
        

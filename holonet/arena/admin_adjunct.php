@@ -21,7 +21,7 @@ function output() {
             echo 'New Adjunct Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 134';
+            NEC(134);
         }
     } elseif (isset($_REQUEST['end'])){
 		$aj = new Adjunct($ladder->CurrentAJ());
@@ -29,7 +29,7 @@ function output() {
 		if ($aj->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 135';
+			NEC(135);
         }
     }
     else {
