@@ -32,6 +32,7 @@ function output() {
     $values = array();
     
     if ($_REQEUST['process']){
+	    echo 'Im fucking here, assholes';
 	    echo $character->Backup($_REQEUST['save'], $_REQUEST['sheet']);
 	    hr();		     
     }
