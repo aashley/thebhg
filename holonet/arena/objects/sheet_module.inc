@@ -140,6 +140,19 @@
 	    return $return;
     }
     
+    function AwardedCAs(){
+	    $sql = "SELECT * FROM `character_sheet_ca` WHERE `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $ca = $this->GetCa($info['ca']);
+		    $return[] = array('ca'=>$info['ca'], 'person'=>new Person($info['bhg_id']), 'name'=>$ca['name']);
+	    }
+	    
+	    return $return;
+    }
+    
     function CharacterAttributes($id){
 	    $base = $this->GetCAValues($id);
 	    
