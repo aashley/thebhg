@@ -88,7 +88,6 @@ function output() {
 			    if (is_array($ser)){
 				    $bld = new NPC_Utilities();
 				    foreach ($ser as $npc){
-					    echo $npc;
 				    	$table->AddRow('NPC:', $bld->Construct($npc));
 			    	}
 			    } elseif (is_numeric(($match->Get(data)))) {
