@@ -13,6 +13,7 @@ if [[ $# -eq 0 ]]; then
 	echo " ircstats        IRC Stats (Hermit)"
 	echo " ka              Kabal Authority"
   echo " ka-devel        Kabal Authority Development"
+	echo " lyarna          Lyarna"
 	echo " mall            Mall"
 	echo " mybhg           MyBHG - Main Website"
 	echo " mybhg-devel     MyBHG - Testing"
@@ -39,6 +40,22 @@ for site in $*; do
 			popd > /dev/null
 			;;
 
+		calypso)
+			echo Updating Calypso...
+			pushd /home/virtual/thebhg.org/home/blogs/public_html > /dev/null
+			$SVN update
+			chown -R 22120:admin5 .
+			popd > /dev/null
+			;;
+
+		citadel)
+			echo Updating Citadel...
+			pushd /home/virtual/thebhg.org/home/citadel/public_html > /dev/null
+			$SVN update
+			chown -R 22117:admin5 .
+			popd > /dev/null
+			;;
+
 		holonet)
 			echo Updating Holonet...
 			pushd /home/virtual/thebhg.org/home/holonet/public_html > /dev/null
@@ -52,6 +69,46 @@ for site in $*; do
 			pushd /home/virtual/thebhg.org/var/www/holonet-devel > /dev/null
 			$SVN update
 			chown -R admin5:admin5 .
+			popd > /dev/null
+			;;
+
+		ircstats)
+			echo Updating IRC Stats...
+			pushd /home/virtual/anya/var/www/html > /dev/null
+			$SVN update
+			chown -R anya:admin5 .
+			popd > /dev/null
+			;;
+
+		ka)
+			echo Updating Kabal Authority...
+			pushd /home/virtual/thebhg.org/home/ka/public_html > /dev/null
+			$SVN update
+			chown -R 22130:admin5 .
+			popd > /dev/null
+			;;
+
+		ka-devel)
+			echo Updating Kabal Authority Development...
+			pushd /home/virtual/thebhg.org/home/katest/public_html > /dev/null
+			$SVN update
+			chown -R 22135:admin5 .
+			popd > /dev/null
+			;;
+
+		lyarna)
+			echo Updating Lyarna...
+			pushd /home/virtual/thebhg.org/home/lyarna/public_html > /dev/null
+			$SVN update
+			chown -R 22133:admin5 .
+			popd > /dev/null
+			;;
+
+		mall)
+			echo Updating Mall...
+			pushd /home/virtual/thebhg.org/home/mall/public_html > /dev/null
+			$SVN update
+			chown -R 22136:admin5 .
 			popd > /dev/null
 			;;
 
@@ -76,54 +133,6 @@ for site in $*; do
 			pushd /home/virtual/thebhg.org/home/tactician/public_html > /dev/null
 			$SVN update
 			chown -R 22109:admin5 .
-			popd > /dev/null
-			;;
-
-		calypso)
-			echo Updating Calypso...
-			pushd /home/virtual/thebhg.org/home/blogs/public_html > /dev/null
-			$SVN update
-			chown -R 22120:admin5 .
-			popd > /dev/null
-			;;
-
-		ka)
-			echo Updating Kabal Authority...
-			pushd /home/virtual/thebhg.org/home/ka/public_html > /dev/null
-			$SVN update
-			chown -R 22130:admin5 .
-			popd > /dev/null
-			;;
-
-		ka-devel)
-			echo Updating Kabal Authority Development...
-			pushd /home/virtual/thebhg.org/home/katest/public_html > /dev/null
-			$SVN update
-			chown -R 22135:admin5 .
-			popd > /dev/null
-			;;
-
-		mall)
-			echo Updating Mall...
-			pushd /home/virtual/thebhg.org/home/mall/public_html > /dev/null
-			$SVN update
-			chown -R 22136:admin5 .
-			popd > /dev/null
-			;;
-
-		citadel)
-			echo Updating Citadel...
-			pushd /home/virtual/thebhg.org/home/citadel/public_html > /dev/null
-			$SVN update
-			chown -R 22117:admin5 .
-			popd > /dev/null
-			;;
-
-		ircstats)
-			echo Updating IRC Stats...
-			pushd /home/virtual/anya/var/www/html > /dev/null
-			$SVN update
-			chown -R anya:admin5 .
 			popd > /dev/null
 			;;
 
