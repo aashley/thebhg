@@ -51,7 +51,7 @@
         $person->SendEmail($from, $subject, $text);
     }
     
-    function Build(){
+    function 2Build(){
 	   $sql = "SELECT SUM(xp) as xp, "
                 ."SUM(creds) as credits "
                 ."FROM `arena_solo_contracts` WHERE `comissioner` = '".$this->comish_id."'";

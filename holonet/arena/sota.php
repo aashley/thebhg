@@ -31,6 +31,7 @@ function output() {
     $ladder = new Ladder();
     $ladder->Build();
     $solo = new Solo();
+    $solo->2Build();
     $lw = new LW_Solo();
     $st = new Person($ladder->CurrentSteward());
     $dm = new Person($ladder->CurrentMaster());
