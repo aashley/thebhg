@@ -121,15 +121,14 @@ function atn_nav(){
     $activities = array();
 
     $tables = array(1=>'ams_activities', 0=>'ams_list_types');
-    $app = array();
-    $gblname = '';
     foreach ($tables as $id=>$table){
+	    $app = array();
+    	$gblname = '';
 	    $gblname = ($id ? 'Activities' : 'Lists');
 	    foreach ($arena->Search(array('table'=>$table, 'search'=>array('date_deleted'=>'0'))) as $axs){		    
 		    if ($id){
 			    $app[$axs->Get(name)] = internal_link('atn_activity', array('id'=>$axs->Get(id)));
 	    	} else {
-		    	echo 'here';
 		    	$app[$axs->Get(name)] = internal_link('atn_list', array('id'=>$axs->Get(id)));
 	    	}
 	    }
