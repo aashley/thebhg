@@ -38,6 +38,15 @@ function output() {
     }
     
     if ($_REQUEST['goload']){
+	    if ($character->IsNew()){
+			if (!$character->NewSheet()){
+				NEC(161);
+				admin_footer($auth_data);
+				return;
+			} else {
+				$sheet->RegistrarTrack('new');
+			}
+		}
 	    if ($_REQUEST['okay']){
 		    echo $character->LoadCore($_REQUEST['sheet']);
 	    } else {
