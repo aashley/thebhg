@@ -2,7 +2,7 @@
 include('header.php');
 page_header();
 
-$sale = new Sale($id);
+$sale = new Sale($_REQUEST['id']);
 $auction = $sale->GetAuction();
 $item = $sale->GetItem();
 $pleb = $sale->GetOwner();
@@ -48,7 +48,7 @@ elseif (empty($bid)) {
 			$bidder = $bid->GetPerson();
 			echo '<TR><TD>' . $bidder->GetName() . '</TD><TD>' . date('j F Y \a\t G:i:s T', $bid->GetTime()) . '</TD><TD>' . number_format($bid->GetBid()) . ' ICs</TD><TD>';
 			if ($bid->IsValid()) {
-				echo "<A HREF=\"$PHP_SELF?id=$id&amp;bid=" . $bid->GetID() . '">Accept This Bid</A>';
+				echo "<A HREF=\"$PHP_SELF?id=$_REQUEST['id']&amp;bid=" . $bid->GetID() . '">Accept This Bid</A>';
 			}
 			else {
 				echo 'This bid cannot be accepted, as the bidder either does not have sufficient funds, or is prohibited from buying this type of ship.';
@@ -60,7 +60,7 @@ elseif (empty($bid)) {
 	else {
 		echo 'No bids have been made.';
 	}
-	echo "<HR NOSHADE SIZE=2><A HREF=\"auction-withdraw.php?id=$id\">Withdraw this $str_singular from auction</A>";
+	echo "<HR NOSHADE SIZE=2><A HREF=\"auction-withdraw.php?id=".$_REQUEST['id']."\">Withdraw this $str_singular from auction</A>";
 }
 else {
 	$bid = new Bid($bid);

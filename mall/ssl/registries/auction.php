@@ -2,7 +2,7 @@
 include('header.php');
 page_header();
 
-$sale = new Sale($id);
+$sale = new Sale($_REQUEST['id']);
 $item = $sale->GetItem();
 $pleb = $sale->GetOwner();
 
@@ -39,7 +39,7 @@ if ($sale->IsForSale()) {
 }
 else {
 	if (empty($end)) {
-		echo "<FORM NAME=\"auction\" METHOD=\"post\" ACTION=\"$PHP_SELF\"><INPUT TYPE=\"hidden\" NAME=\"id\" VALUE=\"$id\">";
+		echo "<FORM NAME=\"auction\" METHOD=\"post\" ACTION=\"$PHP_SELF\"><INPUT TYPE=\"hidden\" NAME=\"id\" VALUE=\"".$_REQUEST['id']."\">";
 
 		echo '<TABLE CELLSPACING=1 CELLPADDING=2>';
 		echo '<TR><TD>Minimum Bid:</TD><TD><INPUT TYPE="text" NAME="minimum" VALUE="0" SIZE=8> ICs</TD></TR>';

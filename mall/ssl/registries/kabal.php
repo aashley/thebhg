@@ -10,7 +10,7 @@ function sale_sort($a, $b) {
 
 $store = new Store();
 
-$div = $roster->GetDivision($id);
+$div = $roster->GetDivision($_REQUEST['id']);
 echo "<H1>$str_name Registries - " . $div->GetName();
 $dc = $div->GetCategory();
 if ($dc->GetID() == 2) {

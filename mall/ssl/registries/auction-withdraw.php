@@ -2,7 +2,7 @@
 include('header.php');
 page_header();
 
-$sale = new Sale($id);
+$sale = new Sale($_REQUEST['id']);
 $auction = $sale->GetAuction();
 $item = $sale->GetItem();
 $pleb = $sale->GetOwner();
