@@ -64,16 +64,18 @@ function output() {
                 $challenger = $combatants[0];
                 $challengee = $combatants[1];
 
-                $table->StartRow();
-                $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challenger->GetID()), 'roster') . '">' . $challenger->GetName() . '</a>');
-                $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challengee->GetID()), 'roster') . '">' . $challengee->GetName() . '</a>');
-                $table->AddCell($type->GetName());
-                $table->AddCell($location->GetName());
-                $table->AddCell($weapon->GetWeapon());
-                $table->AddCell($value->GetWeapons());
-                $table->AddCell($value->GetActions());
-                $table->AddCell('<a href="' . internal_link('admin_irca_complete', array('id'=>$value->GetID())) . '">Complete</a>');
-                $table->EndRow();
+                if (is_object($challenger) && is_object($challengee)){
+	                $table->StartRow();
+	                $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challenger->GetID()), 'roster') . '">' . $challenger->GetName() . '</a>');
+	                $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challengee->GetID()), 'roster') . '">' . $challengee->GetName() . '</a>');
+	                $table->AddCell($type->GetName());
+	                $table->AddCell($location->GetName());
+	                $table->AddCell($weapon->GetWeapon());
+	                $table->AddCell($value->GetWeapons());
+	                $table->AddCell($value->GetActions());
+	                $table->AddCell('<a href="' . internal_link('admin_irca_complete', array('id'=>$value->GetID())) . '">Complete</a>');
+	                $table->EndRow();
+                }
             }
             $table->EndTable();
         }
