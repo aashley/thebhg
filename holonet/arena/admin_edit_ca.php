@@ -59,13 +59,13 @@ function output() {
 	    $form->AddCheckBox('Delete', 'delete', 1);
 	    
 	    $values = $sheet->GetCAValues($ca['id']);
-	    foreach ($values as $id=>$value){
+	    foreach ($values as $id=>$val){
 		    $skval = 0;
 		    $stval = 0;
-	    	if ($ca['skill']){
-		    	$skval = $ca['field'];
+	    	if ($val['skill']){
+		    	$skval = $val['field'];
 	    	} else {
-		    	$stval = $ca['field'];
+		    	$stval = $val['field'];
 	    	}
 		    $form->StartSelect('Skill', 'skill['.$id.']', $skval);
 		    $form->AddOption(0, '');
@@ -85,7 +85,7 @@ function output() {
 		    	}
 		    }
 		    $form->EndSelect();
-		    $form->AddTextBox('Modifier', 'mod['.$id.']', $ca['mod'], 5);
+		    $form->AddTextBox('Modifier', 'mod['.$id.']', $val['mod'], 5);
 		    $form->AddCheckBox('Delete', 'del['.$id.']', 1);
 		    $form->AddHidden('stats[]', $id);
 	    }
