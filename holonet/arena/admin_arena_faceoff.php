@@ -43,7 +43,7 @@ function output() {
 
         $vs = $person1->GetName().' vs '.$person2->GetName();
         
-        $new = $control->OldMatch($_REQUEST['rules'], $local[0], $local[1], $_REQUEST['posts'], $_REQUEST['num_weapon'], $person1, $person2, 
+        $new = $control->OldMatch($_REQUEST['rules'], $local[0], $local[1], $_REQUEST['posts'], $_REQUEST['num_weapon'], $person1->GetID(), $person2->GetID(), 
         		$_REQUEST['type_weapon'], 'Ladder Faceoff: '.$vs, 0, 0, 0, 0);
         
         if ($new){               
