@@ -56,6 +56,8 @@
     	$skip = $new->CurrentSkipper();
     	$skipper = new Skipper($skip);
 	    
+    	echo $challenger;
+    	
         $person1 = new Person($challenger);
         $person2 = new Person($challengee);
 
@@ -65,8 +67,8 @@
 
         $restriction = serialize($restrictions);
         
-        $sql = "INSERT INTO `arena_starfield_match` (`name`, `type`, `restrictions`, `location`, `settings`, `num_posts`, `skipper`) "
-                ."VALUES ('".addslashes($name)."', '$type', '".$restriction."', '$location', '$settings', '$posts', '".$skipper->GetID()."')";
+        $sql = "INSERT INTO `arena_starfield_match` (`name`, `type`, `restrictions`, `location`, `settings`, `num_posts`, `skipper`, `accepted`) "
+                ."VALUES ('".addslashes($name)."', '$type', '".$restriction."', '$location', '$settings', '$posts', '".$skipper->GetID()."', 1)";
 
         if (mysql_query($sql, $this->connect)) {
 
