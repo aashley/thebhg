@@ -72,9 +72,17 @@ function output() {
 	    
 	    hr();
 	} elseif ($_REQUEST['delete']){
-		
+		if ($poll->Delete()){
+			echo 'Poll deleted.';
+		} else {
+			NEC(209);
+		}
 	} elseif ($_REQUEST['undelete']){
-		
+		if ($poll->Undelete()){
+			echo 'Poll undeleted.';
+		} else {
+			NEC(210);
+		}
     } elseif ($_REQUEST['next']){
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Add Options');
@@ -135,7 +143,7 @@ function output() {
 	    $show = false;
     } elseif ($_REQUEST['initial']){
 	    $form = new Form($page);
-	    $form->AddSectionTitle('Create new Poll');
+	    $form->AddSectionTitle('Edit Poll');
 	    
 	    $poll = new Poll($_REQUEST['poll']);
 	    
@@ -154,7 +162,7 @@ function output() {
 	    hr();
 	    
 	    $form = new Form($page);
-	    $form->AddSectionTitle('Create new Poll');
+	    $form->AddSectionTitle('Poll Management');
 	    
 	    $poll = new Poll($_REQUEST['poll']);
 	    
