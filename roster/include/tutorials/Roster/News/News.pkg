@@ -1,0 +1,442 @@
+<refentry id="{@id}">
+  <refnamediv>
+    <refname>BHG News Script</refname>
+    <refpurpose>How to use the BHG News Script</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <author>
+      <firstname>Adam</firstname>
+      <lastname>Ashley</lastname>
+      <email>{@link mailto:adam_ashley@softhome.net adam_ashley@softhome.net}</email>
+      <authorblurb>
+        PRM/Koral/Planetoid Cernun/BHG -U
+      </authorblurb>
+    </author>
+  </refsynopsisdiv>
+  {@toc}
+  <refsect1 id="{@id introduction}">
+    <title>Introduction</title>
+    <para>This documentation is intended for those that plan to use the built
+    in {@link News::Render()}, {@link News::RenderAdmin()} and {@link 
+      News::RenderBackend()} functions. If you do not plan to use these and
+    instead wish to build your own interface directly calling the related 
+    functions please see the detailed documentation in the News Package.</para>
+  </refsect1>
+  <refsect1 id="{@id installation}">
+    <title>Installation</title>
+    <para>Really, there is nothing to installation of this news script. First 
+    off contact the Underlord and get a Coder Identification String for your
+    site if you haven't already. Remember each site that wants to have seperate
+    news must have its own Coder ID.</para>
+    <para>Once you have a Coder ID download the sample configuration file and
+    template. Available {@link http://www.cernun.net/ here}. This zip file also
+    includes some example scripts which demonstrate the usage of the news
+    script.</para>
+  </refsect1>
+  <refsect1 id="{@id configuration}">
+    <title>Configuration File</title>
+    <para>The configuration file can be named anything you like as long as it
+    has the extension *.ini. Just remember this filename as it must be passed
+    to the {@link News::LoadConfig()} function call.</para>
+    <para>This configuration file must be placed either in the same directory
+    as the script you are running or in a sub-directory of there. It will not
+    load if you try to access a configuration file that is located in a parent
+    directory</para>
+    <para>The provided sample configuration file is quite well documented and
+    you should be able to work your way through it all without too many
+    problems.</para>
+    <para>Configuration File: sample.ini</para>
+    <para>
+      <programlisting role="ini">
+      <![CDATA[
+[website]
+;   The Name of your web site
+name = Bounty Hunter's Guild Home Page
+
+;   URL of your web site
+url = "http://www.thebhg.org/"
+
+[news]
+;   What you wish the news system to call itself.
+;   Mostly used in the admin page
+name = BHG News Database
+
+;   The number of number_items_type to display on the main page
+number_items = 5
+
+;   The type of of items to display on the main page, this can be either posts
+;   or days
+number_items_type = posts
+
+;   Date Format
+;   The Data uses the php date command to format its output. For more 
+;   information on what characters you can place in this string to produce
+;   a data please see:
+;     http://www.php.net/manual/function.date.php
+date_format = "F jS Y, g:iA T"
+
+[output]
+;   This option is only for people who understand PHP and may need to
+;   use this script in a different way that the majority of the users.
+;   You can tell the script to output all information to a variable of
+;   your choice, instead of the default printing of the info. If you
+;   use the example below, after running the script, $variable_name will
+;   hold all the info that would have been printed instead. Be very care-
+;   ful with this, it is possible to overwrite variables required by the
+;   script. Set the method to "print" if you wish to have the info echo'd
+method = print
+
+;   The filename of the layout template for your news script. This should be
+;   somewhere in the include path.
+post_template = template.tpl
+
+[backend]
+;   Full home URL of the news page
+;   ie a url that will display the news page
+;   place %id% where you want the news id number to be placed
+;   The news script places a <a name=%postid%></a> at the beginning of each
+;   article. So a normal link might be :
+;   $news_home = "http://www.thebhg.org/#%id%";
+;
+;   However if your site is using frames this will not work so you may need
+;   to set something else up, like this:
+;   $news_home = "http://ssl.thebhg.org/?id=%id%";
+news_home = "http://www.thebhg.org/index.php#%id%"
+
+;   Number of items to display in Backend
+number = 5
+
+
+;   The Board Admin should be set to the login number of the person
+;   maintaining the news script, be careful as this person will
+;   be able to edit and delete any and all message on the board.
+;   Other posters can only edit their own posts.
+;   Board Admin can also be set an exact position/division pair.
+;   It does not take the -1 wildcard. ie:
+;   Specific Person as admin:
+;     [board_admin]
+;     id = 94
+;
+;   Specific Position/Division pair:
+;     [board_admin]
+;     position = 4
+;     division = 10
+[board_admin]
+position = 4
+division = 10
+
+;     Who can post
+;   Each poster is defined by a section. This section should be named posterN
+;   where N is a number greater than or equal to 0 that has not already been
+;   used.
+;
+;   A poster section can either contain a position/division pair or just an id
+;   number. If both exist the id number takes precedence.
+;
+;   As an example of all this the default version of this file contains
+;   permissions for the Specialist as board admin and all commission members
+;   can post.
+;
+;   A Position Division Pair:
+;     [poster0]
+;     position = 11
+;     division = 8
+;   Will set poster 0 to anyone who holds the position of chief within
+;   omega kabal.
+;
+;   An ID Number:
+;     [poster0]
+;     id = 94
+;   Koral has permission to post.
+;
+;   The position/division pair also accepts wildcards. To set one or both 
+;   options as wildcards set the appropriate option to -1.
+;     [poster0]
+;     position = 11
+;     division = -1
+;   This will set poster 0 to anyone who holds the position of chief.
+;
+;      Postions                 Divisions
+;     1 = Dark Prince         10 = Commission
+;     2 = Underlord            9 = Commission Assistants
+;     3 = Tactician           17 = Cyclone
+;     4 = Specialist           3 = Daichi
+;     5 = Executor             4 = Dragon
+;     6 = Judicator            8 = Omega
+;    29 = Overseer            15 = Phoenix
+;     7 = Marshal              2 = Skylla
+;     8 = Proctor             13 = Thunder
+;     9 = Adjunct             19 = Down Wing   
+;    10 = Warden              18 = Up Wing
+;    11 = Chief               16 = Disavowed
+;    12 = Chief's Assistant   20 = EH Command Staff
+;    13 = Grand Hunter        12 = Retirees
+;    14 = Hunter              11 = Unassigned
+;    15 = Neophyte            -1 = Any Division
+;    16 = Novitiate
+;    17 = Initiate
+;    18 = Trainee
+;    19 = Veteran
+;    20 = Frood
+;    21 = BOFH
+;    22 = Corpse
+;    23 = Furry Animal
+;    24 = Unknown
+;    -1 = Any Position
+[poster0]
+id = 94
+
+[poster1]
+position = -1
+division = 10
+
+[poster2]
+position = -1
+division = 9
+      ]]>
+      </programlisting>
+    </para>
+  </refsect1>
+  <refsect1 id="{@id template}">
+    <title>News Item Output Template</title>
+    <para>When using the {@link News::Render()} function the system relies on
+    a user defined Output Template to render the final news output in a form
+    that matches with your page layout.</para>
+    <para>To handle the dynamic parts of the output the template system 
+    recognises a collection of custom tags. Tags are of the form %tagname%.
+    </para>
+    <table frame="all">
+      <title>Recognised Tags</title>
+      <tgroup cols="2">
+        <thead>
+          <row>
+            <entry>Tag Name</entry>
+            <entry>Description</entry>
+          </row>
+        </thead>
+        <tbody>
+          <row>
+            <entry>%id%</entry>
+            <entry>The news post's ID number.</entry>
+          </row>
+          <row>
+            <entry>%topic%</entry>
+            <entry>The topic/title of the news post.</entry>
+          </row>
+          <row>
+            <entry>%message%</entry>
+            <entry>The main body of the news post.</entry>
+          </row>
+          <row>
+            <entry>%date%</entry>
+            <entry>The date the news post was created, formatted according to
+            the option defined in the configuration file.</entry>
+          </row>
+          <row>
+            <entry>%poster_id%</entry>
+            <entry>The ID number of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_name%</entry>
+            <entry>The name of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_email%</entry>
+            <entry>The email address of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_idline%</entry>
+            <entry>The full ID Line of the poster, including all medals and
+            Citadel courses.</entry>
+          </row>
+          <row>
+            <entry>%poster_division_id%</entry>
+            <entry>The ID number of the division of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_division_name%</entry>
+            <entry>The name of the division of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_position_id%</entry>
+            <entry>The ID number of the position of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_position_name%</entry>
+            <entry>The name of the position of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_position_abbrev%</entry>
+            <entry>The abbreviation for the position of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_rank_id%</entry>
+            <entry>The ID number of the rank of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_rank_name%</entry>
+            <entry>The name of the rank of the poster.</entry>
+          </row>
+          <row>
+            <entry>%poster_rank_abbrev%</entry>
+            <entry>The abbreviation for the rank of the poster.</entry>
+          </row>
+          <row>
+            <entry>%section_id%</entry>
+            <entry>The ID number of the news section that this post belongs
+            to.</entry>
+          </row>
+          <row>
+            <entry>%section_name%</entry>
+            <entry>The name of the news section that this post belongs 
+            to.</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+    <para>Example Output Template: template.tpl</para>
+    <para>
+      <programlisting role="php">
+      <![CDATA[
+<table>
+  <tr>
+    <td colspan="2">%topic%</td>
+  </tr>
+  <tr>
+    <td>Posted by %poster_position_name% <a href="mailto:%poster_email%">%poster_name%</a></td>
+    <td align="right">%date%</td>
+  </tr>
+  <tr>
+    <td colspan="2">%message%</td>
+  </tr>
+  <tr>
+    <td colspan="2"><font size="-2">Brought to you by the %section_name% department.</td>
+  </tr>
+</table>
+<br>
+      ]]>
+      </programlisting>
+    </para>
+  </refsect1>
+  <refsect1 id="{@id running}">
+    <title>Running The Actual Script</title>
+    <para>To run the actual script you need to place a few lines of code into
+    the PHP script in which you want the appropriate interface to appear.
+    </para>
+    <refsect2 id="{@id outputnews}">
+      <title>Outputting News</title>
+      <para>To output the actual news you use the function {@link 
+        News::Render()}.</para>
+      <para>Example News Script:</para>
+      <para>
+        <programlisting role="php">
+        <![CDATA[
+<html>
+<head>
+<title>News Page</title>
+</head>
+<body>
+<?php
+
+include_once('roster.inc');
+
+$news = new News('your coder id string here');
+
+// This call should specify the filename of the config file
+if ($news->LoadConfig('sample.ini')) {
+
+  $news->Render();
+
+} else {
+
+  print 'Could not load configuration file.<br>'
+    .$news->Error().'<br>';
+
+}
+
+?>
+</body>
+</html>
+        ]]>
+        </programlisting>
+      </para>
+    </refsect2>
+    <refsect2 id="{@id outputadmin}">
+      <title>Outputting the Admin Interface</title>
+      <para>The News object has a completely self contained Administration 
+      interface built in. This interface while basic will allow you to 
+      complete all the tasks you should require.</para>
+      <para>The Administration interface is output using the function {@link 
+        News::RenderAdmin()}.</para>
+      <para>Example News Admin Script:</para>
+      <para>
+        <programlisting role="php">
+        <![CDATA[
+<html>
+<head>
+<title>News Administration</title>
+</head>
+<body>
+<?php
+
+include_once('roster.inc');
+
+$news = new News('your coder id string here');
+
+// This call should specify the filename of the config file.
+if ($news->LoadConfig('sample.ini')) {
+
+  $news->RenderAdmin();
+
+} else {
+
+  print 'Could not load configuration file.<br>'
+    .$news->Error().'<br>';
+
+}
+
+?>
+</body>
+</html>
+        ]]>
+        </programlisting>
+      </para>
+    </refsect2>
+    <refsect2 id="{@id outputbackend}">
+      <title>Generating the RSS Backend</title>
+      <para>The News object also contains a function for generating an XML/RSS
+      compliant backend for syndicating your news onto other pages.</para>
+      <para>Due to the completeness of this function you should only need to
+      copy the below script into a file and upload it. This script is also 
+      included in the download package as backend.php.</para>
+      <para>The backend is generated with the function 
+      {@link News::RenderBackend()}.</para>
+      <para>Example Backend Script:</para>
+      <para>
+        <programlisting role="php">
+        <![CDATA[
+<?php
+
+include_once('roster.inc');
+
+$news = new News('your coder id string here');
+
+// This call should specify the filename of the config file.
+if ($news->LoadConfig('sample.ini')) {
+
+  $news->RenderBackend();
+
+} else {
+
+  print 'Could not load configuration file.<bR>'
+    .$news->Error().'<br>';
+
+}
+
+?>
+        ]]>
+        </programlisting>
+      </para>
+    </refsect2>
+  </refsect1>
+</refentry>

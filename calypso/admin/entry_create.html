@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+{getperson assign="person"}
+{getblog blogid=$person.blog assign="blog"}
+		<title>{$blog.title|escape} &#8212; Administration</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />  
+		<link rel="stylesheet" href="{$blog.url}admin/style.css" media="screen" title="default" />
+		<script src="{$blog.url}admin/javascript.js" language="JavaScript" type="text/javascript" />
+		<!--script type="text/javascript" src="{$blog.url}admin/richtext.js"></script-->
+	</head>
+	<body>
+	<div id="container">
+		<div id="banner">
+			<h1><a href="{$blog.url}admin" accesskey="1">{$system.name|escape} Administration</a></h1>
+			<span class="description">{$system.description|escape}</span>
+		</div>
+		<div id="content">
+			<div class="blog">
+				<div class="blogbody">
+{getdrafts blogid=$blog.id assign="drafts"}
+{if count($drafts) gt 0}
+					<table class="data">
+						<tr>
+							<th>Draft Title</th>
+							<th>Date</th>
+							<th>Actions</th>
+						</tr>
+  {foreach from=$drafts item=draft}
+						<form method="post" action="{$draft.editurl}">
+							<tr class="{cycle values="odd,even"}">
+								<td>{$draft.title|escape}</td>
+								<td class="actions">{$draft.timestamp|date_format:"%b %d %Y"}</td>
+								<td class="actions">
+									<input name="Continue" type="submit" value="Continue" />
+									<input name="Delete" type="submit" value="Delete" />
+								</td>
+							</tr>
+							<input type="hidden" name="entry" value="{$draft.id}" />
+							<input type="hidden" name="person" value="{$person.id}" />
+						</form>
+  {/foreach}
+					</table>
+					<br />
+{/if}
+					<form method="post" action="{$blog.url}admin/create" class="visible">
+						<h3>Create a new entry</h3>
+						<fieldset id="title_field" class="input">
+							<label>
+								Title of the Blog Entry <br />
+								<input id="form_item_one" name="title_entry" type="text" size="30" tabindex="{counter}" />
+							</label>
+						</fieldset>
+						<fieldset id="content_field" class="input">
+							<label>
+								Full Text of the Blog Entry<br />
+								<textarea name="content_entry" cols="70" rows="20" tabindex="{counter}"></textarea>
+							</label>
+						</fieldset>
+						</fieldset>
+						<fieldset id="category_field" class="input">
+							Categories [<a href="{$blog.url}admin/categories">Modify</a>] <br />
+{getcategories blogid=$blog.id assign="categories"}
+{foreach from=$categories item=category}
+							<label>
+								<input type="checkbox" name="category_boxes[]" value="{$category.id}" tabindex="{counter}" />
+								{$category.title|escape} 
+							</label><br />
+{/foreach}
+						</fieldset>
+						<fieldset id="options_field" class="input">
+							Miscellaneous Options <br />
+							<label>
+								<input type="checkbox" name="pingback_box" tabindex="{counter}" />
+								PingBack <acronym title="Uniform Resource Locator">URL</acronym>s?
+							</label><br />
+							<label>
+								<input type="checkbox" name="comments_box" tabindex="{counter}" />
+								Enable Commenting?
+							</label>
+						</fieldset>
+						<fieldset id="control_field" class="control">
+							<input type="submit" name="SaveDraft" value="Save as Draft" tabindex="{counter}" /> &nbsp;
+							<input type="submit" name="Publish" value="Publish Entry" tabindex="{counter}" />
+							<input type="hidden" name="person" value="{$person.id}" />
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="links">
+			<div class="sidetitle">View My</div>
+			<div class="side">
+				<a href="{$blog.url}">Blog Home</a><br />
+			</div>
+			<div class="sidetitle">Blog Entries</div>
+			<div class="side">
+				<a href="{$blog.url}admin/create">Create Entry</a><br />
+				<a href="{$blog.url}admin/entries">Modify Entries</a><br />
+			</div>
+			<div class="sidetitle">Blog Options</div>
+			<div class="side">
+				<a href="{$blog.url}admin/books">Currently Reading</a><br />
+				<a href="{$blog.url}admin/categories">Categories</a><br />
+				<a href="{$blog.url}admin/links">Shared Links</a><br />
+			</div>
+			<div class="syndicate">
+				<a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.0">
+					<img src="{$blog.url}images/xhtml10.png" alt="XHTML1" />
+				</a><br />
+				<a href="http://jigsaw.w3.org/css-validator/validator?uri=blogs.thebhg.org" title="Valid CSS">
+					<img src="{$blog.url}images/css.png" alt="CSS2" />
+				</a><br />
+			</div>	
+			<div class="powered">Powered by<br />
+				<a href="{$system.home}" title="Visit the {$system.name|escape} frontpage">{$system.name|escape} {$system.version}</a><br />
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

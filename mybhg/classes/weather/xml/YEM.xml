@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<state name="Yemen">
+	<city name="Aden" url="http://weather.interceptvector.com/weather.xml?id=WU1YWDAwMDE%3D" />
+	<city name="Al Hudaydah" url="http://weather.interceptvector.com/weather.xml?id=WU1YWDAwMDI%3D" />
+	<city name="Ash Shaykh Uthman" url="http://weather.interceptvector.com/weather.xml?id=WU1YWDAwMDM%3D" />
+	<city name="Lahij" url="http://weather.interceptvector.com/weather.xml?id=WU1YWDAwMDQ%3D" />
+	<city name="Mamoudzou" url="http://weather.interceptvector.com/weather.xml?id=WU1YWDAwMDc%3D" />
+	<city name="Sanaa" url="http://weather.interceptvector.com/weather.xml?id=WU1YWDAwMDU%3D" />
+	<city name="Taizz" url="http://weather.interceptvector.com/weather.xml?id=WU1YWDAwMDY%3D" />
+</state>

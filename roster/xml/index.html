@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html/loose.dtd">
+<HTML>
+<HEAD>
+<TITLE>Experimental Roster 3 XML Interface</TITLE>
+</HEAD>
+<BODY>
+<P><H1>Experimental Roster 3 XML Interface</H1></P>
+<P>This is an experimental read-only interface to the BHG Roster 3 via XML. Available files and their options follow:</P>
+<UL>
+<LI><P><B>person.php</B> <A HREF="person.php?id=666&amp;text=1">(Example)</A><BR>Returns an XML representation of a Person object, along with their rank, position, and division information. Requires one parameter: <I>id</I> (the roster ID of the person).</P>
+<LI><P><B>division.php</B> <A HREF="division.php?id=10&amp;text=1">(Example)</A><BR>Returns an XML representation of a Division object, including the roster IDs of its members, which could then be looked up using person.php. Requires one parameter: <I>id</I> (the roster ID of the division).</P>
+<LI><P><B>cadre.php</B> <A HREF="cadre.php?id=1&amp;text=1">(Example)</A><BR>Returns an XML representation of a Cadre object, including the roster IDs of its members, which could then be looked up using person.php. Requires one parameter: <I>id</I> (the roster ID of the cadre).</P>
+<LI><P><B>rank.php</B> <A HREF="rank.php?id=15&amp;text=1">(Example)</A><BR>Returns an XML representation of a Rank object. Requires one parameter: <I>id</I> (the roster ID of the rank).</P>
+<LI><P><B>position.php</B> <A HREF="position.php?id=3&amp;text=1">(Example)</A><BR>Returns an XML representation of a Position object. Requires one parameter: <I>id</I> (the roster ID of the position).</P>
+<LI><P><B>search.php</B> <A HREF="search.php?type=rank&amp;value=14&amp;text=1">(Example)</A><BR>Provides a hook into the Search* methods of a Roster object. Requires two parameters: <I>type</I> (the type of search to conduct; one of "name", "ircnick", "email", "position", "rank"); <I>value</I> (the value to search for).</P>
+</UL>
+<P>Additionally, all files accept a <I>text</I> parameter, which if set will cause the script to set the Content-Type to text/plain instead of text/xml.</P>
+<P>At this stage, I'm afraid you'll have to look at the XML files themselves to figure out the tags and so on, but it's all pretty simple, particularly if you're familiar with the Roster 3 PHP interface. There are no plans for write access, nor are there plans for further files at this stage. Note, however, that this is experimental, and subject to change at any point. Also, it's not part of the official Roster, and if it breaks, it's a very low priority.</P>
+<P>So, with all those disclaimers out of the way, have fun. You can <A HREF="sample.php">view some sample code here</A>.</P>
+<P><A HREF="mailto:jernai@iinet.net.au">Jernai Teifsel</A></P>
+</BODY>
+</HTML>

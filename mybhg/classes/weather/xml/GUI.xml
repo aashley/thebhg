@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Guinea">
+	<city name="Boffa" url="http://weather.interceptvector.com/weather.xml?id=R1ZYWDAwMDE%3D" />
+	<city name="Conakry" url="http://weather.interceptvector.com/weather.xml?id=R1ZYWDAwMDI%3D" />
+</state>

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Somalia">
+	<city name="Hargeisa" url="http://weather.interceptvector.com/weather.xml?id=U09YWDAwMDM%3D" />
+	<city name="Kismanyo" url="http://weather.interceptvector.com/weather.xml?id=U09YWDAwMDE%3D" />
+	<city name="Mogadishu" url="http://weather.interceptvector.com/weather.xml?id=U09YWDAwMDI%3D" />
+</state>

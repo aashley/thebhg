@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<state name="South Africa">
+	<city name="Alexander Bay" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDE%3D" />
+	<city name="Annadale" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDI%3D" />
+	<city name="Barkly West" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDM%3D" />
+	<city name="Beauvallon" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDQ%3D" />
+	<city name="Bellville" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDU%3D" />
+	<city name="Benoni" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDY%3D" />
+	<city name="Berlin" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDc%3D" />
+	<city name="Bethlehem Airport" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjI%3D" />
+	<city name="Bloemfontein" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDg%3D" />
+	<city name="Boshof" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMDk%3D" />
+	<city name="Calvinia" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjQ%3D" />
+	<city name="Cape Point" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjg%3D" />
+	<city name="Cape Town" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTA%3D" />
+	<city name="Durban" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTE%3D" />
+	<city name="East London" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTI%3D" />
+	<city name="Edenburg" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTM%3D" />
+	<city name="Ferreira" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTQ%3D" />
+	<city name="George Airport" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjY%3D" />
+	<city name="Germiston" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTU%3D" />
+	<city name="Gough Island" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjc%3D" />
+	<city name="Grootmis" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTY%3D" />
+	<city name="Haga-Haga" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTc%3D" />
+	<city name="Hamburg" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTg%3D" />
+	<city name="Hermanus" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMTk%3D" />
+	<city name="Illovo" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjA%3D" />
+	<city name="Jacobsdal" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjE%3D" />
+	<city name="Jeffrey's Bay" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjI%3D" />
+	<city name="Johannesburg" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjM%3D" />
+	<city name="Kakamas" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjQ%3D" />
+	<city name="Karos" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjU%3D" />
+	<city name="Keimoes" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjY%3D" />
+	<city name="Kempton Park" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjc%3D" />
+	<city name="Kimberley" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjg%3D" />
+	<city name="King William's Town" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMjk%3D" />
+	<city name="Kleinsee" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzA%3D" />
+	<city name="Krugersdorp" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzE%3D" />
+	<city name="Langebaanweg" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjU%3D" />
+	<city name="Louisvale" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzI%3D" />
+	<city name="Lyttelton" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzM%3D" />
+	<city name="Malmesbury" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzQ%3D" />
+	<city name="Marion Island" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjk%3D" />
+	<city name="Mphakane" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzU%3D" />
+	<city name="Paarl" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzY%3D" />
+	<city name="Parow" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzc%3D" />
+	<city name="Pietersburg" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzg%3D" />
+	<city name="Pinetown" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwMzk%3D" />
+	<city name="Port Alfred" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDA%3D" />
+	<city name="Port Elizabeth" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDE%3D" />
+	<city name="Port Nolloth" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDI%3D" />
+	<city name="Potgietersrus" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDM%3D" />
+	<city name="Pretoria" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDQ%3D" />
+	<city name="Pretoria Irene" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjE%3D" />
+	<city name="Ritchie" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDU%3D" />
+	<city name="Rustenburg" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDY%3D" />
+	<city name="Saldanha" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDc%3D" />
+	<city name="Sekuruwe" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDg%3D" />
+	<city name="Soweto" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNDk%3D" />
+	<city name="Springbok" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjM%3D" />
+	<city name="Stanger" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTA%3D" />
+	<city name="Strand" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTE%3D" />
+	<city name="Tembisa" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTI%3D" />
+	<city name="Tongaat" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTM%3D" />
+	<city name="Uitenhage" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTQ%3D" />
+	<city name="Ulco" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTU%3D" />
+	<city name="Upington" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTY%3D" />
+	<city name="Vereeniging" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTc%3D" />
+	<city name="Walmer" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTg%3D" />
+	<city name="Welkom" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNTk%3D" />
+	<city name="Witbank" url="http://weather.interceptvector.com/weather.xml?id=U0ZYWDAwNjA%3D" />
+</state>

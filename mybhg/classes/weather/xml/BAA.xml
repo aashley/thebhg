@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Bahamas">
+	<city name="Andros Town" url="http://weather.interceptvector.com/weather.xml?id=QkZYWDAwMDE%3D" />
+	<city name="Freeport" url="http://weather.interceptvector.com/weather.xml?id=QkZYWDAwMDI%3D" />
+	<city name="George Town" url="http://weather.interceptvector.com/weather.xml?id=QkZYWDAwMDY%3D" />
+	<city name="Governor's Harbour" url="http://weather.interceptvector.com/weather.xml?id=QkZYWDAwMDM%3D" />
+	<city name="Matthew Town" url="http://weather.interceptvector.com/weather.xml?id=QkZYWDAwMDQ%3D" />
+	<city name="Nassau" url="http://weather.interceptvector.com/weather.xml?id=QkZYWDAwMDU%3D" />
+</state>

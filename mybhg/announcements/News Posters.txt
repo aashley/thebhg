@@ -1,0 +1,9 @@
+A few hours, he says. Hmmm. (Oh, and hello to the CRAs and Warden, both of whom I completely forgot to include on the last e-mail.)
+
+Anyway, the new news scripts have been uploaded, it all appears to work, and I think we're ready to go. (That is, except for Dragon Kabal, who will be getting a separate e-mail shortly.)
+
+Here's how the new system works. All news items now go into a central table, which is part of the Roster. Each news item belongs to a particular section, such as "Cyclone Kabal", or "The Citadel". Different sites then get a different set of news items: Cyclone's web site, for example, only shows news items in the Cyclone Kabal section, while the new BHG site will show items from all the sections (unless the user chooses to turn some sections off).
+
+This centralisation means that there are now two places where you can post, edit, and delete news items. The first is the news admin on your individual sites (such as a kabal web site), which should still be the same as before. The second is through the Administration section on the new BHG web site, which will be live this afternoon. Note that you can post news to any section through the new BHG site at present. As a result, it would be appreciated if care was taken to post news items to the correct section.
+
+To summarise, if you don't use the new BHG site to post news but stick to doing it directly through your sites as you have before, you won't see any change. If you'd prefer to use the main BHG site, you can, but be aware of the section that you're posting to.

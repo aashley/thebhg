@@ -1,0 +1,43 @@
+BODY, P {
+	background: black;
+	color: white;
+	font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
+	font-size: 10pt;
+}
+INPUT, SELECT, TEXTAREA {
+	background: #003d97;
+	font-size: 10pt;
+	color: white;
+	font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
+	font-weight: bold;
+}
+TEXTAREA, PRE {
+	font-family: Andale Mono, Courier New, Clean, Terminal;
+	font-size: 10pt;
+}
+A {
+	color: white;
+	text-decoration: underline;
+}
+A:HOVER {
+	background: #003d97;
+}
+P.MENU {
+	font-size: 8pt;
+	text-align: center;
+}
+P.HEADING {
+	font-size: 12pt;
+	font-weight: bold;
+}
+IMG {
+	border: 0;
+}
+TD {
+	background: black;
+	color: white;
+	font-family: Verdana, Tahoma, Arial, Helvetica, Sans-Serif;
+	font-size: 10pt;
+	padding-left, padding-right: 4px;
+	margin-left, margin-right: 4px;
+}

@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Antigua and Barbuda">
+	<city name="Codrington" url="http://weather.interceptvector.com/weather.xml?id=QUNYWDAwMDE%3D" />
+	<city name="Saint John's" url="http://weather.interceptvector.com/weather.xml?id=QUNYWDAwMDI%3D" />
+</state>

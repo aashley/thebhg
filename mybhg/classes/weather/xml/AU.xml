@@ -1,0 +1,373 @@
+<?xml version="1.0" ?>
+<state name="Australia">
+	<city name="Abrolhos Island North Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDA%3D" />
+	<city name="Adamsons Peak" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjc%3D" />
+	<city name="Adelaide" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDE%3D" />
+	<city name="Adele Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDg%3D" />
+	<city name="Aireys Inlet" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTI%3D" />
+	<city name="Albury Aeroport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjQ%3D" />
+	<city name="Ali Curung Tennant Creek" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzY%3D" />
+	<city name="Alice Springs" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDI%3D" />
+	<city name="Amberley Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTg%3D" />
+	<city name="Ararat" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODg%3D" />
+	<city name="Archerfield Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMjA%3D" />
+	<city name="Armadale" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDM%3D" />
+	<city name="Avalon" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTQ%3D" />
+	<city name="Avon Downs" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDQ%3D" />
+	<city name="Ayers Rock" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDU%3D" />
+	<city name="Ayr" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDY%3D" />
+	<city name="Babinda" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDc%3D" />
+	<city name="Bajool" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDg%3D" />
+	<city name="Balladonia" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzk%3D" />
+	<city name="Ballarat" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTM%3D" />
+	<city name="Ballina Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMjQ%3D" />
+	<city name="Bankstown" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMDk%3D" />
+	<city name="Bankstown Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzM%3D" />
+	<city name="Batchelor" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTA%3D" />
+	<city name="Bathurst Island Cape Fourcroy" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzODU%3D" />
+	<city name="Beenleigh" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTE%3D" />
+	<city name="Bega" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjg%3D" />
+	<city name="Benalla" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDc%3D" />
+	<city name="Bendigo Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTU%3D" />
+	<city name="Biloela Thangool Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODk%3D" />
+	<city name="Birdsville" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDY%3D" />
+	<city name="Birdum" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTI%3D" />
+	<city name="Black Point Port Essington" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzQ%3D" />
+	<city name="Blackall" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODI%3D" />
+	<city name="Blacktown" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTM%3D" />
+	<city name="Bombala" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjA%3D" />
+	<city name="Boologooro" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTQ%3D" />
+	<city name="Bougainville Reef" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzk%3D" />
+	<city name="Boulia" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODA%3D" />
+	<city name="Bowen" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTU%3D" />
+	<city name="Bowen Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODQ%3D" />
+	<city name="Bowral" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzA%3D" />
+	<city name="Braidwood" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTk%3D" />
+	<city name="Brisbane" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTY%3D" />
+	<city name="Broad Arrow" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTc%3D" />
+	<city name="Broadmeadows" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTg%3D" />
+	<city name="Broken Hill Patton Street" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTU%3D" />
+	<city name="Broome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMTk%3D" />
+	<city name="Brunette Downs" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTM%3D" />
+	<city name="Bullsbrook Pearce Amo" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzI%3D" />
+	<city name="Bunbury" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMjg%3D" />
+	<city name="Bundaberg Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTQ%3D" />
+	<city name="Burketown" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTc%3D" />
+	<city name="Bushy Park" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjk%3D" />
+	<city name="Cairns" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjA%3D" />
+	<city name="Caloundra" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjE%3D" />
+	<city name="Cambelltown" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjI%3D" />
+	<city name="Camooweal" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTU%3D" />
+	<city name="Canberra" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjM%3D" />
+	<city name="Cape Borda" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzc%3D" />
+	<city name="Cape Bruny" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzA%3D" />
+	<city name="Cape Don" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzE%3D" />
+	<city name="Cape Jaffa" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODA%3D" />
+	<city name="Cape Moreton" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMjM%3D" />
+	<city name="Cape Naturaliste" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMjU%3D" />
+	<city name="Cape Nelson" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODQ%3D" />
+	<city name="Cape Sorell" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzM%3D" />
+	<city name="Cape Willoughby" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODM%3D" />
+	<city name="Carnarvon" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjQ%3D" />
+	<city name="Cato Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTc%3D" />
+	<city name="Centre Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTQ%3D" />
+	<city name="Cerberus" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTM%3D" />
+	<city name="Channel Point" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzODQ%3D" />
+	<city name="Charleyville" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNzU%3D" />
+	<city name="Clare High School" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTI%3D" />
+	<city name="Cloncurry" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjU%3D" />
+	<city name="Cobar Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjI%3D" />
+	<city name="Coconut Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDM%3D" />
+	<city name="Coen Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDQ%3D" />
+	<city name="Coffs Harbour" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjY%3D" />
+	<city name="Coles Point" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDM%3D" />
+	<city name="Combienbar" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTc%3D" />
+	<city name="Condobolin Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTY%3D" />
+	<city name="Cooktown" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjc%3D" />
+	<city name="Coolangatta Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMjI%3D" />
+	<city name="Coolgardie" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjg%3D" />
+	<city name="Cooma Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTg%3D" />
+	<city name="Coonabarabran Namoi Street" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjc%3D" />
+	<city name="Corrigin" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzY%3D" />
+	<city name="Crackenback" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjY%3D" />
+	<city name="Creal Reef" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODc%3D" />
+	<city name="Cunnamulla" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTA%3D" />
+	<city name="Curtin" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDY%3D" />
+	<city name="Cygnet Bay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDU%3D" />
+	<city name="Cygnet River Kingstone Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjI%3D" />
+	<city name="Dalby Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTM%3D" />
+	<city name="Daly Waters" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMjk%3D" />
+	<city name="Dampier" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzA%3D" />
+	<city name="Dandenong" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzE%3D" />
+	<city name="Darwin" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzI%3D" />
+	<city name="Denham" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzM%3D" />
+	<city name="Derby" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzQ%3D" />
+	<city name="Devonport Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNzA%3D" />
+	<city name="Dongara" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzU%3D" />
+	<city name="Dubbo" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjU%3D" />
+	<city name="Dunns Hill" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDM%3D" />
+	<city name="Dwellingup" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzU%3D" />
+	<city name="Edinburgh M. O." url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTM%3D" />
+	<city name="Edithburgh" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzg%3D" />
+	<city name="Edmonton" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzY%3D" />
+	<city name="Elcho Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDA%3D" />
+	<city name="Elizabeth" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzc%3D" />
+	<city name="Elliston Post Office" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDE%3D" />
+	<city name="Esperance" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzg%3D" />
+	<city name="Esperance Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDk%3D" />
+	<city name="Eudunda" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTA%3D" />
+	<city name="Fairfield" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwMzk%3D" />
+	<city name="Falls Creek" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTQ%3D" />
+	<city name="Finley" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDU%3D" />
+	<city name="Flinders Island Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzU%3D" />
+	<city name="Flinders Reef" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjM%3D" />
+	<city name="Forrest" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNzY%3D" />
+	<city name="Frankston" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDA%3D" />
+	<city name="Fremantle" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDE%3D" />
+	<city name="Gabo Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjE%3D" />
+	<city name="Gannet Cay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTA%3D" />
+	<city name="Garden Point" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzODM%3D" />
+	<city name="Gawler" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDI%3D" />
+	<city name="Gayndah" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTQ%3D" />
+	<city name="Geelong" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDM%3D" />
+	<city name="Geelong Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTY%3D" />
+	<city name="Gelantipy" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTY%3D" />
+	<city name="Georgetown" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTk%3D" />
+	<city name="Geraldton" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDQ%3D" />
+	<city name="Gibson" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDU%3D" />
+	<city name="Gladstone" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDY%3D" />
+	<city name="Gladstone Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTE%3D" />
+	<city name="Gold Coast" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDc%3D" />
+	<city name="Gold Coast Seaway" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMjE%3D" />
+	<city name="Goldstream" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDA%3D" />
+	<city name="Goldsworthy" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDg%3D" />
+	<city name="Goondiwindi Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTI%3D" />
+	<city name="Gosford" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNDk%3D" />
+	<city name="Gosnells" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTA%3D" />
+	<city name="Goulburn" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTE%3D" />
+	<city name="Goulburn Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTg%3D" />
+	<city name="Granite Downs" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTM%3D" />
+	<city name="Green Cape" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjI%3D" />
+	<city name="Green Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDA%3D" />
+	<city name="Greenough" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTQ%3D" />
+	<city name="Griffith" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjA%3D" />
+	<city name="Gunnedah" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTU%3D" />
+	<city name="Hall" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTY%3D" />
+	<city name="Hamilton Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODY%3D" />
+	<city name="Hamilton Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODU%3D" />
+	<city name="Hay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTk%3D" />
+	<city name="Hay Miller Street" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTc%3D" />
+	<city name="Heron Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTM%3D" />
+	<city name="Hillston Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTg%3D" />
+	<city name="Hobart" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTc%3D" />
+	<city name="Hobart Regional Office" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzI%3D" />
+	<city name="Holmes Reef" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjI%3D" />
+	<city name="Hopetoun" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTg%3D" />
+	<city name="Horn Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDI%3D" />
+	<city name="Hunters Hill" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDY%3D" />
+	<city name="Ingham" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNTk%3D" />
+	<city name="Ingham Composite" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDE%3D" />
+	<city name="Injune Post Office" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTE%3D" />
+	<city name="Innisfail" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjA%3D" />
+	<city name="Ipswich" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjE%3D" />
+	<city name="Ivanhoe Post Office" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTY%3D" />
+	<city name="Jabiru Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzY%3D" />
+	<city name="Jerramungup Jacup" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDg%3D" />
+	<city name="Jervis Bay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjU%3D" />
+	<city name="Jervois" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzc%3D" />
+	<city name="Jurien" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDU%3D" />
+	<city name="Kalamunda" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzQ%3D" />
+	<city name="Kalbarri" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjI%3D" />
+	<city name="Kalgoorlie" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjM%3D" />
+	<city name="Kambalda/Lake Lefroy" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjQ%3D" />
+	<city name="Karratha Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDI%3D" />
+	<city name="Karratha King Bay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDM%3D" />
+	<city name="Karratha Legendre Isalnd" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjg%3D" />
+	<city name="Katherine Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzM%3D" />
+	<city name="Katoomba" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjk%3D" />
+	<city name="Keilor" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjU%3D" />
+	<city name="Keith Post Office" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODE%3D" />
+	<city name="Kilmore Gap" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTg%3D" />
+	<city name="Kimberley Downs" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjY%3D" />
+	<city name="Kingaroy" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTU%3D" />
+	<city name="Kingston" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjc%3D" />
+	<city name="Kulgera" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDI%3D" />
+	<city name="Kununurra Argyle Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTA%3D" />
+	<city name="Kwinana" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjg%3D" />
+	<city name="Kyancutta" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDI%3D" />
+	<city name="Lady Elliot Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTU%3D" />
+	<city name="Lake Grace" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzc%3D" />
+	<city name="Lakes Entrance Composite" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjU%3D" />
+	<city name="Lameroo" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTQ%3D" />
+	<city name="Lancelin" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDY%3D" />
+	<city name="Larrimah" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNjk%3D" />
+	<city name="Latrobe Valley Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDk%3D" />
+	<city name="Launceston" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzE%3D" />
+	<city name="Learmonth" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzODE%3D" />
+	<city name="Leigh Creek Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDc%3D" />
+	<city name="Leonora" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDE%3D" />
+	<city name="Lookout Hill" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODk%3D" />
+	<city name="Low Isles" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjA%3D" />
+	<city name="Low Rocky Point" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNzE%3D" />
+	<city name="Loxton" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTI%3D" />
+	<city name="Luanceston" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNzc%3D" />
+	<city name="Lucinda Point" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjQ%3D" />
+	<city name="Maatsuyker Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjg%3D" />
+	<city name="MacKay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzA%3D" />
+	<city name="Macquarie Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzc%3D" />
+	<city name="Maitland" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDY%3D" />
+	<city name="Mandurah" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzE%3D" />
+	<city name="Mangalore Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDQ%3D" />
+	<city name="Maningrida" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzk%3D" />
+	<city name="Marble Bar" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzM%3D" />
+	<city name="Mareeba Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjE%3D" />
+	<city name="Marion" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzI%3D" />
+	<city name="Marion Reef" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjU%3D" />
+	<city name="Marla" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDQ%3D" />
+	<city name="Maroochydore Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTk%3D" />
+	<city name="Marree" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDU%3D" />
+	<city name="Mary Kathleen" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzM%3D" />
+	<city name="Maryborough" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTc%3D" />
+	<city name="Mataranka" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzQ%3D" />
+	<city name="Mccluer Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzU%3D" />
+	<city name="Melbourne" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzU%3D" />
+	<city name="Melbourne Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDE%3D" />
+	<city name="Merbein" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzY%3D" />
+	<city name="Mettler" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDc%3D" />
+	<city name="Mildura" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzc%3D" />
+	<city name="Milingimbi" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzg%3D" />
+	<city name="Moorabbin Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDI%3D" />
+	<city name="Mortlake" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTA%3D" />
+	<city name="Moruya Heads" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjM%3D" />
+	<city name="Mount Boyce" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjg%3D" />
+	<city name="Mount Buller" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTI%3D" />
+	<city name="Mount Gambier" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzg%3D" />
+	<city name="Mount Hotham" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTU%3D" />
+	<city name="Mount Isa" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwNzk%3D" />
+	<city name="Mount Isa Amo" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzk%3D" />
+	<city name="Mount Lawley Perth Metro" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzA%3D" />
+	<city name="Mount Lofty" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTU%3D" />
+	<city name="Mount Moornapa" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjc%3D" />
+	<city name="Mount Morgan" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODA%3D" />
+	<city name="Mount Wellington" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNzI%3D" />
+	<city name="Mudgee" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjY%3D" />
+	<city name="Murrurundi" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzI%3D" />
+	<city name="Nambour" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNDQ%3D" />
+	<city name="Nambucca Heads" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODE%3D" />
+	<city name="Naracoorte" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODI%3D" />
+	<city name="New Norfolk" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODI%3D" />
+	<city name="Newcastle" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODM%3D" />
+	<city name="Noonamah" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODU%3D" />
+	<city name="Norah Head Lighthouse" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjE%3D" />
+	<city name="Norfolk Island Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzY%3D" />
+	<city name="Normanton" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTg%3D" />
+	<city name="Norseman" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzg%3D" />
+	<city name="North East Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDE%3D" />
+	<city name="Nullo Mountains" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzE%3D" />
+	<city name="Nuriootpa" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTE%3D" />
+	<city name="Nyngan" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjE%3D" />
+	<city name="Onslow" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjc%3D" />
+	<city name="Oodnadatta Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDM%3D" />
+	<city name="Paddington" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODY%3D" />
+	<city name="Palmers Lookout" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMzQ%3D" />
+	<city name="Parafield Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTQ%3D" />
+	<city name="Parawa Second Valley Forest" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzk%3D" />
+	<city name="Parramatta" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODc%3D" />
+	<city name="Paynes Find" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTk%3D" />
+	<city name="Penrith" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODg%3D" />
+	<city name="Perth" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwODk%3D" />
+	<city name="Point Stuart" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzA%3D" />
+	<city name="Port Adelaide" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTA%3D" />
+	<city name="Port Arthur/Tasman Peninsula" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTE%3D" />
+	<city name="Port Hedland" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTI%3D" />
+	<city name="Port Hedland Bedout Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzA%3D" />
+	<city name="Port Hedland Pardoo" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzE%3D" />
+	<city name="Port Lincoln" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDQ%3D" />
+	<city name="Port Lincoln Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTA%3D" />
+	<city name="Port Macquarie" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTM%3D" />
+	<city name="Port Phillip Bay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTQ%3D" />
+	<city name="Portland Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODU%3D" />
+	<city name="Proserpine Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODM%3D" />
+	<city name="Queanbeyan" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTU%3D" />
+	<city name="Quilpie" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDk%3D" />
+	<city name="Rapid Bay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTY%3D" />
+	<city name="Red Cliffs" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTc%3D" />
+	<city name="Redcliffe" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTg%3D" />
+	<city name="Redesdale" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTc%3D" />
+	<city name="Renmark" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNTM%3D" />
+	<city name="Rhyll" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTA%3D" />
+	<city name="Richmond" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAwOTk%3D" />
+	<city name="Richmond Amo" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTk%3D" />
+	<city name="Rockhampton" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDA%3D" />
+	<city name="Rockingham" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDE%3D" />
+	<city name="Roebourne" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDI%3D" />
+	<city name="Rollingstone/Halifax Bay" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDM%3D" />
+	<city name="Rottnest Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMjY%3D" />
+	<city name="Rowley Shoals" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDc%3D" />
+	<city name="Rum Jungle" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDQ%3D" />
+	<city name="Rumula" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDU%3D" />
+	<city name="Salisbury" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDY%3D" />
+	<city name="Sandy Cape" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTY%3D" />
+	<city name="Scone Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjA%3D" />
+	<city name="Shark Bay Denham" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTg%3D" />
+	<city name="Shellharbour" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDc%3D" />
+	<city name="Sheoaks" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTk%3D" />
+	<city name="Smoky Cape Lighthouse Sw Rocks" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzY%3D" />
+	<city name="Sorell" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDg%3D" />
+	<city name="Southern Cross" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMDk%3D" />
+	<city name="Spearwood Jandakot Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzE%3D" />
+	<city name="Springvale" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTA%3D" />
+	<city name="St Lawrence Post Office" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODY%3D" />
+	<city name="Strahan" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjY%3D" />
+	<city name="Sunbury" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTE%3D" />
+	<city name="Swan Hill" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyOTE%3D" />
+	<city name="Swan Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNzM%3D" />
+	<city name="Swanbourne" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzM%3D" />
+	<city name="Sydney" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTI%3D" />
+	<city name="Sydney Regional Office" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNzQ%3D" />
+	<city name="Tamworth" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTM%3D" />
+	<city name="Tarago" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTQ%3D" />
+	<city name="Tarcoola" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDA%3D" />
+	<city name="Tennant Creek" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTU%3D" />
+	<city name="Thangoo" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTY%3D" />
+	<city name="Thevenard Island" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNjY%3D" />
+	<city name="Tibooburra" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDc%3D" />
+	<city name="Tindal" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzI%3D" />
+	<city name="Town Of 1770" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxOTI%3D" />
+	<city name="Townsville" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTc%3D" />
+	<city name="Ulladulla" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMjQ%3D" />
+	<city name="Urandangie" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzg%3D" />
+	<city name="Victor Harbor" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTg%3D" />
+	<city name="Victoria River Downs" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTE%3D" />
+	<city name="Walgett" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjQ%3D" />
+	<city name="Walgett Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTc%3D" />
+	<city name="Wangaratta Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMDg%3D" />
+	<city name="Wanneroo" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMTk%3D" />
+	<city name="Warrnambool Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyODc%3D" />
+	<city name="Warruwi" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMzc%3D" />
+	<city name="Warwick" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMTY%3D" />
+	<city name="Watarrka Kings Canyon" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzQ%3D" />
+	<city name="Weipa City" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzODA%3D" />
+	<city name="Wentworth" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMjA%3D" />
+	<city name="Werris Creek" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMjE%3D" />
+	<city name="Whyalla" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDU%3D" />
+	<city name="Whyalla Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNTE%3D" />
+	<city name="Wilsons Promontory Light" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzMTE%3D" />
+	<city name="Windorah" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMDg%3D" />
+	<city name="Winton" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMjM%3D" />
+	<city name="Winton Post Office" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxODE%3D" />
+	<city name="Wittenoom" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzI%3D" />
+	<city name="Wollogorang" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNTY%3D" />
+	<city name="Wollongong" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMjQ%3D" />
+	<city name="Wonthaggi Composite" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjM%3D" />
+	<city name="Woolgoolga" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMjU%3D" />
+	<city name="Woomera" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzODI%3D" />
+	<city name="Wooramel" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMjY%3D" />
+	<city name="Wyndham" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNDk%3D" />
+	<city name="Wynyard Airport" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAzNjk%3D" />
+	<city name="Yass" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMjc%3D" />
+	<city name="Yeppoon" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxMjg%3D" />
+	<city name="Yongala" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNDk%3D" />
+	<city name="Young" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAyNjM%3D" />
+	<city name="Yuendumu" url="http://weather.interceptvector.com/weather.xml?id=QVNYWDAxNzU%3D" />
+</state>

@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<state name="Nigeria">
+	<city name="Aba" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDE%3D" />
+	<city name="Abeokuta" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDI%3D" />
+	<city name="Abuja" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMjI%3D" />
+	<city name="Birnin Kebbi" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDM%3D" />
+	<city name="Calabar" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDQ%3D" />
+	<city name="Dange" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDU%3D" />
+	<city name="Enugu" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDY%3D" />
+	<city name="Gwarzo" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDc%3D" />
+	<city name="Ibadan" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDg%3D" />
+	<city name="Iwo" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMDk%3D" />
+	<city name="Kano" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTA%3D" />
+	<city name="Kware" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTE%3D" />
+	<city name="Lagos" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTI%3D" />
+	<city name="Maiduguri" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTM%3D" />
+	<city name="Mushin" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTQ%3D" />
+	<city name="Onitsha" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTU%3D" />
+	<city name="Oyo" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTY%3D" />
+	<city name="Port Harcourt" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTc%3D" />
+	<city name="Sokoto" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTg%3D" />
+	<city name="Zaria" url="http://weather.interceptvector.com/weather.xml?id=TklYWDAwMTk%3D" />
+</state>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Afghanistan">
+	<city name="Bost/Laskar" url="http://weather.interceptvector.com/weather.xml?id=QUZYWDAwMDU%3D" />
+	<city name="Ghurian" url="http://weather.interceptvector.com/weather.xml?id=QUZYWDAwMDE%3D" />
+	<city name="Herat" url="http://weather.interceptvector.com/weather.xml?id=QUZYWDAwMDI%3D" />
+	<city name="Kabul" url="http://weather.interceptvector.com/weather.xml?id=QUZYWDAwMDM%3D" />
+	<city name="Qandahar" url="http://weather.interceptvector.com/weather.xml?id=QUZYWDAwMDQ%3D" />
+</state>

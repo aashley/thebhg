@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<state name="Romania">
+	<city name="Arad" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMjQ%3D" />
+	<city name="Bacau" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMjM%3D" />
+	<city name="Botosani" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTg%3D" />
+	<city name="Braila" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMDE%3D" />
+	<city name="Brasov" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMDI%3D" />
+	<city name="Bucharest" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMDM%3D" />
+	<city name="Buzau" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMDQ%3D" />
+	<city name="Calarasi" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzI%3D" />
+	<city name="Campina" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMDU%3D" />
+	<city name="Caransebes" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMjY%3D" />
+	<city name="Ceahlau Toaca" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMjE%3D" />
+	<city name="Cluj-Napoca" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMjI%3D" />
+	<city name="Constanta" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzQ%3D" />
+	<city name="Craiova" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMDc%3D" />
+	<city name="Drobeta Tr. Severin" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzE%3D" />
+	<city name="Focsani" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMDg%3D" />
+	<city name="Galati" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMDk%3D" />
+	<city name="Gheorgheni" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzU%3D" />
+	<city name="Giurgiu" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTA%3D" />
+	<city name="Iasi" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMjA%3D" />
+	<city name="Oradea" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTk%3D" />
+	<city name="Petrosani" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzY%3D" />
+	<city name="Pitesti" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTE%3D" />
+	<city name="Ploiesti" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTI%3D" />
+	<city name="Prundu" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzc%3D" />
+	<city name="Rimnicu Vilcea" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMjg%3D" />
+	<city name="Rosiori de Vede" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTM%3D" />
+	<city name="Satu Mare" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzg%3D" />
+	<city name="Sibiu" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTQ%3D" />
+	<city name="Sighetu Marmatiei" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTc%3D" />
+	<city name="Slatina" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTU%3D" />
+	<city name="Slobozia" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMTY%3D" />
+	<city name="Sulina" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzA%3D" />
+	<city name="Talmaciu" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMzk%3D" />
+	<city name="Timisoara" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwNDA%3D" />
+	<city name="Tirgoviste" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwNDE%3D" />
+	<city name="Vf. Omu" url="http://weather.interceptvector.com/weather.xml?id=Uk9YWDAwMjU%3D" />
+</state>

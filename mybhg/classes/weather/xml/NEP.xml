@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Nepal">
+	<city name="Bhaktapur" url="http://weather.interceptvector.com/weather.xml?id=TlBYWDAwMDE%3D" />
+	<city name="Kathmandu" url="http://weather.interceptvector.com/weather.xml?id=TlBYWDAwMDI%3D" />
+	<city name="Kathmandu Airport" url="http://weather.interceptvector.com/weather.xml?id=TlBYWDAwMDM%3D" />
+</state>

@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<state name="Botswana">
+	<city name="Francistown" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMDQ%3D" />
+	<city name="Gaberone/Khama" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMDU%3D" />
+	<city name="Gaborone" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMDE%3D" />
+	<city name="Ghanzi" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMDY%3D" />
+	<city name="Jwaneng" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMDc%3D" />
+	<city name="Kasane" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMDg%3D" />
+	<city name="Letlhakane" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMDk%3D" />
+	<city name="Mahalapye" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMTA%3D" />
+	<city name="Maun" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMTE%3D" />
+	<city name="Pandamatenga" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMTI%3D" />
+	<city name="Selebi Phikwe" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMTM%3D" />
+	<city name="Shakawe" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMTY%3D" />
+	<city name="Suapan" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMTc%3D" />
+	<city name="Tsabong" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMTQ%3D" />
+	<city name="Tshane" url="http://weather.interceptvector.com/weather.xml?id=QkNYWDAwMTU%3D" />
+</state>

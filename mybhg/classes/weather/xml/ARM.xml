@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Armenia">
+	<city name="Abovyan" url="http://weather.interceptvector.com/weather.xml?id=QU1YWDAwMDE%3D" />
+	<city name="Gyumri" url="http://weather.interceptvector.com/weather.xml?id=QU1YWDAwMDI%3D" />
+	<city name="Yerevan" url="http://weather.interceptvector.com/weather.xml?id=QU1YWDAwMDM%3D" />
+</state>

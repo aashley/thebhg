@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Aruba">
+	<city name="Oranjestad" url="http://weather.interceptvector.com/weather.xml?id=QUFYWDAwMDE%3D" />
+	<city name="Princess Beatrix Arpt" url="http://weather.interceptvector.com/weather.xml?id=QUFYWDAwMDI%3D" />
+</state>

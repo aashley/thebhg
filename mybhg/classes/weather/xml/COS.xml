@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<state name="Costa Rica">
+	<city name="Alajuela" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDE%3D" />
+	<city name="Canas" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDI%3D" />
+	<city name="Cartago" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDM%3D" />
+	<city name="Chacarita" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMTA%3D" />
+	<city name="Guapiles" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDQ%3D" />
+	<city name="Liberia" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDU%3D" />
+	<city name="Puerto Limon" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDY%3D" />
+	<city name="Puntarenas" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDc%3D" />
+	<city name="San Isidro del General" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDg%3D" />
+	<city name="San Jose" url="http://weather.interceptvector.com/weather.xml?id=Q1NYWDAwMDk%3D" />
+</state>

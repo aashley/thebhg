@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<state name="Antarctica">
+	<city name="Base Arturo Prat" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDc%3D" />
+	<city name="Base Bernardo O'Higgins" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDk%3D" />
+	<city name="Base Esperanza" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDE%3D" />
+	<city name="Base Jubany" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDM%3D" />
+	<city name="Base Marambio Centro Met. Antartico" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDU%3D" />
+	<city name="Base Orcadas" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDI%3D" />
+	<city name="Centro Met. Antartico" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDY%3D" />
+	<city name="Dinamet-Uruguay" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDQ%3D" />
+	<city name="Great Wall" url="http://weather.interceptvector.com/weather.xml?id=QVlYWDAwMDg%3D" />
+</state>

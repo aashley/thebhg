@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<state name="South Korea">
+	<city name="Andong" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDE%3D" />
+	<city name="Anyang" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDI%3D" />
+	<city name="Ch'angwon" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDM%3D" />
+	<city name="Ch'onan" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDY%3D" />
+	<city name="Ch'ungju" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDc%3D" />
+	<city name="Cheju" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDQ%3D" />
+	<city name="Cheju Upper/Radar" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNTM%3D" />
+	<city name="Chinhae" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDU%3D" />
+	<city name="Chinju" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNTU%3D" />
+	<city name="Cholwon" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzM%3D" />
+	<city name="Chonju" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNDc%3D" />
+	<city name="Chunchon" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzU%3D" />
+	<city name="Chungmu" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNTE%3D" />
+	<city name="Chupungnyong" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNDQ%3D" />
+	<city name="Haenam" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDg%3D" />
+	<city name="Inch'on" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMDk%3D" />
+	<city name="Iri" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMTA%3D" />
+	<city name="Kangnung" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMTE%3D" />
+	<city name="Kimch'on" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMTI%3D" />
+	<city name="Kunsan" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNDY%3D" />
+	<city name="Kwangju" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMTQ%3D" />
+	<city name="Masan" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNDg%3D" />
+	<city name="Miryang" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMTY%3D" />
+	<city name="Mokp'o" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMTc%3D" />
+	<city name="Osan" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMTg%3D" />
+	<city name="P'ohang" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMTk%3D" />
+	<city name="Pohang" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNDU%3D" />
+	<city name="Polgyo" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMjA%3D" />
+	<city name="Pusan" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNTA%3D" />
+	<city name="Seoul" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzc%3D" />
+	<city name="Sogwipo" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNTQ%3D" />
+	<city name="Sokch'o" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMjM%3D" />
+	<city name="Sokcho" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzI%3D" />
+	<city name="Songnam" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMjQ%3D" />
+	<city name="Sosan" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNDI%3D" />
+	<city name="Suwon" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMjU%3D" />
+	<city name="Taegu" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMjY%3D" />
+	<city name="Taegwallyong" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzQ%3D" />
+	<city name="Taejon" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMjc%3D" />
+	<city name="Tonghae Radar Site" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzY%3D" />
+	<city name="Uisong" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMjg%3D" />
+	<city name="Ulchin" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNDM%3D" />
+	<city name="Ullungdo" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzk%3D" />
+	<city name="Ulsan" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMjk%3D" />
+	<city name="Waegwan" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzA%3D" />
+	<city name="Wando" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNTI%3D" />
+	<city name="Wonju" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzg%3D" />
+	<city name="Yongwol" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwNDE%3D" />
+	<city name="Yosu" url="http://weather.interceptvector.com/weather.xml?id=S1NYWDAwMzE%3D" />
+</state>

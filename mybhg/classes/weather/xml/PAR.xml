@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<state name="Paraguay">
+	<city name="Asuncion" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDE%3D" />
+	<city name="Caacupe" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDI%3D" />
+	<city name="Ciudad del Este" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDM%3D" />
+	<city name="Concepcion" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDQ%3D" />
+	<city name="Coronel Oviedo" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDU%3D" />
+	<city name="Encarnacion" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDY%3D" />
+	<city name="Fuerte Olimpo" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMTI%3D" />
+	<city name="Mariscal Estigarribia" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDc%3D" />
+	<city name="Nueva Asuncion" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDg%3D" />
+	<city name="Paraguari" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMDk%3D" />
+	<city name="Pilar" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMTE%3D" />
+	<city name="San Juan Bautista" url="http://weather.interceptvector.com/weather.xml?id=UEFYWDAwMTA%3D" />
+</state>

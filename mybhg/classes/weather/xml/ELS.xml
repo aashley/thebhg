@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<state name="El Salvador">
+	<city name="Acajutla" url="http://weather.interceptvector.com/weather.xml?id=RVNYWDAwMDY%3D" />
+	<city name="San Miguel" url="http://weather.interceptvector.com/weather.xml?id=RVNYWDAwMDc%3D" />
+	<city name="San Salvador" url="http://weather.interceptvector.com/weather.xml?id=RVNYWDAwMDE%3D" />
+	<city name="San Vicente" url="http://weather.interceptvector.com/weather.xml?id=RVNYWDAwMDI%3D" />
+	<city name="Santa Ana" url="http://weather.interceptvector.com/weather.xml?id=RVNYWDAwMDM%3D" />
+	<city name="Sonsonate" url="http://weather.interceptvector.com/weather.xml?id=RVNYWDAwMDQ%3D" />
+	<city name="Usulutan" url="http://weather.interceptvector.com/weather.xml?id=RVNYWDAwMDU%3D" />
+</state>

@@ -1,0 +1,181 @@
+<?xml version="1.0" ?>
+<state name="France">
+	<city name="Abbeville" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTE%3D" />
+	<city name="Agen" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMzU%3D" />
+	<city name="Aix-en-Provence" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDE%3D" />
+	<city name="Ajaccio" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjk%3D" />
+	<city name="Albi" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDI%3D" />
+	<city name="Angers" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMzc%3D" />
+	<city name="Annemasse" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDM%3D" />
+	<city name="Antibes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDQ%3D" />
+	<city name="Arnage" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDU%3D" />
+	<city name="Aubagne" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDY%3D" />
+	<city name="Aubervilliers" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDc%3D" />
+	<city name="Auch" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMzg%3D" />
+	<city name="Aurillac" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMzk%3D" />
+	<city name="Auxerre" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDg%3D" />
+	<city name="Aytre" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMDk%3D" />
+	<city name="Bastia" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMzA%3D" />
+	<city name="Bayeux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTA%3D" />
+	<city name="Beauvais" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTE%3D" />
+	<city name="Belfort" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTI%3D" />
+	<city name="Bergerac" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDA%3D" />
+	<city name="Besancon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDE%3D" />
+	<city name="Beziers" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTM%3D" />
+	<city name="Biarritz" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjU%3D" />
+	<city name="Biscay" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMzI%3D" />
+	<city name="Blois" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTQ%3D" />
+	<city name="Bobigny" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTU%3D" />
+	<city name="Bordeaux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTY%3D" />
+	<city name="Bourg-en-Bresse" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTc%3D" />
+	<city name="Bourg-Saint-Maurice" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDI%3D" />
+	<city name="Bourges" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTg%3D" />
+	<city name="Brest" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMTk%3D" />
+	<city name="Briancon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDM%3D" />
+	<city name="Brive" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDQ%3D" />
+	<city name="Caen" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjA%3D" />
+	<city name="Cagnes-sur-Mer" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjE%3D" />
+	<city name="Cahors" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjI%3D" />
+	<city name="Cambrai" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDU%3D" />
+	<city name="Cannes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjM%3D" />
+	<city name="Cap Cepet" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjc%3D" />
+	<city name="Carbon-Blanc" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjQ%3D" />
+	<city name="Carcassonne" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjU%3D" />
+	<city name="Carpentras" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDY%3D" />
+	<city name="Carquefou" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjY%3D" />
+	<city name="Castelnau-de-Medoc" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjc%3D" />
+	<city name="Chambery" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDc%3D" />
+	<city name="Chantilly" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjg%3D" />
+	<city name="Chartres" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMjk%3D" />
+	<city name="Chassiron" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTg%3D" />
+	<city name="Chateauroux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzA%3D" />
+	<city name="Chatelaillon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzE%3D" />
+	<city name="Cherbourg" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzI%3D" />
+	<city name="Cholet" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzM%3D" />
+	<city name="Clermont-Ferrand" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjA%3D" />
+	<city name="Cognac" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDg%3D" />
+	<city name="Colmar" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzQ%3D" />
+	<city name="Coulans" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzU%3D" />
+	<city name="Dax" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNDk%3D" />
+	<city name="Deauville" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTA%3D" />
+	<city name="Dijon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzY%3D" />
+	<city name="Dreux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzc%3D" />
+	<city name="Dunkerque" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTE%3D" />
+	<city name="Embrun" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjQ%3D" />
+	<city name="Epinal" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTI%3D" />
+	<city name="Evreux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzg%3D" />
+	<city name="Fabregues" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwMzk%3D" />
+	<city name="Frejus" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDA%3D" />
+	<city name="Gourdon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjE%3D" />
+	<city name="Grasse" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDE%3D" />
+	<city name="Grenoble" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTM%3D" />
+	<city name="Haguenau" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDI%3D" />
+	<city name="Hyeres" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTQ%3D" />
+	<city name="Ile De Batz" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTU%3D" />
+	<city name="Ile Rousse" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTY%3D" />
+	<city name="Istres" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTc%3D" />
+	<city name="La Bazoge" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDM%3D" />
+	<city name="La Chiappa" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzg%3D" />
+	<city name="La Coudre" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzk%3D" />
+	<city name="La Hague" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTI%3D" />
+	<city name="La Roche-sur-Yon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTg%3D" />
+	<city name="La Rochelle" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDQ%3D" />
+	<city name="Landerneau" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDU%3D" />
+	<city name="Landes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxODE%3D" />
+	<city name="Laval" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNTk%3D" />
+	<city name="Le Grand-Quevilly" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDY%3D" />
+	<city name="Le Havre" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDc%3D" />
+	<city name="Le Mans" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDg%3D" />
+	<city name="Le Talut" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTY%3D" />
+	<city name="Le Touquet" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjA%3D" />
+	<city name="Lens" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNDk%3D" />
+	<city name="Les Sables-d'Olonne" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTA%3D" />
+	<city name="Libourne" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTE%3D" />
+	<city name="Lille" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTI%3D" />
+	<city name="Limoges" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTk%3D" />
+	<city name="Lisieux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTM%3D" />
+	<city name="Lons-le-Saunier" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjE%3D" />
+	<city name="Lorient" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTQ%3D" />
+	<city name="Lyon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTU%3D" />
+	<city name="Macon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTY%3D" />
+	<city name="Malicorne" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTc%3D" />
+	<city name="Marignane" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTg%3D" />
+	<city name="Marseille" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNTk%3D" />
+	<city name="Meaux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjA%3D" />
+	<city name="Medoc" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMzE%3D" />
+	<city name="Melun" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjE%3D" />
+	<city name="Mende" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjI%3D" />
+	<city name="Menton" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjI%3D" />
+	<city name="Merignac" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjM%3D" />
+	<city name="Metz" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjQ%3D" />
+	<city name="Millau" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjI%3D" />
+	<city name="Mondeville" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjU%3D" />
+	<city name="Mont-de-Marsan" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjM%3D" />
+	<city name="Mont-Saint-Aignan" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjk%3D" />
+	<city name="Montargis" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjY%3D" />
+	<city name="Montauban" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjc%3D" />
+	<city name="Montelimar" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjM%3D" />
+	<city name="Montpellier" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNjg%3D" />
+	<city name="Morlaix" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzA%3D" />
+	<city name="Mulhouse" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzE%3D" />
+	<city name="Nancy/Essey" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTU%3D" />
+	<city name="Nantes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzI%3D" />
+	<city name="Nevers" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjQ%3D" />
+	<city name="Nice" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzM%3D" />
+	<city name="Nimes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjU%3D" />
+	<city name="Niort" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjY%3D" />
+	<city name="Orange" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjc%3D" />
+	<city name="Orleans" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzQ%3D" />
+	<city name="Orvault" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzU%3D" />
+	<city name="Ouessant" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTM%3D" />
+	<city name="Paris" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzY%3D" />
+	<city name="Paris/Charles De Gaulle" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzc%3D" />
+	<city name="Pau" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjg%3D" />
+	<city name="Perigueux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNjk%3D" />
+	<city name="Perpignan" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjg%3D" />
+	<city name="Pessac" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzg%3D" />
+	<city name="Poitiers" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzA%3D" />
+	<city name="Porquerolles" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxODA%3D" />
+	<city name="Quimper" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwNzk%3D" />
+	<city name="Reims" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODA%3D" />
+	<city name="Rennes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTQ%3D" />
+	<city name="Reze" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODE%3D" />
+	<city name="Roanne" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODI%3D" />
+	<city name="Rochefort" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODM%3D" />
+	<city name="Rodez" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzE%3D" />
+	<city name="Roubaix" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODQ%3D" />
+	<city name="Rouen" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODU%3D" />
+	<city name="Saint-Brieuc" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODY%3D" />
+	<city name="Saint-Denis" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODc%3D" />
+	<city name="Saint-Die" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODg%3D" />
+	<city name="Saint-Dizier" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzM%3D" />
+	<city name="Saint-Etienne-du-Rouvray" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwODk%3D" />
+	<city name="Saint-Girons" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMjY%3D" />
+	<city name="Saint-Lo" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTA%3D" />
+	<city name="Saint-Nazaire" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTE%3D" />
+	<city name="Saint-Raphael" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTI%3D" />
+	<city name="Salon-de-Provence" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTM%3D" />
+	<city name="Sete" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTQ%3D" />
+	<city name="Solenzara" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzI%3D" />
+	<city name="Strasbourg" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTU%3D" />
+	<city name="Talence" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTY%3D" />
+	<city name="Tarbes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTc%3D" />
+	<city name="Topla" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMzQ%3D" />
+	<city name="Toul / Rosieres" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzQ%3D" />
+	<city name="Toulon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTg%3D" />
+	<city name="Toulouse" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAwOTk%3D" />
+	<city name="Tours" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDA%3D" />
+	<city name="Trappes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzU%3D" />
+	<city name="Troyes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDE%3D" />
+	<city name="Valence" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDI%3D" />
+	<city name="Valognes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDM%3D" />
+	<city name="Vannes" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzY%3D" />
+	<city name="Vendargues" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDQ%3D" />
+	<city name="Venissieux" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDU%3D" />
+	<city name="Versailles" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDY%3D" />
+	<city name="Vichy" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxNzc%3D" />
+	<city name="Vienne" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDc%3D" />
+	<city name="Vierzon" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDg%3D" />
+	<city name="Villefranche-sur-Saone" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMDk%3D" />
+	<city name="Villeurbanne" url="http://weather.interceptvector.com/weather.xml?id=RlJYWDAxMTA%3D" />
+</state>

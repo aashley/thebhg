@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Chad">
+	<city name="Faya" url="http://weather.interceptvector.com/weather.xml?id=Q0RYWDAwMDI%3D" />
+	<city name="Ndjamena" url="http://weather.interceptvector.com/weather.xml?id=Q0RYWDAwMDM%3D" />
+</state>

@@ -1,0 +1,754 @@
+<?xml version="1.0" ?>
+<state name="Brazil">
+	<city name="Abaete" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDY%3D" />
+	<city name="Abreu e Lima" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MzU%3D" />
+	<city name="Acucena" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODY%3D" />
+	<city name="Adamantina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMDE%3D" />
+	<city name="Aeroporto de Confins" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODc%3D" />
+	<city name="Aeroporto do Galeao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODg%3D" />
+	<city name="Afua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDc%3D" />
+	<city name="Aguai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDg%3D" />
+	<city name="Aguas de Sao Pedro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDk%3D" />
+	<city name="Aguas Formosas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTA%3D" />
+	<city name="Agudos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Nzk%3D" />
+	<city name="Aimores" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTE%3D" />
+	<city name="Alagoinhas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMDI%3D" />
+	<city name="Alegre" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODA%3D" />
+	<city name="Alegrete" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMDM%3D" />
+	<city name="Alenquer" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODE%3D" />
+	<city name="Alfenas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODI%3D" />
+	<city name="Almeirim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODM%3D" />
+	<city name="Almenara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODQ%3D" />
+	<city name="Alpinopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTI%3D" />
+	<city name="Alta Floresta" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMzk%3D" />
+	<city name="Altamira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMDU%3D" />
+	<city name="Aluminio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODk%3D" />
+	<city name="Alvaraes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTM%3D" />
+	<city name="Alvares Machado" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTQ%3D" />
+	<city name="Alvorada" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA5Mjc%3D" />
+	<city name="Amapa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MzA%3D" />
+	<city name="Americana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMDY%3D" />
+	<city name="Amparo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODU%3D" />
+	<city name="Ananindeua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODY%3D" />
+	<city name="Anapolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMDc%3D" />
+	<city name="Anastacio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMDg%3D" />
+	<city name="Andira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTU%3D" />
+	<city name="Andradina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMDk%3D" />
+	<city name="Angatuba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODc%3D" />
+	<city name="Angra dos Reis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjM%3D" />
+	<city name="Aparecida" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODg%3D" />
+	<city name="Apiai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTY%3D" />
+	<city name="Apucarana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTA%3D" />
+	<city name="Aracaju" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTE%3D" />
+	<city name="Aracati" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTI%3D" />
+	<city name="Aracatuba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTM%3D" />
+	<city name="Aracoiaba da Serra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTA%3D" />
+	<city name="Aracruz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTQ%3D" />
+	<city name="Aracuai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTE%3D" />
+	<city name="Aragarcas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTI%3D" />
+	<city name="Araguacu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTM%3D" />
+	<city name="Araguaina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTc%3D" />
+	<city name="Araguari" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjQ%3D" />
+	<city name="Araguatins" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0ODk%3D" />
+	<city name="Arapiraca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTU%3D" />
+	<city name="Arapongas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTY%3D" />
+	<city name="Araraquara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjU%3D" />
+	<city name="Araruama" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTA%3D" />
+	<city name="Araucaria" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTc%3D" />
+	<city name="Araxa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTg%3D" />
+	<city name="Arinos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTE%3D" />
+	<city name="Aripuana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMTk%3D" />
+	<city name="Ariquemes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTI%3D" />
+	<city name="Aruja" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTg%3D" />
+	<city name="Arvoredo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjY%3D" />
+	<city name="Assis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjc%3D" />
+	<city name="Atibaia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTM%3D" />
+	<city name="Augustinopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTQ%3D" />
+	<city name="Auriflama" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjA%3D" />
+	<city name="Avare" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjE%3D" />
+	<city name="Bage" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjI%3D" />
+	<city name="Baixo Guandu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTQ%3D" />
+	<city name="Balsamo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjM%3D" />
+	<city name="Balsas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjQ%3D" />
+	<city name="Bambui" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNTk%3D" />
+	<city name="Bandeirantes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjU%3D" />
+	<city name="Barbacena" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjY%3D" />
+	<city name="Barcelos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjc%3D" />
+	<city name="Barra de Macae" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDE%3D" />
+	<city name="Barra de Sao Francisco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjA%3D" />
+	<city name="Barra do Corda" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTU%3D" />
+	<city name="Barra do Garcas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjg%3D" />
+	<city name="Barra do Pirai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjE%3D" />
+	<city name="Barra Mansa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMjk%3D" />
+	<city name="Barreiras" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzA%3D" />
+	<city name="Barretos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTY%3D" />
+	<city name="Barueri" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTc%3D" />
+	<city name="Bauru" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzE%3D" />
+	<city name="Bebedouro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTg%3D" />
+	<city name="Belem" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzI%3D" />
+	<city name="Belford Roxo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0OTk%3D" />
+	<city name="Belo Horizonte" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzM%3D" />
+	<city name="Belo Monte" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDA%3D" />
+	<city name="Belterra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDE%3D" />
+	<city name="Benjamin Constant" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDI%3D" />
+	<city name="Bento Goncalves" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzQ%3D" />
+	<city name="Bertioga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjg%3D" />
+	<city name="Betim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDM%3D" />
+	<city name="Biguacu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzU%3D" />
+	<city name="Birigui" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzY%3D" />
+	<city name="Blumenau" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzc%3D" />
+	<city name="Boa Esperanca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjI%3D" />
+	<city name="Boa Vista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzg%3D" />
+	<city name="Boca do Acre" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDQ%3D" />
+	<city name="Bocaiuva" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjM%3D" />
+	<city name="Boituva" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDU%3D" />
+	<city name="Bom Despacho" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwMzk%3D" />
+	<city name="Bom Jardim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDY%3D" />
+	<city name="Bom Jesus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDg%3D" />
+	<city name="Bom Jesus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MDk%3D" />
+	<city name="Bom Jesus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDEyMjI%3D" />
+	<city name="Bom Jesus da Lapa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDA%3D" />
+	<city name="Bom Jesus de Itabapoan" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTU%3D" />
+	<city name="Boraciia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMzM%3D" />
+	<city name="Borba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTA%3D" />
+	<city name="Botelhos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTE%3D" />
+	<city name="Botucatu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDE%3D" />
+	<city name="Braganca Paulista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDI%3D" />
+	<city name="Brasilia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDM%3D" />
+	<city name="Brasilia de Minas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTY%3D" />
+	<city name="Brotas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTI%3D" />
+	<city name="Brusque" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDQ%3D" />
+	<city name="Buri" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTM%3D" />
+	<city name="Buritis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTQ%3D" />
+	<city name="Buritizeiro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTU%3D" />
+	<city name="Buzios" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjk%3D" />
+	<city name="Caapiranga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTY%3D" />
+	<city name="Cabo Frio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDU%3D" />
+	<city name="Cabreuva" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDU%3D" />
+	<city name="Cacapava" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzA%3D" />
+	<city name="Caceres" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDY%3D" />
+	<city name="Cachoeiro de Itapemirim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDg%3D" />
+	<city name="Cacoal" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTc%3D" />
+	<city name="Caete" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjU%3D" />
+	<city name="Caetite" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTg%3D" />
+	<city name="Caieiras" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MTk%3D" />
+	<city name="Calcoene" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTc%3D" />
+	<city name="Camaragibe" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MzY%3D" />
+	<city name="Camboriu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzE%3D" />
+	<city name="Campestre" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MjA%3D" />
+	<city name="Campina do Monte Alegre" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTg%3D" />
+	<city name="Campina Grande" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNDk%3D" />
+	<city name="Campinas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTA%3D" />
+	<city name="Campo Belo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MjE%3D" />
+	<city name="Campo Grande" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTE%3D" />
+	<city name="Campo Largo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTI%3D" />
+	<city name="Campo Limpo Paulista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2OTk%3D" />
+	<city name="Campo Mourao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTM%3D" />
+	<city name="Campos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTQ%3D" />
+	<city name="Campos do Jordao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTU%3D" />
+	<city name="Campos Novos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MjI%3D" />
+	<city name="Canavieiras" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MjM%3D" />
+	<city name="Canoas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTY%3D" />
+	<city name="Canoinhas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTc%3D" />
+	<city name="Cantagalo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MjQ%3D" />
+	<city name="Canto do Buriti" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTg%3D" />
+	<city name="Canutama" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MjU%3D" />
+	<city name="Capanema" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MjY%3D" />
+	<city name="Capao Bonito" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjY%3D" />
+	<city name="Capao da Canoa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjc%3D" />
+	<city name="Caparao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjg%3D" />
+	<city name="Capela do Alto" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Mjc%3D" />
+	<city name="Capelinha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Mjg%3D" />
+	<city name="Capivari" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Mjk%3D" />
+	<city name="Caracarai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjk%3D" />
+	<city name="Caraguatatuba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNTk%3D" />
+	<city name="Carandam" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODA%3D" />
+	<city name="Carangola" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MzA%3D" />
+	<city name="Carapicuiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzI%3D" />
+	<city name="Carapina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjA%3D" />
+	<city name="Caratinga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjE%3D" />
+	<city name="Caravelas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjI%3D" />
+	<city name="Carbonita" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MzE%3D" />
+	<city name="Cariacica" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3Mjc%3D" />
+	<city name="Carinhanha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MzI%3D" />
+	<city name="Carmo da Cachoeira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MzM%3D" />
+	<city name="Carmo do Rio Claro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MzQ%3D" />
+	<city name="Carolina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MzU%3D" />
+	<city name="Caruaru" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzM%3D" />
+	<city name="Carvoeiro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1MzY%3D" />
+	<city name="Casa Branca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Mzc%3D" />
+	<city name="Cascavel" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjM%3D" />
+	<city name="Cascavel" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODE%3D" />
+	<city name="Castanhal" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzQ%3D" />
+	<city name="Castelo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Mzg%3D" />
+	<city name="Castro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjQ%3D" />
+	<city name="Cataguases" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Mzk%3D" />
+	<city name="Catalao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjU%3D" />
+	<city name="Catanduva" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjY%3D" />
+	<city name="Caucaia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODI%3D" />
+	<city name="Caxias" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjc%3D" />
+	<city name="Caxias do Sul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjg%3D" />
+	<city name="Cerqueira Cesar" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzA%3D" />
+	<city name="Cerquilho" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDA%3D" />
+	<city name="Cesario Lange" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzE%3D" />
+	<city name="Chapada Diamantina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODM%3D" />
+	<city name="Chapada dos Guimaraes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODQ%3D" />
+	<city name="Chapada dos Veadeiros" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODU%3D" />
+	<city name="Chapeco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNjk%3D" />
+	<city name="Cianorte" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzU%3D" />
+	<city name="Cipo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzI%3D" />
+	<city name="Codajas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzM%3D" />
+	<city name="Codisburgo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDA%3D" />
+	<city name="Coelho da Rocha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDE%3D" />
+	<city name="Colatina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzA%3D" />
+	<city name="Colombo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzE%3D" />
+	<city name="Colorado do Oeste" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDE%3D" />
+	<city name="Conceicao do Araguaia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDI%3D" />
+	<city name="Concordia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzY%3D" />
+	<city name="Congonhas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDI%3D" />
+	<city name="Conselheiro Lafaiete" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzI%3D" />
+	<city name="Contagem" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDM%3D" />
+	<city name="Coracao de Jesus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDM%3D" />
+	<city name="Cordeiro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDQ%3D" />
+	<city name="Corinto" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDU%3D" />
+	<city name="Cornelio Procopio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzM%3D" />
+	<city name="Coronel Fabriciano" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDY%3D" />
+	<city name="Corumba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzQ%3D" />
+	<city name="Costa do Saumpe" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODY%3D" />
+	<city name="Cotia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDc%3D" />
+	<city name="Coxim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzU%3D" />
+	<city name="Criciuma" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzY%3D" />
+	<city name="Cristalandia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzQ%3D" />
+	<city name="Cruz Alta" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzc%3D" />
+	<city name="Cruzeiro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDg%3D" />
+	<city name="Cruzeiro do Sul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NDk%3D" />
+	<city name="Cruzeta" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzc%3D" />
+	<city name="Cubatao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzU%3D" />
+	<city name="Cuiaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzg%3D" />
+	<city name="Curitiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwNzk%3D" />
+	<city name="Curitibanos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODA%3D" />
+	<city name="Currais Novos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzg%3D" />
+	<city name="Curuca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzY%3D" />
+	<city name="Curvelo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODE%3D" />
+	<city name="Diadema" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODI%3D" />
+	<city name="Diamantina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODM%3D" />
+	<city name="Diamantino" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTA%3D" />
+	<city name="Divinopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODQ%3D" />
+	<city name="Dourados" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODU%3D" />
+	<city name="Dracena" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODY%3D" />
+	<city name="Duartina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTE%3D" />
+	<city name="Duque de Caxias" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODc%3D" />
+	<city name="Ecoporanga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTI%3D" />
+	<city name="Embu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTM%3D" />
+	<city name="Embu-Guacu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDQ%3D" />
+	<city name="Encruzilhada do Sul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTQ%3D" />
+	<city name="Erexim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNzk%3D" />
+	<city name="Espinosa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTU%3D" />
+	<city name="Espirito Santo do Pinh" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzc%3D" />
+	<city name="Farroupilha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODg%3D" />
+	<city name="Feijo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzg%3D" />
+	<city name="Feira de Santana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwODk%3D" />
+	<city name="Fernandopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTA%3D" />
+	<city name="Ferraz de Vasconcelos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDU%3D" />
+	<city name="Figueiropolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDY%3D" />
+	<city name="Filadelfia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNzk%3D" />
+	<city name="Floresta da Tijuca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODc%3D" />
+	<city name="Floriano" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTY%3D" />
+	<city name="Florianopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTE%3D" />
+	<city name="Fonte Boa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTc%3D" />
+	<city name="Formosa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTI%3D" />
+	<city name="Formoso" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTg%3D" />
+	<city name="Formoso do Araguaia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDc%3D" />
+	<city name="Fortaleza" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTM%3D" />
+	<city name="Foz de Iguazu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODg%3D" />
+	<city name="Foz do Iguacu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTQ%3D" />
+	<city name="Franca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTU%3D" />
+	<city name="Francisco Morato" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NTk%3D" />
+	<city name="Francisco Sa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODA%3D" />
+	<city name="Franco da Rocha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NjA%3D" />
+	<city name="Garanhuns" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTY%3D" />
+	<city name="Garca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDg%3D" />
+	<city name="Garopaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTc%3D" />
+	<city name="Gaspar" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTg%3D" />
+	<city name="General Salgado" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NjE%3D" />
+	<city name="Goiania" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAwOTk%3D" />
+	<city name="Governador Valadares" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDA%3D" />
+	<city name="Gramado" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDE%3D" />
+	<city name="Grao Mogol" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODE%3D" />
+	<city name="Gravatai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODA%3D" />
+	<city name="Guaiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDI%3D" />
+	<city name="Guaira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODI%3D" />
+	<city name="Guanambi" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MzI%3D" />
+	<city name="Guapiara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NjI%3D" />
+	<city name="Guapore" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4ODk%3D" />
+	<city name="Guarapari" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDM%3D" />
+	<city name="Guarapuava" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDQ%3D" />
+	<city name="Guararapes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDU%3D" />
+	<city name="Guaratingueta" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODM%3D" />
+	<city name="Guaratuba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDY%3D" />
+	<city name="Guaruja" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODE%3D" />
+	<city name="Guarulhos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDc%3D" />
+	<city name="Guarus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NjM%3D" />
+	<city name="Gurupa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODQ%3D" />
+	<city name="Gurupi" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NjQ%3D" />
+	<city name="Hidrolandia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDg%3D" />
+	<city name="Humaita" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODU%3D" />
+	<city name="Ibiai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODY%3D" />
+	<city name="Ibitinga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NjU%3D" />
+	<city name="Ibiuna" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODc%3D" />
+	<city name="Icoraci" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MzE%3D" />
+	<city name="Iepe" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODg%3D" />
+	<city name="Igarape-Acu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MDk%3D" />
+	<city name="Iguape" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMDk%3D" />
+	<city name="Ijui" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTA%3D" />
+	<city name="Ilha Grande" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTE%3D" />
+	<city name="Ilhabela" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODI%3D" />
+	<city name="Ilheus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODM%3D" />
+	<city name="Ilheus Aeroporto" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMjM%3D" />
+	<city name="Imperatriz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDA%3D" />
+	<city name="Imperatriz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NjY%3D" />
+	<city name="Indaial" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTA%3D" />
+	<city name="Indaiatuba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Njc%3D" />
+	<city name="Inhapim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Njg%3D" />
+	<city name="Inhumas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTE%3D" />
+	<city name="Ipameri" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Njk%3D" />
+	<city name="Iparana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTI%3D" />
+	<city name="Ipatinga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTI%3D" />
+	<city name="Ipero" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzODk%3D" />
+	<city name="Ipiiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTA%3D" />
+	<city name="Irai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTE%3D" />
+	<city name="Irati" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTM%3D" />
+	<city name="Irece" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTI%3D" />
+	<city name="Itabaiana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODQ%3D" />
+	<city name="Itabaianinha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NzA%3D" />
+	<city name="Itaberaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTQ%3D" />
+	<city name="Itabira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NzE%3D" />
+	<city name="Itaborai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTM%3D" />
+	<city name="Itabuna" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODU%3D" />
+	<city name="Itacoatiara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NzI%3D" />
+	<city name="Itaguacu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTA%3D" />
+	<city name="Itaguai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTQ%3D" />
+	<city name="Itai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTU%3D" />
+	<city name="Itaimbezinho" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTM%3D" />
+	<city name="Itaituba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NzM%3D" />
+	<city name="Itajai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTU%3D" />
+	<city name="Itamarandiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NzQ%3D" />
+	<city name="Itanhaem" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODY%3D" />
+	<city name="Itaobim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDIxNTE%3D" />
+	<city name="Itaparica" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MzM%3D" />
+	<city name="Itapecerica da Serra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1NzY%3D" />
+	<city name="Itaperuna" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTY%3D" />
+	<city name="Itapetininga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODc%3D" />
+	<city name="Itapeva" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTc%3D" />
+	<city name="Itapiranga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Nzc%3D" />
+	<city name="Itapolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTY%3D" />
+	<city name="Itaquari" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTg%3D" />
+	<city name="Itaqui" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMTk%3D" />
+	<city name="Itatiaia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Nzg%3D" />
+	<city name="Itatiaia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTQ%3D" />
+	<city name="Itatiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1Nzk%3D" />
+	<city name="Itauna" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjA%3D" />
+	<city name="Itu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjE%3D" />
+	<city name="Ituiutaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjI%3D" />
+	<city name="Itupeva" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODA%3D" />
+	<city name="Ituverava" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODE%3D" />
+	<city name="Iuna" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3Mjg%3D" />
+	<city name="Ivai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTc%3D" />
+	<city name="Ivinhema" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTE%3D" />
+	<city name="Jaboticabal" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODI%3D" />
+	<city name="Jacareacanga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjM%3D" />
+	<city name="Jacarei" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTg%3D" />
+	<city name="Jacarezinho" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODM%3D" />
+	<city name="Jaciara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjQ%3D" />
+	<city name="Jacobina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDIyMzk%3D" />
+	<city name="Jales" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODU%3D" />
+	<city name="Janauba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjU%3D" />
+	<city name="Januaria" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzOTk%3D" />
+	<city name="Jaragua do Sul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjY%3D" />
+	<city name="Jaru" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODY%3D" />
+	<city name="Jau" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNjQ%3D" />
+	<city name="Jequie" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODk%3D" />
+	<city name="Jequitinhonha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODc%3D" />
+	<city name="Ji-Parana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjc%3D" />
+	<city name="Jijoca de Jericoacoara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTU%3D" />
+	<city name="Joacaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTI%3D" />
+	<city name="Joanopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTY%3D" />
+	<city name="Joao Neiva" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDA%3D" />
+	<city name="Joao Pessoa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMjg%3D" />
+	<city name="Joao Pinheiro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDE%3D" />
+	<city name="Joinville" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzA%3D" />
+	<city name="Jose Bonifacio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDI%3D" />
+	<city name="Juazeiro do Norte" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTA%3D" />
+	<city name="Juiz de Fora" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzE%3D" />
+	<city name="Jumirim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODg%3D" />
+	<city name="Jundiai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDIzMzc%3D" />
+	<city name="Juquia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMzY%3D" />
+	<city name="Juquitiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1ODk%3D" />
+	<city name="Jurua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDM%3D" />
+	<city name="Juruti" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTA%3D" />
+	<city name="Labrea" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzM%3D" />
+	<city name="Lages" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTE%3D" />
+	<city name="Lagoa Santa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTE%3D" />
+	<city name="Lagoa Vermelha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTI%3D" />
+	<city name="Laguna" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTI%3D" />
+	<city name="Laranjal Paulista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTM%3D" />
+	<city name="Lavras" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTQ%3D" />
+	<city name="Leme" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTU%3D" />
+	<city name="Lencois Paulista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTM%3D" />
+	<city name="Limeira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzQ%3D" />
+	<city name="Lindoia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDQ%3D" />
+	<city name="Linhares" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzU%3D" />
+	<city name="Lins" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTM%3D" />
+	<city name="Londrina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzc%3D" />
+	<city name="Lorena" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzg%3D" />
+	<city name="Lourenco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzk%3D" />
+	<city name="Lucelia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDU%3D" />
+	<city name="Luziania" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDA%3D" />
+	<city name="Macapa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDI%3D" />
+	<city name="Maceio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDM%3D" />
+	<city name="Machado" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTY%3D" />
+	<city name="Macuco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTc%3D" />
+	<city name="Mafra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDQ%3D" />
+	<city name="Mage" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDU%3D" />
+	<city name="Mairinque" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTg%3D" />
+	<city name="Mairipora" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDc%3D" />
+	<city name="Malacacheta" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA1OTk%3D" />
+	<city name="Manacapuru" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDA%3D" />
+	<city name="Manaus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDY%3D" />
+	<city name="Mancio Lima" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDg%3D" />
+	<city name="Manga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDE%3D" />
+	<city name="Mangaratiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDI%3D" />
+	<city name="Manhuacu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDc%3D" />
+	<city name="Manicore" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDg%3D" />
+	<city name="Mantena" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDM%3D" />
+	<city name="Maraba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNDk%3D" />
+	<city name="Maracanau" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTQ%3D" />
+	<city name="Maragogi" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTc%3D" />
+	<city name="Marambaia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDQ%3D" />
+	<city name="Marataizes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDk%3D" />
+	<city name="Maresias" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTU%3D" />
+	<city name="Mariana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDU%3D" />
+	<city name="Marica" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTA%3D" />
+	<city name="Marilia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTA%3D" />
+	<city name="Maringa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTE%3D" />
+	<city name="Martinopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTE%3D" />
+	<city name="Matao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTI%3D" />
+	<city name="Maua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTI%3D" />
+	<city name="Maues" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTM%3D" />
+	<city name="Mazagao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTM%3D" />
+	<city name="Medianeira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTQ%3D" />
+	<city name="Medina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDY%3D" />
+	<city name="Mesquita" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDc%3D" />
+	<city name="Minas Novas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDg%3D" />
+	<city name="Miracema do Tocantins" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTQ%3D" />
+	<city name="Mirandopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTQ%3D" />
+	<city name="Miranorte" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTU%3D" />
+	<city name="Mirassol" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MDk%3D" />
+	<city name="Mococa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTA%3D" />
+	<city name="Mogi Das Cruzes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTY%3D" />
+	<city name="Mogi-Guacu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTc%3D" />
+	<city name="Moji-Mirim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTY%3D" />
+	<city name="Mongagua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTg%3D" />
+	<city name="Monte Alegre" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTE%3D" />
+	<city name="Monte Azul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTI%3D" />
+	<city name="Montes Claros" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTU%3D" />
+	<city name="Morrinhos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTY%3D" />
+	<city name="Morro do Chapeu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MDY%3D" />
+	<city name="Mossoro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTc%3D" />
+	<city name="Moura" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTM%3D" />
+	<city name="Muriae" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTU%3D" />
+	<city name="Muribeca dos Guararapes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyODg%3D" />
+	<city name="Mutum" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTQ%3D" />
+	<city name="Nanuque" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTU%3D" />
+	<city name="Natal" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTg%3D" />
+	<city name="Natividade" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTY%3D" />
+	<city name="Nazare Paulista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTY%3D" />
+	<city name="Neves" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTc%3D" />
+	<city name="New Xavantina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODU%3D" />
+	<city name="Nilopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyOTk%3D" />
+	<city name="Niteroi" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNTk%3D" />
+	<city name="Nova Friburgo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDI3MTY%3D" />
+	<city name="Nova Iguacu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjE%3D" />
+	<city name="Nova Lima" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjI%3D" />
+	<city name="Nova Venecia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTc%3D" />
+	<city name="Novo Airao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTg%3D" />
+	<city name="Novo Aripuana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTc%3D" />
+	<city name="Novo Cruzeiro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTk%3D" />
+	<city name="Novo Hamburgo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjM%3D" />
+	<city name="Novo Horizonte" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MjA%3D" />
+	<city name="Obidos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MTk%3D" />
+	<city name="Oiapoque" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MjE%3D" />
+	<city name="Olimpia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MjA%3D" />
+	<city name="Olinda" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjQ%3D" />
+	<city name="Oriximina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MjE%3D" />
+	<city name="Orlandia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MjI%3D" />
+	<city name="Osasco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjU%3D" />
+	<city name="Oswaldo Cruz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MjI%3D" />
+	<city name="Ourinhos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjY%3D" />
+	<city name="Ouro Preto" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MjM%3D" />
+	<city name="Ouro Preto do Oeste" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MjQ%3D" />
+	<city name="Pacajus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjc%3D" />
+	<city name="Palmares" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjg%3D" />
+	<city name="Palmas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNjk%3D" />
+	<city name="Para de Minas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MjM%3D" />
+	<city name="Paracatu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzA%3D" />
+	<city name="Paraguacu Paulista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzE%3D" />
+	<city name="Paraibuna" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MjU%3D" />
+	<city name="Parana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MjQ%3D" />
+	<city name="Paranagua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzI%3D" />
+	<city name="Parati" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDA%3D" />
+	<city name="Paraty" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTg%3D" />
+	<city name="Parintins" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzM%3D" />
+	<city name="Parnaiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDE%3D" />
+	<city name="Passo Fundo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzQ%3D" />
+	<city name="Patos de Minas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDI%3D" />
+	<city name="Patrocinio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDM%3D" />
+	<city name="Pauini" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzU%3D" />
+	<city name="Paulinia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDM%3D" />
+	<city name="Paulinia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MjU%3D" />
+	<city name="Paulista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDQ%3D" />
+	<city name="Paulistana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MjY%3D" />
+	<city name="Paulo Afonso" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Mjc%3D" />
+	<city name="Pederneiras" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Mjg%3D" />
+	<city name="Pedra Azul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDU%3D" />
+	<city name="Pedro Afonso" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Mjk%3D" />
+	<city name="Peixe" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDI5MzA%3D" />
+	<city name="Pelotas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzY%3D" />
+	<city name="Penapolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzc%3D" />
+	<city name="Penedo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MzE%3D" />
+	<city name="Pereira Barreto" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MzI%3D" />
+	<city name="Peruibe" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzg%3D" />
+	<city name="Perus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MzM%3D" />
+	<city name="Petrolina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxNzk%3D" />
+	<city name="Petropolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODA%3D" />
+	<city name="Pico da Bandeira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM4OTk%3D" />
+	<city name="Pico dos Marins" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDA%3D" />
+	<city name="Pico dos Marins" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDE%3D" />
+	<city name="Picos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MzQ%3D" />
+	<city name="Piedade" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MzU%3D" />
+	<city name="Piedade do Rio Grande" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MzY%3D" />
+	<city name="Pilar do Sul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Mzc%3D" />
+	<city name="Pimenta Bueno" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Mzg%3D" />
+	<city name="Pindamonhangaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Mzk%3D" />
+	<city name="Pinhais" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDI%3D" />
+	<city name="Piracicaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODE%3D" />
+	<city name="Pirajai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MjY%3D" />
+	<city name="Pirajui" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Mjc%3D" />
+	<city name="Pirapora" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODI%3D" />
+	<city name="Pirapozinho" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDA%3D" />
+	<city name="Pirassununga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDE%3D" />
+	<city name="Pirituba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDI%3D" />
+	<city name="Pitangui" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDM%3D" />
+	<city name="Placido Castro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTg%3D" />
+	<city name="Poa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDI%3D" />
+	<city name="Poco Fundo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Mjg%3D" />
+	<city name="Pocos de Caldas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODM%3D" />
+	<city name="Pompeia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Mjk%3D" />
+	<city name="Pompeu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MzA%3D" />
+	<city name="Ponta Grossa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODQ%3D" />
+	<city name="Ponta Pora" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODU%3D" />
+	<city name="Ponte Alta do Bom Jesus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MzE%3D" />
+	<city name="Ponte Nova" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDQ%3D" />
+	<city name="Porangaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDU%3D" />
+	<city name="Porteirinha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDY%3D" />
+	<city name="Porto Acre" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDc%3D" />
+	<city name="Porto Alegre" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODY%3D" />
+	<city name="Porto Artur" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODc%3D" />
+	<city name="Porto de Moz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDg%3D" />
+	<city name="Porto Feliz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODg%3D" />
+	<city name="Porto Ferreira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NDk%3D" />
+	<city name="Porto Nacional" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxODk%3D" />
+	<city name="Porto Seguro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDY%3D" />
+	<city name="Porto Velho" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTA%3D" />
+	<city name="Praia da Pipa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDM%3D" />
+	<city name="Praia Grande" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDMwODg%3D" />
+	<city name="Prainha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTA%3D" />
+	<city name="Presidente Medici" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MzI%3D" />
+	<city name="Presidente Prudente" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTI%3D" />
+	<city name="Presidente Venceslau" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTE%3D" />
+	<city name="Primavera do Leste" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTM%3D" />
+	<city name="Propria" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MzM%3D" />
+	<city name="Queimados" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTI%3D" />
+	<city name="Quixeramobim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTQ%3D" />
+	<city name="Rancharia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTM%3D" />
+	<city name="Raul Soares" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTQ%3D" />
+	<city name="Recife" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTU%3D" />
+	<city name="Regente Feijo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MzQ%3D" />
+	<city name="Registro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTY%3D" />
+	<city name="Remanso" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTU%3D" />
+	<city name="Resende" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTc%3D" />
+	<city name="Ribeirao das Neves" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDMxODc%3D" />
+	<city name="Ribeirao Pires" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0MzY%3D" />
+	<city name="Ribeirao Preto" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTg%3D" />
+	<city name="Rio Bananal" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTY%3D" />
+	<city name="Rio Branco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxOTk%3D" />
+	<city name="Rio Claro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDMyMDE%3D" />
+	<city name="Rio das Ostras" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTc%3D" />
+	<city name="Rio de Janeiro" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDE%3D" />
+	<city name="Rio Grande" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDI%3D" />
+	<city name="Rio Grande da Serra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDM%3D" />
+	<city name="Rio Largo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDQ%3D" />
+	<city name="Rio Pardo de Minas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTg%3D" />
+	<city name="Rio Verde" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDU%3D" />
+	<city name="Rolandia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDY%3D" />
+	<city name="Rolim de Moura" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NTk%3D" />
+	<city name="Rondonopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDc%3D" />
+	<city name="Rosairo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDg%3D" />
+	<city name="Rosario Oeste" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMDk%3D" />
+	<city name="Rozendo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMTA%3D" />
+	<city name="Sabara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMTE%3D" />
+	<city name="Salesopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDI%3D" />
+	<city name="Salinas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NjA%3D" />
+	<city name="Salto" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NjE%3D" />
+	<city name="Salto de Pirapora" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NjI%3D" />
+	<city name="Salto do Urubupunga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMTI%3D" />
+	<city name="Salvador" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDMyNzI%3D" />
+	<city name="Salvaterra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NjM%3D" />
+	<city name="Santa Barbara d'Oeste" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDM%3D" />
+	<city name="Santa Branca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDc%3D" />
+	<city name="Santa Cruz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NjQ%3D" />
+	<city name="Santa Cruz Cabralia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MzQ%3D" />
+	<city name="Santa Cruz do Sul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDg%3D" />
+	<city name="Santa Isabel" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMTQ%3D" />
+	<city name="Santa Leopoldina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NjU%3D" />
+	<city name="Santa Luzia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NjY%3D" />
+	<city name="Santa Maria" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMTU%3D" />
+	<city name="Santa Marta" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMjc%3D" />
+	<city name="Santa Teresa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3Mjk%3D" />
+	<city name="Santa Vitoria do Palmar" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MTk%3D" />
+	<city name="Santana do Livramento" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAxMzY%3D" />
+	<city name="Santana do Parnaiba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MjA%3D" />
+	<city name="Santana do Piraguara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDE%3D" />
+	<city name="Santarem" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMTY%3D" />
+	<city name="Santo Amaro da Imperatriz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDQ%3D" />
+	<city name="Santo Anastacio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDQ%3D" />
+	<city name="Santo Andre" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMTc%3D" />
+	<city name="Santo Antonio da Platina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NjI%3D" />
+	<city name="Santo Antonio de Padua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Mzc%3D" />
+	<city name="Santos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDMzODY%3D" />
+	<city name="Santos Dumont" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMTk%3D" />
+	<city name="Sao Bernardo do Campo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjA%3D" />
+	<city name="Sao Caetano" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjE%3D" />
+	<city name="Sao Caetano de Odivelas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Mzg%3D" />
+	<city name="Sao Carlos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjI%3D" />
+	<city name="Sao Felix do Xingu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjM%3D" />
+	<city name="Sao Fidelis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDU%3D" />
+	<city name="Sao Francisco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDY%3D" />
+	<city name="Sao Gabriel da Cachoeira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjQ%3D" />
+	<city name="Sao Gabriel da Palha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MjE%3D" />
+	<city name="Sao Goncalo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDc%3D" />
+	<city name="Sao Joao da Barra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDg%3D" />
+	<city name="Sao Joao da Boa Vista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDE%3D" />
+	<city name="Sao Joao da Ponte" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDk%3D" />
+	<city name="Sao Joao de Barra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjU%3D" />
+	<city name="Sao Joao de Meriti" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MjI%3D" />
+	<city name="Sao Joao del Rei" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMDk%3D" />
+	<city name="Sao Joaquim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjY%3D" />
+	<city name="Sao Joaquim da Barra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTA%3D" />
+	<city name="Sao Jose do Rio Pardo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NDA%3D" />
+	<city name="Sao Jose do Rio Preto" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjc%3D" />
+	<city name="Sao Jose Dos Campos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjg%3D" />
+	<city name="Sao Jose dos Pinhais" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMjk%3D" />
+	<city name="Sao Leopoldo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzA%3D" />
+	<city name="Sao Lourenco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDU%3D" />
+	<city name="Sao Lourenco da Serra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MjM%3D" />
+	<city name="Sao Luis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzE%3D" />
+	<city name="Sao Luis do Paraitinga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTE%3D" />
+	<city name="Sao Luiz Gonzaga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Mzk%3D" />
+	<city name="Sao Mateus" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTA%3D" />
+	<city name="Sao Miguel Arcanjo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTI%3D" />
+	<city name="Sao Paulo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzI%3D" />
+	<city name="Sao Pedro da Aldeia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTM%3D" />
+	<city name="Sao Romao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTQ%3D" />
+	<city name="Sao Roque" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzNDQ%3D" />
+	<city name="Sao Roque" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTU%3D" />
+	<city name="Sao Sebastiao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTE%3D" />
+	<city name="Sao Simao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTY%3D" />
+	<city name="Sao Vicente" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzM%3D" />
+	<city name="Saquarema" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Njc%3D" />
+	<city name="Sarapui" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTc%3D" />
+	<city name="Senador Jose Porfirio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTg%3D" />
+	<city name="Senhor do Bonfim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NjE%3D" />
+	<city name="Serra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzQ%3D" />
+	<city name="Serra da Bocamna" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDY%3D" />
+	<city name="Serra da Canastra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDc%3D" />
+	<city name="Serra da Mantiqueira" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDg%3D" />
+	<city name="Serra dos Orgaos Teresopo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MDk%3D" />
+	<city name="Serra Negra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Njg%3D" />
+	<city name="Sertaozinho" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NTk%3D" />
+	<city name="Sete Lagoas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzU%3D" />
+	<city name="Silvianopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NjA%3D" />
+	<city name="Sinop" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzY%3D" />
+	<city name="Sobral" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTI%3D" />
+	<city name="Sorocaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzc%3D" />
+	<city name="Soure" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Njk%3D" />
+	<city name="Sumare" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTM%3D" />
+	<city name="Suzano" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NzA%3D" />
+	<city name="Tabatinga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzg%3D" />
+	<city name="Taboao da Serra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NjM%3D" />
+	<city name="Taguatinga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NzE%3D" />
+	<city name="Tangara" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyMzk%3D" />
+	<city name="Tangara da Serra" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MjQ%3D" />
+	<city name="Tapaua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NjQ%3D" />
+	<city name="Tapirai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NjU%3D" />
+	<city name="Taquarituba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NzI%3D" />
+	<city name="Tarauaca" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDA%3D" />
+	<city name="Tatui" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDE%3D" />
+	<city name="Taubate" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDI%3D" />
+	<city name="Tefe" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDM%3D" />
+	<city name="Teodoro Sampaio" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NzM%3D" />
+	<city name="Teofilo Otoni" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTQ%3D" />
+	<city name="Terenos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDQ%3D" />
+	<city name="Teresina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDU%3D" />
+	<city name="Teresopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTU%3D" />
+	<city name="Tibau do Sul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MTA%3D" />
+	<city name="Tiete" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NjY%3D" />
+	<city name="Tijucas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDY%3D" />
+	<city name="Timon" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTY%3D" />
+	<city name="Timoteo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Njc%3D" />
+	<city name="Tiradentes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NzQ%3D" />
+	<city name="Tocantinopolis" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Njg%3D" />
+	<city name="Torres" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NzU%3D" />
+	<city name="Tracuateua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2NzY%3D" />
+	<city name="Trancoso" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Nzc%3D" />
+	<city name="Tres Coracoes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MjU%3D" />
+	<city name="Tres Lagoas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDc%3D" />
+	<city name="Tres Marias" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Njk%3D" />
+	<city name="Tres Pontas" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NzA%3D" />
+	<city name="Tres Rios" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NzE%3D" />
+	<city name="Trindade" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDg%3D" />
+	<city name="Tubarao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNDk%3D" />
+	<city name="Tupa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTA%3D" />
+	<city name="Turmalina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Nzg%3D" />
+	<city name="Uba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NzI%3D" />
+	<city name="Ubatuba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTE%3D" />
+	<city name="Uberaba" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTI%3D" />
+	<city name="Uberlandia" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTM%3D" />
+	<city name="Umuarama" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTc%3D" />
+	<city name="Unai" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NzM%3D" />
+	<city name="Uruguaiana" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTQ%3D" />
+	<city name="Urupes" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NzQ%3D" />
+	<city name="Valinhos" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2Nzk%3D" />
+	<city name="Vargem Grande do Sul" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NzU%3D" />
+	<city name="Varginha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTg%3D" />
+	<city name="Varzea Grande" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTU%3D" />
+	<city name="Varzea Paulista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0NzY%3D" />
+	<city name="Vassouras" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODA%3D" />
+	<city name="Vera" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA3MjY%3D" />
+	<city name="Vera Cruz" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTY%3D" />
+	<city name="Vespasiano" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODE%3D" />
+	<city name="Viamao" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTc%3D" />
+	<city name="Vicosa" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Nzc%3D" />
+	<city name="Vila Velha" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMTk%3D" />
+	<city name="Vilhena" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTg%3D" />
+	<city name="Vinhedo" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODI%3D" />
+	<city name="Visconde de Maua" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDM5MTE%3D" />
+	<city name="Visconde do Rio Branco" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA0Nzg%3D" />
+	<city name="Viseu" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODM%3D" />
+	<city name="Vitoria" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNTk%3D" />
+	<city name="Vitoria da Conquista" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjA%3D" />
+	<city name="Volta Redonda" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAzMjA%3D" />
+	<city name="Votorantim" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2ODQ%3D" />
+	<city name="Votuporanga" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDAyNjE%3D" />
+	<city name="Xavantina" url="http://weather.interceptvector.com/weather.xml?id=QlJYWDA2MTg%3D" />
+</state>

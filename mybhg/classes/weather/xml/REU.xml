@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Reunion">
+	<city name="Saint-Denis/Gillot" url="http://weather.interceptvector.com/weather.xml?id=UkVYWDAwMDI%3D" />
+	<city name="Serge-Frolow Ile Tromelin" url="http://weather.interceptvector.com/weather.xml?id=UkVYWDAwMDE%3D" />
+</state>

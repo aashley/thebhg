@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<state name="Finland">
+	<city name="Espoo" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDE%3D" />
+	<city name="Helsinki" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDI%3D" />
+	<city name="Hyvinkaa" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDM%3D" />
+	<city name="Ilomantsi" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjQ%3D" />
+	<city name="Jarvenpaa" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDQ%3D" />
+	<city name="Jokioinen" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjc%3D" />
+	<city name="Jomala" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjg%3D" />
+	<city name="Jyvaskyla" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjU%3D" />
+	<city name="Kajaani" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjE%3D" />
+	<city name="Kemi" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDU%3D" />
+	<city name="Kerava" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDY%3D" />
+	<city name="Kokkola" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDc%3D" />
+	<city name="Korsnas" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDg%3D" />
+	<city name="Kuopio" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjM%3D" />
+	<city name="Laihia" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMDk%3D" />
+	<city name="Laitila" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTA%3D" />
+	<city name="Mynamaki" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTE%3D" />
+	<city name="Nivala" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjI%3D" />
+	<city name="Oravainen" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTI%3D" />
+	<city name="Oulu" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTM%3D" />
+	<city name="Pori" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjY%3D" />
+	<city name="Porvoo" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTQ%3D" />
+	<city name="Rankki" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjk%3D" />
+	<city name="Rauma" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTU%3D" />
+	<city name="Russaro" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMzA%3D" />
+	<city name="Salo" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTY%3D" />
+	<city name="Seinajoki" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTc%3D" />
+	<city name="Sodankyla" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMzI%3D" />
+	<city name="Tampere/Pirkkala" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMzE%3D" />
+	<city name="Turku" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTg%3D" />
+	<city name="Vaasa" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMTk%3D" />
+	<city name="Vantaa" url="http://weather.interceptvector.com/weather.xml?id=RklYWDAwMjA%3D" />
+</state>

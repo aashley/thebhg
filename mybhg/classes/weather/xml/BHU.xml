@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Bhutan">
+	<city name="Paro" url="http://weather.interceptvector.com/weather.xml?id=QlRYWDAwMDE%3D" />
+	<city name="Thimphu" url="http://weather.interceptvector.com/weather.xml?id=QlRYWDAwMDI%3D" />
+</state>

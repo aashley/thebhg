@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Malawi">
+	<city name="Dowa" url="http://weather.interceptvector.com/weather.xml?id=TUlYWDAwMDE%3D" />
+	<city name="Lilongwe" url="http://weather.interceptvector.com/weather.xml?id=TUlYWDAwMDI%3D" />
+</state>

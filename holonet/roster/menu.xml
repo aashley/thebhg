@@ -1,0 +1,34 @@
+<menu>
+	<item>
+		<name>Index</name>
+		<page>index</page>
+	</item>
+	<item>
+		<name>Hunters</name>
+		<page>hunters</page>
+	</item>
+	<item>
+		<name>Search</name>
+		<page>search</page>
+	</item>
+	<item>
+		<name>Join</name>
+		<page>join</page>
+	</item>
+	<item>
+		<name>Reports</name>
+		<page>reports</page>
+	</item>
+	<item>
+		<name>Other Pages</name>
+		<page>other</page>
+	</item>
+	<item>
+		<name>Arena</name>
+		<page>acc</page>
+	</item>
+	<item>
+		<name>Administration</name>
+		<page>admin</page>
+	</item>
+</menu>

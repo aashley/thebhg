@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<state name="Denmark">
+	<city name="Abenra" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDE%3D" />
+	<city name="Alborg" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDI%3D" />
+	<city name="Arhus" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDM%3D" />
+	<city name="Augustenborg" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDQ%3D" />
+	<city name="Billund" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDU%3D" />
+	<city name="Birkerod" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDY%3D" />
+	<city name="Bramming" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDc%3D" />
+	<city name="Brande" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDg%3D" />
+	<city name="Copenhagen" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMDk%3D" />
+	<city name="Esbjerg" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTA%3D" />
+	<city name="Filskov" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTE%3D" />
+	<city name="Frederikshavn" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTI%3D" />
+	<city name="Frostrup" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTM%3D" />
+	<city name="Grimstrup" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTQ%3D" />
+	<city name="Hammer Odde" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwNDI%3D" />
+	<city name="Hasle" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTU%3D" />
+	<city name="Helsingor" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTY%3D" />
+	<city name="Herning" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTc%3D" />
+	<city name="Hillerod" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTg%3D" />
+	<city name="Holstebro" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMTk%3D" />
+	<city name="Horsholm" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjA%3D" />
+	<city name="Karup" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjE%3D" />
+	<city name="Koge" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjI%3D" />
+	<city name="Norup" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjM%3D" />
+	<city name="Odense" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjQ%3D" />
+	<city name="Osterild" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjU%3D" />
+	<city name="Randers" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjY%3D" />
+	<city name="Ribe" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjc%3D" />
+	<city name="Ronne" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjg%3D" />
+	<city name="Roskilde" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMjk%3D" />
+	<city name="Sandvig" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzA%3D" />
+	<city name="Sjorring" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzE%3D" />
+	<city name="Skrydstrup" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzI%3D" />
+	<city name="Sonderborg" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzM%3D" />
+	<city name="Spang" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzQ%3D" />
+	<city name="Tastrup" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzU%3D" />
+	<city name="Thisted" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzY%3D" />
+	<city name="Thorshavn" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwNDE%3D" />
+	<city name="Torning" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzc%3D" />
+	<city name="Varde" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzg%3D" />
+	<city name="Veslos" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwMzk%3D" />
+	<city name="Viborg" url="http://weather.interceptvector.com/weather.xml?id=REFYWDAwNDA%3D" />
+</state>

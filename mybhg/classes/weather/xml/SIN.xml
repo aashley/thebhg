@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Singapore">
+	<city name="Bukit Panjang" url="http://weather.interceptvector.com/weather.xml?id=U05YWDAwMDE%3D" />
+	<city name="Bukit Timah" url="http://weather.interceptvector.com/weather.xml?id=U05YWDAwMDI%3D" />
+	<city name="Changi" url="http://weather.interceptvector.com/weather.xml?id=U05YWDAwMDM%3D" />
+	<city name="Paya Lebar" url="http://weather.interceptvector.com/weather.xml?id=U05YWDAwMDQ%3D" />
+	<city name="Serangoon" url="http://weather.interceptvector.com/weather.xml?id=U05YWDAwMDU%3D" />
+	<city name="Singapore" url="http://weather.interceptvector.com/weather.xml?id=U05YWDAwMDY%3D" />
+</state>

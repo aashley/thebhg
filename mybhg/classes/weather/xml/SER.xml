@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<state name="Serbia">
+	<city name="Belgrade" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDE%3D" />
+	<city name="Crni Vrh" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTY%3D" />
+	<city name="Cuprija" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMjM%3D" />
+	<city name="Dimitrovgrad" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMjY%3D" />
+	<city name="Kikinda" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDk%3D" />
+	<city name="Kopaonik" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMjE%3D" />
+	<city name="Kraljevo" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMjA%3D" />
+	<city name="Krusevac" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMjI%3D" />
+	<city name="Leskovac" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMjU%3D" />
+	<city name="Loznica" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTE%3D" />
+	<city name="Negotin" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTc%3D" />
+	<city name="Nis" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMjQ%3D" />
+	<city name="Novi Sad" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDI%3D" />
+	<city name="Novi Sad Rimski Sancevi" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDc%3D" />
+	<city name="Palic" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMzA%3D" />
+	<city name="Pristina" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDM%3D" />
+	<city name="Ruma" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDQ%3D" />
+	<city name="Sjenica" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTk%3D" />
+	<city name="Smederevo" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDU%3D" />
+	<city name="Sremska Mitrovica" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTI%3D" />
+	<city name="Tompa" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDY%3D" />
+	<city name="Valjevo" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTM%3D" />
+	<city name="Veliko Gradiste" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTU%3D" />
+	<city name="Vranje" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMjc%3D" />
+	<city name="Vrsac" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTA%3D" />
+	<city name="Zlatibor" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMTg%3D" />
+	<city name="Zrenjanin" url="http://weather.interceptvector.com/weather.xml?id=U1JYWDAwMDg%3D" />
+</state>

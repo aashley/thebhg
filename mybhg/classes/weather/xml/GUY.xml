@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Guyana">
+	<city name="Georgetown" url="http://weather.interceptvector.com/weather.xml?id=R1lYWDAwMDE%3D" />
+	<city name="New Amsterdam" url="http://weather.interceptvector.com/weather.xml?id=R1lYWDAwMDI%3D" />
+	<city name="Spring Garden" url="http://weather.interceptvector.com/weather.xml?id=R1lYWDAwMDM%3D" />
+</state>

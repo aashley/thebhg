@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="United Arab Emirates">
+	<city name="Abu Dhabi" url="http://weather.interceptvector.com/weather.xml?id=VENYWDAwMDE%3D" />
+	<city name="Ajman" url="http://weather.interceptvector.com/weather.xml?id=VENYWDAwMDI%3D" />
+	<city name="Ash Shariqah" url="http://weather.interceptvector.com/weather.xml?id=VENYWDAwMDM%3D" />
+	<city name="Dubai" url="http://weather.interceptvector.com/weather.xml?id=VENYWDAwMDQ%3D" />
+	<city name="Sharjah" url="http://weather.interceptvector.com/weather.xml?id=VENYWDAwMDU%3D" />
+	<city name="Umm al Qaywayn" url="http://weather.interceptvector.com/weather.xml?id=VENYWDAwMDY%3D" />
+</state>

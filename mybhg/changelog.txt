@@ -1,0 +1,24 @@
+-- version 1.1.0 (11/7/2003) --
+1. Changed all layout to be done through CSS.
+2. Ported changes from 1.0.2 (1.1 was branched after 1.0.1).
+3. Changed all markup to be XHTML.
+4. Added theme credits to the about page.
+5. Added calendar search functionality.
+6. Made the search page accessible to guests.
+7. Fixed a typo on the search page when no results are found.
+8. Linked the section cells in the search results page to the appropriate section pages.
+9. Added a page to prettify the change log.
+10. Turned on block display on the links page.
+11. Fixed the timeline block to show the correct year.
+
+-- version 1.0.2 (9/7/2003) --
+1. First numbered release. (There were, in effect, two previous releases, which have been retrospectively numbered and listed below.)
+2. Removed superfluous and misleading "Search Calendar" link in the calendar block.
+3. Added about page and added it to the navbar.
+4. Added an RSS backend.
+
+-- version 1.0.1 (27/5/2003) --
+1. Added the calendar.
+
+-- version 1.0.0 (2/5/2003) --
+1. First public release.

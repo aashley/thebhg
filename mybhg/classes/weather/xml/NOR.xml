@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<state name="Norway">
+	<city name="Alvik" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMDE%3D" />
+	<city name="Arendal" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMDI%3D" />
+	<city name="Bergen" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMDQ%3D" />
+	<city name="Bronnoysund" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNTE%3D" />
+	<city name="Drammen" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMDg%3D" />
+	<city name="Evenes" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNTI%3D" />
+	<city name="Floro" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMDk%3D" />
+	<city name="Fredrikstad" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMTA%3D" />
+	<city name="Halden" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMTE%3D" />
+	<city name="Haugesund" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMTQ%3D" />
+	<city name="Honefoss" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMTU%3D" />
+	<city name="Kristiansand" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMTc%3D" />
+	<city name="Larvik" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMTk%3D" />
+	<city name="Lillesand" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMjA%3D" />
+	<city name="Lillestrom" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMjE%3D" />
+	<city name="Mandal" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMjI%3D" />
+	<city name="Melhus" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMjM%3D" />
+	<city name="Moss" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMjQ%3D" />
+	<city name="Namsos" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNDk%3D" />
+	<city name="Norheimsund" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMjc%3D" />
+	<city name="Oksoy Fyr" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNDg%3D" />
+	<city name="Orland Iii" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNDc%3D" />
+	<city name="Os" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMjg%3D" />
+	<city name="Oslo" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMjk%3D" />
+	<city name="Porsgrunn" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzA%3D" />
+	<city name="Roros" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzE%3D" />
+	<city name="Sandefjord" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzI%3D" />
+	<city name="Sandvika" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzM%3D" />
+	<city name="Skien" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzQ%3D" />
+	<city name="Stavanger" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzU%3D" />
+	<city name="Stjordalshalsen" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzY%3D" />
+	<city name="Svinoy Fyr" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNDU%3D" />
+	<city name="Tafjord" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNDY%3D" />
+	<city name="Tonsberg" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzc%3D" />
+	<city name="Tromso/Langnes" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNTA%3D" />
+	<city name="Trondheim" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwMzk%3D" />
+	<city name="Tynset" url="http://weather.interceptvector.com/weather.xml?id=Tk9YWDAwNDA%3D" />
+</state>

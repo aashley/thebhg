@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<state name="Mongolia">
+	<city name="Aldar" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDE%3D" />
+	<city name="Altai" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjM%3D" />
+	<city name="Arvaiheer" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjg%3D" />
+	<city name="Baitag" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjA%3D" />
+	<city name="Baruun-Urt" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzM%3D" />
+	<city name="Baruunkharaa" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTc%3D" />
+	<city name="Baruunturuun" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDc%3D" />
+	<city name="Bayan-Ovoo" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzE%3D" />
+	<city name="Bayanbulag" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjI%3D" />
+	<city name="Bayandelger" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzk%3D" />
+	<city name="Bayanhongor" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjc%3D" />
+	<city name="Bulgan" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTY%3D" />
+	<city name="Choibalsan" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTk%3D" />
+	<city name="Choir" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzA%3D" />
+	<city name="Dalanzadgad" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwNDE%3D" />
+	<city name="Dashbalbar" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTg%3D" />
+	<city name="Dzuunmod" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDI%3D" />
+	<city name="Erdenemandal" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTU%3D" />
+	<city name="Gaiuut" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjU%3D" />
+	<city name="Hatgal" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDU%3D" />
+	<city name="Hovd" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTA%3D" />
+	<city name="Hujirt" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjY%3D" />
+	<city name="Hutag" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTQ%3D" />
+	<city name="Khalkh-Gol" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzQ%3D" />
+	<city name="Maanti" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjk%3D" />
+	<city name="Mandalgovi" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzc%3D" />
+	<city name="Matad" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzU%3D" />
+	<city name="Muren" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTM%3D" />
+	<city name="Omno-Gobi" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDk%3D" />
+	<city name="Rinchinlhumbe" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDQ%3D" />
+	<city name="Saikhan-Ovoo" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzY%3D" />
+	<city name="Tarialan" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTI%3D" />
+	<city name="Tosontsengel" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMTE%3D" />
+	<city name="Tsetserleg" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjQ%3D" />
+	<city name="Tsogt-Ovoo" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzg%3D" />
+	<city name="Uigi" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDg%3D" />
+	<city name="Ulaan-Gom" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDY%3D" />
+	<city name="Ulan Bator" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMDM%3D" />
+	<city name="Uliastai" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMjE%3D" />
+	<city name="Underkhaan" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwMzI%3D" />
+	<city name="Zamyn-Uud" url="http://weather.interceptvector.com/weather.xml?id=TUdYWDAwNDA%3D" />
+</state>

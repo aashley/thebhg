@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<state name="Uruguay">
+	<city name="Artigas" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMTA%3D" />
+	<city name="Chapicuy" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDE%3D" />
+	<city name="Colonia" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMTE%3D" />
+	<city name="Durazno" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDI%3D" />
+	<city name="Las Piedras" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDM%3D" />
+	<city name="Maldonado" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDQ%3D" />
+	<city name="Melo" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDU%3D" />
+	<city name="Montevideo" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDY%3D" />
+	<city name="Paso De Los Toros" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMTQ%3D" />
+	<city name="Paysandu" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMTc%3D" />
+	<city name="Punta del Este" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDc%3D" />
+	<city name="Punta del Este" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMTY%3D" />
+	<city name="Rivera" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMTM%3D" />
+	<city name="Salto" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDg%3D" />
+	<city name="Tacuarembo" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMTI%3D" />
+	<city name="Treinta y Tres" url="http://weather.interceptvector.com/weather.xml?id=VVlYWDAwMDk%3D" />
+</state>

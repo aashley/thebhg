@@ -1,0 +1,115 @@
+/* Body tag. Should require no explanation. */
+body {
+	background-color: white;
+	background-image: url("/themes/boba/boba.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	font-size: 10pt;
+	color: black;
+}
+
+/* General definitions. */
+a {
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+a:hover {
+	text-decoration: underline;
+}
+hr {
+	border: 0;
+	border-top: solid 1px black;
+	color: transparent;
+	background-color: transparent;
+	height: 1px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+/* Table styles. The block class is used as a hint to the style sheet that it
+should probably be 100% width, or something along those lines. */
+table {
+	border-collapse: collapse;
+	border: solid 1px black;
+}
+table.block {
+	width: 100%;
+}
+th {
+	background: url("/themes/boba/th.png");
+	border: solid 1px black;
+	font-weight: bold;
+	text-align: left;
+}
+td {
+	background: url("/themes/boba/td.png");
+	border: solid 1px black;
+}
+
+/* This should simply contain the page's title. */
+div#title {
+	z-index: 1;
+	position: fixed;
+	top: auto;
+	left: 0;
+	bottom: 0;
+	width: 33%;
+	height: 14pt;
+	background: url("/themes/boba/th.png");
+	border-top: solid 1px black;
+	font-weight: bold;
+}
+
+/* The menu div will contain a series of A tags. */
+div#menu {
+	z-index: 1;
+	position: fixed;
+	top: auto;
+	right: 0;
+	bottom: 0;
+	width: 67%;
+	height: 14pt;
+	background: url("/themes/boba/th.png");
+	border-top: solid 1px black;
+	text-align: right;
+}
+div#menu > a {
+	margin-left: 1em;
+}
+
+/* Content is the main left pane on most of the existing themes. */
+div#content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 79%;
+}
+
+/* Blocks are displayed virtually everywhere now, and will be on every page by
+the time MyBHG 1.1 is released, so you can assume this will also be in place.
+Traditionally displayed on the right hand side of the page, but it's obviously
+up to the theme author.
+
+This div contains a series of further div tags, which themselves contain a div
+with class "header", along with the text of the actual block itself. */
+div#blocks {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20%;
+	padding-right: 2px;
+}
+div#blocks > div {
+	background: url("/themes/boba/td.png");
+	border: solid 1px black;
+	width: 100%;
+	margin-bottom: 1ex;
+}
+div#blocks > div > div.header {
+	background: url("/themes/boba/th.png");
+	border-bottom: solid 1px black;
+	font-weight: bold;
+}

@@ -1,0 +1,64 @@
+<refentry id="{@id}">
+  <refnamediv>
+    <refname>Roster Version 3</refname>
+    <refpurpose>Documentation of the Roster 3 Objects</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <author>
+      <firstname>Adam</firstname>
+      <lastname>Ashley</lastname>
+      <email>{@link mailto:adam_ashley@softhome.net adam_ashley@softhome.net}</email>
+      <authorblurb>
+        PRM/Koral/Planetoid Cernun/BHG -U
+      </authorblurb>
+    </author>
+  </refsynopsisdiv>
+  <refsect1 id="{@id intro}">
+    <title>Welcome to the Roster 3 Documentation</title>
+    <para>So you want to include information from the BHG Roster within a page
+    you are creating. Well if the page is hosted upon thebhg.org then you have
+    come to the right place, if not I suggest you check out the {@link 
+      https://spanky.cernun.net/r3xml/ Roster 3 XML Interface}.
+    </para>
+  </refsect1>
+  <refsect1 id="{@id howtoinclude}">
+    <title>Howto Access the BHG Objects</title>
+    <para>As you are hosted on thebhg.org, PHP has been configured to 
+    automatically include the Roster Object tree in your include path in much
+    the same way that the {@link http://pear.php.net/ PEAR} object repository 
+    is.</para>
+    <para>The basics for accessing the roster are as follows:</para>
+    <para>
+      <programlisting role="php">
+      <![CDATA[
+/**
+ * Include the Roster objects into this script
+ */
+include_once 'roster.inc';
+
+/**
+ * Create the main roster object so we can actually do stuff.
+ *
+ * Where $coder is a string assigned to you by the underlord that identifies
+ * which parts of the roster you can use.
+ */
+$roster = new Roster($coder);
+
+/**
+ * Now lets print the ID Line of the Underlord
+ */
+
+// Search by position
+$results = $roster->SearchPosition('U');
+
+// The search functions return array, as if there is anything the underlord
+// will be in position 0
+$underlord = $results[0];
+
+// print the id line
+print $underlord->IDLine();
+      ]]>
+      </programlisting>
+    </para>
+  </refsect1>
+</refentry>

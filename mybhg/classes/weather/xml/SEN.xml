@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Senegal">
+	<city name="Dakar" url="http://weather.interceptvector.com/weather.xml?id=U0dYWDAwMDE%3D" />
+	<city name="Kaolack" url="http://weather.interceptvector.com/weather.xml?id=U0dYWDAwMDI%3D" />
+	<city name="Mbour" url="http://weather.interceptvector.com/weather.xml?id=U0dYWDAwMDM%3D" />
+	<city name="Saint-Louis" url="http://weather.interceptvector.com/weather.xml?id=U0dYWDAwMDQ%3D" />
+	<city name="Thies" url="http://weather.interceptvector.com/weather.xml?id=U0dYWDAwMDU%3D" />
+	<city name="Ziguinchor" url="http://weather.interceptvector.com/weather.xml?id=U0dYWDAwMDY%3D" />
+</state>

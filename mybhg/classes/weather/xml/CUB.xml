@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<state name="Cuba">
+	<city name="Bayamo" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDE%3D" />
+	<city name="Camaguey" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDI%3D" />
+	<city name="Cienfuegus" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMTc%3D" />
+	<city name="Guantanamo Bay Nas" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMTY%3D" />
+	<city name="Havana" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDM%3D" />
+	<city name="Holguin" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMTE%3D" />
+	<city name="Las Tunas" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDQ%3D" />
+	<city name="Manzanillo" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDU%3D" />
+	<city name="Matanzas" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDY%3D" />
+	<city name="Moa" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMTI%3D" />
+	<city name="Pinar del Rio" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDc%3D" />
+	<city name="Playa Giron" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMTQ%3D" />
+	<city name="Sancti Spiritus" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDg%3D" />
+	<city name="Santa Clara" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMDk%3D" />
+	<city name="Santiago de Cuba" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMTA%3D" />
+	<city name="Trinidad" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMTM%3D" />
+	<city name="Varadero" url="http://weather.interceptvector.com/weather.xml?id=Q1VYWDAwMjA%3D" />
+</state>

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Bosnia and Herzegovina">
+	<city name="Banja Luka" url="http://weather.interceptvector.com/weather.xml?id=QktYWDAwMDE%3D" />
+	<city name="Kotor-Varos" url="http://weather.interceptvector.com/weather.xml?id=QktYWDAwMDI%3D" />
+	<city name="Sanski Most" url="http://weather.interceptvector.com/weather.xml?id=QktYWDAwMDM%3D" />
+	<city name="Sarajevo" url="http://weather.interceptvector.com/weather.xml?id=QktYWDAwMDQ%3D" />
+</state>

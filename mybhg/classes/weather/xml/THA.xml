@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<state name="Thailand">
+	<city name="Ban Phai" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDE%3D" />
+	<city name="Bangkok" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDI%3D" />
+	<city name="Chaiyaphum" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzg%3D" />
+	<city name="Chanthaburi" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDQ%3D" />
+	<city name="Chiang Mai" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDM%3D" />
+	<city name="Chon Buri" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDQ%3D" />
+	<city name="Chum Phae" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDU%3D" />
+	<city name="Hat Yai" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNTA%3D" />
+	<city name="Hua Hin" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDY%3D" />
+	<city name="Kam Paeng Phet" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzY%3D" />
+	<city name="Kanchanaburi" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDM%3D" />
+	<city name="Khok Kloi" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDc%3D" />
+	<city name="Khon Kaen" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDg%3D" />
+	<city name="Ko Samui" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDY%3D" />
+	<city name="Lampang" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMDk%3D" />
+	<city name="Lamphun" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTA%3D" />
+	<city name="Loei" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzM%3D" />
+	<city name="Lopburi" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNTM%3D" />
+	<city name="Mae Hong Son" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjc%3D" />
+	<city name="Mae Rim" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTE%3D" />
+	<city name="Mae Sariang" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjk%3D" />
+	<city name="Mae Sot" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzQ%3D" />
+	<city name="Maha Sarakham" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTI%3D" />
+	<city name="Mukdahan" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzc%3D" />
+	<city name="Nakhon Pathom" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTM%3D" />
+	<city name="Nakhon Ratchasima" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTQ%3D" />
+	<city name="Nakhon Si Thammarat" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDg%3D" />
+	<city name="Nan" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzE%3D" />
+	<city name="Narathiwat" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNTE%3D" />
+	<city name="Nong Khai" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzI%3D" />
+	<city name="Pattaya" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTU%3D" />
+	<city name="Phayao" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjg%3D" />
+	<city name="Phetchaburi" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTY%3D" />
+	<city name="Phitsanulok" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzU%3D" />
+	<city name="Phra Nakhon Si Ayutthaya" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTc%3D" />
+	<city name="Phuket" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTg%3D" />
+	<city name="Prachin Buri" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDI%3D" />
+	<city name="Prachuap Khirikhan" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDU%3D" />
+	<city name="Roi Et" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMTk%3D" />
+	<city name="Sakhon Nakhon" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjA%3D" />
+	<city name="Samut Prakan" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjE%3D" />
+	<city name="Samut Sakhon" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjI%3D" />
+	<city name="Saraphi" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjM%3D" />
+	<city name="Songkhla" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDk%3D" />
+	<city name="Suphan Buri" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDE%3D" />
+	<city name="Surat Thani" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDc%3D" />
+	<city name="Thai Muang" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjQ%3D" />
+	<city name="Thalang" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjU%3D" />
+	<city name="Thong Pha Phum" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwNDA%3D" />
+	<city name="Ubon Ratchathani" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMzk%3D" />
+	<city name="Udon Thani" url="http://weather.interceptvector.com/weather.xml?id=VEhYWDAwMjY%3D" />
+</state>

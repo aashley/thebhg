@@ -1,0 +1,53 @@
+INSTALLATION INSTRUCTIONS
+-------------------------
+
+1. Open up news-config.php
+   Work through all the settings found within untill it is
+   configured how you want. Instructions are within the file
+   itself.
+
+2. Once configured upload news-config.php and ctable.php to
+   your web space. Open ctable.php in a browser. ie:
+     http://underlord.thebhg.org/news/ctable.php
+   This will create the necessary tables within your
+   database.
+   An error will mean you have not configured the system
+   properly.
+
+3. Once the table is created you should delete ctable.php
+   from your webspace.
+
+4. The script comes with a very basic news layout in
+   news-layout.php. You can edit this file to make the news
+   layout consistant with your web site. There are a few
+   tags you need to place within this file to get it to
+   display the news properly, other then this the file is
+   standard html.
+     %topic%    -  The topic of the news article.
+     %message%  -  The main body of the news article.
+     %date%     -  The date on which the article was 
+                   posted.
+     %email%    -  The email address of the person that
+                   posted the article.
+     %name%     -  The Name and Position of the person
+                   that posted the article.
+
+5. Next you need to set up the layout for the display
+   number of pages section. This has one tag that goes
+   in where you wish the form to be displayed.
+     %display%
+
+6. Within the page where you want the news to be displayed
+   include the line:
+     <?php include("news.php"); ?>
+   This file must have an extension that will cause the
+   server to run PHP commands, in most cases this is .php
+
+7. Once all this is done, upload the file that displays the
+   news, news.php, news-config.php, news-layout.php,
+   news-display-layout.php, news-functions.php and
+   news-admin.php to the same directory on your server.
+
+Congratulations, you should now have the BHG News System
+installed on your site. You should be able to post news
+to the system using news-admin.php now.

@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<state name="Italy">
+	<city name="Agnone" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDA%3D" />
+	<city name="Alcamo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDE%3D" />
+	<city name="Alessandria" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDY%3D" />
+	<city name="Alghero" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDE%3D" />
+	<city name="Amendola" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTQ%3D" />
+	<city name="Ancona/Falconara" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDI%3D" />
+	<city name="Aosta" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDM%3D" />
+	<city name="Ascoli Piceno" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDQ%3D" />
+	<city name="Aversa" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDI%3D" />
+	<city name="Bari" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDM%3D" />
+	<city name="Barletta" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDQ%3D" />
+	<city name="Bergamo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDU%3D" />
+	<city name="Boiano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDg%3D" />
+	<city name="Bologna" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDY%3D" />
+	<city name="Bolzano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDc%3D" />
+	<city name="Brescia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDg%3D" />
+	<city name="Breuil-cervina" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDc%3D" />
+	<city name="Brindisi" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTY%3D" />
+	<city name="Broni" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDk%3D" />
+	<city name="Bronzolo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMDk%3D" />
+	<city name="Brunico" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTA%3D" />
+	<city name="Cagliari" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTA%3D" />
+	<city name="Caltanissetta" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTE%3D" />
+	<city name="Campobasso" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTI%3D" />
+	<city name="Cantanzaro" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTY%3D" />
+	<city name="Capo Mele" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTI%3D" />
+	<city name="Capo Palinuro" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTU%3D" />
+	<city name="Carbonia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTE%3D" />
+	<city name="Carmagnola" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTI%3D" />
+	<city name="Carpi" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTM%3D" />
+	<city name="Caserta" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTQ%3D" />
+	<city name="Cassino" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTU%3D" />
+	<city name="Castelvetrano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTQ%3D" />
+	<city name="Castenaso" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTY%3D" />
+	<city name="Catania" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTc%3D" />
+	<city name="Chieti" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTg%3D" />
+	<city name="Chioggia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMTk%3D" />
+	<city name="Chivasso" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjA%3D" />
+	<city name="Ciampino" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjE%3D" />
+	<city name="Civitavecchia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjI%3D" />
+	<city name="Collegno" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjM%3D" />
+	<city name="Como" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjQ%3D" />
+	<city name="Coni" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTM%3D" />
+	<city name="Cortina d'Ampezzo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTU%3D" />
+	<city name="Cremona" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjU%3D" />
+	<city name="Domodossola" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTc%3D" />
+	<city name="Donnaz" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTg%3D" />
+	<city name="Empoli" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjY%3D" />
+	<city name="Ferrara" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjc%3D" />
+	<city name="Florence" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjg%3D" />
+	<city name="Foggia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMTk%3D" />
+	<city name="Formia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMjk%3D" />
+	<city name="Frontone" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjA%3D" />
+	<city name="Frosinone" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzA%3D" />
+	<city name="Genoa" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzE%3D" />
+	<city name="Gorizia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjE%3D" />
+	<city name="Grosseto" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTM%3D" />
+	<city name="Gualdo Tadino" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjI%3D" />
+	<city name="Imola" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzI%3D" />
+	<city name="Isle of Capri" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxODQ%3D" />
+	<city name="L'Aquila" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMDU%3D" />
+	<city name="La Spezia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzM%3D" />
+	<city name="Laives" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzQ%3D" />
+	<city name="Lanciano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzU%3D" />
+	<city name="Landeck" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTg%3D" />
+	<city name="Laurino" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjM%3D" />
+	<city name="Lavello" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjc%3D" />
+	<city name="Lecce" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjQ%3D" />
+	<city name="Liante/Novi Ligu" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjU%3D" />
+	<city name="Livorno" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzY%3D" />
+	<city name="Loano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjY%3D" />
+	<city name="Lucca" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzc%3D" />
+	<city name="Marina Di Leuca" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjg%3D" />
+	<city name="Marsala" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzg%3D" />
+	<city name="Matelica" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMjk%3D" />
+	<city name="Merano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwMzk%3D" />
+	<city name="Messina" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDA%3D" />
+	<city name="Mestre" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDE%3D" />
+	<city name="Milan" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDI%3D" />
+	<city name="Milano/Linate" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTA%3D" />
+	<city name="Modena" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDM%3D" />
+	<city name="Mola di Bari" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDQ%3D" />
+	<city name="Molfetta" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDU%3D" />
+	<city name="Moncalieri" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDY%3D" />
+	<city name="Monopoli" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDc%3D" />
+	<city name="Monte St Angelo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzA%3D" />
+	<city name="Montecchio" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxODM%3D" />
+	<city name="Montesilvano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDg%3D" />
+	<city name="Monza" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNDk%3D" />
+	<city name="Moscufo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTA%3D" />
+	<city name="Muravera" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTE%3D" />
+	<city name="Naples" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTI%3D" />
+	<city name="Novara" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTM%3D" />
+	<city name="Nuoro" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzE%3D" />
+	<city name="Orvieto" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzI%3D" />
+	<city name="Oulx" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzM%3D" />
+	<city name="Padova" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTQ%3D" />
+	<city name="Palermo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTU%3D" />
+	<city name="Palidoro" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTY%3D" />
+	<city name="Parma" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDA%3D" />
+	<city name="Passo Della Cisa" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzQ%3D" />
+	<city name="Perugia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzY%3D" />
+	<city name="Pesaro" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDE%3D" />
+	<city name="Pescara" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTc%3D" />
+	<city name="Pescina" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzg%3D" />
+	<city name="Piacenza" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTg%3D" />
+	<city name="Pisa" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNTk%3D" />
+	<city name="Pizzoferrato" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDU%3D" />
+	<city name="Poggibonsi" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjA%3D" />
+	<city name="Policoro" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDM%3D" />
+	<city name="Pompei" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjE%3D" />
+	<city name="Porassey" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDQ%3D" />
+	<city name="Pordenone" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzU%3D" />
+	<city name="Porto Civitanova" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDI%3D" />
+	<city name="Potenza" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzk%3D" />
+	<city name="Prato" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjI%3D" />
+	<city name="Prato Allo Stelv" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxMzc%3D" />
+	<city name="Quartu Sant'Elena" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjM%3D" />
+	<city name="Rapallo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjQ%3D" />
+	<city name="Ravenna" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTA%3D" />
+	<city name="Reggio Calabria" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTc%3D" />
+	<city name="Reggio Di Calabr" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDc%3D" />
+	<city name="Reggio nell'Emilia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjU%3D" />
+	<city name="Riccia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDY%3D" />
+	<city name="Rieti" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDk%3D" />
+	<city name="Rimini" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNDg%3D" />
+	<city name="Rivoli" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjY%3D" />
+	<city name="Rome" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjc%3D" />
+	<city name="Rovigo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjg%3D" />
+	<city name="Salerno" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNjk%3D" />
+	<city name="San Marco Dei Ca" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTE%3D" />
+	<city name="San Marino" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTQ%3D" />
+	<city name="San Remo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzA%3D" />
+	<city name="Santa Caterina" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTI%3D" />
+	<city name="Sardegna" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxODI%3D" />
+	<city name="Sassari" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTU%3D" />
+	<city name="Savona" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzE%3D" />
+	<city name="Siena" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzI%3D" />
+	<city name="Sorrento" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzM%3D" />
+	<city name="Spezzano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTc%3D" />
+	<city name="Spoleto" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTM%3D" />
+	<city name="Syrakus" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTY%3D" />
+	<city name="Taranto" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTg%3D" />
+	<city name="Teramo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjA%3D" />
+	<city name="Termoli" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjI%3D" />
+	<city name="Terni" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzQ%3D" />
+	<city name="Terracina" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNTk%3D" />
+	<city name="Tirano" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjE%3D" />
+	<city name="Tivoli" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzU%3D" />
+	<city name="Torre del Greco" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzY%3D" />
+	<city name="Trapani" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzc%3D" />
+	<city name="Trento" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzg%3D" />
+	<city name="Treviso" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwNzk%3D" />
+	<city name="Trieste" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODA%3D" />
+	<city name="Turin" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODE%3D" />
+	<city name="Udine" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjM%3D" />
+	<city name="Urbania" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjQ%3D" />
+	<city name="Varese" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODI%3D" />
+	<city name="Varese Ligure" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjc%3D" />
+	<city name="Vasto" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjU%3D" />
+	<city name="Vatican City" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODM%3D" />
+	<city name="Venaria" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODQ%3D" />
+	<city name="Venice" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODU%3D" />
+	<city name="Ventimiglia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODY%3D" />
+	<city name="Verona" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODc%3D" />
+	<city name="Verona/Villafranca" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwOTE%3D" />
+	<city name="Vibo Valentia" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjY%3D" />
+	<city name="Vicenza" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODg%3D" />
+	<city name="Villa Santina" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjg%3D" />
+	<city name="Villach" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxODA%3D" />
+	<city name="Viterbo" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAwODk%3D" />
+	<city name="Vitoria Veneto" url="http://weather.interceptvector.com/weather.xml?id=SVRYWDAxNjk%3D" />
+</state>

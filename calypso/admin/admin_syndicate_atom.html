@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<feed version="0.3" xmlns="http://purl.org/atom/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:lang="en">
+{getrecententries limit=5 assign="entries"}
+	<title>Recent Calypso Entries</title>
+	<link rel="alternate" type="text/html" href="{$system.home}" />
+	<modified>{$entries[0].timestamp|iso8601}</modified>
+	<generator url="{$system.home}" version="{$system.version}">{$system.name}</generator>
+{foreach from=$entries item=entry}
+  {getperson personid=$entry.owner assign="owner"}
+	<entry>
+		<author>
+			<name>{$owner.name|escape}</name>
+			<email>{$owner.email}</email>
+  {if $owner.homepage|count_characters gt 1}
+			<url>{$owner.homepage}</url>
+  {/if}
+		</author>
+		<!-- Required Elements -->
+		<title>{$entry.title|escape}</title>
+		<link rel="alternate" type="text/html" href="{$entry.url}" />
+		<id>tag:blogs.thebhg.org,2003:{$blog.id}.{$entry.id}</id>
+		<issued>{$entry.timestamp|iso8601}</issued>
+		<modified>{$entry.timestamp|iso8601}</modified>
+		<!-- Optional Elements -->
+		<summary>{$entry.content|strip_tags|truncate:155|escape}</summary>
+		<content type="multipart/alternative">
+			<content type="text/plain" xml:lang="en">{$entry.content|strip_tags|escape}</content> 
+			<content type="text/html" mode="escaped" xml:lang="en"><![CDATA[{$entry.content|nl2br}]]></content>
+		</content>
+	</entry>
+{/foreach}
+</feed>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Moldova">
+	<city name="Chisinau" url="http://weather.interceptvector.com/weather.xml?id=TURYWDAwMDE%3D" />
+	<city name="Hancesti" url="http://weather.interceptvector.com/weather.xml?id=TURYWDAwMDI%3D" />
+	<city name="Kishinev" url="http://weather.interceptvector.com/weather.xml?id=TURYWDAwMDM%3D" />
+	<city name="Straseni" url="http://weather.interceptvector.com/weather.xml?id=TURYWDAwMDQ%3D" />
+	<city name="Tiraspol" url="http://weather.interceptvector.com/weather.xml?id=TURYWDAwMDU%3D" />
+</state>

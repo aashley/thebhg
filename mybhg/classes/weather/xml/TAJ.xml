@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Tajikistan">
+	<city name="Dushanbe" url="http://weather.interceptvector.com/weather.xml?id=VElYWDAwMDE%3D" />
+	<city name="Ordhonikidzeabad" url="http://weather.interceptvector.com/weather.xml?id=VElYWDAwMDI%3D" />
+</state>

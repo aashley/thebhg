@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Liechtenstein">
+	<city name="Schaan" url="http://weather.interceptvector.com/weather.xml?id=TFNYWDAwMDE%3D" />
+	<city name="Schrunz" url="http://weather.interceptvector.com/weather.xml?id=TFNYWDAwMDM%3D" />
+	<city name="Vaduz" url="http://weather.interceptvector.com/weather.xml?id=TFNYWDAwMDI%3D" />
+</state>

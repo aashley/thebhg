@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Namibia">
+	<city name="Hentiesbaai" url="http://weather.interceptvector.com/weather.xml?id=V0FYWDAwMDE%3D" />
+	<city name="Keetmanshoop" url="http://weather.interceptvector.com/weather.xml?id=V0FYWDAwMDY%3D" />
+	<city name="Luderitz Diaz Point" url="http://weather.interceptvector.com/weather.xml?id=V0FYWDAwMDU%3D" />
+	<city name="Swakopmund" url="http://weather.interceptvector.com/weather.xml?id=V0FYWDAwMDI%3D" />
+	<city name="Walvis Bay" url="http://weather.interceptvector.com/weather.xml?id=V0FYWDAwMDM%3D" />
+	<city name="Windhoek" url="http://weather.interceptvector.com/weather.xml?id=V0FYWDAwMDQ%3D" />
+</state>

@@ -1,0 +1,62 @@
+/* Right Hand Menu Items */
+#rightmenu a {
+  display: block;
+}
+#linkadmin { 
+  margin-left: 0;
+  margin-right: auto;
+  /*Size of the image*/
+  padding-top: 30px; 
+  width: 127px; 
+  /*The image*/ 
+  background-image: url(../images/admin_link.jpg); 
+  background-repeat: no-repeat; 
+  /*Hide the text*/ 
+  overflow: hidden; 
+  /* WIN IE5 hack */ 
+  height: 30px; 
+  voice-family: "\"}\"";
+  voice-family:inherit; 
+  height: 0; 
+}
+#linkadmin:hover {
+  background-image: url(../images/admin_link-over.jpg);
+}
+#linkbhg { 
+  margin-left: 0;
+  margin-right: auto;
+  /*Size of the image*/
+  padding-top: 30px; 
+  width: 127px; 
+  /*The image*/ 
+  background-image: url(../images/bhg_link.jpg); 
+  background-repeat: no-repeat; 
+  /*Hide the text*/ 
+  overflow: hidden; 
+  /* WIN IE5 hack */ 
+  height: 30px; 
+  voice-family: "\"}\"";
+  voice-family:inherit; 
+  height: 0; 
+}
+#linkbhg:hover {
+  background-image: url(../images/bhg_link-over.jpg);
+}
+#bobafett { 
+  margin-left: 0;
+  margin-right: auto;
+  /*Size of the image*/
+  padding-top: 381px; 
+  width: 180px; 
+  /*The image*/ 
+  background-image: url(../images/boba_fett.jpg); 
+  background-repeat: no-repeat; 
+  /*Hide the text*/ 
+  overflow: hidden; 
+  /* WIN IE5 hack */ 
+  height: 381px; 
+  voice-family: "\"}\"";
+  voice-family:inherit; 
+  height: 0; 
+}
+

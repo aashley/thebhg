@@ -1,0 +1,190 @@
+<?xml version="1.0" ?>
+<state name="Spain">
+	<city name="Agreda" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODc%3D" />
+	<city name="Albacete/Los Llanos" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTc%3D" />
+	<city name="Alcala de Guadaira" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDE%3D" />
+	<city name="Alcala de Henares" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDI%3D" />
+	<city name="Alcazar de San Juan" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDM%3D" />
+	<city name="Alcira" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDQ%3D" />
+	<city name="Alcobendas" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDU%3D" />
+	<city name="Alcoi" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMzM%3D" />
+	<city name="Alcorcon" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDY%3D" />
+	<city name="Alcudia" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDc%3D" />
+	<city name="Algeciras" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODg%3D" />
+	<city name="Alicante" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDg%3D" />
+	<city name="Almeria" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMDk%3D" />
+	<city name="Antequera" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODk%3D" />
+	<city name="Aracena" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwOTA%3D" />
+	<city name="Aranjuez" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTA%3D" />
+	<city name="Arenas De San Pedro" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMzU%3D" />
+	<city name="Arizgoiti" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTE%3D" />
+	<city name="Armilla" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwOTE%3D" />
+	<city name="Arrecife" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTI%3D" />
+	<city name="Asturias/Aviles" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDI%3D" />
+	<city name="Avila" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMzE%3D" />
+	<city name="Ayamonte" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwOTI%3D" />
+	<city name="Badajoz" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDM%3D" />
+	<city name="Badajoz/Talavera La Real" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTg%3D" />
+	<city name="Badalona" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTM%3D" />
+	<city name="Baracaldo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTQ%3D" />
+	<city name="Barcelona" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTU%3D" />
+	<city name="Benasque" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwOTM%3D" />
+	<city name="Benidorm" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNjU%3D" />
+	<city name="Bilbao" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTY%3D" />
+	<city name="Blanes" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMzc%3D" />
+	<city name="Boi Taull" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMzY%3D" />
+	<city name="Buitrago" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwOTQ%3D" />
+	<city name="Burgos" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTM%3D" />
+	<city name="Caceres" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDQ%3D" />
+	<city name="Cadiz" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTc%3D" />
+	<city name="Calahorra" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMzg%3D" />
+	<city name="Calamocha" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDU%3D" />
+	<city name="Calatayud" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwOTU%3D" />
+	<city name="Camas" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTg%3D" />
+	<city name="Cartagena" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMTk%3D" />
+	<city name="Castelldefels" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjA%3D" />
+	<city name="Castellon de la Plana" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjE%3D" />
+	<city name="Cazalla De La Sierra" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMzk%3D" />
+	<city name="Cazorla" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwOTg%3D" />
+	<city name="Ceuta" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjI%3D" />
+	<city name="Ciudad Real" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjM%3D" />
+	<city name="Ciudad Rodrigo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNDA%3D" />
+	<city name="Cordoba" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjA%3D" />
+	<city name="Cordova" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjQ%3D" />
+	<city name="Covadonga" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNjY%3D" />
+	<city name="Cuarte de Huerva" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjU%3D" />
+	<city name="Cuenca" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMDA%3D" />
+	<city name="Donostia-San Sebastian" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjY%3D" />
+	<city name="Dos Hermanas" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjc%3D" />
+	<city name="Durango" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMDE%3D" />
+	<city name="Ecija" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjg%3D" />
+	<city name="Eibar" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMjk%3D" />
+	<city name="El Alquian" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzA%3D" />
+	<city name="El Astillero" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzE%3D" />
+	<city name="El Ejido" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzI%3D" />
+	<city name="El Prat de Llobregat" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzM%3D" />
+	<city name="El Puerto de Santa Maria" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzQ%3D" />
+	<city name="Elche" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzU%3D" />
+	<city name="Elizondo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMDI%3D" />
+	<city name="Figueras" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNDE%3D" />
+	<city name="Fuenlabrada" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzY%3D" />
+	<city name="Fuerteventura (La Oliva)" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNDI%3D" />
+	<city name="Gandia" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzc%3D" />
+	<city name="Gerona" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzg%3D" />
+	<city name="Getafe" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwMzk%3D" />
+	<city name="Gijon" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjI%3D" />
+	<city name="Girona" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNDM%3D" />
+	<city name="Gomera (San Sebastian)" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNDQ%3D" />
+	<city name="Gran Canaria Sur" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNzE%3D" />
+	<city name="Granada" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDA%3D" />
+	<city name="Granada/Aeropuerto" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDA%3D" />
+	<city name="Guadalajara" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDE%3D" />
+	<city name="Guadix" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDI%3D" />
+	<city name="Hellin" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNDU%3D" />
+	<city name="Hierro Island" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDY%3D" />
+	<city name="Hinojosa Del Duque" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNDY%3D" />
+	<city name="Huelva" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjU%3D" />
+	<city name="Huesca" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDM%3D" />
+	<city name="Huescar" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMDQ%3D" />
+	<city name="Ibiza" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDQ%3D" />
+	<city name="Isla de Alboran" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNzI%3D" />
+	<city name="Jaen" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDU%3D" />
+	<city name="Jerez" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMDU%3D" />
+	<city name="Jerez de la Frontera" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDY%3D" />
+	<city name="L'Hospitalet de Llobregat" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDk%3D" />
+	<city name="La Coruna" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxODk%3D" />
+	<city name="La Coruna" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMzU%3D" />
+	<city name="La Palma Islan" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDc%3D" />
+	<city name="Laguardia" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMDY%3D" />
+	<city name="Lalin" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNDc%3D" />
+	<city name="Langreo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNzM%3D" />
+	<city name="Las Palmas" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDc%3D" />
+	<city name="Las Palmas De Gran Canaria/Gando" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDE%3D" />
+	<city name="Leganes" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNDg%3D" />
+	<city name="Leon/Virgen Del Camino" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTI%3D" />
+	<city name="Lleida" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNzU%3D" />
+	<city name="Logrono/Agoncillo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTQ%3D" />
+	<city name="Lorca" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMDk%3D" />
+	<city name="Lugo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTA%3D" />
+	<city name="Madrid" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTA%3D" />
+	<city name="Mahon" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTE%3D" />
+	<city name="Malaga" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTI%3D" />
+	<city name="Manacor" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTM%3D" />
+	<city name="Manzaneda" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNzY%3D" />
+	<city name="Marbella" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTQ%3D" />
+	<city name="Mataro" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTU%3D" />
+	<city name="Melilla" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjY%3D" />
+	<city name="Merida" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTE%3D" />
+	<city name="Miranda De Ebro" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNTI%3D" />
+	<city name="Molina De Aragon" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNTM%3D" />
+	<city name="Montalban" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTI%3D" />
+	<city name="Montmelo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMzQ%3D" />
+	<city name="Morforte De Lemos" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNTQ%3D" />
+	<city name="Moron de la Frontera" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTY%3D" />
+	<city name="Mostoles" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTc%3D" />
+	<city name="Motril" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTg%3D" />
+	<city name="Murcia" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNTk%3D" />
+	<city name="Muriedas" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjA%3D" />
+	<city name="Navacerrada" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTM%3D" />
+	<city name="Orense" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjM%3D" />
+	<city name="Oviedo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTA%3D" />
+	<city name="Pajares" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNzc%3D" />
+	<city name="Palencia" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjg%3D" />
+	<city name="Palma de Mallorca" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjE%3D" />
+	<city name="Pamplona" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTQ%3D" />
+	<city name="Paterna" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjI%3D" />
+	<city name="Pollensa" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNTc%3D" />
+	<city name="Pontevedra" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTU%3D" />
+	<city name="Potocolom" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNzg%3D" />
+	<city name="Pozuelo de Alarcon" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjM%3D" />
+	<city name="Premia de Mar" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjQ%3D" />
+	<city name="Priego" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTY%3D" />
+	<city name="Puerto De La Cruz" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxNTg%3D" />
+	<city name="Puerto del Rosario" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjU%3D" />
+	<city name="Reinosa" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxODA%3D" />
+	<city name="Renteria" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxODE%3D" />
+	<city name="Requena" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTc%3D" />
+	<city name="Reus" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTg%3D" />
+	<city name="Riano" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMTk%3D" />
+	<city name="Riaza" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMjA%3D" />
+	<city name="Ronda" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMjE%3D" />
+	<city name="Sabadell" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjY%3D" />
+	<city name="Sahagun" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMjI%3D" />
+	<city name="Salamanca" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTY%3D" />
+	<city name="Salas De Los Infantes" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxODI%3D" />
+	<city name="Salou" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxODM%3D" />
+	<city name="San Antonio Abad" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjc%3D" />
+	<city name="San Sebastian" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTE%3D" />
+	<city name="Sanlucar de Barrameda" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjg%3D" />
+	<city name="Santa Coloma de Gramanet" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNjk%3D" />
+	<city name="Santa Cruz de Tenerife" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzA%3D" />
+	<city name="Santa Pola" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzE%3D" />
+	<city name="Santander" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzI%3D" />
+	<city name="Santiago Compost" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDg%3D" />
+	<city name="Segovia" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjc%3D" />
+	<city name="Sestao" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzM%3D" />
+	<city name="Seville" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzQ%3D" />
+	<city name="Sierra Nevada" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMzM%3D" />
+	<city name="Talavera de la Reina" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzU%3D" />
+	<city name="Tarragona" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzY%3D" />
+	<city name="Tenerife/Sur Re" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMTA%3D" />
+	<city name="Teruel" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMzA%3D" />
+	<city name="Toledo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzc%3D" />
+	<city name="Tordesillas" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxMjY%3D" />
+	<city name="Torrelavega" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzg%3D" />
+	<city name="Tortosa" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMDk%3D" />
+	<city name="Tudela" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwNzk%3D" />
+	<city name="Urbion-Ventrosa" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxODc%3D" />
+	<city name="Utebo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODA%3D" />
+	<city name="Utrera" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODE%3D" />
+	<city name="Valencia" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODI%3D" />
+	<city name="Valladolid" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxOTU%3D" />
+	<city name="Vicar" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODM%3D" />
+	<city name="Vigo" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODQ%3D" />
+	<city name="Vilanova I La Geltru" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODU%3D" />
+	<city name="Viso Del Marques" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMTE%3D" />
+	<city name="Vitoria" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjQ%3D" />
+	<city name="Xativa" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAxODg%3D" />
+	<city name="Zamora" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAyMjk%3D" />
+	<city name="Zaragoza" url="http://weather.interceptvector.com/weather.xml?id=U1BYWDAwODY%3D" />
+</state>

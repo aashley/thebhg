@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Zambia">
+	<city name="Chingolo" url="http://weather.interceptvector.com/weather.xml?id=WkFYWDAwMDE%3D" />
+	<city name="Kabwe" url="http://weather.interceptvector.com/weather.xml?id=WkFYWDAwMDI%3D" />
+	<city name="Livingstone" url="http://weather.interceptvector.com/weather.xml?id=WkFYWDAwMDM%3D" />
+	<city name="Lusaka" url="http://weather.interceptvector.com/weather.xml?id=WkFYWDAwMDQ%3D" />
+	<city name="Ndola" url="http://weather.interceptvector.com/weather.xml?id=WkFYWDAwMDU%3D" />
+</state>

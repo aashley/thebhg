@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<state name="Guam">
+	<city name="Agana" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDE%3D" />
+	<city name="Agana Heights" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDI%3D" />
+	<city name="Agat" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDM%3D" />
+	<city name="Andersen AFB" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDQ%3D" />
+	<city name="Asan" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDU%3D" />
+	<city name="Barrigada" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDY%3D" />
+	<city name="Dededo" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDc%3D" />
+	<city name="Hagatna" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDg%3D" />
+	<city name="Inarajan" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMDk%3D" />
+	<city name="Mangilao" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTA%3D" />
+	<city name="Merizo" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTE%3D" />
+	<city name="Mongmong" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTI%3D" />
+	<city name="Piti" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTM%3D" />
+	<city name="Santa Rita" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTQ%3D" />
+	<city name="Sinajana" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTU%3D" />
+	<city name="Talofofo" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTY%3D" />
+	<city name="Tamuning" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTc%3D" />
+	<city name="Umatac" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTg%3D" />
+	<city name="Yigo" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMTk%3D" />
+	<city name="Yona" url="http://weather.interceptvector.com/weather.xml?id=VVNHVTAwMjA%3D" />
+</state>

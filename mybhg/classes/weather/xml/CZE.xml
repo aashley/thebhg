@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<state name="Czech Republic">
+	<city name="Beroun" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDE%3D" />
+	<city name="Brno" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDI%3D" />
+	<city name="Cervena" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjc%3D" />
+	<city name="Cesky Tesin" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDM%3D" />
+	<city name="Cheb" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTc%3D" />
+	<city name="Churanov" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTk%3D" />
+	<city name="Frydek" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDQ%3D" />
+	<city name="Holesov" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjg%3D" />
+	<city name="Karvina" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDU%3D" />
+	<city name="Kladno" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDY%3D" />
+	<city name="Kocelovice" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjE%3D" />
+	<city name="Kolin" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDc%3D" />
+	<city name="Kostelni Myslova" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjQ%3D" />
+	<city name="Liberec" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjM%3D" />
+	<city name="Lysa Hora" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjk%3D" />
+	<city name="Milesovka" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjA%3D" />
+	<city name="Opava" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDg%3D" />
+	<city name="Ostrava" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMDk%3D" />
+	<city name="Pilsen" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTA%3D" />
+	<city name="Pisek" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTE%3D" />
+	<city name="Prague" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTI%3D" />
+	<city name="Praha-Libus" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjI%3D" />
+	<city name="Pribyslav" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjU%3D" />
+	<city name="Primda" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTg%3D" />
+	<city name="Rosice" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTM%3D" />
+	<city name="Slavkov u Brna" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTQ%3D" />
+	<city name="Tabor" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTU%3D" />
+	<city name="Usti nad Labem" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMTY%3D" />
+	<city name="Usti Nad Orlici" url="http://weather.interceptvector.com/weather.xml?id=RVpYWDAwMjY%3D" />
+</state>

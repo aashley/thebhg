@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Marshall Islands">
+	<city name="Kwajalein" url="http://weather.interceptvector.com/weather.xml?id=VVNSTTAwMDE%3D" />
+	<city name="Kwajalein/Bucholz" url="http://weather.interceptvector.com/weather.xml?id=VVNNSDAwMDE%3D" />
+	<city name="Majuro" url="http://weather.interceptvector.com/weather.xml?id=VVNNSDAwMDI%3D" />
+</state>

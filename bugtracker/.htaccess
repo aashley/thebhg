@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !^(.*)index.php(.*)$
+RewriteRule ^([A-Za-z0-9/]+)$ /index.php?page=$1
+
+RewriteCond %{REQUEST_URI} !^(.*)index.php(.*)$
+RewriteRule ^([A-Za-z0-9/]+)?(.*)$ /index.php?page=$1&$2

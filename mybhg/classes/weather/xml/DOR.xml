@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<state name="Dominican Republic">
+	<city name="Barahona" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDE%3D" />
+	<city name="Bonao" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDI%3D" />
+	<city name="La Romana" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDM%3D" />
+	<city name="La Vega" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDQ%3D" />
+	<city name="Puerto Plata" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDU%3D" />
+	<city name="Samana" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDY%3D" />
+	<city name="San Pedro de Macoris" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDc%3D" />
+	<city name="Santiago" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDg%3D" />
+	<city name="Santo Domingo" url="http://weather.interceptvector.com/weather.xml?id=RFJYWDAwMDk%3D" />
+</state>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Guadeloupe">
+	<city name="Les Abymes" url="http://weather.interceptvector.com/weather.xml?id=R1BYWDAwMDE%3D" />
+	<city name="Petit-Bourg" url="http://weather.interceptvector.com/weather.xml?id=R1BYWDAwMDI%3D" />
+	<city name="Pointe-a-Pitre" url="http://weather.interceptvector.com/weather.xml?id=R1BYWDAwMDM%3D" />
+	<city name="Port-Louis" url="http://weather.interceptvector.com/weather.xml?id=R1BYWDAwMDQ%3D" />
+	<city name="Saint Martin Island" url="http://weather.interceptvector.com/weather.xml?id=R1BYWDAwMDU%3D" />
+</state>

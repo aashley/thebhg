@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<state name="North Korea">
+	<city name="Anju" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTg%3D" />
+	<city name="Ch'ongjin" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDE%3D" />
+	<city name="Changjin" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTU%3D" />
+	<city name="Chongjin" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTI%3D" />
+	<city name="Haeju" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDI%3D" />
+	<city name="Hamhung" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDM%3D" />
+	<city name="Huichon" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTY%3D" />
+	<city name="Hyesan" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTM%3D" />
+	<city name="Kaesong" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDQ%3D" />
+	<city name="Kanggye" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTQ%3D" />
+	<city name="Namp'o" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDU%3D" />
+	<city name="Nampo" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTk%3D" />
+	<city name="Pyongyang" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDY%3D" />
+	<city name="Samjiyon" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTE%3D" />
+	<city name="Sariwon" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMjA%3D" />
+	<city name="Senbong" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTA%3D" />
+	<city name="Sinpo" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMTc%3D" />
+	<city name="Sinuiju" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDc%3D" />
+	<city name="Songnim" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDg%3D" />
+	<city name="Wonsan" url="http://weather.interceptvector.com/weather.xml?id=S05YWDAwMDk%3D" />
+</state>

@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<state name="Israel">
+	<city name="Acre" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDE%3D" />
+	<city name="Ariel" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjk%3D" />
+	<city name="Bat Yam" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDI%3D" />
+	<city name="Beersheba" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMzA%3D" />
+	<city name="Beit Lahm" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDM%3D" />
+	<city name="Bene Beraq" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDQ%3D" />
+	<city name="Elat" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDU%3D" />
+	<city name="Hadera" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDY%3D" />
+	<city name="Haifa" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDc%3D" />
+	<city name="Herzliyya" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDg%3D" />
+	<city name="Holon" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMDk%3D" />
+	<city name="Jerusalem" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTA%3D" />
+	<city name="Kiryat Shmone" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMzE%3D" />
+	<city name="Lod/Ben Gurion Airport" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTE%3D" />
+	<city name="Nahariyya" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTI%3D" />
+	<city name="Nazareth" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTM%3D" />
+	<city name="Nesher" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTQ%3D" />
+	<city name="Netanya" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTU%3D" />
+	<city name="Odva" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTY%3D" />
+	<city name="Petah Tiqwa" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTc%3D" />
+	<city name="Qiryat Ata" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTg%3D" />
+	<city name="Qiryat Bialik" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMTk%3D" />
+	<city name="Qiryat Motzkin" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjA%3D" />
+	<city name="Qiryat Yam" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjE%3D" />
+	<city name="Ramat Gan" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjI%3D" />
+	<city name="Ramla" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjM%3D" />
+	<city name="Rehovot" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjQ%3D" />
+	<city name="Rishon LeZiyyon" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjU%3D" />
+	<city name="Tel Aviv-Yafo" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjY%3D" />
+	<city name="Tiberius" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMzI%3D" />
+	<city name="Yotvata" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjc%3D" />
+	<city name="Zova" url="http://weather.interceptvector.com/weather.xml?id=SVNYWDAwMjg%3D" />
+</state>

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<state name="Gabon">
+	<city name="Bitam" url="http://weather.interceptvector.com/weather.xml?id=R0JYWDAwMDY%3D" />
+	<city name="Franceville" url="http://weather.interceptvector.com/weather.xml?id=R0JYWDAwMDE%3D" />
+	<city name="Koulamoutou" url="http://weather.interceptvector.com/weather.xml?id=R0JYWDAwMDI%3D" />
+	<city name="Lambarene" url="http://weather.interceptvector.com/weather.xml?id=R0JYWDAwMDg%3D" />
+	<city name="Lastoursville" url="http://weather.interceptvector.com/weather.xml?id=R0JYWDAwMDM%3D" />
+	<city name="Libreville" url="http://weather.interceptvector.com/weather.xml?id=R0JYWDAwMDQ%3D" />
+	<city name="Moanda" url="http://weather.interceptvector.com/weather.xml?id=R0JYWDAwMDc%3D" />
+	<city name="Port-Gentil" url="http://weather.interceptvector.com/weather.xml?id=R0JYWDAwMDU%3D" />
+</state>

@@ -1,0 +1,30 @@
+Input: frmName
+Label: Name:
+Size: 30
+Range: 3-100
+Domain: name
+
+Input: frmEmail
+Label: E-Mail Address:
+Size: 30
+Range: 3-150
+Domain: emailaddress
+
+Input: frmURL
+Label: Home Page:
+Size: 30
+Range: 0-200
+Required: No
+Domain: text
+
+Input: frmIRCNicks
+Label: IRC Nicknames:
+Size: 30
+Required: No
+Domain: text
+
+Text: frmQuote
+Label: Quote:
+Size: 5,30
+Required: No
+Domain: text

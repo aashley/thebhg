@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<state name="Belgium">
+	<city name="Anderlecht" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDE%3D" />
+	<city name="Ans" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDI%3D" />
+	<city name="Antwerp" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDM%3D" />
+	<city name="Aywaille" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDQ%3D" />
+	<city name="Beauvechain" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjY%3D" />
+	<city name="Brussels" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDU%3D" />
+	<city name="Charleroi" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDY%3D" />
+	<city name="Dendermonde" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDc%3D" />
+	<city name="Elsenborn" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMzA%3D" />
+	<city name="Florennes" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjU%3D" />
+	<city name="Gent" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDg%3D" />
+	<city name="Halle" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMDk%3D" />
+	<city name="Herstal" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTA%3D" />
+	<city name="Kleine Brogel" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjg%3D" />
+	<city name="Koksijde" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjE%3D" />
+	<city name="Liege" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTE%3D" />
+	<city name="Lokeren" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTI%3D" />
+	<city name="Mechelen" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTM%3D" />
+	<city name="Mons" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTQ%3D" />
+	<city name="Munte" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjM%3D" />
+	<city name="Namur" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTU%3D" />
+	<city name="Oostende Airport" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjI%3D" />
+	<city name="Saint-Nicolas" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTY%3D" />
+	<city name="Schaerbeek" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTc%3D" />
+	<city name="Seraing" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTg%3D" />
+	<city name="Sint-Niklaas" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMTk%3D" />
+	<city name="Spa" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMzE%3D" />
+	<city name="Spa/La Sauveniere" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjk%3D" />
+	<city name="St-Hubert" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjc%3D" />
+	<city name="Uccle" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjQ%3D" />
+	<city name="Vilvoorde" url="http://weather.interceptvector.com/weather.xml?id=QkVYWDAwMjA%3D" />
+</state>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Haiti">
+	<city name="Gonaives" url="http://weather.interceptvector.com/weather.xml?id=SEFYWDAwMDE%3D" />
+	<city name="Les Cayes" url="http://weather.interceptvector.com/weather.xml?id=SEFYWDAwMDI%3D" />
+	<city name="Petionville" url="http://weather.interceptvector.com/weather.xml?id=SEFYWDAwMDM%3D" />
+	<city name="Port-au-Prince" url="http://weather.interceptvector.com/weather.xml?id=SEFYWDAwMDQ%3D" />
+	<city name="Saint-Marc" url="http://weather.interceptvector.com/weather.xml?id=SEFYWDAwMDU%3D" />
+</state>

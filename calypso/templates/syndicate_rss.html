@@ -1,0 +1,38 @@
+{getblog blogid=$smarty.request.blogid assign="blog"}
+{getperson personid=$blog.owner assign="owner"}
+<?xml version="1.0"?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:admin="http://webns.net/mvcb/"
+  xmlns:cc="http://web.resource.org/cc/"
+  xmlns="http://purl.org/rss/1.0/">
+	<channel rdf:about="{$blog.url}">
+		<title>{$blog.title|escape}</title>
+		<link>{$blog.url}</link>
+		<description>{$blog.description|escape}</description>
+		<dc:language>en-us</dc:language>
+		<dc:creator>{$owner.name}</dc:creator>
+		<dc:date>{$blog.timestamp|date_format:"%Y-%m-%dT%T"}</dc:date>
+		<admin:generatorAgent rdf:resource="{$system.base}" />
+		<items>
+			<rdf:Seq>
+{getentries blogid=$blog.id limit=10 assign="entries"}
+{foreach from=$entries item=entry}
+				<rdf:li rdf:resource="{$entry.url}" /> 
+{/foreach}
+			</rdf:Seq>
+		</items>
+	</channel>
+{foreach from=$entries item=entry}
+<item rdf:about="{$entry.url}">
+		<title>{$entry.title|escape}</title>
+		<link>{$entry.url}</link>
+		<description>{$entry.content|nl2br|escape}</description> 
+		<dc:subject>{$entry.title|escape}</dc:subject> 
+		<dc:creator>{$entry.owner|escape}</dc:creator> 
+		<dc:date>{$entry.date}</dc:date> 
+	</item>
+{/foreach}
+</rdf:RDF> 

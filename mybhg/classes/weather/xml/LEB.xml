@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<state name="Lebanon">
+	<city name="Ash Shuwayfat" url="http://weather.interceptvector.com/weather.xml?id=TEVYWDAwMDE%3D" />
+	<city name="Babda" url="http://weather.interceptvector.com/weather.xml?id=TEVYWDAwMDI%3D" />
+	<city name="Beirut" url="http://weather.interceptvector.com/weather.xml?id=TEVYWDAwMDM%3D" />
+	<city name="Furn ash Shubbak" url="http://weather.interceptvector.com/weather.xml?id=TEVYWDAwMDQ%3D" />
+	<city name="Houche-Al-Oumara" url="http://weather.interceptvector.com/weather.xml?id=TEVYWDAwMDY%3D" />
+	<city name="Juniyah" url="http://weather.interceptvector.com/weather.xml?id=TEVYWDAwMDU%3D" />
+	<city name="Tripoli" url="http://weather.interceptvector.com/weather.xml?id=TEVYWDAwMDc%3D" />
+</state>

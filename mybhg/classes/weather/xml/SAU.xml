@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<state name="Saudi Arabia">
+	<city name="Abha" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzY%3D" />
+	<city name="Abyar Ali" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDE%3D" />
+	<city name="Ad Dammam" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDI%3D" />
+	<city name="Al Ahsa" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzE%3D" />
+	<city name="Al Hariq" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDM%3D" />
+	<city name="Al Hulwah" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDQ%3D" />
+	<city name="Al Jawf" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDU%3D" />
+	<city name="Al Khubar" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDY%3D" />
+	<city name="Al Lith" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDc%3D" />
+	<city name="Al Qabiyah" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDg%3D" />
+	<city name="Al Qaysumah" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjY%3D" />
+	<city name="Arar" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjM%3D" />
+	<city name="As Sulaymaniyah" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMDk%3D" />
+	<city name="Bahrah" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTA%3D" />
+	<city name="Bisha" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzU%3D" />
+	<city name="Gassim" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzA%3D" />
+	<city name="Gizan" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwNDA%3D" />
+	<city name="Guriat" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjQ%3D" />
+	<city name="Hail" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjg%3D" />
+	<city name="Jeddah/Abdul Aziz" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTE%3D" />
+	<city name="Jiddah" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTI%3D" />
+	<city name="Khamis Mushait" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzc%3D" />
+	<city name="Mecca" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTM%3D" />
+	<city name="Medina" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTQ%3D" />
+	<city name="Najran" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzg%3D" />
+	<city name="Qara" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTU%3D" />
+	<city name="Rabigh" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTY%3D" />
+	<city name="Rafha" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjU%3D" />
+	<city name="Riyadh" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTc%3D" />
+	<city name="Riyadh/Khaled" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTg%3D" />
+	<city name="Sakakah" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMTk%3D" />
+	<city name="Shaqra'" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjA%3D" />
+	<city name="Sharurah" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzk%3D" />
+	<city name="Tabuk" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjc%3D" />
+	<city name="Taif" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzM%3D" />
+	<city name="Turaif" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjI%3D" />
+	<city name="Wadi Al Dawasser Airport" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzQ%3D" />
+	<city name="Wejh" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjk%3D" />
+	<city name="Yenbo" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMzI%3D" />
+	<city name="Zahran" url="http://weather.interceptvector.com/weather.xml?id=U0FYWDAwMjE%3D" />
+</state>

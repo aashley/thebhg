@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<state name="Ireland">
+	<city name="Aasleagh" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTI%3D" />
+	<city name="Arklow" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDE%3D" />
+	<city name="Athlone" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTU%3D" />
+	<city name="Ballina/Mayo" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTY%3D" />
+	<city name="Ballinafad" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAxMDA%3D" />
+	<city name="Ballinasloe" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTg%3D" />
+	<city name="Ballincollig" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDI%3D" />
+	<city name="Ballycanew" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTc%3D" />
+	<city name="Ballymahon" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjM%3D" />
+	<city name="Belmullet" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTA%3D" />
+	<city name="Blackhead" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTk%3D" />
+	<city name="Carlow" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDM%3D" />
+	<city name="Carrick on Shannon" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDQ%3D" />
+	<city name="Carrick On Suir" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwOTI%3D" />
+	<city name="Carrickmacross" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjQ%3D" />
+	<city name="Carrigaline" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDU%3D" />
+	<city name="Castlebar" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDY%3D" />
+	<city name="Castleconnell" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDc%3D" />
+	<city name="Castlemartyr" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDg%3D" />
+	<city name="Cavan" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMDk%3D" />
+	<city name="Claremorris" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjA%3D" />
+	<city name="Clifden" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTA%3D" />
+	<city name="Clonakilty" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwOTQ%3D" />
+	<city name="Clones" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwOTA%3D" />
+	<city name="Connaught Airport" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjI%3D" />
+	<city name="Cork" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTE%3D" />
+	<city name="Crookhaven" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjE%3D" />
+	<city name="Crookstown" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTI%3D" />
+	<city name="Drogheda" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTM%3D" />
+	<city name="Dromond" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjc%3D" />
+	<city name="Dublin" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTQ%3D" />
+	<city name="Dun Laoghaire" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTU%3D" />
+	<city name="Dunmore" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjY%3D" />
+	<city name="Edenderry" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjU%3D" />
+	<city name="Ennis" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTY%3D" />
+	<city name="Galway" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTc%3D" />
+	<city name="Gorunna" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzA%3D" />
+	<city name="Greenslough" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNjk%3D" />
+	<city name="Greystones" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTg%3D" />
+	<city name="Irish Sea" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwODQ%3D" />
+	<city name="Kilcolgan" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMTk%3D" />
+	<city name="Kildare" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjA%3D" />
+	<city name="Kilkenny" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjE%3D" />
+	<city name="Killadysert" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjI%3D" />
+	<city name="Killarney" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjM%3D" />
+	<city name="Kilrush" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzE%3D" />
+	<city name="Leixlip" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjQ%3D" />
+	<city name="Letterkenny" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjU%3D" />
+	<city name="Limerick" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjY%3D" />
+	<city name="Longford" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjc%3D" />
+	<city name="Loughrea" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzI%3D" />
+	<city name="Malin Head" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwOTE%3D" />
+	<city name="Mallow" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjg%3D" />
+	<city name="Midleton" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMjk%3D" />
+	<city name="Milestone" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzM%3D" />
+	<city name="Monaghan" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzA%3D" />
+	<city name="Moycullen" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzE%3D" />
+	<city name="Mullingar" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzI%3D" />
+	<city name="Naas" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzM%3D" />
+	<city name="Navan" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzQ%3D" />
+	<city name="Newmarket on Fergus" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzU%3D" />
+	<city name="Oldcastle" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzQ%3D" />
+	<city name="Oranmore" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzY%3D" />
+	<city name="Pallaskenry" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzc%3D" />
+	<city name="Portlaoise" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzg%3D" />
+	<city name="Portlaw" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzU%3D" />
+	<city name="Portmarnock" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwMzk%3D" />
+	<city name="Ringaskiddy" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDA%3D" />
+	<city name="Roscommon" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDE%3D" />
+	<city name="Roscrea" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzY%3D" />
+	<city name="Rosslare" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTQ%3D" />
+	<city name="Sea Blackhead" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwODM%3D" />
+	<city name="Sea Malinhead" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwODU%3D" />
+	<city name="Sea Valentia" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwODc%3D" />
+	<city name="Shercock" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzc%3D" />
+	<city name="Sligo" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDI%3D" />
+	<city name="St Georges Chan" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwODY%3D" />
+	<city name="Swords" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDM%3D" />
+	<city name="Tallaght" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDQ%3D" />
+	<city name="Thurles" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzk%3D" />
+	<city name="Tipperary" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDU%3D" />
+	<city name="Tralee" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNzg%3D" />
+	<city name="Tuam" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwODA%3D" />
+	<city name="Tullamore" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDY%3D" />
+	<city name="Valentia Observatory" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNTM%3D" />
+	<city name="Waterford" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDc%3D" />
+	<city name="West Arran" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwODE%3D" />
+	<city name="Wexford" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDg%3D" />
+	<city name="Wicklow" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwNDk%3D" />
+	<city name="Youghal" url="http://weather.interceptvector.com/weather.xml?id=RUlYWDAwODI%3D" />
+</state>

@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Greenland">
+	<city name="Angmagssalik" url="http://weather.interceptvector.com/weather.xml?id=R0xYWDAwMDE%3D" />
+	<city name="Frederikshaab" url="http://weather.interceptvector.com/weather.xml?id=R0xYWDAwMDc%3D" />
+	<city name="Godthab" url="http://weather.interceptvector.com/weather.xml?id=R0xYWDAwMDM%3D" />
+	<city name="Julianehab" url="http://weather.interceptvector.com/weather.xml?id=R0xYWDAwMDQ%3D" />
+	<city name="Narsarsuaq" url="http://weather.interceptvector.com/weather.xml?id=R0xYWDAwMDU%3D" />
+	<city name="Prins Christian Sund" url="http://weather.interceptvector.com/weather.xml?id=R0xYWDAwMDY%3D" />
+</state>

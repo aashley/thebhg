@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<state name="Zimbabwe">
+	<city name="Buffalo Range" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMTE%3D" />
+	<city name="Bulawayo" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDE%3D" />
+	<city name="Chegutu" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDI%3D" />
+	<city name="Chitungwiza" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDM%3D" />
+	<city name="Harare" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDQ%3D" />
+	<city name="Hwange National Park" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDg%3D" />
+	<city name="Karoi" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDU%3D" />
+	<city name="Masvingo" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMTA%3D" />
+	<city name="Mount Darwin" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDY%3D" />
+	<city name="Rusape" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDk%3D" />
+	<city name="Victoria Falls" url="http://weather.interceptvector.com/weather.xml?id=WklYWDAwMDc%3D" />
+</state>

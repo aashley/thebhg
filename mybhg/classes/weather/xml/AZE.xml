@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<state name="Azerbaijan">
+	<city name="Baku" url="http://weather.interceptvector.com/weather.xml?id=QUpYWDAwMDE%3D" />
+	<city name="Fizuli" url="http://weather.interceptvector.com/weather.xml?id=QUpYWDAwMDU%3D" />
+	<city name="Gyanja" url="http://weather.interceptvector.com/weather.xml?id=QUpYWDAwMDY%3D" />
+	<city name="Lankaran" url="http://weather.interceptvector.com/weather.xml?id=QUpYWDAwMDc%3D" />
+	<city name="Lokbatan" url="http://weather.interceptvector.com/weather.xml?id=QUpYWDAwMDI%3D" />
+	<city name="Mastaga" url="http://weather.interceptvector.com/weather.xml?id=QUpYWDAwMDM%3D" />
+	<city name="Naxcivan" url="http://weather.interceptvector.com/weather.xml?id=QUpYWDAwMDQ%3D" />
+	<city name="Zakatala" url="http://weather.interceptvector.com/weather.xml?id=QUpYWDAwMDg%3D" />
+</state>

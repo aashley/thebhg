@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Mali">
+	<city name="Bamako" url="http://weather.interceptvector.com/weather.xml?id=TUxYWDAwMDE%3D" />
+	<city name="Gao" url="http://weather.interceptvector.com/weather.xml?id=TUxYWDAwMDM%3D" />
+	<city name="Kayes" url="http://weather.interceptvector.com/weather.xml?id=TUxYWDAwMDQ%3D" />
+	<city name="Mopti" url="http://weather.interceptvector.com/weather.xml?id=TUxYWDAwMDU%3D" />
+	<city name="Segou" url="http://weather.interceptvector.com/weather.xml?id=TUxYWDAwMDY%3D" />
+	<city name="Timbuktu" url="http://weather.interceptvector.com/weather.xml?id=TUxYWDAwMDI%3D" />
+</state>

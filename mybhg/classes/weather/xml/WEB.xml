@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="West Bank">
+	<city name="Bethlehem" url="http://weather.interceptvector.com/weather.xml?id=V0VYWDAwMDE%3D" />
+	<city name="Hebron" url="http://weather.interceptvector.com/weather.xml?id=V0VYWDAwMDI%3D" />
+	<city name="Nabulus" url="http://weather.interceptvector.com/weather.xml?id=V0VYWDAwMDM%3D" />
+	<city name="Qalandiyah" url="http://weather.interceptvector.com/weather.xml?id=V0VYWDAwMDQ%3D" />
+	<city name="Ram Allah" url="http://weather.interceptvector.com/weather.xml?id=V0VYWDAwMDU%3D" />
+</state>

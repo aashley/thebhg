@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<state name="Kenya">
+	<city name="Athi River" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDE%3D" />
+	<city name="Garissa" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTY%3D" />
+	<city name="Kakamega" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDI%3D" />
+	<city name="Kericho" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDM%3D" />
+	<city name="Kisii" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDQ%3D" />
+	<city name="Kisumu" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDU%3D" />
+	<city name="Kitale" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTQ%3D" />
+	<city name="Konza" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDY%3D" />
+	<city name="Lodwar" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTI%3D" />
+	<city name="Makindu" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTc%3D" />
+	<city name="Malindi" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDc%3D" />
+	<city name="Marsabit" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTM%3D" />
+	<city name="Meru" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTU%3D" />
+	<city name="Mombasa" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDg%3D" />
+	<city name="Nairobi" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMDk%3D" />
+	<city name="Nakuru" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTA%3D" />
+	<city name="Thika" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTE%3D" />
+	<city name="Voi" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTg%3D" />
+	<city name="Wajir" url="http://weather.interceptvector.com/weather.xml?id=S0VYWDAwMTk%3D" />
+</state>

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<state name="Cameroon">
+	<city name="Bafoussam" url="http://weather.interceptvector.com/weather.xml?id=Q01YWDAwMDE%3D" />
+	<city name="Buea" url="http://weather.interceptvector.com/weather.xml?id=Q01YWDAwMDI%3D" />
+	<city name="Douala" url="http://weather.interceptvector.com/weather.xml?id=Q01YWDAwMDM%3D" />
+	<city name="Edea" url="http://weather.interceptvector.com/weather.xml?id=Q01YWDAwMDQ%3D" />
+	<city name="Mamfe" url="http://weather.interceptvector.com/weather.xml?id=Q01YWDAwMTA%3D" />
+	<city name="Mbalmayo" url="http://weather.interceptvector.com/weather.xml?id=Q01YWDAwMDc%3D" />
+	<city name="Yaounde" url="http://weather.interceptvector.com/weather.xml?id=Q01YWDAwMDg%3D" />
+</state>

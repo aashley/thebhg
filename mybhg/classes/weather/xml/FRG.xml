@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="French Guiana">
+	<city name="Cayenne" url="http://weather.interceptvector.com/weather.xml?id=RkdYWDAwMDE%3D" />
+	<city name="Sinnamary" url="http://weather.interceptvector.com/weather.xml?id=RkdYWDAwMDI%3D" />
+</state>

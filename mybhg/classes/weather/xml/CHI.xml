@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<state name="Chile">
+	<city name="Antofagasta" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDE%3D" />
+	<city name="Arica" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDI%3D" />
+	<city name="Balmaceda" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDM%3D" />
+	<city name="Baquedano" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDQ%3D" />
+	<city name="Calama" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMzM%3D" />
+	<city name="Caldera" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDU%3D" />
+	<city name="Chaiten" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjk%3D" />
+	<city name="Chillan" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDY%3D" />
+	<city name="Concepcion" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDc%3D" />
+	<city name="Copiapo" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMzA%3D" />
+	<city name="Coquimbo" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDg%3D" />
+	<city name="Curico" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMzE%3D" />
+	<city name="Iquique" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMDk%3D" />
+	<city name="Isla Diego Ramirez" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMzU%3D" />
+	<city name="Islotes Evangelistas" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMzQ%3D" />
+	<city name="La Serena" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTA%3D" />
+	<city name="Los Cuartitos" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwNDI%3D" />
+	<city name="Nunoa" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTE%3D" />
+	<city name="Osorno" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTI%3D" />
+	<city name="Ovalle" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTM%3D" />
+	<city name="Palena" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMzI%3D" />
+	<city name="Portillo" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwNDQ%3D" />
+	<city name="Pucon" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwNDA%3D" />
+	<city name="Puerto Aisen" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTQ%3D" />
+	<city name="Puerto Montt" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTU%3D" />
+	<city name="Puerto Natales" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTY%3D" />
+	<city name="Punta Arenas" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTc%3D" />
+	<city name="Rancagua" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTg%3D" />
+	<city name="San Bernardo" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMTk%3D" />
+	<city name="Santiago" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjA%3D" />
+	<city name="Talca" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjE%3D" />
+	<city name="Talcahuano" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjI%3D" />
+	<city name="Temuco" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjM%3D" />
+	<city name="Termas de Chillan" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwNDE%3D" />
+	<city name="Toco" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjQ%3D" />
+	<city name="Valdivia" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjU%3D" />
+	<city name="Valparaiso" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjY%3D" />
+	<city name="Villarrica" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMzg%3D" />
+	<city name="Vina del Mar" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjc%3D" />
+	<city name="Vina Del Mar" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwNDM%3D" />
+	<city name="Vitacura" url="http://weather.interceptvector.com/weather.xml?id=Q0lYWDAwMjg%3D" />
+</state>

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Comoros">
+	<city name="Dzaoudzi" url="http://weather.interceptvector.com/weather.xml?id=Q05YWDAwMDE%3D" />
+	<city name="Dzaoudzi/Pamanzi" url="http://weather.interceptvector.com/weather.xml?id=Q05YWDAwMDI%3D" />
+	<city name="Moroni/Hahaya" url="http://weather.interceptvector.com/weather.xml?id=Q05YWDAwMDM%3D" />
+</state>

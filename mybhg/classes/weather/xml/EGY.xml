@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<state name="Egypt">
+	<city name="Alexandria" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDE%3D" />
+	<city name="Armant" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDI%3D" />
+	<city name="Aswan" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDM%3D" />
+	<city name="Asyut" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMzA%3D" />
+	<city name="Baltim" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjc%3D" />
+	<city name="Cairo" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDQ%3D" />
+	<city name="El Arish" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjk%3D" />
+	<city name="El Fayoum" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDU%3D" />
+	<city name="El Tor" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMzQ%3D" />
+	<city name="El-Giza" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDY%3D" />
+	<city name="Farafra" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMzU%3D" />
+	<city name="Gemsa" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDc%3D" />
+	<city name="Hurghada" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDg%3D" />
+	<city name="Ismailia" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMDk%3D" />
+	<city name="Kafr el-Dauwar" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTA%3D" />
+	<city name="Kharga" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMzI%3D" />
+	<city name="Luxor" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTE%3D" />
+	<city name="Mersa Matruh" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTI%3D" />
+	<city name="Nabq" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTM%3D" />
+	<city name="Port Said/El Gamil" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjg%3D" />
+	<city name="Port Taufiq" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTQ%3D" />
+	<city name="Qena" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTU%3D" />
+	<city name="Quseir" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTY%3D" />
+	<city name="Safaga" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTc%3D" />
+	<city name="Sallum Plateau" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjY%3D" />
+	<city name="Sharm el Sheikh" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTg%3D" />
+	<city name="Shibin el-Kom" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMTk%3D" />
+	<city name="Shubra el-Kheima" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjA%3D" />
+	<city name="Sidi Heneish" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjE%3D" />
+	<city name="Siwa" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMzE%3D" />
+	<city name="Suez" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjI%3D" />
+	<city name="Thebes" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjM%3D" />
+	<city name="Zagazig" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjQ%3D" />
+	<city name="Zawiyat Shammas" url="http://weather.interceptvector.com/weather.xml?id=RUdYWDAwMjU%3D" />
+</state>

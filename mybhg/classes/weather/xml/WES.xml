@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Western Sahara">
+	<city name="Edchera" url="http://weather.interceptvector.com/weather.xml?id=V0lYWDAwMDE%3D" />
+	<city name="La Guera" url="http://weather.interceptvector.com/weather.xml?id=V0lYWDAwMDI%3D" />
+	<city name="Laayoune" url="http://weather.interceptvector.com/weather.xml?id=V0lYWDAwMDM%3D" />
+	<city name="Lemsid" url="http://weather.interceptvector.com/weather.xml?id=V0lYWDAwMDQ%3D" />
+	<city name="Villa Cisneros" url="http://weather.interceptvector.com/weather.xml?id=V0lYWDAwMDU%3D" />
+</state>

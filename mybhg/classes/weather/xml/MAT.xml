@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Malta">
+	<city name="Gozo/Gharb" url="http://weather.interceptvector.com/weather.xml?id=TVRYWDAwMDI%3D" />
+	<city name="Gozo/Qala" url="http://weather.interceptvector.com/weather.xml?id=TVRYWDAwMDQ%3D" />
+	<city name="Luqa" url="http://weather.interceptvector.com/weather.xml?id=TVRYWDAwMDE%3D" />
+	<city name="Malta/Mellisha" url="http://weather.interceptvector.com/weather.xml?id=TVRYWDAwMDM%3D" />
+</state>

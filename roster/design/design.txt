@@ -1,0 +1,439 @@
+Roster Version 3.0
+======================================================================
+
+This version of the roster will be based on an OO approach. All 
+access to the database will be through a series of php objects. These
+objects will be kept in a central location and made available to any
+sites hosted on thebhg.org that wish to interact with the roster.
+
+Usage
+------------------------------
+ini_set('include_path', ini_get('include_path').':/home/thebhg/public_html/include');
+include_once('roster.inc');
+
+Conventions
+------------------------------
+Dates are handled as unixtimestamps nothing else.
+Strings do NOT need addslashes and stripslashes. htmlspecialchars is
+up to the programmer.
+If not specified Set functions return 0 on failure and 1 on sucess
+Images are not stored in the database. The location of the image under
+$roster_imagecache is stored. The image is stored in that 
+tree, GetImageDIR() returns a unix directory/file name to access the
+file, GetImageURL() returns a fully qualified URI to access the same
+image.
+
+
+Internal Variables
+------------------------------
+$roster_imagecache - directory on server to store uploaded images.
+                     /home/thebhg/public_html/cache
+
+
+Coder Levels
+------------------------------
+id, god, credits, purchase, kabal, medalaward, ntc
+
+
+Object List
+------------------------------
+BHGObject
+ - Handles Error handling and db connection. Everything derived
+   from this.
+
+Roster   
+ - Main roster object. Provides access to full roster stats,
+   kabals, and other such things.
+   
+Division
+ - details on a division. ability to change stuff, access to 
+   members.
+   
+DivisionCategory
+ - self explanitory :)
+ 
+Kabal
+ - subclass of division. Adds kabal specific details, dealing
+   with cheifs cras and the like.
+   
+Person
+ - The person, the basis of everything. access to all a
+   persons details. Including medals.
+
+PersonHistory
+ - For accessing the history
+
+Login
+ - Derived from person. Almost identical to person, cept the
+   constructor takes username and password
+
+Rank
+ - A Rank woohoo
+
+Position
+ - A Position woohoo
+   
+AwardedMedal
+ - Details on a medal that has been awarded to someone
+
+Medal
+ - each individual medal and upgrade to medal
+   ie, GP-GC, GP, MoC-SoC
+
+MedalCategory
+ - Groupings of medals, 
+    ie Outstanding Achievement
+       KAG Related
+       Merit
+       Specific
+       Emperor's Hammer Awards
+       Citadel Course Completetion Awards
+       IWATS Course Completetion Awards
+
+MedalGroup
+ - These are the broad medal groups, ODP, GP, SP, LC, MoC
+
+
+Object Variables
+------------------------------
+BHGObject
+  $roster_dbname - Name of Database roster in
+  $roster_db     - mySQL link identifier for roster connection
+
+
+
+Function List
+------------------------------
+BHGObject
+ - BHGObject($coder)
+     Constructor, sets up db connection initialises error handling
+     $coder - Access ID - Talk to koral or jernai for access.
+
+ - Error()
+     Returns string containing last error. If a function fails check
+     this to get the reason why.
+
+ - Allowed($level)
+     $level - string containing access level required to do something
+     Returns true or false, depending upon where the coder id 
+     provided at object creation has access to that feature.
+
+
+Roster Object
+ - Roster($coder)
+     Constructor
+ 
+ - GetDivisionCategories()
+     Returns an Array of DivisionCategory objects
+
+ - GetDivisions()
+     Returns an array of Division objects
+
+ - GetKabals()
+     Returns an array of Kabal objects
+
+ - GetDivision($id)
+       $id - ID Number of division
+     Returns a Division Object
+
+ - GetKabal($id)
+       $id - ID Number of kabal
+     Returns a Kabal Object
+
+ - GetPerson($id)
+       $id - ID Number of a Person
+     Returns a Person object
+
+ - CreateDivision($name, $category)
+     Create a new division
+       $name - String, Name of division
+       $category - id number of category, or DivisonCategory Object
+                   defaults to 'Kabal' Category
+     Returns Division Object for new division on success, 0 on failure
+
+ - CreatePerson($name, $email, $division, $password)
+     Creates a new person in the system
+       $name - String, persons name. Subject to blacklist and length
+               limits.
+       $email - String, persons email address. Subject to length
+                limits.
+       $division - ID number of division or Division object.
+       $password - String, Person's initial password.
+     Returns Person Object for new person on success, 0 on failure.
+
+ - AddNewMember($id)
+     Creates a new person from the details in roster_new_members
+       $id - ID number from roster_new_members
+     Returns Person Object for new person on success, 0 on failure.
+
+ - SearchName($searchfor, $exact = 0)
+ - SearchIRCNick($searchfor, $exact = 0)
+ - SearchEmail($searchfor, $exact = 0)
+     $searchfor - string to be searched for in relevant field
+     $exact     - set to 1 to search for exact string, else wildcard
+     		  search is done
+     Returns 0 on no results, and an array of records on success
+ - SearchPosition($searchfor)
+ - SearchRank($searchfor)
+     $searchfor - id number or relevant object or abbreviation
+     Same return as above
+ - GetRanks();
+ - GetRank($id);
+ - AddRank($name, $abbrev);
+ - GetPositions();
+ - GetPosition($id);
+ - AddPosition($name, $abbrev);
+
+Division Object
+ - Division($coder, $id)
+ - GetID()
+ - GetName()
+ - GetCategory()
+ - GetMailingList()
+ - GetMembers()
+     Returns array of Person Objects
+ - IsActive()
+ - SetName($name)
+     Sets the name.
+     Requires God level coding access
+ - SetMailingList($mailinglist)
+     Sets the mailing list.
+     Requires God level coding access
+ - Delete()
+     Requires God level coding access
+   
+DivisionCategory Object
+ - DivisionCategory($coder, $id)
+ - GetID()
+ - GetName()
+ - GetWeight()
+ - SetName($name)
+     Requires God level coding access
+ - IncreaseWeight()
+     Requires God level coding access
+ - DecreaseWeight() 
+     Requires God level coding access
+ - Delete()
+     Requires God level coding access
+ 
+Kabal Object
+ - Kabal($coder, $id)
+ - GetID()
+ - GetChief()
+ - GetCRA()
+ - GetSlogan()
+ - GetURL()
+ - GetWelcomeMessage()
+ - GetLogoURL()
+ - GetLogoDIR()
+ - SetSlogan($slogan)
+     Requires Kabal level coding access
+ - SetURL($slogan)
+     Requires Kabal level coding access
+ - SetWelcomeMessage()
+     Requires Kabal level coding access
+ - SetLogo()
+     Uploaded file to be passed to this
+   
+Person Object
+ - Person($coder, $id)
+     Constructor
+     $id - id number in roster table
+ - GetID()
+ - GetName()
+ - GetEmail()
+ - GetRank()
+     Returns Rank Object
+ - GetPosition()
+     Returns Position Object
+ - GetDivision()
+     Returns Division Object
+ - GetPassword()
+ - GetHomePage()
+ - GetIRCNicks()
+ - GetQuote()
+ - GetPreviousDivision()
+     Returns Division Object
+ - GetJoinDate()
+ - GetRankCredits()
+ - GetAccountBalance()
+ - GetLastUpdate()
+     returns Unix timestamp
+ - GetMedals()
+     returns an Array of AwardedMedal Objects
+ - GetHistory()
+     doesnt do anything yet, see V3.1 for this
+ - HasShip()
+ - CompletedNTC()
+ - IsHunter()
+     basically is this person NOT a trainee
+     True/False
+ - IsDeleted()
+     is this person in division 0 / deleted
+     True/False
+ - IsActive()
+     is this person not in UAP or Retirees
+     True/False
+ - SetName($name)
+     Requires God level coding access
+ - SetEmail($email)
+     Requires God level coding access
+ - SetRank($rank)
+     Requires God level coding access
+ - SetPosition($position)
+     Requires God level coding access
+ - SetDivision($division)
+     Requires God level coding access
+     sets previous division as well
+ - SetPassword($password)
+     Requires God level coding access
+ - SetHomePage()
+     Requires God level coding access
+ - SetIRCNicks()
+     Requires God level coding access
+ - SetQuote()
+     Requires God level coding access
+ - AddCredits()
+     Requires Credits level coding access
+ - RemoveCredits()
+     Requires Credits level coding access
+ - MakePurchase()
+     Requires purchase level coding access
+ - MakeSale()
+     Requires purchase level coding access
+ - IDLine()
+ - Delete()
+     Requires God level coding access
+
+Login Object
+ - Login($coder, $username, $password) 
+ - Is_Authenticated()
+
+Rank Object
+ - Rank($coder, $id)
+ - GetID()
+ - GetName()
+ - GetAbbrev()
+ - GetRequiredCredits()
+     returns credits needed to attain this rank
+ - IsAlwaysAvailable()
+     if true, you do not need to be a hunter to get this rank
+ - IsUnlimitedCredits()
+     if true people at this rank have unlimited credits
+ - GetWeight()
+ - IncreaseWeight()
+     Requires God level coding access
+ - DecreaseWeight() 
+     Requires God level coding access
+ - SetName()
+     Requires God level coding access
+ - SetAbbrev()
+     Requires God level coding access
+ - SetRequiredCredits()
+     Requires God level coding access
+ - SetAlwaysAvailable()
+     Requires God level coding access
+ - SetUnlimitedCredits()
+     Requires God level coding access
+ - Delete()
+     Requires God level coding access
+
+
+Position Object
+ - Position($coder, $id)
+ - GetID()
+ - GetName()
+ - GetAbbrev()
+ - GetIncome()
+ - GetWeight()
+ - IncreaseWeight()
+     Requires God level coding access
+ - DecreaseWeight() 
+     Requires God level coding access
+ - SetName()
+     Requires God level coding access
+ - SetAbbrev()
+     Requires God level coding access
+ - SetIncome()
+     Requires God level coding access
+ - Delete()
+     Requires God level coding access
+
+
+MedalBoard
+ - AwardMedal($recipient, $awarder, $medal, $reason)
+     Requires medalaward level coding access
+ - GetMedalCategories()
+ - GetMedalCategory($id)
+ - GetMedalGroup($id)
+ - GetMedal($id)
+ - GetAwardedMedal($id)
+ - GetRecentMedals($days)
+
+AwardedMedal
+ - GetRecipient()
+ - GetAwarder()
+ - GetMedal()
+ - GetReason()
+ - GetDate()
+ - Delete()
+     Requires God level coding access
+
+Medal
+ - GetID()
+ - GetName()
+ - GetAbbrev()
+ - GetGroup()
+ - GetImageURL()
+ - GetImageDIR()
+ - GetWeight()
+ - SetName()
+     Requires God level coding access
+ - SetAbbrev()
+     Requires God level coding access
+ - SetImage()
+     Requires God level coding access
+ - IncreaseWeight()
+     Requires God level coding access
+ - DecreaseWeight() 
+     Requires God level coding access
+ - Delete()
+     Come and get it you godly studs
+
+MedalGroup
+ - GetID()
+ - GetName()
+ - GetAbbrev()
+ - GetCategory()
+ - GetWeight()
+ - GetDescription()
+ - GetStartBrace()
+ - GetEndBrace()
+ - GetMedals()
+ - IncreaseWeight()
+     Requires God level coding access
+ - DecreaseWeight() 
+     Requires God level coding access
+ - SetName()
+     Requires God level coding access
+ - SetAbbrev()
+     Requires God level coding access
+ - SetDescription()
+     Requires God level coding access
+ - SetStartBrace()
+     Requires God level coding access
+ - SetEndBrace()
+     Requires God level coding access
+ - Delete()
+     Come and get it you godly studs
+  
+
+MedalCategory
+ - GetID()
+ - GetName()
+ - GetWeight()
+ - GetMedalGroups()
+ - IncreaseWeight()
+     Requires God level coding access
+ - DecreaseWeight() 
+     Requires God level coding access

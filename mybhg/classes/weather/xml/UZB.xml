@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<state name="Uzbekistan">
+	<city name="Ak-Bajtal" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDY%3D" />
+	<city name="Almalyk" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDE%3D" />
+	<city name="Buhara" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTg%3D" />
+	<city name="Buzaubaj" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTA%3D" />
+	<city name="Chimbaj" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDc%3D" />
+	<city name="Dzizak" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTQ%3D" />
+	<city name="Fergana" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTc%3D" />
+	<city name="Karshi" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTk%3D" />
+	<city name="Kattakurgan" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDI%3D" />
+	<city name="Kungrad" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDU%3D" />
+	<city name="Namangan" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTY%3D" />
+	<city name="Nukus" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDg%3D" />
+	<city name="Nurata" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTM%3D" />
+	<city name="Pskem" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTI%3D" />
+	<city name="Samarkand" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDM%3D" />
+	<city name="Syr-Dar'Ja" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTU%3D" />
+	<city name="Tamdy" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMTE%3D" />
+	<city name="Tashkent" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDQ%3D" />
+	<city name="Termez" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMjA%3D" />
+	<city name="Urgench" url="http://weather.interceptvector.com/weather.xml?id=VVpYWDAwMDk%3D" />
+</state>

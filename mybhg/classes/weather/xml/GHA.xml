@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Ghana">
+	<city name="Accra" url="http://weather.interceptvector.com/weather.xml?id=R0hYWDAwMDE%3D" />
+	<city name="Kumasi" url="http://weather.interceptvector.com/weather.xml?id=R0hYWDAwMDM%3D" />
+	<city name="Tema" url="http://weather.interceptvector.com/weather.xml?id=R0hYWDAwMDI%3D" />
+</state>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Papua New Guinea">
+	<city name="Kerema" url="http://weather.interceptvector.com/weather.xml?id=UFBYWDAwMDE%3D" />
+	<city name="Kikori" url="http://weather.interceptvector.com/weather.xml?id=UFBYWDAwMDI%3D" />
+	<city name="Morobe" url="http://weather.interceptvector.com/weather.xml?id=UFBYWDAwMDM%3D" />
+	<city name="Port Moresby" url="http://weather.interceptvector.com/weather.xml?id=UFBYWDAwMDQ%3D" />
+	<city name="Samarai" url="http://weather.interceptvector.com/weather.xml?id=UFBYWDAwMDU%3D" />
+</state>

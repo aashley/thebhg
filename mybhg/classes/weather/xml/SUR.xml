@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Suriname">
+	<city name="New Nickerie" url="http://weather.interceptvector.com/weather.xml?id=TlNYWDAwMDE%3D" />
+	<city name="Paramaribo" url="http://weather.interceptvector.com/weather.xml?id=TlNYWDAwMDI%3D" />
+	<city name="Paranam" url="http://weather.interceptvector.com/weather.xml?id=TlNYWDAwMDM%3D" />
+</state>

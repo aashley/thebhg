@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<state name="Slovakia">
+	<city name="Bratislava" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDE%3D" />
+	<city name="Ivanka pri Dunaji" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDI%3D" />
+	<city name="Kosice" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDM%3D" />
+	<city name="Nove Zamky" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDQ%3D" />
+	<city name="Piestany" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDg%3D" />
+	<city name="Poprad" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDU%3D" />
+	<city name="Senec" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDY%3D" />
+	<city name="Sliac" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDk%3D" />
+	<city name="Trnava" url="http://weather.interceptvector.com/weather.xml?id=TE9YWDAwMDc%3D" />
+</state>

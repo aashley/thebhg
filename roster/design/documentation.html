@@ -1,0 +1,619 @@
+<html>
+<head>
+<title>Roster Version 3.0 Documentation</title>
+</head>
+<body bgcolor="#FFFFFF" text="#000000">
+
+<H2>Roster Version 3.0</H2>
+<H3>Usage Documentation</H3>
+
+<p>Roster V3 represents a major change from the way the roster has been done to
+date. Roster V3 is based on an Object Oriented model that seperates the
+storage and logic from the user interface. It is hoped that with this split
+development other interfaces and uses of the Roster will be considerably
+easier. To such end the Object tree for Roster V3 is being made public to all
+users that have site hosted on thebhg.org. At a later date we hope to make a
+read only xml interface to the roster so that people hosted on other servers may
+load data direct from the roster.</p>
+
+<p>
+<b>Table of Contents</b><br>
+<ul>
+<li>Coding Conventions</li>
+<li>Usage</li>
+<li>Objects</li>
+<ul>
+<li>BHGObject</li>
+<li>Roster</li>
+<li>Division</li>
+<li>DivisionCategory</li>
+<li>Kabal</li>
+<li>Person</li>
+<li>PersonHistory</li>
+<li>Login</li>
+<li>Rank</li>
+<li>Position</li>
+<li>AwardedMedal</li>
+<li>Medal</li>
+<li>MedalCategory</li>
+<li>MedalType</li>
+</ul>
+<li>Code Samples</li>
+</ul>
+
+<hr>
+<br>
+
+<H3>Coding Conventions</H3>
+
+<p>Dates are handled as unixtimestamps nothing else.</p>
+<p>Strings do NOT need addslashes and stripslashes. htmlspecialchars is
+up to the programmer.</p>
+<p>If not specified Set functions return 0 on failure and 1 on sucess</p>
+<p>Images are not stored in the database. The location of the image under
+/home/thebhg/public_html/cache is stored. The image is stored in that 
+tree, GetImageDIR() returns a unix directory/file name to access the
+file, GetImageURL() returns a fully qualified URI to access the same
+image.</p>
+
+
+<hr>
+<br>
+
+<H3>Usage</H3>
+<p>Following is the basic usage details for using a roster object.</p>
+<table border="1" width="90%" align="center"><tr><td><pre>
+ini_set('include_path', ini_get('include_path').':/home/thebhg/public_html/include');
+
+include_once('roster.inc');
+
+$roster = new Roster();
+</pre></td></tr></table>
+
+<p>The first line sets the include path, which tells PHP where to look for files
+ that are referenced in an include statement.</p>
+<p>The second line tells PHP to include one and only one copy of roster.inc. 
+Roster.inc contains the primary roster object and includes all the other files 
+required</p>
+<p>The third line creates a new instance of the roster object. Other objects are
+created in a similar way.</p>
+
+<p>Each of the roster objects takes a variety of options (described later),
+however every object has one optional parameter called 'coder'. The coder parameter
+sets the permissions that the object has, whether they can edit things, add
+credits, make purchases that sort of thing. The coder parameter is a unique string
+that is assigned by either Jernai or Koral. Leaving the string blank will give you
+read only access to the object. Requests for coder IDs are taken on a case by case
+basis but for the most part you should not need one. <b>NOTE:</b> All usage of 
+coder IDs other than the default '' are logged.</p>
+
+<hr>
+<br>
+
+
+<H3>Objects</H3>
+<H4>BHGObject</H4>
+
+<p>BHGObject is the basis on which all other objects are created. The base class
+BHGObject provides facilities for Error handling and provision of the database
+connection. All functions provided by the BHGObject can be used on all other 
+roster objects.</p>
+
+<p>Usage:<br> Should not be used directly, provides no capabilities by itself<p>
+
+<p>Function List:<br><br>
+Error()<br>
+ - Returns a string containing the last error. If a function fails check 
+this to get the reason. Calling this function removes the error string from
+the object storage.
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>Roster</H4>
+
+<p>Roster is the main entry object for the BHG Roster. Through this object you
+have access to all the records and statistics stored within the roster and medal
+board.</p>
+
+<p>Usage:<br><pre>$roster = new Roster( [coder] );</pre></p>
+
+<p>Function List:
+<pre>
+ - GetDivisionCategories()
+     Returns an Array of DivisionCategory objects
+
+ - GetDivisions()
+     Returns an array of Division objects
+
+ - GetKabals()
+     Returns an array of Kabal objects
+
+ - GetDivision($id)
+       $id - ID Number of division
+     Returns a Division Object
+
+ - GetKabal($id)
+       $id - ID Number of kabal
+     Returns a Kabal Object
+
+ - GetPerson($id)
+       $id - ID Number of a Person
+     Returns a Person object
+
+ - CreateDivision($name, $category)
+     Create a new division
+       $name - String, Name of division
+       $category - id number of category, or DivisonCategory Object
+                   defaults to 'Kabal' Category
+     Returns Division Object for new division on success, 0 on failure
+
+ - CreatePerson($name, $email, $division, $password)
+     Creates a new person in the system
+       $name - String, persons name. Subject to blacklist and length
+               limits.
+       $email - String, persons email address. Subject to length
+                limits.
+       $division - ID number of division or Division object.
+       $password - String, Person's initial password.
+     Returns Person Object for new person on success, 0 on failure.
+
+ - AddNewMember($id)
+     Creates a new person from the details in roster_new_members
+       $id - ID number from roster_new_members
+     Returns Person Object for new person on success, 0 on failure.
+
+ - SearchName($searchfor, $exact = 0)
+ - SearchIRCNick($searchfor, $exact = 0)
+ - SearchEmail($searchfor, $exact = 0)
+     $searchfor - string to be searched for in relevant field
+     $exact     - set to 1 to search for exact string, else wildcard
+                  search is done
+     Returns 0 on no results, and an array of records on success
+
+ - SearchPosition($searchfor)
+ - SearchRank($searchfor)
+     $searchfor - id number or relevant object or abbreviation
+     Same return as above
+
+ - GetRanks();
+
+ - GetRank($id);
+
+ - AddRank($name, $abbrev);
+
+ - GetPositions();
+
+ - GetPosition($id);
+
+ - AddPosition($name, $abbrev);
+</pre>
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>Division</H4>
+
+<p>Contains the details about a division or group of people withing the roster, ie
+'Commission', 'Phoenix'.</p>
+
+<p>Usage:<br><pre>$division = new Division( divisionid, [coder] );</pre></p>
+
+<p>Function List:
+<pre>
+ - GetID()
+
+ - GetName()
+
+ - GetCategory()
+
+ - GetMailingList()
+
+ - GetMembers()
+     Returns array of Person Objects
+
+ - IsActive()
+
+ - SetName($name)
+     Sets the name.
+     Requires God level coding access
+
+ - SetMailingList($mailinglist)
+     Sets the mailing list.
+     Requires God level coding access
+
+ - Delete()
+     Requires God level coding access
+</pre>
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>DivisionCategory</H4>
+
+<p>Details about a category of divisions, ie 'Kabal Authority'</p>
+
+<p>Usage:<br><pre>$divisioncategory = new DivisionCategory( divisioncategoryid, [coder] );</pre></p>
+
+<p>Function List:
+<pre>
+ - GetID()
+
+ - GetName()
+
+ - GetWeight()
+
+ - SetName($name)
+     Requires God level coding access
+
+ - IncreaseWeight()
+     Requires God level coding access
+
+ - DecreaseWeight() 
+     Requires God level coding access
+
+ - Delete()
+     Requires God level coding access
+
+</pre>
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>Kabal</H4>
+
+<p>An extension of the Division object Kabal adds various kabal specific
+ functions.</p>
+
+<p>Usage:<br><pre>$kabal = new Kabal( kabalid, [coder] );</pre></p>
+
+<p>Function List:
+<pre>
+ - GetID()
+
+ - GetChief()
+
+ - GetCRA()
+
+ - GetSlogan()
+
+ - GetURL()
+
+ - GetWelcomeMessage()
+
+ - GetLogoURL()
+
+ - GetLogoDIR()
+
+ - SetSlogan($slogan)
+     Requires Kabal level coding access
+
+ - SetURL($slogan)
+     Requires Kabal level coding access
+
+ - SetWelcomeMessage()
+     Requires Kabal level coding access
+
+ - SetLogo()
+     Uploaded file to be passed to this
+
+</pre>
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>Person</H4>
+
+<p>This provides access to the person the basis of everything within the system.
+</p>
+
+<p>Usage:<br><pre>$person = new Person( personid, [coder] );</pre></p>
+
+<p>Function List:
+<pre>
+ - GetID()
+
+ - GetName()
+
+ - GetEmail()
+
+ - GetRank()
+     Returns Rank Object
+
+ - GetPosition()
+     Returns Position Object
+
+ - GetDivision()
+     Returns Division Object
+
+ - GetPassword()
+
+ - GetHomePage()
+
+ - GetIRCNicks()
+
+ - GetQuote()
+
+ - GetPreviousDivision()
+     Returns Division Object
+
+ - GetJoinDate()
+
+ - GetRankCredits()
+
+ - GetAccountBalance()
+
+ - GetLastUpdate()
+     returns Unix timestamp
+
+ - GetMedals()
+     returns an Array of AwardedMedal Objects
+
+ - GetHistory()
+     doesnt do anything yet, see V3.1 for this
+
+ - HasShip()
+
+ - CompletedNTC()
+
+ - IsHunter()
+     basically is this person NOT a trainee
+     True/False
+
+ - IsDeleted()
+     is this person in division 0 / deleted
+     True/False
+
+ - IsActive()
+     is this person not in UAP or Retirees
+     True/False
+
+ - SetName($name)
+     Requires God level coding access
+
+ - SetEmail($email)
+     Requires God level coding access
+
+ - SetRank($rank)
+     Requires God level coding access
+
+ - SetPosition($position)
+     Requires God level coding access
+
+ - SetDivision($division)
+     Requires God level coding access
+     sets previous division as well
+
+ - SetPassword($password)
+     Requires God level coding access
+
+ - SetHomePage()
+     Requires God level coding access
+
+ - SetIRCNicks()
+     Requires God level coding access
+
+ - SetQuote()
+     Requires God level coding access
+
+ - AddCredits()
+     Requires Credits level coding access
+
+ - RemoveCredits()
+     Requires Credits level coding access
+
+ - MakePurchase()
+     Requires purchase level coding access
+
+ - MakeSale()
+     Requires purchase level coding access
+
+ - IDLine()
+
+ - Delete()
+     Requires God level coding access
+
+</pre>
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>PersonHistory</H4>
+
+<p>Currently this is just a stub object. In the future this object will provide
+access to the history of a person.</p>
+
+<p>Usage:<br><pre>$personhistory = new PersonHistory( personid, [coder] );</pre></p>
+
+<p>Function List<br><br>
+
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>Login</H4>
+
+<p>An extension of the Person object the Login object provides a mechanism for
+authenticating users against the roster.</p>
+
+<p>Usage:<br><pre>$login = new Login( username, password, [coder] );</pre></p>
+
+<p>Function List:
+<pre>
+ - Is_Authenticated()
+   Returns True or False if the details passed at creation where valid
+</pre>
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>Rank</H4>
+
+<p>A Rank's details.</p>
+
+<p>Usage:<br><pre>$rank = new Rank( rankid, [coder] );</pre></p>
+
+<p>Function List:
+<pre>
+ - GetID()
+
+ - GetName()
+
+ - GetAbbrev()
+
+ - GetRequiredCredits()
+     returns credits needed to attain this rank
+
+ - IsAlwaysAvailable()
+     if true, you do not need to be a hunter to get this rank
+
+ - IsUnlimitedCredits()
+     if true people at this rank have unlimited credits
+
+ - GetWeight()
+
+ - IncreaseWeight()
+     Requires God level coding access
+
+ - DecreaseWeight() 
+     Requires God level coding access
+
+ - SetName()
+     Requires God level coding access
+
+ - SetAbbrev()
+     Requires God level coding access
+
+ - SetRequiredCredits()
+     Requires God level coding access
+
+ - SetAlwaysAvailable()
+     Requires God level coding access
+
+ - SetUnlimitedCredits()
+     Requires God level coding access
+
+ - Delete()
+     Requires God level coding access
+
+</pre>
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>Position</H4>
+
+<p>A Position's details.</p>
+
+<p>Usage:<br><pre>$position = new Position( positionid, [coder] );</pre></p>
+
+<p>Function List:
+<pre>
+ - GetID()
+
+ - GetName()
+
+ - GetAbbrev()
+
+ - GetIncome()
+
+ - GetWeight()
+
+ - IncreaseWeight()
+     Requires God level coding access
+
+ - DecreaseWeight() 
+     Requires God level coding access
+
+ - SetName()
+     Requires God level coding access
+
+ - SetAbbrev()
+     Requires God level coding access
+
+ - SetIncome()
+     Requires God level coding access
+
+ - Delete()
+     Requires God level coding access
+
+</pre>
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>AwardedMedal</H4>
+
+<p>
+No information available. This object is not yet complete.
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>Medal</H4>
+
+<p>
+No information available. This object is not yet complete.
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>MedalCategory</H4>
+
+<p>
+No information available. This object is not yet complete.
+</p>
+
+
+
+<hr width="50%" align="center">
+<br>
+
+<H4>AwardedType</H4>
+
+<p>
+No information available. This object is not yet complete.
+</p>
+
+<hr><br>
+
+<h3>Code Examples</h3>
+
+</body>
+</html>

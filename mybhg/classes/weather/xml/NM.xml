@@ -1,0 +1,352 @@
+<?xml version="1.0" ?>
+<state name="New Mexico">
+	<city name="Abiquiu" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMDE%3D" />
+	<city name="Alamogordo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMDI%3D" />
+	<city name="Albuquerque" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMDQ%3D" />
+	<city name="Alcalde" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMDY%3D" />
+	<city name="Algodones" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMDc%3D" />
+	<city name="Alto" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMDg%3D" />
+	<city name="Amalia" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMDk%3D" />
+	<city name="Amistad" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTA%3D" />
+	<city name="Angel Fire" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTE%3D" />
+	<city name="Animas" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTM%3D" />
+	<city name="Anthony" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTQ%3D" />
+	<city name="Anton Chico" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTU%3D" />
+	<city name="Aragon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTY%3D" />
+	<city name="Arenas Valley" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTc%3D" />
+	<city name="Arrey" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTg%3D" />
+	<city name="Arroyo Hondo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMTk%3D" />
+	<city name="Arroyo Seco" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjA%3D" />
+	<city name="Artesia" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjE%3D" />
+	<city name="Aztec" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjI%3D" />
+	<city name="Bard" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjM%3D" />
+	<city name="Bayard" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjQ%3D" />
+	<city name="Belen" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjU%3D" />
+	<city name="Bell Ranch" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjY%3D" />
+	<city name="Bent" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjc%3D" />
+	<city name="Berino" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjg%3D" />
+	<city name="Bernalillo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMjk%3D" />
+	<city name="Blanco" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzA%3D" />
+	<city name="Bloomfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzE%3D" />
+	<city name="Bluewater" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzI%3D" />
+	<city name="Bosque" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzM%3D" />
+	<city name="Bosque Farms" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzQ%3D" />
+	<city name="Brimhall" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzU%3D" />
+	<city name="Broadview" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzY%3D" />
+	<city name="Buckhorn" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzc%3D" />
+	<city name="Buena Vista" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzg%3D" />
+	<city name="Caballo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwMzk%3D" />
+	<city name="Canjilon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDA%3D" />
+	<city name="Cannon AFB" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDE%3D" />
+	<city name="Canones" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDI%3D" />
+	<city name="Capitan" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDM%3D" />
+	<city name="Caprock" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDQ%3D" />
+	<city name="Capulin" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDU%3D" />
+	<city name="Carlsbad" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDY%3D" />
+	<city name="Carrizozo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDg%3D" />
+	<city name="Carson" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNDk%3D" />
+	<city name="Casa Blanca" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTA%3D" />
+	<city name="Causey" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTE%3D" />
+	<city name="Cebolla" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTI%3D" />
+	<city name="Cedar Crest" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTM%3D" />
+	<city name="Cedarvale" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTQ%3D" />
+	<city name="Cerrillos" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTU%3D" />
+	<city name="Cerro" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTY%3D" />
+	<city name="Chacon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTc%3D" />
+	<city name="Chama" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTg%3D" />
+	<city name="Chamberino" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNTk%3D" />
+	<city name="Chamisal" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjA%3D" />
+	<city name="Chimayo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjE%3D" />
+	<city name="Church Rock" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjI%3D" />
+	<city name="Cimarron" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjM%3D" />
+	<city name="Claunch" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjQ%3D" />
+	<city name="Clayton" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjU%3D" />
+	<city name="Cleveland" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjY%3D" />
+	<city name="Cliff" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjc%3D" />
+	<city name="Clines Corners" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjg%3D" />
+	<city name="Cloudcroft" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNjk%3D" />
+	<city name="Clovis" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzA%3D" />
+	<city name="Cochiti Lake" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzI%3D" />
+	<city name="Cochiti Pueblo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzM%3D" />
+	<city name="Columbus" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzQ%3D" />
+	<city name="Conchas Dam" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzU%3D" />
+	<city name="Continental Divide" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzY%3D" />
+	<city name="Cordova" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzc%3D" />
+	<city name="Corona" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzg%3D" />
+	<city name="Corrales" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwNzk%3D" />
+	<city name="Costilla" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODA%3D" />
+	<city name="Counselor" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODE%3D" />
+	<city name="Coyote" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODI%3D" />
+	<city name="Crossroads" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODM%3D" />
+	<city name="Crownpoint" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODQ%3D" />
+	<city name="Cuba" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODU%3D" />
+	<city name="Cubero" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODY%3D" />
+	<city name="Cuervo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODc%3D" />
+	<city name="Datil" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODg%3D" />
+	<city name="Deming" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwODk%3D" />
+	<city name="Derry" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTA%3D" />
+	<city name="Des Moines" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTE%3D" />
+	<city name="Dexter" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTI%3D" />
+	<city name="Dixon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTM%3D" />
+	<city name="Dona Ana" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTQ%3D" />
+	<city name="Dora" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTU%3D" />
+	<city name="Dulce" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTY%3D" />
+	<city name="Eagle Nest" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTc%3D" />
+	<city name="Edgewood" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTg%3D" />
+	<city name="El Prado" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAwOTk%3D" />
+	<city name="El Rito" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDA%3D" />
+	<city name="Elephant Butte" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDE%3D" />
+	<city name="Elida" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDI%3D" />
+	<city name="Embudo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDM%3D" />
+	<city name="Encino" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDQ%3D" />
+	<city name="Espanola" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDU%3D" />
+	<city name="Estancia" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDY%3D" />
+	<city name="Eunice" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDc%3D" />
+	<city name="Fairacres" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDg%3D" />
+	<city name="Farmington" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMDk%3D" />
+	<city name="Faywood" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTA%3D" />
+	<city name="Fence Lake" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTE%3D" />
+	<city name="Flora Vista" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTI%3D" />
+	<city name="Floyd" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTM%3D" />
+	<city name="Folsom" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTQ%3D" />
+	<city name="Fort Bayard" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTU%3D" />
+	<city name="Fort Stanton" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTY%3D" />
+	<city name="Fort Sumner" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTc%3D" />
+	<city name="Fort Wingate" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTg%3D" />
+	<city name="Fruitland" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMTk%3D" />
+	<city name="Gallina" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjA%3D" />
+	<city name="Gallup" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjE%3D" />
+	<city name="Gamerco" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjI%3D" />
+	<city name="Garfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjM%3D" />
+	<city name="Garita" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjQ%3D" />
+	<city name="Gila" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjU%3D" />
+	<city name="Gladstone" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjY%3D" />
+	<city name="Glencoe" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjc%3D" />
+	<city name="Glenwood" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjg%3D" />
+	<city name="Glorieta" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMjk%3D" />
+	<city name="Grady" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzA%3D" />
+	<city name="Grants" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzE%3D" />
+	<city name="Grenville" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzI%3D" />
+	<city name="Guadalupita" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzM%3D" />
+	<city name="Hachita" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzQ%3D" />
+	<city name="Hagerman" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzU%3D" />
+	<city name="Hanover" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzY%3D" />
+	<city name="Hatch" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzc%3D" />
+	<city name="Hernandez" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzg%3D" />
+	<city name="High Rolls Mountain Park" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxMzk%3D" />
+	<city name="Hillsboro" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDA%3D" />
+	<city name="Hobbs" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDE%3D" />
+	<city name="Holloman AFB" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDI%3D" />
+	<city name="Holman" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDM%3D" />
+	<city name="Hondo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDQ%3D" />
+	<city name="Hope" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDU%3D" />
+	<city name="House" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDY%3D" />
+	<city name="Hurley" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDc%3D" />
+	<city name="Ilfeld" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDg%3D" />
+	<city name="Isleta" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNDk%3D" />
+	<city name="Jal" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTA%3D" />
+	<city name="Jamestown" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTE%3D" />
+	<city name="Jarales" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTI%3D" />
+	<city name="Jemez Pueblo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTM%3D" />
+	<city name="Jemez Springs" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTQ%3D" />
+	<city name="Kenna" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTU%3D" />
+	<city name="Kirtland" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTY%3D" />
+	<city name="Kirtland AFB" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTc%3D" />
+	<city name="La Jara" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTg%3D" />
+	<city name="La Joya" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNTk%3D" />
+	<city name="La Loma" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjA%3D" />
+	<city name="La Luz" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjE%3D" />
+	<city name="La Madera" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjI%3D" />
+	<city name="La Mesa" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjM%3D" />
+	<city name="La Plata" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjQ%3D" />
+	<city name="Laguna" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjU%3D" />
+	<city name="Lake Arthur" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjY%3D" />
+	<city name="Lakewood" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjc%3D" />
+	<city name="Lamy" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjg%3D" />
+	<city name="Las Cruces" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNjk%3D" />
+	<city name="Las Vegas" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzA%3D" />
+	<city name="Lemitar" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzE%3D" />
+	<city name="Lincoln" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzI%3D" />
+	<city name="Lindrith" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzM%3D" />
+	<city name="Lingo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzQ%3D" />
+	<city name="Llano" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzU%3D" />
+	<city name="Loco Hills" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzY%3D" />
+	<city name="Logan" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzc%3D" />
+	<city name="Lordsburg" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzg%3D" />
+	<city name="Los Alamos" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxNzk%3D" />
+	<city name="Los Lunas" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODA%3D" />
+	<city name="Los Ojos" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODE%3D" />
+	<city name="Loving" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODI%3D" />
+	<city name="Lovington" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODM%3D" />
+	<city name="Luna" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODQ%3D" />
+	<city name="Magdalena" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODU%3D" />
+	<city name="Malaga" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODY%3D" />
+	<city name="Maljamar" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODc%3D" />
+	<city name="Maxwell" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODg%3D" />
+	<city name="Mayhill" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxODk%3D" />
+	<city name="McAlister" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTA%3D" />
+	<city name="McDonald" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTE%3D" />
+	<city name="McIntosh" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTI%3D" />
+	<city name="Medanales" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTM%3D" />
+	<city name="Melrose" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTQ%3D" />
+	<city name="Mentmore" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTU%3D" />
+	<city name="Mescalero" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTY%3D" />
+	<city name="Mesilla" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTc%3D" />
+	<city name="Mesilla Park" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTg%3D" />
+	<city name="Mesquite" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAxOTk%3D" />
+	<city name="Mexican Springs" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDA%3D" />
+	<city name="Miami" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDE%3D" />
+	<city name="Milan" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDI%3D" />
+	<city name="Mills" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDM%3D" />
+	<city name="Milnesand" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDQ%3D" />
+	<city name="Mimbres" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDU%3D" />
+	<city name="Montezuma" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDY%3D" />
+	<city name="Monticello" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDc%3D" />
+	<city name="Monument" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDg%3D" />
+	<city name="Mora" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMDk%3D" />
+	<city name="Moriarty" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTA%3D" />
+	<city name="Mosquero" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTE%3D" />
+	<city name="Mount Dora" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTI%3D" />
+	<city name="Mountainair" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTM%3D" />
+	<city name="Mule Creek" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTQ%3D" />
+	<city name="Nageezi" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTU%3D" />
+	<city name="Nara Visa" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTY%3D" />
+	<city name="Navajo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTc%3D" />
+	<city name="Navajo Dam" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTg%3D" />
+	<city name="New Laguna" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMTk%3D" />
+	<city name="Newcomb" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjA%3D" />
+	<city name="Newkirk" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjE%3D" />
+	<city name="Nogal" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjI%3D" />
+	<city name="Ocate" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjM%3D" />
+	<city name="Ojo Caliente" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjQ%3D" />
+	<city name="Ojo Feliz" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjU%3D" />
+	<city name="Organ" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjY%3D" />
+	<city name="Orogrande" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjc%3D" />
+	<city name="Paguate" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjg%3D" />
+	<city name="Pecos" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMjk%3D" />
+	<city name="Pena Blanca" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzA%3D" />
+	<city name="Penasco" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzE%3D" />
+	<city name="Pep" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzI%3D" />
+	<city name="Peralta" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzM%3D" />
+	<city name="Petaca" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzQ%3D" />
+	<city name="Picacho" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzU%3D" />
+	<city name="Pie Town" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzY%3D" />
+	<city name="Pinehill" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzc%3D" />
+	<city name="Pinon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzg%3D" />
+	<city name="Pinos Altos" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyMzk%3D" />
+	<city name="Placitas" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDA%3D" />
+	<city name="Playas" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDE%3D" />
+	<city name="Polvadera" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDI%3D" />
+	<city name="Ponderosa" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDM%3D" />
+	<city name="Portales" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDQ%3D" />
+	<city name="Prewitt" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDU%3D" />
+	<city name="Pueblo Of Acoma" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDY%3D" />
+	<city name="Quay" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDc%3D" />
+	<city name="Quemado" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDg%3D" />
+	<city name="Questa" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNDk%3D" />
+	<city name="Radium Springs" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTA%3D" />
+	<city name="Rainsville" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTE%3D" />
+	<city name="Ramah" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTI%3D" />
+	<city name="Ranchos de Taos" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTM%3D" />
+	<city name="Raton" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTQ%3D" />
+	<city name="Red River" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTU%3D" />
+	<city name="Redrock" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTc%3D" />
+	<city name="Regina" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTg%3D" />
+	<city name="Rehoboth" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNTk%3D" />
+	<city name="Reserve" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjA%3D" />
+	<city name="Ribera" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjE%3D" />
+	<city name="Rincon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjI%3D" />
+	<city name="Rio Rancho" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjM%3D" />
+	<city name="Rociada" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjQ%3D" />
+	<city name="Rodeo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjU%3D" />
+	<city name="Rogers" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjY%3D" />
+	<city name="Roswell" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjc%3D" />
+	<city name="Rowe" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjg%3D" />
+	<city name="Roy" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNjk%3D" />
+	<city name="Ruidoso" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzA%3D" />
+	<city name="Ruidoso Downs" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzE%3D" />
+	<city name="Sacramento" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzI%3D" />
+	<city name="Saint Vrain" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzM%3D" />
+	<city name="Salem" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzQ%3D" />
+	<city name="San Acacia" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzU%3D" />
+	<city name="San Antonio" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzY%3D" />
+	<city name="San Cristobal" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzc%3D" />
+	<city name="San Fidel" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzg%3D" />
+	<city name="San Jon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyNzk%3D" />
+	<city name="San Jose" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODA%3D" />
+	<city name="San Juan Pueblo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODE%3D" />
+	<city name="San Miguel" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODI%3D" />
+	<city name="San Patricio" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODM%3D" />
+	<city name="San Rafael" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODQ%3D" />
+	<city name="San Ysidro" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODU%3D" />
+	<city name="Sandia Park" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODY%3D" />
+	<city name="Sanostee" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODg%3D" />
+	<city name="Santa Clara" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyODk%3D" />
+	<city name="Santa Cruz" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTA%3D" />
+	<city name="Santa Fe" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTI%3D" />
+	<city name="Santa Rosa" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTM%3D" />
+	<city name="Santa Teresa" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTQ%3D" />
+	<city name="Santo Domingo Pueblo" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTU%3D" />
+	<city name="Sapello" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTY%3D" />
+	<city name="Sedan" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTc%3D" />
+	<city name="Seneca" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTg%3D" />
+	<city name="Serafina" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAyOTk%3D" />
+	<city name="Sheep Springs" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMDA%3D" />
+	<city name="Shiprock" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMDE%3D" />
+	<city name="Silver City" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMDI%3D" />
+	<city name="Smith Lake" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMDU%3D" />
+	<city name="Socorro" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMDY%3D" />
+	<city name="Solano" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMDc%3D" />
+	<city name="Springer" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMDg%3D" />
+	<city name="Stanley" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMDk%3D" />
+	<city name="Sunland Park" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTA%3D" />
+	<city name="Sunspot" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTE%3D" />
+	<city name="Taiban" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTI%3D" />
+	<city name="Tajique" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTM%3D" />
+	<city name="Taos" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTQ%3D" />
+	<city name="Taos Ski Valley" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTU%3D" />
+	<city name="Tatum" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTY%3D" />
+	<city name="Tererro" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTc%3D" />
+	<city name="Tesuque" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTg%3D" />
+	<city name="Texico" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMTk%3D" />
+	<city name="Thoreau" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjA%3D" />
+	<city name="Tierra Amarilla" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjE%3D" />
+	<city name="Tijeras" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjI%3D" />
+	<city name="Timberon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjM%3D" />
+	<city name="Tinnie" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjQ%3D" />
+	<city name="Tohatchi" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjU%3D" />
+	<city name="Tome" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjY%3D" />
+	<city name="Torreon" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjc%3D" />
+	<city name="Trampas" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjg%3D" />
+	<city name="Trementina" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMjk%3D" />
+	<city name="Tres Piedras" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzA%3D" />
+	<city name="Truchas" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzE%3D" />
+	<city name="Truth Or Consequences" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzI%3D" />
+	<city name="Tucumcari" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzM%3D" />
+	<city name="Tularosa" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzQ%3D" />
+	<city name="Tyrone" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzU%3D" />
+	<city name="Ute Park" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzY%3D" />
+	<city name="Vadito" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzc%3D" />
+	<city name="Vado" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzg%3D" />
+	<city name="Valdez" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzMzk%3D" />
+	<city name="Vallecitos" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDA%3D" />
+	<city name="Valmora" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDE%3D" />
+	<city name="Vanderwagen" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDI%3D" />
+	<city name="Vaughn" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDM%3D" />
+	<city name="Veguita" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDQ%3D" />
+	<city name="Velarde" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDU%3D" />
+	<city name="Villanueva" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDY%3D" />
+	<city name="Wagon Mound" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDc%3D" />
+	<city name="Waterflow" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDg%3D" />
+	<city name="Watrous" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNDk%3D" />
+	<city name="Weed" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTA%3D" />
+	<city name="White Sands Missile Range" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTE%3D" />
+	<city name="Whites City" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTM%3D" />
+	<city name="Willard" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTQ%3D" />
+	<city name="Williamsburg" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTU%3D" />
+	<city name="Winston" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTY%3D" />
+	<city name="Yatahey" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTc%3D" />
+	<city name="Yeso" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTg%3D" />
+	<city name="Youngsville" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNTk%3D" />
+	<city name="Zuni" url="http://weather.interceptvector.com/weather.xml?id=VVNOTTAzNjA%3D" />
+</state>

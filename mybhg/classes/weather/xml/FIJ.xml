@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<state name="Fiji">
+	<city name="Matuku" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDc%3D" />
+	<city name="Nadi" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDE%3D" />
+	<city name="Nambouwalu" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDI%3D" />
+	<city name="Nausori" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDU%3D" />
+	<city name="Ono-I-Lau" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDg%3D" />
+	<city name="Suva/Fiji" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDk%3D" />
+	<city name="Vanua Mbalavu" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMTA%3D" />
+	<city name="Viwa Island" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDQ%3D" />
+	<city name="Vunisea" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDY%3D" />
+	<city name="Yasawa-I-Rara" url="http://weather.interceptvector.com/weather.xml?id=RkpYWDAwMDM%3D" />
+</state>

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Kuwait">
+	<city name="Al Jahrah" url="http://weather.interceptvector.com/weather.xml?id=S1VYWDAwMDE%3D" />
+	<city name="As Sulaybiyah" url="http://weather.interceptvector.com/weather.xml?id=S1VYWDAwMDI%3D" />
+	<city name="Kuwait City" url="http://weather.interceptvector.com/weather.xml?id=S1VYWDAwMDM%3D" />
+</state>

@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<state name="Belarus">
+	<city name="Baranovici" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMjA%3D" />
+	<city name="Bobruysr" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMjI%3D" />
+	<city name="Borisov" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDE%3D" />
+	<city name="Brest" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMjM%3D" />
+	<city name="Dobrush" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDI%3D" />
+	<city name="Dzerzhinsk" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDM%3D" />
+	<city name="Gomel'" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDQ%3D" />
+	<city name="Grodno" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTY%3D" />
+	<city name="Kostjvkovici" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTk%3D" />
+	<city name="Lepel" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTM%3D" />
+	<city name="Lida" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTc%3D" />
+	<city name="Lyntupy" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTI%3D" />
+	<city name="Minsk" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDU%3D" />
+	<city name="Mogilev" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTg%3D" />
+	<city name="Mozyr" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMjY%3D" />
+	<city name="Mozyr'" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDY%3D" />
+	<city name="Orsa" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTU%3D" />
+	<city name="Pinsk" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDc%3D" />
+	<city name="Rakov" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDg%3D" />
+	<city name="Rechitsa" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMDk%3D" />
+	<city name="Sluck" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMjE%3D" />
+	<city name="Verhnedvinsk" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTE%3D" />
+	<city name="Vetka" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTA%3D" />
+	<city name="Vitebsk" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMTQ%3D" />
+	<city name="Zitkovici" url="http://weather.interceptvector.com/weather.xml?id=Qk9YWDAwMjU%3D" />
+</state>

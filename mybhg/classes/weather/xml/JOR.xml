@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<state name="Jordan">
+	<city name="Al Aqabah" url="http://weather.interceptvector.com/weather.xml?id=Sk9YWDAwMDE%3D" />
+	<city name="Amman" url="http://weather.interceptvector.com/weather.xml?id=Sk9YWDAwMDI%3D" />
+	<city name="Az Zarqa'" url="http://weather.interceptvector.com/weather.xml?id=Sk9YWDAwMDM%3D" />
+	<city name="Madaba" url="http://weather.interceptvector.com/weather.xml?id=Sk9YWDAwMDQ%3D" />
+	<city name="Queen Alia Airport" url="http://weather.interceptvector.com/weather.xml?id=Sk9YWDAwMDc%3D" />
+	<city name="Sahab" url="http://weather.interceptvector.com/weather.xml?id=Sk9YWDAwMDU%3D" />
+	<city name="Zuwayza" url="http://weather.interceptvector.com/weather.xml?id=Sk9YWDAwMDY%3D" />
+</state>

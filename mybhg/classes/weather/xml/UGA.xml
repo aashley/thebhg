@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Uganda">
+	<city name="Entebbe" url="http://weather.interceptvector.com/weather.xml?id=VUdYWDAwMDE%3D" />
+	<city name="Kampala" url="http://weather.interceptvector.com/weather.xml?id=VUdYWDAwMDI%3D" />
+</state>

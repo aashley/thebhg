@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<state name="Ethiopia">
+	<city name="Addis Ababa" url="http://weather.interceptvector.com/weather.xml?id=RVRYWDAwMDE%3D" />
+	<city name="Gode" url="http://weather.interceptvector.com/weather.xml?id=RVRYWDAwMDM%3D" />
+	<city name="Gondar" url="http://weather.interceptvector.com/weather.xml?id=RVRYWDAwMDQ%3D" />
+	<city name="Gore" url="http://weather.interceptvector.com/weather.xml?id=RVRYWDAwMDU%3D" />
+	<city name="Jiggiga" url="http://weather.interceptvector.com/weather.xml?id=RVRYWDAwMDY%3D" />
+	<city name="Jimma" url="http://weather.interceptvector.com/weather.xml?id=RVRYWDAwMDI%3D" />
+	<city name="Neghelli" url="http://weather.interceptvector.com/weather.xml?id=RVRYWDAwMDc%3D" />
+</state>

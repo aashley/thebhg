@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Trinidad and Tobago">
+	<city name="Arima" url="http://weather.interceptvector.com/weather.xml?id=VERYWDAwMDE%3D" />
+	<city name="Port-of-Spain" url="http://weather.interceptvector.com/weather.xml?id=VERYWDAwMDI%3D" />
+	<city name="San Fernando" url="http://weather.interceptvector.com/weather.xml?id=VERYWDAwMDM%3D" />
+</state>

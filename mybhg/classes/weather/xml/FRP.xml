@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="French Polynesia">
+	<city name="Atuona" url="http://weather.interceptvector.com/weather.xml?id=RlBYWDAwMDI%3D" />
+	<city name="Hao" url="http://weather.interceptvector.com/weather.xml?id=RlBYWDAwMDM%3D" />
+	<city name="Hereheretue" url="http://weather.interceptvector.com/weather.xml?id=RlBYWDAwMDQ%3D" />
+	<city name="Rapa" url="http://weather.interceptvector.com/weather.xml?id=RlBYWDAwMDU%3D" />
+	<city name="Tahiti-Papeete" url="http://weather.interceptvector.com/weather.xml?id=RlBYWDAwMDE%3D" />
+</state>

@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+<state name="New Hampshire">
+	<city name="Acworth" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDE%3D" />
+	<city name="Alstead" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDI%3D" />
+	<city name="Alton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDM%3D" />
+	<city name="Alton Bay" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDQ%3D" />
+	<city name="Amherst" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDU%3D" />
+	<city name="Andover" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDY%3D" />
+	<city name="Antrim" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDc%3D" />
+	<city name="Ashland" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDg%3D" />
+	<city name="Ashuelot" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMDk%3D" />
+	<city name="Atkinson" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTA%3D" />
+	<city name="Auburn" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTI%3D" />
+	<city name="Barnstead" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTM%3D" />
+	<city name="Barrington" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTQ%3D" />
+	<city name="Bartlett" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTU%3D" />
+	<city name="Bath" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTY%3D" />
+	<city name="Bedford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTc%3D" />
+	<city name="Belmont" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTg%3D" />
+	<city name="Bennington" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMTk%3D" />
+	<city name="Berlin" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjA%3D" />
+	<city name="Bethlehem" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjE%3D" />
+	<city name="Bow" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjI%3D" />
+	<city name="Bradford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjM%3D" />
+	<city name="Bretton Woods" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjQ%3D" />
+	<city name="Bristol" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjU%3D" />
+	<city name="Brookline" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjY%3D" />
+	<city name="Campton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjc%3D" />
+	<city name="Canaan" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjg%3D" />
+	<city name="Candia" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMjk%3D" />
+	<city name="Canterbury" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzE%3D" />
+	<city name="Center Barnstead" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzI%3D" />
+	<city name="Center Conway" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzM%3D" />
+	<city name="Center Harbor" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzQ%3D" />
+	<city name="Center Ossipee" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzU%3D" />
+	<city name="Center Sandwich" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzY%3D" />
+	<city name="Center Strafford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzc%3D" />
+	<city name="Center Tuftonboro" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzg%3D" />
+	<city name="Charlestown" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwMzk%3D" />
+	<city name="Chester" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDA%3D" />
+	<city name="Chesterfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDE%3D" />
+	<city name="Chocorua" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDI%3D" />
+	<city name="Claremont" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDM%3D" />
+	<city name="Colebrook" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDQ%3D" />
+	<city name="Concord" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDU%3D" />
+	<city name="Contoocook" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDY%3D" />
+	<city name="Conway" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDc%3D" />
+	<city name="Cornish" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDg%3D" />
+	<city name="Cornish Flat" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNDk%3D" />
+	<city name="Danbury" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTA%3D" />
+	<city name="Danville" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTE%3D" />
+	<city name="Deerfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTI%3D" />
+	<city name="Derry" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTM%3D" />
+	<city name="Dover" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTQ%3D" />
+	<city name="Drewsville" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTU%3D" />
+	<city name="Dublin" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTY%3D" />
+	<city name="Dunbarton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNjA%3D" />
+	<city name="Durham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTc%3D" />
+	<city name="East Andover" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTg%3D" />
+	<city name="East Candia" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNTk%3D" />
+	<city name="East Derry" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjA%3D" />
+	<city name="East Hampstead" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjE%3D" />
+	<city name="East Hebron" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjI%3D" />
+	<city name="East Kingston" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjM%3D" />
+	<city name="East Wakefield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjQ%3D" />
+	<city name="Eaton Center" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjU%3D" />
+	<city name="Elkins" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjY%3D" />
+	<city name="Enfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjc%3D" />
+	<city name="Enfield Center" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjg%3D" />
+	<city name="Epping" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNjk%3D" />
+	<city name="Epsom" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzA%3D" />
+	<city name="Errol" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzE%3D" />
+	<city name="Etna" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzI%3D" />
+	<city name="Exeter" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzM%3D" />
+	<city name="Farmington" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzQ%3D" />
+	<city name="Fitzwilliam" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzU%3D" />
+	<city name="Francestown" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzY%3D" />
+	<city name="Franconia" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzc%3D" />
+	<city name="Franklin" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzg%3D" />
+	<city name="Freedom" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwNzk%3D" />
+	<city name="Fremont" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODA%3D" />
+	<city name="Georges Mills" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODE%3D" />
+	<city name="Gilford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNjE%3D" />
+	<city name="Gilmanton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODI%3D" />
+	<city name="Gilmanton Iron Works" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODM%3D" />
+	<city name="Gilsum" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODQ%3D" />
+	<city name="Glen" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODU%3D" />
+	<city name="Glencliff" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODY%3D" />
+	<city name="Goffstown" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODc%3D" />
+	<city name="Gorham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODg%3D" />
+	<city name="Goshen" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwODk%3D" />
+	<city name="Grafton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTA%3D" />
+	<city name="Grantham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTE%3D" />
+	<city name="Greenfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTI%3D" />
+	<city name="Greenland" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTM%3D" />
+	<city name="Greenville" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTQ%3D" />
+	<city name="Groveton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTU%3D" />
+	<city name="Guild" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTY%3D" />
+	<city name="Hampstead" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTg%3D" />
+	<city name="Hampton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAwOTk%3D" />
+	<city name="Hampton Falls" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDA%3D" />
+	<city name="Hancock" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDE%3D" />
+	<city name="Hanover" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDI%3D" />
+	<city name="Harrisville" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDM%3D" />
+	<city name="Haverhill" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDQ%3D" />
+	<city name="Hebron" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDU%3D" />
+	<city name="Henniker" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDY%3D" />
+	<city name="Hill" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDc%3D" />
+	<city name="Hillsboro" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDg%3D" />
+	<city name="Hinsdale" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMDk%3D" />
+	<city name="Holderness" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTA%3D" />
+	<city name="Hollis" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTE%3D" />
+	<city name="Hooksett" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTI%3D" />
+	<city name="Hudson" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTM%3D" />
+	<city name="Intervale" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTQ%3D" />
+	<city name="Jackson" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTU%3D" />
+	<city name="Jaffrey" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTY%3D" />
+	<city name="Jefferson" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTc%3D" />
+	<city name="Kearsarge" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTg%3D" />
+	<city name="Keene" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMTk%3D" />
+	<city name="Kingston" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjA%3D" />
+	<city name="Laconia" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjE%3D" />
+	<city name="Lancaster" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjI%3D" />
+	<city name="Lebanon" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjM%3D" />
+	<city name="Lempster" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjQ%3D" />
+	<city name="Lincoln" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjU%3D" />
+	<city name="Lisbon" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjY%3D" />
+	<city name="Litchfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjc%3D" />
+	<city name="Littleton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjg%3D" />
+	<city name="Lochmere" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMjk%3D" />
+	<city name="Londonderry" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzA%3D" />
+	<city name="Lyme" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzI%3D" />
+	<city name="Lyme Center" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzM%3D" />
+	<city name="Lyndeborough" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzQ%3D" />
+	<city name="Madison" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzU%3D" />
+	<city name="Manchester" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzY%3D" />
+	<city name="Marlborough" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzc%3D" />
+	<city name="Marlow" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzg%3D" />
+	<city name="Meadows" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxMzk%3D" />
+	<city name="Melvin Village" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDA%3D" />
+	<city name="Meredith" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDE%3D" />
+	<city name="Meriden" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDI%3D" />
+	<city name="Merrimack" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDM%3D" />
+	<city name="Milan" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDQ%3D" />
+	<city name="Milford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDU%3D" />
+	<city name="Milton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDY%3D" />
+	<city name="Milton Mills" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDc%3D" />
+	<city name="Mirror Lake" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDg%3D" />
+	<city name="Monroe" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNDk%3D" />
+	<city name="Mont Vernon" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNTA%3D" />
+	<city name="Moultonborough" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNTE%3D" />
+	<city name="Mount Washington" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNTQ%3D" />
+	<city name="Munsonville" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNTU%3D" />
+	<city name="Nashua" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNTY%3D" />
+	<city name="New Boston" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNTc%3D" />
+	<city name="New Castle" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNTg%3D" />
+	<city name="New Durham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNTk%3D" />
+	<city name="New Hampton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjA%3D" />
+	<city name="New Ipswich" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjE%3D" />
+	<city name="New London" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjI%3D" />
+	<city name="Newbury" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjM%3D" />
+	<city name="Newfields" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjQ%3D" />
+	<city name="Newmarket" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjU%3D" />
+	<city name="Newport" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjY%3D" />
+	<city name="Newton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjc%3D" />
+	<city name="Newton Junction" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjg%3D" />
+	<city name="North Conway" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNjk%3D" />
+	<city name="North Hampton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzA%3D" />
+	<city name="North Haverhill" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzE%3D" />
+	<city name="North Salem" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzI%3D" />
+	<city name="North Sandwich" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzM%3D" />
+	<city name="North Stratford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzQ%3D" />
+	<city name="North Sutton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzU%3D" />
+	<city name="North Walpole" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzY%3D" />
+	<city name="North Woodstock" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzc%3D" />
+	<city name="Northwood" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzg%3D" />
+	<city name="Nottingham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxNzk%3D" />
+	<city name="Orford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODA%3D" />
+	<city name="Ossipee" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODE%3D" />
+	<city name="Pelham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODI%3D" />
+	<city name="Peterborough" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODM%3D" />
+	<city name="Piermont" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODQ%3D" />
+	<city name="Pike" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODU%3D" />
+	<city name="Pittsburg" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODY%3D" />
+	<city name="Pittsfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODc%3D" />
+	<city name="Plainfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODg%3D" />
+	<city name="Plaistow" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxODk%3D" />
+	<city name="Plymouth" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTA%3D" />
+	<city name="Portsmouth" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTE%3D" />
+	<city name="Raymond" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTI%3D" />
+	<city name="Rindge" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTM%3D" />
+	<city name="Rochester" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTQ%3D" />
+	<city name="Rollinsford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTU%3D" />
+	<city name="Rumney" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTY%3D" />
+	<city name="Rye" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTc%3D" />
+	<city name="Rye Beach" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTg%3D" />
+	<city name="Salem" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAxOTk%3D" />
+	<city name="Salisbury" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDA%3D" />
+	<city name="Sanbornton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDE%3D" />
+	<city name="Sanbornville" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDI%3D" />
+	<city name="Sandown" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDM%3D" />
+	<city name="Seabrook" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDQ%3D" />
+	<city name="Silver Lake" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDU%3D" />
+	<city name="Somersworth" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDY%3D" />
+	<city name="South Acworth" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDc%3D" />
+	<city name="South Effingham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDg%3D" />
+	<city name="South Newbury" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMDk%3D" />
+	<city name="South Sutton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTA%3D" />
+	<city name="South Tamworth" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTE%3D" />
+	<city name="Spofford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTI%3D" />
+	<city name="Springfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTM%3D" />
+	<city name="Stinson Lake" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTQ%3D" />
+	<city name="Stoddard" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTU%3D" />
+	<city name="Strafford" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTY%3D" />
+	<city name="Stratham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTc%3D" />
+	<city name="Sullivan" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTg%3D" />
+	<city name="Sunapee" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMTk%3D" />
+	<city name="Suncook" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjA%3D" />
+	<city name="Swanzey" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjE%3D" />
+	<city name="Tamworth" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjI%3D" />
+	<city name="Temple" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjM%3D" />
+	<city name="Tilton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjQ%3D" />
+	<city name="Troy" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjU%3D" />
+	<city name="Twin Mountain" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjY%3D" />
+	<city name="Union" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjc%3D" />
+	<city name="Walpole" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjg%3D" />
+	<city name="Warner" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMjk%3D" />
+	<city name="Warren" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzA%3D" />
+	<city name="Washington" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzE%3D" />
+	<city name="Waterville Valley" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzI%3D" />
+	<city name="Weare" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzQ%3D" />
+	<city name="Wentworth" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzU%3D" />
+	<city name="West Chesterfield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzY%3D" />
+	<city name="West Lebanon" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzc%3D" />
+	<city name="West Nottingham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzg%3D" />
+	<city name="West Ossipee" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyMzk%3D" />
+	<city name="West Peterborough" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDA%3D" />
+	<city name="West Stewartstown" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDE%3D" />
+	<city name="West Swanzey" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDI%3D" />
+	<city name="Westmoreland" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDM%3D" />
+	<city name="Whitefield" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDQ%3D" />
+	<city name="Wilmot" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDY%3D" />
+	<city name="Wilton" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDc%3D" />
+	<city name="Winchester" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDg%3D" />
+	<city name="Windham" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNDk%3D" />
+	<city name="Winnisquam" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNTA%3D" />
+	<city name="Wolfeboro" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNTE%3D" />
+	<city name="Wolfeboro Falls" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNTI%3D" />
+	<city name="Wonalancet" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNTM%3D" />
+	<city name="Woodstock" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNTQ%3D" />
+	<city name="Woodsville" url="http://weather.interceptvector.com/weather.xml?id=VVNOSDAyNTU%3D" />
+</state>

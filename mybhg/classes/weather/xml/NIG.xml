@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<state name="Niger">
+	<city name="Agadez" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDE%3D" />
+	<city name="Assaouas" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDI%3D" />
+	<city name="Bilma" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMTA%3D" />
+	<city name="Diffa" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMTE%3D" />
+	<city name="Magaria" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDg%3D" />
+	<city name="Maine-Soroa" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDk%3D" />
+	<city name="Maradi" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDY%3D" />
+	<city name="Niamey" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDM%3D" />
+	<city name="Tahoua" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDU%3D" />
+	<city name="Tillabery" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDQ%3D" />
+	<city name="Zinder" url="http://weather.interceptvector.com/weather.xml?id=TkdYWDAwMDc%3D" />
+</state>

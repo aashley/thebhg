@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<state name="Iran">
+	<city name="Abadan" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDE%3D" />
+	<city name="Ahwaz" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMzI%3D" />
+	<city name="Arak" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMzA%3D" />
+	<city name="Azar Shahr" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDI%3D" />
+	<city name="Babulsar" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjY%3D" />
+	<city name="Bandarabbass" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMzM%3D" />
+	<city name="Birjand" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMzE%3D" />
+	<city name="Esfahan" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDM%3D" />
+	<city name="Eslamshahr" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDQ%3D" />
+	<city name="Kanavis" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDU%3D" />
+	<city name="Karaj" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDY%3D" />
+	<city name="Kerman" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMzQ%3D" />
+	<city name="Kermanshah" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjk%3D" />
+	<city name="Khoy" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjI%3D" />
+	<city name="Marv Dasht" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDc%3D" />
+	<city name="Mashhad" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDg%3D" />
+	<city name="Mehriz" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMDk%3D" />
+	<city name="Najafabad" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTA%3D" />
+	<city name="Orumieh" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjM%3D" />
+	<city name="Osku" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTE%3D" />
+	<city name="Persepolis" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTI%3D" />
+	<city name="Qomsheh" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTM%3D" />
+	<city name="Ramsar" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjU%3D" />
+	<city name="Rey" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTQ%3D" />
+	<city name="Sabzevar" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjc%3D" />
+	<city name="Shiraz" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTU%3D" />
+	<city name="Tabriz" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTY%3D" />
+	<city name="Taft" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTc%3D" />
+	<city name="Tehran" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTg%3D" />
+	<city name="Torbat-Heydarieh" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjg%3D" />
+	<city name="Yazd" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMTk%3D" />
+	<city name="Zahedan" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjA%3D" />
+	<city name="Zanjan" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjQ%3D" />
+	<city name="Zargan" url="http://weather.interceptvector.com/weather.xml?id=SVJYWDAwMjE%3D" />
+</state>

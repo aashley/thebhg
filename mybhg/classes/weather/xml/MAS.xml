@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Mauritius">
+	<city name="Agalega" url="http://weather.interceptvector.com/weather.xml?id=TVBYWDAwMDE%3D" />
+	<city name="Plaisance Mauritius" url="http://weather.interceptvector.com/weather.xml?id=TVBYWDAwMDQ%3D" />
+	<city name="Rodrigues" url="http://weather.interceptvector.com/weather.xml?id=TVBYWDAwMDM%3D" />
+	<city name="Saint Brandon Saint Raphael" url="http://weather.interceptvector.com/weather.xml?id=TVBYWDAwMDI%3D" />
+	<city name="Vacoas Mauritius" url="http://weather.interceptvector.com/weather.xml?id=TVBYWDAwMDU%3D" />
+</state>

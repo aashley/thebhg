@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<state name="Bangladesh">
+	<city name="Barisal" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDE%3D" />
+	<city name="Bogra" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDk%3D" />
+	<city name="Chittagong" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDI%3D" />
+	<city name="Dhaka" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDM%3D" />
+	<city name="Dhaka/Tezgaon" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMTQ%3D" />
+	<city name="Ishurdi" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMTE%3D" />
+	<city name="Jessore" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDQ%3D" />
+	<city name="Khulna" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDU%3D" />
+	<city name="Narayanganj" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDY%3D" />
+	<city name="Rangpur" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDg%3D" />
+	<city name="Sylhet" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMTA%3D" />
+	<city name="Tangail" url="http://weather.interceptvector.com/weather.xml?id=QkdYWDAwMDc%3D" />
+</state>

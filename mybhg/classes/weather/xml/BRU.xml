@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Brunei">
+	<city name="Brunei Airport" url="http://weather.interceptvector.com/weather.xml?id=QlhYWDAwMDE%3D" />
+	<city name="Kuala Belait" url="http://weather.interceptvector.com/weather.xml?id=QlhYWDAwMDI%3D" />
+</state>

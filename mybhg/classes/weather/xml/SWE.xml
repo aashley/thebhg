@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<state name="Sweden">
+	<city name="Angelholm" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDE%3D" />
+	<city name="Bastad" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNjI%3D" />
+	<city name="Boras" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDI%3D" />
+	<city name="Enkoping" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDM%3D" />
+	<city name="Eskilstuna" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDQ%3D" />
+	<city name="Falkenberg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDU%3D" />
+	<city name="Gaddede" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDU%3D" />
+	<city name="Gavle" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDY%3D" />
+	<city name="Gothenburg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDc%3D" />
+	<city name="Gotska Sandon" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTY%3D" />
+	<city name="Gunnarn" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDQ%3D" />
+	<city name="Halmstad" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDg%3D" />
+	<city name="Harnosand" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMDk%3D" />
+	<city name="Helsingborg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTA%3D" />
+	<city name="Hoburg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTk%3D" />
+	<city name="Holmogadd" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDg%3D" />
+	<city name="Huddinge" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTE%3D" />
+	<city name="Junsele" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDc%3D" />
+	<city name="Kallinge" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTI%3D" />
+	<city name="Karlshamn" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTM%3D" />
+	<city name="Karlskrona" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTQ%3D" />
+	<city name="Karlstad" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNjA%3D" />
+	<city name="Kristianstad" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTU%3D" />
+	<city name="Kuggoren" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTA%3D" />
+	<city name="Kungalv" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTY%3D" />
+	<city name="Landskrona" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTc%3D" />
+	<city name="Lidingo" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTg%3D" />
+	<city name="Linkoping/Malmen" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTQ%3D" />
+	<city name="Lulea" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMTk%3D" />
+	<city name="Malilla" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTU%3D" />
+	<city name="Malmo" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjA%3D" />
+	<city name="Malung" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTE%3D" />
+	<city name="Molndal" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjE%3D" />
+	<city name="Norrkoping" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjI%3D" />
+	<city name="Nykoping" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjM%3D" />
+	<city name="Ostersund/Froson" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDY%3D" />
+	<city name="Partille" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjQ%3D" />
+	<city name="Ronneby" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTg%3D" />
+	<city name="Satenas" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTM%3D" />
+	<city name="Skelleftea" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjU%3D" />
+	<city name="Sodertalje" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjY%3D" />
+	<city name="Sollentuna" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjc%3D" />
+	<city name="Solna" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjg%3D" />
+	<city name="Solvesborg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMjk%3D" />
+	<city name="Soraker" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzA%3D" />
+	<city name="Stockholm" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzE%3D" />
+	<city name="Sundbyberg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzI%3D" />
+	<city name="Sundsvall" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzM%3D" />
+	<city name="Sveg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDk%3D" />
+	<city name="Svenska Hogarna" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTI%3D" />
+	<city name="Timra" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzQ%3D" />
+	<city name="Torup" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNTc%3D" />
+	<city name="Trelleborg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzU%3D" />
+	<city name="Trollhattan" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzY%3D" />
+	<city name="Uddevalla" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzc%3D" />
+	<city name="Umea" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzg%3D" />
+	<city name="Upplands-Vasby" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwMzk%3D" />
+	<city name="Uppsala" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDA%3D" />
+	<city name="Vanersborg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDE%3D" />
+	<city name="Varberg" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDI%3D" />
+	<city name="Vasteras" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNDM%3D" />
+	<city name="Visby" url="http://weather.interceptvector.com/weather.xml?id=U1dYWDAwNjE%3D" />
+</state>

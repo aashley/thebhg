@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<state name="Panama">
+	<city name="Bocas del Toro" url="http://weather.interceptvector.com/weather.xml?id=UE1YWDAwMDE%3D" />
+	<city name="David" url="http://weather.interceptvector.com/weather.xml?id=UE1YWDAwMDI%3D" />
+	<city name="Howard AFB" url="http://weather.interceptvector.com/weather.xml?id=UE1YWDAwMDM%3D" />
+	<city name="Isla de Contadora" url="http://weather.interceptvector.com/weather.xml?id=UE1YWDAwMDg%3D" />
+	<city name="La Palma" url="http://weather.interceptvector.com/weather.xml?id=UE1YWDAwMDc%3D" />
+	<city name="Panama City" url="http://weather.interceptvector.com/weather.xml?id=UE1YWDAwMDQ%3D" />
+	<city name="Santiago" url="http://weather.interceptvector.com/weather.xml?id=UE1YWDAwMDU%3D" />
+	<city name="Tocumen" url="http://weather.interceptvector.com/weather.xml?id=UE1YWDAwMDY%3D" />
+</state>

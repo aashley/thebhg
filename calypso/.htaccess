@@ -1,0 +1,44 @@
+RewriteEngine  on
+
+# Admin
+RewriteRule   ^admin(.?)$ 							/index.php?route=15
+RewriteRule   ^admin/create(.?)$ 						/index.php?route=15
+RewriteRule   ^admin/entries(.?)$ 						/index.php?route=19
+RewriteRule   ^admin/books(.?)$ 						/index.php?route=26
+RewriteRule   ^admin/links(.?)$ 						/index.php?route=27
+RewriteRule   ^admin/categories(.?)$ 						/index.php?route=17
+RewriteRule   ^([a-z0-9]+)/admin/([0-9]+)/([0-9]+)/([0-9]+)/([a-zA-Z0-9]+)(.?)$ /index.php?year=$2&month=$3&day=$4&entryid=$5&route=20
+RewriteRule   ^admin/style.css$							/admin/include/style.css
+RewriteRule   ^admin/javascript.js$						/admin/include/ie_form_mojo.js
+#RewriteRule   ^admin/richtext.js$						/admin/include/richtext.js
+#RewriteRule   ^admin/palette.htm$						/admin/include/palette.htm
+RewriteRule   ^images/(.*)$							/admin/include/$1
+
+# Blog
+RewriteRule   ^([a-z0-9]+)(.?)$							/index.php?blogid=$1&route=1
+RewriteRule   ^([a-z0-9]+)/style.css$ 						/index.php?blogid=$1&route=6
+RewriteRule   ^([a-z0-9]+)/rss.xml$ 						/index.php?blogid=$1&route=5
+RewriteRule   ^([a-z0-9]+)/index.atom$ 						/index.php?blogid=$1&route=21
+RewriteRule   ^([a-z0-9]+)/links.xml$ 						/index.php?blogid=$1&route=27
+RewriteRule   ^([a-z0-9]+)/books.xml$ 						/index.php?blogid=$1&route=28
+RewriteRule   ^([a-z0-9]+)/images/(.*)$						/templates/include/$2
+RewriteRule   ^([a-z0-9]+)/admin(.?)(.*)$					/admin/$3
+RewriteRule   ^([a-z0-9]+)/search(.?)$ 						/index.php?blogid=$1&route=7
+
+# Archives
+RewriteRule   ^([a-z0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/([a-zA-Z0-9]+)(.?)$	/index.php?blogid=$1&route=12&year=$2&month=$3&day=$4&entryid=$5
+RewriteRule   ^([a-z0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)(.?)$			/index.php?blogid=$1&route=8&year=$2&month=$3&day=$4
+RewriteRule   ^([a-z0-9]+)/([0-9]+)/([0-9]+)(.?)$ 				/index.php?blogid=$1&route=13&year=$2&month=$3
+RewriteRule   ^([a-z0-9]+)/([0-9]+)(.?)$ 					/index.php?blogid=$1&route=9&year=$2
+
+# Categories
+RewriteRule   ^([a-z0-9]+)/([a-zA-Z0-9]+)(.?)$ 					/index.php?category=$2&blogid=$1&route=2
+
+# XML-RPC
+RewriteRule   ^RPC2(.*)$ 							/index.php?route=11
+
+# Syndicate
+RewriteRule   ^opml.xml$ 							/index.php?route=22
+RewriteRule   ^foaf.xml$ 							/index.php?route=23
+RewriteRule   ^rss.xml$ 							/index.php?route=24
+RewriteRule   ^index.atom$ 							/index.php?route=25

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<state name="Taiwan">
+	<city name="Ch'i-shan" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDU%3D" />
+	<city name="Chang-hua" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDE%3D" />
+	<city name="Chi-lung" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDM%3D" />
+	<city name="Chia-i" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDI%3D" />
+	<city name="Chingmei" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDQ%3D" />
+	<city name="Chu-tung" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDY%3D" />
+	<city name="Feng-yuan" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDc%3D" />
+	<city name="Hengch'un" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDg%3D" />
+	<city name="Hengchun" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMjc%3D" />
+	<city name="Hsin-chu" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMDk%3D" />
+	<city name="Hsin-tien" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTA%3D" />
+	<city name="Hua-lien" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTE%3D" />
+	<city name="Kangshan" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTI%3D" />
+	<city name="Kao-hsiung" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTM%3D" />
+	<city name="Miao-li" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTQ%3D" />
+	<city name="P'ing-tung" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTU%3D" />
+	<city name="Su-ao" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTY%3D" />
+	<city name="T'ai-chung" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTk%3D" />
+	<city name="T'ai-nan" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMjA%3D" />
+	<city name="T'aipeihsien" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMjI%3D" />
+	<city name="T'aitung" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMjM%3D" />
+	<city name="T'ao-yuan" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMjU%3D" />
+	<city name="Ta-cho-shui" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTc%3D" />
+	<city name="Ta-fan-lieh" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMTg%3D" />
+	<city name="Ta-wu" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMjY%3D" />
+	<city name="Taipei" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMjE%3D" />
+	<city name="Tan-shui" url="http://weather.interceptvector.com/weather.xml?id=VFdYWDAwMjQ%3D" />
+</state>

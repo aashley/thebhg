@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Slovenia">
+	<city name="Kranj" url="http://weather.interceptvector.com/weather.xml?id=U0lYWDAwMDE%3D" />
+	<city name="Ljubljana" url="http://weather.interceptvector.com/weather.xml?id=U0lYWDAwMDI%3D" />
+	<city name="Skofljica" url="http://weather.interceptvector.com/weather.xml?id=U0lYWDAwMDM%3D" />
+</state>

@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<state name="Portugal">
+	<city name="Alcacer do Sal" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDI%3D" />
+	<city name="Algoso" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDE%3D" />
+	<city name="Almada" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDE%3D" />
+	<city name="Alvalade" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDA%3D" />
+	<city name="Alvares" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDM%3D" />
+	<city name="Alverca" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDI%3D" />
+	<city name="Amadora" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDM%3D" />
+	<city name="Ancora" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDQ%3D" />
+	<city name="Anha" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDU%3D" />
+	<city name="Aveiro" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDY%3D" />
+	<city name="Barca D'alva" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDQ%3D" />
+	<city name="Barreiro" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDc%3D" />
+	<city name="Beja" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDU%3D" />
+	<city name="Braga" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDg%3D" />
+	<city name="Braganca" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzg%3D" />
+	<city name="Caldar Da Rainha" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTA%3D" />
+	<city name="Calheta" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDk%3D" />
+	<city name="Caminha" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMDk%3D" />
+	<city name="Cascais" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTA%3D" />
+	<city name="Castelo Branco" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzc%3D" />
+	<city name="Castro Daire" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDY%3D" />
+	<city name="Castro Verd" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTE%3D" />
+	<city name="Chaves" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDc%3D" />
+	<city name="Coimbra/Cernache" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzU%3D" />
+	<city name="Covilha" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNDg%3D" />
+	<city name="Espinho" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTE%3D" />
+	<city name="Esposende" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTI%3D" />
+	<city name="Estoril" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwODI%3D" />
+	<city name="Estremoz" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTI%3D" />
+	<city name="Evora/C. Coord" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzY%3D" />
+	<city name="Fafe" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTM%3D" />
+	<city name="Faro" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTM%3D" />
+	<city name="Figueira Da Foz" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTQ%3D" />
+	<city name="Flores Acores" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzA%3D" />
+	<city name="Funchal" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTQ%3D" />
+	<city name="Gaviao" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTY%3D" />
+	<city name="Gondomar" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTU%3D" />
+	<city name="Guarda" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTU%3D" />
+	<city name="Horta" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTc%3D" />
+	<city name="Lajes Acores" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzE%3D" />
+	<city name="Leiria" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTg%3D" />
+	<city name="Lisboa/Gago Coutinho" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzk%3D" />
+	<city name="Lisbon" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTY%3D" />
+	<city name="Matosinhos" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTc%3D" />
+	<city name="Mertola" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjM%3D" />
+	<city name="Mirandela" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjI%3D" />
+	<city name="Misterio Da Prai" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjE%3D" />
+	<city name="Monfortinho" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNTk%3D" />
+	<city name="Montijo" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTg%3D" />
+	<city name="Mora" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjA%3D" />
+	<city name="Moura" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjQ%3D" />
+	<city name="Odemira" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjU%3D" />
+	<city name="Olhao" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMTk%3D" />
+	<city name="Ponta Delgada" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjA%3D" />
+	<city name="Portalegre" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjY%3D" />
+	<city name="Portel" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjc%3D" />
+	<city name="Portimao" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjE%3D" />
+	<city name="Porto" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjI%3D" />
+	<city name="Porto Moniz" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjg%3D" />
+	<city name="Porto Santo" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzM%3D" />
+	<city name="Povoacao" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjM%3D" />
+	<city name="Ribeira Brava" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNjk%3D" />
+	<city name="Sagres" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzQ%3D" />
+	<city name="Santa Cruz Da Gr" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzE%3D" />
+	<city name="Santa Maria Acores" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMzI%3D" />
+	<city name="Santarem" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzQ%3D" />
+	<city name="Sao Joao da Madeira" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjQ%3D" />
+	<city name="Sao Marcos Da Se" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzM%3D" />
+	<city name="Sao Vicente" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzU%3D" />
+	<city name="Sesimbra" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjU%3D" />
+	<city name="Setubal" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjY%3D" />
+	<city name="Sines" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzI%3D" />
+	<city name="Tavira" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjc%3D" />
+	<city name="Tomar" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzY%3D" />
+	<city name="Torrao" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzc%3D" />
+	<city name="Vendas Novas" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzg%3D" />
+	<city name="Viana do Castelo" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjg%3D" />
+	<city name="Vila Nova de Gaia" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwMjk%3D" />
+	<city name="Vila Real" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzk%3D" />
+	<city name="Vila Real De San" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwNzA%3D" />
+	<city name="Viseu" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwODA%3D" />
+	<city name="Western Madeira" url="http://weather.interceptvector.com/weather.xml?id=UE9YWDAwODE%3D" />
+</state>

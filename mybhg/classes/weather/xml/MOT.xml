@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Montenegro">
+	<city name="Niksic" url="http://weather.interceptvector.com/weather.xml?id=TVdYWDAwMDQ%3D" />
+	<city name="Plevlja" url="http://weather.interceptvector.com/weather.xml?id=TVdYWDAwMDM%3D" />
+	<city name="Podgorica" url="http://weather.interceptvector.com/weather.xml?id=TVdYWDAwMDE%3D" />
+	<city name="Tivat" url="http://weather.interceptvector.com/weather.xml?id=TVdYWDAwMDI%3D" />
+</state>

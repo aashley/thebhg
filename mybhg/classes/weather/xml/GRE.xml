@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<state name="Greece">
+	<city name="Agrinion" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDE%3D" />
+	<city name="Akharnai" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDI%3D" />
+	<city name="Alexandroupolis" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDM%3D" />
+	<city name="Andravida Airport" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjc%3D" />
+	<city name="Arta" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzE%3D" />
+	<city name="Athens" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDQ%3D" />
+	<city name="Chios" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzM%3D" />
+	<city name="Heraklion Airport" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzA%3D" />
+	<city name="Ilioupolis" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDU%3D" />
+	<city name="Island of Crete" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwNDY%3D" />
+	<city name="Kalamakion" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDY%3D" />
+	<city name="Kalamata" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzY%3D" />
+	<city name="Kallithea" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDc%3D" />
+	<city name="Karditsa" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzQ%3D" />
+	<city name="Kavala" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDg%3D" />
+	<city name="Kefallina" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzU%3D" />
+	<city name="Kerkyra Airport" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjY%3D" />
+	<city name="Khalkis" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMDk%3D" />
+	<city name="Khania/Souda" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzI%3D" />
+	<city name="Korinthos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTA%3D" />
+	<city name="Kos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzg%3D" />
+	<city name="Kozani" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzc%3D" />
+	<city name="Kythira" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjk%3D" />
+	<city name="Larisa" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTE%3D" />
+	<city name="Limnos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMzk%3D" />
+	<city name="Methoni" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjg%3D" />
+	<city name="Mitilini" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwNDA%3D" />
+	<city name="Mykonos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwNDU%3D" />
+	<city name="Naxos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwNDE%3D" />
+	<city name="Nea Ionia" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTI%3D" />
+	<city name="Patrai" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTM%3D" />
+	<city name="Peristerion" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTQ%3D" />
+	<city name="Piraeus" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTU%3D" />
+	<city name="Preveza" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTY%3D" />
+	<city name="Rhodes" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTc%3D" />
+	<city name="Salamis" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTg%3D" />
+	<city name="Salonica" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMTk%3D" />
+	<city name="Samos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwNDI%3D" />
+	<city name="Santorini" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwNDQ%3D" />
+	<city name="Serrai" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjA%3D" />
+	<city name="Skiathos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjE%3D" />
+	<city name="Skiros" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjI%3D" />
+	<city name="Tripolis" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwNDM%3D" />
+	<city name="Volos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjM%3D" />
+	<city name="Zakinthos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjQ%3D" />
+	<city name="Zografos" url="http://weather.interceptvector.com/weather.xml?id=R1JYWDAwMjU%3D" />
+</state>

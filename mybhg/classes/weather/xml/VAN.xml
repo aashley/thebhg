@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Vanuatu">
+	<city name="Aneityum" url="http://weather.interceptvector.com/weather.xml?id=TkhYWDAwMDQ%3D" />
+	<city name="Bauerfield Efate" url="http://weather.interceptvector.com/weather.xml?id=TkhYWDAwMDI%3D" />
+	<city name="Burtonfield Tanna" url="http://weather.interceptvector.com/weather.xml?id=TkhYWDAwMDM%3D" />
+	<city name="Pekoa Airport Santo" url="http://weather.interceptvector.com/weather.xml?id=TkhYWDAwMDE%3D" />
+</state>

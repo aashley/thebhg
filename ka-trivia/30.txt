@@ -1,0 +1,29 @@
+1 Q:What is a AAT? 
+   A:Battle Tank (Trade Federation).
+ 
+2 Q:What is a STAP? 
+   A:Single Trooper Aerial platform (Trade Federation).
+ 
+3 Q: Who is the owner of the Millenium Falcon?
+   A:Han Solo.
+ 
+4 Q:Who is the owner of Slave 1?
+   A: Boba Fett.
+ 
+5  Q:Who is the Queen of Naboo?
+    A: Queen Amidala.
+ 
+6 Q:Who is the head of security for Naboo?
+   A:Captain Panaka.
+ 
+7 Q:Who created C3-PO?
+   A:Anakin Skywalker.  
+ 
+8 Q:What is Sebulba's Podracer top speed?
+   A:829kph (515mph).
+ 
+9 Q:Who is the Administrator of Cloud City?
+   A:Lando Calrissian
+ 
+10 Q:Who is the highest leader in the Rebellion?
+     A:Mon Mothma.                          

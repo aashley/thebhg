@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Netherlands Antilles">
+	<city name="Curacao Island" url="http://weather.interceptvector.com/weather.xml?id=TlRYWDAwMDE%3D" />
+	<city name="Kralendijk" url="http://weather.interceptvector.com/weather.xml?id=TlRYWDAwMDI%3D" />
+	<city name="Saint Eustatius" url="http://weather.interceptvector.com/weather.xml?id=TlRYWDAwMjE%3D" />
+</state>

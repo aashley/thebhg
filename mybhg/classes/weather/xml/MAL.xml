@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<state name="Malaysia">
+	<city name="Batu Pahat" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDE%3D" />
+	<city name="Bintulu" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjU%3D" />
+	<city name="George Town" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDI%3D" />
+	<city name="Ipoh" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDM%3D" />
+	<city name="Johor Bahru" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDQ%3D" />
+	<city name="Kajang" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDU%3D" />
+	<city name="Klang" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDY%3D" />
+	<city name="Kota Bharu" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjM%3D" />
+	<city name="Kota Kinabalu" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjg%3D" />
+	<city name="Kuala Dungun" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDc%3D" />
+	<city name="Kuala Lumpur" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDg%3D" />
+	<city name="Kuala Terengganu" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMDk%3D" />
+	<city name="Kuantan" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTA%3D" />
+	<city name="Kuching" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTE%3D" />
+	<city name="Labuan" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjc%3D" />
+	<city name="Lundu" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTI%3D" />
+	<city name="Melaka" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTM%3D" />
+	<city name="Miri" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjY%3D" />
+	<city name="Muar" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTQ%3D" />
+	<city name="Pekan" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTU%3D" />
+	<city name="Penang/Bayan Lepas" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjI%3D" />
+	<city name="Sandakan" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMzA%3D" />
+	<city name="Segamat" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTY%3D" />
+	<city name="Sepang" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMzE%3D" />
+	<city name="Seremban" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTc%3D" />
+	<city name="Serian" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTg%3D" />
+	<city name="Sibu" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMTk%3D" />
+	<city name="Simanggang" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjA%3D" />
+	<city name="Sitiawan" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjQ%3D" />
+	<city name="Tawau" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjk%3D" />
+	<city name="Teluk Intan" url="http://weather.interceptvector.com/weather.xml?id=TVlYWDAwMjE%3D" />
+</state>

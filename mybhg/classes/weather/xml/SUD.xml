@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<state name="Sudan">
+	<city name="El Obeid" url="http://weather.interceptvector.com/weather.xml?id=U1VYWDAwMDE%3D" />
+	<city name="Khartoum" url="http://weather.interceptvector.com/weather.xml?id=U1VYWDAwMDI%3D" />
+	<city name="Malakal" url="http://weather.interceptvector.com/weather.xml?id=U1VYWDAwMDg%3D" />
+	<city name="Nyala" url="http://weather.interceptvector.com/weather.xml?id=U1VYWDAwMDc%3D" />
+	<city name="Port Sudan" url="http://weather.interceptvector.com/weather.xml?id=U1VYWDAwMDM%3D" />
+	<city name="Umm Durman" url="http://weather.interceptvector.com/weather.xml?id=U1VYWDAwMDQ%3D" />
+	<city name="Wad Madani" url="http://weather.interceptvector.com/weather.xml?id=U1VYWDAwMDU%3D" />
+	<city name="Wadi Halfa'" url="http://weather.interceptvector.com/weather.xml?id=U1VYWDAwMDY%3D" />
+</state>

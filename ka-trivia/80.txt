@@ -1,0 +1,42 @@
+Sienar Fleet Systems Trivia by Lars Peacock:
+
+13 Questions, True or False
+
+Sienar Fleet Systems primarily makes starfighters.
+True
+
+Sienar Fleet Systems makes the A-9 Vigilance Interceptor.
+False
+
+SFS makes the Immobilizer-418.
+True
+
+SFS makes the TIE Fighter.
+True
+
+TIE stands for Twin Ion Energy.
+False
+
+The TIE Fighter was before the T.I.E. Fighter.
+False
+
+There is such a thing as the TIE Shuttle.
+True
+
+The standard armament of a TIE Fighter is 2 Laser Cannons and 1 Warhead Launcher.
+False
+
+The TIE Interceptor has a hyperdrive.
+False
+
+The TIE Drone has four laser cannons.
+False
+
+The IPV-10 System Patrol Craft is manufactured by SFS.
+False
+
+The Skipray Blastboat is manufactured by SFS.
+True
+
+The Skipray Blastboat has a x2 Hyperdrive.
+True

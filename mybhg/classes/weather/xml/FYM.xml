@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<state name="Former Yugoslav Republic of Macedonia">
+	<city name="Berovo" url="http://weather.interceptvector.com/weather.xml?id=TUtYWDAwMDg%3D" />
+	<city name="Bitola" url="http://weather.interceptvector.com/weather.xml?id=TUtYWDAwMDU%3D" />
+	<city name="Kriva Palanka" url="http://weather.interceptvector.com/weather.xml?id=TUtYWDAwMDM%3D" />
+	<city name="Ohrid-Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=TUtYWDAwMDQ%3D" />
+	<city name="Prilep" url="http://weather.interceptvector.com/weather.xml?id=TUtYWDAwMDY%3D" />
+	<city name="Skopje" url="http://weather.interceptvector.com/weather.xml?id=TUtYWDAwMDE%3D" />
+	<city name="Stip" url="http://weather.interceptvector.com/weather.xml?id=TUtYWDAwMDc%3D" />
+	<city name="Veles" url="http://weather.interceptvector.com/weather.xml?id=TUtYWDAwMDI%3D" />
+</state>

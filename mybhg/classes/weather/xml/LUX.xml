@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Luxembourg">
+	<city name="Dudelange" url="http://weather.interceptvector.com/weather.xml?id=TFVYWDAwMDE%3D" />
+	<city name="Esch-sur-Alzette" url="http://weather.interceptvector.com/weather.xml?id=TFVYWDAwMDI%3D" />
+	<city name="Luxembourg" url="http://weather.interceptvector.com/weather.xml?id=TFVYWDAwMDM%3D" />
+	<city name="Mersch" url="http://weather.interceptvector.com/weather.xml?id=TFVYWDAwMDQ%3D" />
+</state>

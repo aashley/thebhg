@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Congo">
+	<city name="Brazzaville" url="http://weather.interceptvector.com/weather.xml?id=Q0ZYWDAwMDE%3D" />
+	<city name="Impfondo" url="http://weather.interceptvector.com/weather.xml?id=Q0ZYWDAwMDQ%3D" />
+	<city name="Madingo-Kayes" url="http://weather.interceptvector.com/weather.xml?id=Q0ZYWDAwMDI%3D" />
+	<city name="Pointe-Noire" url="http://weather.interceptvector.com/weather.xml?id=Q0ZYWDAwMDM%3D" />
+</state>

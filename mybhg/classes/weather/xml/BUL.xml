@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<state name="Bulgaria">
+	<city name="Botev Vrah Top/Sommet" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMTQ%3D" />
+	<city name="Burgas" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDE%3D" />
+	<city name="Calafat" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMTc%3D" />
+	<city name="Kurdjali" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMTY%3D" />
+	<city name="Lovetch" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMTA%3D" />
+	<city name="Mussala Top/Sommet" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMTM%3D" />
+	<city name="Pernik" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDI%3D" />
+	<city name="Pleven" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDM%3D" />
+	<city name="Plovdiv" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDQ%3D" />
+	<city name="Razgrad" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMTI%3D" />
+	<city name="Rousse" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMTE%3D" />
+	<city name="Sandanski" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMTU%3D" />
+	<city name="Sofia" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDU%3D" />
+	<city name="Stara Zagora" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDY%3D" />
+	<city name="Varna" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDc%3D" />
+	<city name="Vidin" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDk%3D" />
+	<city name="Vraca" url="http://weather.interceptvector.com/weather.xml?id=QlVYWDAwMDg%3D" />
+</state>

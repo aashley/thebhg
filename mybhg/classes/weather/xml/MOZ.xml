@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<state name="Mozambique">
+	<city name="Beira" url="http://weather.interceptvector.com/weather.xml?id=TVpYWDAwMDE%3D" />
+	<city name="Lumbo" url="http://weather.interceptvector.com/weather.xml?id=TVpYWDAwMDI%3D" />
+	<city name="Maputo" url="http://weather.interceptvector.com/weather.xml?id=TVpYWDAwMDM%3D" />
+	<city name="Mocambique" url="http://weather.interceptvector.com/weather.xml?id=TVpYWDAwMDQ%3D" />
+	<city name="Mogincual" url="http://weather.interceptvector.com/weather.xml?id=TVpYWDAwMDU%3D" />
+	<city name="Quelimane" url="http://weather.interceptvector.com/weather.xml?id=TVpYWDAwMDc%3D" />
+	<city name="Xai-Xai" url="http://weather.interceptvector.com/weather.xml?id=TVpYWDAwMDY%3D" />
+</state>

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<state name="Guatemala">
+	<city name="Chimaltenango" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDE%3D" />
+	<city name="Coban" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDg%3D" />
+	<city name="Flores" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDk%3D" />
+	<city name="Guatemala City" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDI%3D" />
+	<city name="Huehuetenango" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMTA%3D" />
+	<city name="Poptun" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDM%3D" />
+	<city name="Puerto Barrios" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDQ%3D" />
+	<city name="Quetzaltenango" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDU%3D" />
+	<city name="Retalhuleu" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDY%3D" />
+	<city name="San Jose" url="http://weather.interceptvector.com/weather.xml?id=R1RYWDAwMDc%3D" />
+</state>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<state name="Tunisia">
+	<city name="Bizerte" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDE%3D" />
+	<city name="Chebba" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDI%3D" />
+	<city name="Djerba Mellita" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTg%3D" />
+	<city name="Gabes" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDM%3D" />
+	<city name="Gafsa" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTY%3D" />
+	<city name="Houmet Essouk" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDQ%3D" />
+	<city name="Kairouan" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTM%3D" />
+	<city name="Kelibia" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTI%3D" />
+	<city name="La Marsa" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDU%3D" />
+	<city name="Mahres" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDY%3D" />
+	<city name="Menzel Bourguiba" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDc%3D" />
+	<city name="Monastir-Skanes" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTU%3D" />
+	<city name="Remada" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTk%3D" />
+	<city name="Sfax" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDg%3D" />
+	<city name="Sousse" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMDk%3D" />
+	<city name="Tabarka" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTE%3D" />
+	<city name="Thala" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTQ%3D" />
+	<city name="Tozeur" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTc%3D" />
+	<city name="Tunis" url="http://weather.interceptvector.com/weather.xml?id=VFNYWDAwMTA%3D" />
+</state>

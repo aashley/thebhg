@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<state name="Philippines">
+	<city name="Alabat" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTg%3D" />
+	<city name="Ambulong" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTY%3D" />
+	<city name="Angeles" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDE%3D" />
+	<city name="Aparri" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDI%3D" />
+	<city name="Bacolod" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDI%3D" />
+	<city name="Bacoor" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDM%3D" />
+	<city name="Baguio" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDY%3D" />
+	<city name="Baler Radar Site" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDk%3D" />
+	<city name="Basco" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzk%3D" />
+	<city name="Butuan" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDQ%3D" />
+	<city name="Cabanatuan" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDg%3D" />
+	<city name="Cadiz" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDU%3D" />
+	<city name="Calapan" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTU%3D" />
+	<city name="Casiguran" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTA%3D" />
+	<city name="Catanduanes Radar Site" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjI%3D" />
+	<city name="Catarman" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjc%3D" />
+	<city name="Cavite" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDY%3D" />
+	<city name="Cebu City" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDc%3D" />
+	<city name="Coron" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjM%3D" />
+	<city name="Daet" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTk%3D" />
+	<city name="Dagupan" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDU%3D" />
+	<city name="Davao" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDg%3D" />
+	<city name="Dipolog" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMDk%3D" />
+	<city name="General Santos" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTA%3D" />
+	<city name="Hinigaran" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTE%3D" />
+	<city name="Iba" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDQ%3D" />
+	<city name="Iloilo" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTI%3D" />
+	<city name="Infanta" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTc%3D" />
+	<city name="Isabela" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTM%3D" />
+	<city name="Itbayat" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzg%3D" />
+	<city name="Jolo" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTQ%3D" />
+	<city name="Laoag" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDE%3D" />
+	<city name="Legaspi" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjA%3D" />
+	<city name="Libagon" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTU%3D" />
+	<city name="Malolos" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTY%3D" />
+	<city name="Manila" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTc%3D" />
+	<city name="Masbate" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTg%3D" />
+	<city name="Meycauayan" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMTk%3D" />
+	<city name="Mobo" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjA%3D" />
+	<city name="Munoz" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDc%3D" />
+	<city name="Nutol" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjE%3D" />
+	<city name="Olongapo" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjI%3D" />
+	<city name="Olutanga" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjM%3D" />
+	<city name="Orani" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjQ%3D" />
+	<city name="Pagadian" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjU%3D" />
+	<city name="Pasig" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjY%3D" />
+	<city name="Puerto Princesa" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjk%3D" />
+	<city name="Quezon City" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjc%3D" />
+	<city name="Romblon" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjU%3D" />
+	<city name="Roxas" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjg%3D" />
+	<city name="San Fernando" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMjk%3D" />
+	<city name="San Jose" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjQ%3D" />
+	<city name="San Pablo" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzA%3D" />
+	<city name="Sangley Point" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTM%3D" />
+	<city name="Santa Cruz" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzE%3D" />
+	<city name="Sapao" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzI%3D" />
+	<city name="Science Garden" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTQ%3D" />
+	<city name="Surigao" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzM%3D" />
+	<city name="Tacloban" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjg%3D" />
+	<city name="Tandag" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzQ%3D" />
+	<city name="Tarlac" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzU%3D" />
+	<city name="Tayabas" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNTI%3D" />
+	<city name="Taytay" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzY%3D" />
+	<city name="Tuguegarao" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDM%3D" />
+	<city name="Vigan" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNDA%3D" />
+	<city name="Virac" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwNjE%3D" />
+	<city name="Zamboanga" url="http://weather.interceptvector.com/weather.xml?id=UlBYWDAwMzc%3D" />
+</state>

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<state name="Kyrgyzstan">
+	<city name="Bishkek" url="http://weather.interceptvector.com/weather.xml?id=S0dYWDAwMDE%3D" />
+	<city name="Dzhalal-Abad" url="http://weather.interceptvector.com/weather.xml?id=S0dYWDAwMDk%3D" />
+	<city name="Frunze" url="http://weather.interceptvector.com/weather.xml?id=S0dYWDAwMDI%3D" />
+	<city name="Kant" url="http://weather.interceptvector.com/weather.xml?id=S0dYWDAwMDM%3D" />
+	<city name="Naryn" url="http://weather.interceptvector.com/weather.xml?id=S0dYWDAwMDU%3D" />
+	<city name="Talas" url="http://weather.interceptvector.com/weather.xml?id=S0dYWDAwMDc%3D" />
+	<city name="Tian-Shan" url="http://weather.interceptvector.com/weather.xml?id=S0dYWDAwMDY%3D" />
+	<city name="Tokmak" url="http://weather.interceptvector.com/weather.xml?id=S0dYWDAwMDQ%3D" />
+</state>

@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<state name="Jamaica">
+	<city name="Falmouth" url="http://weather.interceptvector.com/weather.xml?id=Sk1YWDAwMDE%3D" />
+	<city name="Kingston" url="http://weather.interceptvector.com/weather.xml?id=Sk1YWDAwMDI%3D" />
+	<city name="Montego Bay" url="http://weather.interceptvector.com/weather.xml?id=Sk1YWDAwMDM%3D" />
+	<city name="Morant Bay" url="http://weather.interceptvector.com/weather.xml?id=Sk1YWDAwMDQ%3D" />
+	<city name="Ocho Rios" url="http://weather.interceptvector.com/weather.xml?id=Sk1YWDAwMDU%3D" />
+	<city name="Port Royal" url="http://weather.interceptvector.com/weather.xml?id=Sk1YWDAwMDY%3D" />
+	<city name="Reading" url="http://weather.interceptvector.com/weather.xml?id=Sk1YWDAwMDc%3D" />
+	<city name="Spanish Town" url="http://weather.interceptvector.com/weather.xml?id=Sk1YWDAwMDg%3D" />
+</state>

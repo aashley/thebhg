@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<state name="Ecuador">
+	<city name="Cuenca" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMDE%3D" />
+	<city name="Esmeraldas" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMDI%3D" />
+	<city name="Galapagos Islands" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMTY%3D" />
+	<city name="Guayaquil" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMDM%3D" />
+	<city name="Ibarra" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMDQ%3D" />
+	<city name="Loja" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMTU%3D" />
+	<city name="Machala" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMDU%3D" />
+	<city name="Manta" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMDY%3D" />
+	<city name="Quito" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMDg%3D" />
+	<city name="Riobamba" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMDk%3D" />
+	<city name="Santo Domingo de los Colorados" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMTA%3D" />
+	<city name="Tiputini" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMTI%3D" />
+	<city name="Tulcan" url="http://weather.interceptvector.com/weather.xml?id=RUNYWDAwMTE%3D" />
+</state>

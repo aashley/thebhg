@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<state name="Switzerland">
+	<city name="Aarau" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDE%3D" />
+	<city name="Altdorf" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDI%3D" />
+	<city name="Baden" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDM%3D" />
+	<city name="Basel" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDQ%3D" />
+	<city name="Bellinzona" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDU%3D" />
+	<city name="Bern" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDY%3D" />
+	<city name="Biel" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDc%3D" />
+	<city name="Carouge" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDg%3D" />
+	<city name="Chur/Vaduz" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzg%3D" />
+	<city name="Coppet" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMDk%3D" />
+	<city name="Delemont" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTA%3D" />
+	<city name="Emmenbrucke" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTE%3D" />
+	<city name="Engelberg" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwNDA%3D" />
+	<city name="Fribourg" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTI%3D" />
+	<city name="Geneva" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTM%3D" />
+	<city name="Gstaad" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzk%3D" />
+	<city name="Guetsch" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzY%3D" />
+	<city name="Horgen" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTQ%3D" />
+	<city name="Koniz" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTU%3D" />
+	<city name="Langnau" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTY%3D" />
+	<city name="Lausanne" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTc%3D" />
+	<city name="Liestal" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTg%3D" />
+	<city name="Locarno" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMTk%3D" />
+	<city name="Locarno-Magadino" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzc%3D" />
+	<city name="Lugano" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjA%3D" />
+	<city name="Luzern" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjE%3D" />
+	<city name="Montreux" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjI%3D" />
+	<city name="Neuchatel" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjM%3D" />
+	<city name="Olten" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjQ%3D" />
+	<city name="Payerne" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzQ%3D" />
+	<city name="Rheinfelden" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjU%3D" />
+	<city name="Sarnen" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjY%3D" />
+	<city name="Sion" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzU%3D" />
+	<city name="Solothurn" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjc%3D" />
+	<city name="St. Moritz" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwNDE%3D" />
+	<city name="Stans" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjg%3D" />
+	<city name="Uster" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMjk%3D" />
+	<city name="Winterthur" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzA%3D" />
+	<city name="Zollikon" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzE%3D" />
+	<city name="Zug" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzI%3D" />
+	<city name="Zurich" url="http://weather.interceptvector.com/weather.xml?id=U1pYWDAwMzM%3D" />
+</state>

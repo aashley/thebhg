@@ -1,0 +1,22 @@
+<menu>
+	<item>
+		<name>Index</name>
+		<page>index</page>
+	</item>
+	<item>
+		<name>Current Competitions</name>
+		<page>current</page>
+	</item>
+	<item>
+		<name>My Bets</name>
+		<page>my</page>
+	</item>
+	<item>
+		<name>FAQ</name>
+		<page>faq</page>
+	</item>
+	<item>
+		<name>Administration</name>
+		<page>admin</page>
+	</item>
+</menu>

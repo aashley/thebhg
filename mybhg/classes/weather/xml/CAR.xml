@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Central African Republic">
+	<city name="Bangassou" url="http://weather.interceptvector.com/weather.xml?id=Q1RYWDAwMDM%3D" />
+	<city name="Bangui" url="http://weather.interceptvector.com/weather.xml?id=Q1RYWDAwMDE%3D" />
+	<city name="Bimbo" url="http://weather.interceptvector.com/weather.xml?id=Q1RYWDAwMDI%3D" />
+	<city name="Bossangoa" url="http://weather.interceptvector.com/weather.xml?id=Q1RYWDAwMDQ%3D" />
+</state>

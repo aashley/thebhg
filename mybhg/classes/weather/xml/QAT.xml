@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Qatar">
+	<city name="Al Wakrah" url="http://weather.interceptvector.com/weather.xml?id=UUFYWDAwMDE%3D" />
+	<city name="Ar Rayyan" url="http://weather.interceptvector.com/weather.xml?id=UUFYWDAwMDI%3D" />
+	<city name="Doha" url="http://weather.interceptvector.com/weather.xml?id=UUFYWDAwMDM%3D" />
+</state>

@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Albania">
+	<city name="Shkoder" url="http://weather.interceptvector.com/weather.xml?id=QUxYWDAwMDE%3D" />
+	<city name="Tirane" url="http://weather.interceptvector.com/weather.xml?id=QUxYWDAwMDI%3D" />
+</state>

@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<state name="Algeria">
+	<city name="Adrar" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzQ%3D" />
+	<city name="Algiers" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMDE%3D" />
+	<city name="Amsel" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMDI%3D" />
+	<city name="Annaba" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTI%3D" />
+	<city name="Batna" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTc%3D" />
+	<city name="Bechar" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjg%3D" />
+	<city name="Bejaia" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMDM%3D" />
+	<city name="Beni Abbes" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzg%3D" />
+	<city name="Biskra" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjI%3D" />
+	<city name="Bordj Bou Arreridj" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTU%3D" />
+	<city name="Bou-Saada" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjE%3D" />
+	<city name="Chlef" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTQ%3D" />
+	<city name="Constantine" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTM%3D" />
+	<city name="Djanet" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzc%3D" />
+	<city name="El Golea" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzE%3D" />
+	<city name="El Oued" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjY%3D" />
+	<city name="Ghardaia" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjc%3D" />
+	<city name="Hassi-Messaoud" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzA%3D" />
+	<city name="Illizi" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzY%3D" />
+	<city name="In Amenas" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzM%3D" />
+	<city name="In Salah" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzU%3D" />
+	<city name="Jijel Achouat" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwNDA%3D" />
+	<city name="Mascara Metmore" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTk%3D" />
+	<city name="Mecheria" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjQ%3D" />
+	<city name="Mostaganem" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMDU%3D" />
+	<city name="Oran" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMDY%3D" />
+	<city name="Ouargla" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjk%3D" />
+	<city name="Setif" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTY%3D" />
+	<city name="Skikda" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTE%3D" />
+	<city name="Tahifet" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMDc%3D" />
+	<city name="Tamanrasset" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMDg%3D" />
+	<city name="Tebessa" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTg%3D" />
+	<city name="Tenes" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMDk%3D" />
+	<city name="Tessalit" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzk%3D" />
+	<city name="Tiaret" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjA%3D" />
+	<city name="Timimoun" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMzI%3D" />
+	<city name="Tindouf" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMTA%3D" />
+	<city name="Tlemcen Zenata" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjM%3D" />
+	<city name="Touggourt" url="http://weather.interceptvector.com/weather.xml?id=QUdYWDAwMjU%3D" />
+</state>

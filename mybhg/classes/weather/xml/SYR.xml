@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<state name="Syria">
+	<city name="Al Mismiyah" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDE%3D" />
+	<city name="Al Qutayfah" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDI%3D" />
+	<city name="Aleppo" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDM%3D" />
+	<city name="Basel Assad International Airport" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMTQ%3D" />
+	<city name="Damascus" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDQ%3D" />
+	<city name="Dara'A" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMTc%3D" />
+	<city name="Darayya" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDU%3D" />
+	<city name="Deir Ezzor" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMTU%3D" />
+	<city name="Duma" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDY%3D" />
+	<city name="Furqlus" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDc%3D" />
+	<city name="Hims" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDg%3D" />
+	<city name="Idlib" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMDk%3D" />
+	<city name="Kamishli" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMTM%3D" />
+	<city name="Manbij" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMTA%3D" />
+	<city name="Maskanah" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMTE%3D" />
+	<city name="Palmyra" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMTY%3D" />
+	<city name="Shinshar" url="http://weather.interceptvector.com/weather.xml?id=U1lYWDAwMTI%3D" />
+</state>

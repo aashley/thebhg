@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Iceland">
+	<city name="Akureyri" url="http://weather.interceptvector.com/weather.xml?id=SUNYWDAwMDU%3D" />
+	<city name="Akurnes" url="http://weather.interceptvector.com/weather.xml?id=SUNYWDAwMDY%3D" />
+	<city name="Hveragerdi" url="http://weather.interceptvector.com/weather.xml?id=SUNYWDAwMDE%3D" />
+	<city name="Keflavikurflugvollur" url="http://weather.interceptvector.com/weather.xml?id=SUNYWDAwMDM%3D" />
+	<city name="Reykjavik" url="http://weather.interceptvector.com/weather.xml?id=SUNYWDAwMDI%3D" />
+	<city name="Vestmannaeyjar" url="http://weather.interceptvector.com/weather.xml?id=SUNYWDAwMDQ%3D" />
+</state>

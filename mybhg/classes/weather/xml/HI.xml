@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<state name="Hawaii">
+	<city name="Aiea" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMDE%3D" />
+	<city name="Anahola" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMDI%3D" />
+	<city name="Camp H M Smith" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMDQ%3D" />
+	<city name="Captain Cook" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMDY%3D" />
+	<city name="Eleele" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMDc%3D" />
+	<city name="Ewa Beach" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMDk%3D" />
+	<city name="Fort Shafter" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTA%3D" />
+	<city name="Haiku" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTE%3D" />
+	<city name="Hakalau" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTI%3D" />
+	<city name="Haleiwa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTM%3D" />
+	<city name="Hana" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTQ%3D" />
+	<city name="Hanalei" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTU%3D" />
+	<city name="Hanamaulu" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTY%3D" />
+	<city name="Hanapepe" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTc%3D" />
+	<city name="Hauula" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTg%3D" />
+	<city name="Hawaii Natl Park" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMTk%3D" />
+	<city name="Hawi" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjA%3D" />
+	<city name="Hickam AFB" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjE%3D" />
+	<city name="Hilo" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjI%3D" />
+	<city name="Holualoa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjM%3D" />
+	<city name="Honaunau" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjQ%3D" />
+	<city name="Honokaa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjU%3D" />
+	<city name="Honolulu" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjY%3D" />
+	<city name="Honomu" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjc%3D" />
+	<city name="Hoolehua" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjg%3D" />
+	<city name="Kaaawa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMjk%3D" />
+	<city name="Kahuku" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzA%3D" />
+	<city name="Kahului" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzE%3D" />
+	<city name="Kailua" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzI%3D" />
+	<city name="Kalaheo" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzQ%3D" />
+	<city name="Kalaupapa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzU%3D" />
+	<city name="Kamuela" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzY%3D" />
+	<city name="Kaneohe" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzc%3D" />
+	<city name="Kapaa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzg%3D" />
+	<city name="Kapaau" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwMzk%3D" />
+	<city name="Kapolei" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDA%3D" />
+	<city name="Kaumakani" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDE%3D" />
+	<city name="Kaunakakai" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDI%3D" />
+	<city name="Keaau" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDM%3D" />
+	<city name="Kealakekua" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDQ%3D" />
+	<city name="Kealia" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDU%3D" />
+	<city name="Keauhou" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDY%3D" />
+	<city name="Kekaha" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDc%3D" />
+	<city name="Kihei" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDg%3D" />
+	<city name="Kilauea" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNDk%3D" />
+	<city name="Koloa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTA%3D" />
+	<city name="Kualapuu" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTE%3D" />
+	<city name="Kula" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTI%3D" />
+	<city name="Kunia" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTM%3D" />
+	<city name="Kurtistown" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTQ%3D" />
+	<city name="Lahaina" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTU%3D" />
+	<city name="Laie" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTY%3D" />
+	<city name="Lanai City" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTc%3D" />
+	<city name="Laupahoehoe" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTg%3D" />
+	<city name="Lawai" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNTk%3D" />
+	<city name="Lihue" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNjA%3D" />
+	<city name="Makawao" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNjE%3D" />
+	<city name="Maunaloa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNjM%3D" />
+	<city name="Mililani" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNjU%3D" />
+	<city name="Mountain View" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNjY%3D" />
+	<city name="Naalehu" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNjc%3D" />
+	<city name="Ninole" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNjg%3D" />
+	<city name="Ocean View" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNjk%3D" />
+	<city name="Ookala" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzA%3D" />
+	<city name="Paauhau" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzE%3D" />
+	<city name="Paauilo" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzI%3D" />
+	<city name="Pahala" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzM%3D" />
+	<city name="Pahoa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzQ%3D" />
+	<city name="Paia" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzU%3D" />
+	<city name="Papaaloa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzY%3D" />
+	<city name="Papaikou" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzc%3D" />
+	<city name="Pearl City" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzg%3D" />
+	<city name="Pearl Harbor" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwNzk%3D" />
+	<city name="Pepeekeo" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODA%3D" />
+	<city name="Princeville" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODE%3D" />
+	<city name="Pukalani" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODI%3D" />
+	<city name="Puunene" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODM%3D" />
+	<city name="Schofield Barracks" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODQ%3D" />
+	<city name="Volcano" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODY%3D" />
+	<city name="Wahiawa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODc%3D" />
+	<city name="Waialua" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODg%3D" />
+	<city name="Waianae" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwODk%3D" />
+	<city name="Waikoloa" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwOTA%3D" />
+	<city name="Wailuku" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwOTE%3D" />
+	<city name="Waimanalo" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwOTI%3D" />
+	<city name="Waimea" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwOTM%3D" />
+	<city name="Waipahu" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwOTQ%3D" />
+	<city name="Wheeler AAF" url="http://weather.interceptvector.com/weather.xml?id=VVNISTAwOTY%3D" />
+</state>

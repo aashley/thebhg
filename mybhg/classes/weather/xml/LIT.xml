@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Lithuania">
+	<city name="Alytus" url="http://weather.interceptvector.com/weather.xml?id=TEhYWDAwMDE%3D" />
+	<city name="Kaunas" url="http://weather.interceptvector.com/weather.xml?id=TEhYWDAwMDI%3D" />
+	<city name="Lentvaris" url="http://weather.interceptvector.com/weather.xml?id=TEhYWDAwMDM%3D" />
+	<city name="Nemencine" url="http://weather.interceptvector.com/weather.xml?id=TEhYWDAwMDQ%3D" />
+	<city name="Vilnius" url="http://weather.interceptvector.com/weather.xml?id=TEhYWDAwMDU%3D" />
+</state>

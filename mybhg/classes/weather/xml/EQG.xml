@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Equatorial Guinea">
+	<city name="Bata" url="http://weather.interceptvector.com/weather.xml?id=RUtYWDAwMDE%3D" />
+	<city name="Luba" url="http://weather.interceptvector.com/weather.xml?id=RUtYWDAwMDI%3D" />
+	<city name="Malabo" url="http://weather.interceptvector.com/weather.xml?id=RUtYWDAwMDM%3D" />
+</state>

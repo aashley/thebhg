@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Martinigue">
+	<city name="Fort-de-France" url="http://weather.interceptvector.com/weather.xml?id=TUJYWDAwMDE%3D" />
+	<city name="Le Marin" url="http://weather.interceptvector.com/weather.xml?id=TUJYWDAwMDI%3D" />
+	<city name="Saint-Joseph" url="http://weather.interceptvector.com/weather.xml?id=TUJYWDAwMDM%3D" />
+	<city name="Saint-Pierre" url="http://weather.interceptvector.com/weather.xml?id=TUJYWDAwMDQ%3D" />
+</state>

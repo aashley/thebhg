@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<state name="Democratic Republic of The Congo">
+	<city name="Baya" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMDE%3D" />
+	<city name="Boma" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMDI%3D" />
+	<city name="Kahemba" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMDM%3D" />
+	<city name="Kananga" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMTc%3D" />
+	<city name="Kinshasa" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMDU%3D" />
+	<city name="Kipushi" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMDY%3D" />
+	<city name="Kisangani" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMDc%3D" />
+	<city name="Likasi" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMDg%3D" />
+	<city name="Lubumbashi" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMDk%3D" />
+	<city name="Matadi" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMTA%3D" />
+	<city name="Mbandaka" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMTE%3D" />
+	<city name="Uvira" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMTQ%3D" />
+	<city name="Zongo" url="http://weather.interceptvector.com/weather.xml?id=Q0dYWDAwMTU%3D" />
+</state>

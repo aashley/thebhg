@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<state name="Vietnam">
+	<city name="An Nhon" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDE%3D" />
+	<city name="Bac Giang" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDI%3D" />
+	<city name="Bach Long Vi" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjQ%3D" />
+	<city name="Bien Hoa" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDM%3D" />
+	<city name="Ca Mau" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMzE%3D" />
+	<city name="Can Tho" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDQ%3D" />
+	<city name="Cao Bang" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjA%3D" />
+	<city name="Con Son" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMzM%3D" />
+	<city name="Da Nang" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjg%3D" />
+	<city name="Dong Hoi" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjc%3D" />
+	<city name="Haiphong" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDU%3D" />
+	<city name="Hanoi" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDY%3D" />
+	<city name="Ho Chi Minh City" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDc%3D" />
+	<city name="Hoa Binh" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDg%3D" />
+	<city name="Hue" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMDk%3D" />
+	<city name="Lang Son" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjM%3D" />
+	<city name="Lao Cai" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTk%3D" />
+	<city name="My Tho" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTA%3D" />
+	<city name="Nam Dinh" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTE%3D" />
+	<city name="Nha Trang" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjk%3D" />
+	<city name="Phan Thiet" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTI%3D" />
+	<city name="Phu Lien" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjI%3D" />
+	<city name="Phu Quoc" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMzI%3D" />
+	<city name="Quy Nhon" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTM%3D" />
+	<city name="Song Cau" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTQ%3D" />
+	<city name="Song Tu Tay South West Cay" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMzA%3D" />
+	<city name="Thai Nguyen" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTU%3D" />
+	<city name="Thanh Hoa" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjU%3D" />
+	<city name="Truong Sa" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMzQ%3D" />
+	<city name="Tuy Hoa" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTY%3D" />
+	<city name="Viet Tri" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTc%3D" />
+	<city name="Vinh" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMjY%3D" />
+	<city name="Vung Tau" url="http://weather.interceptvector.com/weather.xml?id=Vk1YWDAwMTg%3D" />
+</state>

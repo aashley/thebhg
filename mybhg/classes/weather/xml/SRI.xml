@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Sri Lanka">
+	<city name="Colombo" url="http://weather.interceptvector.com/weather.xml?id=Q0VYWDAwMDE%3D" />
+	<city name="Katunayake" url="http://weather.interceptvector.com/weather.xml?id=Q0VYWDAwMDU%3D" />
+	<city name="Moratuwa" url="http://weather.interceptvector.com/weather.xml?id=Q0VYWDAwMDI%3D" />
+	<city name="Negombo" url="http://weather.interceptvector.com/weather.xml?id=Q0VYWDAwMDM%3D" />
+	<city name="Sri Jayavardhanapura" url="http://weather.interceptvector.com/weather.xml?id=Q0VYWDAwMDQ%3D" />
+</state>

@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="New Caledonia">
+	<city name="Ile Loop Chesterfield" url="http://weather.interceptvector.com/weather.xml?id=TkNYWDAwMDI%3D" />
+	<city name="Ile Surprise" url="http://weather.interceptvector.com/weather.xml?id=TkNYWDAwMDE%3D" />
+	<city name="Koumac Nlle-Caledonie" url="http://weather.interceptvector.com/weather.xml?id=TkNYWDAwMDM%3D" />
+	<city name="La Tontouta Nlle-Caledonie" url="http://weather.interceptvector.com/weather.xml?id=TkNYWDAwMDU%3D" />
+	<city name="Noumea Nlle-Caledonie" url="http://weather.interceptvector.com/weather.xml?id=TkNYWDAwMDY%3D" />
+	<city name="Ouloup Ile Ouvea" url="http://weather.interceptvector.com/weather.xml?id=TkNYWDAwMDQ%3D" />
+</state>

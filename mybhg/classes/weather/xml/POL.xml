@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<state name="Poland">
+	<city name="Bialystok" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzg%3D" />
+	<city name="Brzeg" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDE%3D" />
+	<city name="Chojnice" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzU%3D" />
+	<city name="Czestochowa" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDI%3D" />
+	<city name="Danzig" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDM%3D" />
+	<city name="Elblag" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDQ%3D" />
+	<city name="Gdansk" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDU%3D" />
+	<city name="Gdynia" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDY%3D" />
+	<city name="Goleniow" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDc%3D" />
+	<city name="Gorzow Wielkopolski" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDg%3D" />
+	<city name="Gorzow Wlkp" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzk%3D" />
+	<city name="Hel" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzM%3D" />
+	<city name="Kalisz" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMDk%3D" />
+	<city name="Katowice" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTA%3D" />
+	<city name="Kielce" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTE%3D" />
+	<city name="Klodzko" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNDc%3D" />
+	<city name="Koszalin" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzE%3D" />
+	<city name="Krakow" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTI%3D" />
+	<city name="Leba" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzI%3D" />
+	<city name="Legnica" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTM%3D" />
+	<city name="Lodz" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTQ%3D" />
+	<city name="Lublin" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNDk%3D" />
+	<city name="Lublin Radawiec" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNDU%3D" />
+	<city name="Malczyce" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTU%3D" />
+	<city name="Mlawa" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzc%3D" />
+	<city name="Olesnica" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTY%3D" />
+	<city name="Otwock" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTc%3D" />
+	<city name="Plock" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTg%3D" />
+	<city name="Police" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMTk%3D" />
+	<city name="Pomeranian Bay" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNTE%3D" />
+	<city name="Poznan" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNDA%3D" />
+	<city name="Pruszkow" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjA%3D" />
+	<city name="Przemysl" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNTA%3D" />
+	<city name="Rybnik" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjE%3D" />
+	<city name="Siedlce" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNDI%3D" />
+	<city name="Sniezka" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNDY%3D" />
+	<city name="Sopot" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNTM%3D" />
+	<city name="Sosnowiec" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjI%3D" />
+	<city name="Southern Baltic" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNTI%3D" />
+	<city name="Stargard Szczecinski" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjM%3D" />
+	<city name="Suwalki" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzQ%3D" />
+	<city name="Swinoujscie" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjQ%3D" />
+	<city name="Szczecin" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjU%3D" />
+	<city name="Tarnow" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjY%3D" />
+	<city name="Torun" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzY%3D" />
+	<city name="Tychy" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjc%3D" />
+	<city name="Warsaw" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjg%3D" />
+	<city name="Wroclaw" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMjk%3D" />
+	<city name="Zabrze" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwMzA%3D" />
+	<city name="Zamosc" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNDg%3D" />
+	<city name="Zielona Gora" url="http://weather.interceptvector.com/weather.xml?id=UExYWDAwNDM%3D" />
+</state>

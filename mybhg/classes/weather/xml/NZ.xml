@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<state name="New Zealand">
+	<city name="Allanton" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDE%3D" />
+	<city name="Arrowtown" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDI%3D" />
+	<city name="Auckland" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDM%3D" />
+	<city name="Bay View" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDQ%3D" />
+	<city name="Blenheim" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDU%3D" />
+	<city name="Campbell Island" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzY%3D" />
+	<city name="Cape Campbell" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjY%3D" />
+	<city name="Cape Reinga" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTE%3D" />
+	<city name="Castlepoint" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjM%3D" />
+	<city name="Chatham Islands" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzc%3D" />
+	<city name="Christchurch" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDY%3D" />
+	<city name="Clive" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDc%3D" />
+	<city name="Cromwell" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDg%3D" />
+	<city name="Dunedin" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMDk%3D" />
+	<city name="Eastbourne" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTA%3D" />
+	<city name="Enderby Island" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzU%3D" />
+	<city name="Eskdale" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTE%3D" />
+	<city name="Farewell Spit" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjU%3D" />
+	<city name="Gisborne Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTc%3D" />
+	<city name="Greymouth" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTI%3D" />
+	<city name="Haast" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjg%3D" />
+	<city name="Hamilton" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTM%3D" />
+	<city name="Hastings" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTQ%3D" />
+	<city name="Hicks Bay" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTU%3D" />
+	<city name="Hokitika" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTU%3D" />
+	<city name="Invercargill" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTY%3D" />
+	<city name="Kaiapoi" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTc%3D" />
+	<city name="Kaikoura" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjc%3D" />
+	<city name="Kaniere" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTg%3D" />
+	<city name="Lower Hutt" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMTk%3D" />
+	<city name="Lyttelton" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjA%3D" />
+	<city name="Makarewa" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjE%3D" />
+	<city name="Manukau" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjI%3D" />
+	<city name="Mokohinau" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTM%3D" />
+	<city name="Mosgiel" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjM%3D" />
+	<city name="Mount Roskill" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjQ%3D" />
+	<city name="Napier" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjU%3D" />
+	<city name="Napier Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjA%3D" />
+	<city name="Nelson" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjY%3D" />
+	<city name="New Brighton" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjc%3D" />
+	<city name="New Plymouth Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTg%3D" />
+	<city name="North Shore City" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjg%3D" />
+	<city name="Okarito" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMjk%3D" />
+	<city name="Palmerston North" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjE%3D" />
+	<city name="Papakura" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzA%3D" />
+	<city name="Papatoetoe" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzE%3D" />
+	<city name="Paraparaumu" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjI%3D" />
+	<city name="Petone" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzI%3D" />
+	<city name="Porirua" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzM%3D" />
+	<city name="Port Chalmers" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzQ%3D" />
+	<city name="Purerua" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTI%3D" />
+	<city name="Puysegur Point" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzE%3D" />
+	<city name="Queenstown" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzU%3D" />
+	<city name="Queenstown Aerodrome" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzI%3D" />
+	<city name="Raoul Island Kermadec Island" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzg%3D" />
+	<city name="Riccarton" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzY%3D" />
+	<city name="Richmond" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzc%3D" />
+	<city name="Riverton" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzg%3D" />
+	<city name="Saint Kilda" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwMzk%3D" />
+	<city name="Secretary Island" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzA%3D" />
+	<city name="Sefton" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDA%3D" />
+	<city name="South West Cape" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzQ%3D" />
+	<city name="Taiaroa Head" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzM%3D" />
+	<city name="Takapuna" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDE%3D" />
+	<city name="Taradale" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDI%3D" />
+	<city name="Taupo" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTY%3D" />
+	<city name="Tauranga Harbour" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTQ%3D" />
+	<city name="Timaru" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjk%3D" />
+	<city name="Upper Hutt" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDM%3D" />
+	<city name="Waihola" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDQ%3D" />
+	<city name="Wainuiomata" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDU%3D" />
+	<city name="Waiouru" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTk%3D" />
+	<city name="Waipara" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDY%3D" />
+	<city name="Waitati" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDc%3D" />
+	<city name="Waitemata" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDg%3D" />
+	<city name="Waiwera" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNzk%3D" />
+	<city name="Wellington" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNDk%3D" />
+	<city name="Westport Harbour" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNjQ%3D" />
+	<city name="Woodlands" url="http://weather.interceptvector.com/weather.xml?id=TlpYWDAwNTA%3D" />
+</state>

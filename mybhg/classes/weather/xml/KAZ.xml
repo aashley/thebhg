@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<state name="Kazakhstan">
+	<city name="Akkuduk" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDk%3D" />
+	<city name="Aktjubinsk" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjU%3D" />
+	<city name="Alekseevka" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjE%3D" />
+	<city name="Alma Ata" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDE%3D" />
+	<city name="Aqmola" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDI%3D" />
+	<city name="Aralskoe More" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzI%3D" />
+	<city name="Atbasar" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjA%3D" />
+	<city name="Atyrau" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDM%3D" />
+	<city name="Atyray" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzE%3D" />
+	<city name="Aul Turara Ryskulova" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNTE%3D" />
+	<city name="Baikonur" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNTU%3D" />
+	<city name="Bakanas" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDE%3D" />
+	<city name="Balhash" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzM%3D" />
+	<city name="Balkasino" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTU%3D" />
+	<city name="Berlik" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjc%3D" />
+	<city name="Blacoveschenka" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTE%3D" />
+	<city name="Cardara" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNTQ%3D" />
+	<city name="Chapaevo" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjY%3D" />
+	<city name="Ciili" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDY%3D" />
+	<city name="Dzhambejty" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjQ%3D" />
+	<city name="Dzhusaly" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzU%3D" />
+	<city name="Esil" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTk%3D" />
+	<city name="Fort Sevcenko" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDQ%3D" />
+	<city name="Irtyshsk" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTc%3D" />
+	<city name="Karaganda" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDQ%3D" />
+	<city name="Kokpekty" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzk%3D" />
+	<city name="Kustanai" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTM%3D" />
+	<city name="Kzyl-Orda" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDU%3D" />
+	<city name="Leninogorsk" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzg%3D" />
+	<city name="Lugovoj" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNTM%3D" />
+	<city name="Novotroitskoe" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDg%3D" />
+	<city name="Novyj Ushtogan" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTg%3D" />
+	<city name="Otar" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDM%3D" />
+	<city name="Panfilov" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDI%3D" />
+	<city name="Pavlodar" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzc%3D" />
+	<city name="Petropavlovsk" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDU%3D" />
+	<city name="Ruzaevka" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTQ%3D" />
+	<city name="Sam" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzQ%3D" />
+	<city name="Shymkent" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDY%3D" />
+	<city name="Sorang" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDc%3D" />
+	<city name="Stepnogorsk" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDg%3D" />
+	<city name="Sucinsk" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTY%3D" />
+	<city name="Taipak" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjg%3D" />
+	<city name="Talghar" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMDk%3D" />
+	<city name="Temir" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjk%3D" />
+	<city name="Temirtau" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTA%3D" />
+	<city name="Turkestan" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDc%3D" />
+	<city name="Uralsk" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjI%3D" />
+	<city name="Urdzhar" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNDA%3D" />
+	<city name="Uricky" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMTI%3D" />
+	<city name="Zhaltyr" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMjM%3D" />
+	<city name="Zhambyl" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwNTI%3D" />
+	<city name="Zhezkazgan" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzA%3D" />
+	<city name="Zlikha" url="http://weather.interceptvector.com/weather.xml?id=S1pYWDAwMzY%3D" />
+</state>

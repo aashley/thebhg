@@ -1,0 +1,692 @@
+<?xml version="1.0" ?>
+<countries>
+	<country name="Afghanistan">
+		<state name="Afghanistan" url="AFG.xml" />
+	</country>
+	<country name="Albania">
+		<state name="Albania" url="ALB.xml" />
+	</country>
+	<country name="Algeria">
+		<state name="Algeria" url="ALG.xml" />
+	</country>
+	<country name="Andorra">
+		<state name="Andorra" url="ANR.xml" />
+	</country>
+	<country name="Angola">
+		<state name="Angola" url="ANG.xml" />
+	</country>
+	<country name="Anguilla">
+		<state name="Anguilla" url="ANL.xml" />
+	</country>
+	<country name="Antarctica">
+		<state name="Antarctica" url="AN.xml" />
+	</country>
+	<country name="Antigua and Barbuda">
+		<state name="Antigua and Barbuda" url="ANB.xml" />
+	</country>
+	<country name="Argentina">
+		<state name="Argentina" url="ARG.xml" />
+	</country>
+	<country name="Armenia">
+		<state name="Armenia" url="ARM.xml" />
+	</country>
+	<country name="Aruba">
+		<state name="Aruba" url="ARU.xml" />
+	</country>
+	<country name="Australia">
+		<state name="Australia" url="AU.xml" />
+	</country>
+	<country name="Austria">
+		<state name="Austria" url="AUT.xml" />
+	</country>
+	<country name="Azerbaijan">
+		<state name="Azerbaijan" url="AZE.xml" />
+	</country>
+	<country name="Bahamas">
+		<state name="Bahamas" url="BAA.xml" />
+	</country>
+	<country name="Bahrain">
+		<state name="Bahrain" url="BAH.xml" />
+	</country>
+	<country name="Bangladesh">
+		<state name="Bangladesh" url="BAN.xml" />
+	</country>
+	<country name="Barbados">
+		<state name="Barbados" url="BAR.xml" />
+	</country>
+	<country name="Belarus">
+		<state name="Belarus" url="BEA.xml" />
+	</country>
+	<country name="Belgium">
+		<state name="Belgium" url="BEG.xml" />
+	</country>
+	<country name="Belize">
+		<state name="Belize" url="BEI.xml" />
+	</country>
+	<country name="Benin">
+		<state name="Benin" url="BEN.xml" />
+	</country>
+	<country name="Bermuda">
+		<state name="Bermuda" url="BER.xml" />
+	</country>
+	<country name="Bhutan">
+		<state name="Bhutan" url="BHU.xml" />
+	</country>
+	<country name="Bolivia">
+		<state name="Bolivia" url="BOL.xml" />
+	</country>
+	<country name="Bosnia and Herzegovina">
+		<state name="Bosnia and Herzegovina" url="BOS.xml" />
+	</country>
+	<country name="Botswana">
+		<state name="Botswana" url="BOT.xml" />
+	</country>
+	<country name="Brazil">
+		<state name="Brazil" url="BRA.xml" />
+	</country>
+	<country name="Brunei">
+		<state name="Brunei" url="BRU.xml" />
+	</country>
+	<country name="Bulgaria">
+		<state name="Bulgaria" url="BUL.xml" />
+	</country>
+	<country name="Burkina Faso">
+		<state name="Burkina Faso" url="BUN.xml" />
+	</country>
+	<country name="Burundi">
+		<state name="Burundi" url="BUR.xml" />
+	</country>
+	<country name="Cambodia">
+		<state name="Cambodia" url="CAB.xml" />
+	</country>
+	<country name="Cameroon">
+		<state name="Cameroon" url="CAM.xml" />
+	</country>
+	<country name="Canada">
+		<state name="Canada" url="CD.xml" />
+	</country>
+	<country name="Cayman Islands">
+		<state name="Cayman Islands" url="CAY.xml" />
+	</country>
+	<country name="Central African Republic">
+		<state name="Central African Republic" url="CAR.xml" />
+	</country>
+	<country name="Chad">
+		<state name="Chad" url="CHA.xml" />
+	</country>
+	<country name="Chile">
+		<state name="Chile" url="CHI.xml" />
+	</country>
+	<country name="China">
+		<state name="China" url="CHN.xml" />
+	</country>
+	<country name="Christmas Islands">
+		<state name="Christmas Islands" url="CHR.xml" />
+	</country>
+	<country name="Colombia">
+		<state name="Colombia" url="COL.xml" />
+	</country>
+	<country name="Comoros">
+		<state name="Comoros" url="COM.xml" />
+	</country>
+	<country name="Congo">
+		<state name="Congo" url="CNG.xml" />
+	</country>
+	<country name="Cook Islands">
+		<state name="Cook Islands" url="COO.xml" />
+	</country>
+	<country name="Costa Rica">
+		<state name="Costa Rica" url="COS.xml" />
+	</country>
+	<country name="Croatia">
+		<state name="Croatia" url="CRO.xml" />
+	</country>
+	<country name="Cuba">
+		<state name="Cuba" url="CUB.xml" />
+	</country>
+	<country name="Cyprus">
+		<state name="Cyprus" url="CYP.xml" />
+	</country>
+	<country name="Czech Republic">
+		<state name="Czech Republic" url="CZE.xml" />
+	</country>
+	<country name="Democratic Republic of The Congo">
+		<state name="Democratic Republic of The Congo" url="DRC.xml" />
+	</country>
+	<country name="Denmark">
+		<state name="Denmark" url="DEN.xml" />
+	</country>
+	<country name="Djibouti">
+		<state name="Djibouti" url="DJI.xml" />
+	</country>
+	<country name="Dominica">
+		<state name="Dominica" url="DOM.xml" />
+	</country>
+	<country name="Dominican Republic">
+		<state name="Dominican Republic" url="DOR.xml" />
+	</country>
+	<country name="Ecuador">
+		<state name="Ecuador" url="ECU.xml" />
+	</country>
+	<country name="Egypt">
+		<state name="Egypt" url="EGY.xml" />
+	</country>
+	<country name="El Salvador">
+		<state name="El Salvador" url="ELS.xml" />
+	</country>
+	<country name="Equatorial Guinea">
+		<state name="Equatorial Guinea" url="EQG.xml" />
+	</country>
+	<country name="Eritrea">
+		<state name="Eritrea" url="ERI.xml" />
+	</country>
+	<country name="Ethiopia">
+		<state name="Ethiopia" url="ETH.xml" />
+	</country>
+	<country name="Falkland Islands">
+		<state name="Falkland Islands" url="FAI.xml" />
+	</country>
+	<country name="Fiji">
+		<state name="Fiji" url="FIJ.xml" />
+	</country>
+	<country name="Finland">
+		<state name="Finland" url="FIN.xml" />
+	</country>
+	<country name="Former Yugoslav Republic of Macedonia">
+		<state name="Former Yugoslav Republic of Macedonia" url="FYM.xml" />
+	</country>
+	<country name="France">
+		<state name="France" url="FRA.xml" />
+	</country>
+	<country name="French Guiana">
+		<state name="French Guiana" url="FRG.xml" />
+	</country>
+	<country name="French Polynesia">
+		<state name="French Polynesia" url="FRP.xml" />
+	</country>
+	<country name="Gabon">
+		<state name="Gabon" url="GAB.xml" />
+	</country>
+	<country name="Gambia">
+		<state name="Gambia" url="GAM.xml" />
+	</country>
+	<country name="Georgia">
+		<state name="Georgia" url="GEO.xml" />
+	</country>
+	<country name="Germany">
+		<state name="Germany" url="GER.xml" />
+	</country>
+	<country name="Ghana">
+		<state name="Ghana" url="GHA.xml" />
+	</country>
+	<country name="Gibraltar">
+		<state name="Gibraltar" url="GIB.xml" />
+	</country>
+	<country name="Greece">
+		<state name="Greece" url="GRE.xml" />
+	</country>
+	<country name="Greenland">
+		<state name="Greenland" url="GL.xml" />
+	</country>
+	<country name="Grenada">
+		<state name="Grenada" url="GRN.xml" />
+	</country>
+	<country name="Guadeloupe">
+		<state name="Guadeloupe" url="GUA.xml" />
+	</country>
+	<country name="Guam">
+		<state name="Guam" url="GU.xml" />
+	</country>
+	<country name="Guatemala">
+		<state name="Guatemala" url="GUE.xml" />
+	</country>
+	<country name="Guinea">
+		<state name="Guinea" url="GUI.xml" />
+	</country>
+	<country name="Guinea-Bissau">
+		<state name="Guinea-Bissau" url="GUS.xml" />
+	</country>
+	<country name="Guyana">
+		<state name="Guyana" url="GUY.xml" />
+	</country>
+	<country name="Haiti">
+		<state name="Haiti" url="HAI.xml" />
+	</country>
+	<country name="Honduras">
+		<state name="Honduras" url="HON.xml" />
+	</country>
+	<country name="Hungary">
+		<state name="Hungary" url="HUN.xml" />
+	</country>
+	<country name="Iceland">
+		<state name="Iceland" url="ICE.xml" />
+	</country>
+	<country name="India">
+		<state name="India" url="IND.xml" />
+	</country>
+	<country name="Indonesia">
+		<state name="Indonesia" url="INO.xml" />
+	</country>
+	<country name="Iran">
+		<state name="Iran" url="IRN.xml" />
+	</country>
+	<country name="Iraq">
+		<state name="Iraq" url="IRQ.xml" />
+	</country>
+	<country name="Ireland">
+		<state name="Ireland" url="IRE.xml" />
+	</country>
+	<country name="Israel">
+		<state name="Israel" url="ISR.xml" />
+	</country>
+	<country name="Italy">
+		<state name="Italy" url="ITA.xml" />
+	</country>
+	<country name="Ivory Coast">
+		<state name="Ivory Coast" url="IVO.xml" />
+	</country>
+	<country name="Jamaica">
+		<state name="Jamaica" url="JAM.xml" />
+	</country>
+	<country name="Japan">
+		<state name="Japan" url="JAP.xml" />
+	</country>
+	<country name="Jordan">
+		<state name="Jordan" url="JOR.xml" />
+	</country>
+	<country name="Kazakhstan">
+		<state name="Kazakhstan" url="KAZ.xml" />
+	</country>
+	<country name="Kenya">
+		<state name="Kenya" url="KEN.xml" />
+	</country>
+	<country name="Kiribati">
+		<state name="Kiribati" url="KIR.xml" />
+	</country>
+	<country name="Kuwait">
+		<state name="Kuwait" url="KUW.xml" />
+	</country>
+	<country name="Kyrgyzstan">
+		<state name="Kyrgyzstan" url="KYR.xml" />
+	</country>
+	<country name="Laos">
+		<state name="Laos" url="LAO.xml" />
+	</country>
+	<country name="Latvia">
+		<state name="Latvia" url="LAT.xml" />
+	</country>
+	<country name="Lebanon">
+		<state name="Lebanon" url="LEB.xml" />
+	</country>
+	<country name="Lesotho">
+		<state name="Lesotho" url="LES.xml" />
+	</country>
+	<country name="Liberia">
+		<state name="Liberia" url="LIA.xml" />
+	</country>
+	<country name="Libya">
+		<state name="Libya" url="LIB.xml" />
+	</country>
+	<country name="Liechtenstein">
+		<state name="Liechtenstein" url="LIE.xml" />
+	</country>
+	<country name="Lithuania">
+		<state name="Lithuania" url="LIT.xml" />
+	</country>
+	<country name="Luxembourg">
+		<state name="Luxembourg" url="LUX.xml" />
+	</country>
+	<country name="Madagascar">
+		<state name="Madagascar" url="MAD.xml" />
+	</country>
+	<country name="Malawi">
+		<state name="Malawi" url="MAA.xml" />
+	</country>
+	<country name="Malaysia">
+		<state name="Malaysia" url="MAL.xml" />
+	</country>
+	<country name="Maldives">
+		<state name="Maldives" url="MAV.xml" />
+	</country>
+	<country name="Mali">
+		<state name="Mali" url="MAI.xml" />
+	</country>
+	<country name="Malta">
+		<state name="Malta" url="MAT.xml" />
+	</country>
+	<country name="Mariana Islands">
+		<state name="Mariana Islands" url="MP.xml" />
+	</country>
+	<country name="Marshall Islands">
+		<state name="Marshall Islands" url="MH.xml" />
+	</country>
+	<country name="Martinigue">
+		<state name="Martinigue" url="MAR.xml" />
+	</country>
+	<country name="Mauritania">
+		<state name="Mauritania" url="MAU.xml" />
+	</country>
+	<country name="Mauritius">
+		<state name="Mauritius" url="MAS.xml" />
+	</country>
+	<country name="Mexico">
+		<state name="Mexico" url="MX.xml" />
+	</country>
+	<country name="Micronesia">
+		<state name="Micronesia" url="FM.xml" />
+	</country>
+	<country name="Moldova">
+		<state name="Moldova" url="MOL.xml" />
+	</country>
+	<country name="Monaco">
+		<state name="Monaco" url="MON.xml" />
+	</country>
+	<country name="Mongolia">
+		<state name="Mongolia" url="MOG.xml" />
+	</country>
+	<country name="Montenegro">
+		<state name="Montenegro" url="MOT.xml" />
+	</country>
+	<country name="Morocco">
+		<state name="Morocco" url="MOR.xml" />
+	</country>
+	<country name="Mozambique">
+		<state name="Mozambique" url="MOZ.xml" />
+	</country>
+	<country name="Myanmar">
+		<state name="Myanmar" url="MYA.xml" />
+	</country>
+	<country name="Namibia">
+		<state name="Namibia" url="NAM.xml" />
+	</country>
+	<country name="Nepal">
+		<state name="Nepal" url="NEP.xml" />
+	</country>
+	<country name="Netherlands">
+		<state name="Netherlands" url="NET.xml" />
+	</country>
+	<country name="Netherlands Antilles">
+		<state name="Netherlands Antilles" url="NEA.xml" />
+	</country>
+	<country name="New Caledonia">
+		<state name="New Caledonia" url="NWC.xml" />
+	</country>
+	<country name="New Zealand">
+		<state name="New Zealand" url="NZ.xml" />
+	</country>
+	<country name="Nicaragua">
+		<state name="Nicaragua" url="NIC.xml" />
+	</country>
+	<country name="Niger">
+		<state name="Niger" url="NIG.xml" />
+	</country>
+	<country name="Nigeria">
+		<state name="Nigeria" url="NIR.xml" />
+	</country>
+	<country name="North Korea">
+		<state name="North Korea" url="NOK.xml" />
+	</country>
+	<country name="Norway">
+		<state name="Norway" url="NOR.xml" />
+	</country>
+	<country name="Oman">
+		<state name="Oman" url="OMA.xml" />
+	</country>
+	<country name="Pakistan">
+		<state name="Pakistan" url="PAK.xml" />
+	</country>
+	<country name="Palau">
+		<state name="Palau" url="PW.xml" />
+	</country>
+	<country name="Panama">
+		<state name="Panama" url="PAN.xml" />
+	</country>
+	<country name="Papua New Guinea">
+		<state name="Papua New Guinea" url="PAP.xml" />
+	</country>
+	<country name="Paraguay">
+		<state name="Paraguay" url="PAR.xml" />
+	</country>
+	<country name="Peru">
+		<state name="Peru" url="PER.xml" />
+	</country>
+	<country name="Philippines">
+		<state name="Philippines" url="PHI.xml" />
+	</country>
+	<country name="Poland">
+		<state name="Poland" url="POL.xml" />
+	</country>
+	<country name="Portugal">
+		<state name="Portugal" url="POR.xml" />
+	</country>
+	<country name="Puerto Rico">
+		<state name="Puerto Rico" url="PR.xml" />
+	</country>
+	<country name="Qatar">
+		<state name="Qatar" url="QAT.xml" />
+	</country>
+	<country name="Reunion">
+		<state name="Reunion" url="REU.xml" />
+	</country>
+	<country name="Romania">
+		<state name="Romania" url="ROM.xml" />
+	</country>
+	<country name="Russia">
+		<state name="Russia" url="RUS.xml" />
+	</country>
+	<country name="Rwanda">
+		<state name="Rwanda" url="RWA.xml" />
+	</country>
+	<country name="Saint Helena">
+		<state name="Saint Helena" url="SAH.xml" />
+	</country>
+	<country name="Saint Kitts">
+		<state name="Saint Kitts" url="SAK.xml" />
+	</country>
+	<country name="Saint Lucia">
+		<state name="Saint Lucia" url="SAL.xml" />
+	</country>
+	<country name="Samoa">
+		<state name="Samoa" url="AS.xml" />
+	</country>
+	<country name="Sao Tome and Principe">
+		<state name="Sao Tome and Principe" url="SAT.xml" />
+	</country>
+	<country name="Saudi Arabia">
+		<state name="Saudi Arabia" url="SAU.xml" />
+	</country>
+	<country name="Senegal">
+		<state name="Senegal" url="SEN.xml" />
+	</country>
+	<country name="Serbia">
+		<state name="Serbia" url="SER.xml" />
+	</country>
+	<country name="Seychelles">
+		<state name="Seychelles" url="SEY.xml" />
+	</country>
+	<country name="Sierra Leone">
+		<state name="Sierra Leone" url="SIL.xml" />
+	</country>
+	<country name="Singapore">
+		<state name="Singapore" url="SIN.xml" />
+	</country>
+	<country name="Slovakia">
+		<state name="Slovakia" url="SLA.xml" />
+	</country>
+	<country name="Slovenia">
+		<state name="Slovenia" url="SLE.xml" />
+	</country>
+	<country name="Soloman Islands">
+		<state name="Soloman Islands" url="SOL.xml" />
+	</country>
+	<country name="Somalia">
+		<state name="Somalia" url="SOM.xml" />
+	</country>
+	<country name="South Africa">
+		<state name="South Africa" url="SOA.xml" />
+	</country>
+	<country name="South Korea">
+		<state name="South Korea" url="SOK.xml" />
+	</country>
+	<country name="South Sandwich Islands">
+		<state name="South Sandwich Islands" url="SOG.xml" />
+	</country>
+	<country name="Spain">
+		<state name="Spain" url="SPA.xml" />
+	</country>
+	<country name="Sri Lanka">
+		<state name="Sri Lanka" url="SRI.xml" />
+	</country>
+	<country name="Sudan">
+		<state name="Sudan" url="SUD.xml" />
+	</country>
+	<country name="Suriname">
+		<state name="Suriname" url="SUR.xml" />
+	</country>
+	<country name="Swaziland">
+		<state name="Swaziland" url="SWA.xml" />
+	</country>
+	<country name="Sweden">
+		<state name="Sweden" url="SWE.xml" />
+	</country>
+	<country name="Switzerland">
+		<state name="Switzerland" url="SWI.xml" />
+	</country>
+	<country name="Syria">
+		<state name="Syria" url="SYR.xml" />
+	</country>
+	<country name="Taiwan">
+		<state name="Taiwan" url="TAI.xml" />
+	</country>
+	<country name="Tajikistan">
+		<state name="Tajikistan" url="TAJ.xml" />
+	</country>
+	<country name="Thailand">
+		<state name="Thailand" url="THA.xml" />
+	</country>
+	<country name="Togo">
+		<state name="Togo" url="TOG.xml" />
+	</country>
+	<country name="Tonga">
+		<state name="Tonga" url="TON.xml" />
+	</country>
+	<country name="Trinidad and Tobago">
+		<state name="Trinidad and Tobago" url="TRI.xml" />
+	</country>
+	<country name="Tunisia">
+		<state name="Tunisia" url="TUN.xml" />
+	</country>
+	<country name="Turkey">
+		<state name="Turkey" url="TUR.xml" />
+	</country>
+	<country name="Turkmenistan">
+		<state name="Turkmenistan" url="TUS.xml" />
+	</country>
+	<country name="Tuvalu">
+		<state name="Tuvalu" url="TUV.xml" />
+	</country>
+	<country name="Uganda">
+		<state name="Uganda" url="UGA.xml" />
+	</country>
+	<country name="Ukraine">
+		<state name="Ukraine" url="UKR.xml" />
+	</country>
+	<country name="United Arab Emirates">
+		<state name="United Arab Emirates" url="UAE.xml" />
+	</country>
+	<country name="United Kingdom">
+		<state name="United Kingdom" url="UK.xml" />
+	</country>
+	<country name="United Republic of Tanzania">
+		<state name="United Republic of Tanzania" url="URT.xml" />
+	</country>
+	<country name="United States">
+		<state name="Alabama" url="AL.xml" />
+		<state name="Alaska" url="AK.xml" />
+		<state name="Arizona" url="AZ.xml" />
+		<state name="Arkansas" url="AR.xml" />
+		<state name="California" url="CA.xml" />
+		<state name="Colorado" url="CO.xml" />
+		<state name="Connecticut" url="CT.xml" />
+		<state name="Delaware" url="DE.xml" />
+		<state name="District of Columbia" url="DC.xml" />
+		<state name="Florida" url="FL.xml" />
+		<state name="Georgia" url="GA.xml" />
+		<state name="Hawaii" url="HI.xml" />
+		<state name="Idaho" url="ID.xml" />
+		<state name="Illinois" url="IL.xml" />
+		<state name="Indiana" url="IN.xml" />
+		<state name="Iowa" url="IA.xml" />
+		<state name="Kansas" url="KS.xml" />
+		<state name="Kentucky" url="KY.xml" />
+		<state name="Louisiana" url="LA.xml" />
+		<state name="Maine" url="ME.xml" />
+		<state name="Maryland" url="MD.xml" />
+		<state name="Massachusetts" url="MA.xml" />
+		<state name="Michigan" url="MI.xml" />
+		<state name="Minnesota" url="MN.xml" />
+		<state name="Mississippi" url="MS.xml" />
+		<state name="Missouri" url="MO.xml" />
+		<state name="Montana" url="MT.xml" />
+		<state name="Nebraska" url="NE.xml" />
+		<state name="Nevada" url="NV.xml" />
+		<state name="New Hampshire" url="NH.xml" />
+		<state name="New Jersey" url="NJ.xml" />
+		<state name="New Mexico" url="NM.xml" />
+		<state name="New York" url="NY.xml" />
+		<state name="North Carolina" url="NC.xml" />
+		<state name="North Dakota" url="ND.xml" />
+		<state name="Ohio" url="OH.xml" />
+		<state name="Oklahoma" url="OK.xml" />
+		<state name="Oregon" url="OR.xml" />
+		<state name="Pennsylvania" url="PA.xml" />
+		<state name="Rhode Island" url="RI.xml" />
+		<state name="South Carolina" url="SC.xml" />
+		<state name="South Dakota" url="SD.xml" />
+		<state name="Tennessee" url="TN.xml" />
+		<state name="Texas" url="TX.xml" />
+		<state name="Utah" url="UT.xml" />
+		<state name="Vermont" url="VT.xml" />
+		<state name="Virginia" url="VA.xml" />
+		<state name="Washington" url="WA.xml" />
+		<state name="West Virginia" url="WV.xml" />
+		<state name="Wisconsin" url="WI.xml" />
+		<state name="Wyoming" url="WY.xml" />
+	</country>
+	<country name="Uruguay">
+		<state name="Uruguay" url="URU.xml" />
+	</country>
+	<country name="Uzbekistan">
+		<state name="Uzbekistan" url="UZB.xml" />
+	</country>
+	<country name="Vanuatu">
+		<state name="Vanuatu" url="VAN.xml" />
+	</country>
+	<country name="Venezuela">
+		<state name="Venezuela" url="VEN.xml" />
+	</country>
+	<country name="Vietnam">
+		<state name="Vietnam" url="VIE.xml" />
+	</country>
+	<country name="Virgin Islands">
+		<state name="Virgin Islands" url="VI.xml" />
+	</country>
+	<country name="Wake Island">
+		<state name="Wake Island" url="WQ.xml" />
+	</country>
+	<country name="West Bank">
+		<state name="West Bank" url="WEB.xml" />
+	</country>
+	<country name="Western Sahara">
+		<state name="Western Sahara" url="WES.xml" />
+	</country>
+	<country name="Yemen">
+		<state name="Yemen" url="YEM.xml" />
+	</country>
+	<country name="Zambia">
+		<state name="Zambia" url="ZAM.xml" />
+	</country>
+	<country name="Zimbabwe">
+		<state name="Zimbabwe" url="ZIM.xml" />
+	</country>
+</countries>

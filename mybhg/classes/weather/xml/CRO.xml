@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Croatia">
+	<city name="Dubrovnik" url="http://weather.interceptvector.com/weather.xml?id=SFJYWDAwMDE%3D" />
+	<city name="Karlovac" url="http://weather.interceptvector.com/weather.xml?id=SFJYWDAwMDI%3D" />
+	<city name="Osijek" url="http://weather.interceptvector.com/weather.xml?id=SFJYWDAwMDM%3D" />
+	<city name="Rijeka" url="http://weather.interceptvector.com/weather.xml?id=SFJYWDAwMDY%3D" />
+	<city name="Split" url="http://weather.interceptvector.com/weather.xml?id=SFJYWDAwMDQ%3D" />
+	<city name="Zagreb" url="http://weather.interceptvector.com/weather.xml?id=SFJYWDAwMDU%3D" />
+</state>

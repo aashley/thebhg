@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Soloman Islands">
+	<city name="Auki" url="http://weather.interceptvector.com/weather.xml?id=QlBYWDAwMDM%3D" />
+	<city name="Honiara" url="http://weather.interceptvector.com/weather.xml?id=QlBYWDAwMDE%3D" />
+	<city name="Munda" url="http://weather.interceptvector.com/weather.xml?id=QlBYWDAwMDI%3D" />
+</state>

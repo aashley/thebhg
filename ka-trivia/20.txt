@@ -1,0 +1,34 @@
+Category: Imperial Ships
+ 
+Q1: How many meters long was the Executor?
+A1: 8000
+ 
+Q2: What Imperial shuttle was flown by Tycho Celchu on many missions?
+A2: Forbidden
+ 
+Q3: How many gravity well projectors does an Interdictor-class cruiser have?
+A3: 4
+ 
+Q4: This SSD was Warlord Zsinj's flagship.
+A4: Iron Fist
+ 
+Q5: What was the name given to the Liberator when it was under Imperial control?
+A5: Adjudicator
+ 
+Q5: What was the name of the secret SSD hidden underneath Imperial Center?
+A5: Lusankya
+ 
+Q6: What was Grand Admiral Thrawn's flagship after his return?
+A6: Chimarea
+ 
+Q7: Who was the the captain of the Relentless during the Battle of Yavin?
+A7: Captain Parlon
+ 
+Q8: The Sovereign belongs to which warlord?
+A8: Zsinj
+ 
+Q9: About how many Star Destroyers (all classes) were built by the Empire?
+A9: 25,000
+ 
+Q10: What class of starfighters was based on Darth Vader's ship?
+A10: TIE Advanced

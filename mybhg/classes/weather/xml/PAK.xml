@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<state name="Pakistan">
+	<city name="Chiniot" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDE%3D" />
+	<city name="Faisalabad" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDI%3D" />
+	<city name="Gujranwala" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDM%3D" />
+	<city name="Gujrat" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDQ%3D" />
+	<city name="Hyderabad" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDU%3D" />
+	<city name="Islamabad" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDY%3D" />
+	<city name="Jhang Sadar" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDc%3D" />
+	<city name="Karachi" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDg%3D" />
+	<city name="Kasur" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMDk%3D" />
+	<city name="Kohat" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTA%3D" />
+	<city name="Lahore" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTE%3D" />
+	<city name="Mardan" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTI%3D" />
+	<city name="Multan" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMjI%3D" />
+	<city name="Okara" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTM%3D" />
+	<city name="Peshawar" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTQ%3D" />
+	<city name="Quetta" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMjE%3D" />
+	<city name="Rawalpindi" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTU%3D" />
+	<city name="Sahiwal" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTY%3D" />
+	<city name="Sargodha" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTc%3D" />
+	<city name="Shekhupura" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTg%3D" />
+	<city name="Sialkot" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMTk%3D" />
+	<city name="Tatta" url="http://weather.interceptvector.com/weather.xml?id=UEtYWDAwMjA%3D" />
+</state>

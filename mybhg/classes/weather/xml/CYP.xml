@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<state name="Cyprus">
+	<city name="Akrotiri" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDc%3D" />
+	<city name="C.kormakitis" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDg%3D" />
+	<city name="Famagusta" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDE%3D" />
+	<city name="Ktima" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDI%3D" />
+	<city name="Larnaca" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDM%3D" />
+	<city name="Limassol" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDQ%3D" />
+	<city name="Nicosia" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDU%3D" />
+	<city name="Paphos" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDY%3D" />
+	<city name="Polis" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMDk%3D" />
+	<city name="Rizokarpason" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMTA%3D" />
+	<city name="Troodos" url="http://weather.interceptvector.com/weather.xml?id=Q1lYWDAwMTE%3D" />
+</state>

@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<state name="Libya">
+	<city name="Benghazi/Benina" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMTE%3D" />
+	<city name="Dirj" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMDI%3D" />
+	<city name="Ghadamis" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMDM%3D" />
+	<city name="Ghat" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMDQ%3D" />
+	<city name="Hon" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMTI%3D" />
+	<city name="Kufra" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMTM%3D" />
+	<city name="Misratah" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMDU%3D" />
+	<city name="Murzuq" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMDY%3D" />
+	<city name="Taraghin" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMDg%3D" />
+	<city name="Tripoli" url="http://weather.interceptvector.com/weather.xml?id=TFlYWDAwMDk%3D" />
+</state>

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<state name="Oman">
+	<city name="As Sib" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDE%3D" />
+	<city name="Buraimi" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDU%3D" />
+	<city name="Fahud" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDc%3D" />
+	<city name="Khassab" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDQ%3D" />
+	<city name="Marmul" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMTA%3D" />
+	<city name="Masirah" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDk%3D" />
+	<city name="Matrah" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDI%3D" />
+	<city name="Muscat" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDM%3D" />
+	<city name="Salalah" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMTI%3D" />
+	<city name="Sohar Majis" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDY%3D" />
+	<city name="Sur" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMDg%3D" />
+	<city name="Thumrait" url="http://weather.interceptvector.com/weather.xml?id=TVVYWDAwMTE%3D" />
+</state>

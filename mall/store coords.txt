@@ -1,0 +1,13 @@
+copied from kke
+
+top.tga:
+line at 18,96
+
+238,44
+523x129
+
+top-small.tga:
+line at 17,41
+
+239,99
+523x104

@@ -1,0 +1,15 @@
+Welcome to the new and improved BHG web site. As you'll no doubt have noticed, this site is radically different in both design and content to the old web site, but hopefully in a good way.
+
+As you can see, the news from the various parts of the BHG has been collected together and appears on this site. If you log in using the link above right, you can change which sections you see, change the theme used for this site, and generally fiddle around with how this site works.
+
+On the right hand side, you can see a number of blocks containing a wide range of information. The most recent Commission reports and meeting logs are linked there, along with a random quote from the Quote Archive, some information on things that happened on this day, and some weather information. All of this can be switched on and off once logged in.
+
+You can also search all of the news items in the database using the Search link in the top bar. There are already quite a sizable number of old news items in the database.
+
+On to the things that were on the old site but aren't on this one. The long list of links down the right hand side of the old site has been moved to a new link database. The most important links can been seen in the BHG Links box at right, with the remainder being viewable via the "View All Links" link.
+
+The Library, Arena Challenge Centre, Quote Archive, and BHG Timeline have been moved to the Holonet. The full history page will become a part of the Library once its administration section is complete. The anonymous complaints form still exists, and is linked from the link database. (At some point soon I'll move it to the Holonet.)
+
+There are already more features in the works. Most notable at this stage is the planned BHG Calendar, which will be a place for Chiefs and Commission members to post upcoming activities and make it easier to keep track of what's going on in the BHG.
+
+I think that's everything. So, enjoy, post constructive suggestions at the Bug Tracker, and try not to break anything.

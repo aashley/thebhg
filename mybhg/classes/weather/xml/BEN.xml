@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Benin">
+	<city name="Cotonou" url="http://weather.interceptvector.com/weather.xml?id=Qk5YWDAwMDE%3D" />
+	<city name="Porto-Novo" url="http://weather.interceptvector.com/weather.xml?id=Qk5YWDAwMDI%3D" />
+	<city name="Save" url="http://weather.interceptvector.com/weather.xml?id=Qk5YWDAwMDM%3D" />
+</state>

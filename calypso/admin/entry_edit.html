@@ -1,0 +1,97 @@
+{getperson assign="person"}
+{getblog blogid=$person.blog assign="blog"}
+{getentry blogid=$blog.id entryid=$smarty.request.entryid year=$smarty.request.year month=$smarty.request.month day=$smarty.request.day assign="entry"}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+		<title>{$blog.title|escape} &#8212; Administration</title>
+		<link rel="stylesheet" href="{$blog.url}admin/style.css" media="screen" title="default" />
+		<script src="{$blog.url}admin/javascript.js" type="text/javascript" />
+	</head>
+	<body>
+	<div id="container">
+		<div id="banner">
+			<h1><a href="{$blog.url}admin" accesskey="1">{$blog.title|escape} Administration</a></h1>
+			<span class="description">{$blog.description|escape}</span>
+		</div>
+		<div id="content">
+			<div class="blog">
+				<div class="blogbody">
+					<form method="post" action="{$entry.editurl}" class="visible">
+						<h3>Modify an existing entry or draft</h3>
+						<fieldset id="title_field" class="input">
+							<label>
+								Title of the Blog Entry <br />
+								<input id="form_item_one" name="title_entry" type="text" size="30" tabindex="{counter}" value="{$entry.title}" />
+							</label>
+						</fieldset>
+						<fieldset id="content_field" class="input">
+							<label>
+								Full Text of the Blog Entry<br />
+								<textarea name="content_entry" cols="70" rows="20" tabindex="{counter}">{$entry.content}</textarea>
+							</label>
+						</fieldset>
+						<fieldset id="category_field" class="input">
+							Categories [<a href="{$blog.url}admin/categories">Modify</a>] <br />
+{getcategories blogid=$blog.id assign="categories"}
+{foreach from=$categories item=category}
+  {incategory entryid=$entry.id categoryid=$category.id assign="incategory"}
+							<label>
+								<input type="checkbox" name="category_boxes[]" value="{$category.id}" tabindex="{counter}" {if $incategory eq 1}checked="checked" {/if}/>
+								{$category.title|escape} <br />
+							</label>
+{/foreach}
+						</fieldset>
+						<fieldset id="options_field" class="input">
+							<label>
+								<input type="checkbox" name="pingback_box" tabindex="{counter}" />
+								PingBack <acronym title="Uniform Resource Locators">URL</acronym>s? <br />
+							</label>
+							<label>
+								<input type="checkbox" name="comments_box" tabindex="{counter}" {if $entry.show_comments eq 1}checked="checked" {/if}/>
+								Enable Commenting? <br />
+							</label>
+						</fieldset>
+						<fieldset id="control_field" class="control">
+							<input type="submit" name="Delete" value="Delete Entry" tabindex="{counter}" /> &nbsp;
+							<input type="submit" name="SaveDraft" value="Save as Draft" tabindex="{counter}" /> &nbsp;
+							<input type="submit" name="Publish" value="Publish Entry" tabindex="{counter}" />
+							<input type="hidden" name="person" value="{$person.id}" />
+							<input type="hidden" name="entry" value="{$entry.id}" />
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="links">
+			<div class="sidetitle">View My</div>
+			<div class="side">
+				<a href="{$blog.url}">Blog Home</a><br />
+			</div>
+			<div class="sidetitle">Blog Entries</div>
+			<div class="side">
+				<a href="{$blog.url}admin/create">Create Entry</a><br />
+				<a href="{$blog.url}admin/entries">Modify Entries</a><br />
+			</div>
+			<div class="sidetitle">Blog Options</div>
+			<div class="side">
+				<a href="{$blog.url}admin/books">Currently Reading</a><br />
+				<a href="{$blog.url}admin/categories">Categories</a><br />
+				<a href="{$blog.url}admin/links">Shared Links</a><br />
+			</div>
+			<div class="syndicate">
+				<a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.0">
+					<img src="{$blog.url}images/xhtml10.png" alt="" border="0" />
+				</a><br />
+				<a href="http://jigsaw.w3.org/css-validator/validator?uri=blogs.thebhg.org" title="Valid CSS">
+					<img src="{$blog.url}images/css.png" alt="" border="0" />
+				</a><br />
+			</div>	
+			<div class="powered">Powered by<br />
+				<a href="{$system.home}" title="Visit the {$system.name|escape} frontpage">{$system.name|escape} {$system.version}</a><br />
+			</div>
+		</div>
+	</div>
+	</body>
+</html>

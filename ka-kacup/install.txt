@@ -1,0 +1,43 @@
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ Instalation Guide for Kabal Hunts  $
+$                                    $
+$ Author: Ric F. Gravant © 2003      $
+$                                    $
+$ License: Kabals in the BHG         $
+$                                    $
+$ Version: 1.0                       $
+$                                    $
+$ Required position for posting: CH  $
+$                                    $
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+**************************************
+* Directions for Configuring System
+* 
+* 1. Upload the folder 'Hunts' to your BHG directory
+* 2. Use the SQL function in PHPMyAdmin. Input the file - "Kabal_Hunt_Database_Tables" into your BHG Database.
+* 3. Go to '<yoursubdomain>.thebhg.org/hunts/ka/admin/config.php
+* 4. Follow the on-screen instructions to configure the hunt system to your Kabal.
+* 5. Click 'Complete' at the bottom of the config script. //IGNORE - All Config data is in config.inc
+* 6. Edit the 'Template.tpl' file to configure the look to your site. //IGNORE
+* 7. Upload the Template.tpl file. You are now running Kabal Hunts on your site! //IGNORE
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* Please eMail Ric Gravant <Gravant@gravsystems.net> with any questions.
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+* 
+**************************************

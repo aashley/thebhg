@@ -1,0 +1,75 @@
+Relationships:
+A Citadel has Exams and Results
+Only one Citadel exists
+An Exam has a pool of questions, a passing grade, a marker, a name, number of questions used in exam, results, notes, a credit award, medal award for 100%, an abbreviation
+A Question belongs to one exam.
+A Question has text, a weighting, possible marks and an offical answer
+A Question has many answers, one from each taker of the exam
+A Note belongs to one exam.
+A Note has a name, content and a weight
+A Result is for one exam
+A Result has a Taker (Person), a final score, and the date taken, flag whether
+passed
+A result has many answers.
+An Answer belongs to one result
+an answer relates to one question
+an answer has text, a score and feedback from the marker
+
+
+Citadel
+ - GetExams
+ - GetExam($exam)
+ - GetExamsMarkedBy($person)
+ - GetPersonsResults($person)
+
+Exam
+ - GetQuestions($num = 0)
+ - GetResults()
+ - GetPassed()
+ - GetFailed()
+ - GetPending()
+ - CountTaken()
+ - CountPassed()
+ - CountFailed()
+ - CountPending()
+ - GetName()
+ - GetPassGrade()
+ - GetMarkers()
+ - GetNumberofQuestions()
+ - GetNotes()
+ - SetName()
+ - SetPassGrade()
+ - AddMarker()
+ - RemoveMarker()
+ - SetNumberofQuestions()
+ - AddQuestion()
+ - TakeExam($person)
+
+Question
+ - GetQuestionText()
+ - GetPossibleMarks()
+ - GetOfficalAnswer()
+ - GetWeight()
+ - SetWeight()
+ - SetPossibleMarks()
+ - SetQuestionText()
+ - SetOfficalAnswer()
+
+CompletedExam
+ - GetExam()
+ - GetTaker()
+ - GetScore()
+ - HasPassed()
+ - GetAnswers()
+ - SetScore()
+ - SetPassed()
+
+Answer
+ - Must have Citadel permission to use
+ - GetResult()
+ - GetQuestion()
+ - GetText()
+ - GetFeedback()
+ - SetText()
+ - SetFeedback()
+ 

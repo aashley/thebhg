@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Madagascar">
+	<city name="Andevoranto" url="http://weather.interceptvector.com/weather.xml?id=TUFYWDAwMDE%3D" />
+	<city name="Antananarivo" url="http://weather.interceptvector.com/weather.xml?id=TUFYWDAwMDI%3D" />
+	<city name="Mahavelona" url="http://weather.interceptvector.com/weather.xml?id=TUFYWDAwMDQ%3D" />
+	<city name="Toamasina" url="http://weather.interceptvector.com/weather.xml?id=TUFYWDAwMDY%3D" />
+</state>

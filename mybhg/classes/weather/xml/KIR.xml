@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Kiribati">
+	<city name="Butaritari" url="http://weather.interceptvector.com/weather.xml?id=S1JYWDAwMDE%3D" />
+	<city name="Tarawa" url="http://weather.interceptvector.com/weather.xml?id=S1JYWDAwMDI%3D" />
+</state>

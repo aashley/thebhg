@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Bahrain">
+	<city name="Al Manama" url="http://weather.interceptvector.com/weather.xml?id=QkFYWDAwMDE%3D" />
+	<city name="Al Muharraq" url="http://weather.interceptvector.com/weather.xml?id=QkFYWDAwMDI%3D" />
+</state>

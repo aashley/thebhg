@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Georgia">
+	<city name="Gori" url="http://weather.interceptvector.com/weather.xml?id=R0dYWDAwMDE%3D" />
+	<city name="K'ut'aisi" url="http://weather.interceptvector.com/weather.xml?id=R0dYWDAwMDI%3D" />
+	<city name="Rustavi" url="http://weather.interceptvector.com/weather.xml?id=R0dYWDAwMDM%3D" />
+	<city name="T'bilisi" url="http://weather.interceptvector.com/weather.xml?id=R0dYWDAwMDQ%3D" />
+</state>

@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<state name="Bolivia">
+	<city name="Apolo" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjA%3D" />
+	<city name="Banegas" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDE%3D" />
+	<city name="Bella Vista" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjE%3D" />
+	<city name="Bermejo" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMzA%3D" />
+	<city name="Camiri" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjI%3D" />
+	<city name="Charana" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjM%3D" />
+	<city name="Cobija" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDI%3D" />
+	<city name="Cochabamba" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDM%3D" />
+	<city name="Concepcion" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDQ%3D" />
+	<city name="Coroico" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDU%3D" />
+	<city name="Guayaramerin" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjQ%3D" />
+	<city name="La Paz" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDY%3D" />
+	<city name="Magdalena" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMzM%3D" />
+	<city name="Oruro" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjU%3D" />
+	<city name="Portachuelo" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDc%3D" />
+	<city name="Potosi" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDg%3D" />
+	<city name="Puerto Suarez" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMzc%3D" />
+	<city name="Quillacollo" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMDk%3D" />
+	<city name="Riberalta" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTA%3D" />
+	<city name="Robore" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjY%3D" />
+	<city name="Rurrenabaque" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjc%3D" />
+	<city name="San Borja" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjg%3D" />
+	<city name="San Ignacio Velasco" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTE%3D" />
+	<city name="San Javier" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMjk%3D" />
+	<city name="San Matias" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMzE%3D" />
+	<city name="Santa Cruz de la Sierra" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTI%3D" />
+	<city name="Santa Cruz/El Trompillo" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMzU%3D" />
+	<city name="Sucre" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTM%3D" />
+	<city name="Tarata" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTQ%3D" />
+	<city name="Tarija" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTU%3D" />
+	<city name="Trinidad" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTY%3D" />
+	<city name="Uyuni" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTc%3D" />
+	<city name="Valle Grande" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMzI%3D" />
+	<city name="Viacha" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTg%3D" />
+	<city name="Villa Montes" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMTk%3D" />
+	<city name="Viru-Viru" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMzQ%3D" />
+	<city name="Yacuiba" url="http://weather.interceptvector.com/weather.xml?id=QkxYWDAwMzY%3D" />
+</state>

@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Latvia">
+	<city name="Jelgava" url="http://weather.interceptvector.com/weather.xml?id=TEdYWDAwMDE%3D" />
+	<city name="Ogre" url="http://weather.interceptvector.com/weather.xml?id=TEdYWDAwMDI%3D" />
+	<city name="Rezekne" url="http://weather.interceptvector.com/weather.xml?id=TEdYWDAwMDM%3D" />
+	<city name="Riga" url="http://weather.interceptvector.com/weather.xml?id=TEdYWDAwMDQ%3D" />
+	<city name="Valmiera" url="http://weather.interceptvector.com/weather.xml?id=TEdYWDAwMDU%3D" />
+</state>

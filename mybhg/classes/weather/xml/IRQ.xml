@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<state name="Iraq">
+	<city name="Al Azamiyah" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDE%3D" />
+	<city name="Al Basrah" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDI%3D" />
+	<city name="Al Hillah" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDM%3D" />
+	<city name="Al Karkh" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDQ%3D" />
+	<city name="Al Kazimiyah" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDU%3D" />
+	<city name="Al Kut" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDY%3D" />
+	<city name="An Nasiriyah" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDc%3D" />
+	<city name="Baghdad" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDg%3D" />
+	<city name="Baqubah" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMDk%3D" />
+	<city name="Mosul" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMTA%3D" />
+	<city name="Najaf" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMTM%3D" />
+	<city name="Nineveh" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMTE%3D" />
+	<city name="Tall Kayf" url="http://weather.interceptvector.com/weather.xml?id=SVpYWDAwMTI%3D" />
+</state>

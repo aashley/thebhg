@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<state name="Austria">
+	<city name="Aigen Im Ennstal" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzQ%3D" />
+	<city name="Amstetten" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzg%3D" />
+	<city name="Bad Gleichenberg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzk%3D" />
+	<city name="Bad Goisen" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDA%3D" />
+	<city name="Bad Hofgastein" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNjI%3D" />
+	<city name="Bad Ischl" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNjM%3D" />
+	<city name="Baden" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDE%3D" />
+	<city name="Bergheim" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDI%3D" />
+	<city name="Bischofshofen" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDE%3D" />
+	<city name="Bregenz" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzI%3D" />
+	<city name="Bruck An Der Mur" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDI%3D" />
+	<city name="Eferding" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDM%3D" />
+	<city name="Eisenstadt" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDQ%3D" />
+	<city name="Enns" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDU%3D" />
+	<city name="Friesach" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDM%3D" />
+	<city name="Garmisch" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTc%3D" />
+	<city name="Gleisdorf" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDY%3D" />
+	<city name="Gmunden" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDQ%3D" />
+	<city name="Gratkorn" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDc%3D" />
+	<city name="Graz" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDg%3D" />
+	<city name="Hallein" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMDk%3D" />
+	<city name="Innsbruck" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTA%3D" />
+	<city name="Kirchdorf" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDY%3D" />
+	<city name="Kitzbuhel" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNjQ%3D" />
+	<city name="Klagenfurt-Flughafen" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzc%3D" />
+	<city name="Klosterneuburg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTE%3D" />
+	<city name="Korneuberg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTI%3D" />
+	<city name="Kufstein" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzM%3D" />
+	<city name="Lannach" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTM%3D" />
+	<city name="Leibnitz" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTQ%3D" />
+	<city name="Leonding" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTU%3D" />
+	<city name="Lienz" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzY%3D" />
+	<city name="Linz" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTY%3D" />
+	<city name="Mariazell" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzU%3D" />
+	<city name="Matrei" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDc%3D" />
+	<city name="Mauterndorf" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTA%3D" />
+	<city name="Mistelbach" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDg%3D" />
+	<city name="Modling" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTc%3D" />
+	<city name="Murau" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDk%3D" />
+	<city name="Passau" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTg%3D" />
+	<city name="Pocking" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTk%3D" />
+	<city name="Retz" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzA%3D" />
+	<city name="Ried" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTE%3D" />
+	<city name="Saint Poelten" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMzE%3D" />
+	<city name="Salzburg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTg%3D" />
+	<city name="Schladming" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTI%3D" />
+	<city name="Schwaz" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMTk%3D" />
+	<city name="Seiersberg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjA%3D" />
+	<city name="Sonnblick Mtn" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTM%3D" />
+	<city name="Spielberg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNjE%3D" />
+	<city name="St Johann Arpt" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNDU%3D" />
+	<city name="Steinach" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjE%3D" />
+	<city name="Steyregg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjI%3D" />
+	<city name="Stockerau" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjM%3D" />
+	<city name="Traun" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjQ%3D" />
+	<city name="Unken" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNjA%3D" />
+	<city name="Vienna" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjU%3D" />
+	<city name="Voitsberg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjY%3D" />
+	<city name="Waizenkirchen" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjc%3D" />
+	<city name="Wels" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjg%3D" />
+	<city name="Wiener Neustadt" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwMjk%3D" />
+	<city name="Zell Am See Arpt" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTQ%3D" />
+	<city name="Zeltweg" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTU%3D" />
+	<city name="Zwettl Stadt" url="http://weather.interceptvector.com/weather.xml?id=QVVYWDAwNTY%3D" />
+</state>

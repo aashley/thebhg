@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<state name="Peru">
+	<city name="Andahuaylas" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjU%3D" />
+	<city name="Anta" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjY%3D" />
+	<city name="Arequipa" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDE%3D" />
+	<city name="Cajamarca" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDI%3D" />
+	<city name="Callao" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDM%3D" />
+	<city name="Camana" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDQ%3D" />
+	<city name="Chachapoyas" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjc%3D" />
+	<city name="Chiclayo" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDU%3D" />
+	<city name="Chimbote" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDY%3D" />
+	<city name="Chincha Alta" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDc%3D" />
+	<city name="Cusco" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDg%3D" />
+	<city name="Huanuco" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMzU%3D" />
+	<city name="Ica" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMDk%3D" />
+	<city name="Iquitos" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTA%3D" />
+	<city name="Juanjui" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjg%3D" />
+	<city name="Lima" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTE%3D" />
+	<city name="Lobitos" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTI%3D" />
+	<city name="Matucana" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTM%3D" />
+	<city name="Moquegua" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTQ%3D" />
+	<city name="Nazca" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTU%3D" />
+	<city name="Pimentel" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTY%3D" />
+	<city name="Pisco" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTc%3D" />
+	<city name="Piura" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTg%3D" />
+	<city name="Pucallpa" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMTk%3D" />
+	<city name="Puerto Maldonado" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjk%3D" />
+	<city name="Puno" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjA%3D" />
+	<city name="Rioja" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMzA%3D" />
+	<city name="Tacna" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjE%3D" />
+	<city name="Talara" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMzE%3D" />
+	<city name="Tarapoto" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMzI%3D" />
+	<city name="Tingo Maria" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMzM%3D" />
+	<city name="Trujillo" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjI%3D" />
+	<city name="Tumbes" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjM%3D" />
+	<city name="Vitarte" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMjQ%3D" />
+	<city name="Yurimaguas" url="http://weather.interceptvector.com/weather.xml?id=UEVYWDAwMzQ%3D" />
+</state>

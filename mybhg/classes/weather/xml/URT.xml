@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<state name="United Republic of Tanzania">
+	<city name="Dar es Salaam" url="http://weather.interceptvector.com/weather.xml?id=VFpYWDAwMDE%3D" />
+	<city name="Dodoma" url="http://weather.interceptvector.com/weather.xml?id=VFpYWDAwMDI%3D" />
+	<city name="Kigoma" url="http://weather.interceptvector.com/weather.xml?id=VFpYWDAwMDM%3D" />
+	<city name="Mtwara" url="http://weather.interceptvector.com/weather.xml?id=VFpYWDAwMDQ%3D" />
+	<city name="Mwanza" url="http://weather.interceptvector.com/weather.xml?id=VFpYWDAwMDc%3D" />
+	<city name="Tanga" url="http://weather.interceptvector.com/weather.xml?id=VFpYWDAwMDU%3D" />
+	<city name="Zanzibar" url="http://weather.interceptvector.com/weather.xml?id=VFpYWDAwMDY%3D" />
+</state>

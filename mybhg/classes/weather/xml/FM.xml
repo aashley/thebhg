@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Micronesia">
+	<city name="Palikir" url="http://weather.interceptvector.com/weather.xml?id=VVNGTTAwMDQ%3D" />
+	<city name="Ponape Island" url="http://weather.interceptvector.com/weather.xml?id=VVNGTTAwMDM%3D" />
+	<city name="Truk Intl/Moen Island" url="http://weather.interceptvector.com/weather.xml?id=VVNGTTAwMDI%3D" />
+	<city name="Yap Island" url="http://weather.interceptvector.com/weather.xml?id=VVNGTTAwMDE%3D" />
+</state>

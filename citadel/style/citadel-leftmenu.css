@@ -1,0 +1,102 @@
+/* Left Hand Menu Items */
+#leftmenu a {
+  display: block;
+}
+#linkmain { 
+  margin-left: auto;
+  margin-right: 0;
+  /*Size of the image*/
+  padding-top: 38px; 
+  width: 125px; 
+  /*The image*/ 
+  background-image: url(../images/main_link.jpg); 
+  background-repeat: no-repeat; 
+  /*Hide the text*/ 
+  overflow: hidden; 
+  /* WIN IE5 hack */ 
+  height: 38px; 
+  voice-family: "\"}\"";
+  voice-family:inherit; 
+  height: 0; 
+}
+#linkmain:hover {
+  background-image: url(../images/main_link-over.jpg);
+}
+#linkcourses { 
+  margin-left: auto;
+  margin-right: 0;
+  /*Size of the image*/
+  padding-top: 31px; 
+  width: 125px; 
+  /*The image*/ 
+  background-image: url(../images/courses_link.jpg); 
+  background-repeat: no-repeat; 
+  /*Hide the text*/ 
+  overflow: hidden; 
+  /* WIN IE5 hack */ 
+  height: 31px; 
+  voice-family: "\"}\"";
+  voice-family:inherit; 
+  height: 0; 
+}
+#linkcourses:hover {
+  background-image: url(../images/courses_link-over.jpg);
+}
+#linkexams { 
+  margin-left: auto;
+  margin-right: 0;
+  /*Size of the image*/
+  padding-top: 32px; 
+  width: 125px; 
+  /*The image*/ 
+  background-image: url(../images/exam_link.jpg); 
+  background-repeat: no-repeat; 
+  /*Hide the text*/ 
+  overflow: hidden; 
+  /* WIN IE5 hack */ 
+  height: 32px; 
+  voice-family: "\"}\"";
+  voice-family:inherit; 
+  height: 0; 
+}
+#linkexams:hover {
+  background-image: url(../images/exam_link-over.jpg);
+}
+#linkgrads { 
+  margin-left: auto;
+  margin-right: 0;
+  /*Size of the image*/
+  padding-top: 31px; 
+  width: 125px; 
+  /*The image*/ 
+  background-image: url(../images/grads_link.jpg); 
+  background-repeat: no-repeat; 
+  /*Hide the text*/ 
+  overflow: hidden; 
+  /* WIN IE5 hack */ 
+  height: 31px; 
+  voice-family: "\"}\"";
+  voice-family:inherit; 
+  height: 0; 
+}
+#linkgrads:hover {
+  background-image: url(../images/grads_link-over.jpg);
+}
+#slaveone { 
+  margin-left: auto;
+  margin-right: 0;
+  /*Size of the image*/
+  padding-top: 364px; 
+  width: 155px; 
+  /*The image*/ 
+  background-image: url(../images/slave_one.jpg); 
+  background-repeat: no-repeat; 
+  /*Hide the text*/ 
+  overflow: hidden; 
+  /* WIN IE5 hack */ 
+  height: 364px; 
+  voice-family: "\"}\"";
+  voice-family:inherit; 
+  height: 0; 
+}
+

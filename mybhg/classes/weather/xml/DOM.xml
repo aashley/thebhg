@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Dominica">
+	<city name="Marigot" url="http://weather.interceptvector.com/weather.xml?id=RE9YWDAwMDE%3D" />
+	<city name="Roseau" url="http://weather.interceptvector.com/weather.xml?id=RE9YWDAwMDI%3D" />
+</state>

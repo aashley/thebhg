@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<state name="Virgin Islands">
+	<city name="Christiansted" url="http://weather.interceptvector.com/weather.xml?id=VVNWSTAwMDE%3D" />
+	<city name="Frederiksted" url="http://weather.interceptvector.com/weather.xml?id=VVNWSTAwMDI%3D" />
+	<city name="Kingshill" url="http://weather.interceptvector.com/weather.xml?id=VVNWSTAwMDM%3D" />
+	<city name="Saint Croix" url="http://weather.interceptvector.com/weather.xml?id=VVNWSTAwMDQ%3D" />
+	<city name="Saint John" url="http://weather.interceptvector.com/weather.xml?id=VVNWSTAwMDU%3D" />
+	<city name="Saint Thomas" url="http://weather.interceptvector.com/weather.xml?id=VVNWSTAwMDY%3D" />
+</state>

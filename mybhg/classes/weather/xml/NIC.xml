@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<state name="Nicaragua">
+	<city name="Bluefields" url="http://weather.interceptvector.com/weather.xml?id=TlVYWDAwMDE%3D" />
+	<city name="Chinandega" url="http://weather.interceptvector.com/weather.xml?id=TlVYWDAwMDI%3D" />
+	<city name="Granada" url="http://weather.interceptvector.com/weather.xml?id=TlVYWDAwMDM%3D" />
+	<city name="Jinotega" url="http://weather.interceptvector.com/weather.xml?id=TlVYWDAwMDc%3D" />
+	<city name="Managua" url="http://weather.interceptvector.com/weather.xml?id=TlVYWDAwMDQ%3D" />
+	<city name="Puerto Cabezas" url="http://weather.interceptvector.com/weather.xml?id=TlVYWDAwMDg%3D" />
+	<city name="Rivas" url="http://weather.interceptvector.com/weather.xml?id=TlVYWDAwMDU%3D" />
+	<city name="Tipitapa" url="http://weather.interceptvector.com/weather.xml?id=TlVYWDAwMDY%3D" />
+</state>

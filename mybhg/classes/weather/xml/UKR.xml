@@ -1,0 +1,60 @@
+<?xml version="1.0" ?>
+<state name="Ukraine">
+	<city name="Bila Tserkva" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDE%3D" />
+	<city name="Bilhorod-Dnistrovs'kyy" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDI%3D" />
+	<city name="Boryspil" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDM%3D" />
+	<city name="Boyarka" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDQ%3D" />
+	<city name="Busk" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDU%3D" />
+	<city name="Cherkasy" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDY%3D" />
+	<city name="Chernihiv" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDc%3D" />
+	<city name="Chernivtsi" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDU%3D" />
+	<city name="Chornomors'Ke" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNTM%3D" />
+	<city name="Chuhuyiv" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDg%3D" />
+	<city name="Dniprodzerzhyns'k" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMDk%3D" />
+	<city name="Dnipropetrovs'k" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTA%3D" />
+	<city name="Donets'k" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTE%3D" />
+	<city name="Druzhba" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTI%3D" />
+	<city name="Heniches'K" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNTI%3D" />
+	<city name="Horlivka" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTM%3D" />
+	<city name="Ivano-Frankivs'K" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDA%3D" />
+	<city name="Izium" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNTc%3D" />
+	<city name="Izmail" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNTA%3D" />
+	<city name="Kerch" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNTU%3D" />
+	<city name="Kharkov" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTQ%3D" />
+	<city name="Kherson" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTU%3D" />
+	<city name="Khmel'Nyts'Kyi" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzc%3D" />
+	<city name="Kiev" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTY%3D" />
+	<city name="Kirovohrad" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDc%3D" />
+	<city name="Konotop" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzA%3D" />
+	<city name="Kryvyi Rih" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDk%3D" />
+	<city name="L'viv" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTc%3D" />
+	<city name="Liubashivka" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDg%3D" />
+	<city name="Lubny" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzU%3D" />
+	<city name="Luhans'K" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNTk%3D" />
+	<city name="Makiyivka" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTg%3D" />
+	<city name="Mariupol" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNjE%3D" />
+	<city name="Merefa" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMTk%3D" />
+	<city name="Mohyliv-Podil's'Kyi" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDY%3D" />
+	<city name="Mykolayiv" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjA%3D" />
+	<city name="Myronivka" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzg%3D" />
+	<city name="Nizhyn" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjk%3D" />
+	<city name="Odessa" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjE%3D" />
+	<city name="Poltava" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzk%3D" />
+	<city name="Rivne" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzI%3D" />
+	<city name="Sarny" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjY%3D" />
+	<city name="Sevastopol'" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjI%3D" />
+	<city name="Shepetivka" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzM%3D" />
+	<city name="Shostka" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjM%3D" />
+	<city name="Simferopol" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNTQ%3D" />
+	<city name="Sumy" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzE%3D" />
+	<city name="Svitlovods'K" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDM%3D" />
+	<city name="Ternopil" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMzY%3D" />
+	<city name="Uman" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDI%3D" />
+	<city name="Uzhhorod" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDQ%3D" />
+	<city name="Vinnytsia" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNDE%3D" />
+	<city name="Volodymyr-Volyns'Kyi" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjg%3D" />
+	<city name="Yalta" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNTY%3D" />
+	<city name="Yevpatoriya" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjQ%3D" />
+	<city name="Zaporizhzhia" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwNjA%3D" />
+	<city name="Zhytomyr" url="http://weather.interceptvector.com/weather.xml?id=VVBYWDAwMjU%3D" />
+</state>

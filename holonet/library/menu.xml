@@ -1,0 +1,18 @@
+<menu>
+	<item>
+		<name>Index</name>
+		<page>index</page>
+	</item>
+	<item>
+		<name>Quote Archive</name>
+		<page>quotes</page>
+	</item>
+	<item>
+		<name>Timeline</name>
+		<page>timeline</page>
+	</item>
+	<item>
+		<name>Administration</name>
+		<page>admin</page>
+	</item>
+</menu>

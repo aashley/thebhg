@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Mauritania">
+	<city name="Atar" url="http://weather.interceptvector.com/weather.xml?id=TVJYWDAwMDU%3D" />
+	<city name="Beila" url="http://weather.interceptvector.com/weather.xml?id=TVJYWDAwMDE%3D" />
+	<city name="Cansado" url="http://weather.interceptvector.com/weather.xml?id=TVJYWDAwMDI%3D" />
+	<city name="Nouadhibou" url="http://weather.interceptvector.com/weather.xml?id=TVJYWDAwMDM%3D" />
+	<city name="Nouakchott" url="http://weather.interceptvector.com/weather.xml?id=TVJYWDAwMDQ%3D" />
+</state>

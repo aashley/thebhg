@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<state name="Honduras">
+	<city name="Amapala" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMTA%3D" />
+	<city name="Catacamas" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMTE%3D" />
+	<city name="Comayagua" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDE%3D" />
+	<city name="El Progreso" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDI%3D" />
+	<city name="Guanaja" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMTM%3D" />
+	<city name="Juticalpa" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDM%3D" />
+	<city name="La Ceiba Airport" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMTU%3D" />
+	<city name="La Esperanza" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDQ%3D" />
+	<city name="Puerto Cortes" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDU%3D" />
+	<city name="Roatan" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMTQ%3D" />
+	<city name="San Miguel" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDY%3D" />
+	<city name="San Pedro Sula" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDc%3D" />
+	<city name="Tegucigalpa" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDg%3D" />
+	<city name="Tela" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMDk%3D" />
+	<city name="Yoro" url="http://weather.interceptvector.com/weather.xml?id=SE9YWDAwMTI%3D" />
+</state>

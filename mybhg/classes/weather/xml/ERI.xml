@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Eritrea">
+	<city name="Asmara" url="http://weather.interceptvector.com/weather.xml?id=RVJYWDAwMDE%3D" />
+	<city name="Keren" url="http://weather.interceptvector.com/weather.xml?id=RVJYWDAwMDI%3D" />
+</state>

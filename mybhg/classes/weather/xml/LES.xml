@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<state name="Lesotho">
+	<city name="Maseru" url="http://weather.interceptvector.com/weather.xml?id=TFRYWDAwMDE%3D" />
+	<city name="Morija" url="http://weather.interceptvector.com/weather.xml?id=TFRYWDAwMDI%3D" />
+	<city name="Teyateyaneng" url="http://weather.interceptvector.com/weather.xml?id=TFRYWDAwMDM%3D" />
+</state>

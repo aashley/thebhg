@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<state name="Myanmar">
+	<city name="Mandalay" url="http://weather.interceptvector.com/weather.xml?id=Qk1YWDAwMDE%3D" />
+	<city name="Pathein" url="http://weather.interceptvector.com/weather.xml?id=Qk1YWDAwMDI%3D" />
+	<city name="Pegu" url="http://weather.interceptvector.com/weather.xml?id=Qk1YWDAwMDM%3D" />
+	<city name="Rangoon" url="http://weather.interceptvector.com/weather.xml?id=Qk1YWDAwMDQ%3D" />
+	<city name="Yangon" url="http://weather.interceptvector.com/weather.xml?id=Qk1YWDAwMDU%3D" />
+</state>

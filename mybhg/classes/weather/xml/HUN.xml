@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<state name="Hungary">
+	<city name="Berettyoujfalu" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDE%3D" />
+	<city name="Budapest" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDI%3D" />
+	<city name="Budapest/Lorinc" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTY%3D" />
+	<city name="Cegled" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDM%3D" />
+	<city name="Debrecen" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDQ%3D" />
+	<city name="Dunaujvaros" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDU%3D" />
+	<city name="Erd" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDY%3D" />
+	<city name="Gussing" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMjA%3D" />
+	<city name="Gyor" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDc%3D" />
+	<city name="Kecskemet" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDg%3D" />
+	<city name="Miskolc" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTU%3D" />
+	<city name="Nagykanizsa" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTc%3D" />
+	<city name="Nyiregyhaza" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMDk%3D" />
+	<city name="Oberwart" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMjE%3D" />
+	<city name="Pecs/Pogany" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTg%3D" />
+	<city name="Puspokladany" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTA%3D" />
+	<city name="Szeged" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTk%3D" />
+	<city name="Szekesfehervar" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTE%3D" />
+	<city name="Tatabanya" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTI%3D" />
+	<city name="Ujfeherto" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTM%3D" />
+	<city name="Vac" url="http://weather.interceptvector.com/weather.xml?id=SFVYWDAwMTQ%3D" />
+</state>

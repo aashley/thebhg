@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Ivory Coast">
+	<city name="Abidjan" url="http://weather.interceptvector.com/weather.xml?id=SVZYWDAwMDE%3D" />
+	<city name="Dabou" url="http://weather.interceptvector.com/weather.xml?id=SVZYWDAwMDI%3D" />
+	<city name="Gagnoa" url="http://weather.interceptvector.com/weather.xml?id=SVZYWDAwMDQ%3D" />
+	<city name="Grand-Bassam" url="http://weather.interceptvector.com/weather.xml?id=SVZYWDAwMDM%3D" />
+</state>

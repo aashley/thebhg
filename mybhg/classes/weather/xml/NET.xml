@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<state name="Netherlands">
+	<city name="Alkmaar" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDE%3D" />
+	<city name="Amsterdam" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDI%3D" />
+	<city name="Arnhem/Dieren" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjg%3D" />
+	<city name="Assen" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDM%3D" />
+	<city name="Bergen Op Zoom" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwNDA%3D" />
+	<city name="Breda" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDQ%3D" />
+	<city name="De Bilt" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjI%3D" />
+	<city name="De Kooy" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjE%3D" />
+	<city name="Delft" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDU%3D" />
+	<city name="Denventer/Teuge" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzc%3D" />
+	<city name="Dordrecht" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDY%3D" />
+	<city name="Drachten" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjk%3D" />
+	<city name="Eindhoven" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDc%3D" />
+	<city name="Emmeloord" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzQ%3D" />
+	<city name="Gilze-Rijen" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjY%3D" />
+	<city name="Gouda" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDg%3D" />
+	<city name="Groningen" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMDk%3D" />
+	<city name="Haarlem" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTA%3D" />
+	<city name="Hertogenbosch" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwNDE%3D" />
+	<city name="Hilversum" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTE%3D" />
+	<city name="Hoek Van Holland" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjU%3D" />
+	<city name="Hoeven/Seppe" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzU%3D" />
+	<city name="Hoogeveen" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzE%3D" />
+	<city name="Leeuwarden" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTI%3D" />
+	<city name="Leiden" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTM%3D" />
+	<city name="Lelystad" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzI%3D" />
+	<city name="Maastricht" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTQ%3D" />
+	<city name="Nieuw Milligen" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzM%3D" />
+	<city name="Rotterdam" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTU%3D" />
+	<city name="Stadskanaal" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzY%3D" />
+	<city name="The Hague" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTY%3D" />
+	<city name="Tilburg" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTc%3D" />
+	<city name="Twenthe" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjM%3D" />
+	<city name="Uden/Volkel" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzg%3D" />
+	<city name="Utrecht" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTg%3D" />
+	<city name="Vlaardingen" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMTk%3D" />
+	<city name="Vlieland Island" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMzk%3D" />
+	<city name="Vlissingen" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjQ%3D" />
+	<city name="Wassenaar" url="http://weather.interceptvector.com/weather.xml?id=TkxYWDAwMjA%3D" />
+	<city name="Yaren" url="http://weather.interceptvector.com/weather.xml?id=TlJYWDAwMDE%3D" />
+</state>

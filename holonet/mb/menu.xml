@@ -1,0 +1,10 @@
+<menu>
+	<item>
+		<name>Index</name>
+		<page>index</page>
+	</item>
+	<item>
+		<name>New Medals</name>
+		<page>new</page>
+	</item>
+</menu>

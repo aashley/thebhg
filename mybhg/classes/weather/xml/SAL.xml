@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Saint Lucia">
+	<city name="Castries" url="http://weather.interceptvector.com/weather.xml?id=U1RYWDAwMDE%3D" />
+	<city name="Dennery" url="http://weather.interceptvector.com/weather.xml?id=U1RYWDAwMDI%3D" />
+	<city name="Micoud" url="http://weather.interceptvector.com/weather.xml?id=U1RYWDAwMDM%3D" />
+	<city name="Vieux Fort" url="http://weather.interceptvector.com/weather.xml?id=U1RYWDAwMDQ%3D" />
+</state>

@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<state name="Belize">
+	<city name="Belize City" url="http://weather.interceptvector.com/weather.xml?id=QkhYWDAwMDE%3D" />
+	<city name="Belmopan" url="http://weather.interceptvector.com/weather.xml?id=QkhYWDAwMDI%3D" />
+</state>

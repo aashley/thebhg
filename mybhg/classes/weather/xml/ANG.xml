@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<state name="Angola">
+	<city name="Cabinda" url="http://weather.interceptvector.com/weather.xml?id=QU9YWDAwMDI%3D" />
+	<city name="Cacuaco" url="http://weather.interceptvector.com/weather.xml?id=QU9YWDAwMDM%3D" />
+	<city name="Caxito" url="http://weather.interceptvector.com/weather.xml?id=QU9YWDAwMDU%3D" />
+	<city name="Luanda" url="http://weather.interceptvector.com/weather.xml?id=QU9YWDAwMDg%3D" />
+</state>

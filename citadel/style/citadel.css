@@ -1,0 +1,131 @@
+/* Set Defaults */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+/*  background-image: url(../images/bg.gif)*/
+}
+
+/* Tables */
+table {
+  width: 98%;
+  padding: 0;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td {
+  background-color: #B5BBC0;
+  border: 1px solid black;
+  vertical-align: top;
+  font-weight: normal;
+}
+th {
+  background-color: #B5BBC0;
+  border: 1px solid black;
+  font-weight: bold;
+  vertical-align: top;
+}
+th.newstitle {
+  text-align: left;
+}
+table.internal td {
+  border: none;
+  font-weight: normal;
+}
+table.internal th {
+  width: 75px;
+  border: none;
+  text-align: left;
+  font-weight: normal;
+}
+table.buttons {
+  border: none;
+}
+table.buttons td {
+  background: none;
+  border: none;
+  text-align: center;
+  font-weight: normal;
+}
+table.grading th {
+  width: 100px;
+  text-align: left;
+}
+
+/* Frame Layouts */
+#wrapper {
+  background-image: url(../images/bg.gif);
+  line-height: 1.1;
+/*  background-attachment: fixed; */
+}
+#wrapperleft {
+  margin: 0;
+  background-image: url(../images/left_bg.jpg);
+  background-repeat: repeat-y;
+  background-position: top left;
+}
+#wrapperright {
+  margin: 0;
+  background-image: url(../images/right_bg.jpg);
+  background-repeat: repeat-y;
+  background-position: top right;
+}
+#leftmenu {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  width: 155px;
+/*  position: absolute;*/
+  float: left;
+}
+#maincontent {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 155px;
+  margin-right: 180px;
+  padding: 5px;
+  line-height: 1.1;
+}
+#rightmenu {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0;
+  text-align: left;
+  width: 180px;
+/*  position: absolute;*/
+  float: right;
+}
+div.clear {
+  clear:both;
+  height:1px;
+  font-size:1px;
+  border:none;
+  margin:0; 
+  padding:0;
+  background:transparent;
+}
+#footer {
+  margin: auto;
+  padding: 5px;
+  font-size: 8pt;
+  border-top: 1px solid black;
+  text-align: center;
+}
+
+/* General */
+#maincontent a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+#maincontent a:hover {
+  text-decoration: underline;
+}
+#maincontent h1 {
+  font-size: 10pt;
+  text-align: center;
+}

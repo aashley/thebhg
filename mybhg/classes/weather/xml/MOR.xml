@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+<state name="Morocco">
+	<city name="Agadir Al Massira" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMjI%3D" />
+	<city name="Al Hoceima" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTM%3D" />
+	<city name="Beni-Mellal" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTg%3D" />
+	<city name="Casablanca" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDE%3D" />
+	<city name="El Jadida" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDI%3D" />
+	<city name="Errachidia" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMjA%3D" />
+	<city name="Es Semara" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMjU%3D" />
+	<city name="Essaouira" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMjE%3D" />
+	<city name="Fes" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDM%3D" />
+	<city name="Kasba-Tadla" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTc%3D" />
+	<city name="Larache" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTI%3D" />
+	<city name="Marrakech" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDQ%3D" />
+	<city name="Meknes" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDU%3D" />
+	<city name="Midelt" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTk%3D" />
+	<city name="Mohammedia" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDY%3D" />
+	<city name="Nouasseur" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTU%3D" />
+	<city name="Ouarzazate" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMjM%3D" />
+	<city name="Oujda" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTQ%3D" />
+	<city name="Rabat" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDc%3D" />
+	<city name="Safi" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTY%3D" />
+	<city name="Sidi Ifni" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTE%3D" />
+	<city name="Tan-tan" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMjQ%3D" />
+	<city name="Tangier" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDg%3D" />
+	<city name="Taza" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMDk%3D" />
+	<city name="Tetouan" url="http://weather.interceptvector.com/weather.xml?id=TU9YWDAwMTA%3D" />
+</state>

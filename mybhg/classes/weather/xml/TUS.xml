@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<state name="Turkmenistan">
+	<city name="Ashgabat Keshi" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTg%3D" />
+	<city name="Ashkhabad" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDE%3D" />
+	<city name="Bajramaly" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMjA%3D" />
+	<city name="Bakherden" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTU%3D" />
+	<city name="Bezmein" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDI%3D" />
+	<city name="Byrdalyk" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTc%3D" />
+	<city name="Carsanga" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMjI%3D" />
+	<city name="Chardzhev" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTI%3D" />
+	<city name="Darganata" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDk%3D" />
+	<city name="Dashkhovuz" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDc%3D" />
+	<city name="Ekezhe" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDY%3D" />
+	<city name="Erbent" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTE%3D" />
+	<city name="Esengyly" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTM%3D" />
+	<city name="Gazandzhyk" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTA%3D" />
+	<city name="Gyshgy" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMjQ%3D" />
+	<city name="Gyzylarbat" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTQ%3D" />
+	<city name="Kerki" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMjE%3D" />
+	<city name="Saragt" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMjM%3D" />
+	<city name="Tarta" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDM%3D" />
+	<city name="Tedzhen" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTk%3D" />
+	<city name="Turkmenbashi" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDg%3D" />
+	<city name="Turkmenbashy" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDQ%3D" />
+	<city name="Uchadzhi" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMTY%3D" />
+	<city name="Ufra" url="http://weather.interceptvector.com/weather.xml?id=VFhYWDAwMDU%3D" />
+</state>
