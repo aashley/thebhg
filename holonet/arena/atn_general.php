@@ -167,9 +167,9 @@ function output() {
 				$setups = '<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>';				
 			}
 			
-			for ($i = 0; $i < count($addresses); $i += 5) {
+			for ($i = 0; $i < count($setups); $i += 5) {
 				$table->StartRow();
-				$table->AddCell(implode(', ', array_slice($addresses, $i, 5)));
+				$table->AddCell(implode('', array_slice($setups, $i, 5)));
 				$table->EndRow();
 			}
 
