@@ -51,7 +51,7 @@ function output() {
 		    }
 		    $table = new Table('', true);
 		    $table->StartRow();
-		    $table->AddHeader('All CORE Submissions', 7);
+		    $table->AddHeader('All CORE Submissions', 8);
 		    $table->EndRow();
 		    
 		    $table->AddRow('Save Name', 'Submitted By', 'Date', 'Approved', 'Pending Approval', '&nbsp', '&nbsp', '&nbsp');
