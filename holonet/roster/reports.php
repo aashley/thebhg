@@ -8,7 +8,7 @@ function output() {
 
 	roster_header();
 
-	if ($_REQUEST['position']) {
+	if (isset($_REQUEST['position'])) {
 		$reports = mysql_query('SELECT * FROM hn_reports WHERE position=' . $_REQUEST['position'] . ($_REQUEST['division'] ? ' AND division=' . $_REQUEST['division'] : '') . ' ORDER BY time DESC', $roster->roster_db);
 		if ($reports && mysql_num_rows($reports)) {
 			$table = new Table('Reports', true);

@@ -28,9 +28,11 @@ function output() {
 	$wards = $roster->SearchPosition(10);
 	$plebs = array_merge($wards, $chs);
 	foreach ($plebs as $chief) {
-		$kabal = $chief->GetDivision();
-		$pos = $chief->GetPosition();
-		$chiefs[$pos->GetWeight() . $kabal->GetName()] = $chief;
+		if (is_a($chief, 'Person')) {
+			$kabal = $chief->GetDivision();
+			$pos = $chief->GetPosition();
+			$chiefs[$pos->GetWeight() . $kabal->GetName()] = $chief;
+		}
 	}
 	ksort($chiefs);
 	$table = new Table();
@@ -38,12 +40,14 @@ function output() {
 	$table->AddHeader('Chiefs/Wardens', 2);
 	$table->EndRow();
 	foreach ($chiefs as $pleb) {
-		$kabal = $pleb->GetDivision();
-		$pos = $pleb->GetPosition();
-		$table->StartRow();
-		$table->AddCell('<a href="' . internal_link('division', array('id'=>$kabal->GetID()), 'roster') . '">' . $kabal->GetName() . '</a> <a href="' . internal_link('position', array('id'=>$pos->GetID()), 'roster') . '">' . $pos->GetName() . '</a>');
-		$table->AddCell('<a href="' . internal_link('hunter', array('id'=>$pleb->GetID()), 'roster') . '">' . $pleb->GetName() . '</a>');
-		$table->EndRow();
+		if (is_a($pleb, 'Person')) {
+			$kabal = $pleb->GetDivision();
+			$pos = $pleb->GetPosition();
+			$table->StartRow();
+			$table->AddCell('<a href="' . internal_link('division', array('id'=>$kabal->GetID()), 'roster') . '">' . $kabal->GetName() . '</a> <a href="' . internal_link('position', array('id'=>$pos->GetID()), 'roster') . '">' . $pos->GetName() . '</a>');
+			$table->AddCell('<a href="' . internal_link('hunter', array('id'=>$pleb->GetID()), 'roster') . '">' . $pleb->GetName() . '</a>');
+			$table->EndRow();
+		}
 	}
 	$table->EndTable();
 }

@@ -9,7 +9,7 @@ function output() {
 	roster_header();
 //	echo '<table border=0 width="100%"><tr valign="top"><td>';
 
-	if ($_REQUEST['days']) {
+	if (isset($_REQUEST['days'])) {
 		$days = $_REQUEST['days'];
 	}
 	else {

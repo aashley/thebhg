@@ -8,7 +8,7 @@ function output() {
 
 	roster_header();
 
-	if ($_REQUEST['days']) {
+	if (isset($_REQUEST['days'])) {
 		$days = $_REQUEST['days'];
 	}
 	else {
