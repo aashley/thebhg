@@ -42,7 +42,7 @@
 		    $query = mysql_query($sql, $this->LyarnaConnect());
 		    
 		    while ($info = mysql_fetch_array($query)){
-			    $return[mysql_field_table($query, 'id')][] = $info['id'];
+			    $return[][mysql_field_table($query, 'id')] = $info['id'];
 		    }
 	    }
 	    
