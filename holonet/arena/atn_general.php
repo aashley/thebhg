@@ -164,6 +164,26 @@ function output() {
 	    
 	    $character = new Character($hunter->GetID());
 	    
+	    $saves = $character->GetBackups();
+		    
+		    if (count($saves)){
+			    hr();
+			    $table = new Table('', true);
+			    $table->StartRow();
+			    $table->AddHeader('Sheet Backups', 5);
+			    $table->EndRow();
+			    
+			    $table->AddRow('Save Name', 'Date', '&nbsp');
+			    
+			    foreach ($saves as $data){
+				    if (!$data['share']){
+					    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link('view_backup', array('sheet'=>$data['id'])).'">View Save</a>');
+				    }
+			    }
+			    
+			    $table->EndTable();
+		    }
+	    
 	    $character->ParseSheet();
 	    
     }
