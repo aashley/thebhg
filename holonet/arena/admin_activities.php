@@ -37,7 +37,7 @@ function output(){
 			break;
 			
 			case 'de':
-			echo 'Here';
+			print_r($obj);
 			$obj->Edit(array('date_deleted'=>time()));
 			$show = false;
 			break;
