@@ -83,7 +83,7 @@ function output() {
 			    if (is_array($ser)){
 				    $bld = new NPC_Utilities();
 				    $table->AddRow('NPC:', $bld->Construct($match->Get(data, 1)));
-			    } elseif (is_int(($match->Get(data))) {
+			    } elseif (is_int(($match->Get(data)))) {
 				    $cre = new Creature($match->Get(data));
 				    $table->AddRow('Creature:', $cre->WriteSheet());
 			    } else {
