@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v2.2.8";
+    echo "Current version: v2.3";
     
     hr();
     
@@ -24,11 +24,11 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: Updated the CS system so every time you save, the sheet is recorded.";
+    echo "Version Comments: CS system software updated to v2.2 and the Cadre RO function posted.";
     
     hr();
     
-    echo "Last Update: November 23, 2004";
+    echo "Last Update: December 3, 2004";
     
     hr();
     
