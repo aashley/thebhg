@@ -45,13 +45,11 @@
 	    $sorted = $this->npc_stats;
 	    arsort($sorted);
 	    $highest = array_shift($sorted);
-	     
-	    echo $highest;
 	    
 	    foreach ($this->npc_stats as $name=>$stat){
-		    $point = $stat*$this->type->GetPoints();
-		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $point);
-		    $value .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', $highest-$point);
+		    $point = round($stat*$this->type->GetPoints());
+		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', round($point));
+		    $value .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', round($highest-$point));
 		    echo $highest-$point;
 		    $table->AddRow($name, $value);
 	    }
