@@ -57,23 +57,17 @@ function output() {
 	    $ste = $stewar->GetStatus();
 	    $com = $commen->GetStatus();
 	    $ran = $ranger->GetStatus();
-		
-	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = array('pic'=>'ov', 'page'=>'atn_award', 'anch'=>'overseer'); $aa = true;}
-		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = array('pic'=>'aj', 'page'=>'atn_award', 'anch'=>'adjunct'); $aa = true;}
-		if ($hunter->GetID() == 2650){ $rewards['Arena Management System Coder']['pic'] = 'coder'; }
-		if ($at->IsGladius($hunter->GetID())){ $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))]['pic'] = 'gladius'; }
-	    if (in_array($hunter->GetID(), $arena->GetTeta())){ $rewards['Owner of Teta\'s Knives']['pic'] = 'dagger'; }	
-		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = array('pic'=>'dojoofshadows', 'page'=>'atn_award', 'anch'=>'dojo'); $aa = true;}
-		if ($boc){ $rewards[$boc.'of the Bounty Office'] = array('pic'=>'bountyoffice', 'page'=>'atn_award', 'anch'=>'commiss'); $aa = true;}
-		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = array('pic'=>'ocd', 'page'=>'atn_award', 'anch'=>'registrar'); $aa = true;}
-		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = array('pic'=>'mm', 'page'=>'atn_award', 'anch'=>'mission'); $aa = true;}
-		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = array('pic'=>'skipper', 'page'=>'atn_award', 'anch'=>'skipper'); $aa = true;}
-		if ($ste){ $rewards[$ste.'Steward of the Arena'] = array('pic'=>'steward', 'page'=>'atn_award', 'anch'=>'steward'); $aa = true;}
-		if ($com){ $rewards[$com.'Holonet Commentator of the IRC Arena'] = array('pic'=>'hc', 'page'=>'atn_award', 'anch'=>'commentator'); $aa = true;}
-		if ($ran){ $rewards[$ran.'Survival Mission Ranger'] = array('pic'=>'ranger', 'page'=>'atn_award', 'anch'=>'ranger'); $aa = true;}
-		if ($properties){ $rewards['Owns '.pluralise('piece', $properties).' of property in Lyarna.'] = array('pic'=>'lyarna', 'page'=>'atn_lyarna'); }
-		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows']['pic'] = 'dojo'; }
-		if ($aa) { $rewards['Contributions to the Arena'] = array('pic'=>'contrib', 'page'=>'atn_award', 'anch'=>'total'); }
+	    
+	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = array('pic'=>'ov', 'page'=>'atn_award', 'anch'=>'overseer');}
+		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = array('pic'=>'aj', 'page'=>'atn_award', 'anch'=>'adjunct');}
+		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = array('pic'=>'dojoofshadows', 'page'=>'atn_award', 'anch'=>'dojo');}
+		if ($boc){ $rewards[$boc.'of the Bounty Office'] = array('pic'=>'bountyoffice', 'page'=>'atn_award', 'anch'=>'commiss');}
+		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = array('pic'=>'ocd', 'page'=>'atn_award', 'anch'=>'registrar');}
+		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = array('pic'=>'mm', 'page'=>'atn_award', 'anch'=>'mission');}
+		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = array('pic'=>'skipper', 'page'=>'atn_award', 'anch'=>'skipper');}
+		if ($ste){ $rewards[$ste.'Steward of the Arena'] = array('pic'=>'steward', 'page'=>'atn_award', 'anch'=>'steward');}
+		if ($com){ $rewards[$com.'Holonet Commentator of the IRC Arena'] = array('pic'=>'hc', 'page'=>'atn_award', 'anch'=>'commentator');}
+		if ($ran){ $rewards[$ran.'Survival Mission Ranger'] = array('pic'=>'ranger', 'page'=>'atn_award', 'anch'=>'ranger');}
 	    
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
 	    
@@ -85,7 +79,8 @@ function output() {
 	    $table->AddRow('Name:', '<a href="' . internal_link('hunter', array('id'=>$hunter->GetID()), 'roster') . '">' . $hunter->GetName() . '</a>');   
 	    $table->AddRow('ID Line:', $hunter->IDLine(0));
 	    $table->AddRow('Stat Tracker:', '<a href="' . internal_link('atn_match_stats', array('id'=>$hunter->GetID())) . '">Arena Match Stats</a>'); 
-	    $table->AddRow('Experience History:', '<a href="' . internal_link('point_history', array('id'=>$hunter->GetID())) . '">Experience/BP History</a>');
+	    $table->AddRow('Character History:', '<a href="' . internal_link('point_history', array('id'=>$hunter->GetID())) . '">Experience/BP History</a>');
+	    if (count($rewards)){ $table->AddRow('Administrative History:', '<a href="' . internal_link('atn_award', array('id'=>$hunter->GetID())) . '">Experience/BP History</a>'); }
 	    
 	    $arr = $arena_ladder->Search($hunter->GetID());
 	    //$sar = $starfield_ladder->Search($hunter->GetID());
@@ -105,62 +100,28 @@ function output() {
 	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', pluralise('Time', $tgc)); }
 	    if ($sur){ $table->AddRow('Survival Mission Ladder Rank:', $sur); }
 
+	    if ($properties){ $table->AddRow('Property in Lyarna:', '<a href="'.internal_link('atn_lyarna', array('id'=>$hunter->GetID())).'">Owns '.pluralise('Piece', $properties).' of Property</a>'); }
+		$table->AddRow('Dojo of Shadows', (in_array($hunter->GetID(), $arena->GetApproved()) ? 'Graduate of' : 'Learner in').'the Dojo of Shadows');
+		if ($at->IsGladius($hunter->GetID())){ 
+			$table->AddRow('Gladius Prime', 'Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))); 
+		}
+	    if (in_array($hunter->GetID(), $arena->GetTeta())){ 
+		    $table->AddRow('Arena Designation:', 'Owns Teta\'s Knives'); 
+		}	
+		
 	    $table->EndTable();
 	    
 	    echo '</td><td align="center"><div style="text-align: left">';
-	
-	    /*Elite references. Blecho.
-	    $ttgm = false;
-	    $tempym = false;
-	    
-	    if (in_array($hunter->GetID(), $ttg->Members())){
-		    $ttgm = true;
-	    }
-	
-	    if (in_array($hunter->GetID(), $tempy->Members())){
-		    $tempym = true;
-	    }
-	    
-	    if ($ttgm || $tempym){
-		    $table = new Table();
-			$table->StartRow();
-			$table->AddHeader('Elite Arena Divisions', 2);
-			$table->EndRow();
-		}
-	    
-	    if ($ttgm){
-		    $table->StartRow();
-		    $table->AddCell('<a href="' . internal_link('atn_ttg', array('id'=>$hunter->GetID())) . '">Twilight Gauntlet Member</a>', 2);
-		    $table->EndRow();
-	    }
-	    
-	    if ($tempym){
-		    $table->StartRow();
-		    $table->AddCell('<a href="' . internal_link('atn_tempy', array('id'=>$hunter->GetID())) . '">Tempestuous Board Member</a>', 2);
-		    $table->EndRow();
-	    }    
-	    
-	    if ($ttgm || $tempym){
-	    	$table->EndTable();
-		}
-	    
-	    echo '</div></td></tr><tr><td><div style="text-align: left">';
-	    */
 		
 		if (count($rewards)){			
-			$setups = array();
+			$table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('Arena Aide Positions');
+		    $table->EndRow();
 			
-			foreach ($rewards as $info=>$reward){		
-				if (!$reward['page']){
-					$reward['page'] = $page;
-				}
-				$setups[] = '<a href="'.internal_link($reward['page'], array('id'=>$hunter->GetID())).'#'.$reward['anch'].'" title="'.$info.
-							'"><img border=0 src="arena/images/distinctions/'.$reward['pic'].'.png"></a>';				
-			}
-			
-			for ($i = 0; $i < count($setups); $i += 5) {
-				echo implode('', array_slice($setups, $i, 5)).'<br />';
-			}
+			foreach ($rewards as $info=>$reward){
+				$table->AddRow('<a href="'.internal_link($reward['page'], array('id'=>$hunter->GetID())).'#'.$reward['anch'].'">'.$info.'</a>'			
+			}			
 		}
 	    
 	    echo '</div></td></tr></table>';
