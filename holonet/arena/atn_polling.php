@@ -50,8 +50,8 @@ function output() {
 			    $vote = new Option($_REQUEST['votes']);
 				echo $vote->Vote($hunter->GetID());
 			}
-			hr();
 		}
+		hr();
 	}
 	
     if (is_object($poll)){
@@ -85,7 +85,6 @@ function output() {
 			    $form->table->EndRow();
 			    $form->EndForm();
 		    } else {
-			    echo 'Here';
 	    		$poll->WriteResults();
     		}
 	    } else {

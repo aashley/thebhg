@@ -295,6 +295,25 @@
     
     function WriteResults(){
 	    $votes = $this->GetVotes();
+	    
+	    $table = new Table('', true);
+	    $table->StartRow();
+	    $table->AddHeader($this->GetQuestion(), 2);
+	    $table->EndRow();
+	    
+	    $table->AddRow('Option', 'Stats');
+	    foreach ($this->GetOptions() as $option){
+		    $per = $votes[$option->GetID()];
+		    if ($votes['total']){
+			    $perce = $per/$votes['total'];
+			    $percent = $perce*100;
+			    $percent = round($percent, 0);
+		    } else {
+			    $percent = 0;
+		    }
+		    $table->AddRow($option->GetQuestion(), $percent);
+	    }
+	    $table->EndTable();
     }
     
     function Undelete() {
