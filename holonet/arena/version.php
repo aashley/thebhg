@@ -24,11 +24,11 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: Added the new Run-On system. It has the potential built in to eventually get an Arena Aide position, but I'm holding off on that for a good while. Anyway, enjoy.";
+    echo "Version Comments: The Twilight Gauntlet is officially disband. The referenced to the 'Elite' RP groups, (Tempy and TTG) have been removed from the tracker. The Lone Wolves, which is the only non-bunked Elite Division will continue to move swiftly.";
     
     hr();
     
-    echo "Last Update: October 9, 2004";
+    echo "Last Update: October 15, 2004";
     
     hr();
     
