@@ -32,19 +32,7 @@ function output() {
     krsort($sheets);
     $table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban Till', '&nbsp;', '&nbsp;', '&nbsp;');
     
-    foreach ($sheets as $sheeted){
-	    foreach ($sheeted as $character){
-	    
-		    if ($character->Status('SYSTEM') == 5 || $character->Status('SYSTEM') == 6){
-			    $status = '<b>'.$character->Status('HUMAN').'</b>';
-		    } else {
-			    $status = $character->Status('HUMAN');
-		    }
-		    
-		    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
-		    1,1,1,1,1);
-	    }
-    }
+    
     
     $table->EndTable();
     admin_footer($auth_data);
