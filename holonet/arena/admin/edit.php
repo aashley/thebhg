@@ -29,6 +29,7 @@ if ($_REQUEST['match']){
 			if (in_array('date_deleted', $_REQUEST['data']['values'])){
 				$search = $arena->Search(array('table'=>'ams_records', 'search'=>array('match'=>$match->Get(id), 'date_deleted'=>0)));
 				foreach ($search as $mtc){
+					print_r($mtc);
 					$mtc->Edit($return, 1);
 				}
 			}
