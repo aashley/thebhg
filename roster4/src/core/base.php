@@ -256,7 +256,7 @@ class bhg_core_base {
 	 * record refered to by this object.
 	 *
 	 * @param string The name of the Table to delete the record from
-	 * @param array  A named array of fields to select the record to delete from
+	 * @param array	A named array of fields to select the record to delete from
 	 * @return boolean
 	 */
 	protected function __deleteRecord($table = null, $fields = null) {
@@ -373,31 +373,31 @@ class bhg_core_base {
 	}
 
 	// }}}
-  // {{{ __saveValue() [protected]
+	// {{{ __saveValue() [protected]
 
-  /**
-   * Save a value to a specific field in the Database
-   *
-   * As the vast majority of updates in the system follow the same format this 
-   * function handles the actual work. Any simple set functions should just
-   * call this function. Anything more complex should be done in the original
-   * function
-   *
-   * @param array A named array where the key represents the field to set 
-   *              and the value is the Value to set.
-   * @return boolean
-   */
-  protected function __saveValue($fields, $table = null, $id = null) {
+	/**
+	 * Save a value to a specific field in the Database
+	 *
+	 * As the vast majority of updates in the system follow the same format this 
+	 * function handles the actual work. Any simple set functions should just
+	 * call this function. Anything more complex should be done in the original
+	 * function
+	 *
+	 * @param array A named array where the key represents the field to set 
+	 *							and the value is the Value to set.
+	 * @return boolean
+	 */
+	protected function __saveValue($fields, $table = null, $id = null) {
 
 		if (is_null($table)) $table = $this->table;
 
-    $iref_field = 'id';
+		$iref_field = 'id';
 
 		if (is_null($id)) $id = $this->data[$iref_field];
 
-    $f = array();
+		$f = array();
 
-    foreach ($fields as $field => $value) {
+		foreach ($fields as $field => $value) {
 
 			if (preg_match('/^[a-zA-Z_]*\(.*\)$/', $value)) {
 
@@ -409,7 +409,7 @@ class bhg_core_base {
 
 			}
 
-    }
+		}
 
 
 		if (!in_array($table, $GLOBALS['bhg']->database['no_updated'])) {
@@ -418,20 +418,20 @@ class bhg_core_base {
 
 		}
 
-    $sql = 'UPDATE "'.$table.'" '
-          .'SET '
+		$sql = 'UPDATE "'.$table.'" '
+					.'SET '
 					.implode(', ', $f).' '
-          .'WHERE "'.$iref_field.'" = '.$id;
+					.'WHERE "'.$iref_field.'" = '.$id;
 
-    $result = $this->db->query($sql);
+		$result = $this->db->query($sql);
 
-    if (DB::isError($result)) {
+		if (DB::isError($result)) {
 
 			$this->setError("Could not save changes to {$table}.", $result, $sql);
 
-      return false;
+			return false;
 
-    } else {
+		} else {
 
 			// If the record we've just updated is the one represented by this
 			// object update its local storage of values.
@@ -447,21 +447,21 @@ class bhg_core_base {
 
 				$results = $this->db->getRow($sql);
 
-	      foreach ($results as $field => $value) {
+				foreach ($results as $field => $value) {
 
-		      $this->data[$field] = $value;
+					$this->data[$field] = $value;
 
-			  }
+				}
 
 			}
 
-      return true;
+			return true;
 
-    }
+		}
 
-  }
+	}
 
-  // }}}
+	// }}}
 
 	// {{{ createSuccess()
 

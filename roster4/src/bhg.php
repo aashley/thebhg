@@ -137,7 +137,7 @@ class bhg {
 	 * This is a singleton system to load a specific object from within
 	 * the generation 3 system. It should be called as:
 	 *
-	 *  $member = &$GLOBALS['gen3']->loadObject('Gen3_Member', 1);
+	 *	$member = &$GLOBALS['gen3']->loadObject('Gen3_Member', 1);
 	 *
 	 * @static
 	 * @param string The name of the object to load
