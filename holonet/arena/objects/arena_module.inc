@@ -175,9 +175,7 @@
 			$return = ($aa ? $output[$aa] : $ouput[key(end($output))]);
 			$use = ($aa ? $aa : key(end($output)));
 
-			$sql = "UPDATE `".$positions[$use]['table']."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aas[$use]->GetID()."'";
-			
-			echo $sql;
+			$sql = "UPDATE `arena_".$positions[$use]['table']."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aas[$use]->GetID()."'";
 			
 			if (mysql_query($sql, $this->connect)){
 				return $return.': ';
