@@ -70,8 +70,6 @@
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
-
-        echo $sql;
         
         $this->creds = $info['credits']+$this->hc_creds;
         $this->xp = $info['xp']+$this->hc_xp;
