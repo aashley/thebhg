@@ -35,7 +35,6 @@ function output() {
 			echo '<br />';
 		}
 		$sql = 'INSERT INTO arena_reports (admin, author, time, report, html) VALUES ("' . addslashes($_REQUEST['position']) . '", ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')';
-		echo $sql;
 		if (mysql_query($sql, $arena->connect)) {
 			echo 'Arena Report added successfully.';
 		}
