@@ -4,19 +4,20 @@ $months = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 
 echo "<table>\n"
    . "<caption>Limit Displayed Hunts to those for:</caption>\n"
    . "<tr>\n<td>\n"
-   . "<form action=\"".$_SERVER['REQUEST_URI']."\" method=\"post\">\n"
+   . "<form action=\"".$_SERVER['REQUEST_URI']."\" method=\"get\">\n"
+   . "<input type=\"hidden\" name=\"site\" value=\"".$_GET['site']."\" />\n"
    . "<select name=\"division_select\" id=\"division_select\">\n"
    . "<option value=\"-1\"";
-if ($_POST['division_select'] == -1) echo " selected";
+if ($_REQUEST['division_select'] == -1) echo " selected";
 echo ">Everyone</option>\n"
    . "<option value=\"18\"";
-if ($_POST['division_select'] == 18) echo " selected";
+if ($_REQUEST['division_select'] == 18) echo " selected";
 echo ">Citadel</option>\n";
 $divisions = $roster->GetDivisions();
 foreach ($divisions as $division_obj) {
     if ($division_obj->IsKabal()) {
         echo "<option value=\"".$division_obj->GetID()."\"";
-        if ($division_obj->GetID() == $_POST['division_select']) echo " selected";
+        if ($division_obj->GetID() == $_REQUEST['division_select']) echo " selected";
         echo ">".$division_obj->GetName()."</option>\n";
     }
 }
@@ -24,10 +25,10 @@ echo "</select>\n"
    . "<input type=\"submit\" value=\"View Division\"></input><br />\n"
    . "</form>\n"
    . "</td>\n</tr>\n";
-if (!isset($_POST['division_select'])) {
+if (!isset($_REQUEST['division_select'])) {
     $division = -1;
 } else {
-    $division = $_POST['division_select'];
+    $division = $_REQUEST['division_select'];
 }
 echo "<tr>\n<td>\n"
    . "Select month to view:<br />"
