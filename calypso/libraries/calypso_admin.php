@@ -336,6 +336,32 @@
 		$database->query ($sql);
 	}
 
+	function calypso_update_options ($person, $title, $description, $icbm, $allconsuming)
+	{
+		global $smarty;
+		$database = $smarty->get_template_vars ('database');
+
+		$sql = sprintf (
+			" UPDATE                   " . 
+			"   blogs                  " .
+			" SET                      " . 
+			"   blog_title = %s,       " .
+			"   blog_linktitle = %s,   " .
+			"   blog_description = %s, " .
+			"   blog_icbm = %s,        " .
+			"   blog_allconsuming = %s " .
+			" WHERE                    " .
+			"   blog_person = %s       " ,
+			DB_Common::quote ($title),
+			DB_Common::quote (strtolower (calypso_linktitle ($title))),
+			DB_Common::quote ($description)),
+			DB_Common::quote ($icbm),
+			DB_Common::quote ($allconsuming),
+			$person
+		);
+		$database->query ($sql);
+	}
+
 	/**
 	* Validate a ISBN number
 	*

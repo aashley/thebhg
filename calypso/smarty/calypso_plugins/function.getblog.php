@@ -51,6 +51,10 @@
 			"     AS owner,           " .
 			"   blog_default_comments " .
 			"     AS enable_comments, " .
+			"   blog_icbm             " .
+			"     AS icbm,            " .
+			"   blog_allconsuming     " .
+			"     AS allconsuming,    " .
 			"   CONCAT('%s',          " .
 			"     blog_linktitle,'/') " .
 			"     AS url              " .

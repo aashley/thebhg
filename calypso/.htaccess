@@ -1,23 +1,25 @@
 RewriteEngine  on
 
 # Admin
-RewriteRule   ^xsl/(.*)$      /templates/xsl/$1
-RewriteRule   ^([a-z0-9]+)/admin(.?)$ 							/index.php?route=15
-RewriteRule   ^([a-z0-9]+)/admin/create(.?)$ 						/index.php?route=15
-RewriteRule   ^([a-z0-9]+)/admin/entries(.?)$ 						/index.php?route=19
-RewriteRule   ^([a-z0-9]+)/admin/books(.?)$ 						/index.php?route=26
-RewriteRule   ^([a-z0-9]+)/admin/links(.?)$ 						/index.php?route=27
-RewriteRule   ^([a-z0-9]+)/admin/categories(.?)$ 						/index.php?route=17
+RewriteRule   ^xsl/(.*)$                         /templates/xsl/$1
+RewriteRule   ^([a-z0-9]+)/admin(.?)$            /index.php?route=15
+RewriteRule   ^([a-z0-9]+)/admin/create(.?)$     /index.php?route=15
+RewriteRule   ^([a-z0-9]+)/admin/entries(.?)$    /index.php?route=19
+RewriteRule   ^([a-z0-9]+)/admin/options(.?)$    /index.php?route=35
+RewriteRule   ^([a-z0-9]+)/admin/books(.?)$      /index.php?route=26
+RewriteRule   ^([a-z0-9]+)/admin/links(.?)$      /index.php?route=27
+RewriteRule   ^([a-z0-9]+)/admin/categories(.?)$ /index.php?route=17
 RewriteRule   ^([a-z0-9]+)/admin/([0-9]+)/([0-9]+)/([0-9]+)/([a-zA-Z0-9]+)(.?)$ /index.php?year=$2&month=$3&day=$4&entryid=$5&route=20
-RewriteRule   ^([a-z0-9]+)/admin/style.css$							/templates/administration/include/style.css
-RewriteRule   ^([a-z0-9]+)/admin/javascript.js$						/templates/administration/include/ie_form_mojo.js
-RewriteRule   ^([a-z0-9]+)/admin/images/(.*)$							/templates/administration/include/$1
+RewriteRule   ^([a-z0-9]+)/admin/style.css$      /templates/administration/include/style.css
+RewriteRule   ^([a-z0-9]+)/admin/javascript.js$  /templates/administration/include/ie_form_mojo.js
+RewriteRule   ^([a-z0-9]+)/admin/images/(.*)$    /templates/administration/include/$1
 
 # Blog
 RewriteRule   ^([a-z0-9]+)(.?)$           /index.php?blogid=$1&route=1
 RewriteRule   ^([a-z0-9]+)/style.css$     /index.php?blogid=$1&route=6
 RewriteRule   ^([a-z0-9]+)/rss10.xml$     /index.php?blogid=$1&route=5
 RewriteRule   ^([a-z0-9]+)/rss20.xml$     /index.php?blogid=$1&route=32
+RewriteRule   ^([a-z0-9]+)/rsd.xml$       /index.php?blogid=$1&route=36
 RewriteRule   ^([a-z0-9]+)/atom03.xml$    /index.php?blogid=$1&route=21
 RewriteRule   ^([a-z0-9]+)/links.xml$     /index.php?blogid=$1&route=27
 RewriteRule   ^([a-z0-9]+)/books.xml$     /index.php?blogid=$1&route=28

@@ -6,11 +6,11 @@
 	// Get the admin functions
 	require_once ('libraries/calypso_admin.php');
 
-	$starting_time = getmicrotime ();
-
 	// Create the Database
 	require_once ("DB.php");
 	$dbh = DB::connect ($database);
+
+	ini_set ('magic_quotes_gpc', FALSE);
 
 	// Include the Smarty library
 	$smarty_path = $system ["base"] . '/smarty';
@@ -109,6 +109,10 @@
 			$smarty->display ('entries_list.html');
 			break;
 		case 15:
+			require_once ('roster.inc');
+			$roster = new Roster;
+			$person = new Login_HTTP ();
+			$smarty->assign ('personid', $person->GetID());  
 			if (isset ($_POST ["SaveDraft"])) 
 			{
 				calypso_create_entry ($_POST ["person"], $_POST ["title_entry"], $_POST ["content_entry"], $_POST ["category_boxes"], 0, (isset ($_POST ["pingback_box"]) ? 1 : 0), (isset ($_POST ["comments_box"]) ? 1 : 0));
@@ -165,6 +169,12 @@
 				calypso_create_book ($_POST ["person"], $_POST ["isbn"]);
 			
 			$smarty->display ('books_list.html');
+			break;
+		case 35:
+			if (isset ($_POST ["Update"]))
+				calypso_update_options ($_POST ["person"], $_POST ["title"], $_POST ["description"], $_POST ["icbm"], $_POST ["allconsuming"]);
+			
+			$smarty->display ('options.html');
 			break;
 
 	// Calypso RSS 1.0 and 2.0 feeds.
@@ -235,11 +245,16 @@
 					  'blog:{$_REQUEST["blogid"]},category:{$_REQUEST["category"]}');
 			break;
 
+		case 36:
+			header ("Content-Type: application/rsd+xml");
+			$smarty->display ('syndicate_rsd.html',
+					  'blog:{$_REQUEST["blogid"]}');
+			break;
+
 	// XML-RPC Server
 		case 11:
 			require_once ('libraries/server-xmlrpc.php');
 			break;
 	}
 
-	//echo "<!-- " .number_format (getmicrotime () - $starting_time, 2, ".", "") . " -->";
 ?>
