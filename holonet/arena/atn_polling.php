@@ -19,8 +19,12 @@ function title() {
 	global $poll, $hunter;
     $title = 'AMS Tracking Network :: Arena Polling Centre :: ';
     if (is_object($poll)){
-	    if (!$poll->IsDeleted() || !rp_staff($hunter) || !$poll->CanSubmit($hunter) || !$poll->DidVote($hunter)){
-	    	$title .= 'View Poll';
+	    if (rp_staff($hunter) || (!$poll->IsDeleted() && ($poll->CanSubmit($hunter) || $poll->DidVote($hunter)))){
+		    if ($poll->CanSubmit($hunter)){
+			    $title .= 'Submit for Poll';
+		    } else {
+	    		$title .= 'View Poll';
+    		}
     	} else {
 	    	$title .= 'Read Error';
     	}
@@ -39,11 +43,7 @@ function output() {
 	    if ($poll->IsDeleted() || !rp_staff($hunter) || !$poll->CanSubmit($hunter) || !$poll->DidVote($hunter)){
 		    echo 'Invalid polling number';
 	    } else {
-		    if ($poll->GetStarts() <= time() && $poll->GetEnds() >= time()){
-			    echo 'Voting information';
-		    } else {
-		 		echo 'Polling Information';
-	 		}
+		    
 	    }
     } else {
 	    $polls = $arena->OpenPolls($hunter);
