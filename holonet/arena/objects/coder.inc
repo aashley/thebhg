@@ -21,7 +21,9 @@ Class Coder extends Arena {
 			$name = $info[key($info)];
 			$exp = explode('_', $name);
 			if (in_array($exp[0], $this->allowed)){
-				$this->tables[] = $name;
+				array_shift($exp);
+				implode(' ', $exp);
+				$this->tables[] = array('full'=>$name, 'index'=>mb_convert_case($ref, MB_CASE_TITLE, "UTF-8"););
 			}
 		}
 	}
