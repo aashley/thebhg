@@ -924,6 +924,33 @@
 		}	   
 	}
 	
+	function LoadCore($id){
+		$sql = "SELECT * FROM `character_sheet_cores` WHERE `id` = '".$id."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    mysql_query($delsql, $this->connect);
+	    }
+	    
+	    $errors = 0;
+	    
+	    while($info = mysql_fetch_array($query)){
+		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    if (!mysql_query($sql, $this->connect)){
+			    $errors++;
+		    }
+	    }
+	    
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+		if (!$errors && mysql_query($sql, $this->connect)){
+			return 'Backup loaded as edit sheet.';
+		} else {
+			$arena = new Arena();
+			return $arena->NEC(159);
+		}	   
+	}
+	
 	function Approve(){
 	    $sql = "SELECT * FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
 	    $query = mysql_query($sql, $this->connect);
@@ -1043,7 +1070,7 @@
         return (mysql_num_rows($query));
     }
 	
-	function ParseSheet($look = 'values', $id = 0, $col = 'bhg_id'){
+	function ParseSheet($look = 'values', $id = 0, $col = 'bhg_id', $show_anyway = false){
 		$this->UpdateCache();
 		$bio = $this->cs_person->GetBioData();
 		$division = $this->cs_person->GetDivision();
@@ -1063,7 +1090,7 @@
 		if ($bio->GetSex()){ $sex = $bio->GetSex(); }
 		if ($bio->GetSpecies()){ $species = $bio->GetSpecies(); }
 		
-		if ($look != 'cores'){
+		if ($look != 'cores' || $show_anyway){
 			echo '<table border=0 width="100%"><tr valign="top"><td>';
 			$table = new Table();
 					$table->StartRow();
@@ -1090,7 +1117,7 @@
     	
     	$table->EndTable();
 		
-    	if ($look != 'cores'){ echo '</td></tr></table>'; }
+    	if ($look != 'cores' || $show_anyway){ echo '</td></tr></table>'; }
     	
 		hr();
 		
@@ -1099,7 +1126,7 @@
 		$table->StartRow();
 		$table->AddHeader(($namez ? 'Dossier file for '.$rank->GetName().' ' : 'CORE Sheet Name: ').$this->GetName($look, $id, $col), 2);
 		$table->EndRow();
-		if ($look != 'cores'){
+		if ($look != 'cores' || $show_anyway){
 			$table->AddRow('Visual Identification', '<img src='.$url.'>');
 	    	$table->AddRow('Age', $age);
 	    	$table->AddRow('Height', $height);

@@ -38,7 +38,11 @@ function output() {
     }
     
     if ($_REQUEST['goload']){
-	    echo $character->LoadBackup($_REQUEST['sheet']);
+	    if ($_REQUEST['okay']){
+		    echo $character->LoadCore($_REQUEST['sheet']);
+	    } else {
+	    	echo $character->LoadBackup($_REQUEST['sheet']);
+    	}
 	    hr();
     }
     
@@ -216,20 +220,29 @@ function output() {
     if ($show){
 	    if ($_REQUEST['load']){
 	    
-		    if ($character->ValidLoad($_REQUEST['sheet'])){
+		    if ($character->ValidLoad($_REQUEST['sheet']) || $_REQUEST['prompt'] == 'core'){
 		    
+			    if ($_REQUEST['prompt']){
+				    $load = 'cores';
+				    $name = 'CORE';
+			    } else {
+				    $load = 'backups';
+				    $name = 'Backup';
+			    }
+			    
 			    $form = new Form($page);
 			    
 			    $form->AddHidden('sheet', $_REQUEST['sheet']);
+			    $form->AddHidden('okay', $_REQUEST['prompt']);
 			    $form->table->StartRow();
 			    $form->table->AddHeader('Upload Backup');
 			    $form->table->EndRow();
-			    $form->table->AddRow('<input type="submit" value="Load Backup as Edit Sheet" name="goload">');
+			    $form->table->AddRow('<input type="submit" value="Load '.$name.' as Edit Sheet" name="goload">');
 			    
 			    $form->EndForm();
 			    hr();
 			    
-			    $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
+			    $character->ParseSheet($load, $_REQUEST['sheet'], 'id', true);
 		    } else {
 			    echo 'This is an invlaid load. You can only load your own Backup sheets.';
 		    }
@@ -284,6 +297,25 @@ function output() {
 				    	'<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>', 
 				    	($data['share'] ? '' : '<a href="'.internal_link($page, array('delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>'), 
 				    	($data['share'] ? '' : '<a href="'.internal_link($page, array('share'=>1, 'sheet'=>$data['id'])).'">Share</a>'));
+			    }
+			    
+			    $table->EndTable();
+		    }
+		    
+		    $cores = $sheet->GetCores();
+		    
+		    if (count($cores)){
+			    hr();
+			    $table = new Table('', true);
+			    $table->StartRow();
+			    $table->AddHeader('Core Characters', 5);
+			    $table->EndRow();
+			    
+			    $table->AddRow('Character Type Name', 'Date', '&nbsp');
+			    
+			    foreach ($cores as $data){
+				    $table->AddRow($data['name'], $data['date'], 
+				    	'<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'], 'prompt'=>'core')).'">Load Sheet</a>');
 			    }
 			    
 			    $table->EndTable();
