@@ -21,7 +21,7 @@ function output() {
     
     $saves = $character->GetCores();
 
-    if (!$_REQUEST['sheet'] && !$_REQUEST['new']){
+    if (!$_REQUEST['sheet'] && !$_REQUEST['new'] && !$_REQUEST['view'] && !$_REQUEST['save']){
 	    echo '<a href="'.internal_link($page, array('new'=>1)).'">Make new CORE Sheet</a>.';
 		hr();
 	    
@@ -148,7 +148,6 @@ function output() {
 		    		}
 		    	}
 	    	}
-	    	$form->AddHidden('sheet', $_REQUEST['id']);
 	    	$form->AddHidden('process', 1);
 	    	$form->AddHidden('sheet', $_REQUEST['sheet']);
 	    	$form->AddSubmitButton('view', 'Check Sheet');
