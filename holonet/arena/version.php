@@ -28,7 +28,7 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Last Update: 4/6/2005<p>Over <input type=text value=2 disable> months without something needing fixin!";
+    echo "Last Update: 4/6/2005<p>Over <input type=text value=2 size=2 disabled> months without something needing fixin!";
     
     hr();
     
