@@ -108,6 +108,7 @@ function output() {
 		    }
 		    
 		    $table->EndTable();
+		    hr();
 	    }
 	    
 	    $polls = $arena->ReadPolls($hunter);
