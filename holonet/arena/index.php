@@ -12,11 +12,11 @@ function output() {
     $overseer = ($ov ? 'Overseer <a href="'.internal_link('atn_general', array('id'=>$ov->GetID())).'">'.$ov->GetName().'</a>' : '');
     $adjunct = ($aj ? 'Adjunct <a href="'.internal_link('atn_general', array('id'=>$aj->GetID())).'">'.$aj->GetName().'</a>' : '');
     
-    if ($ov && $aj){
+    if ($ov && $aj) {
 	    $by = 'jointly by the Guild '.$overseer.' and '.$adjunct;
-    } elseif($ov || $aj){
+    } elseif ($ov || $aj) {
 	    $by = 'by the overworked Guild '.$overseer.$adjunct;
-    } elseif {
+    } else {
 	    $by = 'by magic';
     }
 
