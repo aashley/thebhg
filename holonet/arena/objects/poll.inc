@@ -315,7 +315,7 @@
 		    } else {
 			    $percent = 0;
 		    }
-		    $table->AddRow($option->GetQuestion(), $percent.'% ('.pluralise('Vote', count($per)).' of '.pluralise('Vote', $votes['total']).')');
+		    $table->AddRow($option->GetQuestion(), $percent.'% ('.pluralise('Vote', count($per)).')');
 	    }
 	    $table->EndTable();
     }
