@@ -21,15 +21,15 @@ function output() {
     
     if (isset($_REQUEST['submit'])){
 	    
-	    $arena = $_REQUEST['arenaposi'];
+	    $arenap = $_REQUEST['arenaposi'];
 	    $posi = $_REQUEST['posi'];
 	    $divi = $_REQUEST['divi'];
 	    $open = $_REQUEST['open'];
 	    
 	    $open_to = array();
 	    
-	    if (count($arena)){
-		    $open_to['aas'] = $arena;
+	    if (count($arenap)){
+		    $open_to['aas'] = $arenap;
 	    }
 	    
 	    if (count($posi)){
