@@ -650,7 +650,6 @@
 	    while($info = mysql_fetch_array($query)){
 		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    if (!mysql_query($sql, $this->connect)){
-			    echo mysql_error($this->connect);
 			    $errors++;
 		    }
 	    }
