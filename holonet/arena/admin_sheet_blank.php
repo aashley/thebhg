@@ -19,7 +19,7 @@ function output() {
     $solo = new Solo();
     
     if (isset($_REQUEST['submit'])) {
-	    $character = new Character($_REQUEST['bhg_id'])
+	    $character = new Character($_REQUEST['bhg_id']);
 		if ($character->IsNew()){
 			if (!$character->NewSheet()){
 				echo 'Could not create a new sheet. Report this to the Overseer.';
