@@ -20,7 +20,7 @@ function output() {
     
 	    $coder = new Coder();
 	    
-	    $coder->Fileds($table);
+	    $coder->Fileds($_REQUEST['table']);
 	    
 	    echo '<pre>';
 	    print_r($coder->fields);
