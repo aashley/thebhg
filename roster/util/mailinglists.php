@@ -26,7 +26,7 @@ foreach ($divisions as $division) {
 
   }
 
-  if ($list != 'commission@thebhg.org' || $list != 'commission') {
+  if ($list != 'commission@thebhg.org' && $list != 'commission') {
 
     $lists[$list][] = 'hcispy@thebhg.org';
 
