@@ -1,10 +1,10 @@
 <?php
 // Include the Calypso classes. We're not doing this in header.php because no
 // other pages need them, and it would just increase execution time.
-if (file_exists('/home/virtual/thebhg.org/home/blogs/Objects/Calypso.class.php')) {
+/*if (file_exists('/home/virtual/thebhg.org/home/blogs/Objects/Calypso.class.php')) {
 	include_once('/home/virtual/thebhg.org/home/blogs/Objects/Calypso.class.php');
 	$calypso = new Calypso();
-}
+}*/
 
 // Also include the Citadel classes, since this is one of only two pages where
 // they are used.
@@ -39,7 +39,7 @@ function output() {
 		$links['#reports'] = 'Recent Reports';
 	}
 
-  $links['roster/foaf/person.php?id='.$pleb->getID()] = 'FOAF';
+  //$links['roster/foaf/person.php?id='.$pleb->getID()] = 'FOAF';
 
 	roster_header();
 	
@@ -263,17 +263,17 @@ function output() {
 	
 	$links['sep2'] = '';
 	
-	if (isset($calypso)) {
+/*	if (isset($calypso)) {
 		if ($calypso->AccountExists($pleb->GetID())) {
 			$blog = new Blog($pleb->GetID());
 			$links['http://blogs.thebhg.org/' . $blog->GetLinkTitle() . '/'] = 'View Blog';
 		}
-	}
+	}*/
 
-	$sheet = new Sheet($pleb);
+/*	$sheet = new Sheet($pleb);
 	if ($sheet->GetLastUpdate() > 0 && $sheet->GetStatus() != 'new' && $sheet->fields[56]->GetRealValue() > 0) {
 		$links[internal_link('character_sheet', array('id'=>$pleb->GetID()))] = 'View Old Character Sheet';
-	}
+	}*/
 	$links[internal_link('atn_general', array('id'=>$pleb->GetID()), 'arena')] = 'View Role Playing Info';
 	
 	$links['http://ka.thebhg.org/cg/stats/hunter.php?id=' . $pleb->GetID()] = 'View CG Statistics';
