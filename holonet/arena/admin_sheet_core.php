@@ -62,6 +62,7 @@ function output() {
 			if (isset($_REQUEST['process'])){
 				echo $character->SaveCore($_REQUEST['stat'], $_REQUEST['expr'], $_REQUEST['pers'], $_REQUEST['sheet']);
 				hr();
+				$_REQUEST['sheet'] = $character->LastID;
 			}
 			
 			$character->ParseSheet('cores', $_REQUEST['sheet'], 'id');

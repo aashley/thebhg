@@ -8,6 +8,7 @@
     var $cs_person;
     var $cs_pending;
     var $cs_ban;
+    var $LastID;
 
     function Character($id) {
         Sheet::Sheet();
@@ -512,6 +513,7 @@
 			$new = "INSERT INTO `character_sheet_core` VALUES ('', '".$this->GetID()."', 0, '".time()."', '')";
 		    $store = mysql_query($new, $this->connect);
 		    $id = mysql_insert_id($this->connect);
+		    $this->LastID = $id;
 		    $errors = array();
 	    }
 	    
@@ -543,7 +545,9 @@
     }
     
     function SubmitCore($id){
+	    echo $id;
 	    $sql = "UPDATE `character_sheet_core` SET `pending` = '1', `approved` = 0 WHERE `id` = '$id'";
+	    echo $sql;
 		if (mysql_query($sql, $this->connect)){
 			$adjunct = $this->Adjunct();
             $overseer = $this->Overseer();
