@@ -29,6 +29,9 @@ function rp_staff($person){
 function acn_nav(){
 	global $at, $lw, $person, $iat;
 	
+	//echo '<small>ACN<br />';
+	//echo '&nbsp;<a href="' . internal_link('acn_challenge') . '">My&nbsp;Pending&nbsp;Challenges</a><br />';
+	
 	if ($at->ValidSignup()){
 		echo '<br />Arena Tournament<br />';
 	    echo '&nbsp;<a href="' . internal_link('acn_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br /><br />';
@@ -45,8 +48,8 @@ function acn_nav(){
 	echo '<br />Dojo of Shadows<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_dojo_challenge') . '">Dojo&nbsp;Challenges</a><br />';
 	
-	echo '<br />Starfield Arena<br />';
-    echo '&nbsp;<a href="' . internal_link('acn_starfield_challenge') . '">Starfield&nbsp;Arena&nbsp;Challenges</a><br />';
+	//echo '<br />Starfield Arena<br />';
+    //echo '&nbsp;<a href="' . internal_link('acn_starfield_challenge') . '">Starfield&nbsp;Arena&nbsp;Challenges</a><br />';
     
     echo '<br />Solo Missions<br />';
     echo '&nbsp;<a href="' . internal_link('acn_solo_contract') . '">Request&nbsp;Contract</a><br />';

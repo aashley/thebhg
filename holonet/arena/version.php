@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.3";
+    echo "Current version: v1.5";
     
     hr();
     
@@ -16,11 +16,11 @@ function output() {
     
     hr();
     
-    echo "Version Comments: Minor updates and the IRC Arena Tournament backing, ahoy!";
+    echo "Version Comments: Some nice functions for the RP staff added. Also added an ACN Challenge Database which details all current challenges.";
     
     hr();
     
-    echo "Last Update: Updated the IRCA objects to allow for comments by the graders, which is a necessity, due to the IRCA base. Also, added the IRC Arena Tournament clone of the original functions.";
+    echo "Last Update: Higher ups can award creds quickly to RP Aides, and added the ACNC. Also took away the ACN link to Starfield Arena Challenges. This will come back when the SSL is refit, and it is at this time the ACNC will be up for use.";
     
     hr();
     
