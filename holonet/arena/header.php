@@ -190,7 +190,9 @@ function get_auth_data($hunter) {
 	}
 	
 	if ($pos->GetID() == 11 || $pos->GetID() == 10 || $pos->GetID() == 12){
+		$auth_data['coder'] = true;
     	$auth_data['ch'] = true;
+    	$auth_data['sheet'] = true;
 	}
     
 	$list = false;
