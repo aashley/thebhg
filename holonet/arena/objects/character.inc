@@ -440,7 +440,6 @@
 		    $statribute = new Statribute($stat);
 		    if (is_numeric($value) && $statribute->IsInt()){
 			    if ($value > 10){
-				    $statribute = new Statribute($stat);
 				    $errors[] = 'You have allocate more than 10 points to your '.$statribute->GetName().'.';
 			    }
 		    }
@@ -662,9 +661,9 @@
 	    }
 	    
 	    foreach($personalinfo as $stat=>$value){
-		    if (is_numeric($value)){
+		    $statribute = new Statribute($stat);
+		    if (is_numeric($value) && $statribute->IsInt()){
 			    if ($value > 10){
-				    $statribute = new Statribute($stat);
 				    $errors[] = 'You have allocate more than 10 points to your '.$statribute->GetName().'.';
 			    }
 		    }
