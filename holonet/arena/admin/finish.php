@@ -31,7 +31,7 @@ if ($_REQUEST['match']){
 					
 					if ($_REQUEST[$person] > 0){
 						$awarded = $roster->GetPerson($_REQUEST[$person]);
-						$awarded->SendEmail(from(), 'Match Completed', "Your match has been completed.");
+						$awarded->SendEmail(from(), 'Event Completed', "Your performance in an RP event has been graded.");
 						$character = new Character($awarded->GetID());
 			        	$character->XPEvent($_REQUEST['chalr_xp'][$i], $obj->Get(name));
 			        	$awarded->AddCredits($_REQUEST['chalr_cred'][$i], $obj->Get(name));
@@ -44,7 +44,7 @@ if ($_REQUEST['match']){
 					}
 					
 				}
-				$obj->Edit(array('completed'=>time()), 1);
+				$obj->Edit(array('completed'=>time(), 'comments'=>$_REQUEST['comments']), 1);
 				echo 'Event Completed.';
 			} elseif ($_REQUEST['build']){
 				$form = new Form($page);
@@ -54,6 +54,12 @@ if ($_REQUEST['match']){
 				$form->AddHidden('id', $_REQUEST['id']);
 				$form->AddHidden('op', $_REQUEST['op']);
 				$form->AddHidden('match', $_REQUEST['match']);
+				
+				if ($type->Get(submit)){
+					$obj = new Obj('ams_match', $_REQUEST['match'], 'holonet');
+					$form->AddTextArea('Comments:', 'comments', $mat->Get(comments));
+				}
+				
 				$form->AddSubmitButton('submit', 'Award Awards');
 				$form->EndForm();
 			} else {
@@ -72,7 +78,7 @@ if ($_REQUEST['match']){
 					$evnt = new Obj('ams_match', $match->Get(match), 'holonet');
 					$event = new Obj('ams_activities', $evnt->Get(type), 'holonet');
 					$person = $roster->GetPerson($match->Get(bhg_id));
-					$person->SendEmail(from(), 'Match Completed', "Your match has been completed.");
+					$person->SendEmail(from(), 'Event Completed', "Your performance in an RP event has been graded.");
 					$character = new Character($person->GetID());
 		        	$character->XPEvent($_REQUEST['results'][$match->Get(id)][xp], $event->Get(name));
 		        	$person->AddCredits($_REQUEST['results'][$match->Get(id)][creds], $event->Get(name));
@@ -81,7 +87,7 @@ if ($_REQUEST['match']){
 						$return[$name] = $agogo;
 					}
 					$match->Edit($return, 1);
-					$evnt->Edit(array('completed'=>time()), 1);
+					$evnt->Edit(array('completed'=>time(), 'comments'=>$_REQUEST['comments']), 1);
 				}
 				echo 'Match Completed';
 			} else {
@@ -109,6 +115,10 @@ if ($_REQUEST['match']){
 			    $form->AddHidden('id', $_REQUEST['id']);
 				$form->AddHidden('op', $_REQUEST['op']);
 				$form->AddHidden('match', $_REQUEST['match']);
+				
+				if ($type->Get(submit)){
+					$form->AddTextArea('Comments:', 'comments');
+				}
 				
 				if ($shutdown){
 					$form->AddSectionTitle('Please contact the coder. No grades are set for this event');
