@@ -162,6 +162,18 @@ function al($page, $name){
 	echo '<a href="' . internal_link('admin_'.$page) . '">'.str_replace(' ', '&nbsp;', $name).'</a><br>';
 }
 
+$links = array(1=>array('System Admin'=>array('activities'=>'Manage Activities', 'types'=>'Manage Activity Types')));
+
+function links($id){
+	global $links;
+	foreach ($links[1] as $name=>$data){
+		ah($name);
+		foreach ($data as $page=>$name){
+			al($page, $name);
+		}
+	}
+}
+
 function admin_footer($auth_data) {
 	global $roster, $arena, $citadel;
 	
@@ -178,9 +190,10 @@ function admin_footer($auth_data) {
 	
 	echo '<small>';
 	
+	
+	
 	if ($auth_data['overseer']){
-		ah('System Admin');
-		al('activities', 'Manage Activities');
+		links(1);
 	}
 
     echo '</small></td></tr></table>';
