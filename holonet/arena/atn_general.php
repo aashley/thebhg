@@ -137,6 +137,37 @@ function output() {
 			$table->EndTable();
 			
 		}
+		
+		$rewards = array();
+		
+		if (in_array($hunter->GetID(), $arena->GetApproved())){
+			$rewards['Graduate of the Dojo of Shadows'] = 'dojo';
+		}
+		
+		if (count($rewards)){
+			
+			hr();		
+		
+			$table = new Table();
+			$table->StartRow();
+			$table->AddHeader('Arena Distinctions', count($rewards));
+			$table->EndRow();
+			
+			$int_counter = 1;
+			
+			foreach ($rewards as $info=>$reward){
+				if ($int_counter == 1){
+					$table->StartRow();
+				}
+				$table->AddCell('<img src="arena/images/distinctions/'.$reward.'.png" alt="'.$info.'">');
+				if ($int_counter == 5){
+					$int_counter = 1;
+					$table->EndRow();
+				}
+			}
+			
+			$table->EndTable();
+		}
 	    
 	    echo '</div></td></tr></table>';
 	

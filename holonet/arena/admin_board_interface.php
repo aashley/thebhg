@@ -30,8 +30,7 @@ function output() {
     $table->StartRow();
     $table->AddCell('<INPUT TYPE="submit" VALUE="Post New Topic">', 2);
     $table->EndRow();
-    echo '<INPUT TYPE="hidden" name="signature" value="1" CHECKED>'
-    	.'<INPUT TYPE="hidden" NAME="sticky" VALUE="1" CHECKED></FORM>';
+    echo '<INPUT TYPE="hidden" name="signature" value="1" CHECKED><INPUT TYPE="hidden" NAME="sticky" VALUE="1" CHECKED></FORM>';
     $table->EndTable();
 
     admin_footer($auth_data);
