@@ -1,0 +1,128 @@
+html, body {
+	background: black;
+	font-family: Arial, Helvetica, Sans-Serif;
+	font-size: 10pt;
+	color: white;
+}
+a {
+	text-decoration: none;
+	color: #ffffc0;
+}
+a:hover {
+	text-decoration: underline;
+}
+ul.menu a {
+	color: inherit;
+}
+ul.menu a:hover {
+	text-decoration: none;
+}
+div.content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 25%;
+	padding: 1px;
+	margin: 5px 5px 0 5px;
+}
+div.menu {
+	position: absolute;
+	right: 0;
+	top: 0;
+	left: 75%;
+	padding: 1px;
+	margin: 5px 5px 0 0;
+	background: #202020;
+	border: dotted 1px white;
+}
+ul.menu {
+	margin: 0;
+	padding: 0;
+}
+ul.menu li {
+	display: block;
+	padding: 0.2em 0 0.2em 0;
+}
+ul.menu li:hover {
+	background: #303030;
+}
+div.menu div.section {
+	border-top: dotted 1px white;
+	padding: 5px;
+}
+div.menu div.section:first-child {
+	border: 0;
+}
+div.menu div.section div.heading {
+	font-weight: bold;
+	padding: 0.2em 0 0.2em 0;
+}
+div.menu div.section div.footer {
+	margin: 0;
+	padding: 0;
+	font-size: 8pt;
+}
+ul.pages {
+	margin: 0;
+	padding: 0;
+}
+ul.pages li {
+	display: inline;
+}
+ul.pages li:before {
+	content: " ";
+}
+ul.pages li:first-child:before {
+	content: "";
+}
+table {
+	border-collapse: collapse;
+}
+table.full {
+	width: 100%;
+}
+tr {
+	vertical-align: top;
+}
+td, th {
+	border: dotted 1px #b0b0b0;
+	background: #101010;
+	padding: 5px;
+}
+th {
+	text-align: left;
+	font-weight: bold;
+}
+td.numeric, th.numeric {
+	text-align: right;
+}
+td.submit {
+	text-align: right;
+}
+input[type="radio"] {
+	margin-right: 5px;
+}
+span.small {
+	font-size: 8pt;
+}
+td div.buttons {
+	text-align: right;
+}
+td div.buttons * {
+	margin-left: 3ex;
+}
+td div.information {
+	font-size: 8pt;
+}
+hr {
+	border: 0;
+	border-top: 1px dotted #b0b0b0;
+	color: transparent;
+	background-color: transparent;
+	height: 1px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+pre {
+	margin: 0;
+}

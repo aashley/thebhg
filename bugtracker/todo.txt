@@ -1,0 +1,2 @@
+- Rearrange the pages to not all be kept within index.php.
+- Sanity check the returned values from queries more thoroughly.
