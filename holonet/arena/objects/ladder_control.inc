@@ -48,6 +48,9 @@
 
         $name = ($dojo ? 'Dojo Match: ' : '').$person1->GetName()." vs. ".$person2->GetName();
 
+        $person1 = new Person($challenger);
+        $person2 = new Person($challengee);
+        
         /*$ttg = new TTG();
         $gauntlet = 0;
         
