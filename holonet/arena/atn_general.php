@@ -47,14 +47,14 @@ function output() {
 	    $ove = $overse->GetStatus();
 	    $adj = $adjunc->GetStatus();
 		
-	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = 'ov'; }
-		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = 'aj'; }
+	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = 'ov'; $aa = true;}
+		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = 'aj'; $aa = true;}
 		if ($at->IsGladius($hunter->GetID())){ $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius'; }
 	    if (in_array($hunter->GetID(), $arena->GetTeta())){ $rewards['Owner of Teta\'s Knives'] = 'dagger'; }	
-		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows'; }
-		if ($boc){ $rewards[$boc.'of the Bounty Office'] = 'bountyoffice'; }
-		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = 'ocd'; }
-		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = 'mm'; }
+		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows'; $aa = true;}
+		if ($boc){ $rewards[$boc.'of the Bounty Office'] = 'bountyoffice'; $aa = true;}
+		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = 'ocd'; $aa = true;}
+		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = 'mm'; $aa = true;}
 		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows'] = 'dojo'; }
 	    
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
@@ -67,6 +67,7 @@ function output() {
 	    $table->AddRow('Name:', '<a href="' . internal_link('hunter', array('id'=>$hunter->GetID()), 'roster') . '">' . $hunter->GetName() . '</a>');   
 	    $table->AddRow('ID Line:', $hunter->IDLine(0));
 	    $table->AddRow('Stat Tracker:', '<a href="' . internal_link('atn_match_stats', array('id'=>$hunter->GetID())) . '">View Arena Match Stats</a>'); 
+	    if ($aa) { $table->AddRow('Awarding Stats:', '<a href="' . internal_link('atn_award', array('id'=>$hunter->GetID())) . '">View Awarded Stats</a>');  }
 	    $table->AddRow('Experience History:', '<a href="' . internal_link('point_history', array('id'=>$hunter->GetID())) . '">View Experience/BP History</a>');
 	    
 	    $arr = $arena_ladder->Search($hunter->GetID());

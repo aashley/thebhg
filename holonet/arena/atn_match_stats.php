@@ -82,24 +82,7 @@ function output() {
 		    $table->EndTable();			
 	    
 			hr();
-	    }
-		
-		$comish = new Comissioner($hunter->GetID());
-		
-		if ($comish->GetStatus()){
-			
-			$table = new Table();
-		    $table->StartRow();
-		    $table->AddHeader('Commissioner Stats', 2);
-		    $table->EndRow();
-		    $table->AddRow('Contracts Overseen:', $comish->GetContracts());
-		    $table->AddRow('Credits Awarded:', number_format($comish->GetCreds()).' Imperial Credits');
-		    $table->AddRow('Experience Points Awarded:', number_format($comish->GetXP()));
-		    $table->EndTable();
-		    echo '<br />';
-		    
-		    hr();
-	    }		
+	    }	
 	    
 	    if ($solo->GetContracts()){
 		    $table = new Table();
