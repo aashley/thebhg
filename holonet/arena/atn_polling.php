@@ -61,23 +61,14 @@ function output() {
 			    $form->table->StartRow();
 			    $form->table->AddHeader($poll->GetQuestion(), 3);
 			    $form->table->EndRow();
-			    $votes = $poll->GetVotes();
-			    $form->table->AddRow('&nbsp', 'Question', 'Stats');
+			    $form->table->AddRow('&nbsp', 'Question');
 			    foreach ($poll->GetOptions() as $option){
-				    $per = $votes[$option->GetID()];
-				    if ($votes['total']){
-					    $perce = count($per)/$votes['total'];
-					    $percent = $perce*100;
-					    $percent = round($percent, 0);
-				    } else {
-					    $percent = 0;
-				    }
 				    if ($poll->GetMultiple()){
 					    $put = '<input type="checkbox" name="votes[]" value="'.$option->GetID().'">';
 				    } else {
 					    $put = '<input type="radio" name="votes" value="'.$option->GetID().'">';
 				    }
-					$form->table->AddRow($put, $option->GetQuestion(), $percent.'% ('.pluralise('Vote', $per).' of '.pluralise('Vote', $votes['total']).')');
+					$form->table->AddRow($put, $option->GetQuestion());
 			    }
 			    $form->AddHidden('poll', $_REQUEST['poll']);
 			    $form->table->StartRow();
