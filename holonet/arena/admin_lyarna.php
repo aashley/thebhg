@@ -66,6 +66,7 @@ function output() {
 			foreach ($roster->GetPositions() as $name){
 				$names[] = $name->GetName();
 			}
+			print_r($names);
 			$positions = implode('', $names);
 	    
 			foreach ($kabals_result as $kabal) {
