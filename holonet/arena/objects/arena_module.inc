@@ -185,7 +185,7 @@
     function ArenaPosition($key){
 	    $posi = $this->ArenaPositions();
 	    
-	    return $posi[$key']['desc'];
+	    return $posi[$key]['desc'];
     }
     
     function ArenaPositions(){
