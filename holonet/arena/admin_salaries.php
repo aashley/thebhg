@@ -33,6 +33,8 @@ function output() {
 		}
 	    $aides = array();
 	    
+	    print_r($bitches);
+	    
 	    foreach ($bitches as $pay){
 		    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 			    $time = $endut - $pay['start_date'];
@@ -47,8 +49,6 @@ function output() {
 	    	}
 	    	
 	    	$creds = round(($time / ($endut - $startut)) * 350000);
-	
-	    	echo $endut;
 	    	
 	      	if (isset($aides[$pay['bhg_id']])) {
 	        	$aides[$pay['bhg_id']] += $creds;
