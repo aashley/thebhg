@@ -7,7 +7,7 @@ $replacements = array();
 $replace = new Shell(0, 'ams_replacements', 'date_deleted');
 
 foreach ($replace->storage as $dump){
-	if (class_exists($replace->GetValue('class')){
+	if (class_exists($replace->GetValue('class'))){
 		$class = new $relace->GetValue('class');
 	}
 	
