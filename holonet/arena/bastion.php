@@ -27,6 +27,7 @@ function output() {
     if (is_object($hunter)){
     	$bast = $arena->BastionPlayer($hunter->GetID());
     	if (is_array($bast)){
+	    	$total = 0;
 	    	$table = new Table('', true);
 	    	$table->StartRow();
 	    	$table->AddHeader('Season');
@@ -35,9 +36,14 @@ function output() {
 	    	$table->EndRow();
 	    	
 	    	foreach ($bast as $season=>$data){
-		    	$table->AddRow('<a href="http://overseer.thebhg.org/index.php?area=challenge&page=season&season='.$season.'">'.$season.'</a>', 
-		    		number_format($data['total']), '<a href="http://overseer.thebhg.org/index.php?area=challenge&page=kabal&season='.$season.'&kabal='.$data['kabal']->GetID().'">'.$data['kabal']->GetName().'</a>');
+		    	$table->AddRow('<a target="bastion" href="http://overseer.thebhg.org/index.php?area=challenge&page=season&season='.$season.'">'.$season.'</a>', 
+		    		number_format($data['total']), '<a target="bastion" href="http://overseer.thebhg.org/index.php?area=challenge&page=kabal&season='.$season.'&kabal='.$data['kabal']->GetID().'">'.$data['kabal']->GetName().'</a>');
+		    	$total += $data['total'];
 	    	}
+	    	$table->StartRow();
+	    	$table->AddCell('<div align="right">Total Points </div>', 2);
+	    	$table->AddCell($total);
+	    	$table->EndRow();
 	    	
 	    	$table->EndTable();	
     	} else {
