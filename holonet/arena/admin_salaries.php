@@ -42,7 +42,7 @@ function output() {
 			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 				    $time = $endut - $pay['start_date'];
 				    echo $time;
-				    echo '<br />'.$endut - $startut;
+				    echo '<br />'.$endut-$startut;
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
 				    $time = $endut - $startut;
 			    } else {
