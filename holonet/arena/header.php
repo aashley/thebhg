@@ -590,7 +590,7 @@ function admin_footer($auth_data) {
     		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
     		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
     	}
-    	echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
+    	echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
     }
     
     if ($auth_data['rp']) {	            
