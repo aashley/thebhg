@@ -43,18 +43,18 @@ function output() {
     }
     
     if (isset($_REQUEST['delete'])){
-	    if ($_REQUEST['confirm']){
-		    if ($character->ValidLoad($_REQUEST['sheet'])){
+	    if ($character->ValidLoad($_REQUEST['sheet'])){
+		    if ($_REQUEST['confirm']){
 			    echo $character->DeleteBackup($_REQUEST['sheet']);
 			    hr();		
-		    }     
-	    } else {
-		    $form = new Form($page);
-		    $form->AddHidden('sheet', $_REQUEST['sheet']);
-		    $form->AddHidden('confirm', 1);
-		    echo '<input type="submit" name="delete" value="Confirm Delete">';
-		    $form->EndForm();
-		    $show = false;
+		    } else {
+			    $form = new Form($page);
+			    $form->AddHidden('sheet', $_REQUEST['sheet']);
+			    $form->AddHidden('confirm', 1);
+			    echo '<input type="submit" name="delete" value="Confirm Delete">';
+			    $form->EndForm();
+			    $show = false;
+		    }
 	    }
     }
     
