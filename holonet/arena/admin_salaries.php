@@ -24,17 +24,13 @@ function output() {
 	}
 	elseif ($_REQUEST['submit']) {
 		$startut = parse_date_box('start');
-		$endut = parse_date_box('end') + 86399;
-
-	    $start = new Date();
-	    $start->setDate($startut, DATE_FORMAT_UNIXTIME);
-	
-	    $end = new Date();
-	    $end->setDate($endut, DATE_FORMAT_UNIXTIME);
-	
-	    $cobo = $arena->GetPayData($startut, $endut, 'solo_comissioners');
-	    $dm = $arena->GetPayData($startut, $endut, 'dojo_masters');
-	    $bitches = $cobo+$dm;
+		$endut = parse_date_box('end');
+		$tables = array('solo_comissioners', 'dojo_masters', 'commentator', 'mission', 'overseer', 'rangers', 'registrar', 'skippers', 'stewards');
+		$bitches = array();
+		
+		foreach ($tables as $table){
+			$bitches += $arena->GetPayData($startut, $endut, $table);
+		}
 	    $aides = array();
 	    
 	    foreach ($bitches as $pay){
@@ -65,8 +61,8 @@ function output() {
 				$hunter = $roster->GetPerson($rid);
 				$form->AddTextBox($hunter->GetName(), "aides[$rid]", $credits);
 			}
-			$form->AddSubmitButton('submit', 'Pay Salaries');
-			$form->EndForm();
+		$form->AddSubmitButton('submit', 'Pay Salaries');
+		$form->EndForm();
 	}
 	else {
 		$last_month_start = mktime(0, 0, 0, date('m') - 1, 1, date('Y'));

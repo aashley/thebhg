@@ -97,6 +97,19 @@
 	    return $return;
     }
     
+    function GetPayData($start, $end, $table){
+	    $table = "`arena_$table`";
+	    $sql = "SELECT * FROM $table WHERE (`end_date` = 0 OR `end_date` <= '$end' OR `end_date` >= '$start') AND `start_date` <= '$end_date'";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[] = array('end_date'=>$info['end_date'], 'start_date'=>$info['start_date'], 'bhg_id'=>$info['bhg_id']);
+	    }
+	    
+	    return $return;
+    }
+    
     function GetPolls($rpa = array(), $edits = 1){
 	    $rp = '';
 	    $rps = array();
