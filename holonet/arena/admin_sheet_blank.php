@@ -30,7 +30,7 @@ function output() {
 			echo 'Character has a sheet.';
 		}
     }
-    elseif ($_REQUEST['next'){
+    elseif ($_REQUEST['next']){
 	    $form = new Form($page);
 		$form->StartSelect('Choose Hunter', 'person');
 		$kab = new Division($_REQUEST['kabal']);
