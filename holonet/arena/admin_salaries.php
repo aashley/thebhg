@@ -37,7 +37,7 @@ function output() {
 		    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 			    $time = $pay['start_date'] - $endut;
 		    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
-			    $time = $endut - $startut;
+			    $time = $startut - $endut;
 		    } else {
 			    if ($pay['start_date'] > $startut){
 				    $time = $pay['end_date'] - $starut;
@@ -50,7 +50,7 @@ function output() {
 	    	
 	    	$creds = round(($time / ($endut - $startut)) * 350000);
 	
-	      	if (isset($hunters[$hunter->GetID()])) {
+	      	if (isset($aides[$pay['bhg_id']])) {
 	        	$aides[$pay['bhg_id']] += $creds;
 	      	} else {
 	        	$aides[$pay['bhg_id']] = $creds;
