@@ -90,6 +90,10 @@ function atn_nav(){
     echo '&nbsp;<a href="' . internal_link('atn_lw') . '">Contracts</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_lw_ladder') . '">Ladder</a><br />';
     
+    echo '<br />Run-Ons<br />';
+    echo '&nbsp;<a href="' . internal_link('atn_ro') . '">Run-Ons</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_ro_ladder') . '">Ladder</a><br />';
+    
     echo '<br />IRC Arena<br />';
     echo '&nbsp;<a href="' . internal_link('atn_irca') . '">Matches</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_irca_ladder') . '">Ladder</a><br />';
@@ -201,6 +205,7 @@ function get_auth_data($hunter) {
         $auth_data['star'] = true;
         $auth_data['dojo'] = true;
         $auth_data['sheet'] = true;
+        $auth_data['ro'] = true;
     } else {
         $auth_data['rp'] = false;
         $auth_data['solo'] = false;
@@ -212,7 +217,8 @@ function get_auth_data($hunter) {
         $auth_data['citadel'] = false;
         $auth_data['star'] = false; 
         $auth_data['dojo'] = false;  
-        $auth_data['sheet'] = false;  
+        $auth_data['sheet'] = false; 
+        $auth_data['ro'] = false; 
     }
     
     if ($pos->GetID() == 7 || $pos->GetID() == 3) {
@@ -333,7 +339,7 @@ function admin_footer($auth_data) {
     if ($auth_data['rp']) {    
 
         echo '<br />Arena&nbsp;System<br />';
-        echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Matches</a><br />';
+        //echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Matches</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_complete') . '">Complete&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_editor') . '">Edit&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_post') . '">Post&nbsp;New&nbsp;Match</a><br />';
@@ -370,6 +376,14 @@ function admin_footer($auth_data) {
     	echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
         
     } 
+    
+    if ($auth_data['ro']){
+	    echo '<br />Run&nbsp;On&nbsp;System<br />';
+        echo '&nbsp;<a href="' . internal_link('admin_ro_new') . '">Make&nbsp;New&nbsp;Run-On</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_ro_edit') . '">Edit&nbsp;a&nbsp;Run-On</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_ro_post') . '">Post&nbsp;a&nbsp;Run-On</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_ro_complete') . '">Complete&nbsp;Run-On</a><br />';
+    }
     
     if ($auth_data['dojo']){
 	    echo '<br />Dojo&nbsp;of&nbsp;Shadows<br />';

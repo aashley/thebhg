@@ -30,6 +30,7 @@ function output() {
 	    $lw = new LW_Solo();
 	    $ttg = new TTG();
 	    $tempy = new Tempy();
+	    $ro = new RODetails();
 	
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
 	    
@@ -49,12 +50,14 @@ function output() {
 	    $lwr = $lw->Search($hunter->GetID());
 	    $irr = $irca->Search($hunter->GetID());
 	    $tgc = $ttg->QueueHistory($hunter->GetID());
+	    $rod = $ro->Search($hunter->GetID());
 	    
 	    if ($arr){ $table->AddRow('Arena Ladder Rank:', $arr); }
 	    if ($sar){ $table->AddRow('Starfield Arena Ladder Rank:', $sar); }
 	    if ($sor){ $table->AddRow('Solo Mission Ladder Rank:', $sor); }
 	    if ($lwr){ $table->AddRow('Lone Wolf Mission Ladder Rank:', $lwr); }
 	    if ($irr){ $table->AddRow('IRC Arena Ladder Rank:', $irr); }
+	    if ($rod){ $table->AddRow('Run On Ladder Rank:', $rod); }
 	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', pluralise('Time', $tgc)); }
 	    
 	    $plural = '';

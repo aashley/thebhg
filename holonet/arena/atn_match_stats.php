@@ -27,6 +27,7 @@ function output() {
 	    $solo = new Hunter($hunter->GetID());
 	    $irca = new IRCAStats($hunter->GetID());
 	    $lw = new LW_Hunter($hunter->GetID());
+	    $ro = new ROStats($hunter->GetID());
 	
 	    if ($arena_ladder->GetMatches()){
 		    $table = new Table();
@@ -96,6 +97,8 @@ function output() {
 		    $table->AddRow('Experience Points Awarded:', number_format($comish->GetXP()));
 		    $table->EndTable();
 		    echo '<br />';
+		    
+		    hr();
 	    }		
 	    
 	    if ($solo->GetContracts()){
@@ -121,6 +124,8 @@ function output() {
 		    }
 		
 		    $table->EndTable();
+		    
+		    hr();
 	    }
 	    
 	    if ($lw->GetContracts()){
@@ -162,6 +167,35 @@ function output() {
 	    	foreach($irca->ReadMatches() as $value){
 		       $fighter = new IRCAFighter($hunter->GetID(), $value->GetID());
 	     	   $table->AddRow('Match '.$value->GetID(), $fighter->GetResult(), '<a href="' . internal_link('atn_irca_match', array('id'=>$value->GetID())) . '">ATN Stats</a>');
+	    	}
+		
+		    $table->EndTable();
+	
+		    hr();
+		}
+		
+		if ($ro->GetRunOns()){
+		    $table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Run-On Stats', 2);
+		    $table->EndRow();
+		    $table->AddRow('Run-Ons:', $ro->GetRunOns());
+		    $table->AddRow('Run-On Credits:', number_format($ro->GetCredits()).' Imperial Credits');
+		    $table->AddRow('Run-On Experience Points:', number_format($ro->GetXP()));
+		    $table->AddRow('Run-On Posts:', number_format($ro->GetPosts()));
+		    $table->AddRow('Hunter\'s Crosses:', number_format($ro->GetMedals()));
+		    $table->EndTable();
+		    
+		    echo '<br /><a name="matches"></a>';
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('Run-Ons', 3);
+		    $table->EndRow();
+		
+	    	$table->AddRow('Run On', 'Result', 'Links');
+	
+	    	foreach($ro->ReadRunOns() as $value){
+	     	   $table->AddRow($value->GetName(), $value->GetStatus(), '<a href="' . internal_link('atn_run_on', array('id'=>$value->GetID())) . '">ATN Stats</a> | '.$value->ArenaLink());
 	    	}
 		
 		    $table->EndTable();

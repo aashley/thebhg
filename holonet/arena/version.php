@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.7.5";
+    echo "Current version: v1.8";
     
     hr();
     
@@ -24,11 +24,11 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: DK rewrote intros for me. Hooray. Updated a few features, namely the ACN, Dojo of Shadows, and Bounty Office. The AMS now runs exclusivly off the Character Sheet standard, meaning you can't challenge nor be challenged without a character sheet. Additionally, all challenges made will be in the Dojo of Shadows, unless you are a listed graduate of the Dojo. To check your status, check both the Graduate and Learner list in the ATN Dojo of Shadows.";
+    echo "Version Comments: Added the new Run-On system. It has the potential built in to eventually get an Arena Aide position, but I'm holding off on that for a good while. Anyway, enjoy.";
     
     hr();
     
-    echo "Last Update: October 7, 2004";
+    echo "Last Update: October 9, 2004";
     
     hr();
     

@@ -67,4 +67,10 @@ include_once 'character.inc';
 
 include_once 'article.inc';
 
+include_once 'ro.inc';
+include_once 'run_on_stats.inc';
+include_once 'run_on.inc';
+include_once 'run_on_hunter.inc';
+include_once 'run_on_details.inc';
+
 ?>

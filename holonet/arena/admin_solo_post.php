@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Solo Mission :: Contract Poster';
+    return 'Administration :: Run-Ons :: Run-On Poster';
 }
 
 function auth($person) {
@@ -8,7 +8,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['solo'];
+    return $auth_data['ro'];
 }
 
 function output() {
@@ -16,6 +16,8 @@ function output() {
 
     arena_header();
 
+    $ro = new RO();
+    
     $solo = new Solo();
     if (isset($_REQUEST['contract_id'])){
 	    $contract = new Contract($_REQUEST['contract_id']);
