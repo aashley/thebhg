@@ -80,7 +80,7 @@ if ($_REQUEST['submit']){
 		    } else {
 			    echo 'You do not have at least a '.$_REQUEST['txt_'.$name].' in '.$retrn->GetName().'.';
 		    }
-		    echo '<br />';
+		    echo '&lt;br />';
 	    }
 	    
 	} elseif ($_REQUEST['next']){
