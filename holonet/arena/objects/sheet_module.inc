@@ -108,12 +108,20 @@
 	    $sql = "SELECT * FROM `character_sheets` ORDER BY `pending` ASC, `approved` ASC, `last_change` DESC";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
+	    $end[] = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
-		    $return[] = new Character($info['bhg_id']);
+		    $new = new Character($info['bhg_id']);
+		    if ($info['approved']){
+			    $end[] = $new;
+		    } else {
+			    $return[] = $new;
+		    }
 	    }
 	    
-	    return $return;
+	    $output = $return+$end;
+	    
+	    return $output;
     }
     
     function HasSheet($bhg_id){
