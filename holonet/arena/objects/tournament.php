@@ -9,10 +9,9 @@
 	 
     function Tournament($activity, $id = 0){
         Arena::Arena();
-        
+        $this->activity = $activity;
         $this->CurrentSeason($id);
         $this->DoubleElim($id);
-        $this->activity = $activity;
     }
     
 	function Seasons(){
@@ -29,16 +28,13 @@
     
     function CurrentSeason($old = 0){
         if ($old){
-	        echo 'Retarded';
             $this->season = $old;
         } else {
-	        echo 'Assfuck';
             $sql = "SELECT * FROM `ams_tourney_dates` WHERE `activity` = '".$this->activity."' ORDER BY `start` DESC LIMIT 1";
             $query = mysql_query($sql, $this->holonet);
             $info = mysql_fetch_array($query);
-
+			
             $this->season = $info['id'];
-            echo $this->season;
         }
 
         return $this->season;
