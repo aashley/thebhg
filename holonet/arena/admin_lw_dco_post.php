@@ -25,7 +25,8 @@ function output() {
     if (isset($_REQUEST['next'])) {
         $person = $contract->GetHunter();
 
-        echo '[b]Contract Issued To[/b]: '.$person->GetName();
+        echo $contract->GetLink();
+        echo '<br />[b]Contract Issued To[/b]: '.$person->GetName();
         echo '<br />Must be completed by: '.$contract->GetTimeframe();
 
         hr();
