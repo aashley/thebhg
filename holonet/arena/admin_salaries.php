@@ -25,7 +25,7 @@ function output() {
 	elseif ($_REQUEST['submit']) {
 		$startut = parse_date_box('start');
 		$endut = parse_date_box('end');
-		$tables = array('solo_comissioners', 'dojo_masters', 'commentator', 'mission', 'overseer', 'rangers', 'registrar', 'skippers', 'stewards');
+		$tables = array('skippers', 'stewards');
 		$bitches = array();
 		
 		foreach ($tables as $table){
