@@ -1,5 +1,5 @@
 <?php
-define('VERSION', '1.1.0-pre');
+define('VERSION', '1.1.0');
 
 ob_start();
 header('Content-Type: text/html; charset=UTF-8');
