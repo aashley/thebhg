@@ -61,6 +61,7 @@ function output() {
                 $combatants = $value->GetContenders();
                 $weapon = $value->GetWeaponType();
                 $location = $value->GetLocation();
+                print_r($combatants);
                 $challenger = new Person($combatants[0]);
                 $challengee = new Person($combatants[1]);
 
