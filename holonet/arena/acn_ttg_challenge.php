@@ -30,8 +30,6 @@ function output() {
 			    echo "You can't run the Gauntlet if you're in the Gauntlet...";
 			    
 		} else {
-	    
-		    echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 		
 		    $me = $citadel->GetPersonsResults($hunter, CITADEL_PASSED);
 		    $mytest = array();
