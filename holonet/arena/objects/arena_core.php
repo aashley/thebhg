@@ -35,14 +35,15 @@
 	    	
 	    $query = mysql_query($sql, $this->holonet);
 	    $return = array();
+	    $work = array();
 	    
 	    echo mysql_error($this->holonet);
 	    
 	    while ($info = mysql_fetch_assoc($query)){
 		    $outcome = new Obj('ams_specifics', $info['outcome'], 'holonet');
 		    $return[$info['bhg_id']]['points'] += $outcome->Get(points);
-		    $return[$info['bhg_id']]['xp'] += $info['xp'];
-		    $return[$info['bhg_id']]['creds'] += $info['creds'];
+		    $return[$info['bhg_id']]['points'] += $info['xp']/5;
+		    $return[$info['bhg_id']]['points'] += $info['creds']/10;
 		    $return[$info['bhg_id']]['medals'] += ($info['medal'] ? 1 : 0);
 	    }
 	    
