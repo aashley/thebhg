@@ -243,7 +243,7 @@ function output() {
 			    
 			    if (count($work)){
 				    $table->StartRow();
-				    $table->AddHeader($build->Get(name), 2);
+				    $table->AddHeader($build->Get(name), 3);
 				    $table->EndRow();
 				    
 				    foreach ($work as $bld){

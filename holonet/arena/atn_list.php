@@ -39,7 +39,7 @@ function output() {
 		
 		foreach ($current as $obj){
 			$hunter = new Person($obj->Get(bhg_id));
-			$table->AddRow($hunter->GetName(), '<a href="'.internal_link($page, array('op'=>'de', 'go'=>$obj->Get(id), 'id'=>$_REQUEST['id'])).'">Remove</a>');
+			$table->AddRow('<a href="'.internal_link('atn_general', array('id'=>$hunter->GetID())).'">'.$hunter->GetName().'</a>');
 			$last_type = $obj->Get(type);
 		}
 		
