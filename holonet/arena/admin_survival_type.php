@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Contract Type Editor';
+    return 'Administration :: Survival Missions :: Mission Type Editor';
 }
 
 function auth($person) {

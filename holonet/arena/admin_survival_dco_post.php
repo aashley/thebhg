@@ -50,7 +50,7 @@ function output() {
         if ($contract->DeDCO()){
 	        if ($contact = $contract->GetHunter()){
 		        $contact->Notify($_REQUEST['mbid']);
-            	echo "Contract process completed.";
+            	echo "Mission process completed.";
         	} else {
 	        	NEC(186);
         	}

@@ -24,7 +24,7 @@ function output() {
 		$form->AddSectionTitle('Stats for '.$_REQUEST['name']);
 		$form->table->AddRow('Stat Name', 'Stat Value');
 		$form->table->StartRow();
-		$form->table->AddHeader('Barbed Tail: Melee');
+		$form->table->AddHeader('[EXAMPLE] Barbed Tail: Melee');
 		$form->table->AddHeader('6');
 		$form->table->EndRow();
 		for ($i = 1; $i <= $_REQUEST['stats']; $i++){

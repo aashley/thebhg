@@ -150,7 +150,7 @@ function output() {
 			$form->table->AddCell($cell);
 	
 			$form->table->EndRow();
-        $form->AddSubmitButton('submit', 'Reassign Contract');
+        $form->AddSubmitButton('submit', 'Reassign Mission');
         $form->EndForm();
     }
     elseif (isset($_REQUEST['submit'])) {

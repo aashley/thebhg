@@ -28,7 +28,7 @@ function output() {
 
         echo $contract->GetLink();
         echo '<br />[b]Mission Retired[/b]';
-        echo '<br />Available in the Dead Contract Office';
+        echo '<br />Available as a Failed Mission';
 
         hr();
 

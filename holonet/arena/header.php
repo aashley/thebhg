@@ -152,6 +152,7 @@ function atn_nav(){
     echo '&nbsp;<a href="' . internal_link('atn_solo_ladder') . '">Solo Missions Ladder</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_lw_ladder') . '">Lone Wolf Ladder</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_ro_ladder') . '">Run-On Ladder</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_survival_ladder') . '">Survival Missions Ladder</a><br />';
 	
 	echo '<br />History<br />';
 	echo '&nbsp;<a href="' . internal_link('atn_arena') . '">Arena Matches</a><br />';
@@ -160,6 +161,7 @@ function atn_nav(){
 	echo '&nbsp;<a href="' . internal_link('atn_solo') . '">Solo Contracts</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_lw') . '">Lone Wolf Contracts</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_ro') . '">Run-Ons</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_survival') . '">Survival Missions</a><br />';
     
     echo '<br />Hunter Lists<br />';
 	echo '&nbsp;<a href="' . internal_link('atn_dojo') . '">Dojo&nbsp;Learners</a><br />';
@@ -476,12 +478,12 @@ function admin_footer($auth_data) {
 	    echo '<br />Survival&nbsp;Missions<br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_survival_creature') . '">Creature&nbsp;Maker</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_complete') . '">Complete&nbsp;a&nbsp;Mission</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Missions</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_dco') . '">Declare&nbsp;Dead&nbsp;Mission</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_reassign') . '">Manage&nbsp;Failed&nbsp;Missions</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco') . '">Declare&nbsp;Failed&nbsp;Mission</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_editor') . '">Edit&nbsp;Missions</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_approve') . '">Process&nbsp;Requested&nbsp;Mission</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_post') . '">Post&nbsp;New&nbsp;Mission</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Mission</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_post') . '">Post&nbsp;Requested&nbsp;Failed&nbsp;Mission</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_retire') . '">Process&nbsp;Retired&nbsp;Mission</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_type') . '">Edit&nbsp;Types</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_grade') . '">Edit&nbsp;Grades</a><br />';

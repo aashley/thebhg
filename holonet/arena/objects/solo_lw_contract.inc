@@ -214,15 +214,10 @@
 	    return $return;
     }
 
-    function Edit($bhg_id, $mbid){
+    function Edit($mbid){
         $sql = "UPDATE `arena_lw_contracts` SET ";
         $add = array("`id` = '".$this->contract_id."'");
         $return = "";
-
-        if ($bhg_id != $this->contract_bhg_id){
-            array_push($add, "`bhg_id` = '$bhg_id'");
-            $return .= "Hunter Edited.<br />";
-        }
 
         if ($mbid != $this->contract_mb_id){
             array_push($add, "`mb_id` = '$mbid'");

@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Dead Contract';
+    return 'Administration :: Survival Missions :: Failed Mission';
 }
 
 function auth($person) {
@@ -37,7 +37,7 @@ function output() {
 	            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
 	        }
 	        $form->EndSelect();
-	        $form->AddSubmitButton('submit', 'Mark as a Dead Contract');
+	        $form->AddSubmitButton('submit', 'Mark as a Failed Mission');
 	        $form->EndForm();
 	    } else {	        
 	        echo "No Pending Missions.";	        

@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Contract Poster';
+    return 'Administration :: Survival Missions :: Mission Poster';
 }
 
 function auth($person) {
@@ -107,7 +107,7 @@ function output() {
 		        if ($hunter){
 			        $name = $hunter->GetName();
 		        } else {
-			        $name = "Dead Contract";
+			        $name = "Failed Mission";
 		        }
 		        $type = $value->GetType();
 	            $form->AddOption($value->GetID(), $type->GetName()." Mission ".$value->GetContractID()." - ".$name);

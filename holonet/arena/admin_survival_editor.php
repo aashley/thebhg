@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Contract Editor';
+    return 'Administration :: Survival Missions :: Mission Editor';
 }
 
 function auth($person) {
@@ -34,9 +34,14 @@ function output() {
         $form->table->AddCell('Message Board ID:');
         $form->table->AddCell('<input type="text" name="mbid" value="'.$contract->GetMBID().'" size="10">');
         $form->table->EndRow();
-        $form->StartSelect('Hunter:', 'bhg_id', $contract->GetBHGID());
-        hunter_dropdown($form);
-        $form->EndSelect();
+        $type = $contract->GetType();
+	    $creatures = $solo->Creatures($type->GetID());
+	    $npc = $contract->GetNPC();
+	    $form->StartSelect('Creature', 'creature', $npc->GetID());
+	    foreach ($creatures as $creature){
+		    $form->AddOption($creature->GetID(), $creature->GetName());
+	    }
+	    $form->EndSelect();
         $form->StartSelect('Type:', 'type', $type->GetID());
         foreach ($solo->Types() as $value) {
             $form->AddOption($value->GetID(), $value->GetName());
@@ -47,7 +52,7 @@ function output() {
         $form->EndForm();
     }
     elseif (isset($_REQUEST['submit'])) {
-        $edit = $contract->Edit($_REQUEST['bhg_id'], $_REQUEST['type'], $_REQUEST['mbid']);
+        $edit = $contract->Edit($_REQUEST['type'], $_REQUEST['mbid']);
         print_r($edit);
     }
     else {

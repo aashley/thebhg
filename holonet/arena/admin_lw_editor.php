@@ -33,15 +33,12 @@ function output() {
         $form->table->AddCell('Message Board ID:');
         $form->table->AddCell('<input type="text" name="mbid" value="'.$contract->GetMBID().'" size="10">');
         $form->table->EndRow();
-        $form->StartSelect('Hunter:', 'bhg_id', $contract->GetBHGID());
-        hunter_dropdown($form);
-        $form->EndSelect();
 
         $form->AddSubmitButton('submit', 'Edit Contract');
         $form->EndForm();
     }
     elseif (isset($_REQUEST['submit'])) {
-        $edit = $contract->Edit($_REQUEST['bhg_id'], $_REQUEST['mbid']);
+        $edit = $contract->Edit($_REQUEST['mbid']);
         print_r($edit);
     }
     else {

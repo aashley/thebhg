@@ -227,15 +227,10 @@
 
     }
 
-    function Edit($bhg_id, $type, $mbid){
+    function Edit($type, $mbid){
         $sql = "UPDATE `arena_solo_contracts` SET ";
         $add = array("`id` = '".$this->contract_id."'");
         $return = "";
-
-        if ($bhg_id != $this->contract_bhg_id){
-            array_push($add, "`bhg_id` = '$bhg_id'");
-            $return .= "Hunter Edited.<br />";
-        }
 
         if ($type != $this->contract_type){
             array_push($add, "`type` = '$type'");

@@ -325,6 +325,11 @@
         return $details->Contracts();
     }
     
+    function SurvivalContracts(){
+        $details = new Survival();
+        return $details->Contracts();
+    }
+        
     function LWContracts(){
         $details = new LW_Solo();
         return $details->Contracts();
@@ -347,6 +352,11 @@
 
     function SoloLadder(){
         $details = new Solo();
+        return $details->Build();
+    }
+    
+    function SurvivalLadder(){
+        $details = new Survival();
         return $details->Build();
     }
     

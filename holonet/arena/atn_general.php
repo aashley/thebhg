@@ -33,6 +33,7 @@ function output() {
 	    $ttg = new TTG();
 	    $tempy = new Tempy();
 	    $ro = new RODetails();
+	    $survival = new Survival();
 	    $rewards = array();
 	
 	    $comiss = new Comissioner($hunter->GetID());
@@ -93,6 +94,7 @@ function output() {
 	    $irr = $irca->Search($hunter->GetID());
 	    $tgc = $ttg->QueueHistory($hunter->GetID());
 	    $rod = $ro->Search($hunter->GetID());
+	    $sur = $survival->Search($hunter->GetID());
 	    
 	    if ($arr){ $table->AddRow('Arena Ladder Rank:', $arr); }
 	    //if ($sar){ $table->AddRow('Starfield Arena Ladder Rank:', $sar); }
@@ -101,6 +103,7 @@ function output() {
 	    if ($irr){ $table->AddRow('IRC Arena Ladder Rank:', $irr); }
 	    if ($rod){ $table->AddRow('Run On Ladder Rank:', $rod); }
 	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', pluralise('Time', $tgc)); }
+	    if ($sur){ $table->AddRow('Survival Mission Ladder Rank:', $sur); }
 
 	    $table->EndTable();
 	    

@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Complete Contract';
+    return 'Administration :: Survival Missions :: Complete Mission';
 }
 
 function auth($person) {

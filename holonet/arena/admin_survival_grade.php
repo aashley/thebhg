@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Contract Grade Editor';
+    return 'Administration :: Survival Missions :: Mission Grade Editor';
 }
 
 function auth($person) {
