@@ -24,6 +24,7 @@ function output() {
     $person = array();
     
     for ($i = 0; $i < 2; $i++){
+	    $value = $keys[$i];
 	    $person[$i] = $roster->GetPerson($value);
     }
     
