@@ -13,6 +13,7 @@ function output() {
     echo "Navigation: <br />";
     acn_nav();
     hr();
+    
     arena_footer();
 }
 ?>
