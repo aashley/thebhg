@@ -150,7 +150,7 @@
 	    $roster = new Roster();
 	    
         $reports = mysql_query('SELECT * FROM arena_reports WHERE admin="' . $posi . '" ORDER BY time DESC LIMIT 1', $this->connect);
-			$table = new Table($this->ArenaPosition($posi).' Report');
+			$table = new Table('<a href="'.internal_link('view_reports', array('position'=>$report['admin'])).'">'.$arena->ArenaPosition($report['admin']).'</a> Report');
 		if ($reports && mysql_num_rows($reports)) {
 			$table->StartRow();
 			$table->AddHeader('Latest');

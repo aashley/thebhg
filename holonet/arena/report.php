@@ -12,7 +12,7 @@ function output() {
 	if ($result && mysql_num_rows($result)) {
 		$report = mysql_fetch_array($result);
 		$author = $roster->GetPerson($report['author']);
-		$pos_text = $arena->ArenaPosition($report['admin']);
+		$pos_text = '<a href="'.internal_link('view_reports', array('position'=>$report['admin'])).'">'.$arena->ArenaPosition($report['admin']).'</a>';
 		if ($report['html']) {
 			$text = nl2br(stripslashes($report['report']));
 		}
