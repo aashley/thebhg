@@ -39,6 +39,7 @@ function output() {
 		} else {
 			echo 'Bans added.';
 		}
+		hr();
     }
     
     $kabals_result = $roster->GetDivisions();
