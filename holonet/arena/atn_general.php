@@ -164,7 +164,6 @@ function output() {
 			    }
 			    
 			    $table->EndTable();
-			    hr();
 		    }
 		    echo '</td><td align="center"><div style="text-align: left">';
 		    if (count($reports)) {
@@ -187,6 +186,10 @@ function output() {
 			$table->EndTable();
 		
 		    echo '</div></td></tr></table>';
+		    
+		    if (count($saves) || count($reports)){
+			    hr();
+		    }
 	    
 	    $character->ParseSheet();
 	    
