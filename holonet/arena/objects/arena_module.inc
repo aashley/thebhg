@@ -413,6 +413,10 @@
         return new LW_Contract($id);
     }
 
+    function SurvivalContract($id){
+        return new SurvivalContract($id);
+    }
+    
     function Date2Unix($date, $seperator = "-"){
         $unix = explode($seperator, $date);
 
