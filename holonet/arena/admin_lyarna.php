@@ -38,7 +38,6 @@ function output() {
 			    
 			    if ($sets){ 
 				    $sql = "UPDATE " . $_REQUEST['table'] . " SET $sets WHERE `id` = '".$_REQUEST['property'.$i]."'";
-				    echo $sql;
 		            if (!mysql_query($sql, $lyarna)) {
 		                $error = true;	                
 		            }
@@ -109,7 +108,7 @@ function output() {
 
 			$form->table->AddCell("<select name=\"position$i\">"
 	        ."<option value=\"-1\">N/A</option>$positions</select>");
-			$form->table->AddCell('<input type="text" name="person'.$i.'" size="5">');
+			$form->table->AddCell('<select name="person'.$i.'">'.hunter_dropdown($form).'</select>');
 			$form->table->EndRow();
 			$i++;
         }
