@@ -59,7 +59,7 @@ function output() {
 			    $table->StartRow();
 			    $table->AddCell(($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
 			    $type = new Obj('ams_activities', $match->Get(type), 'holonet');
-			    $table->AddCell('<a href="'.internal_link(atn_activity, array('id'=>$match->Get(id))).'">'.$type->Get(name).'</a>');
+			    $table->AddCell('<a href="'.internal_link(atn_activity, array('id'=>$type>Get(id))).'">'.$type->Get(name).'</a>');
 			    $table->AddCell('<a href="'.internal_link(atn_stats, array('id'=>$match->Get(id))).'">'.($match->Get(name) ? $match->Get(name) : 'No Name').'</a>');
 			    $table->EndRow();
 		    }
