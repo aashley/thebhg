@@ -353,7 +353,7 @@
     
     function GladiusBracket($person, $table){
             $table->StartRow();
-	        $table->AddHeader('<small>Gladius Prime', 2);
+	        $table->AddHeader('<small>Supreme Aviator', 2);
 	        $table->EndRow();
 	        
 	        $table->StartRow();

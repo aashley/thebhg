@@ -353,11 +353,11 @@
     
     function GladiusBracket($person, $table){
             $table->StartRow();
-	        $table->AddHeader('<small>Gladius Prime', 2);
+	        $table->AddHeader('<small>Prize Fighter</small>', 2);
 	        $table->EndRow();
 	        
 	        $table->StartRow();
-	        $table->AddCell('<small><a href="' . internal_link('atn_general', array('id'=>$person->GetID())) . '">' . $person->GetName() . '</a>', 2);
+	        $table->AddCell('<small><a href="' . internal_link('atn_general', array('id'=>$person->GetID())) . '">' . $person->GetName() . '</a></small>', 2);
 	        $table->EndRow();
     }
 
