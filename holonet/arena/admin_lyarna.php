@@ -59,7 +59,7 @@ function output() {
         $form = new Form($page);
         $form->AddHidden('table', $table);
         $locations = mysql_query('SELECT * FROM ' . $table . ' ORDER BY name', $lyarna);        
-        $kabals_result = $roster->GetDivisions()
+        $kabals_result = $roster->GetDivisions();
 	    
 			$kabals = array();
 			$names = array();
