@@ -82,6 +82,8 @@ function output() {
 			
 			if (isset($_REQUEST['buypoint'])){
 				$points = $character->GetExperiencePoints()/350;
+				echo $points;
+				$_REQUEST['points'];
 				if ($points == $_REQUEST['points']){
 					for ($i = 1; $i <= $_REQUEST['points']; $i++){
 						$character->BuyPoint();
