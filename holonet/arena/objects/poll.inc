@@ -314,9 +314,6 @@
 		    $table->AddRow($option->GetQuestion(), $percent.'%');
 	    }
 	    $table->EndTable();
-	    
-	    hr();
-	    echo '<img src="arena/graphs/poll.php?id='.$this->poll_id.'" alt="Poll Graph" width=400 height=300 border=0>';
     }
     
     function Undelete() {
