@@ -50,7 +50,7 @@ function output() {
 		    
 		    foreach ($sheet->SheetHolders() as $character){
 			    
-			    if ($character->Status() == 4){
+			    if ($character->Status('SYSTEM') == 4){
 				    $status = '<b>'.$character->Status('HUMAN').'</b>';
 			    } else {
 				    $status = $character->Status('HUMAN');
