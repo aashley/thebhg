@@ -149,9 +149,9 @@
 	    
 	    $roster = new Roster();
 	    
-        $reports = mysql_query('SELECT * FROM arena_reports WHERE admin="' . $posi . '" ORDER BY time DESC LIMIT 1', $roster->roster_db);
-		if ($reports && mysql_num_rows($reports)) {
+        $reports = mysql_query('SELECT * FROM arena_reports WHERE admin="' . $posi . '" ORDER BY time DESC LIMIT 1', $this->connect);
 			$table = new Table($this->ArenaPosition($posi).' Report');
+		if ($reports && mysql_num_rows($reports)) {
 			$table->StartRow();
 			$table->AddHeader('Latest');
 			$table->AddHeader('Author');
@@ -159,8 +159,10 @@
 			$report = mysql_fetch_array($reports);
 			$author = $roster->GetPerson($report['author']);
 			$table->AddRow('<a href="' . internal_link('report', array('id'=>$report['id']), 'roster') . '">' . date('j F Y', $report['time']) . '</a>', '<a href="' . internal_link('atn_general', array('id'=>$report['author'])) . '">' . $author->GetName() . '</a>');
-			$table->EndTable();
+		} else {
+			$table->AddRow('No new report');
 		}
+		$table->EndTable();
     }
     
     function FictionByPerson($bhg_id) {

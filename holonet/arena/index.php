@@ -47,9 +47,9 @@ $arena->Signature(1)."<p>
 - Adjunct Signature<br />".
 $arena->Signature(0);
     hr();
-$arena->LatestReport(1);
+$arena->LatestReport('ov');
 echo '<br />';
-$arena->LatestReport(0);
+$arena->LatestReport('aj');
     arena_footer();
 }
 ?>
