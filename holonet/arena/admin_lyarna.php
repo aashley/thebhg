@@ -157,7 +157,7 @@ function output() {
 		This page requires JavaScript to function properly.
 		</noscript>
 	<?
-		$form->table->AddRow('Make Change', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
+		$form->table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
 		$i = 0;
 		
         while ($row = mysql_fetch_array($locations)) {
