@@ -22,7 +22,7 @@
     	}
 
     	$irca = new IRCA();
-    	$hc = $irca->CurrentHC();
+    	$hc = new Commentator($irca->CurrentHC());
     	$hc = $hc->GetID();
     	
         $sql = "INSERT INTO `arena_irca_match` (`name`, `type`, `location`, `location_table`, `weapons`, `weapon_type`, `posts`, `date`, `hc`) "
@@ -48,7 +48,7 @@
         $name = $person1->GetName()." vs. ".$person2->GetName();
 
         $irca = new IRCA();
-    	$hc = $irca->CurrentHC();
+    	$hc = new Commentator($irca->CurrentHC());
     	$hc = $hc->GetID();
         
         $sql = "INSERT INTO `arena_irca_match` (`match`, `name`, `type`, `location`, `location_table`, `weapons`, `weapon_type`, `posts`, `date`, `hc`) "
