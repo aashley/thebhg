@@ -16,8 +16,6 @@ function output() {
 
     arena_header();
     
-    if ($pos->GetID() != 11) {
-    
 		$kabals_result = $roster->GetDivisions();
     
 		$kabals = array();
@@ -113,43 +111,16 @@ function output() {
 	<noscript>
 	This page requires JavaScript to function properly.
 	</noscript>
-	<?
-  
-	}	else {
-    
-		$division = $pleb->GetDivision();
-    
-		$plebs = $division->GetMembers('name');
-    
-		foreach ($plebs as $pleb) {
-      
-			$plebs[$pleb->GetName()] = '<option value="'.$pleb->GetID().'">'
-        .$pleb->GetName()."</option>\n";
-        
-		}
-    
-		ksort($plebs);
-    
-	}
-	?>
 	<form name="award" method="post" action="<?=$PHP_SELF?>">
 	<input type="hidden" name="module" value="<?=$module?>">
 	<input type="hidden" name="page" value="<?=$page?>">
 	Reason: <input type="text" name="reason" size=25>
 	<?php
-	if ($pos->GetID() == 11) {
-	?>
-	<br>Dates: <input type="text" name="startdate" size=10>&nbsp;to&nbsp;<input type="text" name="enddate" size=10>
-	<br><br>Hunters Involved: <select name="active[]" size=5 multiple><? echo implode("", $plebs); ?></select><br>(Hold Control to select more than one Hunter.)<br><br>
-	<?php
-	}
   
 	$table = new Table('', true);
   
 	$table->StartRow();
-	if ($pos->GetID() != 11) {
-		$table->AddHeader('Kabal');
-	}
+	$table->AddHeader('Kabal');
 	$table->AddHeader('Person');
 	$table->AddHeader('Credits');
 	$table->EndRow();
@@ -157,27 +128,14 @@ function output() {
 	for ($i = 0; $i < $fields; $i++) {
     
     $table->StartRow();
-    
-		if ($pos->GetID() != 11) {
       
 			$table->AddCell("<select name=\"kabal$i\" "
         ."onChange=\"swap_kabal(this.form, $i)\">"
         ."<option value=\"-1\">N/A</option>$kabals</select>");
-      
-    }
     
 		$cell = "<select name=\"person$i\">";
-    
-		if ($pos->GetID() != 11) {
       
 			$cell .= "<option value=\"-1\">N/A</option>";
-      
-		} else {
-      
-			$cell .= "<option value=\"-1\" selected>N/A</option>\n" 
-        .implode("", $plebs);
-        
-		}
     
 		$cell .= "</select>";
     
