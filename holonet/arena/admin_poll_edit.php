@@ -66,7 +66,7 @@ function output() {
 				if ($optiono->IsDeleted()){
 					$optiono->Undelete();
 				}
-				$optiono->Edit($option);
+				$optiono->Edit($option, $poll->GetID());
 			}
 	    }
 	    
