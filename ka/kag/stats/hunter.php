@@ -17,7 +17,7 @@ if (!$signups) {
 
 $table = new Table('', true);
 
-$result = mysql_query('SELECT kabal FROM kag_signups WHERE person=' . $_REQUEST['id'] . ' GROUP BY kabal', $db);
+$result = mysql_query('SELECT kabal FROM kag_signups WHERE person=' . $hunter->GetID() . ' GROUP BY kabal', $db);
 $kabals = array();
 while ($row = mysql_fetch_array($result)) {
 	$kabal = $roster->GetKabal($row['kabal']);
@@ -38,11 +38,25 @@ foreach ($kabals as $kid=>$name) {
 	$table->EndRow();
 }
 
-$result = mysql_query('SELECT MIN(kag) AS first, MAX(kag) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE person=' . $_REQUEST['id'], $db);
+$maxima = GetKAGMaxima();
+$scaledEvents = 0;
+$scaledTotal = 0;
+foreach (array_unique($maxima) as $points) {
+	$kags = implode(', ', array_keys($maxima, $points));
+	$result = mysql_query("SELECT SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person=" . $hunter->GetID(), $db);
+	if ($result && mysql_num_rows($result)) {
+		$scaledEvents += mysql_result($result, 0, 'events');
+		$scaledTotal += ScalePointsWithMaximum($points, mysql_result($result, 0, 'points'), mysql_result($result, 0, 'events'));
+	}
+}
+$scaledPE = $scaledTotal / $scaledEvents;
+
+$result = mysql_query('SELECT MIN(kag) AS first, MAX(kag) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE person=' . $hunter->GetID(), $db);
 $row = mysql_fetch_array($result);
 $table->AddRow('First KAG:', '<a href="../kag.php?id=' . $row['first'] . '">KAG ' . roman($row['first']) . '</a>');
 $table->AddRow('Most Recent KAG:', '<a href="../kag.php?id=' . $row['last'] . '">KAG ' . roman($row['last']) . '</a>');
 $table->AddRow('Total Points:', '<div style="text-align: right">' . number_format($row['points']) . '</div>');
+$table->AddRow('Total Scaled Points:', '<div style="text-align: right">' . number_format($scaledTotal) . '</div>');
 $table->AddRow('Total Events:', '<div style="text-align: right">' . number_format($row['events']) . '</div>');
 
 $states = array();
@@ -56,6 +70,7 @@ foreach ($signups as $signup) {
 	}
 }
 $table->AddRow('Average Points Per Event:', '<div style="text-align: right">' . number_format($row['points'] / (array_sum($states) - $states[0]), 1) . '</div>');
+$table->AddRow('Average Scaled Points Per Event:', '<div style="text-align: right">' . number_format($scaledPE, 1) . '</div>');
 $table->AddRow('Unmarked Events:', '<div style="text-align: right">' . number_format($states[0]) . '</div>');
 $table->AddRow('Completed Events:', '<div style="text-align: right">' . number_format($states[1] + $states[4]) . '</div>');
 $table->AddRow('DNPs:', '<div style="text-align: right">' . number_format($states[2]) . '</div>');

@@ -51,7 +51,7 @@ class KAGBase {
 	}
 
 	function GetHunterSignups($hunter, $kabal = false) {
-		if (get_class($hunter) == 'person') {
+		if (strtolower(get_class($hunter)) == 'person') {
 			$hunter = $hunter->GetID();
 		}
 		if (is_a($kabal, 'division')) {
@@ -71,6 +71,7 @@ class KAGBase {
 			return $signups;
 		}
 		else {
+			echo mysql_error($this->db);
 			return false;
 		}
 	}
