@@ -1,6 +1,6 @@
 <?
 
- Class Creature extends Solo {
+ Class Creature extends Survival {
 
     var $npc_string;
     var $npc_stats;
