@@ -32,6 +32,7 @@
 	        echo 'Retarded';
             $this->season = $old;
         } else {
+	        echo 'Assfuck';
             $sql = "SELECT * FROM `ams_tourney_dates` WHERE `activity` = '".$this->activity."' ORDER BY `start` DESC LIMIT 1";
             $query = mysql_query($sql, $this->holonet);
             $info = mysql_fetch_array($query);
