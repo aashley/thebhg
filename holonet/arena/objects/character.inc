@@ -698,10 +698,6 @@
 	    
 	    $this->LastID = $id;
 	    
-	    $new = "INSERT INTO `character_sheet_record` VALUES ('', '".$this->GetID()."', '".time()."')";
-	    $store = mysql_query($new, $this->connect);
-	    $sid = mysql_insert_id($this->connect);
-	    
 	    for ($i = 1; $i <= 3; $i++){
 		    foreach($compile[$i] as $key=>$value){
 			    if (is_numeric($value)){
@@ -713,9 +709,6 @@
 			    $sql = "INSERT INTO `character_sheet_cores` VALUES ('".$id."', '$key', '$value')";
 			    if (!mysql_query($sql, $this->connect)){
 				    $errors[] = 'Error Generated During Publish: '.mysql_error($this->connect);
-			    } else {				    
-				    $sql = "INSERT INTO `character_sheet_records` VALUES ('".$sid."', '$key', '$value')";
-				    mysql_query($sql, $this->connect);
 			    }
 		    }
 	    }

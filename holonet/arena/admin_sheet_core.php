@@ -86,6 +86,7 @@ function output() {
 			}
 		} elseif (isset($_REQUEST['view'])){
 			if (isset($_REQUEST['process'])){
+				echo $_REQUEST['sheet'];
 				echo $character->SaveCore($_REQUEST['stat'], $_REQUEST['expr'], $_REQUEST['pers'], $_REQUEST['sheet']);
 				hr();
 				$_REQUEST['sheet'] = $character->LastID;
