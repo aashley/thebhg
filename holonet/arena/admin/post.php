@@ -88,7 +88,7 @@ if ($_REQUEST['match']){
 			$locations = $arena->Locations();
 			
 			($obj->Get(location) ? $form->table->AddRow('Location:', $locations[$obj->Get(location)]) : '');
-			$data = unserialize($match->Get(specifics));
+			$data = unserialize($obj->Get(specifics));
 			
 			$builds = array();
 	    
