@@ -108,7 +108,7 @@ function output() {
 	    if ($rod){ $table->AddRow('Run On Ladder Rank:', $rod); }
 	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', pluralise('Time', $tgc)); }
 	    if ($sur){ $table->AddRow('Survival Mission Ladder Rank:', $sur); }
-	    if (count($bast)){ $table->AddRow('Bastion Challenge:', '<a href="'.internal_link('bastion', array('id'=>$hunter->GetID())).'">Kabal Representative '.pluralise('Time', count($bast)).'</a>'); }
+	    if (is_array($bast)){ $table->AddRow('Bastion Challenge:', '<a href="'.internal_link('bastion', array('id'=>$hunter->GetID())).'">Kabal Representative '.pluralise('Time', count($bast)).'</a>'); }
 
 	    if ($properties){ $table->AddRow('Property in Lyarna:', '<a href="'.internal_link('atn_lyarna', array('id'=>$hunter->GetID())).'">Owns '.pluralise('Piece', $properties).' of Property</a>'); }
 		$table->AddRow('Dojo of Shadows', (in_array($hunter->GetID(), $arena->GetApproved()) ? 'Graduate of' : 'Learner in').' the Dojo of Shadows');
