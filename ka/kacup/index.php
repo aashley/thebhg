@@ -3,7 +3,9 @@ include_once('header.php');
 
 page_header('Index');
 
-echo 'KAC';
+$ladder = new Ladder();
+
+$ladder->GenerateLadder();
 
 page_footer();
 ?>

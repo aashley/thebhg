@@ -18,7 +18,7 @@ $mb = new MedalBoard('kac-34-fear');
 if (empty($subarray)) {
 	$subarray = array(
 		'KAC List'=>'kac/index.php',
-		'Latest KAC'=>'kac/kag.php',
+		'Latest KAC'=>'kac/index.php',
 		'KAC Hall of Fame'=>'kac/hof/index.php',
 		'Statistics'=>'kac/stats/index.php',
 		'Administration'=>'kac/administration/index.php'
