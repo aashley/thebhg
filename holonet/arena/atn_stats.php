@@ -89,7 +89,7 @@ function output() {
 	    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$match->Get(id)))) as $yarm){		   				    
 			$person = new Person($yarm->Get(bhg_id));
 			$table->StartRow();
-			$table->AddHeader($person->Get(name), 2);
+			$table->AddHeader($person->GetName(), 2);
 			$table->EndRow();
 			if ($yarm->Get(outcome)){
 				$spec = new Obj('ams_specifics', $yarm->Get(outcome), 'holonet');
