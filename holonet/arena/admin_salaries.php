@@ -42,12 +42,18 @@ function output() {
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
 				    $time = $endut - $startut;
 			    } else {
-				    $time = 0;
+				    if ($pay['start_date'] < $startut){
+					    $time = $pay['end_date'] - $starut;
+				    } else {
+				    	$time = $pay['end_date'] - $pay['start_date'];
+			    	}
 		    	}
 		    	
 		    	$pp = $endut - $startut;
 		    	
 		    	$time = $time / $pp;
+		    	
+		    	echo round($time).'|';
 		    	
 		    	$creds = round($time * 350000);
 		    	
