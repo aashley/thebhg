@@ -21,6 +21,10 @@ function output() {
     
     arena_header();
     
+    echo '<a href="'.internal_link('atn_general', array('id'=>$character->GetID())).'">Return to '.$character->GetName().'\'s General Tracking.</a>';
+    
+    hr();
+    
     $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
 
 	arena_footer();
