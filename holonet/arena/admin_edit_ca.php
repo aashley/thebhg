@@ -93,7 +93,7 @@ function output() {
 	    
 	    $form->EndForm();
     } else {
-	    $form = new Page($page);
+	    $form = new Form($page);
 	    $form->StartSelect('Attribute', 'ca', $_REQUEST['ca']);
 	    foreach ($sheet->GetCAs() as $id=>$value){
 			$form->AddOption($id, $value['name']);
