@@ -231,14 +231,16 @@
         $build = $this->CaBuild();
         
         $val = $info['value'];
-        foreach ($build as $ref){
-        	foreach ($ref as $call=>$ar){
-	        	if ($call == 'stat'){
-		        	$val += $ar[$info['statribute']];
+        if ($stat->IsInt()){
+	        foreach ($build as $ref){
+	        	foreach ($ref as $call=>$ar){
+		        	if ($call == 'stat'){
+			        	$val += $ar[$info['statribute']];
+		        	}
 	        	}
-        	}
+	    	}
+	    	if ($val > 10){ $val = 10; }
     	}
-    	if ($val > 10){ $val = 10; }
         
         if ($output == 'SHEET'){
 	        if ($stat->IsInt()){
