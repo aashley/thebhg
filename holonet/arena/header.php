@@ -105,30 +105,34 @@ function acn_nav(){
 function atn_nav(){
 	global $roster, $arena;
 	
-	ah('Divisions');
 	$cats = $roster->GetDivisionCategories();
+	$app = array();
     foreach ($cats as $dc) {
         $divs = $dc->GetDivisions();
         foreach ($divs as $div) {
 	        if ($div != 16){
-            	echo '<a href="' . internal_link('atn_division', array('id' => $div->GetID())) . '">' . str_replace(' ', '&nbsp;', $div->GetName()) . '</a><br />';
+            	$app[$div->GetName()] = internal_link('atn_division', array('id' => $div->GetID()));
         	}
         }
     }
+    addMenu('Divisions', $app);
     
     $lists = array();
     $activities = array();
 
     $tables = array(1=>'ams_activities', 0=>'ams_list_types');
+    $app = id;
+    $gblname = '';
     foreach ($tables as $id=>$table){
-	    ah(($id ? 'Activities' : 'Lists'));
+	    $gblname = ($id ? 'Activities' : 'Lists');
 	    foreach ($arena->Search(array('table'=>$table, 'search'=>array('date_deleted'=>'0'))) as $axs){
 		    if ($id){
-			    bli('atn_activity', $axs->Get(name), $axs->Get(id));
+			    $app[$axs->GetName] = internal_link('atn_activity', array('id'=>$axs->Get(id)));
 	    	} else {
-		    	bli('atn_list', $axs->Get(name), $axs->Get(id));
+		    	$app[$axs->GetName] = internal_link('atn_list', array('id'=>$axs->Get(id)));
 	    	}
 	    }
+	    addMenu($gblname, $app);
     }
 }
 
@@ -265,65 +269,44 @@ function get_auth_data($hunter) {
     return $auth_data;
 }
 
-function ah($name){
-	addMenu($name);
-}
-
-function al($page, $name){
-	array($name => internal_link('admin_'.$page));
-}
-
-function bl($page, $name){
-	array($name => internal_link($page));
-}
-
-function bli($page, $name, $id, $idn = 'id'){
-	array($name => internal_link($page, array($idn=>$id)));
-}
-
-function ali($page, $name, $id, $idn = 'id'){
-	array($name => internal_link('admin_'.$page, array($idn=>$id)));
-}
-
 function links($id){
 	global $links;
-	$c = 0;
+	$app = array();
+	$glbname = '';
 	foreach ($links[$id] as $name=>$data){
-		ah($name);
+		$glbname = $name;
 		foreach ($data as $page=>$name){
-			al($page, $name);
-			$c++;
+			$app[$name] = internal_link('admin_'.$page);
 		}
 	}
-	if ($c){
-		echo '<br />';
-	}
+	addMenu($glbname, $app);
 }
 
 function external($auth_data){
-	ah('External Links');
-	bl('acn', 'Pending Challenges');
-	bli('atn_general', 'My Profile', $auth_data['id']);
-	echo '<br />';
+	$app = array();
+	$app['Pending Challenges'] = internal_link('acn');
+	$app['My Profile'] = internal_link('atn_general', array('id']=>$auth_data['id']);
+	addMenu('External Links', $app);
 }
 
 function idlink($id){
 	global $links;
-	$c = 0;
+	$app = array();
+	$glbname = '';
 	foreach ($links[$id] as $name=>$data){
-		ah($name);
+		$glbname = $name;
 		foreach ($data as $page=>$blurb){
 			foreach ($blurb as $id=>$stuff){
 				foreach ($stuff as $idn=>$name){
-					ali($page, $name, $id, $idn);
-					$c++;
+					if (!$idn){
+						$idn = 'id';
+					}
+					$app[$name] = internal_link('admin_'.$page, array($idn=>$id));
 				}
 			}
 		}
 	}
-	if ($c){
-		echo '<br />';
-	}
+	addMenu($glbname, $app);
 }
 
 function admin_footer($auth_data) {
@@ -339,10 +322,6 @@ function admin_footer($auth_data) {
 	} elseif ($posi->GetID() == 9){
 		$tests = $citadel->GetExamsMarkedBy(Adjunct());
 	}
-	
-	echo '</td><td style="border-left: solid 1px black">';
-	
-	echo '<small>';
 	
 	external($auth_data);
 	
@@ -362,12 +341,11 @@ function admin_footer($auth_data) {
 	
 	if ($auth_data['rp']){
 		
-		echo '<b>Pending&nbsp;Citadel&nbsp;Exams</b><br />';
+		$app = array();		
 	    foreach ($tests as $value){
-		    echo '<a target="citadel" href="http://citadel.thebhg.org/admin/grade/'. $value->GetAbbrev() .'">' . $value->CountPending().' '
-		    	.$value->GetAbbrev().' exams</a><br />';
+		    $app[$value->CountPending().' '.$value->GetAbbrev().' exams.'] = 'http://citadel.thebhg.org/admin/grade/'. $value->GetAbbrev();
 	    }
-		echo '<br />';
+		addMenu('Pending&nbsp;Citadel&nbsp;Exams', $app);
 		
 		links(2);
 	}
@@ -379,27 +357,27 @@ function admin_footer($auth_data) {
 	
 	if ($auth_data['aide']){
 		if (count($activities)) { 
-			links(5); 
+			$app = array();
 			foreach ($activities as $obj){
-				ali('activity', $obj->Get(name), $obj->Get(id));
+				$app[$obj->Get(name)] = internal_link('admin_activity', array('id'=>$obj->Get(id)));
 			}
-			echo '<br />';
+			addMenu('Activities', $app);
 			
-			links(11); 
+			links(11);
 		}
 	}
 	
 	if ($auth_data['list']){
 		if (count($lists)) { 
-			links(6); 
-			foreach ($lists as $obj){
-				ali('list', $obj->Get(name), $obj->Get(id));
+			$app = array();
+			foreach ($activities as $obj){
+				$app[$obj->Get(name)] = internal_link('admin_list', array('id'=>$obj->Get(id)));
 			}
-			echo '<br />'; 
+			addMenu('Activities', $app);
 		}
 	}
 
-    echo '</small></td></tr></table>';
+    echo '</table>';
 }
 
 ?>
