@@ -14,6 +14,8 @@ if [[ $# -eq 0 ]]; then
   echo " ka-devel        Kabal Authority Development"
   echo " calypso         BHG Blogs"
 	echo " tactician       Tactician Website"
+	echo " mall            Mall"
+	echo " ircstats        IRC Stats (Hermit)"
 fi
 
 for site in $*; do
@@ -97,6 +99,22 @@ for site in $*; do
 			pushd /home/virtual/thebhg.org/home/katest/public_html > /dev/null
 			$SVN update
 			chown -R 22135:admin5 .
+			popd > /dev/null
+			;;
+
+		mall)
+			echo Updating Mall...
+			pushd /home/virtual/thebhg.org/home/mall/public_html > /dev/null
+			$SVN update
+			chown -R 22136:admin5 .
+			popd > /dev/null
+			;;
+
+		ircstats)
+			echo Updating IRC Stats...
+			pushd /home/virtual/anya/var/www/html > /dev/null
+			$SVN update
+			chown -R 22091:admin5 .
 			popd > /dev/null
 			;;
 
