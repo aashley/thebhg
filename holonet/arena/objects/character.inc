@@ -356,6 +356,8 @@
         	}
     	}
     	
+    	echo $value;
+    	
     	if ($value > 10){ $value = 10; }
     	
         $value = round($output/$denominator);
