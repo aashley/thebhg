@@ -1066,6 +1066,7 @@
 		if (mysql_query($sql, $this->connect)){
 			return true;
 		} else {
+			echo mysql_error($this->connect);
 			return false;
 		}
 	}
