@@ -101,13 +101,13 @@ function output() {
 		    hr();
 		    $table = new Table('', true);
 		    $table->StartRow();
-		    $table->AddHeader('Sheet Backups', 3);
+		    $table->AddHeader('Sheet Backups', 4);
 		    $table->EndRow();
 		    
-		    $table->AddRow('Save Name', 'Date', '&nbsp');
+		    $table->AddRow('Save Name', 'Date', '&nbsp', '&nbsp');
 		    
 		    foreach ($saves as $data){
-			    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>');
+			    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>', ($data['share'] ? '' : '<a href="'.internal_link($page, array('delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>'));
 		    }
 		    
 		    $table->EndTable();

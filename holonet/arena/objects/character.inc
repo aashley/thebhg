@@ -641,15 +641,40 @@
 		}	   
 	}
 	
-	function ValidLoad($id){
+	function ValidLoad($id, $delete = 0){
 		$backups = $this->GetBackups();
 		$backup = $backups[$id];
 		
-		if ($backup){
+		if ($delete){
+			if ($backup['share']){
+				$other = false;
+			} else {
+				$other = true;
+			}
+		} else {
+			$other = true;
+		}
+		
+		if ($backup && $other){
 			return true;
 		} else {
+			if ($delete){
+				if ($backup){
+					echo 'You cannot delete sheets which others have shared with you.';
+				}
+			}
 			return false;
 		}
+	}
+	
+	function DeleteBackup($id){
+		$delsql = "DELETE FROM `character_sheet_backup` WHERE `id` = '".$id."'";
+		    mysql_query($delsql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $delsql = "DELETE FROM `character_sheet_backups` WHERE `id` = '".$id."'";
+		    mysql_query($delsql, $this->connect);
+	    }
 	}
 	
 	function LoadBackup($id){
