@@ -36,7 +36,7 @@ function output() {
 		    	if (!$match->RemoveContender($old)){
 			    	$errors++;
 		    	}
-		    	if ($person){
+		    	if ($person > 0){
 		    		if (!$match->AddContender($person)){
 			    		$errors++;
 		    		}
