@@ -26,7 +26,7 @@ function output() {
 	    }
 	    ksort($fields);
 		reset($fields);
-		print_r($fields);
+		echo $_REQUEST['mod'];
 	    if ($sheet->UpdateSheetMod($_REQEUST['mod'], $_REQUEST['name'], $_REQUEST['desc'], $fields)){
 		    echo 'Modifcation Updated Successfully!';
 	    } else {
