@@ -23,7 +23,13 @@
 
             $this->NotifyComissioner();
 
-           return $id;
+            $sql = "DELETE FROM `arena_lw_request` WHERE `bhg_id` = '$bhg_id'";
+        
+        	if (mysql_query($sql, $this->connect)) {
+           		return $id;
+       		} else {
+	       		return false;
+       		}           
 
         } else {
 
@@ -37,13 +43,9 @@
         $sql = "DELETE FROM `arena_lw_request` WHERE `bhg_id` = '$bhg_id'";
 
         if (mysql_query($sql, $this->connect)) {
-
            return true;
-
         } else {
-
            return false;
-
         }
 
     }
@@ -52,19 +54,9 @@
         $sql = "INSERT INTO `arena_lw_request` VALUES ('$bhg_id')";
 
         if (mysql_query($sql, $this->connect)) {
-
-	        $sql = "DELETE FROM `arena_lw_request` WHERE `bhg_id` = '$bhg_id'";
-        
-        	if (mysql_query($sql, $this->connect)) {
-           		return true;
-       		} else {
-	       		return false;
-       		}
-
+	       return true;
         } else {
-
            return false;
-
         }
 
     }

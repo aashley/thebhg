@@ -22,25 +22,10 @@
 
             $this->NotifyComissioner();
 
-           return $id;
-
-        } else {
-
-           return false;
-
-        }
-
-    }
-    
-    function NewContract($bhg_id, $type){
-        $sql = "INSERT INTO `arena_solo_request` (`type`, `bhg_id`) VALUES ('$type', '$bhg_id')";
-
-        if (mysql_query($sql, $this->connect)) {
-	        
-	        $sql = "DELETE FROM `arena_solo_request` WHERE `type` = '$type' AND `bhg_id` = '$bhg_id'";
+           $sql = "DELETE FROM `arena_solo_request` WHERE `type` = '$type' AND `bhg_id` = '$bhg_id'";
         
         	if (mysql_query($sql, $this->connect)) {
-           		return true;
+           		return $id;
        		} else {
 	       		return false;
        		}
@@ -53,17 +38,24 @@
 
     }
     
+    function NewContract($bhg_id, $type){
+        $sql = "INSERT INTO `arena_solo_request` (`type`, `bhg_id`) VALUES ('$type', '$bhg_id')";
+
+        if (mysql_query($sql, $this->connect)) {	        
+	       return true; 
+        } else {
+           return false;
+        }
+
+    }
+    
     function Deny($bhg_id, $type){
         $sql = "DELETE FROM `arena_solo_request` WHERE `type` = '$type' AND `bhg_id` = '$bhg_id'";
         
         if (mysql_query($sql, $this->connect)) {
-
            return true;
-
         } else {
-
            return false;
-
         }
 
     }
@@ -73,11 +65,8 @@
         $query = mysql_query($sql, $this->connect);
 
         if (mysql_num_rows($query) > 0){
-
             return false;
-
         } else {
-
             $sql = "INSERT INTO `arena_solo_npc` (`id`, `string`) VALUES ('$id', '$string')";
 
             if (mysql_query($sql, $this->connect)) {
