@@ -48,7 +48,7 @@ function output(){
 				$id = $obj->Get(id);
 				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
 				$type = $type->Get(id);
-				$show = $type->Get(ladder);
+				$show = $obj->Get(ladder);
 			}
 			break;
 		}
