@@ -67,6 +67,38 @@
 	    }
     }
     
+    function PollBan($bhg_id, $date){
+	    $sql = "INSERT INTO `arena_poll_bans` VALUES ('$bhg_id', '$date')";
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
+    function PendingPollBans(){
+	    $sql = "SELECT * FROM `arena_poll_bans` WHERE `date` >= '".time()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $person = new Person($info['bhg_id']);
+		    $date = getdate($info['date']);
+		    $return[] = array('person'=>$person, 'date'=>$info['date'], 'wdate'=>$date['month']." ".$date['mday'].", ".$date['year']);
+	    }
+	    
+	    return $return;
+    }
+    
+    function RemovePollBan($bhg_id, $date){
+	    $sql = "DELETE FROM `arena_poll_bans` WHERE `bhg_id` = '$bhg_id' AND `date` = '$date'";
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
     function NEC($error){
 	    return 'System Processing Error - <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/index.php?page=reportbug">Bug Tracker. Module: Holonet - Arena</a></b><br />NEC Error Code: '.$error;
     }
