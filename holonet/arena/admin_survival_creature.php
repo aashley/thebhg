@@ -48,17 +48,10 @@ function output() {
     		}
 	    }
 	    
-	    $id = $solo->NewCreature($stats, $_REQUEST['string']);
-	    
-		if (!$id){
+		if ($solo->NewCreature($stats, $_REQUEST['string'])){
 			NEC(195);
 		} else {
 			echo 'Creature Created.';
-			foreach ($solo->Types() as $type){
-				hr();
-				$creature = new Creature($id, $type->GetID());
-				$creature->BuildSheet();
-			}
 		}
     }
     else {
