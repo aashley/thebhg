@@ -169,7 +169,7 @@
     }
     
     function Build() {
-		$total = "SELECT * FROM `arena_lw_contract` WHERE `bhg_id` > 0";
+		$total = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` > 0";
         $qtotal = mysql_query($total, $this->connect);
         $total = mysql_num_rows($qtotal);
         $sql = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` > 0 ORDER BY `bhg_id` ASC";
@@ -177,6 +177,8 @@
         $return = array();
         $var = array();
 
+        if ($total){ else $total = 1; }
+        
         while ($result = mysql_fetch_array($query)){
             $grade = new Grade($result['grade']);
             $var[$result['bhg_id']][] = $grade->GetPoints();
