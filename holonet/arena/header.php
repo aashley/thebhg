@@ -8,6 +8,7 @@ $roster = new Roster('fight-51-me');
 $arena = new Arena();
 $library = new Library();
 $at = new Tournament();
+$iat = new IRCTournament();
 $citadel = new Citadel();
 $lw = new LW_Solo();
 $sheet = new Sheet();
@@ -26,11 +27,16 @@ function rp_staff($person){
 }
 
 function acn_nav(){
-	global $at, $lw, $person;
+	global $at, $lw, $person, $iat;
 	
 	if ($at->ValidSignup()){
 		echo '<br />Arena Tournament<br />';
 	    echo '&nbsp;<a href="' . internal_link('acn_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br /><br />';
+	}
+	
+	if ($iat->ValidSignup()){
+		echo '<br />IRC Arena Tournament<br />';
+	    echo '&nbsp;<a href="' . internal_link('acn_irc_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br /><br />';
 	}
 	
 	echo '<small>Arena<br />';
@@ -56,12 +62,12 @@ function acn_nav(){
     echo '<br />Twilight Gauntlet<br />';
     echo '&nbsp;<a href="' . internal_link('acn_ttg_challenge') . '">Request&nbsp;Challenge</a><br />';
 
-    //echo '<br />Tempestuous Group<br />';
-    //echo '&nbsp;<a href="' . internal_link('acn_tempy_petition') . '">Admittance&nbsp;Petition</a><br />';
+    /*echo '<br />Tempestuous Group<br />';
+    echo '&nbsp;<a href="' . internal_link('acn_tempy_petition') . '">Admittance&nbsp;Petition</a><br />'; */
 }
 
 function atn_nav(){
-	global $roster, $at;
+	global $roster, $at, $iat;
 	
 	echo '<small>Arena<br />';
 	echo '&nbsp;<a href="' . internal_link('atn_arena') . '">Matches</a><br />';
@@ -96,6 +102,13 @@ function atn_nav(){
 	}
 	echo '&nbsp;<a href="' . internal_link('atn_tournament_archive') . '">Archived Tournaments</a><br />';
 
+	echo '<br />IRC Arena Tournament<br />';
+    echo '&nbsp;<a href="' . internal_link('atn_irc_tournament') . '">Brackets</a><br />';
+    if (count($iat->GetHunters())){
+    	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_signups') . '">Signups</a><br />';
+	}
+	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_archive') . '">Archived Tournaments</a><br />';
+	
     echo '<br />';
 
     echo '&nbsp;<u>Division Tracking</u>';
@@ -320,6 +333,18 @@ function admin_footer($auth_data) {
         echo '<br />IRC&nbsp;Arena&nbsp;System<br />';
         echo '&nbsp;<a href="' . internal_link('admin_irca_pending') . '">Pending&nbsp;Matches</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_irca_complete') . '">Complete&nbsp;Match</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_irca_add_match') . '">Add&nbsp;Match&nbsp;Text</a><br />';
+        
+        echo '<br />IRC Arena&nbsp;Tournament<br />';
+        if (count($at->GetHunters())){
+	        echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
+	        echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_organize') . '">Organize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
+    	}
+    	echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
         
     } 
     

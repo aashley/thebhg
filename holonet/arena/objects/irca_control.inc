@@ -11,7 +11,31 @@
     function LastInsert(){
 	    return $this->new_match_id;
     }
+    
+    function OldMatch($type, $location, $location_table, $weapons, $challenger, $challengee, $weapon_type, $posts, $name){
 
+        $person1 = new Person($challenger);
+        $person2 = new Person($challengee);
+
+        if ($name == 0){
+        	$name = $person1->GetName()." vs. ".$person2->GetName();
+    	}
+
+        $sql = "INSERT INTO `arena_irca_match` (`name`, `type`, `location`, `location_table`, `weapons`, `weapon_type`, `posts`, `date`) "
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$weapon_type', '$posts', '".time()."')";
+                
+        if (mysql_query($sql, $this->connect)) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+    
     function NewMatch($type, $location, $location_table, $weapons, $challenger, $challengee, $weapon_type, $match, $posts){
 
         $person1 = new Person($challenger);

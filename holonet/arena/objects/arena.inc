@@ -1,7 +1,9 @@
 <?
 
 include_once 'arena_module.inc';
+
 include_once 'arena_tournament.inc';
+include_once 'irca_tournament.inc';
 
 include_once 'ladder.inc';
 include_once 'ladder_control.inc';

@@ -129,6 +129,20 @@
 
     }
 
+    function AddMatchText($match){
+		$sql = "UPDATE `arena_irca_match` SET `match` = '".addslashes($match)."' WHERE `id` = '".$this->arena_id."'";
+
+        if (mysql_query($sql, $this->connect)) {
+
+        	return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
 
     function Complete($id, $xp, $creds, $outcome, $date = '0', $comment) {
 	    

@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.2.6";
+    echo "Current version: v1.3";
     
     hr();
     
@@ -16,11 +16,11 @@ function output() {
     
     hr();
     
-    echo "Version Comments: Minor updates, ahoy!";
+    echo "Version Comments: Minor updates and the IRC Arena Tournament backing, ahoy!";
     
     hr();
     
-    echo "Last Update: Updated the IRCA objects to allow for comments by the graders, which is a necessity, due to the IRCA base.";
+    echo "Last Update: Updated the IRCA objects to allow for comments by the graders, which is a necessity, due to the IRCA base. Also, added the IRC Arena Tournament clone of the original functions.";
     
     hr();
     

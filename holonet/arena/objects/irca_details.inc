@@ -7,7 +7,7 @@
     }
 
     function Matches(){
-        $sql = "SELECT * FROM `arena_irca_match` WHERE `date_deleted` = 0 ORDER BY `date` DESC";
+        $sql = "SELECT * FROM `arena_irca_match` WHERE `date_deleted` = 0 AND `match` != '' ORDER BY `date` DESC";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 
@@ -23,7 +23,7 @@
 
     function Build() {
         $sql = "SELECT arena_irca_records.bhg_id, arena_irca_records.outcome FROM arena_irca_records, arena_irca_match WHERE arena_irca_match.id = "
-        		."arena_irca_records.match_id AND arena_irca_match.date_deleted = 0 ORDER BY arena_irca_records.bhg_id";
+        	   ."arena_irca_records.match_id AND arena_irca_match.date_deleted = 0 AND arena_irca_match.match != '' ORDER BY arena_irca_records.bhg_id";
 
         $query = mysql_query($sql, $this->connect);
         $return = array();
