@@ -19,6 +19,7 @@ function output() {
     $solo = new Survival();
     if (isset($_REQUEST['contract_id'])){
 	    $contract = new SurvivalContract($_REQUEST['contract_id']);
+	    $npc = $contract->GetNPC();
     }
 
     
