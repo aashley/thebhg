@@ -169,9 +169,9 @@ function admin_footer($auth_data) {
 	$posi = $person->GetPosition();
 	
 	if ($posi->GetID() == 29) {
-		$tests = $citadel->GetExamsMarkedBy($arena->Overseer());
+		$tests = $citadel->GetExamsMarkedBy(Overseer());
 	} elseif ($posi->GetID() == 9){
-		$tests = $citadel->GetExamsMarkedBy($arena->Adjunct());
+		$tests = $citadel->GetExamsMarkedBy(Adjunct());
 	}
 	
 	echo '</td><td style="border-left: solid 1px black">';
