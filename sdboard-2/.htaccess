@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^favicon.ico - [L]
+RewriteRule ^index.php - [L]
+
+RewriteRule ^(.*) index.php/$1 [PT]
