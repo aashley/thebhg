@@ -104,7 +104,7 @@
 	    return 60;
     }
     
-    function SheetHolders(){
+    function SheetHolders($exclude = 0){
 	    $sql = "SELECT * FROM `character_sheets` ORDER BY `pending` ASC, `approved` ASC, `last_change` DESC";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
@@ -113,12 +113,23 @@
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $new = new Character($info['bhg_id']);
-		    if ($info['approved']){
-			    $end[$i] = $new;
+		    if ($exclude){
+			    if ($new->Includeable()){
+			    	$go = true;
+		    	} else {
+			    	$go = false;
+		    	}
 		    } else {
-			    $return[$i] = $new;
+			    $go = true;
 		    }
-		    $i++;
+		    if ($go){
+			    if ($info['approved']){
+				    $end[$i] = $new;
+			    } else {
+				    $return[$i] = $new;
+			    }
+			    $i++;
+		    }
 	    }
 	    
 	    $output = $return+$end;
@@ -127,10 +138,8 @@
     }
     
     function HasSheet($bhg_id){
-	    $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '$bhg_id' ORDER BY `approved` ASC, `last_change` DESC";
-	    $query = mysql_query($sql, $this->connect);
-	    
-	    return mysql_num_rows($query);
+	    $new = new Character($bhg_id);
+	    return ($new->Includeable() ? true : false);
     }
     
     function DropdownFields($form, $name = 'csfield'){

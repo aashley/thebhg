@@ -50,7 +50,7 @@
     }
     
     function Status($output){
-	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 4=>'Pending Approval', 5=>'Denied Character');
+	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 5=>'Pending Approval', 4=>'Denied Character', 6=>'Pending Approval');
 	    if ($this->cs_bhg_id){
 		    if ($this->cs_last_change){
 			    if ($this->cs_approved){
@@ -59,7 +59,7 @@
 				    if ($this->cs_pending){
 					    $return = 3;
 				    } else {
-				    	$return = 4;
+				    	$return = 5;
 			    	}
 			    }
 		    }
@@ -69,11 +69,16 @@
 	    
 	    if (!$this->HasValue()){
 		    if ($this->cs_approved){
-		    	$return = 5;
+		    	$return = 4;
 	    	} else {
-		    	$return = 2;
+		    	if ($this->cs_pending){
+		    		$return = 2;
+	    		} else {
+		    		$return = 6;
+	    		}
 	    	}
 	    }
+		    
 	    
 	    if ($output == 'HUMAN'){
 		    return $status[$return];
@@ -83,7 +88,7 @@
     }	    
     
     function Editable(){
-	    if ($this->Status('SYSTEM') == 4){
+	    if ($this->Status('SYSTEM') == 5 || $this->Status('SYSTEM') == 6){
 		    return false;
 	    } else {
 		    return true;
@@ -107,7 +112,16 @@
     }
     
     function PendingApproval(){
-	    if ($this->Status('SYSTEM') == 4){
+	    if ($this->Status('SYSTEM') == 5 || $this->Status('SYSTEM') == 6){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
+    function Includeable(){
+	    $inc = array(1,3,5);
+	    if (in_array($this->Status('SYSTEM'), $inc)){
 		    return true;
 	    } else {
 		    return false;

@@ -47,19 +47,12 @@ function output() {
 		    $table->EndRow();
 
 		    $sheets = array();
-		    $appr = array();
 		    
 		    foreach ($sheet->SheetHolders() as $data){
-			    if ($data->Status('SYSTEM')){
-				    $appr[$data->Status('SYSTEM')][] = $data;
-			    } else {
-			    	$sheets[$data->Status('SYSTEM')][] = $data;
-		    	}
+			    $sheets[$data->Status('SYSTEM')][] = $data;
 		    }
 		    
 		    krsort($sheets);
-		    
-		    $sheets = $appr+$sheets;
 		    $table->AddRow('Hunter Name', 'Date Submitted', 'Status', '&nbsp;', '&nbsp;', '&nbsp;');
 		    
 		    foreach ($sheets as $sheeted){
