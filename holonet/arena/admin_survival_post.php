@@ -30,7 +30,7 @@ function output() {
 	    $creatures = $solo->Creatures();
 	    $form->StartSelect('Creature', 'creature', $creatures[array_rand($creatures)]);
 	    foreach ($creatures as $creature){
-		    $form->AddOption($creature->GetValue(), $creature->GetName());
+		    $form->AddOption($creature->GetID(), $creature->GetName());
 	    }
 	    $form->EndSelect();
 	    $form->AddSubmitButton('second', 'Write Post');
