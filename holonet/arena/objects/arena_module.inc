@@ -156,7 +156,7 @@
 		$positions['cbo']['desc'] = 'Commissioner of the Bounty Office';
 		$positions['cbo']['table'] = 'solo_comissioners';
 		
-		foreach ($aa as $class=>$object){
+		foreach ($aas as $class=>$object){
 			if ($object->GetStatus() == 'Current '){
 				$output[$class]['desc'] = $positions[$class];
 			}
