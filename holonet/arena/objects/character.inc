@@ -98,18 +98,19 @@
 			    	}
 			    }
 		    }
-		    if (!$this->HasValue() && !$this->HasValue('pending')){
-			    $return = -1;
-		    }
 		    if (!$this->HasValue()){
-			    if ($this->cs_approved){
-			    	$return = 4;
+			    if ($this->HasValue('pending')){
+				    if ($this->cs_approved){
+				    	$return = 4;
+			    	} else {
+				    	if (!$this->cs_pending){
+				    		$return = 6;
+			    		}
+			    	}
 		    	} else {
-			    	if (!$this->cs_pending){
-			    		$return = 6;
-		    		}
+			    	$return = -1;
 		    	}
-	    	}
+		    }
 	    } else {
 		    $return = 2;
 	    }
