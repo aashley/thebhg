@@ -11,6 +11,17 @@ function output() {
     
     arena_header();
 
+    $form = new Form($page);
+    $form->AddSectionTitle('Organize and Filter List');
+    $form->StartSelect('Use: ', 'name', $_REQUEST['name']);
+    	$form->AddOption('char', 'Character Name');
+    	$form->AddOption('bhg', 'Roster Name');
+    $form->EndSelect();
+    $form->AddSubmitButton('submit', 'Filter and Reorganize');
+    $form->EndForm();
+    
+    hr();
+    
     $table = new Table('', true);
     $table->StartRow();
     $table->AddHeader('Character Sheets', 6);
