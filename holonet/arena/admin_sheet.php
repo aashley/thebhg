@@ -81,16 +81,14 @@ function output() {
 		if ($can_edit){			
 			print_r($_REQUEST);
 			if (isset($_REQUEST['buypoint'])){
-				$points = $character->GetExperiencePoints()/350;
-				echo $points;
-				echo $_REQUEST['points'];
+				$points = round($character->GetExperiencePoints()/350);
 				if ($points == $_REQUEST['points']){
 					for ($i = 1; $i <= $_REQUEST['points']; $i++){
 						$character->BuyPoint();
 					}
 					echo 'Purchased '.$_REQUEST['points'].' bonus points';
 				} else {
-					'Bad monkey. No cookie.';
+					echo 'Bad monkey. No cookie.';
 				}
 				admin_footer($auth_data);
 	    		return;
