@@ -40,7 +40,7 @@ function output() {
     $form->StartSelect('Skill', 'skill', $skill);
     
     foreach ($sheet->GetSkills() as $value){
-	    if ($this->Permit(2, $value->GetID(), 1)){
+	    if ($sheet->Permit(2, $value->GetID(), 1)){
 	    	$form->AddOption($value->GetID(), $value->GetName());
     	}
     }
@@ -50,7 +50,7 @@ function output() {
     $form->StartSelect('Statribute', 'stat');
     
     foreach ($sheet->GetStats() as $value){
-	    if ($this->Permit(1, $value->GetID(), 1)){
+	    if ($sheet->Permit(1, $value->GetID(), 1)){
 	    	$form->AddOption($value->GetID(), $value->GetName());
     	}
     }
