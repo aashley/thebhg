@@ -73,13 +73,9 @@ function output() {
     
     $table->EndTable();
     
-    hr();
-
-	$arena->LatestReport($arena->ArenaPositions(), 'SECTION B: Arena Reports');
-	
 	hr();
 	
-	$table = new Table('SECTION C: Ladder Leaders', true);
+	$table = new Table('SECTION B: Ladder Leaders', true);
 	
 	$table->StartRow();
 	$table->AddHeader('Ladder');
@@ -103,6 +99,10 @@ function output() {
 	$table->AddRow('Lone Wolf Missions', '<a href="'.internal_link('atn_general', array('id'=>$ll->GetID())).'">'.$ll->GetName().'</a>');
 	
 	$table->EndTable();
+	
+    hr();
+
+	$arena->LatestReport($arena->ArenaPositions(), 'SECTION C: Arena Reports');
 	
     arena_footer();
 }

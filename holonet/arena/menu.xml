@@ -20,6 +20,10 @@
         <page>version</page>
     </item>
     <item>
+        <name>SOTA</name>
+        <page>sota</page>
+    </item>
+    <item>
         <name>Administration</name>
         <page>admin</page>
     </item>    
