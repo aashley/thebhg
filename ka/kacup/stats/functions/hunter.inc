@@ -85,12 +85,11 @@ function output(){
 			$table->AddRow('Most Recent KAC', $last->GetID());
 			$table->AddRow('Total Events', number_format(count($stat['events'])));
 			$table->AddRow('Total Points', number_format($stat['points']));
-			$table->AddRow('Average Points per Event', number_format($stat['points']/count($stat['events'])));
+			$table->AddRow('Average Points per Event', number_format($stat['points']/$marked));
 			$table->AddRow('Unmarked Events', $unmarked);
 			$table->AddRow('Completed Events', $marked);
 			$table->AddRow('No Efforts', $stat['no_effort']);
 			$table->AddRow('Total Credits', number_format($stat['credits']));
-			$table->AddRow('Master\'s Shields', number_format($stat[1]));
 			
 			$table->EndTable();
 			
@@ -122,13 +121,15 @@ function output(){
 					}
 				}
 				
-				$kabal = array_pop($stat['kabals']);
+				$kabal = array_pop($stats['kabals']);
 				
 				$kabal = new Division($kabal);
 				
-				$table->AddRow('<a href="/kac/stats.php?flag=hunter&hunter='.$person->GetID().'&season='.$season->GetSeasonID().'">KAC '.
-					roman($season->GetID()).'</a>', '<a href="/kac/stats.php?flag=kabal&kabal='.$kabal->GetID().'&season='.$season->GetSeasonID()
-					.'">'.$kabal->GetName().'</a>', number_format($stat['points']), number_format($marked), number_format($stat['points']/$marked));
+				if ($marked){				
+					$table->AddRow('<a href="/kac/stats.php?flag=hunter&hunter='.$person->GetID().'&season='.$season->GetSeasonID().'">KAC '.
+						roman($season->GetID()).'</a>', '<a href="/kac/stats.php?flag=kabal&kabal='.$kabal->GetID().'&season='.$season->GetSeasonID()
+						.'">'.$kabal->GetName().'</a>', number_format($stats['points']), number_format($marked), number_format($stats['points']/$marked));
+				}
 			}
 			
 			$table->EndTable();
@@ -174,7 +175,7 @@ function output(){
 				$table->StartRow();
 				$table->AddCell('<a href="/kac/stats.php?flag=kac&season=' . $event['kac']->GetID() . '">KAC '.roman($event['kac']->GetID()).'</a>');
 				$table->AddCell('<a href="/kac/stats.php?flag=event&event=' . $event['event']->GetID() . '">' . $event['type'] . '</a>');
-				$table->AddCell('<a href="/kac/stats.php?flag=round&round=' . $round->GetID() . '">Round ' . $round->GetID() . '</a>');
+				$table->AddCell('<a href="/kac/stats.php?flag=round&round=' . $round->GetID() . '">Round ' . $round->GetRoundID() . '</a>');
 				$table->AddCell('<div style="text-align: right">' . $event['status'] . '</div>');
 				$table->AddCell('<div style="text-align: right">' . number_format($event['points']) . '</div>');
 				$table->AddCell('<div style="text-align: right">' . number_format($event['place']) . '</div>');
@@ -193,34 +194,12 @@ function output(){
 		$table->EndRow();
 		
 		$table->StartRow();
-		create_sort_headers($table, array('name'=>'Name', 'points'=>'Points', 'events'=>'Events', 'complete'=>'Completed Events', 'ptsvt'=>'Pts/Event'));
+		create_sort_headers($table, array('name'=>'Name', 'points'=>'Points', 'events'=>'Events', 'ptsvt'=>'Pts/Event'));
 		$table->EndRow();
 		
 		$stats = array();
 		
-		foreach ($ka->GetHunters() as $hunter){
-			$stat = $ka->Stats($hunter);
-			
-			$person = new Person($hunter);
-			
-			$marked = 0;
-			
-			foreach ($stat['events'] as $info){
-				$event = new Event($info);
-
-				if ($event->IsGraded()){
-					$marked++;
-				}
-			}
-			
-			$stat['name'] = $person->GetName();
-			$stat['person'] = $person;
-			$stat['events'] = count($stat['events']);
-			$stat['points'] = $stat['points'];
-			$stat['ptsvt'] = round($stat['points']/$stat['events']);
-			$stat['complete'] = $marked;
-			$stats[$hunter] = $stat;
-		}
+		$stats = $ka->GetHunterTotals();
 		
 		uasort($stats, sort_result_array);
 		foreach ($stats as $stat) {
@@ -228,7 +207,6 @@ function output(){
 			$table->AddCell('<a href="/kac/stats/info.php?flag=hunter&hunter=' . $stat['person']->GetID() . '">' . $stat['person']->GetName() . '</a>');
 			$table->AddCell('<div style="text-align: right">' . number_format($stat['points']) . '</div>');
 			$table->AddCell('<div style="text-align: right">' . number_format($stat['events']) . '</div>');
-			$table->AddCell('<div style="text-align: right">' . number_format($stat['complete']) . '</div>');
 			$table->AddCell('<div style="text-align: right">' . number_format($stat['ptsvt']) . '</div>');
 			$table->EndRow();
 		}

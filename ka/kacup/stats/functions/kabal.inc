@@ -31,7 +31,7 @@ function output(){
 					$submissions += count($event->GetSubmissionsByKabal($kabal->GetID()));
 				}
 			}
-			$kabals = $ka->GetKabals($season->GetID(), '', $kabal->GetID());
+			$kabals = $season->GetKabalTotals();
 			$table->AddRow('<a href="/kac/stats.php?flag=kac&season='.$season->GetSeasonID().'">KAC '.roman($season->GetID()).'</a>', 
 				number_format($kabals[$kabal->GetID()]), $submissions);
 		}
@@ -45,34 +45,10 @@ function output(){
 		$table->EndRow();
 		
 		$table->StartRow();
-		create_sort_headers($table, array('name'=>'Name', 'points'=>'Points', 'events'=>'Events', 'complete'=>'Completed Events', 'ptsvt'=>'Pts/Event'));
+		create_sort_headers($table, array('name'=>'Name', 'points'=>'Points', 'events'=>'Events', 'ptsvt'=>'Pts/Event'));
 		$table->EndRow();
 		
-		$stats = array();
-		
-		foreach ($ka->GetHunters('', '', $kabal->GetID()) as $hunter){
-			$stat = $ka->Stats($hunter, '', '', $kabal->GetID());
-			
-			$person = new Person($hunter);
-			
-			$marked = 0;
-			
-			foreach ($stat['events'] as $info){
-				$event = new Event($info);
-
-				if ($event->IsGraded()){
-					$marked++;
-				}
-			}
-			
-			$stat['name'] = $person->GetName();
-			$stat['person'] = $person;
-			$stat['events'] = count($stat['events']);
-			$stat['points'] = $stat['points'];
-			$stat['ptsvt'] = round($stat['points']/$stat['events']);
-			$stat['complete'] = $marked;
-			$stats[$hunter] = $stat;
-		}
+		$stats = $ka->GetHunterTotals(0, $_REQUEST['kabal']);
 		
 		uasort($stats, sort_result_array);
 		foreach ($stats as $stat) {
@@ -80,7 +56,6 @@ function output(){
 			$table->AddCell('<a href="/kac/stats/info.php?flag=hunter&hunter=' . $stat['person']->GetID() . '">' . $stat['person']->GetName() . '</a>');
 			$table->AddCell('<div style="text-align: right">' . number_format($stat['points']) . '</div>');
 			$table->AddCell('<div style="text-align: right">' . number_format($stat['events']) . '</div>');
-			$table->AddCell('<div style="text-align: right">' . number_format($stat['complete']) . '</div>');
 			$table->AddCell('<div style="text-align: right">' . number_format($stat['ptsvt']) . '</div>');
 			$table->EndRow();
 		}

@@ -13,9 +13,16 @@ $table->AddHeader('End');
 $table->EndRow();
 
 foreach ($ka->GetSeasons() as $kac){
-	$kabals = $kac->GetKabalTotals();
-	$leader = key($kabals);
-	$kabal = new Division($leader);
+	$ladder = new Ladder($kac->GetSeasonID());
+	if ($ladder->CurrentRound() <= 3){
+		$round = $kac->RoundByID($ladder->CurrentRound());
+		$kabals = $round->GetKabalPoints();
+		$keys = array_keys($kabals);
+		$leader = end($keys);
+		$kabal = new Division($leader);
+	} else {
+		$kabal = new Division ($ladder->Champion($ladder->CurrentRound()));
+	}
 	
 	if ($kabal->GetName()){
 		$kab_stuff = '<a href="/kac/stats.php?flag=kabal&kabal='
@@ -26,7 +33,7 @@ foreach ($ka->GetSeasons() as $kac){
 	
 	$table->AddRow('<a href="/kac/stats.php?flag=kac&season='.$kac->GetSeasonID().'">Season '.roman($kac->GetID())
 			.'</a> (<a href="/kac/stats.php?flag=ladder&season='.$kac->GetSeasonID().'">Ladder</a>)', $kab_stuff, $kac->Dates('HUMAN', 'start'), 
-			$kac->Dates('HUMAN', 'start'));
+			$kac->Dates('HUMAN', 'end'));
 }
 
 $table->EndTable();

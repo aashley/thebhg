@@ -13,61 +13,33 @@ function output(){
 	$table->AddHeader('&nbsp;');
 	$table->AddHeader('Hunter');
 	$table->AddHeader('Points');
-	$table->AddHeader('KACs');
+	$table->AddHeader('Points Per Event');
 	$table->AddHeader('Completed Events');
 	$table->EndRow();
 	
-	$stats = array();
-	$points = array();
-		
-	foreach ($ka->GetHunters() as $hunter){
-		$stat = $ka->Stats($hunter);
-		
-		$person = new Person($hunter);
-		
-		$marked = 0;
-		
-		foreach ($stat['events'] as $info){
-			$event = new Event($info);
-
-			if ($event->IsGraded()){
-				$marked++;
-			}
-		}
-		
-		$stat['name'] = $person->GetName();
-		$stat['person'] = $person;
-		$stat['seasons'] = count($stat['season']);
-		$stat['complete'] = $marked;
-		$stats[$hunter] = $stat;
-		
-		$points[$hunter] = $stat['points'];
+	$stats = $ka->GetHunterTotals(10);
+	
+	foreach ($stats as $stat){
+		$points[$stat['person']->GetID()] = $stat['points'];
 	}
 
 	arsort($points);
 	
 	$keys = array_keys($points);
+	$i = 1;
 	
-	if (count($stats) > 10){
-		$run = 10;
-	} else {
-		$run = count($stats);
-	}
-	
-	for ($i = 1; $i <= $run; $i++){
+	foreach ($points as $guy=>$point){
 		
-		$key = $keys[$i-1];
-		
-		$point = $points[$key];
-		$stat = $stats[$key];
+		$stat = $stats[$guy];
 		
 		$table->StartRow();
 		$table->AddCell($i);
 		$table->AddCell('<a href="/kac/stats/info.php?flag=hunter&hunter=' . $stat['person']->GetID() . '">' . $stat['person']->GetName() . '</a>');
 		$table->AddCell('<div style="text-align: right">' . number_format($point) . '</div>');
-		$table->AddCell('<div style="text-align: right">' . number_format($stat['seasons']) . '</div>');
-		$table->AddCell('<div style="text-align: right">' . number_format($stat['complete']) . '</div>');
+		$table->AddCell('<div style="text-align: right">' . number_format($stat['ptsvt']) . '</div>');
+		$table->AddCell('<div style="text-align: right">' . number_format($stat['events']) . '</div>');
 		$table->EndRow();
+		$i++;
 	}
 	
 	$table->EndTable();

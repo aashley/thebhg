@@ -50,7 +50,7 @@ function output(){
 				
 				$awards = new Awards($stat['awards'][$i]);
 				
-				$events[$event->GetID()] = array('type'=>$type->GetName(), 'round'=>$round->GetID(), 'status'=>$status, 'place'=>$stat['places'][$i], 
+				$events[$event->GetID()] = array('type'=>$type->GetName(), 'round'=>$round->GetRoundID(), 'status'=>$status, 'place'=>$stat['places'][$i], 
 							'credits'=>$awards->GetCredits('SYSTEM'), 'points'=>$stat['point'][$i], 'event'=>$event);
 				
 				$i++;
@@ -91,7 +91,7 @@ function output(){
 				$round = $event['event']->GetRound();
 				$table->StartRow();
 				$table->AddCell('<a href="/kac/stats.php?flag=event&event=' . $event['event']->GetID() . '">' . $event['type'] . '</a>');
-				$table->AddCell('<a href="/kac/stats.php?flag=round&round=' . $round->GetID() . '">Round ' . $round->GetID() . '</a>');
+				$table->AddCell('<a href="/kac/stats.php?flag=round&round=' . $round->GetID() . '">Round ' . $round->GetRoundID() . '</a>');
 				$table->AddCell('<div style="text-align: right">' . $event['status'] . '</div>');
 				$table->AddCell('<div style="text-align: right">' . number_format($event['points']) . '</div>');
 				$table->AddCell('<div style="text-align: right">' . number_format($event['place']) . '</div>');
@@ -102,19 +102,6 @@ function output(){
 			$table->EndTable();
 			
 		} else {
-			
-			$top = array();
-			$kabals = array();
-			
-			foreach ($ka->GetHunters($kac->GetID()) as $hunter){
-				$stats = $ka->Stats($hunter, $kac->GetID());
-				
-				$top[$hunter] = $stats['points'];
-				
-				$key = key($stats['kabals']);
-				
-				$kabals[$hunter] = $stats['kabals'][$key];
-			}
 			
 			add_menu(array('KAC '.roman($kac->GetID())=>'kac/stats.php?flag=kac&season='.$kac->GetSeasonID()));
 			
@@ -133,12 +120,9 @@ function output(){
 			
 			$i = 1;
 			
-			foreach ($top as $hunter=>$info){
-				$kabal = new Division($kabals[$hunter]);
-				$person = new Person($hunter);
-				$table->AddRow($i, '<a href="/kac/stats.php?flag=hunter&season='.$kac->GetSeasonID().'&hunter='.$person->GetID().'">'.$person->GetName()
-						.'</a>', '<a href="/kac/stats.php?flag=kabal&season='.$kac->GetSeasonID().'&kabal='.$kabal->GetID().'">'.$kabal->GetName().'</a>', number_format($info));
-						
+			foreach ($kac->GetHunterTotals() as $stat){
+				$table->AddRow($i, '<a href="/kac/stats.php?flag=hunter&season='.$kac->GetSeasonID().'&hunter='.$stat['person']->GetID().'">'.$stat['person']->GetName()
+					.'</a>', '<a href="/kac/stats.php?flag=kabal&season='.$kac->GetSeasonID().'&kabal='.$stat['kabal']->GetID().'">'.$stat['kabal']->GetName().'</a>', number_format($stat['points']));
 				$i++;
 			}
 			
