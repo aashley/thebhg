@@ -498,7 +498,7 @@
     }
 	
     function SubmitSheet(){
-	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 1, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
 		if (mysql_query($sql, $this->connect)){
 			$sheet = new Sheet();
 			$registrar = new Person($sheet->CurrentRegistrar());
