@@ -1211,6 +1211,8 @@
     	}
     	$project = $this->project;
     	
+    	echo $id;
+    	
     	if ($this->HasValue($look, $col, $id)){
 	    	foreach ($this->ModFields($project) as $id){
 	    		$field = new Field($id);
