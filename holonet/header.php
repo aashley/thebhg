@@ -96,16 +96,32 @@ else {
 	include_once('error.php');
 }
 
-$modxml = domxml_open_file('modules.xml');
-$modtag = current($modxml->get_elements_by_tagname('modules'));
-$modules = $modtag->child_nodes();
-foreach ($modules as $mod) {
-	if ($mod->node_name() == 'module') {
-		$dir = current($mod->get_elements_by_tagname('directory'));
-		if ($dir->get_content() == $module) {
-			$name = current($mod->get_elements_by_tagname('name'));
-			$title = $name->get_content() . ' :: ' . title();
-			break;
+if (PHP5) {
+	$modxml = new DomDocument();
+	$modxml->load('modules.xml');
+	$modules = $modxml->documentElement->childNodes;
+	foreach ($modules as $mod) {
+		if ($mod->nodeName == 'module') {
+			$dir = $mod->getElementsByTagName('directory')->item(0);
+			if ($dir->textContent == $module) {
+				$name = $mod->getElementsByTagName('name')->item(0);
+				$title = $name->textContent . ' :: ' . title();
+				break;
+			}
+		}
+	}
+} else {
+	$modxml = domxml_open_file('modules.xml');
+	$modtag = current($modxml->get_elements_by_tagname('modules'));
+	$modules = $modtag->child_nodes();
+	foreach ($modules as $mod) {
+		if ($mod->node_name() == 'module') {
+			$dir = current($mod->get_elements_by_tagname('directory'));
+			if ($dir->get_content() == $module) {
+				$name = current($mod->get_elements_by_tagname('name'));
+				$title = $name->get_content() . ' :: ' . title();
+				break;
+			}
 		}
 	}
 }

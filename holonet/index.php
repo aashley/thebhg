@@ -1,5 +1,10 @@
 <?php
 ob_start('ob_gzhandler');
+if (version_compare(phpversion(), '5.0.0', '>=')) {
+	define('PHP5', true);
+} else {
+	define('PHP5', false);
+}
 define('DEBUG', true);
 if (DEBUG) include_once 'debug.php';
 //header('Content-Type: text/html; charset=UTF-8');
@@ -104,23 +109,45 @@ $before = 0;
 $found = false;
 foreach ($modules as $mod) {
 	$modtext = false;
-	if ($mod->node_name() == 'link') {
-		$url = current($mod->get_elements_by_tagname('url'));
-		$name = current($mod->get_elements_by_tagname('name'));
-		$modtext = '<a href="' . $url->get_content() . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
-	}
-	elseif ($mod->node_name() == 'module' && !$mod->has_attribute('hidden')) {
-		$dir = current($mod->get_elements_by_tagname('directory'));
-		$name = current($mod->get_elements_by_tagname('name'));
-		if ($dir->get_content() == $module) {
-			$found = true;
-			$modtext = '<span class="SELECTED">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</span>';
+	if (PHP5) {
+		if ($mod->nodeName == 'link') {
+			$url = $mod->getElementsByTagName('url')->item(0);
+			$name = $mod->getElementsByTagName('name')->item(0);
+			$modtext = '<a href="' . $url->textContent . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
 		}
-		else {
-			if (!$found) {
-				$before += 2;
+		elseif ($mod->nodeName == 'module' && !$mod->hasAttribute('hidden')) {
+			$dir = $mod->getElementsByTagName('directory')->item(0);
+			$name = $mod->getElementsByTagName('name')->item(0);
+			if ($dir->textContent == $module) {
+				$found = true;
+				$modtext = '<span class="SELECTED">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</span>';
 			}
-			$modtext = '<a href="' . internal_link('index', array(), $dir->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+			else {
+				if (!$found) {
+					$before += 2;
+				}
+				$modtext = '<a href="' . internal_link('index', array(), $dir->textContent) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
+			}
+		}
+	} else {
+		if ($mod->node_name() == 'link') {
+			$url = current($mod->get_elements_by_tagname('url'));
+			$name = current($mod->get_elements_by_tagname('name'));
+			$modtext = '<a href="' . $url->get_content() . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+		}
+		elseif ($mod->node_name() == 'module' && !$mod->has_attribute('hidden')) {
+			$dir = current($mod->get_elements_by_tagname('directory'));
+			$name = current($mod->get_elements_by_tagname('name'));
+			if ($dir->get_content() == $module) {
+				$found = true;
+				$modtext = '<span class="SELECTED">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</span>';
+			}
+			else {
+				if (!$found) {
+					$before += 2;
+				}
+				$modtext = '<a href="' . internal_link('index', array(), $dir->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+			}
 		}
 	}
 
@@ -131,29 +158,57 @@ foreach ($modules as $mod) {
 $after = (2 * count($modarray)) - $before;
 echo implode('<td class="MODULE">&nbsp;|&nbsp;</td>', $modarray) . '<td class="MODULE" width="100%">&nbsp;</td></tr>';
 
-if (file_exists($mdir . '/menu.xml')) {
-	$menuxml = domxml_open_file($mdir . '/menu.xml');
-	$items = $menuxml->get_elements_by_tagname('item');
-}
-else {
-	$items = false;
-}
-
-if (count($items) && $items) {
-	echo '<tr>';
-	if ($before) {
-		echo '<td colspan=' . $before . ' class="MODULE">&nbsp;</td>';
+if (PHP5) {
+	if (file_exists($mdir . '/menu.xml')) {
+		$menuxml = new DomDocument();
+		$menuxml->load($mdir . '/menu.xml');
+		$items = $menuxml->getElementsByTagName('item');
 	}
-	echo '<td colspan=' . $after . '><span class="SUBMENU">';
-	$menuarray = array();
-	foreach ($items as $item) {
-		if (!$item->has_attribute('hidden')) {
-			$name = current($item->get_elements_by_tagname('name'));
-			$pg = current($item->get_elements_by_tagname('page'));
-			$menuarray[] = '<a href="' . internal_link($pg->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+	else {
+		$items = false;
+	}
+	
+	if ($items) {
+		echo '<tr>';
+		if ($before) {
+			echo '<td colspan=' . $before . ' class="MODULE">&nbsp;</td>';
 		}
+		echo '<td colspan=' . $after . '><span class="SUBMENU">';
+		$menuarray = array();
+		foreach ($items as $item) {
+			if (!$item->hasAttribute('hidden')) {
+				$name = $item->getElementsByTagName('name')->item(0);
+				$pg = $item->getElementsByTagName('page')->item(0);
+				$menuarray[] = '<a href="' . internal_link($pg->textContent) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
+			}
+		}
+		echo implode(' | ', $menuarray) . '</span></td></tr>';
 	}
-	echo implode(' | ', $menuarray) . '</span></td></tr>';
+} else {
+	if (file_exists($mdir . '/menu.xml')) {
+		$menuxml = domxml_open_file($mdir . '/menu.xml');
+		$items = $menuxml->get_elements_by_tagname('item');
+	}
+	else {
+		$items = false;
+	}
+
+	if (count($items) && $items) {
+		echo '<tr>';
+		if ($before) {
+			echo '<td colspan=' . $before . ' class="MODULE">&nbsp;</td>';
+		}
+		echo '<td colspan=' . $after . '><span class="SUBMENU">';
+		$menuarray = array();
+		foreach ($items as $item) {
+			if (!$item->has_attribute('hidden')) {
+				$name = current($item->get_elements_by_tagname('name'));
+				$pg = current($item->get_elements_by_tagname('page'));
+				$menuarray[] = '<a href="' . internal_link($pg->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+			}
+		}
+		echo implode(' | ', $menuarray) . '</span></td></tr>';
+	}
 }
 ?>
 </tr>

@@ -93,6 +93,7 @@ function short($str) {
  * Generate and format back traces for error message
  */
 function myErrorHandler($errno,$errstr,$errfile,$errline) { 
+	
   $errortype = array (
       1   =>  "Error",
       2   =>  "Warning",
@@ -104,8 +105,13 @@ function myErrorHandler($errno,$errstr,$errfile,$errline) {
       128 =>  "Compile Warning",
       256 =>  "User Error",
       512 =>  "User Warning",
-      1024=>  "User Notice"
+      1024=>  "User Notice",
+      2048=>  "Strict Warning"
       );
+
+	if ($errno == 2048) {
+		return true;
+	}
   
   $err = "<B>$errortype[$errno]:</B> $errstr in ".short($errfile)
     ." at line $errline<br />\n"; 
@@ -114,16 +120,20 @@ function myErrorHandler($errno,$errstr,$errfile,$errline) {
   foreach($trace as $ent) { 
     if(isset($ent['file'])) 
       $err .= $ent['file'].':'; 
+		if(isset($ent['class']))
+			$err .= $ent['class'];
+		if (isset($ent['type']))
+			$err .= $ent['type'];
     if(isset($ent['function'])) { 
       $err .= $ent['function'].'('; 
-      if(isset($ent['args'])) { 
+/*      if(isset($ent['args'])) { 
         $args=''; 
         foreach($ent['args'] as $arg) { 
           $args.=$arg.','; 
         } 
-        $err .= rtrim(short($args),','); 
-      } 
-      $err .= ') '; 
+        $err .= rtrim($args,','); 
+      } */
+      $err .= ') ';
     } 
     if(isset($ent['line'])) 
       $err .= 'at line '.$ent['line'].' '; 
@@ -135,6 +145,7 @@ function myErrorHandler($errno,$errstr,$errfile,$errline) {
   if (DEBUG) {
     echo $err;
   }
+	return true;
 } 
 set_error_handler('myErrorHandler');
 
