@@ -65,7 +65,36 @@
        $table->AddRow('Description: ', nl2br(stripslashes($this->npc_string)));
        $table->EndTable();
     }
+    
+    function WriteSheet(){
+	    $check = ($this->type->GetPoints() > 1.5);
+	    
+	    if ($this->type->GetPoints() < 1){
+		    $namemod = 'Lesser ';
+	    } elseif ($check){
+		    $namemod = 'Elder ';
+	    }
+	    
+	    $stat = array_shift($this->npc_stats);
+	    $text = 'Name: '.$namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8");
+	    
+	    $sorted = $this->npc_stats;
+	    arsort($sorted);
+	    $highest = round(array_shift($sorted)*$this->type->GetPoints());
+	    
+	    foreach ($this->npc_stats as $name=>$stat){
+		    $point = round($stat*$this->type->GetPoints());
+		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', ($check ? $stat : round($point)));
+		    if ($check){ $value .= str_repeat('<img src="arena/images/bonus.png" alt="*" height=20 width=20>', round($point-$stat)); }
+		    $value .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', round($highest-$point));
 
+		    $text .= $name.$value;
+	    }
+
+	    $text .= 'Description: '.nl2br(stripslashes($this->npc_string));
+	    
+	    return $text;
+    }
  }
 
 ?>
