@@ -48,7 +48,7 @@
     
     function GetName($look = 'values', $id = 0){
 	    
-	    $stat = $this->Point(33, $look, '', $id);
+	    $stat = $this->Point(33, 'SHEET', $look, $id);
 	    
 	    if (empty($stat)){
 		    $name = $this->cs_person->GetName();
