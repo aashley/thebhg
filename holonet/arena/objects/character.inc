@@ -602,8 +602,9 @@
 	    
 	    if (mysql_num_rows($query)){
 		    $delsql = "DELETE FROM `character_sheet_values` WHERE `bhg_id` = '".$this->GetID()."'";
-		    echo 'Pending Sheet deleted';
 		    mysql_query($delsql, $this->connect);
+		    $delsql2 = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    mysql_query($delsql2, $this->connect);
 	    }
 	    
 	    while($info = mysql_fetch_array($query)){
