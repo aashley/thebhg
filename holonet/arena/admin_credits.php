@@ -18,7 +18,7 @@ function output() {
 
     if (isset($_REQUEST['submit'])){
 	    
-	    for ($i = 0; $i < $fields; $i++) {
+	    for ($i = 0; $i < 20; $i++) {
       
 			$person = "person$i";
       
@@ -137,7 +137,7 @@ function output() {
 	$form->table->AddHeader('Credits');
 	$form->table->EndRow();
   
-	for ($i = 0; $i < 10; $i++) {
+	for ($i = 0; $i < 20; $i++) {
     
     	$form->table->StartRow();
       
