@@ -130,7 +130,7 @@ function admin_footer($auth_data) {
 	echo '<a href="' . internal_link('admin_my_details', array()) . '">Edit&nbsp;My&nbsp;Details</a><br>';
 	echo '<a href="' . internal_link('admin_change_password', array()) . '">Change&nbsp;My&nbsp;Password</a><br>';
 	echo '<a href="' . internal_link('admin_my_ipkc', array()) . '">Edit&nbsp;My&nbsp;IPKC</a><br>';
-	echo '<a href="' . internal_link('admin_character_sheet', array('id'=>$auth_data['id'])) . '">Edit&nbsp;My&nbsp;Character&nbsp;Sheet</a><br>';
+	echo '<a href="' . internal_link('admin_sheet', array('id'=>$auth_data['id']), 'arena') . '">Edit&nbsp;My&nbsp;Character&nbsp;Sheet</a><br>';
 	if ($auth_data['underlord']) {
 		echo '<br><b>Underlord&nbsp;Features</b><br>';
 		echo '<a href="' . internal_link('admin_pending', array()) . '">Approve&nbsp;Credit&nbsp;Awards</a><br>';

@@ -272,7 +272,7 @@ function output() {
 
 	$sheet = new Sheet($pleb);
 	if ($sheet->GetLastUpdate() > 0 && $sheet->GetStatus() != 'new' && $sheet->fields[56]->GetRealValue() > 0) {
-		$links[internal_link('character_sheet', array('id'=>$pleb->GetID()))] = 'View Character Sheet';
+		$links[internal_link('atn_general', array('id'=>$pleb->GetID()), 'arena')] = 'View Character Sheet';
 	}
 	
 	$links['http://ka.thebhg.org/cg/stats/hunter.php?id=' . $pleb->GetID()] = 'View CG Statistics';
