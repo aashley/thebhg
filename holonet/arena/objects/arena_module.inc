@@ -233,10 +233,15 @@
 			break;
 		}
 		
+		echo $aa;
+		
 		if (count($output)){
 			$return = ($aa ? $output[$aa] : $ouput[key(end($output))]);
 			$use = ($aa ? $aa : key(end($output)));
 
+			echo '|'.$use;
+			echo '|'.$return;
+			
 			$sql = "UPDATE `arena_".$positions[$use]['table']."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aas[$use]->GetID()."'";
 			
 			if (mysql_query($sql, $this->connect)){
