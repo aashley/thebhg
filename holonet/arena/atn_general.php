@@ -59,7 +59,7 @@ function output() {
 			$table->AddRow('Event', 'Place');
 			
 			foreach ($lrs as $name=>$array){
-				foreach ($place as $id=>$place){
+				foreach ($array as $id=>$place){
 					$table->AddRow('<a href="'.internal_link('atn_activity', array('id'=>$id)).'">'.$name.'</a>', $place);
 				}
 			}
