@@ -36,7 +36,7 @@ function output() {
 	    
 		$finish = $start+10;
 		    
-		$hunters = $div->GetMembers();
+		//$hunters = $div->GetMembers();
 
 	    if ($div->GetMemberCount()) {
 		    for ($i = $start; $i < $finish; $i++) {
