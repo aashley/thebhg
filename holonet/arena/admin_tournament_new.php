@@ -19,12 +19,10 @@ function output() {
     global $arena, $hunter, $roster, $auth_data, $page;
 
     arena_header();
-    
-    $activity = new Obj('ams_activities', $_REQEUST['act'], 'holonet');
+    					
+    $activity = new Obj('ams_activities', $_REQUEST['act'], 'holonet');
     $type = new Obj('ams_types', $activity->Get(type), 'holonet');
-    echo $_REQUEST['act'];
-    print_r($type);
-    print_r($activity);
+
     if ($type->Get(opponent)){
 	    $at = new Tournament($_REQUEST['act']);
 	    
