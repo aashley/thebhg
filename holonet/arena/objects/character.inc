@@ -46,9 +46,9 @@
 	    return $this->cs_person->GetID();
     }
     
-    function GetName($id = 0){
+    function GetName($look = 'values', $id = 0){
 	    
-	    $stat = $this->Point(33, '', '', $id);
+	    $stat = $this->Point(33, $look, '', $id);
 	    
 	    if (empty($stat)){
 		    $name = $this->cs_person->GetName();
@@ -183,7 +183,6 @@
 	    $table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$id."' AND `statribute` = '$stat'";
         $query = mysql_query($sql, $this->connect);
-        echo $sql;
         $info = mysql_fetch_array($query);
         $stat = new Statribute($stat);
         
@@ -795,7 +794,7 @@
 		$table = new Table();
 		
 		$table->StartRow();
-		$table->AddHeader('Dossier file for '.$rank->GetName().' '.$this->GetName($id), 2);
+		$table->AddHeader('Dossier file for '.$rank->GetName().' '.$this->GetName($look, $id), 2);
 		$table->EndRow();
 		$table->AddRow('Visual Identification', '<img src='.$url.'>');
     	$table->AddRow('Age', $age);
