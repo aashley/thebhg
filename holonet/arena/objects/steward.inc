@@ -58,8 +58,8 @@
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
 
-        $this->creds = $info['credits'];
-        $this->xp = $info['xp'];
+        $this->creds = $info['credits']+$this->stew_creds;
+        $this->xp = $info['xp']+$this->stew_creds;
 
     }
 
