@@ -34,13 +34,11 @@ function output() {
 		
 		$table->StartRow();
 		$table->AddHeader('Hunter');
-		$table->AddHeader('&nbsp;');
 		$table->EndRow();
 		
 		foreach ($current as $obj){
 			$hunter = new Person($obj->Get(bhg_id));
 			$table->AddRow('<a href="'.internal_link('atn_general', array('id'=>$hunter->GetID())).'">'.$hunter->GetName().'</a>');
-			$last_type = $obj->Get(type);
 		}
 		
 		$table->EndTable();
