@@ -44,7 +44,7 @@ function output() {
 		    $open_to['aa'] = 1;
 	    }
 	    
-	    if ($arena->NewPoll($hunter->GetID(), $_REQUEST['rpa'], $_REQUEST['question'], $_REQUEST['multiple'], $open_to, parse_date_box('start'), parse_date_box('end'))){
+	    if ($arena->NewPoll($hunter->GetID(), $_REQUEST['rpa'], $_REQUEST['question'], $_REQUEST['multiple'], $open_to, $_REQUEST['start'], $_REQUEST['end'])){
 		    echo 'New poll added successfully';
 	    } else {
 		    NEC(208);
@@ -56,8 +56,8 @@ function output() {
 	    $form->AddSectionTitle('Add Options');
 	    $form->AddHidden('multiple', $_REQUEST['multiple']);
 	    $form->AddHidden('question', $_REQUEST['question']);
-	    $form->AddHidden('start', $_REQUEST['start']);
-	    $form->AddHidden('end', $_REQUEST['end']);
+	    $form->AddHidden('start', parse_date_box('start'));
+	    $form->AddHidden('end', parse_date_box('end'));
 	    
 	    $form->StartSelect('Post as', 'rpa');
 	    foreach ($arena->CanBe($hunter) as $id=>$data){
