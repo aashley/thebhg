@@ -62,11 +62,8 @@ function output() {
 	        $form = new Form($page);
 	        $form->StartSelect('Contract:', 'contract_id');
 	        foreach ($solo->RetireRequests() as $value) {
-		        $hunter = $value->GetHunter();
 		        $type = $value->GetType();
-		        if (is_object($hunter)){
-	            	$form->AddOption($value->GetID(), $type->GetName()." Contract ".$value->GetContractID()." - ".$hunter->GetName());
-            	}
+	            $form->AddOption($value->GetID(), $type->GetName()." Contract ".$value->GetContractID());
 	        }
 	        $form->EndSelect();
 	        $form->AddSubmitButton('next', 'Next >>');
