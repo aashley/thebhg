@@ -29,7 +29,7 @@ if (!$_POST['division']) {
 } else {
     $division = $_POST['division'];
 }
-$uploaddir = dirname(realpath($_SERVER['PATH_TRANSLATED'].'/..')).'/hunt_images/';
+$uploaddir = realpath(dirname($_SERVER['SCRIPT_FILENAME']).'/..').'/hunt_images/';
 if($site == "") {
     $site = "index";
     include ("index.inc");
