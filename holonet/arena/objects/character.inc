@@ -545,9 +545,7 @@
     }
     
     function SubmitCore($id){
-	    echo $id;
 	    $sql = "UPDATE `character_sheet_core` SET `pending` = '1', `approved` = 0 WHERE `id` = '$id'";
-	    echo $sql;
 		if (mysql_query($sql, $this->connect)){
 			$adjunct = $this->Adjunct();
             $overseer = $this->Overseer();

@@ -56,7 +56,7 @@ function output() {
 					echo $character->DenyCore($_REQUEST['sheet'], $_REQUEST['reason']);
 				}
 			} else {
-				echo $character->SubmitCore($_REQUEST['core']);
+				echo $character->SubmitCore($_REQUEST['sheet']);
 			}
 		} elseif (isset($_REQUEST['view'])){
 			if (isset($_REQUEST['process'])){
