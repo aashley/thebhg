@@ -138,6 +138,8 @@ function output() {
 			
 		}
 		
+		/*
+		Finish this later, when I get, really, really bored.
 		$rewards = array();
 		
 		if (in_array($hunter->GetID(), $arena->GetApproved())){
@@ -175,6 +177,7 @@ function output() {
 
 			$table->EndTable();
 		}
+		*/
 	    
 	    echo '</div></td></tr></table>';
 	
