@@ -30,8 +30,6 @@ function output() {
     $person1 = $person[0];
     $person2 = $person[1];
     
-    hr();
-
     $i = 1;
     $wtypes = $ladder->WeaponTypes();
     $locations = $ladder->Locations();

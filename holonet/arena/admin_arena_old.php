@@ -19,8 +19,6 @@ function output() {
 
     $ladder = new Ladder();
 
-    hr();
-
     $i = 1;
     $wtypes = $ladder->WeaponTypes();
     $locations = $ladder->Locations();
