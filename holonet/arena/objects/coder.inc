@@ -4,11 +4,13 @@ Class Coder extends Arena {
 
 	var $tables = array();
 	var $fields = array();
+	var $allowed = array();
 	 
 	function Coder(){
 	    Arena::Arena();
 	    
 	    $this->LoadTables();
+	    $this->allowed = array('arena', 'character_sheet', 'cs');
 	}
 	
 	function LoadTables(){   
@@ -16,7 +18,11 @@ Class Coder extends Arena {
 	    $query = mysql_query($sql, $this->connect);
 	    
 		while ($info = mysql_fetch_assoc($query)) {
-			$this->tables[] = $info;
+			$name = $info[key($info)];
+			$exp = explode('_', $name);
+			if (in_array($exp[0], $this->allowed)){
+				$this->tables[] = $name;
+			}
 		}
 	}
 	
