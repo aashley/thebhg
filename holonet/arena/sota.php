@@ -54,7 +54,7 @@ function output() {
     $sur = 'Ranger <a href="'.internal_link('atn_general', array('id'=>$ra->GetID())).'">'.$ra->GetName().'</a>';
     $ski = 'Skipper <a href="'.internal_link('atn_general', array('id'=>$sk->GetID())).'">'.$sk->GetName().'</a>';
     $mim = 'Mission Master <a href="'.internal_link('atn_general', array('id'=>$mm->GetID())).'">'.$mm->GetName().'</a>';
-    $hoc = 'Commentator <a href="'.internal_link('atn_general', array('id'=>$hc->GetID())).'">'.$hc->GetName().'</a>';
+    if ($hc->GetName()){ $hoc = 'Commentator <a href="'.internal_link('atn_general', array('id'=>$hc->GetID())).'">'.$hc->GetName().'</a>'; }
     
     $activities['The Arena'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` = 0 AND `end` > 0')), 'oe'=>count($ladder->Pending()), 'ue'=>count($ladder->Unposted()), 'xp'=>$ladder->GetXP(), 'cr'=>$ladder->GetCreds(), 'ad'=>$stwa);
     $activities['The Dojo of Shadows'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` > 0 AND `end` > 0')), 'oe'=>count($ladder->PendingDojo('end')), 'ue'=>count($ladder->PendingDojo()), 'xp'=>$ladder->GetDXP(), 'cr'=>$ladder->GetDCreds(), 'ad'=>$djm);
