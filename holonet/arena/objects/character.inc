@@ -1090,6 +1090,7 @@
 		if ($bio->GetHomeworld()){ $homeworld = $bio->GetHomeworld(); }
 		if ($bio->GetSex()){ $sex = $bio->GetSex(); }
 		if ($bio->GetSpecies()){ $species = $bio->GetSpecies(); }
+		if ($id == 0){ $id = $this->GetSheetID(); }
 		
 		if ($look != 'cores' || $show_anyway){
 			echo '<table border=0 width="100%"><tr valign="top"><td>';
