@@ -80,7 +80,7 @@ function output() {
 		if (count($aas)){			
 			$setups = array();
 			
-			echo '<center><b>Arena Aide Positions</b>';
+			echo '<center><b>Arena Aide Positions</b><br />';
 			
 			foreach ($aas as $info=>$reward){		
 				if (!$reward['page']){
@@ -102,6 +102,8 @@ function output() {
 				hr();
 			}
 			
+			echo '<center><b>Peronal Information</b><br />';
+			
 			$setups = array();
 			
 			foreach ($rewards as $info=>$reward){		
@@ -115,6 +117,8 @@ function output() {
 			for ($i = 0; $i < count($setups); $i += 12) {
 				echo implode('', array_slice($setups, $i, 12)).'<br />';
 			}
+			
+			echo '</center>';
 		}
 	
 	    hr();
