@@ -210,7 +210,7 @@ function output() {
 		    
 		    foreach ($saves as $data){
 			    $table->AddRow($data['name'], $data['date'], 
-			    	'<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>', 
+			    	'<a href="'.internal_link($page, array('view'=>1, 'sheet'=>$data['id'])).'">View Sheet</a>', 
 			    	'<a href="'.internal_link($page, array('delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>', 
 			    	'<a href="'.internal_link($page, array('share'=>1, 'sheet'=>$data['id'])).'">Share</a>');
 		    }
@@ -239,6 +239,12 @@ function output() {
 		    
 		    $table->EndTable();
 	    }
+    }
+    
+    if ($_REQUEST['view']){
+	    $character = $sheet->GetBackup($_REQUEST['sheet']);
+		$saves = $character->GetBackups();
+	    $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
     }
 	
 	admin_footer($auth_data);
