@@ -54,6 +54,9 @@ function output() {
     	} else {
 	    	$name = $character->GetName();
     	}
+    	
+    	echo $_REQUEST['kabal'];
+    	
     	if ($_REQUEST['kabal'] == 'all' || $_REQUEST['kabal'] == $kabal->GetID()){
 	    	if ($_REQUEST['order'] == 'sub'){
 	    		$sheets[$character->cs_last_change] = $character;
