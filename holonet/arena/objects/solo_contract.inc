@@ -214,8 +214,6 @@
     
     function SetHunter($bhg_id, $requested = 0) {
         $sql = "UPDATE `arena_solo_contracts` SET `bhg_id` = '$bhg_id', `requested` = '$requested' WHERE `id` = '".$this->contract_id."'";
-
-        echo $sql;
         
         if (mysql_query($sql, $this->connect)) {
 
