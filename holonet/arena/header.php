@@ -10,6 +10,7 @@ $arena = new Arena();
 $library = new Library();
 $at = new Tournament();
 $iat = new IRCTournament();
+$sat = new SATournament();
 $citadel = new Citadel();
 $lw = new LW_Solo();
 $sheet = new Sheet();
@@ -130,7 +131,7 @@ function acn_nav(){
 }
 
 function atn_nav(){
-	global $roster, $at, $iat;
+	global $roster, $at, $iat, $sat;
 	
 	echo '<small>';
 	
@@ -179,14 +180,19 @@ function atn_nav(){
     echo '<br />Arena Tournaments<br />';
     echo '&nbsp;<a href="' . internal_link('atn_tournament') . '">AT Brackets</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_irc_tournament') . '">IRC AT Brackets</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_sa_tournament') . '">IRC AT Brackets</a><br />';
     if (count($at->GetHunters())){
     	echo '&nbsp;<a href="' . internal_link('atn_tournament_signups') . '">AT Signups</a><br />';
 	}
     if (count($iat->GetHunters())){
     	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_signups') . '">IRC AT Signups</a><br />';
 	}
+	if (count($sat->GetHunters())){
+    	echo '&nbsp;<a href="' . internal_link('atn_sa_tournament_signups') . '">Starfield AT Signups</a><br />';
+	}
 	echo '&nbsp;<a href="' . internal_link('atn_tournament_archive') . '">Archived [Arena]</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_archive') . '">Archived [IRC Arena]</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_sa_tournament_archive') . '">Archived [Starfield Arena]</a><br />';
 	
     echo '</small>';
 }

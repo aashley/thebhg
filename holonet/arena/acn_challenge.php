@@ -14,7 +14,7 @@ function auth($person) {
 }
 
 function output() {
-    global $arena, $hunter, $roster, $page, $auth_data, $sheet, $at, $iat;
+    global $arena, $hunter, $roster, $page, $auth_data, $sheet, $at, $iat, $sat;
 
     arena_header();
 
@@ -41,6 +41,12 @@ function output() {
 		    hr();
 		}
 	    
+		if ($sat->ValidSignup()){
+			echo '<b>S<u>tarfield Arena Tournamen</u>t</b><br />';
+		    echo '<a href="' . internal_link('acn_sa_tournament_signup') . '">Signup&nbsp;For&nbsp;Tournament</a>';
+		    hr();
+		}
+		
 	    echo '<b>T<u>he Aren</u>a</b>';
 	    
 	    echo '<br /><a href="'.internal_link('acn_arena_challenge').'">Make Arena Challenge</a>';
