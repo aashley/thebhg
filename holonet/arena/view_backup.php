@@ -1,5 +1,5 @@
 <?php
-$character = new Character($_REQUEST['id']);
+$character = $sheet->GetBackup($_REQUEST['sheet']);
 $saves = $character->GetBackups();
 
 function title() {
@@ -7,9 +7,8 @@ function title() {
 	
 	$return = '';
 	
-	if (isset($_REQUEST['id'])){
-		$person = new Person($_REQUEST['id']);
-    	$return .= $person->GetName().'\'s ';
+	if (is_object($character)){
+    	$return .= $character->GetName().'\'s ';
 	} 
 	
 	$return .= 'Character Sheet :: View Backup :: '.$saves[$_REQUEST['sheet']]['name'];

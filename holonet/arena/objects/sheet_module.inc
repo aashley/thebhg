@@ -16,6 +16,14 @@
         return $info['bhg_id'];
     }
     
+    function GetBackup($id){
+	    $sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '".$id."'";
+	    $query = mysql_query($sql, $this->connect);
+	    $info = mysql_fetch_array($query);
+	    
+	    return new Character($info['bhg_id']);
+    }
+    
     function NewRegistrar($bhg_id){
 	    $current = new Registrar($this->CurrentRegistrar());
 	    $current->EndTerm();
