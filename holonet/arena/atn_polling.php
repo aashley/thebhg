@@ -85,6 +85,7 @@ function output() {
 			    $form->table->EndRow();
 			    $form->EndForm();
 		    } else {
+			    echo 'Here';
 	    		$poll->WriteResults();
     		}
 	    } else {
