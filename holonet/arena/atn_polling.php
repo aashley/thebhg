@@ -50,9 +50,9 @@ function output() {
 	    
 	    if (count($polls)){
 		    $table = new Table('', true);
-		    $form->StartRow();
-		    $form->AddHeader('Polls to Submit For', 2);
-		    $form->EndRow();
+		    $table->StartRow();
+		    $table->AddHeader('Polls to Submit For', 2);
+		    $table->EndRow();
 		    $table->StartRow();
 		    $table->AddCell('Poll Question');
 		    $table->AddCell('Ends In');
@@ -69,9 +69,9 @@ function output() {
 	    
 	    if (count($polls)){
 		    $table = new Table('', true);
-		    $form->StartRow();
-		    $form->AddHeader('Arena Polls', 2);
-		    $form->EndRow();
+		    $table->StartRow();
+		    $table->AddHeader('Arena Polls', 2);
+		    $table->EndRow();
 		    $table->StartRow();
 		    $table->AddCell('Poll Question');
 		    $table->AddCell('Start Date');
