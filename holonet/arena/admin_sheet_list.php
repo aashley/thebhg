@@ -18,7 +18,12 @@ function output() {
     
     arena_header();
 
-    echo '<a href="'.internal_link($page, array('delb'=>1)).'">Clean Out Blank Sheets</a>';
+    if ($_REQUEST['delb']){
+	    $sheet->DeleteBlank();
+	    echo 'Blanks Deleted';
+    } else {
+	    echo '<a href="'.internal_link($page, array('delb'=>1)).'">Clean Out Blank Sheets</a>';
+    }
     
     hr();
     
