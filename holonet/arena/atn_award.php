@@ -50,7 +50,6 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Adjunct of the Guild', 2);
 		    $table->EndRow();
-		    $table->AddRow('Run-Ons Moderated:', $adjunc->GetROs());
 		    $table->AddRow('Credits Awarded:', number_format($adjunc->GetCreds()).' Imperial Credits');
 		    $table->AddRow('Experience Points Awarded:', number_format($adjunc->GetXP()));
 		    $table->AddRow('Medals Awarded:', number_format($adjunc->GetMedals()));
