@@ -43,6 +43,7 @@ function output() {
 	    $adjunc = new Adjunct($hunter->GetID());
 	    $skippe = new Skipper($hunter->GetID());
 	    $stewar = new Steward($hunter->GetID());
+	    $commen = new Commentator($hunter->GetID());
 	    
 	    $boc = $comiss->GetStatus();
 	    $djm = $master->GetStatus();
@@ -52,6 +53,7 @@ function output() {
 	    $adj = $adjunc->GetStatus();
 	    $ski = $skippe->GetStatus();
 	    $ste = $stewar->GetStatus();
+	    $com = $commen->GetStatus();
 		
 	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = array('pic'=>'ov', 'page'=>'atn_award', 'anch'=>'overseer'); $aa = true;}
 		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = array('pic'=>'aj', 'page'=>'atn_award', 'anch'=>'adjunct'); $aa = true;}
@@ -64,8 +66,10 @@ function output() {
 		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = array('pic'=>'mm', 'page'=>'atn_award', 'anch'=>'mission'); $aa = true;}
 		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = array('pic'=>'skipper', 'page'=>'atn_award', 'anch'=>'skipper'); $aa = true;}
 		if ($ste){ $rewards[$ste.'Steward of the Arena'] = array('pic'=>'steward', 'page'=>'atn_award', 'anch'=>'steward'); $aa = true;}
+		if ($com){ $rewards[$com.'Holonet Commentator of the IRC Arena'] = array('pic'=>'hc', 'page'=>'atn_award', 'anch'=>'commentator'); $aa = true;}
 		if ($properties){ $rewards['Owns '.pluralise('piece', $properties).' of property in Lyarna.'] = array('pic'=>'lyarna', 'page'=>'atn_lyarna'); }
 		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows']['pic'] = 'dojo'; }
+		if ($aa) { $rewards['Contributions to the Arena'] = array('pic'=>'contrib', 'page'=>'atn_award', 'anch'=>'total'); }
 	    
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
 	    
@@ -77,7 +81,6 @@ function output() {
 	    $table->AddRow('Name:', '<a href="' . internal_link('hunter', array('id'=>$hunter->GetID()), 'roster') . '">' . $hunter->GetName() . '</a>');   
 	    $table->AddRow('ID Line:', $hunter->IDLine(0));
 	    $table->AddRow('Stat Tracker:', '<a href="' . internal_link('atn_match_stats', array('id'=>$hunter->GetID())) . '">Arena Match Stats</a>'); 
-	    if ($aa) { $table->AddRow('Awarding Stats:', '<a href="' . internal_link('atn_award', array('id'=>$hunter->GetID())) . '">System Award Tracking</a>');  }
 	    $table->AddRow('Experience History:', '<a href="' . internal_link('point_history', array('id'=>$hunter->GetID())) . '">Experience/BP History</a>');
 	    
 	    $arr = $arena_ladder->Search($hunter->GetID());

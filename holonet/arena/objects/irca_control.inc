@@ -21,8 +21,11 @@
         	$name = $person1->GetName()." vs. ".$person2->GetName();
     	}
 
-        $sql = "INSERT INTO `arena_irca_match` (`name`, `type`, `location`, `location_table`, `weapons`, `weapon_type`, `posts`, `date`) "
-                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$weapon_type', '$posts', '".time()."')";
+    	$irca = new IRCA();
+    	$hc = $irca->CurrentHC();
+    	
+        $sql = "INSERT INTO `arena_irca_match` (`name`, `type`, `location`, `location_table`, `weapons`, `weapon_type`, `posts`, `date`, `hc`) "
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$weapon_type', '$posts', '".time()."', '$hc')";
                 
         if (mysql_query($sql, $this->connect)) {
 

@@ -32,6 +32,27 @@
         return $return;
     }
     
+    function CurrentHC(){
+        $sql = "SELECT * FROM `arena_commentator` WHERE `end_date` = '0'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        return $info['bhg_id'];
+    }
+    
+    function NewHC($bhg_id){
+	    $current = new Commentator($this->CurrentHC());
+	    $current->EndTerm();
+	    
+	    $sql = "INSERT INTO `arena_commentator` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
     function WeaponTypes(){
         $sql = "SELECT * FROM `arena_ladder_weapons`";
         $query = mysql_query($sql, $this->connect);

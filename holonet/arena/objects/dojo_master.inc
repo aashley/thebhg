@@ -64,7 +64,7 @@
     }
 
     function GetMatches(){
-        $sql = "SELECT * FROM `arena_ladder_match` WHERE `is_dojo` = '".$this->dojo_id."'";
+        $sql = "SELECT * FROM `arena_ladder_match` WHERE `is_dojo` = '".$this->dojo_id."' AND `match_id` > 0 AND `date_deleted` = 0 AND `accepted` = 1";
         $query = mysql_query($sql, $this->connect);
         
         return mysql_num_rows($query);

@@ -236,6 +236,7 @@ function get_auth_data($hunter) {
     $ro = new RO();
     $sheet = new Sheet();
     $starfield = new Starfield();
+    $irca = new IRCA();
 
     $auth_data['id'] = $hunter->GetID();
 
@@ -266,6 +267,7 @@ function get_auth_data($hunter) {
         $auth_data['ro'] = true;
         $auth_data['aa'] = true;
         $auth_data['arena'] = true;
+        $auth_data['irc'] = true;
     } else {
         $auth_data['rp'] = false;
         $auth_data['solo'] = false;
@@ -281,6 +283,7 @@ function get_auth_data($hunter) {
         $auth_data['ro'] = false; 
         $auth_data['aa'] = false;
         $auth_data['arena'] = false;
+        $auth_data['irc'] = false;
     }
     
     if ($pos->GetID() == 7 || $pos->GetID() == 3) {
@@ -350,6 +353,11 @@ function get_auth_data($hunter) {
 	    $auth_data['aa'] = true;
     }
     
+    if ($hunter->GetID() == $irca->CurrentHC()){
+	    $auth_data['irc'] = true;
+	    $auth_data['aa'] = true;
+    }
+    
     return $auth_data;
 }
 
@@ -385,21 +393,21 @@ function admin_footer($auth_data) {
 	
 	if ($auth_data['aa']){
 		echo '<br /><b>Arena&nbsp;System&nbsp;Management</b><br />';   
-
         echo '<br />General&nbsp;Management<br />';
-        if ($auth_data['aa']){
-	        if ($auth_data['rp']){
-	        	echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
-	        	echo '&nbsp;<a href="' . internal_link('admin_teta_award') . '">Award&nbsp;Teta\'s&nbsp;Knives</a><br />';	    
-		    	echo '&nbsp;<a href="' . internal_link('admin_teta_remove') . '">Remove&nbsp;Teta\'s&nbsp;Knives</a><br />';
-        	}
-	        echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_sheet_blank') . '">Insert&nbsp;Blank&nbsp;Sheet</a><br />';
-	    }
-
+        if ($auth_data['rp']){
+        	echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
+        	echo '&nbsp;<a href="' . internal_link('admin_teta_award') . '">Award&nbsp;Teta\'s&nbsp;Knives</a><br />';	    
+	    	echo '&nbsp;<a href="' . internal_link('admin_teta_remove') . '">Remove&nbsp;Teta\'s&nbsp;Knives</a><br />';
+    	}
+        echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_sheet_blank') . '">Insert&nbsp;Blank&nbsp;Sheet</a><br />';
+	    
+	    echo '<br />Reports<br />';
+        echo '&nbsp;<a href="' . internal_link('admin_report') . '">Add&nbsp;Report</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_edit_report') . '">Edit&nbsp;Report</a><br />';
     }
     
     if ($auth_data['overseer']) {   
@@ -420,25 +428,18 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_steward') . '">Edit&nbsp;Arena&nbsp;Steward</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_skipper') . '">Edit&nbsp;Starfield&nbsp;Skipper</a><br />';
         //echo '&nbsp;<a href="' . internal_link('admin_salaries') . '">Pay&nbsp;Aides</a><br />';
-
-        echo '<br />Reports<br />';
-        echo '&nbsp;<a href="' . internal_link('admin_report') . '">Add&nbsp;Report</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_edit_report') . '">Edit&nbsp;Report</a><br />';
-        
     }
     
     if ($auth_data['sheet']){
-        
         echo '<br />Character&nbsp;Sheets<br />';
         echo '&nbsp;<a href="' . internal_link('admin_sheet') . '">Edit&nbsp;Character&nbsp;Sheets</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_field') . '">Create&nbsp;New&nbsp;Field</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_stat') . '">Create&nbsp;New&nbsp;Statribute</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_skill') . '">Create&nbsp;New&nbsp;Skill</a><br />';        
-        echo '&nbsp;<a href="' . internal_link('admin_equation') . '">Create&nbsp;New&nbsp;Variable</a><br />';
-        
+        echo '&nbsp;<a href="' . internal_link('admin_equation') . '">Create&nbsp;New&nbsp;Variable</a><br />';        
     }
     
-    if ($auth_data['rp']) {    
+    if ($auth_data['arena']) {    
         echo '<br />Arena&nbsp;System<br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_complete') . '">Complete&nbsp;Match</a><br />';
@@ -459,7 +460,9 @@ function admin_footer($auth_data) {
     		echo '&nbsp;<a href="' . internal_link('admin_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
     	}
     	echo '&nbsp;<a href="' . internal_link('admin_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
-        
+    }
+    
+    if ($auth_data['irc']){
         echo '<br />IRC&nbsp;Arena&nbsp;System<br />';
         echo '&nbsp;<a href="' . internal_link('admin_irca_pending') . '">Pending&nbsp;Matches</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_irca_complete') . '">Complete&nbsp;Match</a><br />';
@@ -475,7 +478,6 @@ function admin_footer($auth_data) {
     		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
     	}
     	echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
-        
     } 
     
     if ($auth_data['ro']){
@@ -486,8 +488,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_ro_complete') . '">Complete&nbsp;Run-On</a><br />';
     }
     
-    if ($auth_data['dojo']){
-	    
+    if ($auth_data['dojo']){	    
 	    echo '<br />Dojo&nbsp;of&nbsp;Shadows<br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_post') . '">Post&nbsp;New&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_complete') . '">Complete&nbsp;Dojo&nbsp;Match</a><br />';
@@ -498,8 +499,7 @@ function admin_footer($auth_data) {
 	    echo '&nbsp;<a href="' . internal_link('admin_dojo_retrain') . '">Declare&nbsp;Dojo&nbsp;Retraining</a><br />';
     }
     
-    if ($auth_data['solo']){	    
-	    
+    if ($auth_data['solo']){	    	    
 	    echo '<br />Solo&nbsp;Contracts<br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_complete') . '">Complete&nbsp;a&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Contracts</a><br />';
@@ -522,7 +522,6 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_lw_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_retire') . '">Process&nbsp;Retired&nbsp;Contract</a><br />';
-        
     }
     
     if ($auth_data['star']) {
@@ -537,8 +536,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_starfield_restriction') . '">Edit&nbsp;Restrictions</a><br />';
     }
     
-    if ($auth_data['rp']) {
-	    
+    if ($auth_data['rp']) {	    
         /* Cut out, because it's the worst contribution to the RP system since Holo himself.
         echo '<br />Twilight&nbsp;Gauntlet&nbsp;Admin<br />';   
 	    echo '&nbsp;<a href="' . internal_link('admin_ttg_queue') . '">Queue</a><br />';

@@ -34,11 +34,14 @@ function output() {
 	    $adjunc = new Adjunct($hunter->GetID());
 	    $stewar = new Steward($hunter->GetID());
 	    $skippe = new Skipper($hunter->GetID());
+	    $commen = new Commentator($hunter->GetID());
 	    
-	    if ($comiss->GetStatus() || $master->GetStatus() || $regist->GetStatus() || $stewar->GetStatus() || $skippe->GetStatus() || $missio->GetStatus() || $overse->GetStatus() || $adjunc->GetStatus()){
-		    $cred_total = $stewar->GetCreds()+$skippe->GetCreds()+$overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
-		    $xp_total = $stewar->GetXP()+$skippe->GetXP()+$overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
-		    $meda_total = $stewar->GetMedals()+$skippe->GetMedals()+$overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
+	    if ($commen->GetStatus() || $comiss->GetStatus() || $master->GetStatus() || $regist->GetStatus() || $stewar->GetStatus() || $skippe->GetStatus() || $missio->GetStatus() || $overse->GetStatus() || $adjunc->GetStatus()){
+		    $cred_total = $commen->GetCreds()+$stewar->GetCreds()+$skippe->GetCreds()+$overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
+		    $xp_total = $commen->GetXP()+$stewar->GetXP()+$skippe->GetXP()+$overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
+		    $meda_total = $commen->GetMedals()+$stewar->GetMedals()+$skippe->GetMedals()+$overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
+		    
+		    echo '<a name="total"></a>';
 		    $table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Total Contributions', 2);
@@ -142,6 +145,29 @@ function output() {
 			    if ($master->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($master->GetCreds()).' Imperial Credits'); }
 			    if ($master->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($master->GetXP())); }
 			    if ($master->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($master->GetMedals())); }
+		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
+		    $table->EndTable();
+		    echo '<br />';
+		    
+		    hr();
+	    }
+	    
+	    if ($commen->GetStatus()){
+			
+		    echo '<a name="commentator"></a>';
+			$table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Holonet Commentator of the IRC Arena', 2);
+		    $table->EndRow();
+		    if ($commen->GetMatches() || $commen->GetCreds() || $commen->GetXP() || $commen->GetMedals()){
+			    if ($commen->GetMatches()){ $table->AddRow('Matches Run:', number_format($commen->GetMatches())); }
+			    if ($commen->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($commen->GetCreds()).' Imperial Credits'); }
+			    if ($commen->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($commen->GetXP())); }
+			    if ($commen->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($commen->GetMedals())); }
 		    } else {
 			    $table->StartRow();
 			    $table->AddCell('<center>No Contributions Made</center>');
