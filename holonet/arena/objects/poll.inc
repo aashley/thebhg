@@ -113,6 +113,18 @@
 	    return $return;
     }
     
+    function GetVotes(){
+	    $votes = array();
+	    $total = 0;
+	    foreach ($this->GetOptions() as $option){
+		    $votes[$option->GetID()] $option->GetVotes();
+		    $total += count($option->GetVotes());
+	    }
+	    $votes['total'] = $total;
+	    
+	    return $votes;
+    }
+    
     function Edit($question, $poster, $rpa, $multiple, $open_to, $starts, $ends) {
         $sql = "UPDATE `arena_poll` SET ";
         $add = array("`id` = '".$this->poll_id."'");
@@ -229,7 +241,7 @@
 	}
     
     function WriteResults(){
-	    
+	    $votes = $this->GetVotes();
     }
     
     function Undelete() {

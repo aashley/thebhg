@@ -67,6 +67,18 @@
 	    }
     }
     
+    function GetPolls(){
+	    $sql = "SELECT * FROM `arena_poll` WHERE `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[] = new Poll($info['id']);
+	    }
+	    
+	    return $return;
+    }
+    
     function PollBan($bhg_id, $date){
 	    $sql = "INSERT INTO `arena_poll_bans` VALUES ('$bhg_id', '$date')";
 	    if (mysql_query($sql, $this->connect)){
