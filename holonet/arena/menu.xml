@@ -10,5 +10,9 @@
     <item>
         <name>Administration</name>
         <page>admin</page>
-    </item>    
+    </item>
+    <item>
+        <name>Search Sheets</name>
+        <page>view_sheets</page>
+    </item>  
 </menu>
