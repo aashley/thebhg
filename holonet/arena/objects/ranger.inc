@@ -1,6 +1,6 @@
 <?php
 
- Class Ranger extends Solo {
+ Class Ranger extends Survival {
 
      var $ranger_id;
      var $ranger_bhg_id;
