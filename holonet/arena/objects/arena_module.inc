@@ -177,6 +177,8 @@
 
 			$sql = "UPDATE `".$positions[$use]['table']."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aas[$use]->GetID()."'";
 			
+			echo $sql;
+			
 			if (mysql_query($sql, $this->connect)){
 				return $return.': ';
 			} else {
