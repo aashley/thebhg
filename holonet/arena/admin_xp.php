@@ -61,7 +61,7 @@ function output() {
 	$form->table->AddHeader('Points');
 	$form->table->EndRow();
 	
-	if ($auth_data['aide']){
+	if (!$auth_data['aide']){
 		$bar_cunt = array($kabalch->GetID());
 	}
 

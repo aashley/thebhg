@@ -54,10 +54,6 @@ function output() {
 	$form->table->AddHeader('Hunter');
 	$form->table->AddHeader('Credits');
 	$form->table->EndRow();
-	
-	if ($auth_data['aide']){
-		$bar_cunt = array($kabalch->GetID());
-	}
 
 	include_once 'multiple.php';
 
