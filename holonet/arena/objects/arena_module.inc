@@ -71,7 +71,7 @@
 	    $rp = '';
 	    $rps = array();
 	    if (count($rpa)){
-		    $rp .= '('
+		    $rp .= '(';
 		    foreach ($rpa as $id=>$name){
 			    $rps[] = "`rp` = '$id'";
 		    }
