@@ -84,6 +84,8 @@ function output() {
 	    
 	    $table->EndTable();
 	    
+	    hr();
+	    
 	    $table = new Table();
 	    
 	    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$match->Get(id)))) as $yarm){		   				    
@@ -91,9 +93,12 @@ function output() {
 			$table->StartRow();
 			$table->AddHeader($person->GetName(), 2);
 			$table->EndRow();
-			if ($yarm->Get(outcome)){
+			$c = 0;
+			if ($yarm->Get(outcome) > 0){
 				$spec = new Obj('ams_specifics', $yarm->Get(outcome), 'holonet');
 				$table->AddRow('Outcome:', $spec->Get(name));
+			} else {
+				$table->AddRow('Result Data:', 'Pending');
 			}
 			if ($yarm->Get(medal)){
 				$medal = new MedalGroup($yarm->Get(medal));
