@@ -42,8 +42,10 @@
 	    $order = array();
 	    $select = array();
 	    
-	    foreach ($data['search'] as $field=>$value){
-		    $implode[] = "`".$field."` = '".$value."'";
+	    if (is_array($data['search'])){
+		    foreach ($data['search'] as $field=>$value){
+			    $implode[] = "`".$field."` = '".$value."'";
+		    }
 	    }
 	    
 	    if (is_array($data['order'])){

@@ -23,10 +23,12 @@ function output(){
 		} else {
 			echo 'Error encountered.';
 		}
+		
+		echo '<a href="'.internal_link($page).'">View All</a>';
 		hr();
 	} else {
 		//Write the current activities
-		$current = $arena->Search(array('table'=>'ams_activities', 'search'=>array('date_deleted'=>'0'), 'order'=>array('name'=>'ASC')));
+		$current = $arena->Search(array('table'=>'ams_activities', 'order'=>array('name'=>'ASC')));
 		
 		if (count($current)){
 			$table = new Table('Current Activities', true);
@@ -42,9 +44,9 @@ function output(){
 			foreach ($current as $obj){
 				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
 				$table->AddRow($obj->Get(name), $obj->Get(desc, true), $type->Get(name), ($obj->Get(date_deleted) ? 
-				'<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$id=>$obj->Get(id))).'">Undelete</a>' : 
-				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$id=>$obj->Get(id))).'">Delete</a>'), 
-				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$id=>$obj->Get(id))).'">Edit</a>');
+				'<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get(id))).'">Undelete</a>' : 
+				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Delete</a>'), 
+				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get(id))).'">Edit</a>');
 			}
 			
 			$table->EndTable();
