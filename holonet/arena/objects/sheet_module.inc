@@ -160,7 +160,7 @@
 			$field = $fields[0];
 			$resource = $fields[1];
 			$character = new Character($bhg_id);
-			if ($resource == 'skill'){
+			if ($field == 'skill'){
 				$evalue = $character->GetValue($resource, 'values', 'SYSTEM'); 
 			} else {
 				$evalue = $character->Point($resource, 'SYSTEM'); 
