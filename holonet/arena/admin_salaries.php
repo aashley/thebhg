@@ -51,6 +51,8 @@ function output() {
 		    	
 		    	$pp = $endut - $startut;
 		    	
+		    	echo $time;
+		    	
 		    	$time = $time / $pp;
 		    	
 		    	echo $time.'|';
