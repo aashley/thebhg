@@ -38,7 +38,7 @@
     }
     
     function SecondBuild(){
-        $sql = "SELECT * FROM FROM `arena_registrar_track` WHERE `registrar` = '".$this->reg_id."'";
+        $sql = "SELECT * FROM `arena_registrar_track` WHERE `registrar` = '".$this->reg_id."'";
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
