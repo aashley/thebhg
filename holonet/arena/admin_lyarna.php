@@ -28,7 +28,7 @@ function output() {
 
     if (isset($_REQUEST['submit'])) {
 	    $error = false;
-	    for ($i = 0; $i < $_REQUEST['runs']; $i++){
+	    for ($i = 0; $i <= $_REQUEST['runs']; $i++){
 		    if ($_REQUEST['process'.$i]){
 			    if ($_REQUEST['position'.$i] > 0){
 				    $sets = "`position` = '".$_REQUEST['position'.$i]."', `division` = '".$_REQUEST['kabal'.$i]."', `bhg_id` = '0'";
