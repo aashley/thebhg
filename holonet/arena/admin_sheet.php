@@ -136,7 +136,7 @@ function output() {
 					    $form->table->AddRow('<input type="submit" name="save" Value="Submit Sheet">');
 				    	$form->EndForm();
 			    	} else {
-				    	echo '<h4>You Cannot Submit a Blank Sheet for Approval!';
+				    	echo '<h4>You Cannot Submit a Blank Sheet for Approval!</h4>';
 			    	}
 		    	}
 			} else {

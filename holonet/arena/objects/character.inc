@@ -489,7 +489,7 @@
 	    
 	    //No errors, update status
 	    
-	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 1, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
 		if (mysql_query($sql, $this->connect)){
 			return 'Your character sheet has been saved. The Save number is '.$this->LastID.' for your records. You may submit it at any time for approval. Your sheet can not be approved until you submit it.';
 		} else {
