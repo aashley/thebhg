@@ -64,7 +64,6 @@ function output() {
 	    $plural = '';
 	    
 	    if ($at->IsGladius($hunter->GetID())){
-		    $table->AddRow('Achieved Gladius Prime:', pluralise('Time', $at->IsGladius($hunter->GetID())));
 		    $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius';
 	    }
 	    
@@ -115,30 +114,6 @@ function output() {
 	    
 	    $boc = $comiss->GetStatus();
 	    $djm = $master->GetStatus();
-	    
-	    if ($boc || $djm){
-		    
-		    $table = new Table();
-		    
-		    $table->StartRow();
-		    $table->AddHeader('Arena Aide Positions', 2);
-		    $table->EndRow();
-		    
-		    if ($boc){
-			    $table->StartRow();
-		    	$table->AddCell($boc.'of the Bounty Office', 2);
-		    	$table->EndRow();
-			}
-			
-			if ($djm){
-			    $table->StartRow();
-		    	$table->AddCell($djm.'Master of the Dojo of Shadows', 2);
-		    	$table->EndRow();
-			}
-			
-			$table->EndTable();
-			
-		}
 		
 		if (in_array($hunter->GetID(), $arena->GetApproved())){
 			$rewards['Graduate of the Dojo of Shadows'] = 'dojo';
@@ -154,9 +129,6 @@ function output() {
 		}
 		
 		if (count($rewards)){
-			if ($boc || $djm){
-				hr();		
-			}
 		
 			$table = new Table();
 			$table->StartRow();

@@ -105,9 +105,10 @@ function atn_nav(){
 	echo '&nbsp;<a href="' . internal_link('atn_lw') . '">Lone Wolf Contracts</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_ro') . '">Run-Ons</a><br />';
     
-    echo '<br />Dojo of Shadows<br />';
+    echo '<br />Hunter Lists<br />';
 	echo '&nbsp;<a href="' . internal_link('atn_dojo') . '">Dojo&nbsp;Learners</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_dojo_grad') . '">Dojo&nbsp;Graduates</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_teta') . '">Teta\'s&nbsp;Knives&nbsp;Holders</a><br />';
 
     /*Removing the Elite RP stuff
     echo '<br />Twilight Gauntlet<br />';
@@ -126,8 +127,8 @@ function atn_nav(){
     if (count($iat->GetHunters())){
     	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_signups') . '">IRC AT Signups</a><br />';
 	}
-	echo '&nbsp;<a href="' . internal_link('atn_tournament_archive') . '">Archived Arena Tournaments</a><br />';
-	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_archive') . '">Archived IRC Arena Tournaments</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_tournament_archive') . '">Archived [Arena]</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_archive') . '">Archived [IRC Arena]</a><br />';
 	
     echo '</small>';
 }
