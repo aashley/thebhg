@@ -59,8 +59,10 @@ function output() {
 				$sheet->RegistrarTrack('new');
 			}
 		}
-	    if ($_REQUEST['okay']){
+	    if ($_REQUEST['okay'] == 'core'){
 		    echo $character->LoadCore($_REQUEST['sheet']);
+	    } elseif ($_REQUEST['okay'] == 'saves'){
+		    echo $character->LoadSaveFunction($_REQUEST['sheet']);
 	    } else {
 	    	echo $character->LoadBackup($_REQUEST['sheet']);
     	}
@@ -241,12 +243,15 @@ function output() {
     if ($show){
 	    if ($_REQUEST['load']){
 	    
-		    if ($character->ValidLoad($_REQUEST['sheet']) || $_REQUEST['prompt'] == 'core'){
+		    if ($character->ValidLoad($_REQUEST['sheet']) || $_REQUEST['prompt'] == 'core' || $_REQUEST['prompt'] == 'saves'){
 		    
-			    if ($_REQUEST['prompt']){
+			    if ($_REQUEST['prompt'] == 'saves'){
+				    $load = 'records';
+				    $name = 'Auto-Save';
+			    } elseif ($_REQUEST['prompt'] == 'core'){
 				    $load = 'cores';
 				    $name = 'CORE';
-			    } else {
+			    } else { {
 				    $load = 'backups';
 				    $name = 'Backup';
 			    }
@@ -392,6 +397,25 @@ function output() {
 				    $hunt = new Person($data['hunter']);
 				    $table->AddRow($data['name'], '<a href="'.internal_link('atn_general', array('id'=>$data['hunter'])).'">'.$hunt->GetName().'</a>',
 				    '<a href="'.internal_link($page, array('delshare'=>1, 'sheet'=>$data['id'], 'hunt'=>$data['hunter'])).'">Delete Share</a>');
+			    }
+			    
+			    $table->EndTable();
+		    }
+		    
+		    $saves = $character->GetSaveFunctions();
+		    
+		    if (count($saves)){		    
+		    	hr();
+			    $table = new Table('', true);
+			    $table->StartRow();
+			    $table->AddHeader('Core Characters', 5);
+			    $table->EndRow();
+			    
+			    $table->AddRow('Save ID', 'Date', '&nbsp');
+			    
+			    foreach ($saves as $data){
+				    $table->AddRow($data['id'], $data['date'], 
+				    	'<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'], 'prompt'=>'saves')).'">Load Sheet</a>');
 			    }
 			    
 			    $table->EndTable();

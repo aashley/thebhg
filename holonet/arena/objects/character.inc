@@ -980,6 +980,33 @@
 		}	   
 	}
 	
+	function LoadSaveFunction($id){
+		$sql = "SELECT * FROM `character_sheet_records` WHERE `id` = '".$id."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `id` = '".$this->GetSheetID()."'";
+		    mysql_query($delsql, $this->connect);
+	    }
+	    
+	    $errors = 0;
+	    
+	    while($info = mysql_fetch_array($query)){
+		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    if (!mysql_query($sql, $this->connect)){
+			    $errors++;
+		    }
+	    }
+	    
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+		if (!$errors && mysql_query($sql, $this->connect)){
+			return 'Backup loaded as edit sheet.';
+		} else {
+			$arena = new Arena();
+			return $arena->NEC(159);
+		}	   
+	}
+	
 	function LoadCore($id){
 		$sql = "SELECT * FROM `character_sheet_cores` WHERE `id` = '".$id."'";
 	    $query = mysql_query($sql, $this->connect);
