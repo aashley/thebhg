@@ -42,7 +42,7 @@ function output() {
 		}
 	}
 	else {
-		$can = $arena->CanBe($hunter->GetID());
+		$can = $arena->CanBe($hunter);
 		
 		if (count($can)){		
 			$form = new Form($page);
