@@ -67,7 +67,7 @@ function output() {
 			$hunters = array();
 			$plebsheet = array();
 			
-			foreach ($sheet->SheetHolders(1) as $char) {
+			foreach ($sheet->SheetHolders() as $char) {
 			     $hunters[$char->GetName()] = new Person($char->GetID());
 	    	}
 	    	
