@@ -38,7 +38,6 @@ function output() {
 			    
 			    if ($sets){ 
 				    $sql = "UPDATE " . $_REQUEST['table'] . " SET $sets WHERE `id` = '".$_REQUEST['property'.$i]."'";
-				    echo $sql;
 		            if (!mysql_query($sql, $lyarna)) {
 		                $error = true;	                
 		            }
