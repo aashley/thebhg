@@ -307,6 +307,14 @@ function admin_footer($auth_data) {
 		echo '<br /><b>Arena&nbsp;System&nbsp;Management</b><br />';
 	}
 	
+	if ($auth_data['coder']){
+		echo '<br />Coder&nbsp;Options<br />';
+		echo '&nbsp;<a href="' . internal_link('coder_db') . '">Database&nbsp;Management</a><br />';
+		echo '&nbsp;<a href="' . internal_link('coder_system') . '">Add&nbsp;New&nbsp;System</a><br />';
+        echo '&nbsp;<a href="' . internal_link('coder_nav_header') . '">Add&nbsp;New&nbsp;Header</a><br />';
+        echo '&nbsp;<a href="' . internal_link('coder_nav_link') . '">Add&nbsp;New&nbsp;Link</a><br />';
+    }
+	
     if ($auth_data['rp']) {    
 
         echo '<br />General&nbsp;Management<br />';
