@@ -133,11 +133,7 @@ function output() {
 
     $cell = "<select name=\"challengee\">";
       
-			$cell .= "<option value=\"-1\" selected>N/A</option>\n";
-			
-			foreach ($plebs as $value){
-				$cell .= $value;
-			}
+			$cell .= "<option value=\"-1\" selected>N/A</option>\n".implode("", $plebs);
     
 		$cell .= "</select>";
     
