@@ -1,4 +1,5 @@
 <?php
+// test
 ob_start();
 if (version_compare(phpversion(), '5.0.0', '>=')) {
 	define('PHP5', true);
