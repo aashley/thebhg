@@ -59,6 +59,10 @@ ALTER TABLE roster_rank ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE roster_rank ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE roster_rank ADD COLUMN datedeleted DATETIME;
 UPDATE roster_rank SET datecreated = NOW(), dateupdated = NOW();
+ALTER TABLE roster_rank CHANGE credits_needed requiredcredits INT(11) NOT NULL;
+ALTER TABLE roster_rank CHANGE always_available alwaysavailable INT(1) NOT NULL;
+ALTER TABLE roster_rank CHANGE unlimited_credits unlimitedcredits INT(1) NOT NULL;
+ALTER TABLE roster_rank CHANGE manual_set manualset INT(1) NOT NULL;
 
 -- Roster Person
 ALTER TABLE roster_roster RENAME roster_person;

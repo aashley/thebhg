@@ -10,4 +10,6 @@ print_r($GLOBALS['bhg']->roster->getPerson(94)->getPasswd());
 
 print_r($GLOBALS['bhg']->roster->getPerson(94)->getDateCreated());
 
+print_r($GLOBALS['bhg']->roster->getPerson(94)->getRank());
+
 ?>

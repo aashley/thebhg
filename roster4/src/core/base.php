@@ -64,8 +64,18 @@ class bhg_core_base {
 	 */
 	private $blacklist = array(
 			'get' => array(),
-			'set' => array('datecreated', 'dateupdated')
+			'set' => array('datecreated', 'dateupdated', 'datedeleted')
 			);
+
+	/**
+	 * field map
+	 *
+	 * This maps specific fields to objects within the system for the _call
+	 * function
+	 *
+	 * @var array
+	 */
+	private $fieldmap = array();
 
 	// }}}
 
@@ -119,9 +129,11 @@ class bhg_core_base {
 			if (   !in_array($varname, $this->blacklist['get'])
 					&& isset($this->data[$varname])) {
 
-				$GLOBALS['bhg']->log('Looking for date in '.$varname, PEAR_LOG_DEBUG);
+				if (isset($this->fieldmap[$varname])) {
 
-				if (false === strstr($varname, 'date')) {
+					return $GLOBALS['bhg']->loadObject($this->fieldmap[$varname], $this->data[$varname]);
+
+				} elseif (false === strstr($varname, 'date')) {
 
 					return $this->data[$varname];
 
@@ -144,7 +156,19 @@ class bhg_core_base {
 			if (	 !in_array($varname, $this->blacklist['set'])
 					&& isset($this->data[$varname])) {
 
-				if (false === strstr($varname, 'date')) {
+				if (isset($this->fieldmap[$varname])) {
+
+					if ($params[0] instanceof $this->fieldmap[$varname]) {
+
+						return $this->__saveValue($table, array($varname => $params[0]->getID()));
+
+					} else {
+
+						return new bhg_error('Invalid object passed to '.$function.'. Only accepts '.$this->fieldmap[$varname].'.');
+
+					}
+
+				} elseif (false === strstr($varname, 'date')) {
 
 					return $this->__saveValue($table, array($varname => $params[0]));
 
@@ -497,7 +521,7 @@ class bhg_core_base {
 	}
 
 	// }}}
-	// {{{ __blackListVar()
+	// {{{ __blackListVar() [protected]
 
 	/**
 	 * Black list these vars from being accessed using __call
@@ -519,6 +543,23 @@ class bhg_core_base {
 			return false;
 
 		}
+
+	}
+
+	// }}}
+	// {{{ __addFieldMap() [protected]
+
+	/**
+	 * Add a collection of mappings to the field map
+	 *
+	 * @param array
+	 * @return boolean
+	 */
+	protected function __addFieldMap($newmaps) {
+
+		$this->fieldmap = array_merge($this->fieldmap, $newmaps);
+
+		return true;
 
 	}
 
