@@ -33,9 +33,11 @@
     }
     
     function GetStats($table){
+	    $check = ($this->type->GetPoints() > 1.5);
+	    
 	    if ($this->type->GetPoints() < 1){
 		    $namemod = 'Lesser ';
-	    } elseif ($this->type->GetPoints() > 1.5){
+	    } elseif ($check){
 		    $namemod = 'Elder ';
 	    }
 	    
@@ -44,11 +46,12 @@
 	   
 	    $sorted = $this->npc_stats;
 	    arsort($sorted);
-	    $highest = array_shift($sorted);
+	    $highest = array_shift($sorted*$this->type->GetPoints());
 	    
 	    foreach ($this->npc_stats as $name=>$stat){
 		    $point = round($stat*$this->type->GetPoints());
-		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', round($point));
+		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', ($check ? $stat : round($point)));
+		    if ($check){ $value .= str_repeat('<img src="arena/images/bonus.png" alt="*" height=20 width=20>', round($point-$stat)); }
 		    $value .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', round($highest-$point));
 
 		    $table->AddRow($name, $value);

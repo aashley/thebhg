@@ -54,9 +54,11 @@ function output() {
 			NEC(195);
 		} else {
 			echo 'Creature Created.';
-			hr();
-			$creature = new Creature($id);
-			$creature->BuildSheet();
+			foreach ($solo->Types() as $type){
+				hr();
+				$creature = new Creature($id, $type->GetID());
+				$creature->BuildSheet();
+			}
 		}
     }
     else {
