@@ -32,7 +32,6 @@ function output() {
     $values = array();
     
     if ($_REQEUST['process']){
-	    echo 'Im fucking here, assholes';
 	    echo $character->Backup($_REQEUST['save'], $_REQUEST['sheet']);
 	    hr();		     
     }
@@ -44,6 +43,7 @@ function output() {
 	    $form->AddTextBox('Save name:', 'save');
 	    $form->AddHidden('sheet', $_REQUEST['sheet']);
 	    $form->AddSubmitButton('process', 'Save Sheet');
+	    $form->EndForm();
 	    
 	    hr();
 	    
