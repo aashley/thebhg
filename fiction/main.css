@@ -1,0 +1,19 @@
+BODY {  background-color: #FFFFFF;
+    font-size: 10pt;
+    color: #000000;
+    font-family: Verdana, Arial, sans-serif;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px}
+
+TD {    font-size: 10pt;}
+
+A { text-decoration: none;
+    color: #00009C;}
+
+A:hover {text-decoration: underline;}
+
+.disclaim {font-size: 8pt;
+    color: #676767;
+    font-family: Courier New, Courier}
