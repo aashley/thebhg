@@ -16,11 +16,11 @@ function output() {
     
     hr();
     
-    echo "Version Comments: The AMS Module has/is been/being debugged to meet PHP coding and BHG Holonet requirements and is currently awaiting approval.";
+    echo "Version Comments: The AMS Module has been launched at version 1.2.";
     
     hr();
     
-    echo "Last Update: Updated the Tournament code to allow for Wild Cards, Registry Deletions (Yay!), Bracket Organization, Round Stat-Determination, and Double Elimination Tourneys. Updated CS code, namely, the writers for XP and BP history events, now linked off the ATN. Also added in Character Assassination buttons due to AT 5 (must be OV). Turned off Tempy Petitions and fixed some cosmetic stuff with the ladders that were kicking back errors.";
+    echo "Last Update: Approved. All things functional.";
     
     hr();
     
