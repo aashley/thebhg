@@ -24,6 +24,39 @@
 	    return new Character($info['bhg_id']);
     }
     
+    function GetShares(){
+		$sql = "SELECT * FROM `cs_shares`";
+		$query = mysql_query($sql, $this->connect);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$sqla = "SELECT * FROM `cs_sheet_backups` WHERE `id` = '".$info['sheet']."'";
+			$querya = mysql_query($sqla, $this->connect);
+			$infer = mysql_fetch_array($querya);
+			$sqlb = "SELECT * FROM `cs_sheet_backup` WHERE `id` = '".$info['sheet']."'";
+			$queryb = mysql_query($sqlb, $this->connect);
+			$infor = mysql_fetch_array($queryb);
+			if (mysql_num_rows($querya)){
+				$return[] = array('id'=>$info['sheet'], 'hunter'=>$infor['bhg_id'], 'name'=>stripslashes($infor['save_name']));
+			}
+		}
+		
+		return $return;
+	}	
+    
+    function GetBackups(){
+	    $sql = "SELECT * FROM `character_sheet_backup`";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+	    	$date = getdate($info['date']);
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'share'=>0);
+		}
+		
+		return $return;
+    }
+    
     function NewRegistrar($bhg_id){
 	    $current = new Registrar($this->CurrentRegistrar());
 	    $current->EndTerm();
