@@ -15,9 +15,10 @@
 	 * Purpose:  return the books a blog is reading<br>
 	 * Input:<br>
 	 *         - blogid = the unique id of the blog
+	 *         - status = 0=All,1=Incomplete,2=Completed
 	 *         - limit = the maximum number of books
 	 *
-	 * Examples: {getbooks blogid=1 limit=5}
+	 * Examples: {getbooks blogid=1 status=1 limit=5}
 	 * @author   Thomas Reynolds <Thomas.Reynolds@asu.edu>
 	 * @param array
 	 * @param Smarty
@@ -32,6 +33,9 @@
 		// If an output variable name is not set, default.
 		if (empty ($params['assign']))
 			$params['assign'] = 'books';
+
+		if (empty ($params['status']))
+			$params['status'] = 0;
 
 		// Require a blogid.
 		if (empty ($params['blogid']))
@@ -55,8 +59,10 @@
 			" AND                   " .
 			"   books.person =      " .
 			"     blogs.blog_person " .
+			" %s                    " .
 			" %s                    " ,
 			$params['blogid'],
+			(($params['status'] != 0) ? " AND books.completed = " . ($params['status'] - 1) : ""),
 			(!empty ($params['limit']) ? " LIMIT {$params['limit']}" : "")
 		);
 		$result = $database->query ($sql);
@@ -66,6 +72,7 @@
 		{
 			if (!empty ($params['asarray']))
 				$row["authors"] = split (", ", $row["authors"]);
+
 			$array [] = $row;
 		}
 

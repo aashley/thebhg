@@ -35,7 +35,7 @@
 
 		// If a limit is not set, use default.
 		if ($params['limit'] == '')
-			$params['limit'] = '6';
+			$params['limit'] = '5';
 
 		// Require the blogid parameter.
 		if ($params['blogid'] == '')

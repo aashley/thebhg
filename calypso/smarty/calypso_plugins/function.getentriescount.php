@@ -29,7 +29,7 @@
 
 		// If an output variable name is not set, default.
 		if ($params['assign'] == '')
-			$params['assign'] = 'comments';
+			$params['assign'] = 'entries';
 
 		if ($params['categoryid'] == '')
 			$smarty->trigger_error ('getentriescount: categoryid is a required parameter');

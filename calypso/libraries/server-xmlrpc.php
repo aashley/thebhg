@@ -7,7 +7,8 @@
 		'metaWeblog.newPost' => array ('function' => 'metaWeblog_newPost'),
 	);
 
-	/* Creating a new object of this type automatically
+	/**
+	 * Creating a new object of this type automatically
 	 * Parsed the XML-RPC request and handles the
 	 * response.
 	 */

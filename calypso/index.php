@@ -1,18 +1,12 @@
 <?php
 
-	function getmicrotime ()
-	{  
-		list ($usec, $sec) = explode(' ', microtime());  
-		return ((float) $usec + (float) $sec);  
-	}
-
-	$starting_time = getmicrotime ();
-
 	// Get the config settings.
 	require_once ('calypso.conf');
 
 	// Get the admin functions
 	require_once ('libraries/calypso_admin.php');
+
+	$starting_time = getmicrotime ();
 
 	// Create the Database
 	require_once ("DB.php");
@@ -35,8 +29,8 @@
 	$smarty->compile_dir   = $smarty_path . '/compiled';
 	$smarty->cache_dir     = $smarty_path . '/cache';
 	$smarty->template_dir  = array (
-		$system ["base"] . '/templates',
-		$system ["base"] . '/admin'
+		$system ["base"] . '/templates/general',
+		$system ["base"] . '/templates/administration'
 	);
 	$smarty->plugins_dir   = array (
 		"calypso_plugins", 
@@ -81,19 +75,13 @@
 			$smarty->display ('archive_by_category.html', 
 					  'blog:{$_REQUEST["blogid"]},category:{$_REQUEST["category"]}');
 			break;
+		case 31:
+			$smarty->display ('list_categories.html', 
+					  'blog:{$_REQUEST["blogid"]}');
+			break;
 		case 6:
 	 		header ("Content-Type: text/css");
 			$smarty->display ('display_style_sheet.html', 
-					  'blog:{$_REQUEST["blogid"]}');
-			break;
-		case 21:
-			header ("Content-Type: application/atom+xml");
-			$smarty->display ('syndicate_atom.html', 
-					  'blog:{$_REQUEST["blogid"]}');
-			break;
-		case 5:
-			header ("Content-Type: application/rss+xml");
-			$smarty->display ('syndicate_rss.html', 
 					  'blog:{$_REQUEST["blogid"]}');
 			break;
 		case 27:
@@ -113,14 +101,6 @@
 		case 23:
 			header ("Content-Type: text/xml");
 			$smarty->display ('admin_syndicate_foaf.html');
-			break;
-		case 24:
-			header ("Content-Type: application/rss+xml");
-			$smarty->display ('admin_syndicate_rss.html');
-			break;
-		case 25:
-			header ("Content-Type: application/atom+xml");
-			$smarty->display ('admin_syndicate_atom.html');
 			break;
 		case 19:
 			$smarty->display ('entries_list.html');
@@ -170,7 +150,11 @@
 			$smarty->display ('links_list.html');
 			break;
 		case 26:
-			if (isset ($_POST ["Delete"]))
+			if (isset ($_POST ["Completed"]))
+				calypso_completed_book ($_POST ["person"], $_POST ["isbn"], 1);
+			elseif (isset ($_POST ["Uncompleted"]))
+				calypso_completed_book ($_POST ["person"], $_POST ["isbn"], 0);
+			elseif (isset ($_POST ["Delete"]))
 				calypso_delete_book ($_POST ["person"], $_POST ["isbn"]);
 			elseif (isset ($_POST ["Update"]))
 				calypso_update_book ($_POST ["person"], $_POST ["isbn"]);
@@ -179,6 +163,62 @@
 			
 			$smarty->display ('books_list.html');
 			break;
+
+	// Calypso RSS 1.0 and 2.0 feeds.
+		case 24:
+			header ("Content-Type: application/rss+xml");
+			$smarty->assign ('xsl', 'rss10');
+			$smarty->display ('admin_syndicate_atom.html',
+			                  'rss10');
+			break;
+		case 34:
+			header ("Content-Type: application/rss+xml");
+			$smarty->assign ('xsl', 'rss20');
+			$smarty->display ('admin_syndicate_atom.html',
+			                  'rss20');
+			break;
+		case 25:
+			header ("Content-Type: application/atom+xml");
+			$smarty->display ('admin_syndicate_atom.html');
+			break;
+
+	// Per-blog RSS 1.0 and 2.0 feeds.
+		case 5:
+			header ("Content-Type: application/rss+xml");
+			$smarty->display ('syndicate_rss10.html', 
+					  'blog:{$_REQUEST["blogid"]}');
+			break;
+		case 32:
+			header ("Content-Type: application/rss+xml");
+			$smarty->display ('syndicate_rss20.html', 
+					  'blog:{$_REQUEST["blogid"]}');
+			break;
+		case 21:
+			header ("Content-Type: application/atom+xml");
+			$smarty->display ('syndicate_atom03.html', 
+					  'blog:{$_REQUEST["blogid"]}');
+			break;
+
+	// Per-category RSS 1.0 and 2.0 feeds.
+		case 29:
+			header ("Content-Type: application/rss+xml");
+			$smarty->assign ('xsl', 'rss10');
+			$smarty->display ('syndicate_category_atom.html',
+					  'blog:{$_REQUEST["blogid"]},category:{$_REQUEST["category"]},rss10');
+			break;
+		case 33:
+			header ("Content-Type: application/rss+xml");
+			$smarty->assign ('xsl', 'rss20');
+			$smarty->display ('syndicate_category_atom.html',
+					  'blog:{$_REQUEST["blogid"]},category:{$_REQUEST["category"]},rss20');
+			break;
+		case 30:
+			header ("Content-Type: application/atom+xml");
+			$smarty->display ('syndicate_category_atom.html',
+					  'blog:{$_REQUEST["blogid"]},category:{$_REQUEST["category"]}');
+			break;
+
+	// XML-RPC Server
 		case 11:
 			require_once ('libraries/server-xmlrpc.php');
 			break;

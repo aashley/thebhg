@@ -10,14 +10,13 @@
 	 * Smarty {getbook} function plugin
 	 *
 	 * Type:     function<br>
-	 * Name:     getbooks<br>
+	 * Name:     getbook<br>
 	 * Date:     Dec 31, 2003<br>
-	 * Purpose:  return the books a blog is reading<br>
+	 * Purpose:  return the book in our database<br>
 	 * Input:<br>
-	 *         - blogid = the unique id of the blog
 	 *         - isbn = the unique id of the book
 	 *
-	 * Examples: {getbook blogid=1 isbn=1}
+	 * Examples: {getbook isbn=1}
 	 * @author   Thomas Reynolds <Thomas.Reynolds@asu.edu>
 	 * @param array
 	 * @param Smarty
@@ -32,10 +31,6 @@
 		// If an output variable name is not set, default.
 		if (empty ($params['assign']))
 			$params['assign'] = 'book';
-
-		// Require a blogid.
-		if (empty ($params['blogid']))
-			$smarty->trigger_error ('getbook: blogid is a required parameter');
 
 		if (empty ($params['isbn']))
 			$smarty->trigger_error ('getbook: isbn is a required parameter');

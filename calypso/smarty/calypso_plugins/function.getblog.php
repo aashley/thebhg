@@ -33,7 +33,7 @@
 			$params['assign'] = 'blogs';
 
 		// Require a blogid.
-		if ($params['blogid'] == '')
+		if (empty ($params['blogid']))
 			$smarty->trigger_error ('getblog: blogid is a required parameter');
 
 		// Construct the query.

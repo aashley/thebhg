@@ -1,5 +1,11 @@
 <?php
 
+	function getmicrotime ()
+	{  
+		list ($usec, $sec) = explode(' ', microtime());  
+		return ((float) $usec + (float) $sec);  
+	}
+
 	function calypso_linktitle ($string)
 	{
 		return preg_replace ("/[^\w\d]/", "", ucwords ($string));
@@ -196,6 +202,9 @@
 		global $smarty;
 		$database = $smarty->get_template_vars ('database');
 
+		//if (!valid_isbn ($isbn))
+		//	return false;
+
 		require_once ('Snoopy.class.php');
 		require_once ('AmazonProduct.class.php');
 		require_once ('AmazonSearchEngine.class.php');
@@ -237,6 +246,9 @@
 		global $smarty;
 		$database = $smarty->get_template_vars ('database');
 
+		//if (!valid_isbn ($isbn))
+		//	return false;
+
 		require_once ('Snoopy.class.php');
 		require_once ('AmazonProduct.class.php');
 		require_once ('AmazonSearchEngine.class.php');
@@ -272,6 +284,27 @@
 		$database->query ($sql);
 	}
 
+	function calypso_completed_book ($person, $isbn, $completed)
+	{
+		global $smarty;
+		$database = $smarty->get_template_vars ('database');
+
+		$sql = sprintf (
+			" UPDATE           " . 
+			"   books          " .
+			" SET              " . 
+			"   completed = %s " .
+			" WHERE            " .
+			"   isbn = %s      " .
+			" AND              " .
+			"   person = %s    " ,
+			$completed,
+			$isbn,
+			$person
+		);
+		$database->query ($sql);
+	}
+
 	function calypso_delete_book ($person, $isbn)
 	{
 		global $smarty;
@@ -289,6 +322,50 @@
 			$isbn
 		);
 		$database->query ($sql);
+	}
+
+	/**
+	* Validate a ISBN number
+	*
+	* This function checks given number according
+	*
+	* @param  string  $isbn number (only numeric chars will be considered)
+	* @return bool    true if number is valid, otherwise false
+	* @author Damien Seguy <dams@nexen.net>
+	*/
+	function valid_isbn ($isbn)
+	{
+		if (preg_match ("/[^0-9 IXSBN-]/", $isbn))
+			return false;
+
+		if (!ereg ("^ISBN", $isbn))
+			return false;
+
+		$isbn = ereg_replace ("-", "", $isbn);
+		$isbn = ereg_replace (" ", "", $isbn);
+		$isbn = eregi_replace ("ISBN", "", $isbn);
+
+		if (strlen($isbn) != 10)
+			return false;
+
+		if (preg_match ("/[^0-9]{9}[^0-9X]/", $isbn))
+			return false;
+
+		$t = 0;
+		for($i=0; $i< strlen($isbn)-1; $i++)
+			$t += $isbn[$i]*(10-$i);
+
+		$f = $isbn[9];
+
+		if ($f == "X")
+			$t += 10;
+		else
+			$t += $f;
+        
+		if ($t % 11)
+			return false;
+		else
+			return true;
 	}
 
 	function calypso_create_link ($person, $title, $url)
