@@ -25,25 +25,25 @@ function output() {
 		
 		if (isset($_REQUEST['bhg_id_1'])){
 			if ($challenge->ThrowDown($_REQUEST['bhg_id_1'])){
-				echo "Challenge added.";
+				echo "Challenge added.<br />";
 			} else {
-				echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 25';
+				echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 25<br />';
 			}
 		}
 		
 		if (isset($_REQUEST['bhg_id_2'])){
 			if ($challenge->ThrowDown($_REQUEST['bhg_id_2'])){
-				echo "Challenge added.";
+				echo "Challenge added.<br />";
 			} else {
-				echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 25';
+				echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 25<br />';
 			}
 		}
 		
 		if (isset($_REQUEST['bhg_id_3'])){
 			if ($challenge->ThrowDown($_REQUEST['bhg_id_3'])){
-				echo "Challenge added.";
+				echo "Challenge added.<br />";
 			} else {
-				echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 25';
+				echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 25<br />';
 			}
 		}
 		
