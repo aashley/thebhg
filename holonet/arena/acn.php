@@ -195,11 +195,15 @@ function output() {
 						    foreach ($builds as $build){
 							    if ($build->Get(multiple)){
 								    $print = array();
-								    foreach ($data[$build->Get(id)] as $valu){
-									    $info = new Obj('ams_specifics', $valu, 'holonet');
-									    $print[] = $info->Get(name);
+								    if (is_array($data[$build->Get(id)])){
+									    foreach ($data[$build->Get(id)] as $valu){
+										    $info = new Obj('ams_specifics', $valu, 'holonet');
+										    $print[] = $info->Get(name);
+									    }
+									    $table->AddCell(implode("<br />", $print));
+								    } else {
+									    $table->AddCell('None');
 								    }
-								    $table->AddCell(implode("<br />", $print));
 							    } else {
 								    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
 								    $table->AddCell($info->Get(name));
