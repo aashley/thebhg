@@ -57,7 +57,7 @@ Class Shell extends Core {
 	}
 	
 	function BuildShell ($id, $table, $search = '') {
-		return new Shell($id, $table, $search);
+		return new Shell($id, $table, ($search ? $search : 'id'));
 	}
 	
 	function eMail ($send_to = array(), $letter = 0) {
