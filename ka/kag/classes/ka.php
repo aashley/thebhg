@@ -50,8 +50,40 @@ class KAGBase {
 		}
 	}
 
+	function GetTypes() {
+		$sql = 'SELECT * FROM `kag_types` WHERE `date_deleted` = 0 ORDER BY `name`';
+		$query = mysql_query($sql, $this->db);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$return[] = new KAGType($info['id'], $this->db);
+		}
+		
+		return $return;
+	}
+	
+	function AllTypes() {
+		$sql = 'SELECT * FROM `kag_types` ORDER BY `name`';
+		$query = mysql_query($sql, $this->db);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$return[] = new KAGType($info['id'], $this->db);
+		}
+		
+		return $return;
+	}
+		
+	function NewEventType($name, $desc, $abbr, $picture, $questions, $answers){
+		$sql = "INSERT INTO `kag_types` (`name`, `desc`, `abbr`, `picture`, `questions`, `answers`) VALUES "
+				."('".addslashes($name)."', '".addslashes($desc)."', '".addslashes($abbr)."', '$picture', '$questions', '$answers')";
+		$query = mysql_query($sql, $this->db);
+		
+		return ($query ? true : false);
+	}
+
 	function GetHunterSignups($hunter, $kabal = false) {
-		if (strtolower(get_class($hunter)) == 'person') {
+		if (get_class($hunter) == 'person') {
 			$hunter = $hunter->GetID();
 		}
 		if (is_a($kabal, 'division')) {
@@ -71,7 +103,6 @@ class KAGBase {
 			return $signups;
 		}
 		else {
-			echo mysql_error($this->db);
 			return false;
 		}
 	}
@@ -102,6 +133,20 @@ class KAGBase {
 			return false;
 		}
 	}
+	
+	function GetActiveKAGs() {
+		$result = mysql_query('SELECT id FROM kags WHERE start<=UNIX_TIMESTAMP() AND end>=UNIX_TIMESTAMP() ORDER BY id ASC', $this->db);
+		if ($result && mysql_num_rows($result)) {
+			$kags = array();
+			while ($row = mysql_fetch_array($result)) {
+				$kags[$row['id']] =& new KAG($row['id'], $this->db);
+			}
+			return $kags;
+		}
+		else {
+			return false;
+		}
+	}
 
 	function AddKAG($id, $signup_start, $signup_end, $start, $end, $maximum, $minimum, $dnp, $noeffort, $penalty) {
 		if (mysql_query('INSERT INTO kags (id, signup_start, signup_end, start, end, maximum, minimum, dnp, noeffort, penalty) VALUES ("' . ((int) $id) . '", "' . ((int) $signup_start) . '", "' . ((int) $signup_end) . '", "' . ((int) $start) . '", "' . ((int) $end) . '", "' . ((int) $maximum) . '", "' . ((int) $minimum) . '", "' . ((int) $dnp) . '", "' . ((int) $noeffort) . '", "' . ((int) $penalty) . '")', $this->db)) {
@@ -120,5 +165,9 @@ class KAGBase {
 			return false;
 		}
 	}
+	
+	function ConditionContent($string){
+	    return base64_encode(serialize($string));
+    }
 }
 ?>

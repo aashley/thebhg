@@ -52,8 +52,16 @@ if ($events) {
 	$table->AddHeader('End');
 	$table->EndRow();
 	foreach ($events as $event) {
+		
+		if ($event->IsTimed()){
+			$type = $event->GetTypes();
+			$name = $type->GetName();
+		} else {
+			$name = $event->GetName();
+		}
+		
 		$table->StartRow();
-		$table->AddCell('<a href="event.php?id=' . $event->GetID() . '">' . $event->GetName() . '</a>');
+		$table->AddCell('<a href="event.php?id=' . $event->GetID() . '">' . $name . '</a>');
 		$table->AddCell(date('j F Y \a\t G:i:s T', $event->GetStart()));
 		$table->AddCell(date('j F Y \a\t G:i:s T', $event->GetEnd()));
 		$table->EndRow();

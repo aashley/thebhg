@@ -597,11 +597,12 @@ class KAG {
 	 *                        false if not.
 	 * @return boolean True on success, false otherwise.
 	 */
-	function AddEvent($name, $start, $end, $marked = false) {
-		if (mysql_query('INSERT INTO kag_events (kag, name, start, end) VALUES (' . $this->id . ', "' . addslashes($name) . '", ' . ((int) $start) . ', ' . ((int) $end) . ')', $this->db)) {
+	function AddEvent($name, $start, $end, $marked = false, $content, $type) {
+		if (mysql_query('INSERT INTO kag_events (kag, name, start, end, content, type) VALUES (' . $this->id . ', "' . addslashes($name) . '", ' . ((int) $start) . ', ' . ((int) $end) . ', "' . $content . '", ' . $type . ')', $this->db)) {
 			return new KAGEvent(mysql_insert_id($this->db), $this->db);
 		}
 		else {
+			echo mysql_error($this->db);
 			return false;
 		}
 	}
@@ -621,6 +622,9 @@ class KAG {
 			$events = array();
 			foreach ($signups as $signup) {
 				$event =& $signup->GetEvent();
+				if ($event->IsTimed()){
+					$event = $event->GetTypes();
+				}
 				$events[] = $event->GetName();
 			}
 			$message = $hunter->GetName() . ', you have signed up for the following events in KAG ' . $this->id . ".\n\n";

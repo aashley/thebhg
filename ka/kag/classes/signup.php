@@ -8,6 +8,9 @@ class KAGSignup {
 	var $state;
 	var $rank;
 	var $points;
+	var $submitted;
+	var $content;
+	var $ip;
 	var $db;
 	
 	function KAGSignup($id, $db) {
@@ -17,7 +20,7 @@ class KAGSignup {
 	}
 
 	function UpdateCache() {
-		$result = mysql_query('SELECT person, event, kag, kabal, state, rank, points FROM kag_signups WHERE id=' . $this->id, $this->db);
+		$result = mysql_query('SELECT person, event, kag, kabal, state, rank, points, ip, submitted, content FROM kag_signups WHERE id=' . $this->id, $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$row = mysql_fetch_array($result);
 			foreach ($row as $field=>$val) {
@@ -26,8 +29,18 @@ class KAGSignup {
 		}
 	}
 
+	function Edit($submitted, $content){
+		$sql = "UPDATE `kag_signups` SET `submitted` = '$submitted', `content` = '$content' WHERE id = '".$this->id."'";
+		$query = mysql_query($sql, $this->db);
+		return ($query ? true : false);
+	}
+	
 	function GetID() {
 		return $this->id;
+	}
+	
+	function GetIP(){
+		return $this->ip;
 	}
 
 	function GetPerson() {
@@ -57,6 +70,14 @@ class KAGSignup {
 	function GetPoints() {
 		return $this->points;
 	}
+	
+	function GetContent(){
+	    return unserialize(base64_decode($this->content));
+    }
+    
+    function GetSubmitted(){
+	    return $this->submitted;
+    }
 
 	function GetCredits() {
 		$hunter = $this->GetPerson();
@@ -96,6 +117,16 @@ class KAGSignup {
 			return true;
 		}
 		else {
+			return false;
+		}
+	}
+	
+	function Submit($ip, $answer) {
+		if (mysql_query('UPDATE kag_signups SET content="' . $answer . '", submitted = '. time(). ', ip ="'. $ip .'" WHERE id=' . $this->id, $this->db)) {
+			$this->UpdateCache();
+			return true;
+		}
+		else {			
 			return false;
 		}
 	}

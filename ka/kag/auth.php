@@ -1,10 +1,10 @@
 <?php
 function auth() {
-	$login = new BHGLogin();
+	$login = new Login_HTTP();
 	$auth_info = array('user'=>&$login);
 	$pos = $login->GetPosition();
 	$div = $login->GetDivision();
-	if ($pos->GetID() == 6 || $pos->GetID() == 8 || $login->GetID() == 666) {
+	if ($pos->GetID() == 6 || $pos->GetID() == 8 || $login->GetID() == 666 || $login->GetID() == 2650) {
 		$auth_info['level'] = 3;
 	}
 	elseif ($pos->GetID() == 11 || $pos->GetID() == 12) {

@@ -56,7 +56,13 @@ if ($level == 3) {
 			$form->AddHidden('kag', $_REQUEST['kag']);
 			$form->StartSelect('Event:', 'event');
 			foreach ($events as $event) {
-				$form->AddOption($event->GetID(), $event->GetName());
+				if ($event->IsTimed()){
+					$type = $event->GetTypes();
+					$name = $type->GetName();
+				} else {
+					$name = $event->GetName();
+				}
+				$form->AddOption($event->GetID(), $name);
 			}
 			$form->EndSelect();
 			$form->AddSubmitButton('', 'Next >>');

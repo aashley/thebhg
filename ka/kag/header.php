@@ -11,6 +11,7 @@ include_once('classes/kag.php');
 include_once('classes/event.php');
 include_once('classes/signup.php');
 include_once('classes/rank.php');
+include_once('classes/type.php');
 
 include_once('Numbers/Roman.php');
 
@@ -18,7 +19,7 @@ if (!function_exists('constructlayout')) {
 	include_once('../Layout.inc');
 }
 
-ini_set('include_path', ini_get('include_path') . ':/home/virtual/site5/fst/usr/share/roster3/include');
+ini_set('include_path', ini_get('include_path') . ':/var/www/html/include');
 include_once('roster.inc');
 
 $db = mysql_connect('localhost', 'thebhg_ka', 'bhgkapass');
@@ -26,7 +27,8 @@ mysql_select_db('thebhg_ka', $db);
 
 $global_ka = $ka;
 $ka = new KAGBase($db);
-$roster = new Roster();
+$roster = new Roster('kag-73-comp');
+$mb = new MedalBoard('kag-73-comp');
 
 if (empty($subarray)) {
 	$subarray = array(
@@ -36,6 +38,10 @@ if (empty($subarray)) {
 		'Statistics'=>'kag/stats/index.php',
 		'Administration'=>'kag/administration/index.php'
 	);
+}
+
+function hr(){
+	echo '<hr>';
 }
 
 function page_header($ltitle) {
@@ -68,7 +74,6 @@ function roman($number) {
 		return number_format($number);
 	}
 }
-
 function GetKAGMaxima() {
 	global $db;
 	

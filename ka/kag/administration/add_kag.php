@@ -41,12 +41,12 @@ if ($level == 3) {
 	else {
 		$form = new Form($_SERVER['PHP_SELF']);
 		$form->AddTextBox('KAG Number:', 'id', false, 5);
-		$form->AddTextBox('Maximum Points:', 'maximum', '30', 5);
+		$form->AddTextBox('Maximum Points:', 'maximum', '50', 5);
 		$form->AddTextBox('Minimum Points:', 'minimum', '0', 5);
 		$form->AddTextBox('DNP Points:', 'dnp', '-5', 5);
 		$form->AddTextBox('No Effort Points:', 'noeffort', '0', 5);
 		$form->AddTextBox('Penalty Points:', 'penalty', '5', 5);
-		$form->AddTextBox('Number of Events:', 'events', false, 5);
+		$form->AddTextBox('Number of <b>NON-TIMED</b> Events:', 'events', false, 5);
 		$form->AddDateBox('Start of Signup Period:', 'signup_start', 0, true);
 		$form->AddDateBox('End of Signup Period:', 'signup_end', 0, true);
 		$form->AddDateBox('Start of KAG:', 'start', 0, true);

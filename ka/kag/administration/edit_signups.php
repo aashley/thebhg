@@ -65,6 +65,8 @@ if ($level >= 1) {
 			$form->EndSelect();
 			$form->AddSubmitButton('', 'Next >>');
 			$form->EndForm();
+			
+			echo '<div><b>NOTE: ALTERING SIGNUPS AFTER THE KAG BEGINS IS NOT A GOOD IDEA. ALL SUBMISSION FOR TIMED EVENTS WILL BE DELETED IF THE SIGNUPS ARE CHANGED.</b></div>';
 		}
 	}
 }

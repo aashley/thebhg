@@ -6,6 +6,8 @@ $auth_info = auth();
 $level = $auth_info['level'];
 $user =& $auth_info['user'];
 
+$uploaddir = '/home/virtual/site5/fst/home/ka/public_html/kag/event_images/';
+
 if ($level == 3) {
 	$subarray = array(
 		'<b>KAG Administration</b>'=>'',
@@ -18,24 +20,31 @@ if ($level == 3) {
 		'Add Event To KAG'=>'kag/administration/add_kag_event.php',
 		'Edit KAG Events'=>'kag/administration/edit_kag_events.php',
 		'Delete Event From KAG'=>'kag/administration/delete_kag_event.php',
+		'New Timed Event Type'=>'kag/administration/add_type.php',
+		'Edit Timed Event Types'=>'kag/administration/edit_type.php',
 		'<b>Signup Administration</b>'=>'',
+		'Edit Timed Event Submissions'=>'kag/administration/edit_submissions.php',
 		'Edit KAG Signups'=>'kag/administration/edit_kag_signups.php',
 		'Edit Rank Fees'=>'kag/administration/edit_rank_fees.php',
 		'View Signups'=>'kag/administration/view_signups.php',
 		'<b>E-mail Functions</b>'=>'',
 		'E-mail Hunters By KAG'=>'kag/administration/email.php?by=kag',
-		'E-mail Hunters By Event'=>'kag/administration/email.php?by=event'
+		'E-mail Hunters By Event'=>'kag/administration/email.php?by=event',
+		'<b>Submit Testing</b>'=>'',
+		'Submit for Timed Events'=>'kag/administration/submit.php'
 	);
 }
 elseif ($level == 2) {
 	$subarray = array(
 		'Edit Signups'=>'kag/administration/edit_signups.php',
-		'View Signups'=>'kag/administration/view_signups.php'
+		'View Signups'=>'kag/administration/view_signups.php',
+		'Submit for Timed Events'=>'kag/administration/submit.php'
 	);
 }
 elseif ($level == 1) {
 	$subarray = array(
-		'Edit Signups'=>'kag/administration/edit_signups.php'
+		'Edit Signups'=>'kag/administration/edit_signups.php',
+		'Submit for Timed Events'=>'kag/administration/submit.php'
 	);
 }
 $subarray['<b>Back To KAG Home</b>'] = 'kag/index.php';

@@ -18,7 +18,13 @@ if ($level == 3) {
 		$form = new Form($_SERVER['PHP_SELF']);
 		$form->StartSelect('Event:', 'event');
 		foreach ($kag->GetEvents() as $event) {
-			$form->AddOption($event->GetID(), $event->GetName());
+			if ($event->IsTimed()){
+				$type = $event->GetTypes();
+				$name = $type->GetName();
+			} else {
+				$name = $event->GetName();
+			}
+			$form->AddOption($event->GetID(), $name);
 		}
 		$form->EndSelect();
 		$form->AddSubmitButton('submit', 'Delete Event');

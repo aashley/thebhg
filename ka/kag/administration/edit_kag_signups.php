@@ -41,7 +41,13 @@ if ($level == 3) {
 		$form->AddHidden('id', $kag->GetID());
 		$form->AddHidden('person', $hunter->GetID());
 		foreach ($kag->GetEvents() as $event) {
-			$form->AddCheckBox($event->GetName() . ':', 'events[' . $event->GetID() . ']', 'on', isset($signups[$event->GetID()]));
+			if ($event->IsTimed()){
+				$type = $event->GetTypes();
+				$name = $type->GetName();
+			} else {
+				$name = $event->GetName();
+			}
+			$form->AddCheckBox($name . ':', 'events[' . $event->GetID() . ']', 'on', isset($signups[$event->GetID()]));
 		}
 		$form->AddSubmitButton('submit', 'Save Signups');
 		$form->EndForm();

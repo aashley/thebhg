@@ -4,6 +4,8 @@ class KAGEvent {
 	var $kag;
 	var $name;
 	var $start;
+	var $type;
+	var $content;
 	var $end;
 	var $db;
 
@@ -14,7 +16,7 @@ class KAGEvent {
 	}
 
 	function UpdateCache() {
-		$result = mysql_query('SELECT kag, name, start, end FROM kag_events WHERE id=' . $this->id, $this->db);
+		$result = mysql_query('SELECT kag, name, start, end, type, content FROM kag_events WHERE id=' . $this->id, $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$row = mysql_fetch_array($result);
 			foreach ($row as $field=>$val) {
@@ -30,6 +32,14 @@ class KAGEvent {
 
 	function GetID() {
 		return $this->id;
+	}
+	
+	function GetTypes(){
+		return new KAGType($this->type, $this->db);
+	}
+	
+	function IsTimed(){
+		return ($this->type > 0);
 	}
 
 	function GetKAG() {
@@ -48,8 +58,12 @@ class KAGEvent {
 		return $this->end;
 	}
 
+	function GetContent(){
+	    return unserialize(base64_decode($this->content));
+    }
+	
 	function GetSignups() {
-		$result = mysql_query('SELECT id, IF(state IN (1, 4), 1, 0) AS main FROM kag_signups WHERE kag=' . $this->kag . ' AND event=' . $this->id . ' ORDER BY points DESC, main DESC', $this->db);
+		$result = mysql_query('SELECT id, IF(state IN (1, 4), 1, 0) AS main FROM kag_signups WHERE kag=' . $this->kag . ' AND event=' . $this->id . ' ORDER BY submitted ASC, points DESC, main DESC', $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$signups = array();
 			while ($row = mysql_fetch_array($result)) {
@@ -61,9 +75,33 @@ class KAGEvent {
 			return false;
 		}
 	}
+	
+	function GetRankSignups() {
+		$result = mysql_query('SELECT id, rank, IF(state IN (1, 4), 1, 0) AS main FROM kag_signups WHERE kag=' . $this->kag . ' AND event=' . $this->id . ' ORDER BY submitted ASC, points DESC, main DESC', $this->db);
+		if ($result && mysql_num_rows($result)) {
+			$signups = array();
+			while ($row = mysql_fetch_array($result)) {
+				$signups[$row['rank']][] =& new KAGSignup($row['id'], $this->db);
+			}
+			return $signups;
+		}
+		else {
+			return false;
+		}
+	}
 
 	function SetName($name) {
 		if (mysql_query('UPDATE kag_events SET name="' . addslashes($name) . '" WHERE id=' . $this->id, $this->db)) {
+			$this->UpdateCache();
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	function SetContent($content) {
+		if (mysql_query('UPDATE kag_events SET content="' . $content . '" WHERE id=' . $this->id, $this->db)) {
 			$this->UpdateCache();
 			return true;
 		}

@@ -39,8 +39,16 @@ $sups = array();
 foreach ($signups as $signup) {
 	$array = array();
 	$event =& $signup->GetEvent();
+	
+	if ($event->IsTimed()){
+		$type = $event->GetTypes();
+		$name = $type->GetName();
+	} else {
+		$name = $event->GetName();
+	}
+	
 	$array['eid'] = $event->GetID();
-	$array['ename'] = $event->GetName();
+	$array['ename'] = $name;
 	$array['state'] = $signup->GetState();
 	$array['points'] = $signup->GetPoints();
 	$array['rank'] = $signup->GetRank();

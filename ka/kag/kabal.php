@@ -8,7 +8,8 @@ include_once('header.php');
 
 $kabal =& $roster->GetKabal($_REQUEST['kabal']);
 $kag =& $ka->GetKAG($_REQUEST['kag']);
-page_header('KAG ' . roman($kag->GetID()) . ' :: ' . $kabal->GetName() . ' Kabal');
+page_header('KAG ' . roman($kag->GetID()) . ' :: ' . 
+$kabal->GetName() . ' Kabal');
 add_menu(array('KAG ' . roman($kag->GetID())=>'kag/kag.php?id=' . $kag->GetID(), $kabal->GetName() . '\'s Long-Term Statistics'=>'kag/stats/kabal.php?id=' . $kabal->GetID()));
 
 $table = new Table('', true);

@@ -69,7 +69,15 @@ if ($level >= 2) {
 				$events = array();
 				foreach ($signups as $signup) {
 					$event =& $signup->GetEvent();
-					$events[] = $event->GetName();
+					
+					if ($event->IsTimed()){
+						$type = $event->GetTypes();
+						$name = $type->GetName();
+					} else {
+						$name = $event->GetName();
+					}
+					
+					$events[] = $name;
 				}
 				sort($events);
 				$table->AddCell(implode(', ', $events));
@@ -87,7 +95,14 @@ if ($level >= 2) {
 		$form->StartSelect('Event:', 'event', '0');
 		$form->AddOption('0', 'All Events');
 		foreach ($events as $event) {
-			$form->AddOption($event->GetID(), $event->GetName());
+			if ($event->IsTimed()){
+				$type = $event->GetTypes();
+				$name = $type->GetName();
+			} else {
+				$name = $event->GetName();
+			}
+			
+			$form->AddOption($event->GetID(), $name);
 		}
 		$form->EndSelect();
 		if ($level == 3) {
