@@ -183,7 +183,6 @@
 	    $table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."' AND `statribute` = '$stat'";
         $query = mysql_query($sql, $this->connect);
-        echo $sql;
         $info = mysql_fetch_array($query);
         $stat = new Statribute($stat);
         
@@ -747,7 +746,7 @@
         return (mysql_num_rows($query));
     }
 	
-	function ParseSheet($look = 'values', $id = 0, $col){
+	function ParseSheet($look = 'values', $id = 0, $col = 'bhg_id'){
 		$this->UpdateCache();
 		$bio = $this->cs_person->GetBioData();
 		$division = $this->cs_person->GetDivision();
