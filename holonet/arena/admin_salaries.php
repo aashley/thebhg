@@ -29,33 +29,34 @@ function output() {
 		$bitches = array();
 		
 		foreach ($tables as $table){
-			echo $table;
-			$bitches += $arena->GetPayData($startut, $endut, $table);
+			$bitches[$table] = $arena->GetPayData($startut, $endut, $table);
 		}
 	    $aides = array();
 	    
 	    print_r($bitches);
 	    
-	    foreach ($bitches as $pay){
-		    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
-			    $time = $endut - $pay['start_date'];
-		    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
-			    $time = $endut - $startut;
-		    } else {
-			    if ($pay['start_date'] > $startut){
-				    $time = $pay['end_date'] - $pay['start_date'];
+	    foreach ($bitches as $bitch){
+		    foreach ($bitch as $pay){
+			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
+				    $time = $endut - $pay['start_date'];
+			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
+				    $time = $endut - $startut;
 			    } else {
-			    	$time = $pay['end_date'] - $starut;
+				    if ($pay['start_date'] > $startut){
+					    $time = $pay['end_date'] - $pay['start_date'];
+				    } else {
+				    	$time = $pay['end_date'] - $starut;
+			    	}
 		    	}
-	    	}
-	    	
-	    	$creds = round(($time / ($endut - $startut)) * 350000);
-	    	
-	      	if (isset($aides[$pay['bhg_id']])) {
-	        	$aides[$pay['bhg_id']] += $creds;
-	      	} else {
-	        	$aides[$pay['bhg_id']] = $creds;
-	      	}
+		    	
+		    	$creds = round(($time / ($endut - $startut)) * 350000);
+		    	
+		      	if (isset($aides[$pay['bhg_id']])) {
+		        	$aides[$pay['bhg_id']] += $creds;
+		      	} else {
+		        	$aides[$pay['bhg_id']] = $creds;
+		      	}
+			}
 		}
 
 		$form = new Form($page);
