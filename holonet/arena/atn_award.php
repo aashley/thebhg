@@ -38,7 +38,7 @@ function output() {
 	    if ($comiss->GetStatus() || $master->GetStatus() || $regist->GetStatus() || $stewar->GetStatus() || $skippe->GetStatus() || $missio->GetStatus() || $overse->GetStatus() || $adjunc->GetStatus()){
 		    $cred_total = $stewar->GetStatus()+$skippe->GetStatus()+$overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
 		    $xp_total = $stewar->GetStatus()+$skippe->GetStatus()+$overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
-		    $meda_total = $stewar->GetStatus()$skippe->GetStatus()+$overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
+		    $meda_total = $stewar->GetStatus()+$skippe->GetStatus()+$overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
 		    $table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Total Contributions', 2);
