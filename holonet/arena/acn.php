@@ -25,17 +25,19 @@ function output() {
 		if ($_REQUEST['at-id']){
 			echo '<br />';
 			$at = new Tournament($_REQUEST['at-id']);
-			if ($_REQUEST['del']){
-				if ($at->DeleteSignup($hunter-GerID())){
-					echo 'Signup delted successfully.';
+			if ($at->season){
+				if ($_REQUEST['del']){
+					if ($at->DeleteSignup($hunter-GerID())){
+						echo 'Signup delted successfully.';
+					} else {
+						echo 'Error deleting signup.';
+					}
 				} else {
-					echo 'Error deleting signup.';
-				}
-			} else {
-				if ($at->signup($hunter->GetID())){
-					echo 'Signup successful.';
-				} else {
-					echo $at->denied;
+					if ($at->signup($hunter->GetID())){
+						echo 'Signup successful.';
+					} else {
+						echo $at->denied;
+					}
 				}
 			}
 		}				
