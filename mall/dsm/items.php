@@ -13,7 +13,7 @@ function credit_sort($a, $b) {
 	else return -1;
 }
 
-$type = new ItemType($id);
+$type = new ItemType($_REQUEST['id']);
 echo '<H1>' . $type->GetName() . "</H1><BR>\n";
 echo $type->GetDescription() . "<HR NOSHADE SIZE=2>\n";
 
