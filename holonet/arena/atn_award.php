@@ -33,7 +33,7 @@ function output() {
 			
 			$table = new Table();
 			$table->StartRow();
-		    $table->AddCell('image here', 1, 4);
+		    $table->AddCell('image here', 1, 5);
 		    $table->EndRow();
 		    $table->StartRow();
 		    $table->AddHeader('Overseer of the Guild', 2);
