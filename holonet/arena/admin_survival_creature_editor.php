@@ -62,9 +62,8 @@ function output() {
     else {
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Edit Creature');
-	    $type = $contract->GetType();
-	    $creatures = $solo->Creatures($type->GetID());
-	    $form->StartSelect('Creature', 'creature', array_rand($creatures));
+	    $creatures = $solo->Creatures();
+	    $form->StartSelect('Creature', 'creature');
 	    foreach ($creatures as $creature){
 		    $form->AddOption($creature->GetID(), $creature->GetName());
 	    }
