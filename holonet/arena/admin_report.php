@@ -38,7 +38,7 @@ function output() {
 			echo 'Arena Report added successfully.';
 		}
 		else {
-			echo 'Error adding report: ' . mysql_error($roster->roster_db);
+			echo 'Error adding report: ' . mysql_error($arena->connect);
 		}
 	}
 	else {
