@@ -50,7 +50,7 @@
 		    $point = round($stat*$this->type->GetPoints());
 		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', round($point));
 		    $value .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', round($highest-$point));
-		    echo $highest-$point;
+
 		    $table->AddRow($name, $value);
 	    }
     }
