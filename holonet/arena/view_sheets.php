@@ -55,12 +55,12 @@ function output() {
 	    	$name = $character->GetName();
     	}
     	if ($_REQUEST['kabal'] == 'all' || $_REQUEST['kabal'] == $kabal->GetID()){
-	    	if ($_REQUEST['order'] == 'name'){
-	    		$sheets[$name] = $character;
-    		} elseif ($_REQUEST['order'] == 'sub'){
+	    	if ($_REQUEST['order'] == 'sub'){
 	    		$sheets[$character->LastEdit()] = $character;
     		} elseif ($_REQUEST['order'] == 'stat'){
 	    		$sheets[$character->Status('HUMAN')] = $character;
+    		} else {
+	    		$sheets[$name] = $character;
     		}
     	}
     }
