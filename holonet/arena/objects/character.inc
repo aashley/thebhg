@@ -67,7 +67,7 @@
 		    $return = 2;
 	    }
 	    
-	    if (!$this->HasValue()){
+	    if (!$this->HasValue() && $this->cs_approved){
 		    $return = 2;
 	    }
 	    
