@@ -293,10 +293,12 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_bp') . '">Award&nbsp;Bonus&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_demerit') . '">Issue&nbsp;Demerit&nbsp;Points</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
         
         echo '<br />RP&nbsp;Aides<br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_commish') . '">New&nbsp;Solo&nbsp;Comissioner</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_master') . '">New&nbsp;Dojo&nbsp;Master</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_salaries') . '">Pay&nbsp;Salaries</a><br />';
 
         echo '<br />Reports<br />';
         echo '&nbsp;<a href="' . internal_link('admin_report') . '">Add&nbsp;Report</a><br />';

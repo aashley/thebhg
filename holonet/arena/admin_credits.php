@@ -12,9 +12,7 @@ function auth($person) {
 }
 
 function output() {
-    global $arena, $auth_data, $hunter, $page, $contract;
-
-    $lyarna = $arena->LyarnaConnect();
+    global $arena, $auth_data, $hunter, $page, $roster;
     
     arena_header();
 

@@ -98,6 +98,19 @@
 
         return $return;
     }
+    
+    function GetPayData($start, $end, $field){
+	    $sql = "SELECT * FROM `arena_$field` WHERE `end_date` <= '$end' OR `end_date` = 0 AND `end_date` >= '$start'";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $new = array('bhg_id'=>$info['bhg_id'], 'start_date'=>$info['start_date'], 'end_date'=>$info['end_date']);
+		    $return[] = $new;
+	    }
+	    
+	    return $return;
+    }
 
     function ArenaType($id){
         return new Type($id);
