@@ -13,6 +13,10 @@ $exp = explode('_', $page);
 
 if ($exp[0] == 'admin' || $page == 'admin' || $exp[0] == 'coder'){
 	include_once 'nav_admin.php';
+} elseif ($exp[0] == 'admin' || $exp[0] == 'coder'){
+	function admin_footer($auth){
+		echo '&nbsp;<a href="' . internal_link('admin') . '">Return&nbsp;To&nbsp;Admin</a><br />';
+	}
 } else {
 	include_once 'navigation.php';
 }
