@@ -16,7 +16,7 @@ $ka = new KA_1('kac-34-fear');
 $roster = new Roster('kac-34-fear');
 $mb = new MedalBoard('kac-34-fear');
 
-if (empty($subarray)) {
+if (!empty($subarray)) { //When fixed, remove the !
 	$subarray = array(
 		'KAC List'=>'kac/index.php',
 		'Latest KAC'=>'kac/stats.php?flag=kac',

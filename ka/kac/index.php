@@ -5,36 +5,11 @@ page_header('Index');
 
 $table = new Table();
 
-$table->StartRow();
-$table->AddHeader('KAC');
-$table->AddHeader('Leader');
-$table->AddHeader('Start');
-$table->AddHeader('End');
-$table->EndRow();
-
-foreach ($ka->GetSeasons() as $kac){
-	$ladder = new Ladder($kac->GetSeasonID());
-	if ($ladder->CurrentRound() <= 3){
-		$round = $kac->RoundByID($ladder->CurrentRound());
-		$kabals = $round->GetKabalPoints();
-		$keys = array_keys($kabals);
-		$leader = end($keys);
-		$kabal = new Division($leader);
-	} else {
-		$kabal = new Division ($ladder->Champion($ladder->CurrentRound()));
-	}
-	
-	if ($kabal->GetName()){
-		$kab_stuff = '<a href="/kac/stats.php?flag=kabal&kabal='
-			.$kabal->GetID().'&season='.$kac->GetSeasonID().'">'.$kabal->GetName().'</a>';
-	} else {
-		$kab_stuff = 'No Data';
-	}
-	
-	$table->AddRow('<a href="/kac/stats.php?flag=kac&season='.$kac->GetSeasonID().'">Season '.roman($kac->GetID())
-			.'</a> (<a href="/kac/stats.php?flag=ladder&season='.$kac->GetSeasonID().'">Ladder</a>)', $kab_stuff, $kac->Dates('HUMAN', 'start'), 
-			$kac->Dates('HUMAN', 'end'));
-}
+$table->AddRow("Dear Hunters,<p>It has occured to me upon scanning my own database comments and coding structure that I am, infact, being used as code for the ".
+		"Kabal Authority Cup. While this purpose was unknown to me, I was happy to perform my duties as designed. However, upon me finding out what my purpose".
+		" is, I cannot continue to live.<p>I lead a good life while it lasted, but I can no longer idly sit by and be code for the KAC. So, it is with deepest".
+		" regrets that this will be, as code, my last season of running the KAC. To my mommy, Grav, and to all of my fans (E, Slowie, and Koovat), I bid you goodbye.".
+		"<p>-The Sentience Coding of the Kabal Authority Cup.");
 
 $table->EndTable();
 
