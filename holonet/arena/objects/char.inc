@@ -74,8 +74,14 @@ Class Chara extends Sheet {
 	    }
     }
     
-    function HasValue(){
-	    $sql = "SELECT * FROM `character_sheet_values` WHERE `id` = '".$this->GetSheetID()."' LIMIT 1";
+    function HasValue($look = 'values', $col = 'id', $id = 0){
+		if ($id){
+			$id = $id;
+		} else {
+			$id = $this->GetSheetID();
+		}
+		$table = '`character_sheet_'.$look.'`';
+	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."'";
         $query = mysql_query($sql, $this->connect);
         
         return (mysql_num_rows($query));
@@ -108,11 +114,11 @@ Class Chara extends Sheet {
 			    if ($this->HasValue('pending')){
 				    if ($this->cs_approved){
 				    	$return = 4;
-			    	} else {
-				    	if (!$this->cs_pending){
-				    		$return = 6;
-			    		}
-			    	}
+			    	} elseif ($this->cs_pending){
+			    		$return = 6;
+		    		} else {
+			    		$return = 3;
+		    		}
 		    	} else {
 			    	$return = -1;
 		    	}
@@ -126,6 +132,6 @@ Class Chara extends Sheet {
 	    } elseif ($output == 'SYSTEM'){
 		    return $return;
 	    }
-    }	    
+    }
 }	    
 ?>
