@@ -164,11 +164,11 @@ function output() {
 		        $divi = new Division($row['division']);
 		        $position = new Position($row['position']);
 		        $owner = $position->GetName().' of '.$divi->GetName();
+	        } elseif ($row['bhg_id']){
+		        $hunter = new Person($row['bhg_id']);
+		        $owner = $hunter->GetName();
 	        } else {
-		        if ($row['bhg_id']){
-			        $hunter = new Person($row['bhg_id']);
-			        $owner = $hunter->GetName();
-		        }
+		        $owner = 'Not Listed in System';
 	        }
 	        $form->AddHidden('property'.$i, $row['id']);
 		  		
@@ -194,7 +194,7 @@ function output() {
         $run = $i-1;
         $form->AddHidden('runs', $run);
         $form->table->StartRow();
-        $form->table->AddCell('<input type="submit" name="submit" value="Updated Properties">');
+        $form->table->AddCell('<input type="submit" name="submit" value="Updated Properties">', 6);
         $form->table->EndRow();
         $form->EndForm();
     }

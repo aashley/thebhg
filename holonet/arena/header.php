@@ -404,11 +404,11 @@ function admin_footer($auth_data) {
     
     if ($auth_data['overseer']) {   
 	    echo '<br />Overseer&nbsp;Utilities<br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_lyarna') . '">Property&nbsp;Management</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_demerit') . '">Issue&nbsp;Demerit&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_bp') . '">Award&nbsp;Bonus&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_overseer') . '">Edit&nbsp;Overseer</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_adjunct') . '">Edit&nbsp;Adjunct</a><br />';
-	    echo '&nbsp;<a href="' . internal_link('admin_lyarna') . '">Property&nbsp;Management</a><br />';
     }
 	    
     if ($auth_data['rp']) {      
