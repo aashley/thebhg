@@ -60,13 +60,7 @@ function output() {
 	    if ($irr){ $table->AddRow('IRC Arena Ladder Rank:', $irr); }
 	    if ($rod){ $table->AddRow('Run On Ladder Rank:', $rod); }
 	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', pluralise('Time', $tgc)); }
-	    
-	    $plural = '';
-	    
-	    if ($at->IsGladius($hunter->GetID())){
-		    $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius';
-	    }
-	    
+
 	    $table->EndTable();
 	    
 	    echo '</td><td align="center"><div style="text-align: left">';
@@ -111,21 +105,44 @@ function output() {
 	    
 	    $comiss = new Comissioner($hunter->GetID());
 	    $master = new Master($hunter->GetID());
+	    $regist = new Registrar($hunter->GetID());
+	    $missio = new MissionMaster($hunter->GetID());
+	    $overse = new Overseer($hunter->GetID());
+	    $adjunc = new Adjunct($hunter->GetID());
 	    
 	    $boc = $comiss->GetStatus();
 	    $djm = $master->GetStatus();
+	    $reg = $regist->GetStatus();
+	    $mis = $missio->GetStatus();
+	    $ove = $overse->GetStatus();
+	    $adj = $adjunc->GetStatus();
 		
-		if (in_array($hunter->GetID(), $arena->GetApproved())){
-			$rewards['Graduate of the Dojo of Shadows'] = 'dojo';
+	    if ($ove){
+			$rewards[$ove.'Overseer of the Guild'] = 'ov';
 		}
-		if (in_array($hunter->GetID(), $arena->GetTeta())){
+		if ($adj){
+			$rewards[$adj.'Adjunct of the Guild'] = 'aj';
+		}
+		if ($at->IsGladius($hunter->GetID())){
+		    $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius';
+	    }
+	    if (in_array($hunter->GetID(), $arena->GetTeta())){
 			$rewards['Owner of Teta\'s Knives'] = 'dagger';
-		}
+		}	
 		if ($djm){
 			$rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows';
 		}
 		if ($boc){
 			$rewards[$boc.'of the Bounty Office'] = 'bountyoffice';
+		}
+		if ($reg){
+			$rewards[$reg.'Registrar of the Office of Character Development'] = 'ocd';
+		}
+		if ($mis){
+			$rewards[$mis.'Mission Master of Run-Ons'] = 'mm';
+		}
+		if (in_array($hunter->GetID(), $arena->GetApproved())){
+			$rewards['Graduate of the Dojo of Shadows'] = 'dojo';
 		}
 		
 		if (count($rewards)){
