@@ -35,20 +35,26 @@ function output() {
 	    
 	    print_r($bitches);
 	    
+	    $i = 1;
+	    
 	    foreach ($bitches as $bitch){
 		    foreach ($bitch as $pay){
 			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 				    $time = $endut - $pay['start_date'];
+				    echo $i;
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
 				    $time = $endut - $startut;
+				    echo $i;
 			    } else {
 				    if ($pay['start_date'] < $startut){
 					    $time = $pay['end_date'] - $starut;
+					    echo $i;
 				    } else {
 				    	$time = $pay['end_date'] - $pay['start_date'];
+				    	echo $i;
 			    	}
 		    	}
-		    	
+		    	$i++;
 		    	$pp = $endut - $startut;
 		    	
 		    	$time = $time / $pp;
