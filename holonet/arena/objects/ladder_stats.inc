@@ -11,12 +11,12 @@
     function Stats($id) {
         Arena::Arena();
 
-        $this->matches = mysql_num_rows(mysql_query("SELECT * FROM `arena_ladder_records` WHERE `bhg_id` = '$id' AND `date_deleted` = 0 AND `match_id` > 0 AND `accepted` = 1", $this->connect));
+        $this->matches = mysql_num_rows(mysql_query("SELECT * FROM `arena_ladder_records` WHERE `bhg_id` = '$id' AND `date_deleted` = 0 AND `match_id` > 0", $this->connect));
 
         $sql = "SELECT SUM(`xp`) as xp, "
                 ."SUM(`credits`) as credits, "
                 ."SUM(`outcome`) as points "
-                ."FROM `arena_ladder_records` WHERE `bhg_id` = '$id' AND `date_deleted` = 0";
+                ."FROM `arena_ladder_records` WHERE `bhg_id` = '$id' AND `date_deleted` = 0 AND `match_id` > 0";
 
         $query = mysql_query($sql, $this->connect);
 
@@ -32,7 +32,7 @@
     }
 
      function ReadMatches(){
-        $sql = "SELECT * FROM `arena_ladder_records` WHERE `bhg_id` = '".$this->bhg_id."' AND `date_deleted` = 0 AND `match_id` > 0 AND `accepted` = 1 ORDER BY `match_id`";
+        $sql = "SELECT * FROM `arena_ladder_records` WHERE `bhg_id` = '".$this->bhg_id."' AND `date_deleted` = 0 AND `match_id` > 0 ORDER BY `match_id`";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 

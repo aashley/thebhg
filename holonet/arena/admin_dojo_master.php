@@ -25,6 +25,14 @@ function output() {
         else {
             echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 104';
         }
+    } elseif (isset($_REQUEST['end'])){
+		$master = new Master($ladder->CurrentMaster());
+		
+		if ($master->EndTerm()){
+			echo 'Term Ended.';
+		} else {
+			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 120';
+        }
     }
     else {
         $form = new Form($page);
@@ -32,6 +40,12 @@ function output() {
         hunter_dropdown($form);
         $form->EndSelect();
         $form->AddSubmitButton('submit', 'Make New Dojo Master');
+        $form->EndForm(); 
+        
+        hr();
+        
+        $form = new Form($page);
+        $form->AddSubmitButton('<input type="submit" name="end" value="End Current Term">');
         $form->EndForm(); 
     }
 

@@ -141,7 +141,7 @@ function output() {
 	$table->AddHeader('Credits');
 	$table->EndRow();
   
-	for ($i = 0; $i < $fields; $i++) {
+	for ($i = 0; $i < 10; $i++) {
     
     $table->StartRow();
       
