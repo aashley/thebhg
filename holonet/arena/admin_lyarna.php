@@ -70,7 +70,7 @@ function output() {
 	    
 			foreach ($kabals_result as $kabal) {
 	      
-			      if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
+			      if ($kabal->GetID() != 16) {
 			        
 			        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
 			          .$kabal->GetName()."</option>\n";
@@ -115,7 +115,7 @@ function output() {
 	          $div_peeps[$pleb->GetName().':'.$plebindex] = 
 	            'roster'
 	            .(($kabal->GetID() == 9) 
-	              ? '10' 
+	              ? '9' 
 	              : $kabal->GetID()) 
 	            .'['.
 	            (($kabal->GetID() == 9 || $kabal->GetID() == 10) 
