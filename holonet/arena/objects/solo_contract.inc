@@ -9,6 +9,7 @@
     var $contract_grade;
     var $contract_creds;
     var $contract_xp;
+    var $contract_requested;
     var $contract_completed;
 
     function Contract($id) {
@@ -72,6 +73,10 @@
 
     function GetDCO() {
         return ($this->contract_bhg_id == 0);
+    }
+    
+    function IsRequested() {
+        return ($this->contract_requested == 0);
     }
 
     function GetTimeframe(){
@@ -146,8 +151,8 @@
 
     }
 
-    function SetHunter($bhg_id) {
-        $sql = "UPDATE `arena_solo_contracts` SET `bhg_id` = '$bhg_id' WHERE `id` = '".$this->contract_id."'";
+    function SetHunter($bhg_id, $requested = 0) {
+        $sql = "UPDATE `arena_solo_contracts` SET `bhg_id` = '$bhg_id', `requested` = '$requested' WHERE `id` = '".$this->contract_id."'";
 
         if (mysql_query($sql, $this->connect)) {
 

@@ -119,8 +119,6 @@ function output() {
 		    $page_to = $page;
 	    }
 	    
-	    echo $page_to;
-	    
 	    $form = new Form($page_to, 'post', '', '', 'Challenge Another Hunter');
 	    $form->table->StartRow();
 	    $form->table->AddHeader('Has another hunter irritated you? Perhaps they\'ve stolen your ship. Or, worse, your lawn gnome. Now you can challenge them to a fight in the Arena!', 2);
