@@ -77,9 +77,9 @@ elseif (isset($delete)) {
 }
 else {
 	if ($admin) {
-		echo '<A HREF="' . $PHP_SELF . '?delete_ship=0&amp;id='.$_REQUEST['id'].'">Delete Ship</A> | <A HREF="' . $PHP_SELF . '?delete_ship=1&amp;id='.$_REQUEST['id'].'">Delete Ship With Refund</A><BR><BR>';
+		echo '<A HREF="' . $_SERVER['PHP_SELF'] . '?delete_ship=0&amp;id='.$_REQUEST['id'].'">Delete Ship</A> | <A HREF="' . $_SERVER['PHP_SELF'] . '?delete_ship=1&amp;id='.$_REQUEST['id'].'">Delete Ship With Refund</A><BR><BR>';
 	}
-	echo "<FORM NAME=\"edit\" METHOD=\"post\" ACTION=\"$PHP_SELF\"><INPUT TYPE=\"hidden\" NAME=\"id\" VALUE=\"$_REQUEST['id']\">";
+	echo "<FORM NAME=\"edit\" METHOD=\"post\" ACTION=\"".$_SERVER['PHP_SELF']."\"><INPUT TYPE=\"hidden\" NAME=\"id\" VALUE=\"".$_REQUEST['id']."\">";
 
 	echo '<TABLE CELLSPACING=1 CELLPADDING=2>';
 	echo '<TR><TH CLASS="RIGHT">Name:</TH><TD><INPUT TYPE="text" NAME="name" VALUE="' . $sale->GetName() . '" SIZE=20></TD></TR>';
@@ -110,7 +110,7 @@ else {
 				else {
 					echo '<TR VALIGN="top">';
 				}
-				echo '<TD><SMALL>' . $part->GetName() . '</SMALL></TD><TD><SMALL>' . number_format($part->GetSize()) . ' ' . ($part->GetSize() == 1 ? $vol_singular : $vol_plural) . '</SMALL></TD><TD><SMALL>' . number_format($part->GetPrice()) . ' ICs</SMALL></TD><TD><SMALL><A HREF="' . $PHP_SELF . '?delete=' . $psid . '&amp;id=' . $_REQUEST['id'] . '&amp;part=' . $part->GetID() . '">Delete</A></SMALL></TD></TR>';
+				echo '<TD><SMALL>' . $part->GetName() . '</SMALL></TD><TD><SMALL>' . number_format($part->GetSize()) . ' ' . ($part->GetSize() == 1 ? $vol_singular : $vol_plural) . '</SMALL></TD><TD><SMALL>' . number_format($part->GetPrice()) . ' ICs</SMALL></TD><TD><SMALL><A HREF="' . $_SERVER['PHP_SELF'] . '?delete=' . $psid . '&amp;id=' . $_REQUEST['id'] . '&amp;part=' . $part->GetID() . '">Delete</A></SMALL></TD></TR>';
 			}
 		}
 		else {
