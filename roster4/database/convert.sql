@@ -1,77 +1,76 @@
 -- Roster Bio Data
-ALTER TABLE roster_biographical_data ADD COLUMN date_created DATETIME NOT NULL;
-ALTER TABLE roster_biographical_data ADD COLUMN date_updated DATETIME NOT NULL;
-ALTER TABLE roster_biographical_data ADD COLUMN date_deleted DATETIME;
-UPDATE roster_biographical_data SET date_created = NOW();
-UPDATE roster_biographical_data SET date_updated = NOW();
+ALTER TABLE roster_biographical_data ADD COLUMN datecreated DATETIME NOT NULL;
+ALTER TABLE roster_biographical_data ADD COLUMN dateupdated DATETIME NOT NULL;
+ALTER TABLE roster_biographical_data ADD COLUMN datedeleted DATETIME;
+UPDATE roster_biographical_data SET datecreated = NOW(), dateupdated = NOW();
+ALTER TABLE roster_biographical_data CHANGE image_url imageurl TEXT;
 
 -- Roster Black list
 DROP TABLE roster_blacklist;
 
 -- Roster Cadres
 ALTER TABLE roster_cadres RENAME roster_cadre;
-ALTER TABLE roster_cadre ADD COLUMN date_created_new DATETIME NOT NULL;
-UPDATE roster_cadre SET date_created_new = FROM_UNIXTIME(date_created);
+ALTER TABLE roster_cadre ADD COLUMN datecreated DATETIME NOT NULL;
+UPDATE roster_cadre SET datecreated = FROM_UNIXTIME(date_created);
 ALTER TABLE roster_cadre DROP COLUMN date_created;
-ALTER TABLE roster_cadre CHANGE COLUMN date_created_new date_created DATETIME NOT NULL;
 
-ALTER TABLE roster_cadre ADD COLUMN date_updated DATETIME NOT NULL;
-UPDATE roster_cadre SET date_updated = NOW();
+ALTER TABLE roster_cadre ADD COLUMN dateupdated DATETIME NOT NULL;
+UPDATE roster_cadre SET dateupdated = NOW();
 
-ALTER TABLE roster_cadre ADD COLUMN date_deleted_new DATETIME;
-UPDATE roster_cadre SET date_deleted_new = FROM_UNIXTIME(date_deleted) WHERE date_deleted != 0;
-UPDATE roster_cadre SET date_deleted_new = date_deleted WHERE date_deleted = 0;
+ALTER TABLE roster_cadre ADD COLUMN datedeleted DATETIME;
+UPDATE roster_cadre SET datedeleted = FROM_UNIXTIME(date_deleted) WHERE date_deleted != 0;
+UPDATE roster_cadre SET datedeleted = date_deleted WHERE date_deleted = 0;
 ALTER TABLE roster_cadre DROP COLUMN date_deleted;
-ALTER TABLE roster_cadre CHANGE COLUMN date_deleted_new date_deleted DATETIME;
 
 -- Roster Division Categories
 ALTER TABLE roster_division_categories RENAME roster_division_category;
-ALTER TABLE roster_division_category ADD COLUMN date_created DATETIME NOT NULL;
-ALTER TABLE roster_division_category ADD COLUMN date_updated DATETIME NOT NULL;
-ALTER TABLE roster_division_category ADD COLUMN date_deleted DATETIME;
-UPDATE roster_division_category SET date_created = NOW();
-UPDATE roster_division_category SET date_updated = NOW();
+ALTER TABLE roster_division_category ADD COLUMN datecreated DATETIME NOT NULL;
+ALTER TABLE roster_division_category ADD COLUMN dateupdated DATETIME NOT NULL;
+ALTER TABLE roster_division_category ADD COLUMN datedeleted DATETIME;
+UPDATE roster_division_category SET datecreated = NOW(), dateupdated = NOW();
 
 -- Roster Divisions
 ALTER TABLE roster_divisions RENAME roster_division;
-ALTER TABLE roster_division ADD COLUMN date_created DATETIME NOT NULL;
-ALTER TABLE roster_division ADD COLUMN date_updated DATETIME NOT NULL;
-ALTER TABLE roster_division ADD COLUMN date_deleted DATETIME;
-UPDATE roster_division SET date_created = NOW();
-UPDATE roster_division SET date_updated = NOW();
+ALTER TABLE roster_division ADD COLUMN datecreated DATETIME NOT NULL;
+ALTER TABLE roster_division ADD COLUMN dateupdated DATETIME NOT NULL;
+ALTER TABLE roster_division ADD COLUMN datedeleted DATETIME;
+UPDATE roster_division SET datecreated = NOW(), dateupdated = NOW();
+ALTER TABLE roster_division CHANGE home_page_url homepageurl VARCHAR(200);
 
 -- Roster History
 ALTER TABLE roster_history RENAME roster_history_event;
-ALTER TABLE roster_history_event ADD COLUMN date_created DATETIME NOT NULL;
-UPDATE roster_history_event SET date_created = FROM_UNIXTIME(`date`);
-ALTER TABLE roster_history_event DROP COLUMN date;
+ALTER TABLE roster_history_event ADD COLUMN datecreated DATETIME NOT NULL;
+UPDATE roster_history_event SET datecreated = FROM_UNIXTIME(`date`);
+ALTER TABLE roster_history_event DROP COLUMN `date`;
 
 -- Roster New Member
 ALTER TABLE roster_new_members RENAME roster_new_member;
-ALTER TABLE roster_new_member ADD COLUMN date_created DATETIME NOT NULL;
-UPDATE roster_new_member SET date_created = NOW();
+ALTER TABLE roster_new_member ADD COLUMN datecreated DATETIME NOT NULL;
+UPDATE roster_new_member SET datecreated = NOW();
 
 -- Roster Position
-ALTER TABLE roster_position ADD COLUMN date_created DATETIME NOT NULL;
-ALTER TABLE roster_position ADD COLUMN date_updated DATETIME NOT NULL;
-ALTER TABLE roster_position ADD COLUMN date_deleted DATETIME;
-UPDATE roster_position SET date_created = NOW(), date_updated = NOW();
+ALTER TABLE roster_position ADD COLUMN datecreated DATETIME NOT NULL;
+ALTER TABLE roster_position ADD COLUMN dateupdated DATETIME NOT NULL;
+ALTER TABLE roster_position ADD COLUMN datedeleted DATETIME;
+UPDATE roster_position SET datecreated = NOW(), dateupdated = NOW();
 
 -- Roster Rank
-ALTER TABLE roster_rank ADD COLUMN date_created DATETIME NOT NULL;
-ALTER TABLE roster_rank ADD COLUMN date_updated DATETIME NOT NULL;
-ALTER TABLE roster_rank ADD COLUMN date_deleted DATETIME;
-UPDATE roster_rank SET date_created = NOW(), date_updated = NOW();
+ALTER TABLE roster_rank ADD COLUMN datecreated DATETIME NOT NULL;
+ALTER TABLE roster_rank ADD COLUMN dateupdated DATETIME NOT NULL;
+ALTER TABLE roster_rank ADD COLUMN datedeleted DATETIME;
+UPDATE roster_rank SET datecreated = NOW(), dateupdated = NOW();
 
 -- Roster Person
 ALTER TABLE roster_roster RENAME roster_person;
-ALTER TABLE roster_person ADD COLUMN date_updated DATETIME NOT NULL;
-ALTER TABLE roster_person ADD COLUMN date_deleted DATETIME;
-UPDATE roster_person SET date_updated = last_updated;
-UPDATE roster_person SET date_deleted = date_updated WHERE division = 16 AND rankcredits = 0;
+ALTER TABLE roster_person ADD COLUMN dateupdated DATETIME NOT NULL;
+ALTER TABLE roster_person ADD COLUMN datedeleted DATETIME;
+UPDATE roster_person SET dateupdated = last_updated;
+UPDATE roster_person SET datedeleted = dateupdated WHERE division = 16 AND rankcredits = 0;
 ALTER TABLE roster_person DROP COLUMN last_updated;
-ALTER TABLE roster_person ADD COLUMN date_created DATETIME NOT NULL;
-UPDATE roster_person SET date_created = date_joined;
+ALTER TABLE roster_person ADD COLUMN datecreated DATETIME NOT NULL;
+UPDATE roster_person SET datecreated = date_joined;
 ALTER TABLE roster_person DROP COLUMN date_joined;
-ALTER TABLE roster_person ADD COLUMN md5_password VARCHAR(32);
-
+ALTER TABLE roster_person ADD COLUMN md5Password VARCHAR(32);
+ALTER TABLE roster_person CHANGE previous_division previousdivision INT(4);
+ALTER TABLE roster_person CHANGE completed_ntc_exam completedcoreexam INT(1);
+ALTER TABLE roster_person CHANGE redo_ranks redoranks INT(1);

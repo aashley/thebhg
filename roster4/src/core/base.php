@@ -11,6 +11,8 @@
 
 /** Include PEAR::DB */
 include_once 'DB.php';
+/** Include PEAR::Date */
+include_once 'Date.php';
 
 /**
  * BHG Data Systems Base object
@@ -51,6 +53,19 @@ class bhg_core_base {
 	 * @var boolean
 	 */
 	protected $error = false;
+
+	/**
+	 * Function blacklist
+	 *
+	 * data fields listed within this array will not be accessable thru the
+	 * default get/set handlers
+	 *
+	 * @var array
+	 */
+	private $blacklist = array(
+			'get' => array(),
+			'set' => array('datecreated', 'dateupdated')
+			);
 
 	// }}}
 
@@ -101,9 +116,20 @@ class bhg_core_base {
 
 			$varname = strtolower(substr($function, 3));
 
-			if (isset($this->data[$varname])) {
+			if (   !in_array($varname, $this->blacklist['get'])
+					&& isset($this->data[$varname])) {
 
-				return $this->data[$varname];
+				$GLOBALS['bhg']->log('Looking for date in '.$varname, PEAR_LOG_DEBUG);
+
+				if (false === strstr($varname, 'date')) {
+
+					return $this->data[$varname];
+
+				} else {
+
+					return new Date($this->data[$varname]);
+
+				}
 
 			} else {
 
@@ -115,9 +141,18 @@ class bhg_core_base {
 
 			$varname = strtolower(substr($function, 3));
 
-			if (isset($this->data[$varname])) {
+			if (	 !in_array($varname, $this->blacklist['set'])
+					&& isset($this->data[$varname])) {
 
-				return $this->__saveValue($table, array($varname => $params[0]));
+				if (false === strstr($varname, 'date')) {
+
+					return $this->__saveValue($table, array($varname => $params[0]));
+
+				} else {
+					
+					return $this->__saveValue($table, array($varname => $params[0]->getDate(DATE_FORMAT_ISO)));
+
+				}
 
 			} else {
 
@@ -462,8 +497,34 @@ class bhg_core_base {
 	}
 
 	// }}}
+	// {{{ __blackListVar()
 
-	// {{{ createSuccess()
+	/**
+	 * Black list these vars from being accessed using __call
+	 *
+	 * @param string Either get or set
+	 * @param array The Variable names to blacklist
+	 * @return boolean
+	 */
+	protected function __blackListVar($type, $vars) {
+
+		if ($type == 'set' || $type == 'get') {
+
+			$this->blacklist[$type] = array_merge($this->blacklist[$type], $vars);
+
+			return true;
+
+		} else {
+
+			return false;
+
+		}
+
+	}
+
+	// }}}
+
+	// {{{ createFailure()
 
 	public function createFailure() {
 
