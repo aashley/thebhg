@@ -70,7 +70,7 @@
     function GetPolls($rpa = array()){
 	    $rp = '';
 	    $rps = array();
-	    if (count($rpa){
+	    if (count($rpa)){
 		    $rp .= '('
 		    foreach ($rpa as $id=>$name){
 			    $rps[] = "`rp` = '$id'";
