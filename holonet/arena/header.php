@@ -145,7 +145,7 @@ function get_auth_data($hunter) {
 }
 
 function admin_footer($auth_data) {
-	global $roster, $arena $citadel;
+	global $roster, $arena, $citadel;
 	
 	$person = new Person($auth_data['id']);
 	$posi = $person->GetPosition();
