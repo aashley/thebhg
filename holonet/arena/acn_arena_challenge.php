@@ -99,10 +99,7 @@ function output() {
 	    	
 	    	ksort($hunters);
 	    	
-	    	foreach ($hunters as $name=>$person){
-		    	$kabal = $person->GetDivision();
-		    	$plebsheet[$kabal->GetID()][] = $person;
-	    	}
+	    	
 	
 		?>
 		<script language="JavaScript1.1" type="text/javascript">
