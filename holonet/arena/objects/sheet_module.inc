@@ -115,7 +115,7 @@
     }
     
     function GetCA($id){
-	    $sql = "SELECT * FROM `cs_ca` WHERE `date_deleted` = 0 AND `id` = '$id'";
+	    $sql = "SELECT * FROM `cs_ca` WHERE `id` = '$id'";
 	    $query = mysql_query($sql, $this->connect);
 	    $info = mysql_fetch_array($query);
 	    
