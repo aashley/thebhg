@@ -118,7 +118,7 @@ if ($_REQUEST['match']){
 				}
 				$bild = new NPC_Utilities();
 				$form->AddHidden('npc', serialize($npcs));
-				$form->AddHidden('name', 'Target: '.$bild->GetName($npcs[0]->GetString()));
+				$form->AddHidden('name', 'Target: '.$bild->GetName($npcs[0]));
 				
 				$form->AddSectionTitle('NPC');
 				
