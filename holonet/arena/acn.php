@@ -155,7 +155,7 @@ function output() {
 			    $at = new Tournament($obj->Get(id));
 		    
 			    if (!$at->Ended() && $at->season){
-				    
+				    echo '<p>';
 				    $table = new Table();
 				    $table->StartRow();
 				    $table->AddHeader('Tournament');
@@ -166,7 +166,8 @@ function output() {
 			    	} else {
 				    	$table->AddRow('You are signed up for this tournament. <a href="'.internal_link($page, array('at-id'=>$at->CurrentSeason(), 'del'=>1)).'">Remove Me</a>');
 			    	}
-			    	echo '<p>';
+			    	echo $table->EndTable();
+			    	
 			    }
 			    
 			    if (count($pendings[$obj->Get(id)])){
