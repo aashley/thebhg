@@ -429,6 +429,7 @@ function admin_footer($auth_data) {
 	    echo '<br />Polls<br />';
         echo '&nbsp;<a href="' . internal_link('admin_poll') . '">New&nbsp;Poll</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_poll_edit') . '">Edit&nbsp;Poll</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_poll_ban') . '">Ban&nbsp;Users</a><br />';
 	    
 	    echo '<br />Reports<br />';
         echo '&nbsp;<a href="' . internal_link('admin_report') . '">Add&nbsp;Report</a><br />';
