@@ -28,7 +28,24 @@ function output() {
 	    $missio = new MissionMaster($hunter->GetID());
 	    $overse = new Overseer($hunter->GetID());
 	    $adjunc = new Adjunct($hunter->GetID());
-		
+	    
+	    if ($commiss->GetStatus() || $master->GetStatus() || $regist->GetStatus() || $missio->GetStatus() || $overse->GetStatus() || $adjunc->GetStatus()){
+		    $cred_total = $overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
+		    $xp_total = $overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
+		    $meda_total = $overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();
+		    $table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Total Contributions', 3);
+		    $table->EndRow();
+		    $table->AddRow('Credits Awarded:', number_format($cred_total).' Imperial Credits');
+		    $table->AddRow('Experience Points Awarded:', number_format($xp_total));
+		    $table->AddRow('Medals Awarded:', number_format($meda_total));
+		    $table->EndTable();
+		    echo '<br />';
+		    
+		    hr();
+	    }
+	    
 	    if ($overse->GetStatus()){
 			
 			$table = new Table();
