@@ -3,6 +3,9 @@ ini_set('include_path', ini_get('include_path') . ':/home/virtual/thebhg.org/hom
 include('../header.php');
 include('jpgraph.php');
 
+$plot = new Poll(1);
+print_r($plot);
+
 // Individual graphs must include the relevant jpgraph_TYPE.php file.
 
 function get_colour($i) {
