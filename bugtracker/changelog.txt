@@ -1,4 +1,7 @@
--- version 3.2.0 (3/10/04) --
+-- version 3.2.1 (5/10/04) --
+1. Added magic_quotes_gpc workaround.
+
+-- version 3.2.0 (4/10/04) --
 1. Disabled gzip compression of the output.
 2. Fixed up the button text on the search page.
 3. Security fix when posting a new note to a bug.
