@@ -49,7 +49,7 @@ which allows you to quickly and easily challenge another member of the Guild
 to a match in any of the Arenas, as well as sign up for Bounty Contracts.<p>
 
 The Arena Management System is run $by. If you have any questions or
-comments, please direct them there.
+comments, please direct them there.";
 
 arena_footer();
 }
