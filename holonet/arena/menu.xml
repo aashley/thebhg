@@ -4,6 +4,14 @@
         <page>index</page>
     </item>
     <item>
+        <name>Make Challenges</name>
+        <page>acn</page>
+    </item>
+    <item>
+        <name>Search Sheets</name>
+        <page>view_sheets</page>
+    </item>
+    <item>
         <name>About</name>
         <page>version</page>
     </item>
@@ -11,8 +19,4 @@
         <name>Administration</name>
         <page>admin</page>
     </item>
-    <item>
-        <name>Search Sheets</name>
-        <page>view_sheets</page>
-    </item>  
 </menu>
