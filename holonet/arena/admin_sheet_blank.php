@@ -15,8 +15,6 @@ function output() {
     global $arena, $auth_data, $hunter, $page, $sheet, $roster;
 
     arena_header();
-
-    $solo = new Solo();
     
     if (isset($_REQUEST['submit'])) {
 	    $character = new Character($_REQUEST['bhg_id']);
