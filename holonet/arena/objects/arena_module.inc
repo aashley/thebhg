@@ -53,7 +53,9 @@
 		    $return[$kabal->GetName()][] = array('bhg_id'=>new Person($info['bhg_id']), 'by'=>$by, 'xp'=>$info['xp'], 'reason'=>stripslashes($info['reason']));
 	    }
 	    
-	    return ksort($return);
+	    ksort($return)
+	    
+	    return $return;
     }
     
     function RemovePendingXP(){
