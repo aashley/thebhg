@@ -30,7 +30,7 @@ function output() {
     
 	    hr();
 	    
-	    echo '<h5>The Arena</h5>';
+	    echo '<b>The Arena</b>';
 	    
 	    echo '<br /><a href="'.internal_link('acn_arena_challenge').'">Make New Challenge</a>';
 	
