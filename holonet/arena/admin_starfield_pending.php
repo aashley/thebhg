@@ -52,7 +52,7 @@ function output() {
             $table->AddCell($type->GetName());
             $table->AddCell($setting->GetName());
             $table->AddCell($value->WriteRestrictions());
-            $table->AddCell($value->Posts());
+            $table->AddCell($value->GetPosts());
             $table->AddCell('<a href="' . internal_link('admin_starfield_complete', array('id'=>$value->GetID())) . '">Complete</a>');
             $table->AddCell('<a href="' . internal_link('admin_starfield_remove', array('id'=>$value->GetID())) . '">Remove</a>');
             $table->EndRow();
