@@ -1,6 +1,6 @@
 <?php
 function auth() {
-	$login = new BHGLogin();
+	$login = new Login_HTTP();
 	$auth_info = array('user'=>&$login);
 	$pos = $login->GetPosition();
 	$div = $login->GetDivision();

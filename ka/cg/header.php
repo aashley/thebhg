@@ -18,7 +18,7 @@ if (!function_exists('constructlayout')) {
 	include_once('../Layout.inc');
 }
 
-ini_set('include_path', ini_get('include_path') . ':/home/virtual/site5/fst/usr/share/roster3/include');
+ini_set('include_path', ini_get('include_path') . ':/var/www/html/include');
 include_once('roster.inc');
 
 $db = mysql_connect('localhost', 'thebhg_ka', 'bhgkapass');
