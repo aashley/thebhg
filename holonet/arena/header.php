@@ -475,7 +475,7 @@ function admin_footer($auth_data) {
     
     if ($auth_data['sheet']){
         echo '<br />Character&nbsp;Sheets<br />';
-        echo '&nbsp;<a href="' . internal_link('admin_sheet') . '">Edit&nbsp;Character&nbsp;Sheets</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_sheet_list') . '">Edit&nbsp;Character&nbsp;Sheets</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_sheet_core') . '">Edit&nbsp;Core&nbsp;Sheets</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_field') . '">Create&nbsp;New&nbsp;Field</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_stat') . '">Create&nbsp;New&nbsp;Statribute</a><br />';
