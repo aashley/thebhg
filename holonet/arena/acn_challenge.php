@@ -54,7 +54,7 @@ function output() {
 	    if ($cadre){
 		    if ($hunter->IsCadreLeader($cadre)){
 			    if ($ro->CanRequest($cadre->GetID())){
-			    	echo '<br /><a href="' . internal_link('acn_cadre_request') . '">Submit&nbsp;Match</a><br />';
+			    	echo '<br /><a href="' . internal_link('acn_cadre_request') . '">Request&nbsp;Run-On</a><br />';
 			    	hr();
 		    	}
 		    }
