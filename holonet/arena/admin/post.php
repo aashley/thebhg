@@ -99,7 +99,6 @@ if ($_REQUEST['match']){
 			
 			ksort($builds);
 			
-		    $form->table->AddRow('Name:', ($obj->Get(name) ? $obj->Get(name) : 'No Name'));
 		    foreach ($builds as $build){
 			    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get(id)))) as $ob) {
 				    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
@@ -111,6 +110,8 @@ if ($_REQUEST['match']){
 			if ($type->Get(npc)){
 				$npcs = array();
 				for ($i = 1; $i <= $activity->Get(num_npc); $i++){
+					print_r($data);
+					echo $arena->NPCID();
 					$npcs[] = new Parse_NPC($data[$arena->NPCID()]);
 				}
 				$bild = new NPC_Utilities();
