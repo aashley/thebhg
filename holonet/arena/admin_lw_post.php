@@ -95,8 +95,7 @@ function output() {
 		        } else {
 			        $name = "Dead Contract";
 		        }
-		        $type = $value->GetType();
-	            $form->AddOption($value->GetID(), $type->GetName()." Contract ".$value->GetContractID()." - ".$name);
+	            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID()." - ".$name);
 	        }
 	        $form->EndSelect();
 	        $form->AddSubmitButton('next', 'Next >>');
