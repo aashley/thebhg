@@ -18,34 +18,30 @@ function output() {
     arena_header();
     
     if (isset($_REQUEST['submit'])){
-	    if ($_REQUEST['skill'] && $_REQUEST['stat']){
-			echo 'Please don\'t be retarded. I told you, pick one or the other, either skill or stat.';
-		} else {
-			if ($_REQUEST['delete']){
-			    $sheet->DeleteCA($id);
-			    echo 'Character Attribute Deleted';
+		if ($_REQUEST['delete']){
+		    $sheet->DeleteCA($id);
+		    echo 'Character Attribute Deleted';
+	    } else {
+		    if ($sheet->EditCA($_REQUEST['ca'], $_REQUEST['name'], $_REQUEST['desc'])){
+		    	echo 'Character Attribute Edited Successfully!';
 		    } else {
-			    if ($sheet->EditCA($_REQUEST['ca'], $_REQUEST['name'], $_REQUEST['desc'])){
-			    	echo 'Character Attribute Edited Successfully!';
-			    } else {
-				    NEC(217);
-			    }
-				foreach ($_REQUEST['stats'] as $id){
-					if ($_REQUEST['del'][$id]){
-						$sheet->DeleteCAValue($id);
+			    NEC(217);
+		    }
+			foreach ($_REQUEST['stats'] as $id){
+				if ($_REQUEST['del'][$id]){
+					$sheet->DeleteCAValue($id);
+				} else {
+					if ($_REQUEST['skill'][$id]){
+						$skill = 1;
+						$field = $_REQUEST['skill'][$id];
 					} else {
-						if ($_REQUEST['skill'][$id]){
-							$skill = 1;
-							$field = $_REQUEST['skill'][$id];
-						} else {
-							$skill = 0;
-							$field = $_REQUEST['stat'][$id];
-						}
-					    $sheet->EditCAValue($_REQUEST['ca'], $skill, $field, $_REQUEST['mod'][$id]);
-				    }
+						$skill = 0;
+						$field = $_REQUEST['stat'][$id];
+					}
+				    $sheet->EditCAValue($_REQUEST['ca'], $skill, $field, $_REQUEST['mod'][$id]);
 			    }
-			}
-	    }
+		    }
+		}
     } elseif ($_REQUEST['next']){
 	    $ca = $sheet->GetCA($_REQUEST['ca']);
 	    $form = new Form($page);
