@@ -138,8 +138,6 @@ function output() {
 			}			
 			$table->EndTable();
 		}
-	    
-	}
 		
 	    echo '</div></td></tr></table>';
 	
@@ -168,22 +166,23 @@ function output() {
 		    echo '</td><td align="center"><div style="text-align: left">';
 		    if (count($reports)) {
 
-			echo '<a name="reports"></a>';
-			$table = new Table();
-			$table->StartRow();
-			$table->AddHeader('Recent Reports', 2);
-			$table->EndRow();
-			$table->StartRow();
-			$table->AddHeader('Date');
-			$table->AddHeader('Position');
-			$table->EndRow();
-			
-			foreach (array_slice($reports, 0, 5) as $report) {
-				$pos_text = '<a href="' . internal_link('view_reports', array('id'=>$report['admin'])) . '">' . $arena->ArenaPosition($report['admin']) . '</a>';
-				$table->AddRow('<a href="' . internal_link('report', array('id'=>$report['id'])) . '">' . date('j F Y', $report['time']) . '</a>', $pos_text);
+				echo '<a name="reports"></a>';
+				$table = new Table();
+				$table->StartRow();
+				$table->AddHeader('Recent Reports', 2);
+				$table->EndRow();
+				$table->StartRow();
+				$table->AddHeader('Date');
+				$table->AddHeader('Position');
+				$table->EndRow();
+				
+				foreach (array_slice($reports, 0, 5) as $report) {
+					$pos_text = '<a href="' . internal_link('view_reports', array('id'=>$report['admin'])) . '">' . $arena->ArenaPosition($report['admin']) . '</a>';
+					$table->AddRow('<a href="' . internal_link('report', array('id'=>$report['id'])) . '">' . date('j F Y', $report['time']) . '</a>', $pos_text);
+				}
+		
+				$table->EndTable();
 			}
-	
-			$table->EndTable();
 		
 		    echo '</div></td></tr></table>';
 		    
