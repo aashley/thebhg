@@ -43,10 +43,10 @@
 
     function Challenge($type, $location, $location_table, $posts, $weapons, $challenger, $challengee, $weapon_type, $link, $dojo = '0'){
 
-        $person1 = new Person($challenger);
-        $person2 = new Person($challengee);
+        $person1 = new Character($challenger);
+        $person2 = new Character($challengee);
 
-        $name = $person1->GetName()." vs. ".$person2->GetName();
+        $name = ($dojo ? 'Dojo Match: ' : '').$person1->GetName()." vs. ".$person2->GetName();
 
         /*$ttg = new TTG();
         $gauntlet = 0;
