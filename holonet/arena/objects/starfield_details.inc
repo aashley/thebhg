@@ -26,14 +26,15 @@
                 ."AND arena_starfield_match.id = arena_starfield_records.match_id AND arena_starfield_match.match_id > 0 AND arena_starfield_match.date_deleted = 0 AND "
                 ."arena_starfield_match.match_id > 0 ORDER BY arena_starfield_records.bhg_id GROUP BY arena_starfield_records.bhg_id";
         $query = mysql_query($sql, $this->connect);
+        
+        echo mysql_error($this->connect);
+        
         $total = "SELECT * FROM `arena_starfield_match` WHERE `match_id` > 0 AND `date_deleted` = 0";
         $qtotal = mysql_query($total, $this->connect);
         $total = mysql_num_rows($qtotal);
         $var = array();
 
-        if (!$total){ $total = 1; }
-        
-      	echo mysql_error($this->connect);
+        if (!$total){ $total = 1; }           	
         
         while ($result = mysql_fetch_array($query)){
             $var[$result['bhg_id']] = $result['points']/$total;
