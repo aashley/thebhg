@@ -573,6 +573,17 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_starfield_type') . '">Edit&nbsp;Types</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_starfield_setting') . '">Edit&nbsp;Settings</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_starfield_restriction') . '">Edit&nbsp;Restrictions</a><br />';
+        
+        echo '<br />Starfield Arena&nbsp;Tournament<br />';
+        if (count($iat->GetHunters())){
+	        echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
+	        echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_organize') . '">Organize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
+    	}
+    	echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
     }
     
     if ($auth_data['rp']) {	    
