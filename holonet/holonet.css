@@ -15,6 +15,15 @@ border: none;
 border-bottom: 1px solid black;
 }
 
+h1 {
+	font-size: 200%;
+}
+
+h2 {
+	font-size: 175%;
+	padding-top: 1em;
+}
+
 th {
 	text-align: left;
 background: #dddddd;

@@ -20,6 +20,7 @@ echo '<?xml version="1.0" encoding="iso-8859-1"?>';
 	<title><?php echo $title; ?></title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta http-equiv="content-style-type" content="text/css" />
+	<link rel="stylesheet" href="/undohtml.css" type="text/css" />
 	<link rel="stylesheet" href="/holonet.css" type="text/css" />
 </head>
 <body>

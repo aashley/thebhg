@@ -18,15 +18,21 @@ function output() {
 
 	roster_header();
 	if ($_REQUEST['submit']) {
-		if (mysql_query('INSERT INTO hn_reports (position, division, author, time, report, html) VALUES (' . $pos->GetID() . ', ' . $div->GetID() . ', ' . $pleb->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')', $roster->roster_db)) {
-			echo 'Report added successfully.';
-		}
-		else {
-			echo 'Error adding report: ' . mysql_error($roster->roster_db);
+		if ($_REQUEST['submit'] == 'Load Template') {
+		} else {
+			if (mysql_query('INSERT INTO hn_reports (position, division, author, time, report, html) VALUES (' . $pos->GetID() . ', ' . $div->GetID() . ', ' . $pleb->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')', $roster->roster_db)) {
+				echo 'Report added successfully.';
+			}
+			else {
+				echo 'Error adding report: ' . mysql_error($roster->roster_db);
+			}
 		}
 	}
 	else {
 		$form = new Form($page);
+		if ($auth_date['chief'] || $auth_data['warden'] || $pleb->getID() == 94) {
+			$form->AddSubmitButton('submit', 'Load Template');
+		}
 		$form->AddTextArea('Report:', 'report', '', 20, 70);
 		$form->AddCheckBox('Enable HTML:', 'html', 'on');
 		$form->table->AddRow('Note:', 'This report cannot be deleted once added.');
