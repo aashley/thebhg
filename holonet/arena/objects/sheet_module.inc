@@ -30,7 +30,8 @@
     }
 	
     function RegistrarTrack($event){
-	    $sql = "SELECT * FROM `arena_registrar_track` WHERE `registrar` = '".$this->CurrentRegistrar()."'";
+	    $reg = new Registrar($this->CurrentRegistrar());
+	    $sql = "SELECT * FROM `arena_registrar_track` WHERE `registrar` = '".$reg->GetID()."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    if (mysql_num_rows($query)){
