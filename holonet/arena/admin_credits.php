@@ -153,11 +153,11 @@ function output() {
 	<?php
 	$form = new Form($page);
 	
-	if (count($arena->CanBe())){
+	if (count($arena->CanBe($hunter))){
 		$form->AddSectionTitle('Award As: ');
 		$i = 0;
 		
-		foreach ($arena->CanBe() as $call=>$value){
+		foreach ($arena->CanBe($hunter) as $call=>$value){
 			$form->AddRadioButton($value, 'use', $call, ($i ? '' : true));
 			$i++;
 		}
