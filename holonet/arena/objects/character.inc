@@ -230,16 +230,17 @@
         
         $build = $this->CaBuild();
         
-        if ($output == 'SHEET'){
-	        $val = $info['value'];
-	        foreach ($build as $ref){
-	        	foreach ($ref as $call=>$ar){
-		        	if ($call == 'stat'){
-			        	$val += $ar[$info['statribute']];
-		        	}
+        $val = $info['value'];
+        foreach ($build as $ref){
+        	foreach ($ref as $call=>$ar){
+	        	if ($call == 'stat'){
+		        	$val += $ar[$info['statribute']];
 	        	}
         	}
-        	if ($val > 10){ $val = 10; }
+    	}
+    	if ($val > 10){ $val = 10; }
+        
+        if ($output == 'SHEET'){
 	        if ($stat->IsInt()){
 		        $return = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $val);
 		        $return .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', 10-$val);
@@ -248,7 +249,7 @@
 		    	return nl2br(stripslashes($info['value']));
 	    	}
     	} elseif ($output == 'SYSTEM'){
-	    	return $info['value'];
+	    	return $val;
     	}
     }
     
