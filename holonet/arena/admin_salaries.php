@@ -36,14 +36,12 @@ function output() {
 	    $pp = $endut - $startut;
 	    $credits = round(350000*($pp/2678400));
 	    
+	    echo $credits;
+	    
 	    foreach ($bitches as $bitch){
 		    foreach ($bitch as $pay){
 			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 				    $time = $endut - $pay['start_date'];
-				    echo '<br />END:'.$endut;
-				    echo '<br />START:'.$startut;
-				    echo '<br />START DATE:'.$pay['start_date'];
-				    echo '<br />TIME:'.$time;
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
 				    $time = $endut - $startut;
 			    } else {
