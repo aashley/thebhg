@@ -361,8 +361,8 @@
     }
     
     function Pending($exclude = 0){
-	    $sql = "SELECT character_sheets.bhg_id FROM character_sheets, character_sheet_values WHERE "
-	    		."character_sheets.date_deleted = 0 AND character_sheets.pending > 0 AND character_sheet_values.id = character_sheets.id GROUP BY character_sheet_values.id "
+	    $sql = "SELECT character_sheets.bhg_id FROM character_sheets, character_sheet_pending WHERE "
+	    		."character_sheets.date_deleted = 0 AND character_sheets.pending > 0 AND character_sheet_pending.id = character_sheets.id GROUP BY character_sheet_pending.id "
 	    		."ORDER BY character_sheets.pending ASC, character_sheets.approved ASC, character_sheets.last_change DESC";
 	    $query = mysql_query($sql, $this->holonet);
 	    $return = array();
