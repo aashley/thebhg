@@ -33,6 +33,8 @@
 
         if (!$total){ $total = 1; }
         
+      	echo mysql_error($this->connect);
+        
         while ($result = mysql_fetch_array($query)){
             $var[$result['bhg_id']] = $result['points']/$total;
         }
