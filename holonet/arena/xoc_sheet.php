@@ -23,6 +23,8 @@ function output() {
 		    $split = explode('_', $_REQUEST[$name]);
 			$value = $split[1];
 		    
+			print_r($split);
+			
 			if ($split == 'skill'){
 				$retrn = new Skill($value);
 			} else {
