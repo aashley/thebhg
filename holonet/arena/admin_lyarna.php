@@ -113,16 +113,7 @@ function output() {
 	        
 	        foreach ($plebs as $pleb) {
 	          
-	          $div_peeps[$pleb->GetName().':'.$plebindex] = 
-	            'roster'
-	            .(($kabal->GetID() == 9) 
-	              ? '9' 
-	              : $kabal->GetID()) 
-	            .'['.
-	            (($kabal->GetID() == 9 || $kabal->GetID() == 10) 
-	              ? $commindex++ 
-	              : $plebindex++)
-	            .'] = new person('.$pleb->GetID().', \''
+	          $div_peeps[$pleb->GetName().':'.$plebindex] = 'roster'.$kabal->GetID().'['.$plebindex++.'] = new person('.$pleb->GetID().', \''
 	            .str_replace("'", "\\'", shorten_string($pleb->GetName(), 40))
 	            ."');\n";
 	            
