@@ -70,13 +70,14 @@
         $sql .= implode(', ', $add);
 
         $sql .= " WHERE `id` = '".$this->arena_survival_id."'";
-
-
+        
         if (mysql_query($sql, $this->connect)){
 
             return $return;
 
         } else {
+	        
+	        echo mysql_error($this->connect);
 
             $arena = new Arena();
 	        
