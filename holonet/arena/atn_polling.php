@@ -53,8 +53,6 @@ function output() {
 			hr();
 		}
 	}
-    
-	print_r($_REQUEST);
 	
     if (is_object($poll)){
 	    if (rp_staff($hunter) || (!$poll->IsDeleted() && $poll->CanView($hunter))){
@@ -113,6 +111,8 @@ function output() {
 	    }
 	    
 	    $polls = $arena->ReadPolls($hunter);
+	    
+	    print_r($polls);
 	    
 	    if (count($polls)){
 		    $table = new Table('', true);
