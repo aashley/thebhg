@@ -4,6 +4,7 @@ include('jpgraph_pie.php');
 
 // Construct data.
 $poll = new Poll($_REQUEST['id']);
+print_r($poll);
 $votes = $poll->GetVotes();
 $i = 1;
 foreach ($poll->GetOptions() as $option){
