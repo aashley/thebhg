@@ -27,7 +27,7 @@ function output() {
     hr();
 
     if (isset($_REQUEST['submit'])) {
-	    $error = true;
+	    $error = false;
 	    for ($i = 0; $i < $_REQUEST['runs']; $i++){
 		    if ($_REQUEST['process'.$i]){
 			    if ($_REQUEST['position'.$i] > 0){
@@ -37,8 +37,9 @@ function output() {
 			    }
 			    
 			    if ($sets){ 
-		            if (!mysql_query("UPDATE " . $_REQUEST['table'] . " SET $sets WHERE `id` = '".$_REQUEST['property'.$i]."'", $lyarna)) {
-		                $error = false;	                
+				    $sql = "UPDATE " . $_REQUEST['table'] . " SET $sets WHERE `id` = '".$_REQUEST['property'.$i]."'";
+		            if (!mysql_query($sql, $lyarna)) {
+		                $error = true;	                
 		            }
 	            }
             }
