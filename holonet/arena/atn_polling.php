@@ -40,10 +40,14 @@ function output() {
     arena_header();
 
     if (is_object($poll)){
-	    if ($poll->IsDeleted() || !rp_staff($hunter) || !$poll->CanSubmit($hunter) || !$poll->DidVote($hunter)){
-		    echo 'Invalid polling number';
+	    if (rp_staff($hunter) || (!$poll->IsDeleted() && ($poll->CanSubmit($hunter) || $poll->DidVote($hunter)))){
+		    if ($poll->CanSubmit($hunter)){
+			    echo 'Submit';
+		    } else {
+	    		echo 'View';
+    		}
 	    } else {
-		    
+		    echo 'Invalid polling number';
 	    }
     } else {
 	    $polls = $arena->OpenPolls($hunter);
