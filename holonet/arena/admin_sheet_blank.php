@@ -135,11 +135,7 @@ function output() {
         ."onChange=\"swap_kabal(this.form)\">"
         ."<option value=\"-1\">N/A</option>$kabals</select>");
 	
-	    $cell = "<select name=\"bhg_id\">";
 	    
-		$cell .= "<option value=\"-1\" selected>N/A</option>\n";
-
-		$cell .= "</select>";
     
 		$form->table->AddCell($cell);
 
