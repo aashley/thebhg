@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Arena Management System :: Version';
+    return 'Arena Management System :: Version Data';
 }
 
 function output() {
@@ -28,7 +28,7 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Last Update: 4/6/2005<p>Over <input type=text value=2 size=2 disabled> months without something needing fixin!";
+    echo "Last Update: 4/6/2005<p>Over <input type=text value=2 size=1 disabled> months without something needing fixin!";
     
     hr();
     
