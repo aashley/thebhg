@@ -26,14 +26,20 @@ function output() {
     }
 
     if (isset($_REQUEST['hunters'])) {
-	    
+
+	    $errors = 0;
+	    	    
 	    for ($i = 1; $i <= $_REQUEST['persons']; $i++){
 		    if ($_REQUEST['change'][$i]){
 		    	$person = $_REQUEST['person'.$i];
 		    	$old = $_REQUEST['old'][$i];
-		    	$match->RemoveContender($old);
+		    	if (!$match->RemoveContender($old)){
+			    	$errors++;
+		    	}
 		    	if ($person){
-		    		$match->AddContender($person);
+		    		if (!$match->AddContender($person)){
+			    		$errors++;
+		    		}
 	    		}
 	    	}
     	}
