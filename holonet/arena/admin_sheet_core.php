@@ -54,10 +54,11 @@ function output() {
 		    $table->AddHeader('All CORE Submissions', 7);
 		    $table->EndRow();
 		    
-		    $table->AddRow('Save Name', 'Date', 'Approved', 'Pending Approval', '&nbsp', '&nbsp', '&nbsp');
+		    $table->AddRow('Save Name', 'Submitted By', 'Date', 'Approved', 'Pending Approval', '&nbsp', '&nbsp', '&nbsp');
 		    
 		    foreach ($sheets as $data){
-			    $table->AddRow($character->GetName('cores', $data['id'], 'id'), $data['date'], ($data['app'] ? 'Yes' : 'No'), ($data['pending'] ? '<b>Yes</b>' : 'No'),
+			    $person = new Person($data['bhg_id']);
+			    $table->AddRow($character->GetName('cores', $data['id'], 'id'), '<a href="'.internal_link('atn_general', array('id'=>$person->GetID())).'">'.$person->GetName().'</a>', $data['date'], ($data['app'] ? 'Yes' : 'No'), ($data['pending'] ? '<b>Yes</b>' : 'No'),
 			    	'<a href="'.internal_link($page, array('sheet'=>$data['id'])).'">Load to Edit</a>', 
 			    	'<a href="'.internal_link($page, array('save'=>1, 'delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>', 
 			    	'<a href="'.internal_link($page, array('view'=>1, 'sheet'=>$data['id'])).'">View for Approval</a>');
