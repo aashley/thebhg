@@ -291,7 +291,7 @@ function output() {
 		    $id = 0;
 		    
 		    if ($_REQUEST['saveid']){
-			    if (in_array($_REQUEST['saveid'], $character->GetSaveFunctions())){
+			    if (in_array($_REQUEST['saveid'], array_keys($character->GetSaveFunctions()))){
 				    $id = $_REQUEST['saveid'];
 				    $show = true;
 			    }
