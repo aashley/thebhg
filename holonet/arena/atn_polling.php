@@ -2,11 +2,20 @@
 
 $poll = new Poll($_REQUEST['poll']);
 
+function auth($person) {
+    global $hunter, $roster, $auth_data;
+    
+    $auth_data = get_auth_data($person);
+    $hunter = $roster->GetPerson($person->GetID());
+    $div = $person->GetDivision();
+    return ($div->GetID() != 0 && $div->GetID() != 16);
+}
+
 function title() {
-	global $poll;
+	global $poll, $hunter;
     $title = 'AMS Tracking Network :: Arena Polling Centre :: ';
     if (is_object($poll){
-	    if (!$poll->IsDeleted()){
+	    if (!$poll->IsDeleted() || !rp_staff($hunter) || !$poll->CanSubmit($hunter) || !$poll->DidVote($hunter)){
 	    	$title .= 'View Poll';
     	} else {
 	    	$title .= 'Read Error';
@@ -15,15 +24,6 @@ function title() {
 	    $title .= 'View Polls';
     }
     return $title;
-}
-
-function auth($person) {
-    global $hunter, $roster, $auth_data;
-    
-    $auth_data = get_auth_data($person);
-    $hunter = $roster->GetPerson($person->GetID());
-    $div = $person->GetDivision();
-    return ($div->GetID() != 0 && $div->GetID() != 16);
 }
 
 function output() {

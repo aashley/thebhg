@@ -25,7 +25,7 @@ function coders(){
 
 function rp_staff($person){
 	$position = $person->GetPosition();
-	return ($position->GetID() == 9 || $position->GetID() == 29);
+	return ($position->GetID() == 9 || $position->GetID() == 29 || $hunter->GetID() == 2650);
 }
 
 function NEC($error){
