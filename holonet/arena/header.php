@@ -142,6 +142,13 @@ function get_auth_data($hunter) {
     return $auth_data;
 }
 
+function ah($name){
+	echo '<b>'.$name.'</b><br />';
+
+function al($page, $name){
+	echo '<a href="' . internal_link('admin_'.$page) . '">'.str_replace(' ', '&nbsp;', $name).'</a><br>';
+}
+
 function admin_footer($auth_data) {
 	global $roster, $arena, $citadel;
 	
@@ -158,7 +165,10 @@ function admin_footer($auth_data) {
 	
 	echo '<small>';
 	
-	echo '<br />System Offline';
+	if ($auth_data['overseer']){
+		ah('System Administration');
+		al('activities', 'Manage Activities');
+	}
 
     echo '</small></td></tr></table>';
 }
