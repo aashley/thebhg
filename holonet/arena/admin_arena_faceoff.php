@@ -37,7 +37,7 @@ function output() {
 	    
     $control = new Control();
 
-	if ($_REQUEST['person1'] != $_REQUEST['person2']) {
+	if ($_REQUEST['submit']) {
         $local = explode("_", $_REQUEST['location']);
 
         $vs = $person1->GetID().' vs '.$person2->GetID();
