@@ -42,7 +42,7 @@ function output() {
 			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 				    $time = $endut - $pay['start_date'];
 				    if ($pay['bhg_id'] == 1625){
-					    echo '|'.$time;
+					    echo '|'.$time.'|'.$pay['start_date'];
 				    }
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
 				    $time = $endut - $startut;
