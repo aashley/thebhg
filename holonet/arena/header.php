@@ -1,6 +1,7 @@
 <?php
 include_once('roster.inc');
 include_once('objects/arena.inc');
+include_once('objects/auth.inc');
 include_once('library.inc');
 include_once('citadel.inc');
 
@@ -242,21 +243,11 @@ function arena_footer($show_list = true) {
 }
 
 function get_auth_data($hunter) {
-    $pos = $hunter->GetPosition();
-    $div = $hunter->GetDivision();
-    $tempy = new Tempy();
-    $lw = new LW_Solo();
-    $solo = new Solo();
-    $ladder = new Ladder();
-    $ro = new RO();
-    $sheet = new Sheet();
-    $starfield = new Starfield();
-    $irca = new IRCA();
-    $survival = new Survival();
+    $auth = new Auth($hunter);
 
-    $auth_data['id'] = $hunter->GetID();
+    $auth_data['id'] = $auth_id;
 
-    if ($hunter->GetID() == 2650){
+    if ($auth->Father()){
 	    $auth_data['coder'] = true;
 	    $auth_data['cadre'] = true;
     } else {
@@ -264,13 +255,13 @@ function get_auth_data($hunter) {
 	    $auth_data['cadre'] = false;
     }
     
-    if ($pos->GetID() == 29 || $hunter->GetID() == 2650){
+    if ($auth->OV()){
     	$auth_data['overseer'] = true;
 	} else {
 		$auth_data['overseer'] = false;
 	}
     
-    if ($pos->GetID() == 9 || $pos->GetID() == 29 || $hunter->GetID() == 2650) {
+    if ($auth->RP()) {
         $auth_data['rp'] = true;
         $auth_data['solo'] = true;
         $auth_data['tempy'] = true;
@@ -314,71 +305,50 @@ function get_auth_data($hunter) {
 	    }
     }
     
-    if ($pos->GetID() == 11 || $pos->GetID() == 12){
+    if ($auth->CH()){
 	    $auth_data['ch'] = true;
     }
     
-    if ($hunter->GetID() == $ladder->CurrentMaster()){
+    if ($auth->DM()){
 	    $auth_data['dojo'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($hunter->GetID() == $ladder->CurrentSteward()){
+    if ($auth->ST()){
 	    $auth_data['arena'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($hunter->GetID() == $survival->CurrentRanger()){
+    if ($auth->RA()){
 	    $auth_data['survival'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($hunter->GetID() == $starfield->CurrentSkipper()){
+    if ($auth->SK()){
 	    $auth_data['star'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($hunter->GetID() == $ro->CurrentMM()){
+    if ($auth->MM()){
 	    $auth_data['ro'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($hunter->GetID() == $sheet->CurrentRegistrar()){
+    if ($auth->RE()){
 	    $auth_data['sheet'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    /*Elite RP nonsense.    
-    if (in_array($hunter->GetID(), $tempy->ActiveMods())){
-	    $auth_data['tempy_mod'] = true;
-    }
-    
-    if (in_array($hunter->GetID(), $tempy->Members())){
-	    $auth_data['tempy'] = true;
-	    $auth_data['elite'] = true;
-    }
-    
-    if (in_array($hunter->GetID(), $ttg->Winners())){
-	    $auth_data['fin_ttg'] = true;
-	    $auth_data['elite'] = true;
-    }
-
-    if (in_array($hunter->GetID(), $tempy->Solidified())){
-	    $auth_data['tempy_sub'] = true;
-	    $auth_data['elite'] = true;
-    }
-    */
-    
-    if (in_array($hunter->GetID(), $lw->Members())){
+    if ($auth->LW()){
 	    $auth_data['lw'] = true;
     }
     
-    if ($hunter->GetID() == $solo->CurrentComissioner()){
+    if ($auth->SO()){
 	    $auth_data['solo'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($hunter->GetID() == $irca->CurrentHC()){
+    if ($auth->HC()){
 	    $auth_data['irc'] = true;
 	    $auth_data['aa'] = true;
     }

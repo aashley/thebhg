@@ -399,7 +399,7 @@
 	    $rewards[210] = 2;
 	    $rewards[212] = 1;
 	    $rewards[310] = 4;
-	    $rewards[39] = 2;
+	    $rewards[39] = 3;
 	    $awards = array();
 	    
 	    for ($i = 1; $i <= $history->Count(); $i++){
