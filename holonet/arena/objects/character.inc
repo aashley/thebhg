@@ -237,7 +237,7 @@
     	}
     }
     
-    function GetValue($skill, $look = 'values', $render = 'SHEET', $id, $col){
+    function GetValue($skill, $look = 'values', $render = 'SHEET', $id = 0, $col = 'id'){
 	    $sql = "SELECT * FROM `cs_skill_equ` WHERE `skill` = '$skill'";
         $query = mysql_query($sql, $this->connect);
         
