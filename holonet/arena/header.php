@@ -238,6 +238,8 @@ function get_auth_data($hunter) {
     $starfield = new Starfield();
     $irca = new IRCA();
     $survival = new Survival();
+    
+    echo $survival;
 
     $auth_data['id'] = $hunter->GetID();
 
