@@ -21,7 +21,6 @@ h1 {
 
 h2 {
 	font-size: 175%;
-	padding-top: 0.75em;
 	padding-bottom: 0.5em;
 }
 
@@ -153,8 +152,8 @@ clear: both;
 }
 
 #content {
-margin: 3em 12em 0 0;
-padding: 4px;
+margin: 3.5em 12em 0 0;
+padding: 5px;
 padding-right: 10px;
 border-right: 1px solid black;
 }
