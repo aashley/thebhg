@@ -103,8 +103,8 @@ function output() {
 	    $form->AddTextBox('Number of Options', 'numop', 3, 5);
 	    $form->AddCheckBox('Multiple Answers?', 'multiple', 1);
 	    $form->AddCheckBox('Restrict to Certain People?', 'restrict', 1);
-	    $form->AddDateBox('Starts', 'start');
-	    $form->AddDateBox('Ends', 'end');
+	    $form->AddDateBox('Starts', 'start', time());
+	    $form->AddDateBox('Ends', 'end', time()+(60*60*24*7));
 	    $form->AddSubmitButton('next', 'Add Options');
 	    
 	    $form->EndForm();
