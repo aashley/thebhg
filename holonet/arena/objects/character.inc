@@ -183,6 +183,7 @@
 	    $table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$id."' AND `statribute` = '$stat'";
         $query = mysql_query($sql, $this->connect);
+        echo $sql;
         $info = mysql_fetch_array($query);
         $stat = new Statribute($stat);
         
