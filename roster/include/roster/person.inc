@@ -17,6 +17,7 @@
  * eveything in the BHG the individual Hunter<br><br>
  *
  * <pre>
+ *  20040218  ah  fixed displaytype 2 support in IDLine
  *  20031124  aa  added InKabal()
  *  20031102  aa  fixed NTC Flag
  *  20030906  ah  fixed MakeSale to pass reason information to MakePurchase
@@ -544,7 +545,7 @@ class Person extends BHGObject {
 
                 if (sizeof($sub) > 1) {
 
-                  $idline .= "x".sizeof($recieved);
+                  $idline .= "x".sizeof($sub);
 
                 }
   
