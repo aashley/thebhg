@@ -57,10 +57,6 @@ function output() {
 	    } else {
 		    $table = 'complex';
 	    }
-        <form name="award" method="post" action="<?=$PHP_SELF?>">
-	<input type="hidden" name="module" value="<?=$module?>">
-	<input type="hidden" name="page" value="<?=$page?>">
-	<input type="hidden" name="table" value="<?=$table?>">
         $locations = mysql_query('SELECT * FROM ' . $table . ' ORDER BY name', $lyarna);        
         $kabals_result = $roster->GetDivisions();
 	    
@@ -84,6 +80,7 @@ function output() {
 			$kabals = implode('', $kabals);
 	
 		?>
+		
 		<script language="JavaScript1.1" type="text/javascript">
 		<!--
 		function person(id, name) {
@@ -154,6 +151,10 @@ function output() {
 		<noscript>
 		This page requires JavaScript to function properly.
 		</noscript>
+		<form name="award" method="post" action="<?=$PHP_SELF?>">
+	<input type="hidden" name="module" value="<?=$module?>">
+	<input type="hidden" name="page" value="<?=$page?>">
+	<input type="hidden" name="table" value="<?=$table?>">
 	<?
 		$table = new Table('', true);
 		$table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
