@@ -33,27 +33,13 @@ Class Chara extends Sheet {
 	    return $this->cs_person->GetID();
     }
     
-    function GetName($look = 'values', $id = 0, $col = 'bhg_id'){
+    function GetName(){
 	    
-	    $stat = $this->Point(33, 'SHEET', $look, $id, $col);
-	    
-	    if (empty($stat)){
-		    $name = $this->cs_person->GetName();
-	    } else {
-		    $name = $stat;
-	    }
-	    
-	    return $name;
+	    return $this->cs_person->GetName();
     }
     
-    function HasValue($look = 'values', $col = 'bhg_id', $id = 0){
-		if ($id){
-			$id = $id;
-		} else {
-			$id = $this->GetID();
-		}
-		$table = '`character_sheet_'.$look.'`';
-	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."'";
+    function HasValue(){
+	    $sql = "SELECT * FROM `character_sheet_values` WHERE `bhg_id` = '".$this->GetID()."' LIMIT 1";
         $query = mysql_query($sql, $this->connect);
         
         return (mysql_num_rows($query));
