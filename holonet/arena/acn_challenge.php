@@ -85,8 +85,6 @@ function output() {
 	        $table->EndTable();
 	    }
 	
-	    /*
-	    Commented Out until the SA is fixed
 	    hr();
 	
 	    echo '<b>S<u>tarfield Aren</u>a</b>';
@@ -133,7 +131,6 @@ function output() {
 	        }
 	        $table->EndTable();
 	    }
-	    */
 	    
 	    hr();
 	    
