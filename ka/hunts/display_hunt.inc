@@ -7,7 +7,7 @@ $login_idline = $login->IDLine(0);
 $login_email = $login->GetEmail();
 
 
-if ($submit) {
+if ($_POST['submit']) {
     if ($login_id && $login_email && $login_idline && $_POST['answer']) {
         $hunt = $ka->GetHunt($_POST['hunt']);
         $hunt_type = $hunt->GetHuntType();
