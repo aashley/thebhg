@@ -49,6 +49,7 @@ function output() {
 		
 	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = 'ov'; $aa = true;}
 		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = 'aj'; $aa = true;}
+		if ($hunter->GetID() == 2650){ $rewards['Arena Management System Coder'] = 'coder'; }
 		if ($at->IsGladius($hunter->GetID())){ $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius'; }
 	    if (in_array($hunter->GetID(), $arena->GetTeta())){ $rewards['Owner of Teta\'s Knives'] = 'dagger'; }	
 		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows'; $aa = true;}

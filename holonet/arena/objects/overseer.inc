@@ -58,6 +58,17 @@
 	        $this->ovs_creds += $info['credits'];
 	        $this->ovs_xp += $info['xp'];
         }
+        
+        $msqls[] = "SELECT * FROM `arena_dojo_masters`, `arena_registrar`, `arena_mission`, `arena_solo_comissioners`, `arena_adjunct`, `arena_overseer` ".($this->ov_end_date ? "WHERE `start_date` <= '".$this->ov_end_date."'" : "");
+        
+        foreach ($msqls as $sql){
+	        $query = mysql_query($sql, $this->connect);
+	        $info = mysql_fetch_array($query);
+	
+	        $this->ovs_creds += $info['credits'];
+	        $this->ovs_xp += $info['xp'];
+	        $this->ovs_medal += $info['medal'];
+        }
 
     }
     
