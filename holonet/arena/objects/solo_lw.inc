@@ -42,15 +42,15 @@
 
         if ($type == 1){
 
-            $text = "A Lone Wolf Mission has been requested. Please go here to begin the posting process.\r\n\r\n http://holonet.thebhg.org/";
+            $text = "A Lone Wolf Mission has been requested. Please go to the Holonet to process it. http://holonet.thebhg.org/";
 
         } elseif ($type == 2) {
 
-            $text = "A Dead Contract has been requested by $name. \r\n\r\n Link to the contract: http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
+            $text = "A Dead Contract has been requested by $name. http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
 
         } elseif ($type == 3) {
 
-            $text = "A Lone Wolf Mission has been retired by $name. \r\n\r\n Link to the contract: http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
+            $text = "A Lone Wolf Mission has been retired by $name. http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
 
         }
 
@@ -58,7 +58,7 @@
         
         $person = new Person($solo->CurrentComissioner());
 
-        $from = "Bounty Office <adjunct@thebhg.org>";
+        $from = "Bounty Office <overseer@thebhg.org>";
         $subject = "New Contract Request";
 
         $person->SendEmail($from, $subject, $text);

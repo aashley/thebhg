@@ -39,33 +39,9 @@
             $this->Fighter($challenger, 1, $ship_id1);
             $this->Fighter($challengee, 0, $ship_id2);
 
-            $match = new StarfieldMatch($this->new_match_id);
-            $type = $match->GetType();
-            $settings = $match->GetSettings();
-            $restrictions = $match->WriteRestrictions("\r\n");
-            $location = $match->GetLocation();
+            $text = $person1->GetName()." has issued a Starfield Arena Challenge to ".$person2->GetName().".";
 
-            $text = $person1->GetName()." has issued a Starfield Arena Challenge to ".$person2->GetName()." with the following details: \r\n"
-                    ."Match Type - ".$type->GetName()."\r\n"
-                    ."Setting - ".$settings->GetName()."\r\n";
-
-            if ($match->HasLocation()){
-                $text .= "Location - ".$location->GetName()."\r\n";
-            }
-
-            $text .= "Restrictions\r\n";
-
-            $text .= $restrictions."\r\n";
-
-            $text .= "Ship Data\r\n";
-
-            $text .= $person1."'s Ship: ".$this->ShipName($challenger, $ship_id1)." [ http://mall.thebhg.org/ssl/index.php?frame=registries/item.php&id=".$ship_id1." ]\r\n";
-            $text .= "Your Ship: ".$this->ShipName($challengee, $ship_id2)." [ http://mall.thebhg.org/ssl/index.php?frame=registries/item.php&id=".$ship_id2." ]\r\n";
-
-            $text .= "\r\nTo accept this challenge, please go to $link and choose ACCEPT for the pending challenge."
-                    ."\r\n\r\n-The Adjunct";
-
-            $from = "Starfield Arena <adjunct@thebhg.org>";
+            $from = "Starfield Arena <overseer@thebhg.org>";
             $subject = "You have been challenged!";
 
             $person1->SendEmail($from, $subject, $text);

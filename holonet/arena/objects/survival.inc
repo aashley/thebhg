@@ -25,11 +25,11 @@
     function NotifyRanger($type = '1', $mb_id = '', $name = ''){
 
         if ($type == 1){
-            $text = "A Survival Mission has been requested. Please go here to begin the posting process.\r\n\r\n http://holonet.thebhg.org/";
+            $text = "A Survival Mission has been requested. Go to the Holonet to process it. http://holonet.thebhg.org/";
         } elseif ($type == 2) {
-            $text = "A Failed Mission has been requested by $name. \r\n\r\n Link to the contract: http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
+            $text = "A Failed Mission has been requested by $name. http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
         } elseif ($type == 3) {
-            $text = "A Survival Mission has been retired by $name. \r\n\r\n Link to the contract: http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
+            $text = "A Survival Mission has been retired by $name. http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
         }
 
         $person = new Person($this->CurrentRanger());

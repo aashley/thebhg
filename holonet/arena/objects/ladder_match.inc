@@ -61,10 +61,6 @@
         return new Fighter($info['bhg_id'], $this->arena_id);
 
     }
-
-    function IsTTG(){
-	    return ($this->arena_is_ttg == 1);
-    }
     
     function Accept() {
         $sql = "UPDATE `arena_ladder_match` SET `accepted` = '1' WHERE `id` = '".$this->arena_id."'";
@@ -75,44 +71,22 @@
 
             $person1 = new Person($contenders[1]->GetID());
             $person2 = new Person($contenders[0]->GetID());
-            $adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
+            $ladder = new Ladder();
+	        $master = new Person($ladder->CurrentMaster());
+	        $stewar = new Person($ladder->CurrentSteward());
 
-            $type = $this->GetType();
-            $location = $this->GetLocation();
-            $weapon = $this->GetWeaponType();
-
-            $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was accepted. Here are the details of the match:"
-                    ."\r\nMatch Type - ".$type->GetName()
-                    ."\r\nLocation - ".$location->GetName()
-                    ."\r\nWeapon Types - ".$weapon->GetWeapon()
-                    ."\r\nWeapons - ".$this->GetWeapons()
-                    ."\r\nPosts - ".$this->GetPosts();
-                    
-            $staff = '';
-            
-            if ($this->IsDojo()){
-	            $text .= "\r\nThis match is a Dojo of Shadows match and will be found there instead of on the Arena Board.";
-	            $staff = "Dojo Master, ";
-            }
-            
-            $staff .= "Overseer, or Adjunct.";
-
-            $text .= "\r\nYou will be notified when your match has been posted on the boards by the $staff"
-                    ."\r\n\r\n-The Overseer";
+            $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was accepted. It will be posted shortly by the RP Staff.";
 
             $from = "Arena <overseer@thebhg.org>";
             $subject = "Challenge Accepted!";
 
             $person1->SendEmail($from, $subject, $text);
             $person2->SendEmail($from, $subject, $text);
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
             
             if ($this->IsDojo()){
-	            $ladder = new Ladder();
-	            $master = new Person($ladder->CurrentMaster());
 	            $master->SendEmail($from, $subject, $text);
+            } else {
+	            $stewar->SendEmail($from, $subject, $text);
             }
 
             return true;
@@ -138,18 +112,7 @@
             $person1 = new Person($contenders[1]->GetID());
             $person2 = new Person($contenders[0]->GetID());
 
-            $type = $this->GetType();
-            $location = $this->GetLocation();
-            $weapon = $this->GetWeaponType();
-
-            $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was declined. These were the details of the match:"
-                    ."\r\nMatch Type - ".$type->GetName()
-                    ."\r\nLocation - ".$location->GetName()
-                    ."\r\nWeapon Types - ".$weapon->GetWeapon()
-                    ."\r\nWeapons - ".$this->GetWeapons()
-                    ."\r\nPosts - ".$this->GetPosts();
-
-            $text .= "\r\nThank you for using the Arena Challenge Network.";
+            $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was declined.";
 
             $from = "Arena <overseer@thebhg.org>";
             $subject = "Challenge Declined!";
@@ -180,18 +143,7 @@
             $person1 = new Person($contenders[1]->GetID());
             $person2 = new Person($contenders[0]->GetID());
 
-            $type = $this->GetType();
-            $location = $this->GetLocation();
-            $weapon = $this->GetWeaponType();
-
-            $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was removed by the Overseer."
-                    ."\r\nMatch Type - ".$type->GetName()
-                    ."\r\nLocation - ".$location->GetName()
-                    ."\r\nWeapon Types - ".$weapon->GetWeapon()
-                    ."\r\nWeapons - ".$this->GetWeapons()
-                    ."\r\nPosts - ".$this->GetPosts();
-
-            $text .= "\r\nThank you for using the Arena Challenge Network.";
+            $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was removed by the RP Staff.";
 
             $from = "Arena <overseer@thebhg.org>";
             $subject = "Challenge Removed!";
@@ -321,9 +273,7 @@
 	            $person1 = new Person($contenders[1]->GetID());
 	            $person2 = new Person($contenders[0]->GetID());
 	
-	            $text = "Your arena match has been posted.\r\n\r\n".$this->RawLink($id);
-	
-	            $text .= "\r\nThank you for using the Arena Challenge Network.";
+	            $text = "Your arena match has been posted here: ".$this->RawLink($id);
 	
 	            $from = "Arena <overseer@thebhg.org>";
 	            $subject = "Match Posted!";

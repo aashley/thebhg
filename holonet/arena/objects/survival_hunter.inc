@@ -86,10 +86,10 @@
     }
 
     function Notify($mbid){
-                $text = "Your Survival Mission has been posted on the Message Boards. \r\n\r\nhttp://boards.thebhg.org/index.php?op=view&topic=$mbid\r\n\r\n Ric Gravant";
+                $text = "Your Survival Mission has been posted here: http://boards.thebhg.org/index.php?op=view&topic=$mbid";
 
                 $person = new Person($this->bhg_id);
-                $from = "Office of Survival Skills <adjunct@thebhg.org>";
+                $from = "Office of Survival Skills <overseer@thebhg.org>";
                 $subject = "Your Survival Mission is Ready";
 
                 $person->SendEmail($from, $subject, $text);

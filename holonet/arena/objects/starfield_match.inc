@@ -208,39 +208,17 @@
             $person2 = new Person($contenders[0]->GetID());
             $adjunct = $this->Adjunct();
             $overseer = $this->Overseer();
+            $starfield = new Starfield();
+            $skipper = new Person($starfield->CurrentSkipper());
 
-            $type = $this->GetType();
-            $settings = $this->GetSettings();
-            $restrictions = $this->WriteRestrictions("\r\n");
-            $location = $this->GetLocation();
+            $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was accepted.";
 
-            $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was accepted. Here are the details of the match:"
-                    ."\r\nMatch Type - ".$type->GetName()
-                    ."\r\nSetting - ".$settings->GetName();
-
-            if ($this->HasLocation()){
-                $text .= "\r\nLocation - ".$location->GetName();
-            }
-
-            $text .= "\r\nRestrictions";
-
-            $text .= "\r\n".$restrictions;
-
-            $text .= "\r\nShip Data";
-
-            $text .= "\r\n".$person1->GetName()."'s Ship: ".$this->ShipName($challenger, $ship_id1)." [ http://mall.thebhg.org/ssl/index.php?frame=registries/item.php&id=".$ship_id1." ]\r\n";
-            $text .= "\r\nYour Ship: ".$this->ShipName($challengee, $ship_id2)." [ http://mall.thebhg.org/ssl/index.php?frame=registries/item.php&id=".$ship_id2." ]\r\n";
-
-            $text .= "\r\nYou will be notified when your match has been posted on the boards by the Overseer or Adjunct."
-                    ."\r\n\r\n-The Adjunct";
-
-            $from = "Starfield Arena <adjunct@thebhg.org>";
+            $from = "Starfield Arena <overseer@thebhg.org>";
             $subject = "Challenge Accepted!";
 
             $person1->SendEmail($from, $subject, $text);
             $person2->SendEmail($from, $subject, $text);
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $skipper->SendEmail($from, $subject, $text);
 
             return true;
 
@@ -270,26 +248,9 @@
             $restrictions = $this->WriteRestrictions("\r\n");
             $location = $this->GetLocation();
 
-            $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was declined. Here are the details of the match:"
-                    ."\r\nMatch Type - ".$type->GetName()
-                    ."\r\nSetting - ".$settings->GetName();
+            $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was declined.";
 
-            if ($this->HasLocation()){
-                $text .= "\r\nLocation - ".$location->GetName();
-            }
-
-            $text .= "\r\nRestrictions";
-
-            $text .= "\r\n".$restrictions;
-
-            $text .= "\r\nShip Data";
-
-            $text .= "\r\n".$person1->GetName()."'s Ship: ".$this->ShipName($challenger, $ship_id1)." [ http://mall.thebhg.org/ssl/index.php?frame=registries/item.php&id=".$ship_id1." ]";
-            $text .= "\r\nYour Ship: ".$this->ShipName($challengee, $ship_id2)." [ http://mall.thebhg.org/ssl/index.php?frame=registries/item.php&id=".$ship_id2." ]";
-
-            $text .= "\r\nThank you for using the Arena Challenge Network.";
-
-            $from = "Starfield Arena <adjunct@thebhg.org>";
+            $from = "Starfield Arena <overseer@thebhg.org>";
             $subject = "Challenge Declined!";
 
             $person1->SendEmail($from, $subject, $text);
@@ -323,26 +284,9 @@
             $restrictions = $this->WriteRestrictions("\r\n");
             $location = $this->GetLocation();
 
-            $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was declined. Here are the details of the match:"
-                    ."\r\nMatch Type - ".$type->GetName()
-                    ."\r\nSetting - ".$settings->GetName();
-
-            if ($match->HasLocation()){
-                $text .= "\r\nLocation - ".$location->GetName();
-            }
-
-            $text .= "\r\nRestrictions";
-
-            $text .= "\r\n".$restrictions;
-
-            $text .= "\r\nShip Data";
-
-            $text .= "\r\n".$person1."'s Ship: ".$this->ShipName($challenger, $ship_id1)." [ http://mall.thebhg.org/ssl/index.php?frame=registries/item.php&id=".$ship_id1." ]";
-            $text .= "\r\nYour Ship: ".$this->ShipName($challengee, $ship_id2)." [ http://mall.thebhg.org/ssl/index.php?frame=registries/item.php&id=".$ship_id2." ]";
-
-            $text .= "\r\nThank you for using the Arena Challenge Network.";
-
-            $from = "Starfield Arena <adjunct@thebhg.org>";
+            $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was removed by the RP staff.";
+          
+            $from = "Starfield Arena <overseer@thebhg.org>";
             $subject = "Challenge Removed!";
 
             $person1->SendEmail($from, $subject, $text);
@@ -382,9 +326,7 @@
             $person1 = new Person($contenders[1]->GetID());
             $person2 = new Person($contenders[0]->GetID());
 
-            $text = "Your starfield arena match has been posted.\r\n\r\n".$this->RawLink($id);
-
-            $text .= "\r\nThank you for using the Arena Challenge Network.";
+            $text = "Your starfield arena match has been posted here: ".$this->RawLink($id);
 
             $from = "Starfield Arena <overseer@thebhg.org>";
             $subject = "Match Posted!";

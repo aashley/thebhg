@@ -86,10 +86,10 @@
     }
 
     function Notify($mbid){
-                $text = "Your Solo Mission has been posted on the Message Boards. \r\n\r\nhttp://boards.thebhg.org/index.php?op=view&topic=$mbid\r\n\r\n Ric Gravant";
+                $text = "Your Solo Mission has been posted here: http://boards.thebhg.org/index.php?op=view&topic=$mbid";
 
                 $person = new Person($this->bhg_id);
-                $from = "Bounty Office <adjunct@thebhg.org>";
+                $from = "Bounty Office <overseer@thebhg.org>";
                 $subject = "Your Solo Mission is Ready";
 
                 $person->SendEmail($from, $subject, $text);

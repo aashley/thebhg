@@ -127,8 +127,6 @@ function acn_nav(){
     echo '&nbsp;<a href="' . internal_link('acn_irca_submit') . '">Submit&nbsp;Match</a><br />';
     
     /*More Elite nonsense
-    echo '<br />Twilight Gauntlet<br />';
-    echo '&nbsp;<a href="' . internal_link('acn_ttg_challenge') . '">Request&nbsp;Challenge</a><br />';
 
     echo '<br />Tempestuous Group<br />';
     echo '&nbsp;<a href="' . internal_link('acn_tempy_petition') . '">Admittance&nbsp;Petition</a><br />'; 
@@ -182,8 +180,6 @@ function atn_nav(){
     echo '&nbsp;<a href="'.internal_link('atn_polling').'">View&nbsp;Arena&nbsp;Polls</a><br />';
 	
     /*Removing the Elite RP stuff
-    echo '<br />Twilight Gauntlet<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_ttg') . '">Members</a><br />';
     
     echo '<br />Tempestuous Group<br />';
     echo '&nbsp;<a href="' . internal_link('atn_tempy') . '">Members</a><br />';
@@ -249,7 +245,6 @@ function get_auth_data($hunter) {
     $pos = $hunter->GetPosition();
     $div = $hunter->GetDivision();
     $tempy = new Tempy();
-    $ttg = new TTG();
     $lw = new LW_Solo();
     $solo = new Solo();
     $ladder = new Ladder();
@@ -278,7 +273,6 @@ function get_auth_data($hunter) {
         $auth_data['solo'] = true;
         $auth_data['tempy'] = true;
         $auth_data['elite'] = true;
-        $auth_data['ttg'] = true;  
         $auth_data['tempy_mod'] = true;   
         $auth_data['lw'] = true;   
         $auth_data['citadel'] = true;
@@ -296,7 +290,6 @@ function get_auth_data($hunter) {
         $auth_data['solo'] = false;
         $auth_data['tempy'] = false;
         $auth_data['elite'] = false;
-        $auth_data['ttg'] = false; 
         $auth_data['tempy_mod'] = false; 
         $auth_data['lw'] = false;  
         $auth_data['citadel'] = false;
@@ -345,15 +338,7 @@ function get_auth_data($hunter) {
 	    $auth_data['aa'] = true;
     }
     
-    /*Elite RP nonsense.
-    $auth_data['fin_ttg'] = false;
-    $auth_data['tempy_sub'] = false;
-    
-    if (in_array($hunter->GetID(), $ttg->Members())){
-	    $auth_data['ttg'] = true;
-	    $auth_data['elite'] = true;
-    }
-    
+    /*Elite RP nonsense.    
     if (in_array($hunter->GetID(), $tempy->ActiveMods())){
 	    $auth_data['tempy_mod'] = true;
     }
@@ -608,21 +593,7 @@ function admin_footer($auth_data) {
     	echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
     }
     
-    if ($auth_data['rp']) {	    
-        /* Cut out, because it's the worst contribution to the RP system since Holo himself.
-        echo '<br />Twilight&nbsp;Gauntlet&nbsp;Admin<br />';   
-	    echo '&nbsp;<a href="' . internal_link('admin_ttg_queue') . '">Queue</a><br />';
-	    echo '&nbsp;<a href="' . internal_link('admin_ttg_members') . '">Edit&nbsp;Members</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_all') . '">View&nbsp;All&nbsp;Signups</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_make') . '">Edit&nbsp;Signup</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_start') . '">Start&nbsp;Match</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_end') . '">End&nbsp;Challenge</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_next') . '">Progress&nbsp;Challenge</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_win') . '">Declare&nbsp;Winner</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_post') . '">Post&nbsp;Final&nbsp;Match</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_ttg_fin') . '">Complete&nbsp;Challenge</a><br />'; 
-        */
-        
+    if ($auth_data['rp']) {	            
         echo '<br />Arena&nbsp;Manuals&nbsp;Admin<small><br />';
     
         $shelf = new Shelf(6);
@@ -641,23 +612,12 @@ function admin_footer($auth_data) {
 	if ($auth_data['elite']) {
 	    echo '<br /><br /><b>Elite&nbsp;Role-Play&nbsp;Groups</b><br />';
     }
-    
-    if ($auth_data['fin_ttg']){
-		echo '<br />Gauntlet&nbsp;Final&nbsp;Challenge<br />';
-		echo '&nbsp;<b><a href="' . internal_link('admin_ttg_final') . '">Make&nbsp;Final&nbsp;Challenge</a></b><br />';
-	}
 	
 	if ($auth_data['tempy_sub']){
 		echo '<br />Tempestuous&nbsp;Group&nbsp;Applications<br />';
 		echo '&nbsp;<b><a href="' . internal_link('admin_tempy_submit') . '">Submit&nbsp;Required&nbsp;Works</a></b><br />';
 	}
     
-	if ($auth_data['ttg']){
-		echo '<br />Twilight&nbsp;Gauntlet<br />';
-		echo '&nbsp;<a href="' . internal_link('admin_ttg_browse') . '">Browse&nbsp;Queue</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_ttg_pending') . '">My&nbsp;Current&nbsp;Challenges</a><br />';
-	}
-	
     if ($auth_data['tempy']) {
 	    echo '<br />Tempestuous&nbsp;Board<br />';
         echo '&nbsp;<a href="' . internal_link('admin_tempy_jury') . '">Jury&nbsp;Selection</a><br />';

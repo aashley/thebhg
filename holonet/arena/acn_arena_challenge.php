@@ -22,7 +22,6 @@ function output() {
     arena_header();
 
     $ladder = new Ladder();
-	$ttg = new TTG();
     $sheet = new Sheet();
 	
     echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';

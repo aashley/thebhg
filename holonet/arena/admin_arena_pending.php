@@ -29,7 +29,6 @@ function output() {
 	    $table->AddHeader('Weapon Type');
 	    $table->AddHeader('Num. of Weapons');
 	    $table->AddHeader('Posts');
-	    //$table->AddHeader('Gauntlet Match');
 	    $table->AddHeader('&nbsp;', 2);
 	    $table->EndRow();
 	    foreach($pending as $value) {
@@ -38,11 +37,6 @@ function output() {
 	        $challengee = $value->GetChallengee();
 	        $weapon = $value->GetWeaponType();
 	        $location = $value->GetLocation();
-	        /*$gauntlet = 'No';
-	        
-	        if ($value->IsTTG()){
-	            $gauntlet = 'Yes';
-	        }*/
 	        
 	        $table->StartRow();
 	        $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$challenger->GetID())) . '">' . $challenger->GetName() . '</a>');
@@ -52,7 +46,6 @@ function output() {
 	        $table->AddCell($weapon->GetWeapon());
 	        $table->AddCell($value->GetWeapons());
 	        $table->AddCell($value->GetPosts());
-		    //$table->AddCell($gauntlet);
 	        $table->AddCell('<a href="' . internal_link('admin_arena_complete', array('id'=>$value->GetID())) . '">Complete</a>');
 	        $table->AddCell('<a href="' . internal_link('admin_arena_remove', array('id'=>$value->GetID())) . '">Remove</a>');
 	        $table->EndRow();

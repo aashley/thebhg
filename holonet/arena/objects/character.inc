@@ -459,16 +459,15 @@
     function SubmitSheet(){
 	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
 		if (mysql_query($sql, $this->connect)){
-			$adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
+			$sheet = new Sheet();
+			$registrar = new Person($sheet->CurrentRegistrar());
             
-            $text = "A new sheet has been submitted. Please go and review it at your earliest convenience.\r\n\r\n-Office of Character Development";
+            $text = "A new sheet has been submitted by ".$this->cs_person->GetName().". Please go and review it at your earliest convenience.";
 
             $from = "Office of Character Development <overseer@thebhg.org>";
             $subject = "Character Pending Approval";
 
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $registrar->SendEmail($from, $subject, $text);
 			return 'Your character sheet has been submitted for approval. It is now pending review by the Overseer or Adjunct.';
 		} else {
 			return 'Error in update: '.mysql_error($this->connect);
@@ -618,8 +617,8 @@
 	    
 	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";
 		if (mysql_query($sql, $this->connect)){
-			$adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
+			$sheet = new Sheet();
+			$registrar = new Person($sheet->CurrentRegistrar());            
             $hunter = new Person($this->GetID());
             
             $text = $hunter->GetName().", your sheet has been approved by the RP staff.";
@@ -627,8 +626,7 @@
             $from = "Office of Character Development <overseer@thebhg.org>";
             $subject = "Character Approved";
 
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $registrar->SendEmail($from, $subject, $text);
             $hunter->SendEmail($from, $subject, $text);
 			return 'Sheet approved.';
 		} else {
@@ -642,21 +640,20 @@
 
 		$sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";		
 		if (mysql_query($sql, $this->connect)){
-			$adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
+			$sheet = new Sheet();
+			$registrar = new Person($sheet->CurrentRegistrar()); 
             $hunter = new Person($this->GetID());
             
             $text = $hunter->GetName().", your sheet has been denied by the RP staff.";
             
             if ($reason){
-	            $text .= "\r\n\r\nReason: ".$reason;
+	            $text .= " Reason: ".$reason;
             }
 
             $from = "Office of Character Development <overseer@thebhg.org>";
             $subject = "Character Denied";
 
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $registrar->SendEmail($from, $subject, $text);
             $hunter->SendEmail($from, $subject, $text);
 			return 'Character Denied.';
 		} else {
@@ -674,21 +671,20 @@
 	    $sql = "DELETE FROM `character_sheets` WHERE `bhg_id` = '".$this->GetID()."'";
 
 		if (mysql_query($sql, $this->connect)){
-			$adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
+			$sheet = new Sheet();
+			$registrar = new Person($sheet->CurrentRegistrar()); 
             $hunter = new Person($this->GetID());
             
             $text = $hunter->GetName().", your sheet has been killed by the RP staff.";
             
             if ($reason){
-	            $text .= "\r\n\r\nReason: ".$reason;
+	            $text .= " Reason: ".$reason;
             }
 
             $from = "Office of Character Assassinations<overseer@thebhg.org>";
             $subject = "Notice of Character Wipe";
 
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $registrar->SendEmail($from, $subject, $text);
             $hunter->SendEmail($from, $subject, $text);
 			return 'Character Killed.';
 		} else {

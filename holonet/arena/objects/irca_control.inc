@@ -56,18 +56,15 @@
             $this->Fighter($challenger);
             $this->Fighter($challengee);
 
-            $adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
-
+            $irca = new IRCA();
+    		$hc = new Person($irca->CurrentHC());
+            
             $text = "There is a new IRCA Match for you to grade. Please go to the Holonet and grade it at your convenience.";
-
-            $text .= "\r\n\r\n-Arena Tracking Network";
 
             $from = "IRC Arena <overseer@thebhg.org>";
             $subject = "New IRCA Match";
 
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $hc->SendEmail($from, $subject, $text);
 
             return true;
 

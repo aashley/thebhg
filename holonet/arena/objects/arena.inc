@@ -71,9 +71,6 @@ include_once 'starfield_settings.inc';
 include_once 'starfield_stats.inc';
 include_once 'starfield_type.inc';
 
-include_once 'twilight_gauntlet.inc';
-include_once 'twilight_gauntlet_challenge.inc';
-
 include_once 'tempestuous.inc';
 include_once 'tempestuous_petition.inc';
 

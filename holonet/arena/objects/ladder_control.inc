@@ -69,15 +69,6 @@
     	$new = new Ladder();
     	$stew = $new->CurrentSteward();
     	$steward = new Steward($stew);
-    	
-        /*$ttg = new TTG();
-        $gauntlet = 0;
-        
-        if (in_array($challenger, $ttg->Members())){
-	        if (in_array($challengee, $ttg->Members())){
-		        $gauntlet = 1;
-	        }
-        }*/
         
         $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `is_dojo`, `steward`) "
                 ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$dojo', '".$steward->GetID()."')";
@@ -94,15 +85,7 @@
             $location = $match->GetLocation();
             $weapon = $match->GetWeaponType();
 
-            $text = $person1->GetName()." has issued an Arena Challenge to ".$person2->GetName()." with the following details: \r\n"
-                    ."Match Type - ".$type->GetName()."\r\n"
-                    ."Location - ".$location->GetName()."\r\n"
-                    ."Weapon Types - ".$weapon->GetWeapon()."\r\n"
-                    ."Weapons - ".$match->GetWeapons()."\r\n"
-                    ."Posts - ".$match->GetPosts()."\r\n";
-
-            $text .= "\r\nTo accept this challenge, please go to $link and choose ACCEPT for the pending challenge."
-                    ."\r\n\r\n-The Overseer";
+            $text = $person1->GetName()." has issued an Arena Challenge to ".$person2->GetName().".";
 
             $from = "Arena <overseer@thebhg.org>";
             $subject = "You have been challenged!";
