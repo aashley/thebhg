@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: General :: Award Credits';
+    return 'Administration :: General :: Award Medals';
 }
 
 function auth($person) {
@@ -11,8 +11,59 @@ function auth($person) {
     return $auth_data['rp'];
 }
 
+function next_medal($person, $group) {
+	global $mb;
+
+	$mg = $mb->GetMedalGroup($group);
+	if ($mg->GetDisplayType() != 0) {
+		echo 'Numeric medal, leaving immediately.<br>';
+		$medals = $mg->GetMedals();
+		return $medals[0];
+	}
+	
+	$medals = $person->GetMedals();
+	if (count($medals)) {
+		$orders = array();
+		$group_medals = $mg->GetMedals();
+		foreach ($group_medals as $medal) {
+			$orders[$medal->GetOrder()] = 0;
+		}
+		foreach ($medals as $am) {
+			$medal = $am->GetMedal();
+			$mgroup = $medal->GetGroup();
+			if ($mgroup->GetID() == $group) {
+				$orders[$medal->GetOrder()]++;
+			}
+		}
+		ksort($orders);
+		$last = 0;
+		foreach ($orders as $key=>$o) {
+			if ($o < $last) {
+				$order = $key;
+				break;
+			}
+			$last = $o;
+		}
+		if (empty($order)) {
+			$order = min(array_keys($orders));
+		}
+		
+		$medals = $mg->GetMedals();
+		foreach ($medals as $medal) {
+			if ($medal->GetOrder() == $order) {
+				return $medal;
+			}
+		}
+		return $medals[0];
+	}
+	else {
+		$medals = $mg->GetMedals();
+		return $medals[0];
+	}
+}
+
 function output() {
-    global $arena, $auth_data, $hunter, $page, $roster;
+    global $arena, $auth_data, $hunter, $page, $roster, $mb;
     
     arena_header();
 
@@ -22,19 +73,29 @@ function output() {
       
 			$person = "person$i";
       
-			$credits = "credits$i";
+			$medal = "medal$i";
 			
 			$awarded = $roster->GetPerson($_REQUEST[$person]);
-			$awarded->AddCredits($_REQUEST[$credits], $_REQUEST['reason']);
+			
+			$mb->AwardMedal($awarded, $hunter, next_medal($awarded, $_REQUEST[$medal]), $_REQUEST['reason']);
 			
 		}
 		
-		echo 'Credits Awarded.';
+		echo 'Medals Awarded.';
 		
 		hr();
 	    
     }
     
+    $medals = array();
+    
+    $mb_cat = $mb->GetMedalCategories();
+	foreach ($mb_cat as $cat) {
+		$mb_gp = $cat->GetMedalGroups();
+		foreach ($mb_gp as $group) {
+			$medals[$group->GetID()] = ('<option value="' . $group->GetID() . '">' . $group->GetName() . '</option>');
+		}
+	}
     
     	$kabals_result = $roster->GetDivisions();
 	    
@@ -157,7 +218,7 @@ function output() {
 	$form->table->StartRow();
 	$form->table->AddHeader('Kabal');
 	$form->table->AddHeader('Person');
-	$form->table->AddHeader('Credits');
+	$form->table->AddHeader('Medal');
 	$form->table->EndRow();
   
 	for ($i = 0; $i < 20; $i++) {
@@ -176,15 +237,13 @@ function output() {
     
 		$form->table->AddCell($cell);
     
-		$form->table->AddCell("<input type=\"text\" name=\"credits$i\" value=\"0\" "
-      	."size=7 onFocus=\"if (this.value == '0') this.value = ''\" "
-      	."onBlur=\"if (this.value == '') this.value = '0'\">");
+		$form->table->AddCell("<select name=\"medal$i\" size=1>" . implode("\n", $medals) . "</select>");
     
 		$form->table->EndRow();
 	}
   
 	$form->table->StartRow();
-	$form->table->AddCell('<input type="submit" name="submit" value="Submit Credit Awards" size="50">', 3);
+	$form->table->AddCell('<input type="submit" name="submit" value="Submit Medals" size="50">', 3);
 	$form->table->EndRow();
 	$form->EndForm();
 

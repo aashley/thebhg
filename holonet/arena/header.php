@@ -5,6 +5,7 @@ include_once('library.inc');
 include_once('citadel.inc');
 
 $roster = new Roster('fight-51-me');
+$mb = new MedalBoard('fight-51-me');
 $arena = new Arena();
 $library = new Library();
 $at = new Tournament();
@@ -297,7 +298,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
-	    
+	    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';	    
     }
     
     if ($auth_data['overseer']) {   
