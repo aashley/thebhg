@@ -24,11 +24,11 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: CS system software updated to v2.2.25 and the Cadre RO function posted.";
+    echo "Version Comments: Hacked the network systems to run things.";
     
     hr();
     
-    echo "Last Update: December 6, 2004";
+    echo "Last Update: December 13, 2004";
     
     hr();
     
