@@ -9,7 +9,7 @@ function title() {
     $return = 'AMS Tracking Network :: Solo Mission :: Contract Archive';
     
     if (is_object($atn)){
-	    $return = ' :: Contract ' . $atn->GetContractID();
+	    $return .= ' :: Contract ' . $atn->GetContractID();
     }
 
     return $return;

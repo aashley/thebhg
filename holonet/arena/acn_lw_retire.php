@@ -27,7 +27,7 @@ function output() {
 	    
 		    $solo = new LW_Solo();
 		
-		    $hunter = new Hunter($hunter->GetID());    
+		    $hunter = new LW_Hunter($hunter->GetID());    
 	    
 	    if (isset($_REQUEST['submit'])) {
 	
