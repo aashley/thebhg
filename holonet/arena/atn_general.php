@@ -57,6 +57,8 @@ function output() {
 	    if ($irr){ $table->AddRow('IRC Arena Ladder Rank:', $irr); }
 	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', $tgc); }
 	    
+	    $plural = '';
+	    
 	    if ($at->IsGladius($hunter->GetID())){
 		    if ($at->IsGladius($hunter->GetID()) > 1){ 
 			    $plural = 's';
