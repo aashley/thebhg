@@ -21,7 +21,7 @@ function output(){
 	$current = $arena->Search(array('table'=>'ams_activities', 'search'=>array('date_deleted'=>'0')));
 	
 	if (count($current)){
-		$table = new Table('', true);
+		$table = new Table('Current Activities', true);
 		
 		$table->StartRow();
 		$table->AddHeader('Activty');
