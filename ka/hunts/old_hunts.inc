@@ -50,7 +50,7 @@ $headattr = array(
     'style' => 'font-weight: bold; font-size: 10pt; text-align: center'
     );
 $center_attr = array(
-    'style' => 'font-size: 10pt; text-align: center; border: 0px'
+    'style' => 'font-size: 10pt; text-align: center; border: 0px; vertical-align: top'
     );
 
 /**
