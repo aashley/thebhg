@@ -70,7 +70,7 @@ function output() {
 	    
 	    for ($i = 1; $i <= $_REQUEST['numop']; $i++){
 		    $o = $i-1;
-		    $form->AddTextBox('Option '.$i, 'option[]', $options[$o]);
+		    $form->AddTextBox('Option '.$i, 'option[]', $options[$o]->GetQuestion());
 	    }
 	    
 	    if ($_REQUEST['restrict']){
