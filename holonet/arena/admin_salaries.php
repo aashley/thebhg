@@ -41,17 +41,17 @@ function output() {
 		    foreach ($bitch as $pay){
 			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 				    $time = $endut - $pay['start_date'];
-				    echo $i;
+				    echo $i.'a|';
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
 				    $time = $endut - $startut;
-				    echo $i;
+				    echo $i.'b|';
 			    } else {
 				    if ($pay['start_date'] < $startut){
 					    $time = $pay['end_date'] - $starut;
-					    echo $i;
+					    echo $i.'c|';
 				    } else {
 				    	$time = $pay['end_date'] - $pay['start_date'];
-				    	echo $i;
+				    	echo $i.'d|';
 			    	}
 		    	}
 		    	$i++;
