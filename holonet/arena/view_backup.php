@@ -23,7 +23,7 @@ function output() {
     
     $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
 
-	admin_footer($auth_data);
+	arena_footer();
 
 }
 ?>
