@@ -57,6 +57,7 @@ function output() {
 
     }
     else {
+	    print_r($solo->RetireRequests());
 	    if (count($solo->RetireRequests())){
 	        $form = new Form($page);
 	        $form->StartSelect('Contract:', 'contract_id');
