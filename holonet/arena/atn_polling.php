@@ -77,7 +77,7 @@ function output() {
 				    } else {
 					    $put = '<input type="radio" name="votes" value="'.$option->GetID().'">';
 				    }
-					$form->table->AddRow($put, $option->GetQuestion(), $percent.'%');
+					$form->table->AddRow($put, $option->GetQuestion(), $percent.'% ('.pluralise('Vote', $per).')');
 			    }
 			    $form->AddHidden('poll', $_REQUEST['poll']);
 			    $form->table->StartRow();
