@@ -28,6 +28,7 @@ function output() {
         foreach ($solo->GetGrades() as $value) {
             $form->AddOption($value->GetID(), $value->GetName());
         }
+        $form->EndSelect();
         $form->AddTextBox('Credits Earned:', 'creds');
         $form->AddTextBox('Experience Points:', 'xp');
         $form->AddHidden('contract_id', $_REQUEST['contract_id']);
