@@ -127,12 +127,11 @@ function atn_nav(){
 	    $gblname = ($id ? 'Activities' : 'Lists');
 	    foreach ($arena->Search(array('table'=>$table, 'search'=>array('date_deleted'=>'0'))) as $axs){		    
 		    if ($id){
-			    $app[$axs->Get(Name)] = internal_link('atn_activity', array('id'=>$axs->Get(id)));
+			    $app[$axs->Get(name)] = internal_link('atn_activity', array('id'=>$axs->Get(id)));
 	    	} else {
-		    	$app[$axs->Get(Name)] = internal_link('atn_list', array('id'=>$axs->Get(id)));
+		    	$app[$axs->Get(name)] = internal_link('atn_list', array('id'=>$axs->Get(id)));
 	    	}
 	    }
-	    print_r($app);
 	    addMenu($gblname, $app);
     }
 }
