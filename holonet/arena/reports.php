@@ -9,7 +9,6 @@ function output() {
     arena_header();
 	foreach ($arena->ArenaPositions() as $key=>$t){
 		$arena->LatestReport($key);
-		hr();
 	}
     arena_footer();
 }
