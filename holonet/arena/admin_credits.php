@@ -8,7 +8,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['overseer'];
+    return $auth_data['rp'];
 }
 
 function output() {
