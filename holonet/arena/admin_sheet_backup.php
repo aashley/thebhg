@@ -34,6 +34,8 @@ function output() {
     if ($_REQEUST['process']){
 	    echo $character->Backup($_REQEUST['save'], $_REQUEST['sheet']);
 	    hr();		     
+    } else {
+	    echo "WHAT THE FUCK!";
     }
     
     if ($_REQUEST['view']){
