@@ -138,8 +138,7 @@ function output() {
 	    echo '</div></td></tr><tr><td><div style="text-align: left">';
 	    */
 		
-		if (count($rewards)){
-			$table = new Table();			
+		if (count($rewards)){			
 			$setups = array();
 			
 			foreach ($rewards as $info=>$reward){				
