@@ -30,7 +30,7 @@ function rp_staff($person){
 function acn_nav(){
 	global $at, $lw, $person, $iat;
 	
-	echo '<br />General<br />';
+	echo '<small>General<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_challenge') . '">Network&nbsp;Control</a><br />';
 	
 	if ($at->ValidSignup()){
@@ -43,7 +43,7 @@ function acn_nav(){
 	    echo '&nbsp;<a href="' . internal_link('acn_irc_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br /><br />';
 	}
 	
-	echo '<small>Arena<br />';
+	echo '<br />Arena<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_arena_challenge') . '">Arena&nbsp;Challenges</a><br />';
 	
 	/*Removed until fixed.

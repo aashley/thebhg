@@ -37,6 +37,7 @@ function output() {
 	    $challenges = $ladder->Pending($hunter->GetID());
 	
 	    if (count($challenges)) {
+		    echo '<br />';
 	        $table = new Table('Pending Challenges', true);
 	        $table->StartRow();
 	        $table->AddHeader('Challenger');
@@ -66,9 +67,6 @@ function output() {
 	        }
 	        $table->EndTable();
 	    }
-	    else {
-	        echo '<br />You have no challenges pending.';
-	    }
 	
 	    /*
 	    Commented Out until the SA is fixed
@@ -80,6 +78,7 @@ function output() {
 	    $challenges = $starfield->Pending($hunter->GetID());
 	
 	    if (count($challenges)) {
+		    echo '<br />';
 	        $table = new Table('Pending Challenges', true);
 	        $table->StartRow();
 	        $table->AddHeader('Challenger');
@@ -117,9 +116,6 @@ function output() {
 	        }
 	        $table->EndTable();
 	    }
-	    else {
-	        echo 'You have no challenges pending.';
-	    }
 	    */
 	    
 	    hr();
@@ -132,6 +128,7 @@ function output() {
 	    $hunter = new Hunter($hunter->GetID());
 	    
 	    if (count($hunter->Contracts())){
+		    echo '<br />';
 		    $table = new Table('', true);
 		    $table->StartRow();
 		    $table->AddHeader('Pending Contracts', 3);
@@ -144,8 +141,32 @@ function output() {
 	        }
 	        
 	        $table->EndTable();
-        } else {
-	        echo "You have no pending contracts.";
+        }
+        
+        if ($auth_data['lw']){
+	        hr();
+		    
+		    echo '<b>L<u>one Wolf Mission</u>s</b>';
+		    
+		    echo '<br /><a href="'.internal_link('acn_solo_contract').'">Request a New Contract</a>';
+		    echo '<br /><a href="'.internal_link('acn_solo_dco').'">Request a Dead Contract</a>';
+		    
+		    $hunter = new LW_Hunter($hunter->GetID());
+		    
+		    if (count($hunter->Contracts())){
+			    echo '<br />';
+			    $table = new Table('', true);
+			    $table->StartRow();
+			    $table->AddHeader('Pending Contracts', 3);
+			    $table->EndRow();
+			    $table->AddRow('Contract ID', '&nbsp');
+			    
+		        foreach ($hunter->Contracts() as $value) {
+			        $table->AddRow($value->GetContractID(), '<a href="'.internal_link('acn_solo_retire', array('contract'=>$value->GetID())).'">Retire Contract</a>');
+		        }
+		        
+		        $table->EndTable();
+	        }
         }
 	    
 	} else {	    
