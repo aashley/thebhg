@@ -30,6 +30,11 @@
                 
         if (mysql_query($sql, $this->connect)) {
 
+	        $this->new_match_id = mysql_insert_id($this->connect);
+
+            $this->Fighter($challenger);
+            $this->Fighter($challengee);
+	        
             return true;
 
         } else {
