@@ -53,6 +53,7 @@ function output() {
 	    if (count($opts) > count($_REQUEST['option'])){
 		    $num = count($_REQUEST['option'])+1;
 		    for ($i = $num; $i <= count($opts); $i++){
+			    echo $i;
 			    $opts[$i]->Delete();
 		    }
 	    }
