@@ -9,7 +9,7 @@ $replace = new Shell(0, 'ams_replacements', 'date_deleted');
 foreach ($replace->storage as $dump){
 	if (class_exists($replace->GetValue('class'))){
 		echo $replace->GetValue('class');
-		$new = new $replace->GetValue('class')();
+		$new = new $replace->GetValue('class');
 		$class = new Roster;
 	}
 	
