@@ -98,7 +98,7 @@
 
         return $return;
     }
-
+    
     function ArenaType($id){
         return new Type($id);
     }
