@@ -43,7 +43,7 @@ function output() {
     elseif (isset($_REQUEST['dco'])) {
 
         if ($contract->DeDCO()){
-	        $contract->SetHunter(0)
+	        $contract->SetHunter(0);
             echo "Process finished.";
 
         } else {
