@@ -68,7 +68,7 @@
     }
     
     function GetPolls($rpa = array()){
-	    $rp = ''
+	    $rp = '';
 	    $rps = array();
 	    if (count($rpa){
 		    $rp .= '('
