@@ -71,7 +71,7 @@ function output() {
 
     }
     else {
-	    if (count($solo->RequestedContracts())){
+	    if (count($solo->DCORequests())){
 	        $form = new Form($page);
 	        $form->StartSelect('Contract:', 'contract_id');
 	        foreach ($solo->DCORequests() as $value) {
