@@ -19,7 +19,6 @@ function output() {
     $solo = new Survival();
     if (isset($_REQUEST['contract_id'])){
 	    $contract = new SurvivalContract($_REQUEST['contract_id']);
-	    $npc = $contract->GetNPC();
     }
 
     
@@ -41,6 +40,7 @@ function output() {
 
 	    $contract->SetCreature($_REQUEST['creature']);
 	    $contract = new SurvivalContract($_REQUEST['contract_id']);
+	    $npc = $contract->GetNPC();
 	    
         $form = new Form($page);
         $form->table->StartRow();
