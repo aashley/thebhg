@@ -153,7 +153,8 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Office of Character Development Registrar', 2);
 		    $table->EndRow();
-		    if ($regist->GetCreds() || $regist->GetXP() || $regist->GetMedals()) {
+		    if ($regist->GetCreds() || $regist->GetXP() || $regist->GetMedals() || $regist->Saves() || $regist->Submit() || $regist->BP() || 
+		    $regist->Kill() || $regist->Approve() || $regist->Ban() || $regist->Deny() || $regist->NewSheet()) {
 			    if ($regist->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($regist->GetCreds()).' Imperial Credits'); }
 			    if ($regist->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($regist->GetXP())); }
 			    if ($regist->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($regist->GetMedals())); }
