@@ -132,6 +132,37 @@
 	    
 	    return mysql_num_rows($query);
     }
+    
+    function DropdownFields($form, $name = 'csfield'){
+	    $form->StartSelect('Stat/Skill', $name){
+		    foreach ($this->GetSkills() as $skill){
+			    $form->AddOption('skill_'.$skill->GetID(), $skill->GetName());
+		    }
+		    foreach ($this->GetStats() as $stat){
+			    $form->AddOption('stat_'.$stat->GetID(), $stat->GetName());
+		    }
+		$form->EndSelect();
+	}	
+	
+	function HasValue($bhg_id, $field, $value){
+		if ($this->HasSheet($bhg_id)){
+			$fields = explode('_', $field);
+			$field = $fields[0];
+			$resource = $fields[1];
+			$character = new Character($bhg_id);
+			if ($resource = 'skill'){
+				$evalue = $character->GetValue($resource, 'values', 'SYSTEM'); 
+			} else {
+				$evalue = $character->Point($resource, 'SYSTEM'); 
+			}
+			
+			$return = ($evalue == $value);
+			
+			return ($return ? true : false);
+			
+		} else {
+			return false;
+		}
  }
 
 ?>
