@@ -178,7 +178,7 @@ function output() {
 			    
 			    foreach ($saves as $data){
 				    if (!$data['share']){
-					    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link('view_backup', array('sheet'=>$data['id'])).'">View Save</a>');
+					    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link('view_backup', array('sheet'=>$data['id'], 'id'=>$hunter->GetID())).'">View Save</a>');
 				    }
 			    }
 			    
