@@ -337,6 +337,7 @@
 		        	}
 	        	}
 	        	$point += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col);
+	        	echo $point.'|';
 	        	$output += $point*$info['modifier'];
 	        	$denominator += $info['modifier'];
         	}
