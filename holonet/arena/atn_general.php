@@ -122,6 +122,7 @@ function output() {
 			foreach ($rewards as $info=>$reward){
 				$table->AddRow('<a href="'.internal_link($reward['page'], array('id'=>$hunter->GetID())).'#'.$reward['anch'].'">'.$info.'</a>');	
 			}			
+			$table->EndTable();
 		}
 	    
 	    echo '</div></td></tr></table>';
