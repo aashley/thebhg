@@ -58,6 +58,15 @@
             $person->SendEmail($from, $subject, $text);
             $adjunct->SendEmail($from, $subject, $text);
             $overseer->SendEmail($from, $subject, $text);
+            
+            $text = $person->GetName().' has challenged the Gauntlet. Go and defend yourselves. Sign up to challenge via the Holonet in admin.';
+            
+            $tg = new TTG():
+            $subject = "New Gauntlet Challenger";
+            
+            foreach ($ttg->GetMembers(1) as $member){
+	            $member->SendEmail($from, $subject, $text);
+            }
 
             return true;
 

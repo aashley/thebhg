@@ -98,6 +98,18 @@
 	    $sql = "INSERT INTO `arena_ttg_queue` (`bhg_id`) VALUES ('$bhg_id')";
 	    
 	    if (mysql_query($sql, $this->connect)){
+
+            $adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+
+            $text = $person->GetName()." has chllenged the gauntlet. Go now and approve or deny their petition.";
+
+            $from = "Twilight Gauntlet <overseer@thebhg.org>";
+            $subject = "Gauntlet Chellenge";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
+		    
 		    return true;
 	    } else {
 		    return false;
