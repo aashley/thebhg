@@ -44,6 +44,7 @@ Class Obj extends Arena {
 	        echo $value;
 	        echo '<br />'.$this->Get($key);
 	        if ($value != $this->Get($key)){
+		        echo 'Here';
 		        $add[] = "`".$key."` = '".addslashes($value)."'";
 		        $return[] = str_replace('_', '&nbsp;', ucfirst($key));
 	        }
