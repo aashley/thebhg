@@ -103,6 +103,8 @@
     
     function GetOptions($delete = 1){
 	    if ($delete){
+		    $del = '`date_deleted` = 0 AND ';
+	    }
 	    $sql = "SELECT * FROM `arena_poll_options` WHERE $del `poll` = '".$this->poll_id."'";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
