@@ -48,9 +48,7 @@
     }
     
     function Deny($bhg_id, $type){
-        $sql = "DELETE FROM `arena_solo_request` WHERE `type` = '$type' AND `bhg_id` = '$bhg_id')";
-
-        echo $sql;
+        $sql = "DELETE FROM `arena_solo_request` WHERE `type` = '$type' AND `bhg_id` = '$bhg_id'";
         
         if (mysql_query($sql, $this->connect)) {
 

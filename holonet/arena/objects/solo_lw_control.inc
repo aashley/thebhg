@@ -34,7 +34,7 @@
     }
     
     function Deny($bhg_id){
-        $sql = "DELETE FROM `arena_lw_request` WHERE `bhg_id` = '$bhg_id')";
+        $sql = "DELETE FROM `arena_lw_request` WHERE `bhg_id` = '$bhg_id'";
 
         if (mysql_query($sql, $this->connect)) {
 
