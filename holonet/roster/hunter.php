@@ -271,7 +271,7 @@ function output() {
 	}
 
 	$sheet = new Sheet($pleb);
-	if ($sheet->GetLastUpdate() > 0 && $sheet->GetStatus != 'new' && $sheet->fields[56]->GetRealValue() > 0) {
+	if ($sheet->GetLastUpdate() > 0 && $sheet->GetStatus() != 'new' && $sheet->fields[56]->GetRealValue() > 0) {
 		$links[internal_link('character_sheet', array('id'=>$pleb->GetID()))] = 'View Character Sheet';
 	}
 	
