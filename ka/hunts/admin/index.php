@@ -1,6 +1,7 @@
 <?php
 require_once('../../Layout.inc');
 require_once 'HTML/Table.php';
+$site = $_GET['site'];
 $subarray = array(
     'View Hunts'=>'hunts/',
     'Hunt Administration'=> ltrim($_SERVER['PHP_SELF'], "/"),
