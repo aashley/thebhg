@@ -3,6 +3,10 @@ function title() {
     return 'AMS Tracking Network :: State of the Arena Report';
 }
 
+function nf ($input){
+	return '<right>'.number_format($input).'</right>'
+}
+
 function output() {
     global $arena;
 
@@ -31,7 +35,7 @@ function output() {
     $activities['The Arena'] = array('ce'=>count($arena->ArenaMatches()), 'oe'=>count($ladder->Pending()), 'ue'=>count($ladder->Unposted()), 'xp'=>$ladder->GetXP(), 'cr'=>$ladder->GetCreds(), 'ad'=>$stwa);
     
     foreach ($activities as $activity=>$stats){
-	    $table->AddRow($activity, $stats['ce'], $stats['oe'], $stats['ue'], $stats['xp'], $stats['cr'], $stats['ad']);	    
+	    $table->AddRow($activity, nf($stats['ce']), nf($stats['oe']), nf($stats['ue']), nf($stats['xp']), nf($stats['cr']), $stats['ad']);	    
     }
     
     $table->EndTable();
