@@ -56,7 +56,7 @@ function output() {
 	        $i = 1;
 	        foreach ($solo->NeedApproval() as $value) {
 		        $person = new Person($value['bhg_id']);
-		        $type = new SoloType($value['type']);
+		        $type = new SurvivalType($value['type']);
 		        $form->AddHidden('contract['.$i.']', $type->GetID());
 		        $form->table->AddRow('<a href="'.internal_link('atn_general', array('id'=>$person->GetID())).'">'.$person->GetName().'</a>', 
 		        	$type->GetName(), '<input type="checkbox" name="approve['.$i.']" value="'.$value['bhg_id'].'">', 

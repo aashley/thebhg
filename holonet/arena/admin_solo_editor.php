@@ -51,14 +51,18 @@ function output() {
         print_r($edit);
     }
     else {
-        $form = new Form($page);
-        $form->StartSelect('Contract:', 'contract_id');
-        foreach ($solo->Contracts() as $value) {
-            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
+	    if (count($solo->Contracts())){
+	        $form = new Form($page);
+	        $form->StartSelect('Contract:', 'contract_id');
+	        foreach ($solo->Contracts() as $value) {
+	            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
+	        }
+	        $form->EndSelect();
+	        $form->AddSubmitButton('next', 'Next >>');
+	        $form->EndForm();
+        } else {	        
+	        echo "No Pending Contracts.";	        
         }
-        $form->EndSelect();
-        $form->AddSubmitButton('next', 'Next >>');
-        $form->EndForm();
     }
 
     admin_footer($auth_data);

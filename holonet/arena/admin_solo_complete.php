@@ -49,14 +49,18 @@ function output() {
         }
     }
     else {
-        $form = new Form($page);
-        $form->StartSelect('Contract:', 'contract_id');
-        foreach ($solo->PendingContracts() as $value) {
-            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
+	    if (count($solo->PendingContracts())){
+	        $form = new Form($page);
+	        $form->StartSelect('Contract:', 'contract_id');
+	        foreach ($solo->PendingContracts() as $value) {
+	            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
+	        }
+	        $form->EndSelect();
+	        $form->AddSubmitButton('next', 'Next >>');
+	        $form->EndForm();
+        } else {	        
+	        echo "No Pending Contracts.";	        
         }
-        $form->EndSelect();
-        $form->AddSubmitButton('next', 'Next >>');
-        $form->EndForm();
     }
 
     admin_footer($auth_data);
