@@ -46,6 +46,19 @@ function output() {
 		    echo '<a href="' . internal_link('acn_sa_tournament_signup') . '">Signup&nbsp;For&nbsp;Tournament</a>';
 		    hr();
 		}
+        
+        echo '<b>C<u>adre Run-On</u>s</b>';
+        
+        $ro = new RO();
+        $cadre = $hunter->GetCadre();
+	    if ($cadre){
+		    if ($hunter->IsCadreLeader($cadre)){
+			    if ($ro->CanRequest($cadre->GetID())){
+			    	echo '<br /><a href="' . internal_link('acn_cadre_request') . '">Submit&nbsp;Match</a><br />';
+			    	hr();
+		    	}
+		    }
+	    }
 		
 	    echo '<b>T<u>he Aren</u>a</b>';
 	    
@@ -231,20 +244,6 @@ function output() {
         hr();
         echo '<b>I<u>RC Aren</u>a</b>';
         echo '<br /><a href="' . internal_link('acn_irca_submit') . '">Submit&nbsp;Match</a><br />';
-        
-        hr();
-        
-        echo '<b>C<u>adre Run-On</u>s</b>';
-        
-        $ro = new RO();
-        $cadre = $hunter->GetCadre();
-	    if ($cadre){
-		    if ($hunter->IsCadreLeader($cadre)){
-			    if ($ro->CanRequest($cadre->GetID())){
-			    	echo '<br /><a href="' . internal_link('acn_cadre_request') . '">Submit&nbsp;Match</a><br />';
-		    	}
-		    }
-	    }
 	    
 	} else {	    
 	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
