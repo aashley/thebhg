@@ -214,12 +214,6 @@
 		    $new = new Character($info['bhg_id']);
 		    if ($exclude == 1){
 			    $go = true;
-		    } elseif ($exclude == 2) {
-			    if ($new->Status('SYSTEM') == -1){
-				    $go = false;
-			    } else {
-				    $go = true;
-			    }
 		    } else {
 			    if ($new->Includeable()){
 			    	$go = true;
