@@ -1,7 +1,11 @@
 <?php
 
 if (isset($_REQUEST['id'])){
-	$activity = new Obj(' ams_list_types', $_REQUEST['id'], 'holonet');
+	$activity = new Obj('ams_list_types', $_REQUEST['id'], 'holonet');
+	
+	if (!$activity->Get(name)){
+		$activity = false;
+	}
 }
 
 function title() {
