@@ -45,6 +45,7 @@ function output(){
 			} else {
 				$name = $obj->Get(name);
 				$desc = $obj->Get(desc);
+				$id = $obj->Get(id);
 				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
 				$type = $type->Get(id);
 			}
@@ -98,6 +99,7 @@ function output(){
 		$form = new Form($page);
 		$form->AddSectionTitle(($_REQUEST['op'] ? 'Edit' : 'Add New'));
 		($_REQUEST['op'] ? $form->AddHidden('op', 'ed') : '');
+		$form->AddHidden('id', $id);
 		$form->AddHidden('data[table]', 'ams_activities');
 		$form->AddHidden('stage', '2');
 		$form->AddTextBox('Name', 'data[values][]', $name);
