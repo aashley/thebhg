@@ -64,7 +64,7 @@
         if ($dojo){
 	    	$ladder = new Ladder();
 	    	$dojo = new Master($ladder->CurrentMaster());
-	    	$dojo = $dojo->GetID()
+	    	$dojo = $dojo->GetID();
     	}
 	    	     
     	$new = new Ladder();
