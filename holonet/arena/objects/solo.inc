@@ -54,7 +54,7 @@
     function SecondBuild(){
 	   $sql = "SELECT SUM(xp) as xp, "
                 ."SUM(creds) as credits "
-                ."FROM `arena_solo_contracts` WHERE `comissioner` = '".$this->comish_id."'";
+                ."FROM `arena_solo_contracts`";
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
@@ -64,7 +64,7 @@
         
         $sql = "SELECT SUM(xp) as xp, "
                 ."SUM(creds) as credits "
-                ."FROM `arena_lw_contracts` WHERE `comissioner` = '".$this->comish_id."'";
+                ."FROM `arena_lw_contracts`";
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);

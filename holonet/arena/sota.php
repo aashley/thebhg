@@ -35,14 +35,14 @@ function output() {
     $lw = new LW_Solo();
     $st = new Person($ladder->CurrentSteward());
     $dm = new Person($ladder->CurrentMaster());
-    $cb = new Person($ladder->CurrentMaster());
+    $cb = new Person($solo->CurrentComissioner());
     $stwa = 'Steward <a href="'.internal_link('atn_general', array('id'=>$st->GetID())).'">'.$st->GetName().'</a>';
     $djm = 'Dojo Master <a href="'.internal_link('atn_general', array('id'=>$dm->GetID())).'">'.$dm->GetName().'</a>';
     $cbo = 'Commissioner <a href="'.internal_link('atn_general', array('id'=>$cb->GetID())).'">'.$cb->GetName().'</a>';
     
     $activities['The Arena'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` = 0 AND `end` > 0')), 'oe'=>count($ladder->Pending()), 'ue'=>count($ladder->Unposted()), 'xp'=>$ladder->GetXP(), 'cr'=>$ladder->GetCreds(), 'ad'=>$stwa);
     $activities['The Dojo of Shadows'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` > 0 AND `end` > 0')), 'oe'=>count($ladder->PendingDojo('end')), 'ue'=>count($ladder->PendingDojo()), 'xp'=>$ladder->GetDXP(), 'cr'=>$ladder->GetDCreds(), 'ad'=>$djm);
-    $activities['Solo Missions'] = array('ce'=>count($arena->SoloContracts()), 'oe'=>count($solo->PendingContracts()), 'ue'=>count($solo->RequestedContracts()), 'xp'=>$solo->GetDXP(), 'cr'=>$solo->GetDCreds(), 'ad'=>$cbo);
+    $activities['Solo Missions'] = array('ce'=>count($arena->SoloContracts()), 'oe'=>count($solo->PendingContracts()), 'ue'=>count($solo->RequestedContracts()), 'xp'=>$solo->GetXP(), 'cr'=>$solo->GetCreds(), 'ad'=>$cbo);
     $activities['Lone Wolf Missions'] = array('ce'=>count($arena->LWContracts()), 'oe'=>count($lw->PendingContracts()), 'ue'=>count($lw->RequestedContracts()), 'xp'=>$solo->GetDXP(), 'cr'=>$solo->GetDCreds(), 'ad'=>$cbo);
     
     foreach ($activities as $activity=>$stats){
