@@ -2,7 +2,7 @@
 define('VERSION', '1.1.1a');
 
 ob_start();
-header('Content-Type: text/html; charset=UTF-8');
+header('Content-Type: text/html; charset=ISO-8859-1');
 
 include_once('roster.php');
 include_once('auth.php');
