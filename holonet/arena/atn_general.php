@@ -31,6 +31,7 @@ function output() {
 	    $ttg = new TTG();
 	    $tempy = new Tempy();
 	    $ro = new RODetails();
+	    $rewards = array();
 	
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
 	    
@@ -139,21 +140,23 @@ function output() {
 			
 		}
 		
-		$rewards = array();
-		
 		if (in_array($hunter->GetID(), $arena->GetApproved())){
 			$rewards['Graduate of the Dojo of Shadows'] = 'dojo';
+		}
+		if (in_array($hunter->GetID(), $arena->GetTeta())){
+			$rewards['Owner of Teta\'s Knives'] = 'dagger';
 		}
 		if ($djm){
 			$rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows';
 		}
 		if ($boc){
-			$rewards[$boc.' of the Bounty Office'] = 'bountyoffice';
+			$rewards[$boc.'of the Bounty Office'] = 'bountyoffice';
 		}
 		
 		if (count($rewards)){
-			
-			hr();		
+			if ($boc || $djm){
+				hr();		
+			}
 		
 			$table = new Table();
 			$table->StartRow();

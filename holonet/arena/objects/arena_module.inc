@@ -259,6 +259,48 @@
 	    return ($query ? true : false);
     }
     
+    function AddTeta($bhg_id){
+	    $sql = "INSERT INTO `arena_teta` VALUES ('$bhg_id')";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    $text = "The Overseer has awarded you a set of Teta's Knives.";
+		
+        $from = "Arena Tracking Network <overseer@thebhg.org>";
+        $subject = "Notice of Graduation";
+	    
+	    $person = new Person($bhg_id);
+	    $person->Sendemail($from, $subject, $text);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function RemoveTeta($bhg_id){
+	    $sql = "DELETE FROM `arena_teta` WHERE `bhg_id` = '$bhg_id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    $text = "The Overseer has ordered the removal of your Teta's Knives.";
+		
+        $from = "Arena Tracking Network <overseer@thebhg.org>";
+        $subject = "Teta's Knives Removal";
+	    
+	    $person = new Person($bhg_id);
+	    $person->Sendemail($from, $subject, $text);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function GetTeta(){
+	    $sql = "SELECT * FROM `arena_teta`";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[] = $info['bhg_id'];
+	    }
+	    
+	    return array_unique($return);
+    }
+    
     function GetApproved(){
 	    $sql = "SELECT * FROM `arena_approved`";
 	    $query = mysql_query($sql, $this->connect);

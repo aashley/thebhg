@@ -312,7 +312,9 @@ function admin_footer($auth_data) {
 	        echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
 	        echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
 		    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';	    
+		    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';
+		    echo '&nbsp;<a href="' . internal_link('admin_teta_award') . '">Award&nbsp;Teta\'s&nbsp;Knives</a><br />';	    
+		    echo '&nbsp;<a href="' . internal_link('admin_teta_remove') . '">Remove&nbsp;Teta\'s&nbsp;Knives</a><br />';
 	    }
 	    if ($auth_data['solo'] && !$auth_data['rp']){
 		    echo '&nbsp;<a href="' . internal_link('admin_solo_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
