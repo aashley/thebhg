@@ -39,22 +39,24 @@ function output() {
 			 $kabal = $char->GetDivision();
 			 $posi = $char->GetPosition();
 			 if ($kabal->GetID() == $div->GetID()){
-		     	$hunters[$posi->GetID()] = $char;
+		     	$hunters[$posi->GetID()][] = $char;
 	     	}
     	}
     	
     	ksort($hunters);
 	    
 	    if (count($hunters)) {
-	        foreach ($hunters as $hunter) {
-	            $posi = $hunter->GetPosition();
-	            $rank = $hunter->GetRank();
-	
-	            $table->StartRow();
-	            $table->AddCell($posi->GetName());
-	            $table->AddCell($rank->GetName());
-	            $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$hunter->GetID())) . '">' . html_escape($hunter->GetName()) . '</a>');
-	            $table->EndRow();
+	        foreach ($hunters as $hunts) {
+		        foreach ($hunts as $hunter){
+		            $posi = $hunter->GetPosition();
+		            $rank = $hunter->GetRank();
+		
+		            $table->StartRow();
+		            $table->AddCell($posi->GetName());
+		            $table->AddCell($rank->GetName());
+		            $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$hunter->GetID())) . '">' . html_escape($hunter->GetName()) . '</a>');
+		            $table->EndRow();
+	            }
 	        }
 	    }
 	
