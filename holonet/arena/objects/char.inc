@@ -98,24 +98,25 @@ Class Chara extends Sheet {
 				    $return = 1;
 			    } else {
 				    if ($this->cs_pending){
-					    $return = 3;
+					    $return = 5;
 				    } else {
-				    	$return = 5;
+				    	$return = 3;
 			    	}
 			    }
 		    }
 		    if (!$this->HasValue()){
-			    $return = -1;
-		    }
-		    if (!$this->HasValue()){
-			    if ($this->cs_approved){
-			    	$return = 4;
+			    if ($this->HasValue('pending')){
+				    if ($this->cs_approved){
+				    	$return = 4;
+			    	} else {
+				    	if (!$this->cs_pending){
+				    		$return = 6;
+			    		}
+			    	}
 		    	} else {
-			    	if (!$this->cs_pending){
-			    		$return = 6;
-		    		}
+			    	$return = -1;
 		    	}
-	    	}
+		    }
 	    } else {
 		    $return = 2;
 	    }
@@ -125,6 +126,6 @@ Class Chara extends Sheet {
 	    } elseif ($output == 'SYSTEM'){
 		    return $return;
 	    }
-    }
+    }	    
 }	    
 ?>
