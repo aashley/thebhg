@@ -1,0 +1,72 @@
+body {
+  background-color: rgb(0,0,0);
+  font-family: verdana, arial, helvetica, sans-serif;
+}
+body.frame {
+  background-image: url("images/middle.jpg");
+  background-attachment: fixed;
+  background-repeat: repeat-x;
+}
+p {
+  color: rgb(0,0,0);
+  font-size: x-small;
+}
+p.title {
+  text-align: center;
+  font-size: medium;
+}
+p.head {
+  font-size: small;
+}
+p.contrast {
+  background-color: rgb(0,0,0);
+  color: rgb(211,211,211);
+}
+p.footer {
+  color: rgb(211,211,211);
+  text-align: center;
+}
+ul {
+  list-style-position: outside;
+}
+ul.legend {
+  list-style-image: url("images/arena.gif");
+}
+li {
+  color: rgb(0,0,0);
+  font-size: x-small;
+}
+td {
+  text-align: left;
+}
+td.center {
+  text-align: center;
+}
+td.right {
+  text-align: right;
+}
+td.contrast {
+  background-color: rgb(211,211,211);
+}
+th {
+  text-align: center;
+}
+img {
+  border: 0;
+}
+img.icon {
+  vertical-align: middle;
+}
+img.arena {
+  float: right;
+}
+a:link,a:visited {
+  color: rgb(211,211,211);
+  text-decoration: none;
+}
+a.alt:link,a.alt:visited {
+  color: rgb(0,0,0);
+}
+a:hover,a:active {
+  text-decoration: underline overline;
+}
