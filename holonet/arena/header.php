@@ -287,6 +287,7 @@ function get_auth_data($hunter) {
         $auth_data['arena'] = true;
         $auth_data['irc'] = true;
         $auth_data['survival'] = true;
+        $auth_data['ch'] = true;
     } else {
         $auth_data['rp'] = false;
         $auth_data['solo'] = false;
@@ -304,10 +305,11 @@ function get_auth_data($hunter) {
         $auth_data['arena'] = false;
         $auth_data['irc'] = false;
         $auth_data['survival'] = false;
+        $auth_data['ch'] = true;
     }
     
-    if ($pos->GetID() == 7 || $pos->GetID() == 3) {
-        $auth_data['star'] = true;
+    if ($pos->GetID() == 11 || $pos->GetID() == 12){
+	    $auth_data['ch'] = true;
     }
     
     if ($hunter->GetID() == $ladder->CurrentMaster()){
@@ -417,6 +419,11 @@ function admin_footer($auth_data) {
 	    }
     }
 	
+    if ($auth_data['ch']){
+	    echo '<br />Chief&nbsp;Resources<br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_ch_npc') . '">Generate&nbsp;NPC</a><br />';
+    }
+    
 	if ($auth_data['aa']){
 		echo '<br /><b>Arena&nbsp;System&nbsp;Management</b><br />';   
         echo '<br />General&nbsp;Management<br />';
@@ -430,6 +437,9 @@ function admin_footer($auth_data) {
 	    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_sheet_blank') . '">Insert&nbsp;Blank&nbsp;Sheet</a><br />';
+	    
+	    echo '<br />Polls<br />';
+        echo '&nbsp;<a href="' . internal_link('admin_poll') . '">New&nbsp;Poll</a><br />';
 	    
 	    echo '<br />Reports<br />';
         echo '&nbsp;<a href="' . internal_link('admin_report') . '">Add&nbsp;Report</a><br />';
