@@ -10,7 +10,7 @@
 
 	    $solo = new Survival();
 	    
-        $sql = "INSERT INTO `arena_survival_contracts` (`type`, `bhg_id`, `comissioner`) VALUES ('$type', '$bhg_id', '".$solo->CurrentComissionerID()."')";
+        $sql = "INSERT INTO `arena_survival_contracts` (`type`, `bhg_id`, `hunter`) VALUES ('$type', '$bhg_id', '".$solo->CurrentRanger()."')";
 
         if (mysql_query($sql, $this->connect)) {
 
@@ -72,7 +72,7 @@
 
         } else {
 
-            $sql = "INSERT INTO `arena_survival_npc` (`id`, `string`) VALUES ('$id', '$string')";
+            $sql = "INSERT INTO `arena_survival_npc` (`id`, `string`) VALUES ('$id', '".addslashes($string)."')";
 
             if (mysql_query($sql, $this->connect)) {
 
