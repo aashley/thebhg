@@ -45,14 +45,17 @@ function output() {
     else {
 	    if (count($solo->NeedApproval())){
 	        $form = new Form($page);
-	        $form->AddSectionTitle('Approve Requested Contracts');
+	        $form->table->StartRow();
+	        $form->table->AddHeader('Approve Requested Contracts', 4);
+	        $form->table->EndRow();
 	        $form->table->AddRow('Requester', 'Difficulty', 'Approve', 'Deny');
 	        $i = 1;
 	        foreach ($solo->NeedApproval() as $value) {
 		        $person = new Person($value['bhg_id']);
 		        $type = new SoloType($value['type']);
 		        $form->AddHidden('contract['.$i.']', $type->GetID());
-		        $form->table->AddRow($person->GetName(), $type->GetName(), '<input type="checkbox" name="approve['.$i.']" value="'.$value['bhg_id'].'">', 
+		        $form->table->AddRow('<a href="'.internal_link('atn_general', array('id'=>$person->GetID())).'">'.$person->GetName().'</a>', 
+		        	$type->GetName(), '<input type="checkbox" name="approve['.$i.']" value="'.$value['bhg_id'].'">', 
 		        	'<input type="checkbox" name="deny['.$i.']" value="'.$value['bhg_id'].'">');
 		        $i++;
 	        }
