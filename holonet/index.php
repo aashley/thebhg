@@ -53,7 +53,7 @@ if (PHP5) {
 			$name = current($mod->get_elements_by_tagname('name'));
 			if ($dir->get_content() == $module) {
 				$found = true;
-				$modtext = '<a href="' . $dir->get_content() . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+				$modtext = '<a href="' . internal_link('index', array(), $dir->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
 			}
 			else {
 				if (!$found) {
