@@ -55,6 +55,7 @@ function output() {
 					    echo '|'.$startut;
 					    $time = $pay['end_date'] - $starut;
 					    echo $i.'c|';
+					    echo '('.$time/$pp.')';
 				    } else {
 				    	$time = $pay['end_date'] - $pay['start_date'];
 				    	echo $i.'d|';
