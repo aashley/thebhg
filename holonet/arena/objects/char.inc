@@ -103,5 +103,6 @@ Class Chara extends Sheet {
 	    } elseif ($output == 'SYSTEM'){
 		    return $return;
 	    }
-    }	    
+    }
+}	    
 ?>
