@@ -9,7 +9,7 @@ function title() {
     	$return .= $person->GetName().'\'s ';
 	} 
 	
-	$return .= 'Character Sheet :: Backup Utility';
+	$return .= 'Character Sheet :: Sheet Saves and Backups';
 	
 	return $return;
 }

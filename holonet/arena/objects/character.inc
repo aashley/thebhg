@@ -728,16 +728,15 @@
     function SubmitCore($id){
 	    $sql = "UPDATE `character_sheet_core` SET `pending` = '1', `approved` = 0 WHERE `id` = '$id'";
 		if (mysql_query($sql, $this->connect)){
-			$adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
+			$sheet = new Sheet();
+			$registrar = new Person($sheet->CurrentRegistrar()); 
             
             $text = "A new CORE sheet has been submitted for approval.";
 
             $from = "overseer@thebhg.org";
             $subject = "Character Pending Approval";
 
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $registrar->SendEmail($from, $subject, $text);
 			return 'Your CORE sheet has been submitted for approval. It is now pending review by the Overseer or Adjunct.';
 		} else {
 			return 'Error in update: '.mysql_error($this->connect);
@@ -756,8 +755,8 @@
 	function ApproveCore($id){	    
 	    $sql = "UPDATE `character_sheet_core` SET `date` = '".time()."', `pending` = 0, `approved` = 1 WHERE `id` = '".$id."'";
 		if (mysql_query($sql, $this->connect)){
-			$adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
+			$sheet = new Sheet(); 
+			$registrar = new Person($sheet->CurrentRegistrar()); 
             $hunter = new Person($this->GetID());
             
             $text = $hunter->GetName().", one of your CORE sheet has been approved by the RP staff.";
@@ -765,8 +764,7 @@
             $from = "overseer@thebhg.org";
             $subject = "CORE Character Approved";
 
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $registrar->SendEmail($from, $subject, $text);
             $hunter->SendEmail($from, $subject, $text);
 			return 'Sheet approved.';
 		} else {
@@ -777,8 +775,8 @@
 	function DenyCore($id, $reason = ''){
 		$sql = "UPDATE `character_sheet_core` SET `date` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$id."'";		
 		if (mysql_query($sql, $this->connect)){
-			$adjunct = $this->Adjunct();
-            $overseer = $this->Overseer();
+			$sheet = new Sheet();
+			$registrar = new Person($sheet->CurrentRegistrar()); 
             $hunter = new Person($this->GetID());
             
             $text = $hunter->GetName().", one of your CORE sheet has been denied by the RP staff.";
@@ -790,8 +788,7 @@
             $from = "overseer@thebhg.org";
             $subject = "CORE Character Denied";
 
-            $adjunct->SendEmail($from, $subject, $text);
-            $overseer->SendEmail($from, $subject, $text);
+            $registrar->SendEmail($from, $subject, $text);
             $hunter->SendEmail($from, $subject, $text);
 			return 'Character Denied.';
 		} else {
