@@ -348,7 +348,7 @@
     	}
     	
     	if ($value > 10){ $value = 10; }
-    	
+    	if ($value < 0) { $value = 0; }
         if ($render == 'SHEET'){
 	        $return = str_repeat('<img src="arena/images/bonus.png" alt="*" height=20 width=20>', $value);
 	        $return .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', 10-$value);
