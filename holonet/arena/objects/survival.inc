@@ -32,7 +32,7 @@
             $text = "A Survival Mission has been retired by $name. \r\n\r\n Link to the contract: http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
         }
 
-        $person = new Person($this->CurrentComissioner());
+        $person = new Person($this->CurrentRanger());
         
         $from = "Office of Survival Skills <overseer@thebhg.org>";
         $subject = "Survival Mission Request";
