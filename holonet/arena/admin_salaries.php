@@ -39,7 +39,7 @@ function output() {
 	    $aides = array();
 	    
 	    $pp = $endut - $startut;
-	    $credits = round(750000*($pp/2678400));
+	    $credits = round(350000*($pp/2678400));
 	    
 	    foreach ($bitches as $bitch){
 		    foreach ($bitch as $pay){
