@@ -42,23 +42,48 @@ function output() {
 		    
 		    $table->EndTable();
 	    }
+	    
+	    $sheets = $sheet->GetCores();
+	    
+	    if ($auth_data['sheet']){
+		    if (count($saves) && count($sheets)){
+			    hr();
+		    }
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('All CORE Submissions', 7);
+		    $table->EndRow();
+		    
+		    $table->AddRow('Save Name', 'Date', 'Approved', 'Pending Approval', '&nbsp', '&nbsp', '&nbsp');
+		    
+		    foreach ($saves as $data){
+			    $table->AddRow('<a href="'.internal_link($page, array('view'=>1, 'sheet'=>$data['id'])).'">'.$character->GetName('cores', $data['id'], 'id').'</a>', $data['date'], ($data['app'] ? 'Yes' : 'No'), ($data['pending'] ? '<b>Yes</b>' : 'No'),
+			    	'<a href="'.internal_link($page, array('sheet'=>$data['id'])).'">Load to Edit</a>', 
+			    	($data['share'] ? '' : '<a href="'.internal_link($page, array('save'=>1, 'delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>'), 
+			    	($data['share'] ? '' : '<a href="'.internal_link($page, array('save'=>1, 'submit'=>1, 'sheet'=>$data['id'])).'">Submit for Approval</a>'));
+		    }
+		    
+		    $table->EndTable();
+	    }
     } else {
-		$value_set = $character->GetSheetValues('cores', $_REQUEST['sheet'], 'id');
+	    if ($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()){
+			$value_set = $character->GetSheetValues('cores', $_REQUEST['sheet'], 'id');
+		}
 		
 		if (isset($_REQUEST['save'])){
-			if ($auth_data['sheet'] && !$_REQUEST['submit']){
+			if (($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()) && !$_REQUEST['submit']){
 				if ($_REQUEST['delete']){
-					$character->DeleteCore($_REQUEST['sheet']);
-				} elseif ($_REQUEST['approve']){
+					echo $character->DeleteCore($_REQUEST['sheet']);
+				} elseif ($_REQUEST['approve'] && $auth_data['sheet']){
 					echo $character->ApproveCore($_REQUEST['sheet']);
-				} else {
+				} elseif ($auth_data['sheet']) {
 					echo $character->DenyCore($_REQUEST['sheet'], $_REQUEST['reason']);
 				}
 			} else {
 				echo $character->SubmitCore($_REQUEST['sheet']);
 			}
 		} elseif (isset($_REQUEST['view'])){
-			if (isset($_REQUEST['process'])){
+			if (($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()) && isset($_REQUEST['process'])){
 				echo $character->SaveCore($_REQUEST['stat'], $_REQUEST['expr'], $_REQUEST['pers'], $_REQUEST['sheet']);
 				hr();
 				$_REQUEST['sheet'] = $character->LastID;
@@ -77,7 +102,7 @@ function output() {
 			    $form->table->AddCell('<input type="submit" name="deny" Value="Deny CORE"> || <input type="submit" name="approve" Value="Approve CORE">', 2);
 			    $form->table->EndRow();
 		    	$form->EndForm();
-	    	} else {
+	    	} elseif ($saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()) {
 		    	$form = new Form($page);	
 			    $form->AddHidden('sheet', $_REQUEST['sheet']);    	
 			    $form->table->AddRow('<input type="submit" name="save" Value="Submit CORE">');
@@ -149,7 +174,9 @@ function output() {
 		    	}
 	    	}
 	    	$form->AddHidden('process', 1);
-	    	$form->AddHidden('sheet', $_REQUEST['sheet']);
+	    	if (($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID())){
+	    		$form->AddHidden('sheet', $_REQUEST['sheet']);
+    		}
 	    	$form->AddSubmitButton('view', 'Check Sheet');
 	    	$form->EndForm();
 		}		    	

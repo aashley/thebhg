@@ -45,6 +45,19 @@
 		
 		return $return;
 	}	
+	
+	function GetCores(){
+	    $sql = "SELECT * FROM `character_sheet_core` ORDER BY `pending` DESC";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+	    	$date = getdate($info['date']);
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'app'=>$info['approved'], 'pending'=>$info['pending']);
+		}
+		
+		return $return;
+    }
     
     function GetBackups(){
 	    $sql = "SELECT * FROM `character_sheet_backup`";
