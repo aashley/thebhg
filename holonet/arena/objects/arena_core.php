@@ -51,12 +51,10 @@
 	    $i = 0;
 	    $return = array();
 	    
-	    foreach ($return as $id=>$points){
+	    foreach ($work as $id=>$points){
 			$return[$id] = $i;
 		    $i++;
 	    }
-	    
-	    print_r($return);
 	    
 	    return ($bhg_id ? $return[$bhg_id] : $return);
     }	    
