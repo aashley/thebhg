@@ -48,13 +48,6 @@ class bhg_core_base {
 	protected $data = array();
 
 	/**
-	 * Error Loading?
-	 *
-	 * @var boolean
-	 */
-	protected $error = false;
-
-	/**
 	 * Function blacklist
 	 *
 	 * data fields listed within this array will not be accessable thru the
@@ -64,7 +57,8 @@ class bhg_core_base {
 	 */
 	private $blacklist = array(
 			'get' => array(),
-			'set' => array('datecreated', 'dateupdated', 'datedeleted')
+			'set' => array('datecreated', 'dateupdated', 'datedeleted'),
+			'is'  => array(),
 			);
 
 	/**
@@ -86,6 +80,15 @@ class bhg_core_base {
 	 */
 	private $codeMap = array();
 
+	/**
+	 * Boolean Fields
+	 *
+	 * This is a list of fields from this object that should be treated as booleans
+	 *
+	 * @var array
+	 */
+	private $booleans = array();
+
 	// }}}
 
 	// {{{ __construct()
@@ -98,7 +101,7 @@ class bhg_core_base {
 
 			$GLOBALS['bhg']->log('Could not connect to database.', PEAR_LOG_ERR);
 
-			$this->error = true;
+			throw new bhg_fatal_exception('Could not connect to database.');
 
 		} else {
 
@@ -116,7 +119,7 @@ class bhg_core_base {
 
 					$GLOBALS['bhg']->log('Could not load data from table '.$table.' with id = '.$id, PEAR_LOG_ERR);
 
-					$this->error = true;
+					throw new bhg_fatal_exception('Could not load data from table '.$table.' with id = '.$id);
 
 				}
 
@@ -139,7 +142,7 @@ class bhg_core_base {
 
 			if (!$GLOBALS['bhg']->hasPerm($this->codeMap[$lfunc])) {
 
-				return new bhg_error('Insufficent code ID permissions.');
+				throw new bhg_fatal_exception('Insufficent code ID permissions.');
 
 			} else {
 
@@ -160,7 +163,7 @@ class bhg_core_base {
 
 					if (!$GLOBALS['bhg']->hasPerm($this->codeMap['defaults']['get'])) {
 
-						return new bhg_error('Insufficent code ID permissions.');
+						throw new bhg_fatal_exception('Insufficent code ID permissions.');
 
 					}
 
@@ -172,7 +175,15 @@ class bhg_core_base {
 
 				} elseif (false === strstr($varname, 'date')) {
 
-					return $this->data[$varname];
+					if (in_array($varname, $this->booleans)) {
+
+						return ($this->data[$varname] == 1);
+
+					} else {
+						
+						return $this->data[$varname];
+
+					}
 
 				} else {
 
@@ -182,7 +193,39 @@ class bhg_core_base {
 
 			} else {
 
-				return new bhg_error('Method '.$function.' does not exist.');
+				throw new bhg_fatal_exception('Method '.$function.' does not exist.');
+
+			}
+
+		} elseif (substr($lfunc, 0, 2) == 'is') {
+
+			$varname = substr($lfunc, 2);
+
+			if (   !in_array($varname, $this->blacklist['is'])
+					&& isset($this->data[$varname])
+					&& in_array($varname, $this->booleans)) {
+
+				return ($this->data[$varname] == 1);
+
+			} else {
+
+				throw new bhg_fatal_exception('Method '.$function.' does not exist.');
+
+			}
+
+		} elseif (substr($lfunc, 0, 3) == 'has') {
+
+			$varname = substr($lfunc, 3);
+
+			if (   !in_array($varname, $this->blacklist['is'])
+					&& isset($this->data[$varname])
+					&& in_array($varname, $this->booleans)) {
+
+				return ($this->data[$varname] == 1);
+
+			} else {
+
+				throw new bhg_fatal_exception('Method '.$function.' does not exist.');
 
 			}
 
@@ -197,7 +240,7 @@ class bhg_core_base {
 
 					if (!$GLOBALS['bhg']->hasPerm($this->codeMap['defaults']['set'])) {
 
-						return new bhg_error('Insufficent code ID permissions.');
+						throw new bhg_fatal_exception('Insufficent code ID permissions.');
 
 					}
 
@@ -211,13 +254,29 @@ class bhg_core_base {
 
 					} else {
 
-						return new bhg_error('Invalid object passed to '.$function.'. Only accepts '.$this->fieldmap[$varname].'.');
+						throw new bhg_fatal_exception('Invalid object passed to '.$function.'. Only accepts '.$this->fieldmap[$varname].'.');
 
 					}
 
 				} elseif (false === strstr($varname, 'date')) {
 
-					return $this->__saveValue($table, array($varname => $params[0]));
+					if (in_array($varname, $this->booleans)) {
+
+						if ($params[0] === true) {
+
+							return $this->__saveValue($table, array($varname => 1));
+
+						} else {
+
+							return $this->__saveValue($table, array($varname => 0));
+
+						}
+
+					} else {
+						
+						return $this->__saveValue($table, array($varname => $params[0]));
+
+					}
 
 				} else {
 					
@@ -227,7 +286,7 @@ class bhg_core_base {
 
 			} else {
 
-				return new bhg_error('Method '.$function.' does not exist.');
+				throw new bhg_fatal_exception('Method '.$function.' does not exist.');
 
 			}
 
@@ -254,13 +313,13 @@ class bhg_core_base {
 
 		if (strlen($table) == 0) {
 
-			return new bhg_error('Invalid table name passed.');
+			throw new bhg_fatal_exception('Invalid table name passed.');
 
 		}
 
 		if (sizeof($fields) == 0) {
 
-			return new bhg_error('At least one field must be set to create a record.');
+			throw new bhg_fatal_exception('At least one field must be set to create a record.');
 
 		}
 
@@ -316,7 +375,7 @@ class bhg_core_base {
 
 		if (DB::isError($result)) {
 
-			return new bhg_error("Could not create new record in {$table}.");
+			throw new bhg_db_exception("Could not create new record in {$table}.", $result, $sql);
 
 		} else {
 
@@ -332,18 +391,17 @@ class bhg_core_base {
 
 			$classname = 'bhg_'.$table;
 
-			$object = &$GLOBALS['gen3']->loadObject($classname, $id);
-
-			if ($object instanceof bhg_error) {
-
-				// Object could not be loaded, return the iref and let the caller
-				// figure it out
-
-				return $id;
-
-			} else {
+			try {
+				
+				$object = &$GLOBALS['gen3']->loadObject($classname, $id);
 
 				return $object;
+
+			} catch (bhg_fatal_exception $e) {
+
+				$GLOBALS['bhg']->log('Could not load new object '.$classname.' with id '.$id, PEAR_LOG_ERR);
+
+				throw $e;
 
 			}
 
@@ -412,7 +470,7 @@ class bhg_core_base {
 
 			if (DB::isError($result)) {
 
-				return new bhg_error('Could not delete record.');
+				throw new bhg_db_exception('Could not delete record.', $result, $sql);
 
 			} else {
 
@@ -447,9 +505,7 @@ class bhg_core_base {
 
 		if (strlen($table) == 0) {
 
-			$this->setError('You must specify the table to delete from.');
-
-			return false;
+			throw new bhg_fatal_exception('You must specify the table to delete from.');
 
 		}
 
@@ -466,9 +522,7 @@ class bhg_core_base {
 
 		if (DB::isError($result)) {
 
-			$this->setError("Could not purge record #{$iref}.", $result, $sql);
-
-			return false;
+			throw new bhg_db_exception("Could not purge record #{$iref}.", $result, $sql);
 
 		} else {
 
@@ -533,9 +587,7 @@ class bhg_core_base {
 
 		if (DB::isError($result)) {
 
-			$this->setError("Could not save changes to {$table}.", $result, $sql);
-
-			return false;
+			throw new bhg_db_exception("Could not save changes to {$table}.", $result, $sql);
 
 		} else {
 
@@ -579,7 +631,7 @@ class bhg_core_base {
 	 */
 	protected function __blackListVar($type, $vars) {
 
-		if ($type == 'set' || $type == 'get') {
+		if ($type == 'set' || $type == 'get' || $type == 'is') {
 
 			$this->blacklist[$type] = array_merge($this->blacklist[$type], $vars);
 
@@ -649,12 +701,19 @@ class bhg_core_base {
 	}
 
 	// }}}
+	// {{{ __addBooleanFields() [protected]
 
-	// {{{ createFailure()
+	/**
+	 * Add fields to the list that are treated as booleans
+	 *
+	 * @param array
+	 * @return boolean
+	 */
+	protected function __addBooleanFields($fields) {
 
-	public function createFailure() {
+		$this->booleans = array_merge($this->booleans, $fields);
 
-		return $this->error;
+		return true;
 
 	}
 

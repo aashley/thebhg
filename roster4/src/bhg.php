@@ -103,7 +103,7 @@ class bhg {
 
 				unset($this->entry[$e]);
 
-				return false;
+				throw new bhg_fatal_exception('Invalid entry point requested.');
 
 			}
 
@@ -121,21 +121,12 @@ class bhg {
 	 */
 	public function __set($name, $val) {
 
-		return false;
+		throw new bhg_fatal_exception('No parts of this object can be set');
 
 	}
 
 	// }}}
 
-	// {{{ isError() [static]
-
-	static public function isError($object) {
-
-		return $object instanceof bhg_error;
-
-	}
-
-	// }}}
 	// {{{ loadObject() [static]
 
 	/**
@@ -163,45 +154,39 @@ class bhg {
 
 		if (class_exists($classname)) {
 
-			if (!isset($instances[$classname][$ref]) 
-					|| is_null($instances[$classname][$ref])
-					|| $force
-					|| (	 isset($instances[$classname][$ref]['time'])
-							&& ($instances[$classname][$ref]['time'] + 30) <= $now)) {
+			try {
+				
+				if (!isset($instances[$classname][$ref]) 
+						|| is_null($instances[$classname][$ref])
+						|| $force
+						|| (	 isset($instances[$classname][$ref]['time'])
+								&& ($instances[$classname][$ref]['time'] + 30) <= $now)) {
 
-				$GLOBALS['bhg']->log('Creating instance of '.$classname.' with #'.$ref, PEAR_LOG_DEBUG);
+					$GLOBALS['bhg']->log('Creating instance of '.$classname.' with #'.$ref, PEAR_LOG_DEBUG);
 
-				$instances[$classname][$ref]['time'] = $now;
-				$instances[$classname][$ref]['object'] = new $classname($ref);
+					$instances[$classname][$ref]['time'] = $now;
+					$instances[$classname][$ref]['object'] = new $classname($ref);
 
-				if ($instances[$classname][$ref]['object']->createFailure()) {
+				}
 
-					$GLOBALS['bhg']->log('Creation failed.');
+				$return = &$instances[$classname][$ref]['object'];
 
-					$error = true;
+				$GLOBALS['bhg']->log('Returning object', PEAR_LOG_DEBUG);
+				return $return;
 
-				}				
-
-			}
-
-			$return = &$instances[$classname][$ref]['object'];
-
-			if ($error) {
+			} catch (bhg_fatal_exception $e) {
 
 				unset($instances[$classname][$ref]);
 
 				$GLOBALS['bhg']->log('Return failure', PEAR_LOG_DEBUG);
-				return false;
+				throw $e;
 				
 			}
-
-			$GLOBALS['bhg']->log('Returning object', PEAR_LOG_DEBUG);
-			return $return;
 
 		} else {
 
 			$GLOBALS['bhg']->log('Return failure - could not find class', PEAR_LOG_DEBUG);
-			return false;
+			throw new bhg_fatal_exception('Class does not exist');
 
 		}
 
@@ -233,17 +218,17 @@ class bhg {
 	 */
 	public function setCodeID($code) {
 
-		$this->code = new bhg_core_code(strtolower(md5($code)));
-
-		if ($this->code->createFailure()) {
-
-			$this->code = null;
-
-			return false;
-
-		} else {
+		try {
+			
+			$this->code = new bhg_core_code(strtolower(md5($code)));
 
 			return true;
+
+		} catch (bhg_fatal_exception $e) {
+
+			$this->code = null;
+			
+			return false;
 
 		}
 
@@ -290,27 +275,29 @@ class bhg {
  * @subpackage Core
  * @version $Rev:$ $Date:$
  */
-class bhg_entry {
+class bhg_entry {}
 
-}
+class bhg_fatal_exception extends Exception {}
 
-class bhg_error {
+class bhg_db_exception extends bhg_fatal_exception {
 
 	// {{{ __construct()
 
-	public function __construct($error) {
+	public function __construct($msg = null, $dberror = null, $sql = null) {
 
-		$this->errorMessage = $error;
+		if (!is_null($dberror)) {
 
-	}
+			$msg .= "\n Database Error: ".$dberror->getMessage();
 
-	// }}}
+		}
 
-	// {{{ getMessage()
+		if (!is_null($sql)) {
 
-	public function getMessage() {
+			$msg .= "\n SQL: ".$sql;
 
-		return $this->errorMessage;
+		}
+		
+		parent::__construct($msg);
 
 	}
 
