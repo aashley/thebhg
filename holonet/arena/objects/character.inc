@@ -228,10 +228,21 @@
         $info = mysql_fetch_array($query);
         $stat = new Statribute($stat);
         
+        $build = $this->CaBuild();
+        
         if ($output == 'SHEET'){
+	        $val = $info['value'];
+	        foreach ($build as $ref){
+	        	foreach ($ref as $call=>$ar){
+		        	if ($call == 'stat'){
+			        	$val += $ar[$info['statribute']];
+		        	}
+	        	}
+        	}
+        	if ($val > 10){ $val = 10; }
 	        if ($stat->IsInt()){
-		        $return = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $info['value']);
-		        $return .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', 10-$info['value']);
+		        $return = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $val);
+		        $return .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', 10-$val);
 	        	return $return;
 	    	} else {
 		    	return nl2br(stripslashes($info['value']));
@@ -241,9 +252,39 @@
     	}
     }
     
+    function AwardCA($id){
+	    $this->DeleteCA($id);
+	    $sql = "INSERT INTO `character_sheet_ca` (`bhg_id`, `ca`) VALUES ('".$this->GetID()."', '$id')";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function DeleteCA($id){
+	    $sql = "UPDATE `character_sheet_ca` SET `date_deleted` = '".time()."' WHERE `bhg_id` = '".$this->GetID()."' AND `ca` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function CABuild(){
+	    $sql = "SELECT * FROM `character_sheet_ca` WHERE `bhg_id` = '".$this->GetID()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    $output = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[] = $this->CharacterAttributes($info['ca']);
+	    }
+	    
+	    return $return;
+    }
+    
     function GetValue($skill, $look = 'values', $render = 'SHEET', $id = 0, $col = 'id'){
 	    $sql = "SELECT * FROM `cs_skill_equ` WHERE `skill` = '$skill'";
         $query = mysql_query($sql, $this->connect);
+        
+        $build = $this->CaBuild();
 
 	    $output = 0;
 	    $denominator = 0;
@@ -251,6 +292,13 @@
         while($info = mysql_fetch_array($query)){
 	        if ($this->Permit(1, $info['statribute'], $this->project)){
 	        	$output += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col)*$info['modifier'];
+	        	foreach ($build as $ref){
+		        	foreach ($ref as $call=>$ar){
+			        	if ($call == 'stat'){
+				        	$output += $ar[$info['statribute']];
+			        	}
+		        	}
+	        	}
 	        	$denominator += $info['modifier'];
         	}
         }
@@ -260,7 +308,17 @@
     	} else {
 	    	return 0;
     	}
-        
+    	
+    	foreach ($build as $ref){
+        	foreach ($ref as $call=>$ar){
+	        	if ($call == 'skill'){
+		        	$value += $ar[$skill];
+	        	}
+        	}
+    	}
+    	
+    	if ($value > 10){ $value = 10; }
+    	
         $value = round($output/$denominator);
         if ($render == 'SHEET'){
 	        $return = str_repeat('<img src="arena/images/bonus.png" alt="*" height=20 width=20>', $value);

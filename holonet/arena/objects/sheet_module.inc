@@ -60,6 +60,93 @@
 	    }
     }
     
+    function NewCSCA($name, $desc){
+	    $sql = "INSERT INTO `cs_ca` (`name`, `description`) VALUES ('".addslashes($name)."', '".addslashes($desc)."')";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function AddCAValue($ca, $skill, $field, $mod){
+	    $sql = "INSERT INTO `cs_ca_stats` (`skill`, `field`, `ca`, `modifier`) VALUES ('$skill', '$field', '$ca', '$mod')";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function EditCA($id, $name, $desc){
+	    $sql = "UPDATE `cs_ca` SET `name` = '".addslashes($name)."', `description` = '".addslashes($desc)."' WHERE `id` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function EditCAValue($id, $skill, $field, $mod){
+	    $sql = "UPDATE `cs_ca_stats` SET `skill` = '$skill', `field` = '$field', `modifier` = '$mod' WHERE `id` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function DeleteCAValue($id){
+	    $sql = "UPDATE `cs_ca_stats` SET `date_deleted` = '".time()."' WHERE `id` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function DeleteCA($id){
+	    $sql = "UPDATE `cs_ca` SET `date_deleted` = '".time()."' WHERE `id` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function GetCAs(){
+	    $sql = "SELECT * FROM `cs_ca` WHERE `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[$info['id']] = array('name'=>$info['name'], 'desc'=>$info['description']);
+	    }
+	    
+	    return $return;
+    }
+    
+    function GetCAValues($id){
+	    $sql = "SELECT * FROM `cs_ca_stats` WHERE `ca` = '$id' AND `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $field = $info['field'];
+		    if ($info['skill']){
+			    $fo = new Skill($field);
+		    } else {
+			    $fo = new Statribute($field);
+		    }
+		    $return[$info['id']] = array('field'=>$field, 'skill'=>$info['skill'], 'ca'=>$info['ca'], 'fieldobj'=>$fo, 'mod'=>$info['modifier']);
+	    }
+	    
+	    return $return;
+    }
+    
+    function CharacterAttributes($id){
+	    $base = $this->GetCAValues($id);
+	    
+	    foreach ($base as $id=>$array){
+		    if ($array['skill']){
+			    $call = 'skill';
+		    } else {
+			    $call = 'stat';
+		    }
+		    $return[$call][$array['field']] = $array['mod'];
+	    }
+	    
+	    return $return;
+    }
+    
     function ModFields($id){
 	    $sql = "SELECT * FROM `cs_mods` WHERE `id` = '$id'";
 	    $query = mysql_query($sql, $this->connect);
