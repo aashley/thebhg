@@ -245,7 +245,7 @@ function arena_footer($show_list = true) {
 function get_auth_data($hunter) {
     $auth = new Auth($hunter);
 
-    $auth_data['id'] = $auth_id;
+    $auth_data['id'] = $auth->GetID();
 
     if ($auth->Father()){
 	    $auth_data['coder'] = true;
