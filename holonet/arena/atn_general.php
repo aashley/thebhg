@@ -62,7 +62,7 @@ function output() {
 				$table->AddRow($name, $place);
 			}
 			
-			$table->EndRow();
+			$table->EndTable();
 		}
 	    echo '</div></td></tr></table>';
 	    
