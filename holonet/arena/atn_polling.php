@@ -65,7 +65,7 @@ function output() {
 		    $table->EndTable();
 	    }
 	    
-	    $polls = $arena->ReadPolls();
+	    $polls = $arena->ReadPolls($hunter);
 	    
 	    if (count($polls)){
 		    $table = new Table('', true);
