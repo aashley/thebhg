@@ -121,7 +121,7 @@ function atn_nav(){
     $activities = array();
 
     $tables = array(1=>'ams_activities', 0=>'ams_list_types');
-    $app = id;
+    $app = array();
     $gblname = '';
     foreach ($tables as $id=>$table){
 	    $gblname = ($id ? 'Activities' : 'Lists');
