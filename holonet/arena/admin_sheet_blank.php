@@ -47,6 +47,21 @@ function output() {
 	    
 			$kabals = implode('', $kabals);
 	
+			$hunters = array();
+			$plebsheet = array();
+			
+			foreach ($kabal->GetMembers('name') as $char) {
+				if (!in_array($char->GetID(), $sheet->SheetHolders(1))){
+			    	$hunters[$char->GetName()] = new Person($char->GetID());
+		    	}
+	    	}
+	    	
+	    	ksort($hunters);
+
+	    	foreach ($hunters as $name=>$person){
+		    	$kabal = $person->GetDivision();
+		    	$plebsheet[$kabal->GetID()][] = $person;
+	    	}
 		?>
 		<script language="JavaScript1.1" type="text/javascript">
 		<!--
@@ -71,7 +86,7 @@ function output() {
 	      
 				echo 'roster' . $kabal->GetID() . " = new Array();\n";
 	      
-				$plebs = $kabal->GetMembers('name');
+				$plebs = $plebsheet[$kabal->GetID()];
 	      
 		    if (is_array($plebs)) {
 	        
