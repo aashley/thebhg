@@ -64,7 +64,7 @@
     }
 
     function GetMatches(){
-        $sql = "SELECT * FROM `arena_starfield_match` WHERE `skipard` = '".$this->skip_id."'";
+        $sql = "SELECT * FROM `arena_starfield_match` WHERE `skipper` = '".$this->skip_id."'";
         $query = mysql_query($sql, $this->connect);
         
         return mysql_num_rows($query);
