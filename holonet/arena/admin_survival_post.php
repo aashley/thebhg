@@ -73,7 +73,7 @@ function output() {
         if ($contract->SetMBID($_REQUEST['mbid'])){
 	        $contact = $contract->GetHunter();
             $contact->Notify($_REQUEST['mbid']);
-            echo "Contract process completed.";
+            echo "Mission process completed.";
 
         } else {
             NEC(180);

@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Dead Contract Reassign';
+    return 'Administration :: Survival Missions :: Failed Mission Reassign';
 }
 
 function auth($person) {

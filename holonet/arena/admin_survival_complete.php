@@ -40,9 +40,9 @@ function output() {
 	        $ahunter = $contract->GetHunter();
 	        $person = new Person($ahunter->GetID());
 	        $character = new Character($person->GetID());
-	        $character->XPEvent($_REQUEST['xp'], 'Contract '.$contract->GetContractID());
+	        $character->XPEvent($_REQUEST['xp'], 'Survival Mission '.$contract->GetContractID());
 	        
-            echo 'Contract Completed.';
+            echo 'Mission Completed.';
         }
         else {
             NEC(188);

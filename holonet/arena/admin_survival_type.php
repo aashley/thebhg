@@ -31,6 +31,7 @@ function output() {
 
         $form->AddHidden('id', $_REQUEST['id']);
         $form->AddTextBox('Name:', 'name', $type->GetName(), 10);
+        $form->AddTextBox('Difficulty Modifier:', 'points', $type->GetPoints());
         $form->AddTextArea('Description:', 'description', $type->GetDesc());
 
         $form->AddSubmitButton('submit', 'Edit Type');
@@ -45,11 +46,11 @@ function output() {
 	        
     }
     elseif (isset($_REQUEST['submit'])) {
-		$new = $type->Edit($_REQUEST['name'], $_REQUEST['description']);
+		$new = $type->Edit($_REQUEST['name'], $_REQUEST['description'], $_REQUEST['points']);
 		echo $new;
     }
     elseif (isset($_REQUEST['new'])) {
-		$new = $solo->NewType($_REQUEST['name'], $_REQUEST['description']);
+		$new = $solo->NewType($_REQUEST['name'], $_REQUEST['description'], $_REQUEST['points']);
 		if ($new){
 			echo "Successfully added new type.";
 		} else {
@@ -89,6 +90,7 @@ function output() {
         $form->table->EndRow();
 
         $form->AddTextBox('Name:', 'name', '', 10);
+        $form->AddTextBox('Difficulty Modifier:', 'points');
         $form->AddTextArea('Description:', 'description');
 
         $form->AddSubmitButton('new', 'Add New Type');

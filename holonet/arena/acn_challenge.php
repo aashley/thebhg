@@ -195,6 +195,37 @@ function output() {
         }
         
         hr();
+        
+        echo '<b>S<u>urvival Mission</u>s</b>';
+	    $hunter = new SurvivalHunter($hunter->GetID());
+	    $dco = $hunter->DCOPenalty();
+	    
+	    if ($dco){
+		    $date = getdate($dco);
+	    	echo '<br />You are currently under the Failed Mission penalty. You cannot request missions until this ban expires.<br />'
+	    		.'This ban will end on: '.$date['month']." ".$date['mday'].", ".$date['year'];
+    	} else {
+		    echo '<br /><a href="'.internal_link('acn_survival_contract').'">Request a New Mission</a>';
+		    echo '<br /><a href="'.internal_link('acn_survival_dco').'">Request a Failed Mission</a>';
+	    }
+	    
+	    if (count($hunter->Contracts())){
+		    echo '<p>';
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('Pending Missions', 3);
+		    $table->EndRow();
+		    $table->AddRow('Difficulty', 'Contract ID', '&nbsp');
+		    
+	        foreach ($hunter->Contracts() as $value) {
+		        $type = $value->GetType();
+		        $table->AddRow($type->GetName(), $value->GetContractID(), '<a href="'.internal_link('acn_survival_retire', array('contract'=>$value->GetID())).'">Retire Mission</a>');
+	        }
+	        
+	        $table->EndTable();
+        }
+        
+        hr();
         echo '<b>I<u>RC Aren</u>a</b>';
         echo '<br /><a href="' . internal_link('acn_irca_submit') . '">Submit&nbsp;Match</a><br />';
 	    

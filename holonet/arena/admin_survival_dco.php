@@ -23,7 +23,7 @@ function output() {
     
     if (isset($_REQUEST['submit'])) {
         if ($contract->DCO()) {
-            echo 'Contract DCOed.';
+            echo 'Mission Failed.';
         }
         else {
             NEC(187);

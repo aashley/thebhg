@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Dead Contract Poster';
+    return 'Administration :: Survival Missions :: Failed Mission Poster';
 }
 
 function auth($person) {
@@ -65,7 +65,7 @@ function output() {
 
         if ($contract->DeDCO()){
 	        $contract->SetHunter(0);
-            echo "Denied reacquisition of dead contract.";
+            echo "Denied reacquisition of failed mission.";
 
         } else {
 
