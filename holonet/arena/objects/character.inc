@@ -595,7 +595,7 @@
             $overseer = $this->Overseer();
             $hunter = new Person($this->GetID());
             
-            $text = "Your sheet has been approved by the RP staff.";
+            $text = $hunter->GetName().", your sheet has been approved by the RP staff.";
 
             $from = "Office of Character Development <overseer@thebhg.org>";
             $subject = "Character Approved";
@@ -619,7 +619,7 @@
             $overseer = $this->Overseer();
             $hunter = new Person($this->GetID());
             
-            $text = "Your sheet has been denied by the RP staff.";
+            $text = $hunter->GetName().", your sheet has been denied by the RP staff.";
             
             if ($reason){
 	            $text .= "\n\nReason: ".$reason;
@@ -651,7 +651,7 @@
             $overseer = $this->Overseer();
             $hunter = new Person($this->GetID());
             
-            $text = "Your sheet has been killed by the RP staff.";
+            $text = $hunter->GetName().", your sheet has been killed by the RP staff.";
             
             if ($reason){
 	            $text .= "\n\nReason: ".$reason;
