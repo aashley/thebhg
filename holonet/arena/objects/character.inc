@@ -504,6 +504,17 @@
 	    
 	    //No errors, write the document to Pending Sheets
 	    
+	    if ($coreid){
+			$sql = "DELETE FROM `character_sheet_cores` WHERE `id` = '$coreid'";
+			mysql_query($sql, $this->connect);
+			$id = $coreid;
+		} else {
+			$new = "INSERT INTO `character_sheet_core` VALUES ('', '".$this->GetID()."', 0, '".time()."', '')";
+		    $store = mysql_query($new, $this->connect);
+		    $id = mysql_insert_id($this->connect);
+		    $errors = array();
+	    }
+	    
 	    for ($i = 1; $i <= 3; $i++){
 		    foreach($compile[$i] as $key=>$value){
 			    if (is_numeric($value)){
@@ -511,17 +522,6 @@
 				} else {
 					$value = addslashes($value);
 				}
-			    
-				if ($coreid){
-					$sql = "DELETE FROM `character_sheet_cores` WHERE `id` = '$coreid'";
-					mysql_query($sql, $this->connect);
-					$id = $coreid;
-				} else {
-					$new = "INSERT INTO `character_sheet_core` VALUES ('', '".$this->GetID()."', 0, '".time()."', '')";
-				    $store = mysql_query($new, $this->connect);
-				    $id = mysql_insert_id($this->connect);
-				    $errors = array();
-			    }
 				
 			    $sql = "INSERT INTO `character_sheet_cores` VALUES ('".$id."', '$key', '$value')";
 			    if (!mysql_query($sql, $this->connect)){
