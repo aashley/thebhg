@@ -251,6 +251,47 @@
 			return true;
 		}
 	}
+	
+	function CanView($hunter){
+	    $div = $hunter->GetDivision();
+	    $pos = $hunter->GetPosition();
+	    
+	    $open = $this->GetOpen();
+	    $arena = new Arena();
+	    $aas = array_keys($arena->CanBe($hunter));
+	    
+	    if (count($open)){	    
+		    if (!$this->DidVote($hunter)){	    
+			    if (is_array($open['divisions'])){
+				    if (!in_array($div->GetID(), $open['divisions'])){
+				    	return false;
+			    	}
+			    }
+			    
+				if (is_array($open['aas'])){
+				    if (!in_array($aas, $open['aas'])){
+				    	return false;
+			    	}
+				}
+				
+			    if (!count($aas) && $open['aa']){
+				    return false;
+			    }
+			    
+			    if (is_array($open['positions'])){
+				    if (!in_array($pos->GetID(), $open['positions'])){
+					    return false;
+			    	}
+		    	}
+		    	
+		    	return true;
+			} else {
+				return true;
+			}
+		} else {
+			return true;
+		}
+	}
     
     function WriteResults(){
 	    $votes = $this->GetVotes();

@@ -19,7 +19,7 @@ function title() {
 	global $poll, $hunter;
     $title = 'AMS Tracking Network :: Arena Polling Centre :: ';
     if (is_object($poll)){
-	    if (rp_staff($hunter) || (!$poll->IsDeleted() && ($poll->CanSubmit($hunter) || $poll->DidVote($hunter)))){
+	    if (rp_staff($hunter) || (!$poll->IsDeleted() && $poll->CanView($hunter))){
 		    if ($poll->CanSubmit($hunter)){
 			    $title .= 'Submit for Poll';
 		    } else {
@@ -55,7 +55,7 @@ function output() {
 	}
     
     if (is_object($poll)){
-	    if (rp_staff($hunter) || (!$poll->IsDeleted() && ($poll->CanSubmit($hunter) || $poll->DidVote($hunter)))){
+	    if (rp_staff($hunter) || (!$poll->IsDeleted() && $poll->CanView($hunter))){
 		    if ($poll->CanSubmit($hunter)){
 			    $form = new Form($page);
 			    $form->table->StartRow();
