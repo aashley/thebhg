@@ -14,6 +14,9 @@ function auth($person) {
 
 function output(){
 	global $arena;
+	
+	arena_header();
+	
 	//Write the current activities
 	$current = $arena->Search(array('table'=>'ams_activities', 'search'=>array('date_deleted'=>'0')));
 	
@@ -34,6 +37,7 @@ function output(){
 		
 		hr();
 	}
-
+	
+	admin_footer();
 }
 ?>
