@@ -49,8 +49,7 @@ function output() {
 			if ($auth_data['sheet'] && !$_REQUEST['submit']){
 				if ($_REQUEST['delete']){
 					$character->DeleteCore($_REQUEST['sheet']);
-				}
-				if ($_REQUEST['approve']){
+				} elseif ($_REQUEST['approve']){
 					echo $character->ApproveCore($_REQUEST['sheet']);
 				} else {
 					echo $character->DenyCore($_REQUEST['sheet'], $_REQUEST['reason']);
