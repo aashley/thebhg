@@ -531,9 +531,9 @@
         return $details->Matches();
     }
 
-    function StarfieldMatches(){
+    function StarfieldMatches($ex = ''){
         $details = new StarfieldDetails();
-        return $details->Matches();
+        return $details->Matches($ex);
     }
 
     function SoloContracts(){

@@ -29,6 +29,8 @@ function output() {
     
     $activities = array();
     $ladder = new Ladder();
+    $star = new StarfieldArena();
+    $star->Build();
     $ladder->Build();
     $solo = new Solo();
     $solo->SecondBuild();
@@ -39,16 +41,19 @@ function output() {
     $dm = new Person($ladder->CurrentMaster());
     $cb = new Person($solo->CurrentComissioner());
     $ra = new Person($surv->CurrentRanger());
+    $sk = new Person($star->CurrentSkipper());
     $stwa = 'Steward <a href="'.internal_link('atn_general', array('id'=>$st->GetID())).'">'.$st->GetName().'</a>';
     $djm = 'Dojo Master <a href="'.internal_link('atn_general', array('id'=>$dm->GetID())).'">'.$dm->GetName().'</a>';
     $cbo = 'Commissioner <a href="'.internal_link('atn_general', array('id'=>$cb->GetID())).'">'.$cb->GetName().'</a>';
     $sur = 'Ranger <a href="'.internal_link('atn_general', array('id'=>$ra->GetID())).'">'.$ra->GetName().'</a>';
+    $ski = 'Skipper <a href="'.internal_link('atn_general', array('id'=>$sk->GetID())).'">'.$sk->GetName().'</a>';
     
     $activities['The Arena'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` = 0 AND `end` > 0')), 'oe'=>count($ladder->Pending()), 'ue'=>count($ladder->Unposted()), 'xp'=>$ladder->GetXP(), 'cr'=>$ladder->GetCreds(), 'ad'=>$stwa);
     $activities['The Dojo of Shadows'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` > 0 AND `end` > 0')), 'oe'=>count($ladder->PendingDojo('end')), 'ue'=>count($ladder->PendingDojo()), 'xp'=>$ladder->GetDXP(), 'cr'=>$ladder->GetDCreds(), 'ad'=>$djm);
     $activities['Solo Missions'] = array('ce'=>count($arena->SoloContracts()), 'oe'=>count($solo->PendingContracts()), 'ue'=>count($solo->RequestedContracts()), 'xp'=>$solo->GetXP(), 'cr'=>$solo->GetCreds(), 'ad'=>$cbo);
     $activities['Lone Wolf Missions'] = array('ce'=>count($arena->LWContracts()), 'oe'=>count($lw->PendingContracts()), 'ue'=>count($lw->RequestedContracts()), 'xp'=>$solo->GetDXP(), 'cr'=>$solo->GetDCreds(), 'ad'=>$cbo);
     $activities['Survival Missions'] = array('ce'=>count($arena->SurvivalContracts()), 'oe'=>count($surv->PendingContracts()), 'ue'=>count($surv->RequestedContracts()), 'xp'=>$surv->GetXP(), 'cr'=>$surv->GetCreds(), 'ad'=>$sur);
+    $activities['Starfield Arena'] = array('ce'=>count($arena->StarfieldMatches('AND `end` > 0')), 'oe'=>count($star->Pending()), 'ue'=>count($star->Unposted()), 'xp'=>$star->GetXP(), 'cr'=>$star->GetCreds(), 'ad'=>$ski);
     
     foreach ($activities as $activity=>$stats){
 	    $table->AddRow($activity, nf($stats['ce']), nf($stats['oe']), nf($stats['ue']), nf($stats['xp']), nf($stats['cr']), $stats['ad']);	    
