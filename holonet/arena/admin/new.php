@@ -57,7 +57,7 @@ function display(){
 		$form->AddTextBox('Name:', 'data[values][]');
 		$form->AddHidden('data[fields][]', 'name');
 		    
-	    $form->AddTextArea(($type->get(submit) ? 'Event Log' : 'Plot'), 'data[values][]');
+	    $form->AddTextArea(($type->get(submit) ? 'Event Log' : 'Plot').':', 'data[values][]');
 	    $form->AddHidden('data[fields][]', ($type->get(submit) ? 'data' : 'comments'));
 	    
 		$form->AddHidden('id', $_REQUEST['id']);

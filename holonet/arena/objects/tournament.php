@@ -181,6 +181,7 @@
     }
 
     function Ended(){
+	    echo $this->season;
         $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '1' AND `round` = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
         $query = mysql_query($sql, $this->holonet);
 
