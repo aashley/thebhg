@@ -17,9 +17,13 @@ function output() {
     arena_header();
 
     if ($_REQUEST['aides']) {
+	    $sql = "INSERT INTO `hn_pending_reasons` VALUES (`reason`, `person`) VALUES ('Arena Aide Salaries', '".$hunter->GetID()."')";
+	    mysql_query($sql, $roster->roster_db);
+	    $reason = mysql_insert_id($roster->roster_db);
 		foreach ($_REQUEST['aides'] as $rid=>$credits) {
 			$person = $roster->GetPerson($rid);
-			$person->AddCredits($credits, 'RP Aide Salary');
+			$sql = "INSERT INTO `hn_pending_credits` (`person`, `credits`, `reason`) VALUES ('".$person->GetID()."', '$credits', '$reason')";
+			mysql_query($sql, $roster->roster_db);
 		}
 		echo 'Salaries paid';
 	}
@@ -35,7 +39,7 @@ function output() {
 	    $aides = array();
 	    
 	    $pp = $endut - $startut;
-	    $credits = round(1000000*($pp/2678400));
+	    $credits = round(750000*($pp/2678400));
 	    
 	    foreach ($bitches as $bitch){
 		    foreach ($bitch as $pay){

@@ -96,12 +96,7 @@
 	    $sql = "SELECT * FROM `arena_solo_comissioners` WHERE `bhg_id` = '$bhg_id'";
 	    $query = mysql_query($sql, $this->connect);
 	    
-	    if (mysql_num_rows($query)){
-		    $info = mysql_fetch_array($query);
-		    $sql = "UPDATE `arena_solo_comissioners` SET `start_date` = '".time()."', `end_date` = 0 WHERE `bhg_id` = '$bhg_id'";
-	    } else {
-	    	$sql = "INSERT INTO `arena_solo_comissioners` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
-    	}
+	    $sql = "INSERT INTO `arena_solo_comissioners` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;
