@@ -248,7 +248,8 @@
 		
 		foreach ($medals as $value){
 			$medal = $value->GetMedal();
-			$build[] = $medal->GetID();
+			$group = $medal->GetGroup
+			$build[] = $group->GetID();
 		}
 		
 		$medals = array_unique($build);
