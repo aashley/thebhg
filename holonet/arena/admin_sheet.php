@@ -27,6 +27,10 @@ function output() {
     
     arena_header();
 
+    if ($_REQUEST['view'] > 1){
+	    $_REQUEST['id'] = $_REQUEST['view'];
+    }
+    
     if (isset($_REQUEST['id'])){
     
 	    if ($_REQUEST['id'] != $hunter->GetID() && !$auth_data['sheet']){

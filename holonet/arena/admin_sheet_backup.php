@@ -230,17 +230,20 @@ function output() {
 				    $name = 'Backup';
 			    }
 			    
-			    $form = new Form($page);
+			    if (!$character->EditBan('SYSTEM')){
 			    
-			    $form->AddHidden('sheet', $_REQUEST['sheet']);
-			    $form->AddHidden('okay', $_REQUEST['prompt']);
-			    $form->table->StartRow();
-			    $form->table->AddHeader('Upload Backup');
-			    $form->table->EndRow();
-			    $form->table->AddRow('<input type="submit" value="Load '.$name.' as Edit Sheet" name="goload">');
-			    
-			    $form->EndForm();
-			    hr();
+				    $form = new Form($page);
+				    
+				    $form->AddHidden('sheet', $_REQUEST['sheet']);
+				    $form->AddHidden('okay', $_REQUEST['prompt']);
+				    $form->table->StartRow();
+				    $form->table->AddHeader('Upload Backup');
+				    $form->table->EndRow();
+				    $form->table->AddRow('<input type="submit" value="Load '.$name.' as Edit Sheet" name="goload">');
+				    
+				    $form->EndForm();
+				    hr();
+			    }
 			    
 			    $character->ParseSheet($load, $_REQUEST['sheet'], 'id', true);
 		    } else {

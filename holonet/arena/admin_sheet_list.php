@@ -27,10 +27,10 @@ function output() {
     
     hr();
     
-    $table = new Table('', true);
-    $table->StartRow();
-    $table->AddHeader('Character Sheets', 7);
-    $table->EndRow();
+    $form = new Form('admin_sheet');
+    $form->table->StartRow();
+    $form->table->AddHeader('Character Sheets', 7);
+    $form->table->EndRow();
 
     $sheets = array();
     
@@ -39,7 +39,12 @@ function output() {
     }
     
     krsort($sheets);
-    $table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban Till', '&nbsp;', '&nbsp;', '&nbsp;');
+    
+    $form->table->StartRow();
+    $form->table->AddCell('<right><input type="submit" value="Go"></right>', 7);
+    $form->table->EndRow();
+    
+    $form->table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban Till', 'Edit', 'View/Approve/Deny', 'Kill');
     
     foreach ($sheets as $sheeted){
 	    foreach ($sheeted as $character){
@@ -51,14 +56,13 @@ function output() {
 		    }
 		    
 		    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
-		    $character->LastEdit(), $status, $character->GetBan('HUMAN'),
-		    '<a href="' . internal_link('admin_sheet', array('id'=>$character->GetID())).'">Edit</a>', '<a href="' . 
-		    internal_link('admin_sheet', array('id'=>$character->GetID(), 'view'=>1)).'">View for Approval</a>', '<a href="' . 
-		    internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
+		    $character->LastEdit(), $status, $character->GetBan('HUMAN'), '<input type="radio" name="id" value="'.$character->GetID().'">', 
+		    '<input type="radio" name="view" value="'.$character->GetID().'">', '<a href="'
+		    .internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
 	    }
     }
     
-    $table->EndTable();
+    $form->table->EndForm();
     admin_footer($auth_data);
 }
 ?>
