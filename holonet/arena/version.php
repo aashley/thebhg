@@ -12,15 +12,23 @@ function output() {
     
     hr();
     
-    echo "The Arena Management System (AMS) is an all inclusive system that monitors, records, and processes activities dealing with Bounty Hunter's Guild Role-Playing. The AMS is broken down into 2 main divisions. The Arena Management System Tracking Network (ATN) which monitors and tabulates ladder results and tracks all matches, and the Arena Management System Challenge Network (ACN) which allows a Hunter to challenge another hunter to a match via use of the BHG Roster. The AMS is monitored and maintained by the RP Staff, i.e. the Overseer and Adjunct. These two people utilize the functions of the AMS to keep the RP world running quickly and smoothly along. Everyting from Arena Tournaments to IRC Arena matches is tracked by the AMS. The system is revolutionary to the BHG RP System.";
+    echo "The Arena Management System (AMS) is an all inclusive system that monitors,
+records, and processes activities dealing with Role-Playing in the Bounty
+Hunter's Guild. The AMS is broken down into 2 main divisions: The Arena
+Management System Tracking Network (ATN), which monitors and tabulates
+ladder results and tracks all matches, and the Arena Management System
+Challenge Network (ACN), which allows a Hunter to challenge another hunter
+to a match via the BHG Holonet. The AMS is monitored and maintained by the
+Overseer and the Adjunct. It is they who manage and maintain the functions
+of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: Updated a few features, namely the ACN, Dojo of Shadows, and Bounty Office. The AMS now runs exclusivly off the Character Sheet standard, meaning you can't challenge nor be challenged without a character sheet. Additionally, all challenges made will be in the Dojo of Shadows, unless you are a listed graduate of the Dojo. To check your status, check both the Graduate and Learner list in the ATN Dojo of Shadows.";
+    echo "Version Comments: DK rewrote intros for me. Hooray. Updated a few features, namely the ACN, Dojo of Shadows, and Bounty Office. The AMS now runs exclusivly off the Character Sheet standard, meaning you can't challenge nor be challenged without a character sheet. Additionally, all challenges made will be in the Dojo of Shadows, unless you are a listed graduate of the Dojo. To check your status, check both the Graduate and Learner list in the ATN Dojo of Shadows.";
     
     hr();
     
-    echo "Last Update: October 3, 2004";
+    echo "Last Update: October 7, 2004";
     
     hr();
     

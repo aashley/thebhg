@@ -14,7 +14,7 @@ function auth($person) {
 }
 
 function output() {
-    global $arena, $hunter, $roster, $page, $auth_data;
+    global $arena, $hunter, $roster, $page, $auth_data, $sheet;
 
     arena_header();
 

@@ -8,7 +8,18 @@ function output() {
 
     arena_header();
 
-   echo "Your PAL beeps with an incoming message. A transmission from the Overseer. The message informs you your last Arena Match has just been graded and your credits awarded to your account. You make a slight grin as you walk over to a Holonet Interface. Keying up the proper module, you slide your way over to the Arena Tracking Network. A network of stat-checkers, number-cruncher, and super computer compliers all work at blinding speed to calculate your current standings in comparison to you fellow hunters. Your last match, which you won by dismembering half of your opponent, netted you a nice win. Subsequently, your ranking in the ladder moved up a spot, brining you ever closer to the sweet success and demanded respect of those at the top of the ladder.";
+   echo "Your PAL beeps with an incoming message - a transmission from the Overseer.
+A quick glance at the message informs you your last Arena Match has been
+graded, and your credits awarded to your account. You grin and put the PAL
+away, as you walk over to a Holonet Interface to check your credit balance
+and new Arena Ladder Ranking. Keying up the proper module, you quickly make
+your way to the Arena Tracking Network - a network of stat-checkers,
+number-crunching algorithms, and super computer compliers all working at
+blinding speed to calculate each hunter's current standings in comparison to
+their fellow Guildsmen. A quick check shows that your last match, which you
+won by dismembering your opponent, netted you a nice win. As a result, your
+ranking on the ladder had moved up a position, bringing you ever closer to
+the sweet success and demanded respect of the ladder's upper echelons.";
     hr();
     echo "Navigation: <br />";
     atn_nav();

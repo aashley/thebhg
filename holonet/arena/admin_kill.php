@@ -22,7 +22,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['demerit'];
+    return $auth_data['rp'];
 }
 
 function output() {
@@ -40,7 +40,7 @@ function output() {
 		} else {
 			$form = new Form($page);
 			$form->AddHidden('id', $_REQUEST['id']);
-			$form->table->AddRow('<input type="submit" name="submit" value="Confirm Character Assassination">');
+			echo '<center><input style="background-color: red; font-weight: bold; border: dotted" type="submit" name="submit" value="Confirm Character Assassination"><center>';
 			$form->EndForm();
 		}
 	}
