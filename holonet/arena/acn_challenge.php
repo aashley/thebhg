@@ -178,8 +178,8 @@ function output() {
 		    	echo '<br />You are currently under the Dead Contract penalty. You cannot request contracts until this ban expires.<br />'
 		    		.'This ban will end on: '.$date['month']." ".$date['mday'].", ".$date['year'];
 	    	} else {
-			    echo '<br /><a href="'.internal_link('acn_solo_contract').'">Request a New Contract</a>';
-			    echo '<br /><a href="'.internal_link('acn_solo_dco').'">Request a Dead Contract</a>';
+			    echo '<br /><a href="'.internal_link('acn_lw_contract').'">Request a New Contract</a>';
+			    echo '<br /><a href="'.internal_link('acn_lw_dco').'">Request a Dead Contract</a>';
 		    }
 		    
 		    $hunter = new LW_Hunter($hunter->GetID());
@@ -193,7 +193,7 @@ function output() {
 			    $table->AddRow('Contract ID', '&nbsp');
 			    
 		        foreach ($hunter->Contracts() as $value) {
-			        $table->AddRow($value->GetContractID(), '<a href="'.internal_link('acn_solo_retire', array('contract'=>$value->GetID())).'">Retire Contract</a>');
+			        $table->AddRow($value->GetContractID(), '<a href="'.internal_link('acn_lw_retire', array('contract'=>$value->GetID())).'">Retire Contract</a>');
 		        }
 		        
 		        $table->EndTable();
