@@ -4,7 +4,6 @@ include_once('objects/arena.inc');
 include_once('library.inc');
 include_once('citadel.inc');
 include_once 'gen_header.php';
-include_once 'executions.php';
 
 $roster = new Roster('fight-51-me');
 $mb = new MedalBoard('fight-51-me');
@@ -18,6 +17,7 @@ if ($exp[0] == 'admin' || $page == 'admin' || $exp[0] == 'coder'){
 		echo '&nbsp;<a href="' . internal_link('admin') . '">Return&nbsp;To&nbsp;Admin</a><br />';
 	}
 } else {
+	include_once 'executions.php';
 	include_once 'navigation.php';
 }
 
