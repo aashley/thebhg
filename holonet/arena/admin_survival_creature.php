@@ -41,7 +41,11 @@ function output() {
 	    $stats['name'] = $_REQUEST['name'];
 	    
 	    foreach ($_REQUEST['names'] as $key=>$name){
-		    $stats[$name] = $_REQUEST['stat'][$key];
+		    if ($name){
+			    if ($_REQUEST['stat'][$key]){
+		    		$stats[$name] = $_REQUEST['stat'][$key];
+	    		}
+    		}
 	    }
 	    
 	    $id = $solo->NewCreature($stats, $_REQUEST['string']);
