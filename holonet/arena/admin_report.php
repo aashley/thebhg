@@ -28,13 +28,17 @@ function output() {
 		if ($holonet){
 			if (mysql_query('INSERT INTO hn_reports (position, division, author, time, report, html) VALUES (' . $pos->GetID() . ', ' . $div->GetID() . ', ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')', $roster->roster_db)) {
 				echo 'Formal Commission Report added successfully.';
+				$ha = mysql_insert_id($roster->roster_db);
 			}
 			else {
 				echo 'Error adding Commission report: ' . mysql_error($roster->roster_db);
+				$ha = 0;
 			}
 			echo '<br />';
+		} else {
+			$ha = 0;
 		}
-		$sql = 'INSERT INTO arena_reports (admin, author, time, report, html) VALUES ("' . addslashes($_REQUEST['position']) . '", ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')';
+		$sql = 'INSERT INTO arena_reports (admin, ha, author, time, report, html) VALUES ("' . addslashes($_REQUEST['position']) . '", ' . $ha . ', ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')';
 		if (mysql_query($sql, $arena->connect)) {
 			echo 'Arena Report added successfully.';
 		}

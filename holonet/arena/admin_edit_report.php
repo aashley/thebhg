@@ -15,7 +15,7 @@ function output() {
     global $auth_data, $page, $roster, $hunter, $arena;
 
     arena_header();
-	
+    
 	if (isset($_REQUEST['id'])) {
 		$result = mysql_query('SELECT * FROM arena_reports WHERE id=' . $_REQUEST['id'], $arena->connect);
 		if ($result && mysql_num_rows($result)) {
@@ -35,15 +35,24 @@ function output() {
 
 	if (isset($_REQUEST['report'])) {
 		if (mysql_query('UPDATE arena_reports SET report="' . addslashes($_REQUEST['report']) . '", html=' . ($_REQUEST['html'] == on ? '1' : '0') . ' WHERE id=' . $_REQUEST['id'], $arena->connect)) {
-			echo 'Report saved successfully.';
+			if ($_REQUEST['hn']){
+				if (mysql_query('UPDATE hn_reports SET report="' . addslashes($_REQUEST['report']) . '", html=' . ($_REQUEST['html'] == on ? '1' : '0') . ' WHERE id=' . $_REQUEST['id'], $roster->roster_db)){
+					echo 'Report saved successfully.';
+				} else {
+					echo 'Error saving report: ' . mysql_error($roster->roster_db);
+				}
+			} else {
+				echo 'Report saved successfully';
+			}
 		}
 		else {
-			echo 'Error saving report: ' . mysql_error($roster->roster_db);
+			echo 'Error saving report: ' . mysql_error($arena->connect);
 		}
 	}
 	elseif (isset($_REQUEST['id'])) {
 		$form = new Form($page);
 		$form->AddHidden('id', $_REQUEST['id']);
+		$form->AddHidden('hn', $report['hn']);
 		$form->AddTextArea('Report:', 'report', stripslashes($report['report']), 20, 70);
 		$form->AddCheckBox('Enable HTML:', 'html', 'on', $report['html'] == 1);
 		$form->AddSubmitButton('submit', 'Save Report');
