@@ -18,7 +18,7 @@ $sheet = new Sheet();
 function arena_header() {
     echo '<table border=0 width="100%"><tr valign="top"><td width="90%">';
 }
-GetCadre
+
 function coders(){
 	return array(2650);
 }
