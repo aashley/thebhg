@@ -44,9 +44,12 @@
 		    $implode[] = "`".$field."` = '".$value."'";
 	    }
 	    
-	    foreach ($data['order'] as $field=>$updwn){
-		    $order[] = "`".$field."` ".$updwn;
+	    if (is_array($data['order'])){
+		    foreach ($data['order'] as $field=>$updwn){
+			    $order[] = "`".$field."` ".$updwn;
+		    }
 	    }
+	    
 	    if (is_array($data['select']) && !$obj){
 	    	foreach ($data['select'] as $field=>$value){
 		    	$name = '';
