@@ -40,7 +40,9 @@ function output() {
     
     $form->StartSelect('Field', 'field', $field);
     
-    foreach ($sheet->GetFields() as $value){
+    $fields = array_flip($sheet->ModFields(1));
+    foreach ($fields as $val){
+	    $value = new Field($val);
 	    $form->AddOption($value->GetID(), $value->GetName());
     }
     
