@@ -10,10 +10,9 @@ function output() {
 
 	if (isset($_REQUEST['position'])) {
 		$reports = mysql_query('SELECT * FROM arena_reports WHERE admin="' . $_REQUEST['position'] . '" ORDER BY time DESC', $arena->connect);
-		echo mysql_num_rows($reports);
 		if ($reports && mysql_num_rows($reports)) {
-			$first=  mysql_fetch_array($reports);
-			$table = new Table($arena->ArenaPosition($reports['admin']).' Reports', true);
+			$first = mysql_fetch_array($reports);
+			$table = new Table($arena->ArenaPosition($first['admin']).' Reports', true);
 			$table->StartRow();
 			$table->AddHeader('Date');
 			$table->AddHeader('Author');
