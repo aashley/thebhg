@@ -160,7 +160,7 @@ $links[4] = array('Character Sheet Admin'=>array('field'=>'Create New Field', 's
 				'sheet_fo'=>'Modify Field Order', 'ca'=>'Create Character Attribute', 'ca_stats'=>'Attribute Stat Modifier', 
 				'edit_ca'=>'Edit Character Attribute'));			 
 
-$links[9] = array('Overseer Utilities'=>array('lyarna'=>'Property Management', 'bp'=>'Bonus Points', 'demerit'=>'Demerit Points', 'backup_manage'=>'Manage Backups'));
+$links[9] = array('Overseer Utilities'=>array('creds'=>'Award Credits', 'lyarna'=>'Property Management', 'bp'=>'Bonus Points', 'demerit'=>'Demerit Points', 'backup_manage'=>'Manage Backups'));
 
 $links[10] = array('Chief Functions'=>array('npc'=>'Generate NPC', 'xp'=>'Experience Points'));
 

@@ -1,7 +1,7 @@
 <?php
 
 function title() {
-    return 'Administration :: General Management :: Expeirence Points';
+    return 'Administration :: Overseer Utilities :: Award Credits';
 }
 
 function auth($person) {
@@ -9,7 +9,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return ($auth_data['aide'] || $auth_data['ch']);
+    return $auth_data['overseer'];
 }
 
 function output() {
@@ -30,14 +30,8 @@ function output() {
 			$xp = "val$i";
 			
 			if ($_REQUEST[$person] > 0){
-				if ($auth_data['aide']){
-					$character = new Character($_REQUEST[$person]);
-		            if (!$character->XPEvent($_REQUEST[$xp], $_REQUEST['reason'])){
-			            $error = true;
-		            }
-				} else {
-					$arena->StorePendingXP($_REQUEST[$person], $kabalch->GetName().' Chief Award: '.$_REQUEST['reason'], $_REQUEST[$xp], $hunter->GetID());
-	            }
+				$awarded = $roster->GetPerson($_REQUEST[$person]);
+	        	$awarded->AddCredits($_REQUEST[$xp], $_REQUEST['reason']);
         	}
 			
 		}
@@ -58,7 +52,7 @@ function output() {
   	$zise = 5;
 	$form->table->StartRow();
 	$form->table->AddHeader('Hunter');
-	$form->table->AddHeader('Points');
+	$form->table->AddHeader('Credits');
 	$form->table->EndRow();
 	
 	if ($auth_data['aide']){
@@ -68,7 +62,7 @@ function output() {
 	include_once 'multiple.php';
 
     $form->table->StartRow();
-	$form->table->AddCell('<input type="submit" name="submit" value="Add Experience Points" size="50">', 2);
+	$form->table->AddCell('<input type="submit" name="submit" value="Award Credits" size="50">', 2);
 	$form->table->EndRow();
     $form->EndForm();
     
