@@ -54,7 +54,7 @@ function output() {
 		    
 		    $form->AddCheckBox('Use Division Limiter?', 'divilimit', 1);
 		    $form->StartSelect('Division', 'divi[]', '', 5, true);
-		    foreach ($roster->GetPositions() as $data){
+		    foreach ($roster->GetDivisions() as $data){
 			    $form->AddOption($data->GetID(), $data->GetName());
 		    }
 		    $form->EndSelect();
