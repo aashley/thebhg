@@ -79,13 +79,19 @@ else {
 	$form->EndSelect();
 
 	$form->StartSelect('Theme:', 'theme', $my_theme);
-	foreach (get_themes() as $dir=>$name) {
-		$form->AddOption($dir, $name);
+	foreach (get_themes() as $dir=>$th) {
+		if (!$th->IECompliant()) {
+			$name = '* ';
+		}
+		else {
+			$name = '';
+		}
+		$form->AddOption($dir, $name . $th->GetName());
 	}
 	$form->EndSelect();
 	
 	$form->table->StartRow();
-	$form->table->AddCell('Note: Themes marked with an asterisk (*) require a browser with full CSS 2 and alpha-channel PNG support. In other words, they work nicely with Mozilla, but not so well with Internet Explorer.', 2);
+	$form->table->AddCell('Note: Themes marked with an asterisk (*) require a browser with full CSS 2 and alpha-channel PNG support. In other words, they work nicely with Firefox, Mozilla, and Opera, but not so well with Internet Explorer.', 2);
 	$form->table->EndRow();
 
 	$form->AddSubmitButton('submit', 'Save Preferences');

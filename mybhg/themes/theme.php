@@ -2,16 +2,33 @@
 if (isset($_REQUEST['theme'])) {
 	$my_theme = $_REQUEST['theme'];
 }
-include_once("$my_theme/theme.php");
+
+include_once('default/theme.php');
+include_once('boba/theme.php');
+include_once('bobaflip/theme.php');
+include_once('foldout/theme.php');
 
 function get_themes() {
 	return array(
-		'black'=>'Black Gold',
-		'blue'=>'Blue Monday',
-		'greyscale'=>'Greyscale',
-		'default'=>'Holonet',
-		'boba'=>'* Boba',
-		'bobaflip'=>'* Boba Flipped',
+		'default' => new Theme_Holonet(),
+		'boba' => new Theme_Boba(),
+		'bobaflip' => new Theme_BobaFlip(),
+		'foldout' => new Theme_FoldOut(),
 	);
+}
+
+class Theme {
+	function Theme() {}
+
+	function GetStylesheet() {}
+	function GetAuthors() {}
+	
+	function GetName() {
+		return 'Theme Base';
+	}
+	
+	function IECompliant() {
+		return true;
+	}
 }
 ?>

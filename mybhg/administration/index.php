@@ -36,6 +36,9 @@ if (lookup_auth_level($my_user) == 2) {
 			'links/add.php'=>'Add Link',
 			'links/edit.php'=>'Edit Link',
 			'links/delete.php'=>'Delete Link'
+		),
+		'Site Configuration'=>array(
+			'config/index.php'=>'List Configuration Variables'
 		)
 	));
 }
@@ -43,7 +46,7 @@ if (lookup_auth_level($my_user) == 2) {
 foreach ($items as $stitle=>$section) {
 	echo '<b>' . $stitle . '</b><ul>';
 	foreach ($section as $url=>$title) {
-		echo '<li><a href="' . $url . '">' . $title . '</a></li><br />';
+		echo '<li><a href="' . $url . '">' . $title . '</a></li>';
 	}
 	echo '</ul><br />';
 }

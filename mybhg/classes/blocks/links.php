@@ -46,7 +46,7 @@ class LinksBlock extends Block {
 		else {
 			$this->html = 'No links found.';
 		}
-		$this->html .= '<br /><b><a href="links.php">View All Links</a></b>';
+		$this->html .= '<br /><b><a href="/links.php">View All Links</a></b>';
 		
 		if (!mysql_query('INSERT INTO block_cache (id, time, title, data) VALUES (' . $this->id . ', UNIX_TIMESTAMP(), "' . addslashes($this->title) . '", "' . addslashes($this->html) . '")', $this->db)) {
 			mysql_query('UPDATE block_cache SET title="' . addslashes($this->title) . '", data="' . addslashes($this->html) . '", time=UNIX_TIMESTAMP() WHERE id=' . $this->id, $this->db);

@@ -1,14 +1,13 @@
 <?php
-class Theme {
+class Theme_Boba extends Theme {
 	function Theme() {
 	}
 
 	function GetStyleSheet() {
-		$pd = PARENT_DIR;
 		return <<<EOS
 body {
 	background-color: white;
-	background-image: url("{$pd}themes/boba/boba.jpg");
+	background-image: url("/themes/boba/boba.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
@@ -26,32 +25,30 @@ a:hover {
 	text-decoration: underline;
 }
 th {
-	background: url("{$pd}themes/boba/th.png");
+	background: url("/themes/boba/th-trans.png");
 	font-weight: bold;
 	text-align: left;
 	border: solid 1px black;
 }
 td {
-	background: url("{$pd}themes/boba/td.png");
+	background: url("/themes/boba/td-trans.png");
 	border: solid 1px black;
 }
 table {
 	border-collapse: collapse;
 	border: solid 1px black;
 }
-table.block {
+table.fullwidth {
 	width: 100%;
 }
-div#title-menu {
+div#header {
 	z-index: 1;
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
-	bottom: auto;
-	width: 100%;
 	height: 14pt;
-	background: url("{$pd}themes/boba/th.png");
+	background: url("/themes/boba/th-trans.png");
 	border-bottom: solid 1px black;
 }
 div#title {
@@ -71,13 +68,15 @@ div#menu {
 	height: 14pt;
 	text-align: right;
 }
-div.menuitem {
+div#menu ul, div#menu ul li {
 	display: inline;
+	margin: 0;
+	padding: 0;
 }
-div.menuitem:before {
+div#menu ul li:before {
 	content: " :: ";
 }
-div.menuitem:first-child:before {
+div#menu ul li.first:before {
 	content: "";
 }
 div.menuitem-sep {
@@ -87,7 +86,7 @@ div#content {
 	position: absolute;
 	width: 78%;
 	left: 0;
-	top: 17pt;
+	top: 16pt;
 	margin-left: 3px;
 	padding: 1px;
 }
@@ -95,9 +94,20 @@ div#blocks {
 	position: absolute;
 	width: 20%;
 	right: 0;
-	top: 17pt;
+	top: 16pt;
 	margin-right: 3px;
 	padding: 1px;
+}
+div#blocks div.block div.header {
+	background: url("/themes/boba/th-trans.png");
+	font-weight: bold;
+	text-align: left;
+	border-bottom: solid 1px black;
+}
+div#blocks div.block {
+	background: url("/themes/boba/td-trans.png");
+	border: solid 1px black;
+	margin-bottom: 14pt;
 }
 hr {
 	border: 0;
@@ -120,6 +130,10 @@ EOS;
 
 	function GetName() {
 		return 'Boba';
+	}
+
+	function IECompliant() {
+		return false;
 	}
 }
 ?>

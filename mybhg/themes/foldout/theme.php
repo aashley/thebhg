@@ -1,5 +1,5 @@
 <?php
-class Theme_Holonet extends Theme {
+class Theme_FoldOut extends Theme {
 	function Theme() {
 	}
 
@@ -23,7 +23,7 @@ a:hover {
 table {
 	border-collapse: collapse;
 }
-table.fullwidth {
+.fullwidth {
 	width: 100%;
 }
 tr {
@@ -41,75 +41,88 @@ th {
 	font-weight: bold;
 }
 
-div#header {
-	position: absolute;
-	height: 125px;
-	top: 0;
+#header {
+	position: fixed;
+	height: 40px;
+	width: 26px;
+	bottom: 0;
 	left: 0;
-	right: 0;
-	padding-left: 3px;
-	padding-right: 3px;
-	vertical-align: middle;
-	font-weight: bold;
-	background-image: url("/themes/default/header.png");
+	background-image: url("/themes/foldout/boba-trans.png");
 	background-repeat: no-repeat;
-	background-position: top center;
+	background-position: top left;
+	z-index: 1;
 }
+#header:hover {
+	border-top: solid 1px black;
+	background-color: white;
+	width: 100%;
+}
+
 div#title {
-	float: left;
-	text-align: left;
+	display: none;
+}
+div#title:before {
+	content: "Bounty Hunter's Guild :: ";
+}
+#header:hover div#title {
+	display: block;
 	position: absolute;
-	height: 20px;
-	top: 125px;
-	left: 0;
-	width: 35%;
-	border-top: solid 2px black;
-	border-bottom: solid 2px black;
+	left: 30px;
+	top: 15px;
+	height: 25px;
+	font-size: 20px;
+	font-weight: bold;
 }
-div#menu {
-	text-align: right;
+
+#menu {
+	display: none;
+}
+#header:hover #menu {
+	display: block;
 	position: absolute;
-	height: 20px;
-	top: 125px;
-	right: 0;
-	width: 66%;
-	border-top: solid 2px black;
-	border-bottom: solid 2px black;
+	left: 30px;
+	top: 0;
+	height: 15px;
+	font-size: 12px;
 }
-div#menu ul {
+#menu ul {
 	display: inline;
+	margin: 0;
+	padding: 0;
 }
-div#menu ul li {
+#menu ul li {
 	display: inline;
+	margin: 0;
+	padding: 0;
 }
-div#menu ul li:before {
+#menu ul li:before {
 	content: " :: ";
 }
-div#menu ul li.first:before {
+#menu ul li.first:before {
 	content: "";
 }
 
-div#content {
+#content {
 	position: absolute;
-	top: 152px;
+	top: 3px;
 	left: 0;
 	width: 79%;
 	padding-left: 3px;
 }
 
-div#blocks {
+#blocks {
 	position: absolute;
-	top: 152px;
+	top: 3px;
 	left: 80%;
 	right: 0;
 	width: 20%;
 }
-div.block {
+.block {
 	border: solid 1px black;
 	margin-bottom: 2em;
 	background: #f0f0f0;
 }
-div.block div.header {
+.block .header {
 	background: #c0c0c0;
 	border-bottom: solid 1px black;
 	font-weight: bold;
@@ -128,15 +141,15 @@ EOS;
 	}
 
 	function GetAuthors() {
-		return array(666, 1699);
+		return array(666);
 	}
 
 	function GetName() {
-		return 'Holonet';
+		return 'Fold Out';
 	}
 
 	function IECompliant() {
-		return true;
+		return false;
 	}
 }
 ?>

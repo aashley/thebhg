@@ -21,7 +21,7 @@ class CalendarBlock extends Block {
 		$events = $calendar->GetEventsByTime(0, $this->data, $my_sections);
 		if ($events) {
 			foreach ($events as $event) {
-				$days[date('j F Y', $event->GetTime())][] = '<a href="event.php?id=' . $event->GetID() . '">[' . date('G:i', $event->GetTime()) . '] ' . htmlspecialchars($event->GetTitle()) . '</a>';
+				$days[date('j F Y', $event->GetTime())][] = '<a href="/event.php?id=' . $event->GetID() . '">[' . date('G:i', $event->GetTime()) . '] ' . htmlspecialchars($event->GetTitle()) . '</a>';
 			}
 			foreach ($days as $day=>$content) {
 				$output[] = '<b>' . $day . '</b><br />' . implode('<br />', $content);

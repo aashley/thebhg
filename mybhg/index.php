@@ -13,6 +13,18 @@ else {
 	$sid =& $my_sections;
 }
 $items = $news->GetNews($my_posts, 'posts', $sid);
+
+$welcome = $config->GetValue('welcome');
+if ($welcome->IsNotDeleted()) {
+	$table = new BlockTable();
+	$table->StartRow();
+	$table->AddHeader('Welcome');
+	$table->EndRow();
+	$table->AddRow($welcome->GetValue());
+	$table->EndTable();
+	echo '<br />';
+}
+
 display_articles($items);
 ?>
 <?php

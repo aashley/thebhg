@@ -11,6 +11,7 @@ include_once('db.php');
 
 include_once('classes/block.php');
 include_once('classes/calendar.php');
+include_once('classes/config.php');
 include_once('classes/form.php');
 include_once('classes/rss.php');
 include_once('classes/timeline.php');
@@ -26,9 +27,16 @@ else {
 	define('PARENT_DIR', '/bhg/my/');
 }
 
-// Set the default theme.
-$my_theme = 'default';
-$my_posts = 10;
+// Create the site config.
+$config = new Config($db);
+
+// Set the default values.
+$themeConfig = $config->GetValue('theme');
+$postConfig = $config->GetValue('posts');
+$tzConfig = $config->GetValue('timezone');
+
+$my_theme = $themeConfig->GetValue();
+$my_posts = (int) $postConfig->GetValue();
 
 // Check if the user is logged in, and if so, load some arrays up.
 $my_weather = 'http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzQ%3D%%1';
@@ -41,7 +49,7 @@ if ($_COOKIE['rid']) {
 			$my_tz = stripslashes($mu_row['timezone']);
 		}
 		else {
-			$my_tz = 'America/New_York';
+			$my_tz = $tzConfig->GetValue();
 		}
 		putenv('TZ=' . $my_tz);
 		if ($mu_row['blocks']) {
@@ -74,7 +82,8 @@ if ($_COOKIE['rid']) {
 
 // Load up the appropriate theme.
 include_once('themes/theme.php');
-$theme = new Theme();
+$themes = get_themes();
+$theme = $themes[$my_theme];
 
 // Create a new calendar.
 $calendar = new Calendar($db);
@@ -83,6 +92,11 @@ $calendar = new Calendar($db);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>MyBHG<?php if (isset($title)) echo ' :: ' . $title; ?></title>
+<!-- compliance patch for microsoft browsers -->
+<!--[if lt IE 7]>
+<script src="/themes/ie7/ie7-standard-p.js" type="text/javascript">
+</script>
+<![endif]-->
 <style type="text/css">
 <!--
 <?php
@@ -113,12 +127,22 @@ else {
 <div id="header">
 <div id="title"><?php if (isset($title)) echo $title; ?></div>
 <div id="menu">
+<ul>
 <?php
 	$first = true;
 	foreach ($items as $url=>$name) {
-		echo '<a href="' . PARENT_DIR . $url . '">' . $name . '</a>';
+		echo '<li';
+		if ($first) {
+			echo ' class="first">';
+			$first = false;
+		}
+		else {
+			echo '>';
+		}
+		echo '<a href="' . PARENT_DIR . $url . '">' . $name . '</a></li>';
 	}
 ?>
+</ul>
 </div>
 </div>
 <div id="blocks">
@@ -134,7 +158,7 @@ if (empty($my_user) || (count($my_blocks) || $my_weather{0} != '-')) {
 		if ($block_result && mysql_num_rows($block_result)) {
 			while ($block_row = mysql_fetch_array($block_result)) {
 				$block = get_block($block_row['id'], $db);
-				echo '<div><div class="header">' . $block->GetTitle() . '</div>' . $block->GetHTML() . '</div>';
+				echo '<div class="block"><div class="header">' . $block->GetTitle() . '</div>' . $block->GetHTML() . '</div>';
 			}
 		}
 	}
