@@ -45,7 +45,7 @@ function output() {
 		    else {
 		
 		        if (isset($_REQUEST['submit'])) {
-		            if ($control->New_Contract($hunter->GetID(), $_REQUEST['type'])) {
+		            if ($control->NewContract($hunter->GetID(), $_REQUEST['type'])) {
 		                echo 'Contract Requested.';
 		            }
 		            else {
