@@ -33,8 +33,14 @@
     }
     
     function GetStats($table){
+	    if ($this->type->GetPoints() < 1){
+		    $namemod = 'Lesser ';
+	    } elseif ($this->type->GetPoints() > 1.5){
+		    $namemod = 'Elder ';
+	    }
+	    
 	    $stat = array_shift($this->npc_stats);
-	    $table->AddRow('Name: ', mb_convert_case($stat, MB_CASE_TITLE, "UTF-8"));
+	    $table->AddRow('Name: ', $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8"));
 	    foreach ($this->npc_stats as $name=>$stat){
 		    $table->AddRow($name, $stat*$this->type->GetPoints());
 	    }
