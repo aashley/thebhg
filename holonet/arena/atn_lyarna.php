@@ -69,7 +69,7 @@ function output() {
 		    	$table->EndRow();
 		    	
 		    	$table->AddRow('Name', 'Planet', 'Arena Approved', 'Times Used');
-		    	foreach ($pers as $data){
+		    	foreach ($posi as $data){
 			    	$table->StartRow();
 			    	$table->AddCell($data['name']);
 			    	$table->AddCell($data['planet']);
@@ -79,7 +79,8 @@ function output() {
 		    	$table->EndTable();
 	    	}
     	} else {
-	    	echo 'This hunter owns no pieces of Lyarna.';	    		
+	    	echo 'This hunter owns no pieces of Lyarna.';
+    	}   		
 	}
     
     arena_footer();
