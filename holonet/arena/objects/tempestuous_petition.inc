@@ -48,7 +48,7 @@
 
             $text = $person->GetName().", your petition to the Tempestuous Group has been approved. Please wait while a jury is compiled.";           
 
-            $from = "Tempestuous Group <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Petition Approved";
 
             $person->SendEmail($from, $subject, $text);
@@ -72,7 +72,7 @@
 
             $text = $person->GetName().", your petition to the Tempestuous Group was denied.";
 
-            $from = "Tempestuous Group <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Petition Denined";
 
             $person->SendEmail($from, $subject, $text);

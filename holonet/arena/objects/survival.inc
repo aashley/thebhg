@@ -34,7 +34,7 @@
 
         $person = new Person($this->CurrentRanger());
         
-        $from = "Office of Survival Skills <overseer@thebhg.org>";
+        $from = "overseer@thebhg.org";
         $subject = "Survival Mission Request";
 
         $person->SendEmail($from, $subject, $text);

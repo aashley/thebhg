@@ -61,7 +61,7 @@
             
             $text = "There is a new IRCA Match for you to grade. Please go to the Holonet and grade it at your convenience.";
 
-            $from = "IRC Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "New IRCA Match";
 
             $hc->SendEmail($from, $subject, $text);

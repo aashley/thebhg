@@ -213,7 +213,7 @@
 
             $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was accepted.";
 
-            $from = "Starfield Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Challenge Accepted!";
 
             $person1->SendEmail($from, $subject, $text);
@@ -243,14 +243,9 @@
             $person1 = new Person($contenders[1]->GetID());
             $person2 = new Person($contenders[0]->GetID());
 
-            $type = $this->GetType();
-            $settings = $this->GetSettings();
-            $restrictions = $this->WriteRestrictions("\r\n");
-            $location = $this->GetLocation();
-
             $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was declined.";
 
-            $from = "Starfield Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Challenge Declined!";
 
             $person1->SendEmail($from, $subject, $text);
@@ -279,14 +274,9 @@
             $person1 = new Person($contenders[1]->GetID());
             $person2 = new Person($contenders[0]->GetID());
 
-            $type = $this->GetType();
-            $settings = $this->GetSettings();
-            $restrictions = $this->WriteRestrictions("\r\n");
-            $location = $this->GetLocation();
-
             $text = $person1->GetName()."'s Starfield Arena Challenge to ".$person2->GetName()." was removed by the RP staff.";
           
-            $from = "Starfield Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Challenge Removed!";
 
             $person1->SendEmail($from, $subject, $text);
@@ -328,7 +318,7 @@
 
             $text = "Your starfield arena match has been posted here: ".$this->RawLink($id);
 
-            $from = "Starfield Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Match Posted!";
 
             $person1->SendEmail($from, $subject, $text);

@@ -77,7 +77,7 @@
 
             $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was accepted. It will be posted shortly by the RP Staff.";
 
-            $from = "Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Challenge Accepted!";
 
             $person1->SendEmail($from, $subject, $text);
@@ -114,7 +114,7 @@
 
             $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was declined.";
 
-            $from = "Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Challenge Declined!";
 
             $person1->SendEmail($from, $subject, $text);
@@ -145,7 +145,7 @@
 
             $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was removed by the RP Staff.";
 
-            $from = "Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Challenge Removed!";
 
             $person1->SendEmail($from, $subject, $text);

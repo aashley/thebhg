@@ -89,7 +89,7 @@
                 $text = "Your Solo Mission has been posted here: http://boards.thebhg.org/index.php?op=view&topic=$mbid";
 
                 $person = new Person($this->bhg_id);
-                $from = "Bounty Office <overseer@thebhg.org>";
+                $from = "overseer@thebhg.org";
                 $subject = "Your Solo Mission is Ready";
 
                 $person->SendEmail($from, $subject, $text);

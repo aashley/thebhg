@@ -41,7 +41,7 @@
 
             $text = $person1->GetName()." has issued a Starfield Arena Challenge to ".$person2->GetName().".";
 
-            $from = "Starfield Arena <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "You have been challenged!";
 
             $person1->SendEmail($from, $subject, $text);

@@ -464,7 +464,7 @@
             
             $text = "A new sheet has been submitted by ".$this->cs_person->GetName().". Please go and review it at your earliest convenience.";
 
-            $from = "Office of Character Development <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Character Pending Approval";
 
             $registrar->SendEmail($from, $subject, $text);
@@ -623,7 +623,7 @@
             
             $text = $hunter->GetName().", your sheet has been approved by the RP staff.";
 
-            $from = "Office of Character Development <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Character Approved";
 
             $registrar->SendEmail($from, $subject, $text);
@@ -650,7 +650,7 @@
 	            $text .= " Reason: ".$reason;
             }
 
-            $from = "Office of Character Development <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Character Denied";
 
             $registrar->SendEmail($from, $subject, $text);
@@ -681,7 +681,7 @@
 	            $text .= " Reason: ".$reason;
             }
 
-            $from = "Office of Character Assassinations<overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Notice of Character Wipe";
 
             $registrar->SendEmail($from, $subject, $text);
