@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v2.2";
+    echo "Current version: v2.2.5";
     
     hr();
     
@@ -24,11 +24,11 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: System updated to specifications.";
+    echo "Version Comments: Added CH XP and SOTA.";
     
     hr();
     
-    echo "Last Update: November 15, 2004";
+    echo "Last Update: November 16, 2004";
     
     hr();
     

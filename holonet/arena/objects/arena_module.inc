@@ -318,9 +318,9 @@
 	    }
     }
     
-    function LatestReport($posis){
+    function LatestReport($posis, $sota = ''){
 	    
-	    $table = new Table();
+	    $table = new Table($sota);
 	    $table->StartRow();
 		$table->AddHeader('Position');
 		$table->AddHeader('Latest');

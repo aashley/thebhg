@@ -48,8 +48,6 @@ function output() {
 		hr();
 	    
     }
-
-    print_r($arena->GetPendingXP());
     
     if (count($arena->GetPendingXP())){
     

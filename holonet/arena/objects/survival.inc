@@ -2,6 +2,9 @@
 
  Class Survival extends Arena {
 
+	var $xp;
+	var $creds;
+	 
     function Survival(){
         Arena::Arena();
     }
@@ -181,6 +184,26 @@
         return $return;
     }
 
+    function SecondBuild(){       
+        $sql = "SELECT SUM(xp) as xp, "
+                ."SUM(creds) as credits "
+                ."FROM `arena_survival_contracts`";
+
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        $this->creds = $info['credits'];
+        $this->xp = $info['xp'];
+    }
+    
+    function GetXP(){
+	    return $this->xp;
+    }
+    
+    function GetCreds(){
+	    return $this->creds;
+    }
+    
     function PendingContracts(){
         $sql = "SELECT * FROM `arena_survival_contracts` WHERE `completed` = 0 AND `bhg_id` > 0";
         $query = mysql_query($sql, $this->connect);
