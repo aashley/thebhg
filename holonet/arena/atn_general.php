@@ -77,6 +77,8 @@ function output() {
 		if ($com){ $rewards[$com.'Holonet Commentator of the IRC Arena'] = array('pic'=>'hc', 'page'=>'atn_award', 'anch'=>'commentator');}
 		if ($ran){ $rewards[$ran.'Survival Mission Ranger'] = array('pic'=>'ranger', 'page'=>'atn_award', 'anch'=>'ranger');}
 	    
+		ksort($rewards);
+		
 	    echo '<table border=0 width="100%"><tr valign="top"><td>';
 	    
 	    echo '<a name="stats"></a>';
