@@ -60,7 +60,6 @@ function output() {
 	    
 	    $values = $sheet->GetCAValues($ca['id']);
 	    foreach ($values as $id=>$val){
-		    echo $val['skill'];
 		    $skval = 0;
 		    $stval = 0;
 	    	if ($val['skill']){
@@ -68,6 +67,7 @@ function output() {
 	    	} else {
 		    	$stval = $val['field'];
 	    	}
+	    	echo $skval;
 		    $form->StartSelect('Skill', 'skill['.$id.']', $skval);
 		    $form->AddOption(0, '');
 		    foreach ($sheet->GetSkills() as $value){
