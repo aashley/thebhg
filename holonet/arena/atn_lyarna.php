@@ -48,7 +48,7 @@ function output() {
 	    	if (count($pers)){
 		    	$table = new Table('', true);
 		    	$table->StartRow();
-		    	$table->AddHeader('<center>Custom Owned Properties</center>');
+		    	$table->AddHeader('<center>Custom Owned Properties</center>', 4);
 		    	$table->EndRow();
 		    	
 		    	$table->AddRow('Name', 'Planet', 'Arena Approved', 'Times Used');
@@ -65,7 +65,7 @@ function output() {
 	    	if (count($posi)){
 		    	$table = new Table('', true);
 		    	$table->StartRow();
-		    	$table->AddHeader('<center>Position Deeded Properties</center>');
+		    	$table->AddHeader('<center>Position Deeded Properties</center>', 4);
 		    	$table->EndRow();
 		    	
 		    	$table->AddRow('Name', 'Planet', 'Arena Approved', 'Times Used');
