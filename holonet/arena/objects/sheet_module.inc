@@ -159,9 +159,8 @@
 			$fields = explode('_', $field);
 			$field = $fields[0];
 			$resource = $fields[1];
-			print_r($fields);
 			$character = new Character($bhg_id);
-			if ($resource = 'skill'){
+			if ($resource == 'skill'){
 				$evalue = $character->GetValue($resource, 'values', 'SYSTEM'); 
 			} else {
 				$evalue = $character->Point($resource, 'SYSTEM'); 
