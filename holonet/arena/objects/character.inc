@@ -174,9 +174,14 @@
 	    return $return;
     }
     
-    function Point($stat, $output = 'SHEET', $look = 'values'){
+    function Point($stat, $output = 'SHEET', $look = 'values', $id){
+	    if ($id){
+		    $id = $id;
+	    } else {
+		    $id = $this->GetID();
+	    }
 	    $table = '`character_sheet_'.$look.'`';
-	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$this->GetID()."' AND `statribute` = '$stat'";
+	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$id."' AND `statribute` = '$stat'";
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
         $stat = new Statribute($stat);
@@ -194,14 +199,14 @@
     	}
     }
     
-    function GetValue($skill, $look = 'values', $render = 'SHEET'){
+    function GetValue($skill, $look = 'values', $render = 'SHEET', $id){
 	    $sql = "SELECT * FROM `cs_skill_equ` WHERE `skill` = '$skill'";
         $query = mysql_query($sql, $this->connect);
         
         $output = 0;
         
         while($info = mysql_fetch_array($query)){
-	        $output += $this->Point($info['statribute'], 'SYSTEM', $look)*$info['modifier'];
+	        $output += $this->Point($info['statribute'], 'SYSTEM', $look, $id)*$info['modifier'];
         }
         
         $sql = "SELECT SUM(`modifier`) as denominator FROM `cs_skill_equ` WHERE `skill` = '$skill'";
@@ -594,7 +599,7 @@
 		
 		while ($info = mysql_fetch_array($query)){
 			$date = getdate($info['date']);
-			$return[] = array('id'=>$info['id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']));
+			$return[] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']));
 		}
 		
 		return $return;
@@ -736,7 +741,7 @@
         return (mysql_num_rows($query));
     }
 	
-	function ParseSheet($look = 'values'){
+	function ParseSheet($look = 'values', $id = 0){
 		$this->UpdateCache();
 		$bio = $this->cs_person->GetBioData();
 		$division = $this->cs_person->GetDivision();
@@ -806,7 +811,7 @@
 				$table->AddHeader($field->GetName(), 2);
 				$table->EndRow();
 		    	foreach($this->GetStats($i) as $stat){
-			    	$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look));
+			    	$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look, $id));
 		    	}
 	    	}
 	    	for ($i = 7; $i <= 9; $i++){
@@ -815,7 +820,7 @@
 				$table->AddHeader($field->GetName(), 2);
 				$table->EndRow();
 		    	foreach($this->GetSkills($i) as $skill){
-			    	$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look));
+			    	$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look, '', $id));
 		    	}
 	    	}
 			for ($i = 10; $i <= 11; $i++){
@@ -824,7 +829,7 @@
 				$table->AddHeader($field->GetName(), 2);
 				$table->EndRow();
 		    	foreach($this->GetStats($i) as $stat){
-			    	$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look));
+			    	$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look, $id));
 		    	}
 	    	}
     	} else {

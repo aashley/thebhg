@@ -36,7 +36,11 @@ function output() {
 	    hr();		     
     }
     
-    if ($_REQUEST['view']){
+    if ($_REQUEST['load']){
+    
+	    $character->ParseSheet($_REQUEST['sheet'], $_REQUEST['id']);
+	    
+    } elseif ($_REQUEST['view']){
 	    
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Backup Resource');
@@ -82,7 +86,7 @@ function output() {
 		    $table->AddRow('Save Name', 'Date', '&nbsp');
 		    
 		    foreach ($saves as $data){
-			    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link($page, array('exam'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>');
+			    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>');
 		    }
 		    
 		    $table->EndTable();
