@@ -65,6 +65,9 @@ function output() {
 	    	}
 	    	
 	    	if (count($posi)){
+		    	if (count($pers)){
+			    	hr();
+		    	}
 		    	$table = new Table('', true);
 		    	$table->StartRow();
 		    	$table->AddHeader('<center>Position Deeded Properties</center>', 4);
