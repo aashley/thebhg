@@ -677,7 +677,9 @@
 			$sqla = "SELECT * FROM `cs_shares` WHERE `sheet` = '".$info['id']."'";
 			$querya = mysql_query($sqla, $this->connect);
 			$infer = mysql_fetch_array($querya);
-			$return[] = array('id'=>$info['id'], 'hunter'=>$infer['bhg_id'], 'name'=>stripslashes($info['save_name']));
+			if (mysql_num_rows($querya)){
+				$return[] = array('id'=>$info['id'], 'hunter'=>$infer['bhg_id'], 'name'=>stripslashes($info['save_name']));
+			}
 		}
 		
 		return $return;
