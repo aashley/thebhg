@@ -51,14 +51,6 @@ function output() {
     
     if ($_REQUEST['id']){
 		$character = new Character($_REQUEST['id']);
-
-	    if ($character->InProgress() || $character->PendingApproval()){
-			$getvalue = 'pending';
-		} else {
-			$getvalue = 'values';
-		}
-	    
-		$value_set = $character->GetSheetValues($getvalue);
 		
 		if ($character->IsNew()){
 			if (!$character->NewSheet()){
@@ -69,6 +61,14 @@ function output() {
 				$sheet->RegistrarTrack('new');
 			}
 		}
+		
+		if ($character->InProgress() || $character->PendingApproval()){
+			$getvalue = 'pending';
+		} else {
+			$getvalue = 'values';
+		}
+	    
+		$value_set = $character->GetSheetValues($getvalue);
 		
 		$can_edit = false;
 		
