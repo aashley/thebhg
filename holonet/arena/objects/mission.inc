@@ -48,6 +48,8 @@
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
+        
+        echo mysql_error($query);
 
         $this->creds = $info['credits'];
         $this->xp = $info['xp'];
