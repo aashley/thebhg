@@ -24,7 +24,7 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: *Grunt*.";
+    echo "Version Comments: System updated to specifications.";
     
     hr();
     
