@@ -1,6 +1,10 @@
 -- version 1.1.1 (15/9/2004) --
 1. Changed authentication to allow broader Commission access.
 2. Made the autolinker a bit smarter.
+3. Added a link element to enable Firefox's live bookmark feature.
+4. Removed the Welcome navbar item; it's extraneous and takes up space.
+5. Fixed up the RSS feed URI generation. It was valid before, but the double slash was unsightly.
+6. Cloned the two most popular non-default themes from 1.0.x in Black Gold and Blue Monday.
 
 -- version 1.1.0 (14/9/2004) --
 1. Changed all layout to be done through CSS.

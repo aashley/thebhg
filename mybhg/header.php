@@ -92,6 +92,7 @@ $calendar = new Calendar($db);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>MyBHG<?php if (isset($title)) echo ' :: ' . $title; ?></title>
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/backend.php" />
 <?php
 if (!$theme->IECompliant()) {
 ?>
@@ -122,7 +123,7 @@ foreach ($themes as $name => $ss) {
 </head>
 <body>
 <?php
-$items = array('index.php'=>'Welcome', 'news.php' => 'News', 'sections.php'=>'Sections', 'calendar.php'=>'Calendar', 'about.php'=>'About', 'search.php'=>'Search');
+$items = array('news.php' => 'News', 'sections.php'=>'Sections', 'calendar.php'=>'Calendar', 'about.php'=>'About', 'search.php'=>'Search');
 if (isset($my_user)) {
 	$items['prefs.php'] = 'Preferences';
 	$items['logout.php'] = 'Logout';
