@@ -380,7 +380,15 @@
     function SoloGrade($id){
         return new Grade($id);
     }
+    
+    function SurvivalGrade($id){
+        return new SurvivalGrade($id);
+    }
 
+    function SurvivalType($id){
+        return new SurvivalType($id);
+    }
+    
     function StarfieldLocation($id){
         return new StarfieldLocation($id);
     }
