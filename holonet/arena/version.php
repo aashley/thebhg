@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.9";
+    echo "Current version: v2.0";
     
     hr();
     
@@ -24,11 +24,11 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: The Twilight Gauntlet is officially disband. The referenced to the 'Elite' RP groups, (Tempy and TTG) have been removed from the tracker. The Lone Wolves, which is the only non-bunked Elite Division will continue to move swiftly.";
+    echo "Version Comments: Edited the ATN and ACN navigation. The ACN has been condensed into a single page. Individual links are still available via the Arena Challenge Network quicklink on top. Contracts must be retired now, by YOU, instead of having the CBO DCO them. If they are DCOed, then you will be put on the DCO ban. The DCO ban is essentially a 10 day time period where you cannot request new or Dead contracts. Retiring your contract will NOT put you under the effects of the DCO ban. Added some CS notification functions, and a CS Ban period which is modifiable by the RP staff. Also, CSes which have no valid data will no longer be available in the ACN dropdown lists for hunters, to prevent DQing over the fact one of you has no sheet. You will also not be allowed to use the ACN unless you have a valid, approved sheet.";
     
     hr();
     
-    echo "Last Update: October 15, 2004";
+    echo "Last Update: October 24, 2004";
     
     hr();
     
