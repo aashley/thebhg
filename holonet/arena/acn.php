@@ -38,8 +38,6 @@ function output() {
 					echo $at->denied;
 				}
 			}
-			arena_footer();
-			exit;
 		}				
 	    
 	    hr();
