@@ -79,6 +79,7 @@ function output() {
 				    }
 					$form->table->AddRow($put, $option->GetQuestion(), $percent.'%');
 			    }
+			    $form->AddHidden('poll', $_REQUEST['poll']);
 			    $form->table->StartRow();
 			    $form->table->AddCell('<input type="submit" value="Vote!" name="submit">', 3);
 			    $form->table->EndRow();
