@@ -55,6 +55,8 @@
 	    $i = 0;
 	    $return = array();
 	    
+	    print_r($work);
+	    
 	    foreach ($return as $points=>$stack){
 		    foreach ($stack as $id){
 			    $return[$id] = $i;
