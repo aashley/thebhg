@@ -159,7 +159,7 @@ function output() {
 				if ($int_counter == 1){
 					$table->StartRow();
 				}
-				$table->AddCell('<a href="#" title="'.$info.'"><img src="arena/images/distinctions/'.$reward.'.png"></a>');
+				$table->AddCell('<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>');
 				if ($int_counter == 5){
 					$int_counter = 1;
 					$table->EndRow();
