@@ -53,7 +53,7 @@ function output() {
 		    }
 		    
 		    krsort($sheets);
-		    $table->AddRow('Hunter Name', 'Date Submitted', 'Status', '&nbsp;', '&nbsp;', '&nbsp;');
+		    $table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban', '&nbsp;', '&nbsp;', '&nbsp;');
 		    
 		    foreach ($sheets as $sheeted){
 			    foreach ($sheeted as $character){
@@ -65,7 +65,7 @@ function output() {
 				    }
 				    
 				    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
-				    $character->LastEdit(), $status, 
+				    $character->LastEdit(), $status, $character->GetBan('HUMAN'),
 				    '<a href="' . internal_link('admin_sheet', array('id'=>$character->GetID())).'">Edit</a>', '<a href="' . 
 				    internal_link('admin_sheet', array('id'=>$character->GetID(), 'view'=>1)).'">View for Approval</a>', '<a href="' . 
 				    internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
