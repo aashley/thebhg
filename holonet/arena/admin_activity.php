@@ -118,7 +118,7 @@ function output() {
 		    
 		    $at = new Tournament($activity->Get(id));
 		    
-		    if ($at->Started() && !$at->Ended()){
+		    if (!$at->Ended()){
 			    $options[] = formt('Add Hunter as Wildcard', 'tournament_wildcard', 'Adds a new hunter to the mix.');
 			    $options[] = formt('Delete Hunters', 'tournament_manage', 'Allows you to delete people you have teh hate for.');
 			    $options[] = formt('Randomize Brackets', 'tournament_random', 'Randomizes the brackets. <h5>Warning: Sentience Has Power Here</h5>');
