@@ -20,19 +20,21 @@ function output() {
     if (isset($_REQUEST['submit'])){
 	    
 	    foreach ($_REQUEST['stats'] as $id){
+		    $yes = 1;
 		    if (isset($_REQUEST['stat'][$id])){
-			    $yes = $_REQUEST['stat'][$id];
-		    } else {
-			    $yes = 0;
+			    if ($_REQUEST['stat'][$id]){
+				    $yes = 0;
+			    }
 		    }
 		    $sheet->SetSheetMod($_REQUEST['mod'], 1, $id, $yes);
 	    }
 	    
 	    foreach ($_REQUEST['skills'] as $id){
+		    $yes = 1;
 		    if (isset($_REQUEST['skill'][$id])){
-			    $yes = $_REQUEST['skill'][$id];
-		    } else {
-			    $yes = 0;
+			    if ($_REQUEST['skill'][$id]){
+				    $yes = 0;
+			    }
 		    }
 		    $sheet->SetSheetMod($_REQUEST['mod'], 2, $id, $yes);
 	    }
