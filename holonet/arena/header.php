@@ -257,7 +257,7 @@ function get_auth_data($hunter) {
 }
 
 function admin_footer($auth_data) {
-	global $roster, $arena, $library, $at, $citadel;
+	global $roster, $arena, $library, $at, $iat, $citadel;
 	
 	$person = new Person($auth_data['id']);
 	$posi = $person->GetPosition();
@@ -336,7 +336,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_irca_add_match') . '">Add&nbsp;Match&nbsp;Text</a><br />';
         
         echo '<br />IRC Arena&nbsp;Tournament<br />';
-        if (count($at->GetHunters())){
+        if (count($iat->GetHunters())){
 	        echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
 	        echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
     		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
