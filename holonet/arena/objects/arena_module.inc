@@ -35,7 +35,7 @@
 	    $division = $divi->GetID();
 	    $position = $posi->GetID();
 	    
-	    $tables = array('`complex`', '`estate`', '`hq`', '`other`', '`personal'`);
+	    $tables = array('`complex`', '`estate`', '`hq`', '`other`', '`personal`');
 	    $return = array();
 	    foreach ($tables as $table){
 		    $sql = "SELECT * FROM $table WHERE (`division` = '$division' AND `position` = '$position') OR (`bhg_id` = '$bhg_id')";
