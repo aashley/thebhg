@@ -141,13 +141,13 @@ if (   ($hunt->GetStartTimestamp() <= time())
         //This allows for easier answering.
         if ($hunt_type->GetNumAnswers() == $hunt_type->GetNumQuestions()) {
             for ($i = 0; $i < $hunt_type->GetNumQuestions(); $i++) {
-                $table->AddRow (array(($i + 1).': ', $hunt_questions[$i]));
+                $table->AddRow (array(($i + 1).': ', stripslashes($hunt_questions[$i])));
                 $table->AddRow (array(  'Answer:',
                                         '<input type="text" size="30" name="answer['.$i.']">'));
             }
         } else {
             for ($i = 0; $i < $hunt_type->GetNumQuestions(); $i++) {
-                $table->AddRow (array(($i + 1).': ', $hunt_questions[$i]));
+                $table->AddRow (array(($i + 1).': ', stripslashes($hunt_questions[$i])));
             }
             for ($i = 0; $i < $hunt_type->GetNumAnswers(); $i++) {
                 $table->AddRow (array(  'Answer '.($i + 1).':',
@@ -219,17 +219,17 @@ if (   ($hunt->GetStartTimestamp() <= time())
         //This allows for easier answering.
         if ($hunt_type->GetNumAnswers() == $hunt_type->GetNumQuestions()) {
             for ($i = 0; $i < $hunt_type->GetNumQuestions(); $i++) {
-                $table->AddRow (array(($i + 1).': ', $hunt_questions[$i]));
+                $table->AddRow (array(($i + 1).': ', stripslashes($hunt_questions[$i])));
                 $table->AddRow (array(  'Answer:',
-                                        $hunt_answers[$i]));
+                                        stripslashes($hunt_answers[$i])));
             }
         } else {
             for ($i = 0; $i < $hunt_type->GetNumQuestions(); $i++) {
-                $table->AddRow (array(($i + 1).': ', $hunt_questions[$i]));
+                $table->AddRow (array(($i + 1).': ', stripslashes($hunt_questions[$i])));
             }
             for ($i = 0; $i < $hunt_type->GetNumAnswers(); $i++) {
                 $table->AddRow (array(  'Answer '.($i + 1).':',
-                                        $hunt_answers[$i]));
+                                        stripslashes($hunt_answers[$i])));
             }
         }
     }
