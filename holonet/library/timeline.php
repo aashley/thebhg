@@ -18,7 +18,7 @@ function output() {
 	
 	menu_header();
 
-	if ($_REQUEST['id']) {
+	if (isset($_REQUEST['id'])) {
 		$events = $timeline->GetEventsByCategory($_REQUEST['id']);
 	}
 	else {

@@ -16,7 +16,7 @@ function title() {
 	elseif (isset($_REQUEST['new'])) {
 		$title .= ' :: New Quotes :: Last ' . number_format($_REQUEST['new']) . ' Days';
 	}
-	elseif ($_REQUEST['id'] == 696969) {
+	elseif (isset($_REQUEST['id']) && $_REQUEST['id'] == 696969) {
 		$title .= ' :: Non-BHG';
 	}
 	return $title;
