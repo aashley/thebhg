@@ -308,7 +308,7 @@ function get_auth_data($hunter) {
         $auth_data['arena'] = false;
         $auth_data['irc'] = false;
         $auth_data['survival'] = false;
-        $auth_data['ch'] = true;
+        $auth_data['ch'] = false;
     }
     
     if ($pos->GetID() == 11 || $pos->GetID() == 12){
