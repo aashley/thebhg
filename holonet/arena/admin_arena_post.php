@@ -63,14 +63,18 @@ function output() {
 
     }
     else {
-        $form = new Form($page);
-        $form->StartSelect('Match:', 'match_id');
-        foreach ($ladder->Unposted() as $value) {
-            $form->AddOption($value->GetID(), $value->GetName());
-        }
-        $form->EndSelect();
-        $form->AddSubmitButton('next', 'Next >>');
-        $form->EndForm();
+	    if (count($ladder->Unposted())){
+	        $form = new Form($page);
+	        $form->StartSelect('Match:', 'match_id');
+	        foreach ($ladder->Unposted() as $value) {
+	            $form->AddOption($value->GetID(), $value->GetName());
+	        }
+	        $form->EndSelect();
+	        $form->AddSubmitButton('next', 'Next >>');
+	        $form->EndForm();
+	    } else {	        
+	        echo "No Pending Matches.";	        
+        }    
     }
 
     admin_footer($auth_data);

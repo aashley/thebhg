@@ -85,14 +85,25 @@ function output() {
 
     }
     else {
-        $form = new Form($page);
-        $form->StartSelect('Contract:', 'contract_id');
-        foreach ($solo->RequestedContracts() as $value) {
-            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
+	    if (count($solo->RequestedContracts())){
+	        $form = new Form($page);
+	        $form->StartSelect('Contract:', 'contract_id');
+	        foreach ($solo->RequestedContracts() as $value) {
+		        $hunter = $value->GetHunter();
+		        if ($hunter){
+			        $name = $hunter->GetName();
+		        } else {
+			        $name = "Dead Contract";
+		        }
+		        $type = $value->GetType();
+	            $form->AddOption($value->GetID(), $type->GetName()." Contract ".$value->GetContractID()." - ".$name);
+	        }
+	        $form->EndSelect();
+	        $form->AddSubmitButton('next', 'Next >>');
+	        $form->EndForm();
+        } else {	        
+	        echo "No Pending Contracts.";	        
         }
-        $form->EndSelect();
-        $form->AddSubmitButton('next', 'Next >>');
-        $form->EndForm();
     }
 
     admin_footer($auth_data);
