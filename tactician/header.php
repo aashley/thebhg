@@ -62,12 +62,21 @@ function next_medal($person, $group) {
 }
 
 $tactician = $roster->GetPerson(1000);
+$marshal = $roster->GetPerson(1000);
 $commish = $roster->GetDivision(10);
 $peeps = $commish->GetMembers();
 foreach ($peeps as $guy) {
 	$pos = $guy->GetPosition();
 	if ($pos->GetID() == 3) {
 		$tactician = $guy;
+		break;
+	}
+}
+$ca = $roster->GetDivision(9);
+foreach ($ca->GetMembers() as $guy) {
+	$pos = $guy->GetPosition();
+	if ($pos->GetID() == 7) {
+		$marshal = $guy;
 		break;
 	}
 }
