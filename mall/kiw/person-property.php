@@ -10,7 +10,7 @@ function sale_sort($a, $b) {
 }
 
 $store = new Store();
-$sales = $store->GetSales($roster->GetPerson($id));
+$sales = $store->GetSales($roster->GetPerson($_REQUEST['id']));
 if ($sales) {
 	usort($sales, sale_sort);
 	foreach ($sales as $sale) {
