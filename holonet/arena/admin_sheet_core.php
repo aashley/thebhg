@@ -22,6 +22,7 @@ function output() {
     $saves = $character->GetCores();
 
     if (!$_REQUEST['sheet'] || !$_REQUEST['new']){
+	    echo $_REQUEST['new'];
 	    echo '<a href="'.internal_link($page, array('new'=>1)).'">Make new CORE Sheet</a>.';
 		hr();
 	    
@@ -43,7 +44,6 @@ function output() {
 		    $table->EndTable();
 	    }
     } else {
-
 		$value_set = $character->GetSheetValues('cores', $_REQUEST['sheet'], 'id');
 		
 		if (isset($_REQUEST['save'])){
