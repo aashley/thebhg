@@ -14,7 +14,7 @@ function auth($person) {
 }
 
 function output() {
-    global $arena, $hunter, $roster, $page, $auth_data;
+    global $arena, $hunter, $roster, $page, $auth_data, $citadel;
 
     arena_header();
 
@@ -33,22 +33,37 @@ function output() {
 	    
 		    echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 		
-		    hr();
+		    $me = $citadel->GetPersonsResults($hunter, CITADEL_PASSED);
+		    $mytest = array();
+		    foreach ($me as $test){
+			    $exam = $test->GetExam();
+			    $mytest[] = $exam->GetID();
+		    }
 		    
-		    $form = new Form('acn_ttg_confirm');
+		    $exam = $citadel->GetExambyAbbrev('AT');
 		    
-		    $form->table->StartRow();
-		    $form->table->AddHeader('Twilight Gauntlet Queue', 2);
-		    $form->table->EndRow();
+		    $tests = (in_array($exam->GetID(), $mytest));
 		    
-		    $form->table->StartRow();
-		    $form->table->AddCell('Think you\'re good enough, do you? Then make your stand! Throw down the Twilight Gauntlet!', 2);
-		    $form->table->EndRow();
-		
-		    $form->table->AddRow('Challenges pending in the queue:', $ttg->Pending());
-		    
-		    $form->AddSubmitButton('submit', 'Challenge the Gauntlet');
-		    $form->EndForm();
+		    if (in_array($hunter->GetID(), $arena->GetApproved()) && in_array($_REQUEST['challengee'], $arena->GetApproved()) && $tests){
+			    hr();
+			    
+			    $form = new Form('acn_ttg_confirm');
+			    
+			    $form->table->StartRow();
+			    $form->table->AddHeader('Twilight Gauntlet Queue', 2);
+			    $form->table->EndRow();
+			    
+			    $form->table->StartRow();
+			    $form->table->AddCell('Think you\'re good enough, do you? Then make your stand! Throw down the Twilight Gauntlet!', 2);
+			    $form->table->EndRow();
+			
+			    $form->table->AddRow('Challenges pending in the queue:', $ttg->Pending());
+			    
+			    $form->AddSubmitButton('submit', 'Challenge the Gauntlet');
+			    $form->EndForm();
+		    } else {
+			    echo 'You must be a Dojo Graduate and must have passed the AT test to be allowed to take part in the Twilight Gauntlet.';
+		    }
 		    
 	    }
 	    
