@@ -606,10 +606,10 @@
 		$sql = "SELECT * FROM `cs_shares` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0";
 		$query = mysql_query($sql, $this->connect);
 		
-		while ($info = mysql_fetch_array($query)){
-			$sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '".$info['sheet']."'";
-			$query = mysql_query($sql, $this->connect);
-			$info = mysql_fetch_array($query);
+		while ($mofo = mysql_fetch_array($query)){
+			$sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '".$mofo['sheet']."'";
+			$querya = mysql_query($sql, $this->connect);
+			$info = mysql_fetch_array($querya);
 			$date = getdate($info['date']);
 			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$this->GetID(), 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']));
 		}
