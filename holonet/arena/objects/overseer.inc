@@ -51,7 +51,7 @@
         $sqls[] = "SELECT SUM(arena_ro_hunters.first) as first, SUM(arena_ro_hunters.xp) as xp, SUM(arena_ro_hunters.creds) as credits FROM arena_ro_hunters, arena_ro WHERE arena_ro.id = arena_ro_hunters.run_on"
                 ." AND arena_ro.mbid > 0 AND arena_ro.date_deleted = 0 ".($this->ov_end_date ? "AND arena_ro.start <= '".$this->ov_end_date."'" : "");
                 
-        $sqls[] = "SELECT SUM(arena_irca_records.xp) as xp, SUM(arena_irca_records.credits) as credits FROM FROM arena_irca_records, arena_irca_match WHERE "
+        $sqls[] = "SELECT SUM(arena_irca_records.xp) as xp, SUM(arena_irca_records.credits) as credits FROM arena_irca_records, arena_irca_match WHERE "
 	    	."arena_irca_match.id = arena_irca_records.match_id AND arena_irca_match.graded > 0 AND arena_irca_match.date_deleted = 0".($this->ov_end_date ? " AND arena_irca_match.date <= '".$this->ov_end_date."'" : "");
 
         foreach ($sqls as $sql){
