@@ -3,6 +3,7 @@
 function display(){
 	global $activity, $arena, $type, $roster, $page;
 	
+	print_r($type);
 	if ($type->Get(submit)){
 	    $_REQUEST['fading'] = true;
     }
