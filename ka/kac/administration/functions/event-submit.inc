@@ -47,7 +47,7 @@ function output(){
 				
 				if ($type->HasImage()){
 					$form->table->StartRow();
-					$form->table->AddCell('<center><img src="http://ka.thebhg.org/kac/event_images/'.$type->GetAbbr() . '-' 
+					$form->table->AddCell('<center>Image:<img src="http://ka.thebhg.org/kac/event_images/'.$type->GetAbbr(). '-'. $round->GetID() . '-' 
 								. $kac->GetID() . '.jpg">', 2);
 					$form->table->EndRow();
 					for ($i = 1; $i <= $total_answers; $i++) {
