@@ -594,13 +594,24 @@
 	}
 	
 	function GetBackups(){
-		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0 ORDER BY `date` DESC";
 		$query = mysql_query($sql, $this->connect);
 		$return = array();
 		
 		while ($info = mysql_fetch_array($query)){
 			$date = getdate($info['date']);
-			$return[] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']));
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']));
+		}
+		
+		$sql = "SELECT * FROM `cs_shares` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0";
+		$query = mysql_query($sql, $this->connect);
+		
+		while ($info = mysql_fetch_array($query)){
+			$sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '".$info['sheet']."'";
+			$query = mysql_query($sql, $this->connect);
+			$info = mysql_fetch_array($query);
+			$date = getdate($info['date']);
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$this->GetID(), 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']));
 		}
 		
 		return $return;
@@ -631,11 +642,14 @@
 	}
 	
 	function ValidLoad($id){
-		$sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '$id'";
-		$query = mysql_query($sql, $this->connect);
-		$info = mysql_fetch_array($query);
+		$backups = $this->GetBackups();
+		$backup = $backups[$id];
 		
-		return ($info['bhg_id'] == $this->GetID());
+		if ($backup){
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	function LoadBackup($id){
