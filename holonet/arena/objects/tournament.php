@@ -27,7 +27,7 @@
         return $return;
     }
     
-    function CurrentSeason($old = '0'){
+    function CurrentSeason($old = 0){
         if ($old){
             $this->season = $old;
         } else {
@@ -181,7 +181,6 @@
     }
 
     function Ended(){
-	    echo 'Season: '.$this->CurrentSeason();
         $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '1' AND `round` = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
         $query = mysql_query($sql, $this->holonet);
 
