@@ -192,7 +192,7 @@ function output() {
         $run = $i-1;
         $form->AddHidden('runs', $run);
         $form->table->StartRow();
-        $form->table->AddCell('<input type="submit" name="submit" value="Updated Properties">', 7);
+        $form->table->AddCell('<input type="submit" name="submit" value="Update Properties">', 7);
         $form->table->EndRow();
         $form->EndForm();
     }
