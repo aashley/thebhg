@@ -38,7 +38,7 @@ function output() {
     
     if ($_REQUEST['load']){
 	    
-	    echo $_REQUEST['id']
+	    echo $_REQUEST['id'];
     
 	    $character->ParseSheet('backups', $_REQUEST['id'], 'id');
 	    
