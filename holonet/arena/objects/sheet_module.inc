@@ -119,7 +119,7 @@
 	    $query = mysql_query($sql, $this->connect);
 	    $info = mysql_fetch_array($query);
 	    
-	    return array('id'=>$info['id'], 'name'=>stripslashes($info['name']), 'desc'=>stripslashes($info['description']), 'description'=>stripslashes(nl2br($info['description'])));
+	    return array('id'=>$info['id'], 'date_deleted'=>$info['date_deleted'], 'name'=>stripslashes($info['name']), 'desc'=>stripslashes($info['description']), 'description'=>stripslashes(nl2br($info['description'])));
     }
     
     function GetCAValues($id){
@@ -147,7 +147,9 @@
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $ca = $this->GetCa($info['ca']);
-		    $return[] = array('ca'=>$info['ca'], 'person'=>new Person($info['bhg_id']), 'name'=>$ca['name']);
+		    if (!$ca['date_deleted']){
+		    	$return[] = array('ca'=>$info['ca'], 'person'=>new Person($info['bhg_id']), 'name'=>$ca['name']);
+	    	}
 	    }
 	    
 	    return $return;
