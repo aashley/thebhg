@@ -47,6 +47,28 @@ function output() {
 	    }
 	    
 	    echo $poll->Edit($_REQUEST['question'], $hunter->GetID(), $_REQUEST['rpa'], $_REQUEST['multiple'], $open_to, $_REQUEST['start'], $_REQUEST['end']);
+	    $news = array();
+	    $opts = $poll->GetOptions(0);
+	    
+	    if (count($opts) > count($_REQUEST['option'])){
+		    $num = count($_REQUEST['option'])+1;
+		    for ($i = $num; $i <= count($opts); $i++){
+			    $opts[$i]->Delete();
+		    }
+	    }
+	    
+	    foreach ($_REQUEST['option'] as $key=>$option){
+			$explode = explode('_', $key);
+			if ($explode[1] == 'NEW'){
+				$news[] = $option;
+			} else {
+				$optiono = new Option($key);
+				if ($optiono->IsDeleted()){
+					$optiono->Undelete();
+				}
+				$optiono->Edit($option);
+			}
+	    }
 	    
 	    hr();
     } elseif ($_REQUEST['next']){
@@ -60,7 +82,7 @@ function output() {
 	    $poll = new Poll($_REQUEST['poll']);
 	    
 	    $form->AddHidden('poll', $_REQUEST['poll']);
-	    $options = $poll->GetOptions();
+	    $options = $poll->GetOptions(0);
 	    $open = $poll->GetOpen();
 	    
 	    $form->StartSelect('Post as', 'rpa', $poll->GetRPAKey());
@@ -72,10 +94,12 @@ function output() {
 	    for ($i = 1; $i <= $_REQUEST['numop']; $i++){
 		    $o = $i-1;
 		    $opt = '';
+		    $opn = $i.'_NEW';
 		    if (is_object($options[$o])){
 			    $opt = $options[$o]->GetQuestion();
+			    $opn = $options[$o]->GetID();
 		    }
-		    $form->AddTextBox('Option '.$i, 'option[]', $opt);
+		    $form->AddTextBox('Option '.$i, 'option['.$opn.']', $opt);
 	    }
 	    
 	    if ($_REQUEST['restrict']){

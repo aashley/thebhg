@@ -101,8 +101,9 @@
 	    return ($errors ? 'Errors occured while writing options.' : 'Options added successfully.');
     }
     
-    function GetOptions(){
-	    $sql = "SELECT * FROM `arena_poll_options` WHERE `date_deleted` = 0 AND `poll` = '".$this->poll_id."'";
+    function GetOptions($delete = 1){
+	    if ($delete){
+	    $sql = "SELECT * FROM `arena_poll_options` WHERE $del `poll` = '".$this->poll_id."'";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
