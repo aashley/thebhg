@@ -25,10 +25,11 @@ function output() {
 	elseif ($_REQUEST['submit']) {
 		$startut = parse_date_box('start');
 		$endut = parse_date_box('end');
-		$tables = array('skippers', 'stewards');
+		$tables = array('solo_comissioners', 'dojo_masters', 'commentator', 'mission', 'overseer', 'rangers', 'registrar', 'skippers', 'stewards');
 		$bitches = array();
 		
 		foreach ($tables as $table){
+			echo $table;
 			$bitches += $arena->GetPayData($startut, $endut, $table);
 		}
 	    $aides = array();
