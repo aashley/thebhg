@@ -104,9 +104,7 @@
 	    $return = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
-		    if (!($start > $info['end_date'])){
-		    	$return[] = array('end_date'=>$info['end_date'], 'start_date'=>$info['start_date'], 'bhg_id'=>$info['bhg_id']);
-	    	}
+			$return[] = array('end_date'=>$info['end_date'], 'start_date'=>$info['start_date'], 'bhg_id'=>$info['bhg_id']);
 	    }
 	    
 	    return $return;
