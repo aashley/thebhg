@@ -35,11 +35,17 @@ function output() {
 		    $meda_total = $overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
 		    $table = new Table();
 		    $table->StartRow();
-		    $table->AddHeader('Total Contributions', 3);
+		    $table->AddHeader('Total Contributions', 2);
 		    $table->EndRow();
-		    $table->AddRow('Credits Awarded:', number_format($cred_total).' Imperial Credits');
-		    $table->AddRow('Experience Points Awarded:', number_format($xp_total));
-		    $table->AddRow('Medals Awarded:', number_format($meda_total));
+		    if ($cred_total || $xp_total || $meda_total){
+			    if ($cred_total){ $table->AddRow('Credits Awarded:', number_format($cred_total).' Imperial Credits'); }
+			    if ($xp_total) { $table->AddRow('Experience Points Awarded:', number_format($xp_total)); }
+			    if ($meda_total) { $table->AddRow('Medals Awarded:', number_format($meda_total)); }
+		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
 		    $table->EndTable();
 		    echo '<br />';
 		    
@@ -54,11 +60,18 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Overseer of the Guild', 3);
 		    $table->EndRow();
-		    $table->AddRow('Credits Awarded:', number_format($overse->GetCreds()).' Imperial Credits');
-		    $table->AddRow('Experience Points Awarded:', number_format($overse->GetXP()));
-		    $table->AddRow('Medals Awarded:', number_format($overse->GetMedals()));
-		    $table->AddRow('Credits Overseen in Administration:', number_format($overse->OVCreds()).' Imperial Credits');
-		    $table->AddRow('Experience Points Overseen in Administration:', number_format($overse->OVXP()));
+		    if ($overse->GetCreds() || $overse->GetXP() || $overse->GetMedals() || $overse->OVCreds() || $overse->OVXP() || $overse->OVMedal()){
+			    $table->AddRow('Credits Awarded:', number_format($overse->GetCreds()).' Imperial Credits');
+			    $table->AddRow('Experience Points Awarded:', number_format($overse->GetXP()));
+			    $table->AddRow('Medals Awarded:', number_format($overse->GetMedals()));
+			    $table->AddRow('Credits Overseen in Administration:', number_format($overse->OVCreds()).' Imperial Credits');
+			    $table->AddRow('Experience Points Overseen in Administration:', number_format($overse->OVXP()));
+			    $table->AddRow('Medal Awards Overseen in Administration:', number_format($overse->OVMedal()));
+			} else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    } 
 		    $table->EndTable();
 		    echo '<br />';
 		    
@@ -71,9 +84,15 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Adjunct of the Guild', 2);
 		    $table->EndRow();
-		    $table->AddRow('Credits Awarded:', number_format($adjunc->GetCreds()).' Imperial Credits');
-		    $table->AddRow('Experience Points Awarded:', number_format($adjunc->GetXP()));
-		    $table->AddRow('Medals Awarded:', number_format($adjunc->GetMedals()));
+		    if ($adjunc->GetCreds() || $adjunc->GetXP() || $adjunc->GetMedals()){
+			    $table->AddRow('Credits Awarded:', number_format($adjunc->GetCreds()).' Imperial Credits');
+			    $table->AddRow('Experience Points Awarded:', number_format($adjunc->GetXP()));
+			    $table->AddRow('Medals Awarded:', number_format($adjunc->GetMedals()));
+			} else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
 		    $table->EndTable();
 		    echo '<br />';
 		    
@@ -86,10 +105,16 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Commissioner of the Bounty Office', 2);
 		    $table->EndRow();
-		    $table->AddRow('Contracts Overseen:', $comiss->GetContracts());
-		    $table->AddRow('Credits Awarded:', number_format($comiss->GetCreds()).' Imperial Credits');
-		    $table->AddRow('Experience Points Awarded:', number_format($comiss->GetXP()));
-		    $table->AddRow('Medals Awarded:', number_format($comiss->GetMedals()));
+		    if ($comiss->GetContracts() || $comiss->GetCreds() || $comiss->GetXP() || $comiss->GetMedals()){
+			    $table->AddRow('Contracts Overseen:', number_format($comiss->GetContracts()));
+			    $table->AddRow('Credits Awarded:', number_format($comiss->GetCreds()).' Imperial Credits');
+			    $table->AddRow('Experience Points Awarded:', number_format($comiss->GetXP()));
+			    $table->AddRow('Medals Awarded:', number_format($comiss->GetMedals()));
+			} else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
 		    $table->EndTable();
 		    echo '<br />';
 		    
@@ -102,10 +127,16 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Master of the Dojo of Shadows', 2);
 		    $table->EndRow();
-		    $table->AddRow('Matches Run:', $master->GetMatches());
-		    $table->AddRow('Credits Awarded:', number_format($master->GetCreds()).' Imperial Credits');
-		    $table->AddRow('Experience Points Awarded:', number_format($master->GetXP()));
-		    $table->AddRow('Medals Awarded:', number_format($master->GetMedals()));
+		    if ($master->GetMatches() || $master->GetCreds() || $master->GetXP() || $master->GetMedals()){
+			    $table->AddRow('Matches Run:', number_format($master->GetMatches()));
+			    $table->AddRow('Credits Awarded:', number_format($master->GetCreds()).' Imperial Credits');
+			    $table->AddRow('Experience Points Awarded:', number_format($master->GetXP()));
+			    $table->AddRow('Medals Awarded:', number_format($master->GetMedals()));
+		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
 		    $table->EndTable();
 		    echo '<br />';
 		    
@@ -118,9 +149,15 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Office of Character Development Registrar', 2);
 		    $table->EndRow();
-		    $table->AddRow('Credits Awarded:', number_format($regist->GetCreds()).' Imperial Credits');
-		    $table->AddRow('Experience Points Awarded:', number_format($regist->GetXP()));
-		    $table->AddRow('Medals Awarded:', number_format($regist->GetMedals()));
+		    if ($regist->GetCreds() || $regist->GetXP() || $regist->GetMedals()) {
+			    $table->AddRow('Credits Awarded:', number_format($regist->GetCreds()).' Imperial Credits');
+			    $table->AddRow('Experience Points Awarded:', number_format($regist->GetXP()));
+			    $table->AddRow('Medals Awarded:', number_format($regist->GetMedals()));
+		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
 		    $table->EndTable();
 		    echo '<br />';
 		    
@@ -133,10 +170,16 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Mission Master of Run-Ons', 2);
 		    $table->EndRow();
-		    $table->AddRow('Run-Ons Moderated:', $missio->GetROs());
-		    $table->AddRow('Credits Awarded:', number_format($missio->GetCreds()).' Imperial Credits');
-		    $table->AddRow('Experience Points Awarded:', number_format($missio->GetXP()));
-		    $table->AddRow('Medals Awarded:', number_format($missio->GetMedals()));
+		    if ($missio->GetROs() || $missio->GetXP() || $missio->GetCreds() || $missio->GetMedals()){
+			    $table->AddRow('Run-Ons Moderated:', number_format($missio->GetROs()));
+			    $table->AddRow('Credits Awarded:', number_format($missio->GetCreds()).' Imperial Credits');
+			    $table->AddRow('Experience Points Awarded:', number_format($missio->GetXP()));
+			    $table->AddRow('Medals Awarded:', number_format($missio->GetMedals()));
+		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
 		    $table->EndTable();
 		    echo '<br />';
 		    

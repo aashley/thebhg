@@ -79,12 +79,9 @@
     function OVXP(){
 	    return $this->ovs_xp;
     }
-
-    function GetMatches(){
-        $sql = "SELECT * FROM `arena_ladder_match` WHERE `is_dojo` = '".$this->dojo_id."'";
-        $query = mysql_query($sql, $this->connect);
-        
-        return mysql_num_rows($query);
+    
+    function OVMedal(){
+	    return $this->ovs_medal;
     }
     
     function GetID(){
