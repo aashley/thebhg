@@ -59,6 +59,7 @@ function output() {
         $form->EndSelect();
 
         $form->StartSelect('Location:', 'location', $locations[array_rand($locations)]);
+        $form->AddOption('', 'Random Locations');
         $form->AddOption(0, 'No Location Specified');
         foreach ($locations as $lid=>$lname) {
             $form->AddOption($lid, $lname);
