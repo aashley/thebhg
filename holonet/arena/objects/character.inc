@@ -594,7 +594,7 @@
 	}
 	
 	function GetBackups(){
-		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0 ORDER BY `date` DESC";
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
 		$query = mysql_query($sql, $this->connect);
 		$return = array();
 		
@@ -603,7 +603,7 @@
 			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']));
 		}
 		
-		$sql = "SELECT * FROM `cs_shares` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0";
+		$sql = "SELECT * FROM `cs_shares` WHERE `bhg_id` = '".$this->GetID()."'";
 		$query = mysql_query($sql, $this->connect);
 		
 		while ($mofo = mysql_fetch_array($query)){
@@ -621,7 +621,7 @@
 	    $sql = "SELECT * FROM `character_sheet_$from` WHERE `bhg_id` = '".$this->GetID()."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
-	    $new = "INSERT INTO `character_sheet_backup` VALUES ('', '".$this->GetID()."', '".addslashes($save_name)."', '".time()."')";
+	    $new = "INSERT INTO `character_sheet_backup` VALUES ('', '".$this->GetID()."', '".addslashes($save_name)."', '".time()."', '')";
 	    $store = mysql_query($new, $this->connect);
 	    $id = mysql_insert_id($this->connect);
 	    $errors = 0;
