@@ -37,7 +37,7 @@ function output() {
 			    $solo = new LW_Solo();
 			
 			    if (isset($_REQUEST['submit']) || $_REQUEST['id']) {
-				    if ($_REQUEST['contract_id']){
+				    if ($_REQUEST['id']){
 				    	$_REQUEST['contract_id'] = $_REQUEST['id'];
 			    	}
 			

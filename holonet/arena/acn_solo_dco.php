@@ -34,7 +34,7 @@ function output() {
 	    		.'This ban will end on: '.$date['month']." ".$date['mday'].", ".$date['year'];
     	} else {
 		    if (isset($_REQUEST['submit']) || $_REQUEST['id']) {
-			    if ($_REQUEST['contract_id']){
+			    if ($_REQUEST['id']){
 			    	$_REQUEST['contract_id'] = $_REQUEST['id'];
 		    	}
 		
