@@ -268,6 +268,10 @@
     function DCO() {
 	    $sql = "INSERT INTO `arena_lw_dco` VALUES ('".$this->contract_id."', '".$this->contract_bhg_id."', '".time()."')";
 
+	    $person = new Person($this->contract_bhg_id);
+        $character = new Character($person->GetID());
+        $character->XPEvent(-10, 'DCOing LW Contract '.$contract->GetContractID());
+	    
         if (mysql_query($sql, $this->connect)) {
 
 	        $sql = "UPDATE `arena_lw_contracts` SET `bhg_id` = '0' WHERE `id` = '".$this->contract_id."'";
