@@ -50,26 +50,26 @@
 	    }
     }
     
-    function Creatures(){
+    function Creatures($type = 2){
         $sql = "SELECT * FROM `arena_survival_npc` WHERE `date_deleted` = 0";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 
         while ($info = mysql_fetch_array($query)){
-            $new = new Creature($info['id']);
+            $new = new Creature($info['id'], $type);
             array_push($return, $new);
         }
 
         return $return;
     }
     
-    function AllCreatures(){
+    function AllCreatures($type = 2){
         $sql = "SELECT * FROM `arena_survival_npc`";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 
         while ($info = mysql_fetch_array($query)){
-            $new = new Creature($info['id']);
+            $new = new Creature($info['id'], $type);
             array_push($return, $new);
         }
 

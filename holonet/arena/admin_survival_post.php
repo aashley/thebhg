@@ -27,7 +27,8 @@ function output() {
 	    $form = new Form($page);
 	    $form->AddHidden('contract_id', $_REQUEST['contract_id']);
 	    $form->AddSectionTitle('Creature Target');
-	    $creatures = $solo->Creatures();
+	    $type = $contract->GetType();
+	    $creatures = $solo->Creatures($type->GetID());
 	    $form->StartSelect('Creature', 'creature', array_rand($creatures));
 	    foreach ($creatures as $creature){
 		    $form->AddOption($creature->GetID(), $creature->GetName());
