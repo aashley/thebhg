@@ -46,8 +46,17 @@ function self($link){
 	return '<a href="'.internal_link($page, array('id'=>$_REQUEST['id'], 'op'=>$link['op'])).'">'.$link['name'].'</a>';
 }
 
+function other($other){
+	global $page;
+	return '<a href="'.internal_link('admin_'.$other['page'], array('id'=>$_REQUEST['id']).'">'.$link['name'].'</a>';
+}
+
 function frmt($name, $op, $desc, $attn = 0){
 	return array('name'=>$name, 'op'=>$op, 'desc'=>$desc, 'attn'=>$attn);
+}
+
+function formt($name, $page, $desc){
+	return array('name'=>$name, 'page'=>$page, 'desc'=>$desc, 'attn'=>$attn);
 }
 
 function output() {
@@ -98,6 +107,29 @@ function output() {
 		    $table->EndRow();
 	    }
 	    $table->EndTable();
+	    
+	    if ($type->Get(opponent)){
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader($activity->Get(name).' Tournament Options', 2);
+		    $table->EndRow();
+		    $options = array();
+		    
+		    $options[] = formt('Begin a new Tournament', 'tournament_new', 'Grade an event and award credits/experience points.');  
+	    
+		    foreach ($options as $option){
+			    $table->StartRow();
+			    $table->AddCell('&nbsp;');
+			    $table->AddCell(other($option));
+			    $table->EndRow();
+			    
+			    $table->StartRow();
+			    $table->AddCell($option['desc'], 2);
+			    $table->EndRow();
+		    }
+		    $table->EndTable();
+	    }
+		    
 	    
     } else {
 	    $func_page = 'arena/admin/'.$_REQUEST['op'].'.php';

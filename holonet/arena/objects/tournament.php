@@ -14,8 +14,8 @@
     }
     
 	function Seasons(){
-        $sql = "SELECT * FROM `arena_tournament_dates` ORDER BY `start`";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_dates` ORDER BY `start`";
+        $query = mysql_query($sql, $this->holonet);
         $return = array();
         
         while ($info = mysql_fetch_array($query)){
@@ -26,12 +26,11 @@
     }
     
     function CurrentSeason($old = '0'){
-
         if ($old){
             $this->season = $old;
         } else {
-            $sql = "SELECT * FROM `arena_tournament_dates` ORDER BY `start` DESC LIMIT 1";
-            $query = mysql_query($sql, $this->connect);
+            $sql = "SELECT * FROM `ams_tourney_dates` ORDER BY `start` DESC LIMIT 1";
+            $query = mysql_query($sql, $this->holonet);
             $info = mysql_fetch_array($query);
 
             $this->season = $info['id'];
@@ -41,8 +40,8 @@
     }
     
     function DoubleElim(){
-        $sql = "SELECT * FROM `arena_tournament_dates` WHERE `id` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_dates` WHERE `id` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
         $info = mysql_fetch_array($query);
 
         $this->doubleelim = $info['doubleelim'];
@@ -50,25 +49,25 @@
         return $this->doubleelim;
     }
 
-    function SetSignup($start, $end, $double_elim){
+    function SetSignup($start, $end, $double_elim, $activity){
+        $sql = "INSERT INTO `ams_tourney_dates` (`start`, `end`, `doubleelim`, `activity`) VALUES ('$start', '$end', '$double_elim')";
 
-        $sql = "INSERT INTO `arena_tournament_dates` (`start`, `end`, `doubleelim`) VALUES ('$start', '$end', '$double_elim')";
-
-        if (mysql_query($sql, $this->connect)){
-
+        if (mysql_query($sql, $this->holonet)){
             return true;
-
         } else {
-
             return false;
-
         }
-
+    }
+    
+    function EditDE($to = 0){
+	    $sql = "UPDATE `ams_tourney_dates` SET `doubleelim` = '$to' WHERE `id` = '".$this->season."'";
+	    $query = mysql_query($sql, $this->holonet);
+	    return ($query ? true : false);
     }
 
     function ValidSignup(){
-        $sql = "SELECT * FROM `arena_tournament_dates` ORDER BY `start` DESC LIMIT 1";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_dates` ORDER BY `start` DESC LIMIT 1";
+        $query = mysql_query($sql, $this->holonet);
         $info = mysql_fetch_array($query);
 
         if ($info['start'] < time()){
@@ -95,8 +94,8 @@
 
         if ($this->ValidSignup()){
 
-            $sql = "SELECT * FROM `arena_tournament_data` WHERE `bhg_id` = '$bhg_id' AND `season` = '".$this->season."'";
-            $query = mysql_query($sql, $this->connect);
+            $sql = "SELECT * FROM `ams_tourney_data` WHERE `bhg_id` = '$bhg_id' AND `season` = '".$this->season."'";
+            $query = mysql_query($sql, $this->holonet);
 
             if (mysql_num_rows($query) > 0){
 				
@@ -105,15 +104,15 @@
 
             } else {
 
-                $sql = "INSERT INTO `arena_tournament_data` (`bhg_id`, `season`) VALUES ('$bhg_id', '".$this->season."')";
-                if (mysql_query($sql, $this->connect)){
+                $sql = "INSERT INTO `ams_tourney_data` (`bhg_id`, `season`) VALUES ('$bhg_id', '".$this->season."')";
+                if (mysql_query($sql, $this->holonet)){
 
                     return true;
 
                 } else {
 
 	                $arena = new Arena();
-                    $this->denied = $arena->NEC(144);
+                    $this->denied = 'System error';
                     return false;
 
                 }
@@ -130,8 +129,8 @@
     }
 
     function GetHunters(){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `round` = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `round` = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
         $total = mysql_num_rows($query);
         $return = array();
 
@@ -144,31 +143,30 @@
     }
 
     function CurrentRound(){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `season` = '".$this->season."' ORDER BY `round` DESC LIMIT 1";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `season` = '".$this->season."' ORDER BY `round` DESC LIMIT 1";
+        $query = mysql_query($sql, $this->holonet);
         $info = mysql_fetch_array($query);
         
         return $info['round'];
     }
 
     function RoundBrackets($round = 0){
-	    
 	    if ($round){
 		    $value = $round;
 	    } else {
 		    $value = $this->CurrentRound();
 	    }
 	    
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` < '99' AND `round` = '".$value."' AND `season` = '".$this->season."' ORDER BY `bracket` DESC LIMIT 1";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` < '99' AND `round` = '".$value."' AND `season` = '".$this->season."' ORDER BY `bracket` DESC LIMIT 1";
+        $query = mysql_query($sql, $this->holonet);
         $info = mysql_fetch_array($query);
 
         return $info['bracket'];
     }
 
     function Gladius($round){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '1' AND `round` = '$round' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '1' AND `round` = '$round' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
         $info = mysql_fetch_array($query);
 
         if (mysql_num_rows($query) == 1){      
@@ -179,22 +177,22 @@
     }
     
     function IsGladius($bhg_id){
-        $sql = "SELECT * FROM `arena_tournament_gladius` WHERE `bhg_id` = '$bhg_id'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_gladius` WHERE `bhg_id` = '$bhg_id'";
+        $query = mysql_query($sql, $this->holonet);
         
         return mysql_num_rows($query);
     }
 
     function Started(){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` > '0' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` > '0' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
 
         return (mysql_num_rows($query) > 0);
     }
 
     function Randomize(){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `graded` > '0' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `graded` > '0' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
 
         if (mysql_num_rows($query) > 0){
 
@@ -202,11 +200,11 @@
 
         } else {
 
-            $sql = "UPDATE `arena_tournament_data` SET `bracket` = '0' WHERE round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
-            mysql_query($sql, $this->connect);
+            $sql = "UPDATE `ams_tourney_data` SET `bracket` = '0' WHERE round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
+            mysql_query($sql, $this->holonet);
 
-            $sql = "SELECT * FROM `arena_tournament_data` WHERE round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
-            $query = mysql_query($sql, $this->connect);
+            $sql = "SELECT * FROM `ams_tourney_data` WHERE round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
+            $query = mysql_query($sql, $this->holonet);
             $number = mysql_num_rows($query);
 
             $work = array();
@@ -227,10 +225,10 @@
                 $person1 = new Person($piece1);
                 $person2 = new Person($piece2);
                 
-                $sql = "UPDATE `arena_tournament_data` SET `bracket` = '$i' WHERE `bhg_id` = '$piece1' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
-                mysql_query($sql, $this->connect);
-                $sql = "UPDATE `arena_tournament_data` SET `bracket` = '$i' WHERE `bhg_id` = '$piece2' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
-                mysql_query($sql, $this->connect);
+                $sql = "UPDATE `ams_tourney_data` SET `bracket` = '$i' WHERE `bhg_id` = '$piece1' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
+                mysql_query($sql, $this->holonet);
+                $sql = "UPDATE `ams_tourney_data` SET `bracket` = '$i' WHERE `bhg_id` = '$piece2' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
+                mysql_query($sql, $this->holonet);
 
             }
 
@@ -238,8 +236,8 @@
 
                 $pop = array_pop($work);
 
-                $sql = "UPDATE `arena_tournament_data` SET `bracket` = '99' WHERE `bhg_id` = '$pop' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
-                mysql_query($sql, $this->connect);
+                $sql = "UPDATE `ams_tourney_data` SET `bracket` = '99' WHERE `bhg_id` = '$pop' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
+                mysql_query($sql, $this->holonet);
 
             }
             
@@ -248,8 +246,8 @@
     }
 
     function RenderBrackets($round, $bracket, $table){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
 		$array = array();
 
         while ($info = mysql_fetch_array($query)){
@@ -326,15 +324,15 @@
     }
 
     function Bye(){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '99' AND `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' ORDER BY `bracket` DESC LIMIT 1";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '99' AND `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' ORDER BY `bracket` DESC LIMIT 1";
+        $query = mysql_query($sql, $this->holonet);
 
         return (mysql_num_rows($query) > 0);
     }
 
     function ByeBracket($round, $table){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '99' AND `season` = '".$this->season."' AND `round` = '$round'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '99' AND `season` = '".$this->season."' AND `round` = '$round'";
+        $query = mysql_query($sql, $this->holonet);
         $info = mysql_fetch_array($query);
 
         if (mysql_num_rows($query) > 0){
@@ -365,8 +363,8 @@
         $round = $this->CurrentRound();
         $bracket = $this->RoundBrackets();
 
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` < 99 AND `round` = '$round' AND `graded` > '0' AND `season` = '".$this->season."' ORDER BY `bracket` DESC";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` < 99 AND `round` = '$round' AND `graded` > '0' AND `season` = '".$this->season."' ORDER BY `bracket` DESC";
+        $query = mysql_query($sql, $this->holonet);
 
 		$finished = mysql_num_rows($query);
 
@@ -377,21 +375,21 @@
     }
 
     function Win($bhg_id, $round, $bracket){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `bhg_id` != '$bhg_id' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `bhg_id` != '$bhg_id' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
         $info = mysql_fetch_array($query);
 
         $loser = $info['bhg_id'];
-        $sql = "UPDATE `arena_tournament_data` SET `eliminated` = 1 WHERE `bhg_id` = '$loser' AND `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
+        $sql = "UPDATE `ams_tourney_data` SET `eliminated` = 1 WHERE `bhg_id` = '$loser' AND `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
 
-        if (mysql_query($sql, $this->connect)){
+        if (mysql_query($sql, $this->holonet)){
 
-            $sql = "UPDATE `arena_tournament_data` SET `graded` = 1 WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
+            $sql = "UPDATE `ams_tourney_data` SET `graded` = 1 WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
 
-            if (mysql_query($sql, $this->connect)){
-	           		$sql = "UPDATE `arena_tournament_data` SET `graded` = 1, `eliminated` = 0 WHERE `bhg_id` = '$bhg_id' AND `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
+            if (mysql_query($sql, $this->holonet)){
+	           		$sql = "UPDATE `ams_tourney_data` SET `graded` = 1, `eliminated` = 0 WHERE `bhg_id` = '$bhg_id' AND `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
 
-		            if (mysql_query($sql, $this->connect)){			            
+		            if (mysql_query($sql, $this->holonet)){			            
 		                return true;
 		            } else {
 		                return false;
@@ -407,9 +405,9 @@
     }
     
     function DoubleDQ($round, $bracket){
-	    $sql = "UPDATE `arena_tournament_data` SET `graded` = 1, `eliminated` = 1 WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
+	    $sql = "UPDATE `ams_tourney_data` SET `graded` = 1, `eliminated` = 1 WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
 	
-	    if (mysql_query($sql, $this->connect)){
+	    if (mysql_query($sql, $this->holonet)){
 	        return true;
 	    } else {
 	        return false;
@@ -417,9 +415,9 @@
     }
     
     function Tie($round, $bracket){
-	    $sql = "UPDATE `arena_tournament_data` SET `graded` = 1, `eliminated` = 0 WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
+	    $sql = "UPDATE `ams_tourney_data` SET `graded` = 1, `eliminated` = 0 WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
 	
-	    if (mysql_query($sql, $this->connect)){
+	    if (mysql_query($sql, $this->holonet)){
 	        return true;
 	    } else {
 	        return false;
@@ -459,8 +457,8 @@
             $new_round = $round+1;
             $round_bye = 0;
             
-            $sql = "SELECT * FROM `arena_tournament_data` WHERE `round` = '$round' AND `eliminated` = '0' AND `season` = '".$this->season."' ORDER BY `bracket` DESC";
-            $query = mysql_query($sql, $this->connect);
+            $sql = "SELECT * FROM `ams_tourney_data` WHERE `round` = '$round' AND `eliminated` = '0' AND `season` = '".$this->season."' ORDER BY `bracket` DESC";
+            $query = mysql_query($sql, $this->holonet);
             $work = array();
             
             while ($info = mysql_fetch_array($query)){
@@ -468,12 +466,12 @@
             }
             
             if ($this->doubleelim){
-	            $sql = "SELECT * FROM `arena_tournament_data` WHERE `round` = '$round' AND `eliminated` = '1' AND `bracket` != '$round_bye' AND `season` = '".$this->season."' ORDER BY `bhg_id` DESC";
-	            $query = mysql_query($sql, $this->connect);
+	            $sql = "SELECT * FROM `ams_tourney_data` WHERE `round` = '$round' AND `eliminated` = '1' AND `bracket` != '$round_bye' AND `season` = '".$this->season."' ORDER BY `bhg_id` DESC";
+	            $query = mysql_query($sql, $this->holonet);
 	            
 	            while ($info = mysql_fetch_array($query)){
-		            $sql = "SELECT * FROM `arena_tournament_data` WHERE `bhg_id` = '".$info['bhg_id']."' AND `season` = '".$this->season."' AND `eliminated` = '1'";
-		            $check = mysql_query($sql, $this->connect);
+		            $sql = "SELECT * FROM `ams_tourney_data` WHERE `bhg_id` = '".$info['bhg_id']."' AND `season` = '".$this->season."' AND `eliminated` = '1'";
+		            $check = mysql_query($sql, $this->holonet);
 	                if (mysql_num_rows($check) <= 1){
 		                array_push($work, $info['bhg_id']);
 	                }
@@ -487,8 +485,8 @@
 
                 $bhg_id = array_pop($work);
 
-                $sql = "INSERT INTO `arena_tournament_data` (`bhg_id`, `bracket`, `round`, `season`) VALUES ('$bhg_id', '99', '$new_round', '".$this->season."')";
-                mysql_query($sql, $this->connect);
+                $sql = "INSERT INTO `ams_tourney_data` (`bhg_id`, `bracket`, `round`, `season`) VALUES ('$bhg_id', '99', '$new_round', '".$this->season."')";
+                mysql_query($sql, $this->holonet);
 
             }
 			
@@ -499,20 +497,20 @@
                 $person1 = new Person($piece1);
                 $person2 = new Person($piece2);
                 
-                $sql = "INSERT INTO `arena_tournament_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('$i', '$new_round', '$piece1', '".$this->season."')";
-                mysql_query($sql, $this->connect);
-                $sql = "INSERT INTO `arena_tournament_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('$i', '$new_round', '$piece2', '".$this->season."')";
-                mysql_query($sql, $this->connect);
+                $sql = "INSERT INTO `ams_tourney_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('$i', '$new_round', '$piece1', '".$this->season."')";
+                mysql_query($sql, $this->holonet);
+                $sql = "INSERT INTO `ams_tourney_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('$i', '$new_round', '$piece2', '".$this->season."')";
+                mysql_query($sql, $this->holonet);
             }
 
             if (count($work)){
                 $pop = array_pop($work);
 
-                $sql = "INSERT INTO `arena_tournament_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('1', '$new_round', '$pop', '".$this->season."')";
-                mysql_query($sql, $this->connect);
+                $sql = "INSERT INTO `ams_tourney_data` (`bracket`, `round`, `bhg_id`, `season`) VALUES ('1', '$new_round', '$pop', '".$this->season."')";
+                mysql_query($sql, $this->holonet);
                 
-		        $sql = "INSERT INTO `arena_tournament_gladius` VALUES ('$pop')";
-		        mysql_query($sql, $this->connect);  
+		        $sql = "INSERT INTO `ams_tourney_gladius` VALUES ('$pop')";
+		        mysql_query($sql, $this->holonet);  
             }
         }
     }
@@ -533,9 +531,9 @@
         
 	    for ($i = 1; $i <= $this->RoundBrackets($this->CurrentRound()); $i++){
 		    
-		    $sql = "SELECT * FROM `arena_tournament_data` WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
+		    $sql = "SELECT * FROM `ams_tourney_data` WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
 		    		"`bracket` = '$i'";
-		    $query = mysql_query($sql, $this->connect);
+		    $query = mysql_query($sql, $this->holonet);
 		    $people = array();
 		    
 		    while ($info = mysql_fetch_array($query)){
@@ -569,12 +567,12 @@
     }    
     
     function Organize($bracket_start, $hunter_start, $bracket_end, $hunter_end){
-	    $sql = "UPDATE `arena_tournament_data` SET `bracket` = '$bracket_start' WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
+	    $sql = "UPDATE `ams_tourney_data` SET `bracket` = '$bracket_start' WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
 		    	"`bhg_id` = '$hunter_start'";
-		if (mysql_query($sql, $this->connect)){
-			$sql = "UPDATE `arena_tournament_data` SET `bracket` = '$bracket_end' WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
+		if (mysql_query($sql, $this->holonet)){
+			$sql = "UPDATE `ams_tourney_data` SET `bracket` = '$bracket_end' WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
 			    	"`bhg_id` = '$hunter_end'";
-			if (mysql_query($sql, $this->connect)){
+			if (mysql_query($sql, $this->holonet)){
 				return true;
 			} else {
 				return false;
@@ -618,8 +616,8 @@
     }
     
     function AdminBrackets($round, $bracket, $table){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
 		$array = array();
 
         while ($info = mysql_fetch_array($query)){
@@ -683,8 +681,8 @@
     }
 
     function AdminBuyCheck($form){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '99' AND `round` = '$round' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '99' AND `round` = '$round' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
 		$info = mysql_fetch_array($query);
         
         $person1 = new Person($info['bhg_id']);
@@ -698,8 +696,8 @@
     }
     
     function AdminBracket($round, $bracket, $form){
-        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
-        $query = mysql_query($sql, $this->connect);
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
 		$array = array();
 
         while ($info = mysql_fetch_array($query)){
@@ -728,9 +726,9 @@
     
     function DeleteSignup($bhg_id){
 
-        $sql = "DELETE FROM `arena_tournament_data` WHERE `bhg_id` = '$bhg_id' AND `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."'";
+        $sql = "DELETE FROM `ams_tourney_data` WHERE `bhg_id` = '$bhg_id' AND `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."'";
 
-        if (mysql_query($sql, $this->connect)){
+        if (mysql_query($sql, $this->holonet)){
 			
             return true;
 
@@ -744,8 +742,8 @@
     
     function Wildcard($bhg_id){
 
-        $sql = "INSERT INTO `arena_tournament_data` (`bhg_id`, `season`, `round`) VALUES ('$bhg_id', '".$this->season."', '".$this->CurrentRound()."')";
-        if (mysql_query($sql, $this->connect)){
+        $sql = "INSERT INTO `ams_tourney_data` (`bhg_id`, `season`, `round`) VALUES ('$bhg_id', '".$this->season."', '".$this->CurrentRound()."')";
+        if (mysql_query($sql, $this->holonet)){
 
             return true;
 
