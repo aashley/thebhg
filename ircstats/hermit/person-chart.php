@@ -6,7 +6,7 @@ ini_set('include_path', ini_get('include_path') . ':jpgraph:/var/www/html/includ
 include('jpgraph.php');
 include('jpgraph_bar.php');
 
-import_request_variables('p');
+import_request_variables('g');
 
 include('roster.inc');
 $roster = new Roster();
