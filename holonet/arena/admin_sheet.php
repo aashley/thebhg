@@ -130,7 +130,6 @@ function output() {
 				    $form->AddHidden('save', 1);
 				    $form->AddTextBox('Reason (for denial): ', 'reason');
 				    $form->table->AddRow('<input type="submit" name="deny" Value="Deny Sheet"> || <input type="submit" name="approve" Value="Approve Sheet">');
-				    $form->table->AddRow();
 			    	$form->EndForm();
 		    	} else {
 			    	$form = new Form($page);	
