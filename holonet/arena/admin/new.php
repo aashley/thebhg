@@ -92,14 +92,7 @@ function display(){
 		$form->AddSubmitButton('submit', 'Transmit to Holonet Servers');
 		if ($_REQUEST['npc']){
 			$npcsa = array();
-			if ($_REQUEST['npcs'] > 3){
-				$npcs = 3;
-			} elseif ($_REQUEST['npcs'] < 1){
-				$npcs = 1;
-			} else {
-				$npcs = $_REQUEST['npcs'];
-			}
-			for ($i = 1; $i <= $npcs; $i++){
+			for ($i = 1; $i <= $_REQUEST['npcs']; $i++){
 				$noc = new Parse_NPC($_REQUEST['max'], true);
 				$npcsa[] = $noc->GetString();
 			}
@@ -118,7 +111,11 @@ function display(){
 	} else {
 		$form = new Form($page);
 		$form->AddCheckBox('Use NPC:', 'npc', 1);
-		$form->AddTextBox('Number of NPCs (3 max):', 'npcs', 1);
+		$form->StartSelect('Number of NPC:', 'npcs');
+		for ($i = 1; $i <= 3; $i++){
+			$form->AddOption($i, $i);
+		}
+		$form->EndSelect();
 		$form->StartSelect('Max Stat Value for NPC:', 'max');
 		for ($i = 5; $i <= 10; $i++){
 			$form->AddOption($i, $i);
