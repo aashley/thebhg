@@ -55,9 +55,13 @@ function output() {
 	    	$name = $character->GetName();
     	}
     	
-    	echo $_REQUEST['kabal'];
+    	if ($_REQUEST['kabal'] == 10){
+	    	$other = 9;
+    	} else {
+	    	$other = 0;
+    	}
     	
-    	if ($_REQUEST['kabal'] == 'all' || $_REQUEST['kabal'] == $kabal->GetID()){
+    	if ($_REQUEST['kabal'] == 'all' || $_REQUEST['kabal'] == $kabal->GetID() || $other == $kabal->GetID()){
 	    	if ($_REQUEST['order'] == 'sub'){
 	    		$sheets[$character->cs_last_change] = $character;
     		} elseif ($_REQUEST['order'] == 'stat'){
