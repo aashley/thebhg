@@ -820,6 +820,8 @@
 		
 		echo '<table border=0 width="100%"><tr valign="top"><td>';
 		
+		echo $look;
+		
 		$table = new Table();
 				$table->StartRow();
 		$table->AddHeader('Personal History', 2);
