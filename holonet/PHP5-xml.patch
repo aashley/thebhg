@@ -1,0 +1,103 @@
+Index: index.php
+===================================================================
+--- index.php	(revision 1603)
++++ index.php	(working copy)
+@@ -102,23 +102,23 @@
+ $found = false;
+ foreach ($modules as $mod) {
+ 	$modtext = false;
+-	if ($mod->node_name() == 'link') {
+-		$url = current($mod->get_elements_by_tagname('url'));
+-		$name = current($mod->get_elements_by_tagname('name'));
+-		$modtext = '<a href="' . $url->get_content() . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
++	if ($mod->nodeName == 'link') {
++		$url = $mod->getElementsByTagName('url')->item(0);
++		$name = $mod->getElementsByTagName('name')->item(0);
++		$modtext = '<a href="' . $url->textContent . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
+ 	}
+-	elseif ($mod->node_name() == 'module' && !$mod->has_attribute('hidden')) {
+-		$dir = current($mod->get_elements_by_tagname('directory'));
+-		$name = current($mod->get_elements_by_tagname('name'));
+-		if ($dir->get_content() == $module) {
++	elseif ($mod->nodeName == 'module' && !$mod->hasAttribute('hidden')) {
++		$dir = $mod->getElementsByTagName('directory')->item(0);
++		$name = $mod->getElementsByTagName('name')->item(0);
++		if ($dir->textContent == $module) {
+ 			$found = true;
+-			$modtext = '<span class="SELECTED">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</span>';
++			$modtext = '<span class="SELECTED">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</span>';
+ 		}
+ 		else {
+ 			if (!$found) {
+ 				$before += 2;
+ 			}
+-			$modtext = '<a href="' . internal_link('index', array(), $dir->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
++			$modtext = '<a href="' . internal_link('index', array(), $dir->textContent) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
+ 		}
+ 	}
+ 
+@@ -130,14 +130,15 @@
+ echo implode('<td class="MODULE">&nbsp;|&nbsp;</td>', $modarray) . '<td class="MODULE" width="100%">&nbsp;</td></tr>';
+ 
+ if (file_exists($mdir . '/menu.xml')) {
+-	$menuxml = domxml_open_file($mdir . '/menu.xml');
+-	$items = $menuxml->get_elements_by_tagname('item');
++	$menuxml = new DomDocument();
++	$menuxml->load($mdir . '/menu.xml');
++	$items = $menuxml->getElementsByTagName('item');
+ }
+ else {
+ 	$items = false;
+ }
+ 
+-if (count($items) && $items) {
++if ($items) {
+ 	echo '<tr>';
+ 	if ($before) {
+ 		echo '<td colspan=' . $before . ' class="MODULE">&nbsp;</td>';
+@@ -145,10 +146,10 @@
+ 	echo '<td colspan=' . $after . '><span class="SUBMENU">';
+ 	$menuarray = array();
+ 	foreach ($items as $item) {
+-		if (!$item->has_attribute('hidden')) {
+-			$name = current($item->get_elements_by_tagname('name'));
+-			$pg = current($item->get_elements_by_tagname('page'));
+-			$menuarray[] = '<a href="' . internal_link($pg->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
++		if (!$item->hasAttribute('hidden')) {
++			$name = $item->getElementsByTagName('name')->item(0);
++			$pg = $item->getElementsByTagName('page')->item(0);
++			$menuarray[] = '<a href="' . internal_link($pg->textContent) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
+ 		}
+ 	}
+ 	echo implode(' | ', $menuarray) . '</span></td></tr>';
+Index: header.php
+===================================================================
+--- header.php	(revision 1603)
++++ header.php	(working copy)
+@@ -96,15 +96,18 @@
+ 	include_once('error.php');
+ }
+ 
+-$modxml = domxml_open_file('modules.xml');
+-$modtag = current($modxml->get_elements_by_tagname('modules'));
+-$modules = $modtag->child_nodes();
++#$modxml = domxml_open_file('modules.xml');
++$modxml = new DomDocument();
++$modxml->load('modules.xml');
++#$modtag = current($modxml->get_elements_by_tagname('modules'));
++#$modules = $modtag->child_nodes();
++$modules = $modxml->documentElement->childNodes;
+ foreach ($modules as $mod) {
+-	if ($mod->node_name() == 'module') {
+-		$dir = current($mod->get_elements_by_tagname('directory'));
+-		if ($dir->get_content() == $module) {
+-			$name = current($mod->get_elements_by_tagname('name'));
+-			$title = $name->get_content() . ' :: ' . title();
++	if ($mod->nodeName == 'module') {
++		$dir = current($mod->getElementsByTagName('directory'));
++		if ($dir->textContent == $module) {
++			$name = current($mod->getElementsByTagName('name'));
++			$title = $name->testContent . ' :: ' . title();
+ 			break;
+ 		}
+ 	}
