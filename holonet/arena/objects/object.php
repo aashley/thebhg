@@ -21,6 +21,8 @@ Class Obj extends Arena {
                 $this->data[$key] = stripslashes($value);
             }
         }
+        
+        echo mysql_error($this->con);
     }
     
     function Get($name, $nl = 0, $date = 0, $number = 0){
