@@ -602,7 +602,7 @@
 			    $errors++;
 		    }
 	    }
-	   
+	   	echo 'Im processing';
 		if ($errors){
 			return 'Sheet stored.';
 		} else {
