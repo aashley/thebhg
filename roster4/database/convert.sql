@@ -42,6 +42,7 @@ ALTER TABLE roster_division ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE roster_division ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE roster_division ADD COLUMN datedeleted DATETIME;
 UPDATE roster_division SET datecreated = NOW(), dateupdated = NOW();
+UPDATE roster_division SET datedeleted = NOW() WHERE deleted = 1;
 ALTER TABLE roster_division CHANGE home_page_url homepageurl VARCHAR(200);
 
 -- Roster History
@@ -62,6 +63,7 @@ ALTER TABLE roster_position ADD COLUMN datedeleted DATETIME;
 UPDATE roster_position SET datecreated = NOW(), dateupdated = NOW();
 ALTER TABLE roster_position CHANGE special_division specialdivision TEXT NOT NULL;
 ALTER TABLE roster_position CHANGE is_email_alias emailalias INT(1) NOT NULL;
+ALTER TABLE roster_position CHANGE istrainee trainee INT(1) NOT NULL;
 
 -- Roster Rank
 ALTER TABLE roster_rank ADD COLUMN datecreated DATETIME NOT NULL;
@@ -71,7 +73,7 @@ UPDATE roster_rank SET datecreated = NOW(), dateupdated = NOW();
 ALTER TABLE roster_rank CHANGE credits_needed requiredcredits INT(11) NOT NULL;
 ALTER TABLE roster_rank CHANGE always_available alwaysavailable INT(1) NOT NULL;
 ALTER TABLE roster_rank CHANGE unlimited_credits unlimitedcredits INT(1) NOT NULL;
-ALTER TABLE roster_rank CHANGE manual_set manualset INT(1) NOT NULL;
+ALTER TABLE roster_rank CHANGE manual_set manuallyset INT(1) NOT NULL;
 
 -- Roster Person
 ALTER TABLE roster_roster RENAME roster_person;
@@ -85,5 +87,6 @@ UPDATE roster_person SET datecreated = date_joined;
 ALTER TABLE roster_person DROP COLUMN date_joined;
 ALTER TABLE roster_person ADD COLUMN md5Password VARCHAR(32);
 ALTER TABLE roster_person CHANGE previous_division previousdivision INT(4);
-ALTER TABLE roster_person CHANGE completed_ntc_exam completedcoreexam INT(1);
-ALTER TABLE roster_person CHANGE redo_ranks redoranks INT(1);
+ALTER TABLE roster_person CHANGE completed_ntc_exam completedcoreexam INT(1) NOT NULL;
+ALTER TABLE roster_person CHANGE redo_ranks redoranks INT(1) NOT NULL;
+ALTER TABLE roster_person CHANGE hasship ship INT(1) NOT NULL;
