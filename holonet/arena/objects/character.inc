@@ -337,7 +337,6 @@
 		        	}
 	        	}
 	        	$point += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col);
-	        	echo $point.'|';
 	        	$output += $point*$info['modifier'];
 	        	$denominator += $info['modifier'];
         	}
@@ -348,6 +347,8 @@
     	} else {
 	    	return 0;
     	}
+    	
+    	echo $value.'|';
     	
     	foreach ($build as $ref){
         	foreach ($ref as $call=>$ar){
