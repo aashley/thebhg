@@ -166,14 +166,13 @@ function output() {
 	    
 	    $form = new Form($page, 'Remove Award');
 	    
-	    $form->AddSubmitButton('del', 'Delete Attribute');
 	    $form->StartSelect('Attribute', 'ca');
 	    foreach ($sheet->AwardedCAs() as $value){
 			$form->AddOption($value['ca'], $value['name'].' - '.$value['person']->GetName());
 			$form->AddHidden('bhg_id['.$value['ca'].']', $value['person']->GetID());
 	    }
 	    $form->EndSelect();
-	    
+	    $form->AddSubmitButton('del', 'Delete Attribute');
 	    $form->EndForm();
     }
     

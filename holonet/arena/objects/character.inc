@@ -288,28 +288,28 @@
 		    $return[] = $info['ca'];
 	    }
 	    
-	    $table = new Table('', true);
-	    $table->StartRow();
-	    $table->AddHeader('Character Attributes', 2);
-	    $table->EndRow();
-	    
-	    foreach ($return as $id){
-		    $ca = $this->GetCA($id);
-		    $stats = $this->GetCAValues($id);
-		    $stat = '';
-		    if (count($stats)){
-			    $stat .= '<hr noshade height=1 width=50%>Stat Modifiers';
-		    	foreach ($stats as $info){
-			    	$c = ($info['mod'] > 0);
-			    	$stat .= '<br />'.$info['fo']->GetName().' '.($c ? '+' : '').$info['mod'];
+	    if (count($return)){
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('Character Attributes', 2);
+		    $table->EndRow();
+		    
+		    foreach ($return as $id){
+			    $ca = $this->GetCA($id);
+			    $stats = $this->GetCAValues($id);
+			    $stat = '';
+			    if (count($stats)){
+				    $stat .= '<hr noshade height=1 width=50%>Stat Modifiers';
+			    	foreach ($stats as $info){
+				    	$c = ($info['mod'] > 0);
+				    	$stat .= '<br />'.$info['fo']->GetName().' '.($c ? '+' : '').$info['mod'];
+			    	}
 		    	}
-	    	}
-		    $table->AddRow('<div valign=top>'.$ca['name'].$stat.'</div>', $ca['description']);
+			    $table->AddRow('<div valign=top>'.$ca['name'].$stat.'</div>', $ca['description']);
+		    }
+		    
+		    $table->EndRow();
 	    }
-	    
-	    $table->EndRow();
-	    
-	    return $return;
     }
     
     function GetValue($skill, $look = 'values', $render = 'SHEET', $id = 0, $col = 'id'){

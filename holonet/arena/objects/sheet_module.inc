@@ -134,7 +134,7 @@
 		    } else {
 			    $fo = new Statribute($field);
 		    }
-		    $return[$info['id']] = array('field'=>$field, 'skill'=>$info['skill'], 'ca'=>$info['ca'], 'fieldobj'=>$fo, 'mod'=>$info['modifier']);
+		    $return[$info['id']] = array('field'=>$field, 'skill'=>$info['skill'], 'ca'=>$info['ca'], 'fo'=>$fo, 'mod'=>$info['modifier']);
 	    }
 	    
 	    return $return;
