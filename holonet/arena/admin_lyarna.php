@@ -178,7 +178,7 @@ function output() {
 	        $form->table->AddCell($row['name']);
 	        $form->table->AddCell($row['owner']);
 	        $form->table->AddCell("<select name=\"kabal$i\" "
-	        ."onChange=\"swap_kabal(this.form)\">"
+	        ."onChange=\"swap_kabal(this.form, $i)\">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
 	
 	    	$cell = "<select name=\"person$i\">";
