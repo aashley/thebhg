@@ -54,9 +54,9 @@ Class Obj extends Arena {
 	        $sql .= implode(', ', $add)." WHERE `id` = '".$this->Get(id)."'";
 
 	        if (mysql_query($sql, $this->con)){
-	            return implode(' Edited.<br />', $return).' Edited.<br />';	
+	            echo implode(' Edited.<br />', $return).' Edited.<br />';	
 	        } else {
-				return 'Error';
+				echo 'Error: '.mysql_error($this->con);
 	        }
         }
     }
