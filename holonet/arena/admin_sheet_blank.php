@@ -12,7 +12,7 @@ function auth($person) {
 }
 
 function output() {
-    global $arena, $auth_data, $hunter, $page, $sheet, $roster;
+    global $auth_data, $page, $roster;
 
     arena_header();
     
