@@ -111,7 +111,7 @@ function output() {
 	    if (count($bast)){ $table->AddRow('Bastion Challenge:', '<a href="'.internal_link('bastion', array('id'=>$hunter->GetID())).'">Kabal Representative '.pluralise('Time', count($bast)).'</a>'); }
 
 	    if ($properties){ $table->AddRow('Property in Lyarna:', '<a href="'.internal_link('atn_lyarna', array('id'=>$hunter->GetID())).'">Owns '.pluralise('Piece', $properties).' of Property</a>'); }
-		$table->AddRow('Dojo of Shadows', (in_array($hunter->GetID(), $arena->GetApproved()) ? 'Graduate of' : 'Learner in').'the Dojo of Shadows');
+		$table->AddRow('Dojo of Shadows', (in_array($hunter->GetID(), $arena->GetApproved()) ? 'Graduate of' : 'Learner in').' the Dojo of Shadows');
 		if ($at->IsGladius($hunter->GetID())){ 
 			$table->AddRow('Gladius Prime', 'Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))); 
 		}
