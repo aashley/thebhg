@@ -48,7 +48,7 @@
     }
     
     function IsDeleted(){
-	    return ($this->date_deleted > 0);
+	    return ($this->vote_date_deleted > 0);
     }
     
     function GetDeleted() {

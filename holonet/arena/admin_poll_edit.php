@@ -64,7 +64,6 @@ function output() {
 			} else {
 				$optiono = new Option($key);
 				if ($optiono->IsDeleted()){
-					echo 'Yep';
 					$optiono->Undelete();
 				}
 				$optiono->Edit($option, $poll->GetID());

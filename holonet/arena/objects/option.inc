@@ -37,7 +37,7 @@
     }
     
     function IsDeleted(){
-	    return ($this->date_deleted > 0);
+	    return ($this->option_date_deleted > 0);
     }
     
     function Vote($bhg_id){
