@@ -195,7 +195,7 @@
     }
     
     function SetCreature($creature) {
-        $sql = "UPDATE `arena_survival_npc` SET `creature` = '$creature' WHERE `id` = '".$this->contract_id."'";
+        $sql = "UPDATE `arena_survival_contracts` SET `creature` = '$creature' WHERE `id` = '".$this->contract_id."'";
 
         if (mysql_query($sql, $this->connect)) {
             return true;

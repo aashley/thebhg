@@ -41,8 +41,6 @@
 		    $namemod = 'Elder ';
 	    }
 	    
-	    echo $this->npc_stats;
-	    
 	    $stat = array_shift($this->npc_stats);
 	    return $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8");
     }
