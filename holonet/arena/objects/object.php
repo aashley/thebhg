@@ -40,8 +40,9 @@ Class Obj extends Arena {
 
     function Edit($input) {
         $sql = "UPDATE `".$this->table."` SET ";
-        print_r($input);
         foreach ($input as $key=>$value){
+	        echo $value;
+	        echo '<br />'.$this->Get($key);
 	        if ($value != $this->Get($key)){
 		        $add[] = "`".$key."` = '".addslashes($value)."'";
 		        $return[] = str_replace('_', '&nbsp;', ucfirst($key));
