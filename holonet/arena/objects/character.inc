@@ -7,6 +7,7 @@
     var $cs_approved;
     var $cs_person;
     var $cs_pending;
+    var $cs_ban;
 
     function Character($id) {
         Sheet::Sheet();
@@ -88,7 +89,7 @@
     }	    
     
     function Editable(){
-	    if ($this->Status('SYSTEM') == 5 || $this->Status('SYSTEM') == 6){
+	    if ($this->Status('SYSTEM') == 5 || $this->Status('SYSTEM') == 6 || $this->cs_ban <= time()){
 		    return false;
 	    } else {
 		    return true;
@@ -127,6 +128,26 @@
 		    return false;
 	    }
     }
+    
+    function Ban($date){
+	    $sql = "UPDATE `character_sheets` SET `ban` = '$date' WHERE `bhg_id` = '".$this->GetID()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    return ($query ? true : false);
+    }
+    
+    function GetBan($type = 'SYSTEM'){
+	    if ($type == 'HUMAN'){
+		    if ($this->cs_ban >= time()){
+			    $date = getdate($this->cs_ban);
+			    return $date['mon'].'/'.$date['mday'].'/'.$date['year'];
+		    } else {
+			    return 'No Edit Ban';
+		    }
+	    } else {
+		    return $this->cs_ban;
+	    }
+    }
+		    
     
     function GetSheetValues($value = 'values'){
 	    $table = '`character_sheet_'.$value.'`';

@@ -115,6 +115,9 @@ function output() {
 			
 			if (isset($_REQUEST['save'])){
 				if ($auth_data['sheet']){
+					if (!$_REQUEST['canedit']){
+						$character->Ban(parse_date_box('edit'));
+					}
 					if ($_REQUEST['approve']){
 						echo $character->Approve();
 					} else {
@@ -137,6 +140,9 @@ function output() {
 				    $form = new Form($page);	
 				    $form->AddHidden('id', $_REQUEST['id']);    	
 				    $form->AddHidden('save', 1);
+				    $form->AddCheckBox('Can Always Edit: ', 'canedit', '1', true);
+				    $time = time()+(60*60*24*7);
+				    $form->AddDateBox('Can Not Edit Until: ', 'edit', $time);
 				    $form->AddTextArea('Reason (for denial): ', 'reason');
 				    $form->table->StartRow();
 				    $form->table->AddCell('<input type="submit" name="deny" Value="Deny Sheet"> || <input type="submit" name="approve" Value="Approve Sheet">', 2);
@@ -241,7 +247,12 @@ function output() {
 		    	$form->EndForm();
 	    	}		    	
     	} else {
-	    	echo 'This form is currently pending approval';
+	    	echo 'Can not make edit.';
+	    	if ($character->GetBan()){
+		    	echo ' You are on an Edit Ban until '.$character->GetBan('HUMAN');
+	    	} else {
+		    	echo ' This character is pending approval.';
+	    	}
     	}
 	
 	admin_footer($auth_data);
