@@ -67,8 +67,17 @@
 	    }
     }
     
-    function GetPolls(){
-	    $sql = "SELECT * FROM `arena_poll` WHERE `date_deleted` = 0";
+    function GetPolls($rpa = array()){
+	    $rp = ''
+	    $rps = array();
+	    if (count($rpa){
+		    $rp .= '('
+		    foreach ($rpa as $id=>$name){
+			    $rps[] = "`rp` = '$id'";
+		    }
+		    $rp .= implode(' OR ', $rps).')';
+	    }
+	    $sql = "SELECT * FROM `arena_poll` WHERE $rp `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    

@@ -149,10 +149,17 @@ function output() {
     }
     
     if ($show){
-	    if (count($arena->GetPolls())){
+	    
+	    if (rp_staff($hunter)){
+	    	$polls = $arena->GetPolls();
+    	} else {
+	    	$polls = $arena->GetPolls($arena->CanBe($hunter));
+    	}
+	    
+	    if (count($polls)){
 	    	$form = new Form($page);
 	    	$form->StartSelect('Poll Question ', 'poll');
-	    	foreach ($arena->GetPolls() as $poll){
+	    	foreach ($polls as $poll){
 		    	$form->AddOption($poll->GetID(), $poll->GetQuestion());
 	    	}
 	    	$form->EndSelect();
