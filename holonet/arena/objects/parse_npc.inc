@@ -19,8 +19,13 @@
        $this->Generate();
     }
 
-    function Roll($high = $this->maxv){
-        return mt_rand(1, $high);
+    function Roll($high){
+	    if (isset($high)){
+		    $value = $high;
+	    } else {
+		    $value = $this->maxv;
+	    }
+        return mt_rand(1, $value);
     }
 
     function RollName(){
