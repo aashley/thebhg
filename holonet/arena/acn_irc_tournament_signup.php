@@ -18,14 +18,21 @@ function output() {
 
     arena_header();
 
+    $sheet = new Sheet();
+	
     echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 
-    echo "By clicking the below link, you will enter yourself into the current roster for the next IRC Arena Tournament. Once you are entered, you can not"
-    	." be removed, so please, <b>do not click on the link which says 'Sign me up' if you do not intend to sign up</b>.";
-    
-    hr();
+    if ($sheet->HasSheet($hunter->GetID())){
 
-    echo '<a href="' . internal_link('acn_irc_tournament_confirm') . '">Sign me up!</a>';
+	    echo "By clicking the below link, you will enter yourself into the current roster for the next IRC Arena Tournament. Once you are entered, you can not"
+	    	." be removed, so please, <b>do not click on the link which says 'Sign me up' if you do not intend to sign up</b>.";
+	    
+	    hr();
+	
+	    echo '<a href="' . internal_link('acn_irc_tournament_confirm') . '">Sign me up!</a>';
+	} else {	    
+	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
+    }    
 
     arena_footer();
 

@@ -22,36 +22,46 @@ function output() {
 
     arena_header();
     
-    if ($auth_data['lw']){
-    
-	    if ($solo->PendingContract($hunter->GetID())){
+    $sheet = new Sheet();
 	
-	        echo "You have a contract pending already. You can not request another contract until your current contract is completed or retired.<br /><br />~Challenge Network.";
-	
-	    }
-	    else {
-		    
-	        if (isset($_REQUEST['submit'])) {
-	            if ($control->New_Contract($hunter->GetID())) {
-	                echo 'Contract Requested.';
-	            }
-	            else {
-	                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 5';
-	            }
-	        }
-	        else {
-	            $form = new Form($page);
-	            $form->StartSelect('Type of Contract:', 'type');
-	            $form->AddOption(1, 'Lone Wolf');
-	            $form->EndSelect();
-	            $form->AddSubmitButton('submit', 'Request Contract');
-	            $form->EndForm();
-	        }
-	    }  
-    } else {
-	    echo 'Only Lone Wolves may use this function.';
-    }
+    echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 
+    if ($sheet->HasSheet($hunter->GetID())){
+    
+	    if ($auth_data['lw']){
+	    
+		    if ($solo->PendingContract($hunter->GetID())){
+		
+		        echo "You have a contract pending already. You can not request another contract until your current contract is completed or retired.<br /><br />~Challenge Network.";
+		
+		    }
+		    else {
+			    
+		        if (isset($_REQUEST['submit'])) {
+		            if ($control->New_Contract($hunter->GetID())) {
+		                echo 'Contract Requested.';
+		            }
+		            else {
+		                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 5';
+		            }
+		        }
+		        else {
+		            $form = new Form($page);
+		            $form->StartSelect('Type of Contract:', 'type');
+		            $form->AddOption(1, 'Lone Wolf');
+		            $form->EndSelect();
+		            $form->AddSubmitButton('submit', 'Request Contract');
+		            $form->EndForm();
+		        }
+		    }  
+	    } else {
+		    echo 'Only Lone Wolves may use this function.';
+	    }
+
+	} else {	    
+	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
+    }
+	    
     arena_footer();
 }
 ?>

@@ -24,14 +24,15 @@ function output() {
 
     if (isset($_REQUEST['next'])) {       
         $form = new Form($page);
-        $form->AddTextBox('Credits Earned:', 'creds');
-        $form->AddTextBox('Experience Points:', 'xp');
-        $form->AddHidden('contract_id', $_REQUEST['contract_id']);
+        $form->AddSectionTitle('Imput Contract Stats');
         $form->StartSelect('Grade:', 'grade');
         foreach ($grad->GetGrades() as $value) {
             $form->AddOption($value->GetID(), $value->GetName());
         }
         $form->EndSelect();
+        $form->AddTextBox('Credits Earned:', 'creds');
+        $form->AddTextBox('Experience Points:', 'xp');
+        $form->AddHidden('contract_id', $_REQUEST['contract_id']);
         $form->AddSubmitButton('submit', 'Complete Contract');
         $form->EndForm();
     }

@@ -23,31 +23,41 @@ function output() {
 
     arena_header();
 
-    if ($solo->PendingContract($hunter->GetID())){
+    $sheet = new Sheet();
+	
+    echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 
-        echo "You have a contract pending already. You can not request another contract until your current contract is completed or retired.<br /><br />~Challenge Network.";
-
-    }
-    else {
-
-        if (isset($_REQUEST['submit'])) {
-            if ($control->New_Contract($hunter->GetID(), $_REQUEST['type'])) {
-                echo 'Contract Requested.';
-            }
-            else {
-                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 7';
-            }
-        }
-        else {
-            $form = new Form($page);
-            $form->StartSelect('Type of Contract:', 'type');
-            foreach ($solo->Types() as $value) {
-                $form->AddOption($value->GetID(), $value->GetName());
-            }
-            $form->EndSelect();
-            $form->AddSubmitButton('submit', 'Request Contract');
-            $form->EndForm();
-        }
+    if ($sheet->HasSheet($hunter->GetID())){
+    
+	    if ($solo->PendingContract($hunter->GetID())){
+	
+	        echo "You have a contract pending already. You can not request another contract until your current contract is completed or retired.<br /><br />~Challenge Network.";
+	
+	    }
+	    else {
+	
+	        if (isset($_REQUEST['submit'])) {
+	            if ($control->New_Contract($hunter->GetID(), $_REQUEST['type'])) {
+	                echo 'Contract Requested.';
+	            }
+	            else {
+	                echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 7';
+	            }
+	        }
+	        else {
+	            $form = new Form($page);
+	            $form->StartSelect('Type of Contract:', 'type');
+	            foreach ($solo->Types() as $value) {
+	                $form->AddOption($value->GetID(), $value->GetName());
+	            }
+	            $form->EndSelect();
+	            $form->AddSubmitButton('submit', 'Request Contract');
+	            $form->EndForm();
+	        }
+	    }
+	    
+	} else {	    
+	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
     }
 
     arena_footer();

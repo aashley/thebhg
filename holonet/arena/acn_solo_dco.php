@@ -19,34 +19,43 @@ function output() {
     arena_header();
 
     $solo = new Solo();
+	$sheet = new Sheet();
+	
+    echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 
-    if (isset($_REQUEST['submit'])) {
-
-        $contract = new Contract($_REQUEST['contract_id']);
-
-        if ($contract->SetHunter($hunter->GetID())) {
-            echo 'Contract Request Sent.';
-            
-            $solo->NotifyComissioner(2, $contract->GetID(), $hunter->GetName());
-        }
-        else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 8';
-        }
-    }
-    else {
-	    if (count($solo->DeadContracts())){
-	        $form = new Form($page);
-	        $form->StartSelect('Contract:', 'contract_id');
-	        foreach ($solo->DeadContracts() as $value) {
-	            $type = $value->GetType();
-	            $form->AddOption($value->GetID(), "Difficulty: ".$type->GetName()." | Contract ".$value->GetContractID());
+    if ($sheet->HasSheet($hunter->GetID())){
+    
+	    if (isset($_REQUEST['submit'])) {
+	
+	        $contract = new Contract($_REQUEST['contract_id']);
+	
+	        if ($contract->SetHunter($hunter->GetID())) {
+	            echo 'Contract Request Sent.';
+	            
+	            $solo->NotifyComissioner(2, $contract->GetMBID(), $hunter->GetName());
 	        }
-	        $form->EndSelect();
-	        $form->AddSubmitButton('submit', 'Request');
-	        $form->EndForm();
-        } else {
-	        echo "No Dead Contracts available.";
-        }
+	        else {
+	            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 8';
+	        }
+	    }
+	    else {
+		    if (count($solo->DeadContracts())){
+		        $form = new Form($page);
+		        $form->StartSelect('Contract:', 'contract_id');
+		        foreach ($solo->DeadContracts() as $value) {
+		            $type = $value->GetType();
+		            $form->AddOption($value->GetID(), "Difficulty: ".$type->GetName()." | Contract ".$value->GetContractID());
+		        }
+		        $form->EndSelect();
+		        $form->AddSubmitButton('submit', 'Request');
+		        $form->EndForm();
+	        } else {
+		        echo "No Dead Contracts available.";
+	        }
+	    }
+	    
+	} else {	    
+	    echo 'You need a Character Sheet to get contracts. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
     }
 
     arena_footer();

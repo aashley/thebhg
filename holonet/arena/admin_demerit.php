@@ -1,7 +1,7 @@
 <?php
 
 function title() {
-    return 'Administration :: Character Sheet :: Demerit Points';
+    return 'Administration :: Overseer Utilities :: Demerit Points';
 }
 
 function auth($person) {
@@ -9,7 +9,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['demerit'];
+    return $auth_data['overseer'];
 }
 
 function output() {
@@ -17,38 +17,178 @@ function output() {
 
     arena_header();
 
-    if (isset($_REQUEST['submit'])) {
-        foreach ($_REQUEST['hunter'] as $id=>$pid) {
-            if ($pid > 0) {
-                $character = new Character($pid);
-                $character->RemovePoint($_REQUEST['reason'][$id]);
-            }
-        }
-        echo 'Demerit points added.';
-
-        hr();
+    if (isset($_REQUEST['submit'])){
+	    
+	    for ($i = 0; $i < 20; $i++) {
+      
+			$person = "person$i";
+      
+			$dp = "dp$i";
+			
+			$reason = "reason$i";
+			
+			$character = new Character($_REQUEST[$person]);
+			for ($run = 1; $run <= $_REQUEST[$dp]; $run++){
+            	$character->RemovePoint($_REQUEST[$reason]);
+        	}
+			
+		}
+		
+		echo 'Bonus points added.';
+		
+		hr();
+	    
     }
 
-    foreach ($sheet->SheetHolders() as $character) {
-        $person = new Person($character->GetID());
-        $div = $person->GetDivision();
-        $str = $div->GetName() . ': ' . $person->GetName();
-        $hunters[$str] = '<option value="' . $character->GetID() . '">' . html_escape($str) . '</option>';
-    }
-    ksort($hunters);
+    $kabals_result = $roster->GetDivisions();
+	    
+			$kabals = array();
+			$sheet = new Sheet();
+	    
+			foreach ($kabals_result as $kabal) {
+	      
+			      if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
+			        
+			        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
+			          .$kabal->GetName()."</option>\n";
+			      }
+	      
+	    	}
+	    
+			$kabals = implode('', $kabals);
+			
+			$hunters = array();
+			$plebsheet = array();
+			
+			foreach ($sheet->SheetHolders() as $char) {
+			     $hunters[$char->GetName()] = new Person($char->GetID());
+	    	}
+	    	
+	    	ksort($hunters);
+	    	
+	    	foreach ($hunters as $name=>$person){
+		    	$kabal = $person->GetDivision();
+		    	$plebsheet[$kabal->GetID()][] = $person;
+	    	}
+	
+		?>
+		<script language="JavaScript1.1" type="text/javascript">
+		<!--
+		function person(id, name) {
+			this.id = id;
+			this.name = name;
+		}
+	
+		<?php
+	  
+			reset($kabals_result);
+	    
+		  $commindex = 0;
+	    
+			foreach ($kabals_result as $kabal) {
+	      
+				if ($kabal->GetID() == 16) {
+	        
+					continue;
+	        
+				}
+	      
+				echo 'roster' . $kabal->GetID() . " = new Array();\n";
+	      
+				$plebs = $plebsheet[$kabal->GetID()];
+	      
+		    if (is_array($plebs)) {
+	        
+		      $plebindex = 0;
+	        
+	        foreach ($plebs as $pleb) {
+	          
+	          $div_peeps[$pleb->GetName().':'.$plebindex] = 
+	            'roster'
+	            .(($kabal->GetID() == 9) 
+	              ? '10' 
+	              : $kabal->GetID()) 
+	            .'['.
+	            (($kabal->GetID() == 9 || $kabal->GetID() == 10) 
+	              ? $commindex++ 
+	              : $plebindex++)
+	            .'] = new person('.$pleb->GetID().', \''
+	            .str_replace("'", "\\'", shorten_string($pleb->GetName(), 40))
+	            ."');\n";
+	            
+	        }
+	        
+	        echo implode('', $div_peeps);
+	        
+	        unset($div_peeps);
+	        
+		    }
+	      
+			}
+	    
+		?>
 
-    $form = new Form($page);
+	function swap_kabal(frm, id) {
+		var kabal_list = eval("frm.kabal" + id);
+		var person_list = eval("frm.person" + id);
+		var kabal = kabal_list.options[kabal_list.options.selectedIndex].value;
+		if (kabal > 0) {
+			var kabal_array = eval("roster" + kabal);
+			var new_length = kabal_array.length;
+			person_list.options.length = new_length;
+			for (i = 0; i < new_length; i++) {
+				person_list.options[i] = new Option(kabal_array[i].name, kabal_array[i].id, false, false);
+			}
+		}
+		else {
+			person_list.options.length = 1;
+			person_list.options[0] = new Option("N/A", -1, false, false);
+		}
+	}
+
+	// -->
+	</script>
+	<noscript>
+	This page requires JavaScript to function properly.
+	</noscript>
+	<?php
+	$form = new Form($page);
+  
+	$form->table->StartRow();
+	$form->table->AddHeader('Kabal');
+	$form->table->AddHeader('Person');
+	$form->table->AddHeader('Demerit Points');
+	$form->table->AddHeader('Reason');
+	$form->table->EndRow();
+  
+	for ($i = 0; $i < 20; $i++) {
+    
+    	$form->table->StartRow();
+      
+		$form->table->AddCell("<select name=\"kabal$i\" "
+        ."onChange=\"swap_kabal(this.form, $i)\">"
+        ."<option value=\"-1\">N/A</option>$kabals</select>");
+    
+		$cell = "<select name=\"person$i\">";
+      
+		$cell .= "<option value=\"-1\">N/A</option>";
+    
+		$cell .= "</select>";
+    
+		$form->table->AddCell($cell);
+    
+		$form->table->AddCell("<input type=\"text\" name=\"dp$i\" value=\"0\" "
+      	."size=7 onFocus=\"if (this.value == '0') this.value = ''\" "
+      	."onBlur=\"if (this.value == '') this.value = '0'\">");
+    
+      	$form->table->AddCell("<input type=\"text\" name=\"reason$i\" size=\"50\">");
+      	
+		$form->table->EndRow();
+	}
+	
     $form->table->StartRow();
-    $form->table->AddHeader('Hunter');
-    $form->table->AddHeader('Reason');
-    $form->table->EndRow();
-    for ($i = 0; $i < 10; $i++) {
-        $form->table->StartRow();
-        $form->table->AddCell('<select name="hunter[' . $i . ']" size=1 selected="0"><option value="0">N/A</option>' . implode('', $hunters) . '</select>');
-        $form->table->AddCell('<input type="text" name="reason[' . $i . ']" size=15>');
-        $form->table->EndRow();
-    }
-    $form->AddSubmitButton('submit', 'Issue Demerit Points');
+	$form->table->AddCell('<input type="submit" name="submit" value="Issue Demerit Points" size="50">', 4);
+	$form->table->EndRow();
     $form->EndForm();
     
     admin_footer($auth_data);

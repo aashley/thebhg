@@ -414,14 +414,26 @@
 		$table->StartRow();
 		$table->AddHeader('Arena Experience', 3);
 		$table->EndRow();
-		$table->AddRow('Date', 'Points', 'Reason');
 		
-		while ($info = mysql_fetch_array($query)){
-			$date = getdate($info['date']);
-			$table->AddRow($date['mon'].'/'.$date['mday'].'/'.$date['year'], $info['points'], stripslashes($info['reason']));
+		if (mysql_num_rows($query)){
+		
+			$table->AddRow('Date', 'Points', 'Reason');
+		
+			while ($info = mysql_fetch_array($query)){
+				$date = getdate($info['date']);
+				if ($info['reason']){
+					$reason = stripslashes($info['reason']);
+				} else {
+					$reason = 'No reason given.';
+				}
+				$table->AddRow($date['mon'].'/'.$date['mday'].'/'.$date['year'], $info['points'], $reason);
+			}
+		} else {
+			$table->StartRow();
+			$table->AddCell('No experience point history.');
+			$table->EndRow();
 		}
 		
-		$table->EndRow();
 		$table->EndTable();
 	}
 	
@@ -458,17 +470,23 @@
 	function WritePointEvents(){
 		$table = new Table('', true);
 		
+		$awards = array();
+		
 		$table->StartRow();
 		$table->AddHeader('Arena Points', 3);
 		$table->EndRow();
-		$table->AddRow('Date', 'Points', 'Reason');
 		
 		$sql = "SELECT * FROM `cs_bonus_points` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
 		$query = mysql_query($sql, $this->connect);
 		
 		while ($info = mysql_fetch_array($query)){
 			$date = getdate($info['date']);
-			$table->AddRow($date['mon'].'/'.$date['mday'].'/'.$date['year'], 'Bonus Point', stripslashes($info['reason']));
+			if ($info['reason']){
+				$reason = stripslashes($info['reason']);
+			} else {
+				$reason = 'No reason given.';
+			}
+			$awards[$info['date']][] = array('date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'type'=>'Bonus Point', 'reason'=>$reason);
 		}
 		
 		$sql = "SELECT * FROM `cs_demerit_points` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
@@ -476,10 +494,28 @@
 		
 		while ($info = mysql_fetch_array($query)){
 			$date = getdate($info['date']);
-			$table->AddRow($date['mon'].'/'.$date['mday'].'/'.$date['year'], 'Demerit Point', stripslashes($info['reason']));
+			if ($info['reason']){
+				$reason = stripslashes($info['reason']);
+			} else {
+				$reason = 'No reason given.';
+			}
+			$awards[$info['date']][] = array('date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'type'=>'Demerit Point', 'reason'=>$reason);
 		}
 		
-		$table->EndRow();
+		if (count($awards)){
+			krsort($awards);
+			$table->AddRow('Date', 'Type', 'Reason');
+			foreach ($awards as $info){
+				foreach ($info as $write){
+					$table->AddRow($write['date'], $write['type'], $write['reason']);
+				}
+			}
+		} else {
+			$table->StartRow();
+			$table->AddCell('No bonus point history.');
+			$table->EndRow();
+		}
+		
 		$table->EndTable();
 	}
 	

@@ -19,32 +19,41 @@ function output() {
     arena_header();
 
     $ttg = new TTG();
+    $sheet = new Sheet();
+	
+    echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 
-    if (in_array($hunter->GetID(), $ttg->Members())) {
-	    
-		    echo "You can't run the Gauntlet if you're in the Gauntlet...";
+    if ($sheet->HasSheet($hunter->GetID())){
+
+	    if (in_array($hunter->GetID(), $ttg->Members())) {
 		    
-	} else {
-    
-	    echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
-	
-	    hr();
+			    echo "You can't run the Gauntlet if you're in the Gauntlet...";
+			    
+		} else {
 	    
-	    $form = new Form('acn_ttg_confirm');
+		    echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
+		
+		    hr();
+		    
+		    $form = new Form('acn_ttg_confirm');
+		    
+		    $form->table->StartRow();
+		    $form->table->AddHeader('Twilight Gauntlet Queue', 2);
+		    $form->table->EndRow();
+		    
+		    $form->table->StartRow();
+		    $form->table->AddCell('Think you\'re good enough, do you? Then make your stand! Throw down the Twilight Gauntlet!', 2);
+		    $form->table->EndRow();
+		
+		    $form->table->AddRow('Challenges pending in the queue:', $ttg->Pending());
+		    
+		    $form->AddSubmitButton('submit', 'Challenge the Gauntlet');
+		    $form->EndForm();
+		    
+	    }
 	    
-	    $form->table->StartRow();
-	    $form->table->AddHeader('Twilight Gauntlet Queue', 2);
-	    $form->table->EndRow();
-	    
-	    $form->table->StartRow();
-	    $form->table->AddCell('Think you\'re good enough, do you? Then make your stand! Throw down the Twilight Gauntlet!', 2);
-	    $form->table->EndRow();
-	
-	    $form->table->AddRow('Challenges pending in the queue:', $ttg->Pending());
-	    
-	    $form->AddSubmitButton('submit', 'Challenge the Gauntlet');
-	    $form->EndForm();
-	    
+	} else {	    
+	    echo 'You need a Character Sheet to challenge. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
     }
 
     arena_footer();

@@ -183,9 +183,9 @@ function get_auth_data($hunter) {
     }
     
     if ($pos->GetID() == 29 || $hunter->GetID() == 2650){
-    	$auth_data['demerit'] = true;
+    	$auth_data['overseer'] = true;
 	} else {
-		$auth_data['demerit'] = false;
+		$auth_data['overseer'] = false;
 	}
     
     if ($pos->GetID() == 9 || $pos->GetID() == 29 || $hunter->GetID() == 2650) {
@@ -295,15 +295,15 @@ function admin_footer($auth_data) {
         echo '<br />General&nbsp;Management<br />';
         echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
-	    echo '&nbsp;<a href="' . internal_link('admin_bp') . '">Award&nbsp;Bonus&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
 	    
     }
     
-    if ($auth_data['demerit']) {   
+    if ($auth_data['overseer']) {   
 	    echo '<br />Overseer&nbsp;Utilities<br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_demerit') . '">Issue&nbsp;Demerit&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_bp') . '">Award&nbsp;Bonus&nbsp;Points</a><br />';
     }
 	    
     if ($auth_data['rp']) {      

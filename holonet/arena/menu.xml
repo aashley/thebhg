@@ -12,6 +12,10 @@
         <page>atn</page>
     </item>
     <item>
+        <name>View Hunters</name>
+        <page>view_sheets</page>
+    </item>
+    <item>
         <name>About</name>
         <page>version</page>
     </item>

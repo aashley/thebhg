@@ -53,9 +53,8 @@ function output() {
 		
 		    $table->EndTable();
 	
+		    hr();
 		}
-		
-		hr();
 		
 		if ($starfield_ladder->GetMatches()){
 			$table = new Table();
@@ -79,11 +78,10 @@ function output() {
 		        $table->AddRow('Match '.$value->GetMatchID(), $fighter->GetResult(), '<a href="' . internal_link('atn_starfield_match', array('id'=>$value->GetMatchID())) . '">ATN Stats</a> | '.$value->ArenaLink());
 		    }
 		
-		    $table->EndTable();
-	
-	    }
+		    $table->EndTable();			
 	    
-		hr();
+			hr();
+	    }
 		
 		$comish = new Comissioner($hunter->GetID());
 		
@@ -139,9 +137,9 @@ function output() {
 		    }
 		
 		    $table->EndTable();
+		    	    
+	    	hr();
 	    }
-	    
-	    hr();
 	
 	    if ($irca->GetMatches()){
 		    $table = new Table();
@@ -168,6 +166,7 @@ function output() {
 		
 		    $table->EndTable();
 	
+		    hr();
 		}
 		
 	}

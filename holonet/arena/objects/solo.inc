@@ -35,8 +35,8 @@
         }
 
         $person = new Person($this->CurrentComissioner());
-
-        $from = "Bounty Office <adjunct@thebhg.org>";
+        
+        $from = "Bounty Office <overseer@thebhg.org>";
         $subject = "New Contract Request";
 
         $person->SendEmail($from, $subject, $text);

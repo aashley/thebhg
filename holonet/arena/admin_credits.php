@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: General :: Award Credits';
+    return 'Administration :: Overseer Utilities :: Award Credits';
 }
 
 function auth($person) {
@@ -8,7 +8,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['demerit'];
+    return $auth_data['overseer'];
 }
 
 function output() {
