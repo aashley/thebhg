@@ -56,13 +56,13 @@
 
         if ($difficulty == 1){
             $this->phymax = 6;
-            $this->stamax = 3;
+            $this->stamax = 6;
         } elseif ($difficulty == 2){
             $this->phymax = 8;
-            $this->stamax = 4;
+            $this->stamax = 8;
         } elseif ($difficulty == 3){
             $this->phymax = 10;
-            $this->stamax = 5;
+            $this->stamax = 10;
         }
 
         $physical_generate = $this->Physical();
