@@ -25,8 +25,6 @@ function output() {
 	    $table = new Table('', true);
 	
 	    $table->StartRow();
-	    $table->AddHeader('Position');
-	    $table->AddHeader('Rank');
 	    $table->AddHeader('Name');
 	    $table->EndRow();
 	
@@ -39,14 +37,12 @@ function output() {
 		$finish = $start+10;
 		    
 		$hunters = $div->GetMembers();
-		print_r($hunters[0]);
+
 	    if ($div->GetMemberCount()) {
 		    for ($i = $start; $i < $finish; $i++) {
 			    $hunter = $hunters[$i];
 	
 	            $table->StartRow();
-	            $table->AddCell($posi->GetName());
-	            $table->AddCell($rank->GetName());
 	            $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$hunter->GetID())) . '">' . html_escape($hunter->GetName()) . '</a>');
 	            $table->EndRow();
 	        }
