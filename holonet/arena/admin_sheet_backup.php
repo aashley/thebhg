@@ -41,6 +41,13 @@ function output() {
 	    hr();
     }
     
+    if (isset($_REQUEST['delete'])){
+	    if ($character->ValidLoad($_REQUEST['sheet'])){
+		    echo $character->DeleteBackup($_REQUEST['sheet']);
+		    hr();		
+	    }     
+    }
+    
     if ($_REQUEST['load']){
     
 	    if ($character->ValidLoad($_REQUEST['sheet'])){
