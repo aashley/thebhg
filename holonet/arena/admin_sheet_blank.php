@@ -51,7 +51,7 @@ function output() {
 
 			$plebsheet = array();
 	    	
-	    	foreach ($kabal_result as $div){
+	    	foreach ($kabals_result as $div){
 		    	foreach ($div->GetMembers() as $person){
 			    	if (!$sheet->HasSheet($person->GetID())){
 				    	$kabal = $person->GetDivision();
