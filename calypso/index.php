@@ -91,8 +91,11 @@
 			break;
 		case 28:
 			header ("Content-Type: text/xml");
-			$smarty->display ('syndicate_books.html', 
-					  'blog:{$_REQUEST["blogid"]}');
+
+			$xml = "http://allconsuming.net/rest.cgi?action=GetCurrentlyReadingList&username=JediJawa";
+     		$xsl = $system ["home"] . "xsl/allconsuming-to-foaf.xsl";
+			echo xslt_trans_w3 ($xml, $xsl);
+
 			break;
 		case 22:
 			header ("Content-Type: text/xml");
@@ -168,7 +171,7 @@
 		case 24:
 			header ("Content-Type: application/rss+xml");
 
-			$xml = $system ["home"] . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+			$xml = substr ($system ["home"], 0, -1) . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
      		$xsl = $system ["home"] . "xsl/atom03-to-rss10.xsl";
 			echo xslt_trans_w3 ($xml, $xsl);
 
@@ -176,7 +179,7 @@
 		case 34:
 			header ("Content-Type: application/rss+xml");
 
-			$xml = $system ["home"] . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+			$xml = substr ($system ["home"], 0, -1) . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
      		$xsl = $system ["home"] . "xsl/atom03-to-rss20.xsl";
 			echo xslt_trans_w3 ($xml, $xsl);
 
@@ -190,7 +193,7 @@
 		case 5:
 			header ("Content-Type: application/rss+xml");
 
-			$xml = $system ["home"] . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+			$xml = substr ($system ["home"], 0, -1) . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
      		$xsl = $system ["home"] . "xsl/atom03-to-rss10.xsl";
 			echo xslt_trans_w3 ($xml, $xsl);
 
@@ -198,7 +201,7 @@
 		case 32:
 			header ("Content-Type: application/rss+xml");
 
-			$xml = $system ["home"] . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+			$xml = substr ($system ["home"], 0, -1) . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
      		$xsl = $system ["home"] . "xsl/atom03-to-rss20.xsl";
 			echo xslt_trans_w3 ($xml, $xsl);
 
@@ -213,7 +216,7 @@
 		case 29:
 			header ("Content-Type: application/rss+xml");
 
-			$xml = $system ["home"] . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+			$xml = substr ($system ["home"], 0, -1) . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
      		$xsl = $system ["home"] . "xsl/atom03-to-rss10.xsl";
 			echo xslt_trans_w3 ($xml, $xsl);
 
@@ -221,7 +224,7 @@
 		case 33:
 			header ("Content-Type: application/rss+xml");
 
-			$xml = $system ["home"] . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+			$xml = substr ($system ["home"], 0, -1) . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
      		$xsl = $system ["home"] . "xsl/atom03-to-rss20.xsl";
 			echo xslt_trans_w3 ($xml, $xsl);
 

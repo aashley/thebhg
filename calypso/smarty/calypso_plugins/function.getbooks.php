@@ -23,7 +23,7 @@
 	 * @param array
 	 * @param Smarty
 	 * @return array
-	 */
+	 */zz
 	function smarty_function_getbooks ($params, &$smarty) 
 	{
 		// Get variables from smarty.
