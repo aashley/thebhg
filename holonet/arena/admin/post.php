@@ -99,7 +99,7 @@ if ($_REQUEST['match']){
 			
 			ksort($builds);
 			
-		    $table->AddRow('Name:', ($match->Get(name) ? $obj->Get(name) : 'No Name'));
+		    $table->AddRow('Name:', ($obj->Get(name) ? $obj->Get(name) : 'No Name'));
 		    foreach ($builds as $build){
 			    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get(id)))) as $ob) {
 				    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
