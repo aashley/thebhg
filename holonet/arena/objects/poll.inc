@@ -316,7 +316,7 @@
 	    $table->EndTable();
 	    
 	    hr();
-	    echo '<img src="arena/graphs/poll.php" alt="Poll Graph" width=400 height=300 border=0>';
+	    echo '<img src="arena/graphs/poll.php?id='.$this->poll_id.'" alt="Poll Graph" width=400 height=300 border=0>';
     }
     
     function Undelete() {

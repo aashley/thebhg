@@ -3,13 +3,13 @@ include('header.php');
 include('jpgraph_pie.php');
 
 // Construct data.
-$poll = new Poll(1);
+$poll = new Poll($_REQUEST['id']);
 $votes = $poll->GetVotes();
 $i = 1;
 foreach ($poll->GetOptions() as $option){
 	$labels[] = '';
 	$legends[] = $option->GetQuesion() . " (%d)";
-	$data[] = $votes[$option->GetID()];
+	$data[] = count($votes[$option->GetID()]);
 	$colours[] = get_colour($i);
 	$i++;
 }
