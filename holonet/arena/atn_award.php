@@ -34,13 +34,13 @@ function output() {
 			$table = new Table();
 			$table->StartRow();
 		    $table->AddCell('image here', 1, 5);
-		    $table->EndRow();
 		    $table->StartRow();
 		    $table->AddHeader('Overseer of the Guild', 2);
 		    $table->EndRow();
 		    $table->AddRow('Credits Awarded:', number_format($overse->GetCreds()).' Imperial Credits');
 		    $table->AddRow('Experience Points Awarded:', number_format($overse->GetXP()));
 		    $table->AddRow('Medals Awarded:', number_format($overse->GetMedals()));
+		    $table->EndRow();
 		    $table->EndTable();
 		    echo '<br />';
 		    
