@@ -7,7 +7,7 @@ if ($complete == 2) {
 	include('auth.php');
 	$pos = $login->GetPosition();
 	page_header('Hidden Missions');
-	if ($login->GetID() != 666 && $pos->GetID() != 3) {
+	if ($login->GetID() != 666 && $pos->GetID() != 3 && $pos->GetID() != 7) {
 		echo 'You are not permitted to access this page.';
 		page_footer();
 	}

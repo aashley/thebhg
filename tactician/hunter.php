@@ -3,7 +3,7 @@ include('header.php');
 if (isset($hidden)) {
 	include('auth.php');
 	$pos = $login->GetPosition();
-	if ($login->GetID() != 666 && $pos->GetID() != 3) {
+	if ($login->GetID() != 666 && $pos->GetID() != 3 && $pos->GetID() != 7) {
 		page_header();
 		echo 'You are not permitted to access this page.';
 		page_footer();
