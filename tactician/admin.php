@@ -371,7 +371,7 @@ function mark() {
 				if (strlen($answer['reason'])) {
 					echo '<HR NOSHADE>' . nl2br(htmlspecialchars(stripslashes($answer['reason'])));
 				}
-				echo '</TD><TD><INPUT TYPE="radio" NAME="result[' . $answer['id'] . ']" VALUE="1">&nbsp;Correct<BR><INPUT TYPE="radio" NAME="result[' . $answer['id'] . ']" VALUE="0" CHECKED>&nbsp;Incorrect<BR><INPUT TYPE="checkbox" NAME="bonus[' . $answer['id'] . "]\" VALUE=\"on\">&nbsp;50k&nbsp;Bonus</TD></TR>\n";
+				echo '</TD><TD><INPUT TYPE="radio" NAME="result[' . $answer['id'] . ']" VALUE="1">&nbsp;Correct<BR><INPUT TYPE="radio" NAME="result[' . $answer['id'] . ']" VALUE="0" CHECKED>&nbsp;Incorrect<BR><INPUT TYPE="radio" NAME="result[' . $answer['id'] . ']" VALUE="2">&nbsp;No Effort<BR><INPUT TYPE="checkbox" NAME="bonus[' . $answer['id'] . "]\" VALUE=\"on\">&nbsp;50k&nbsp;Bonus</TD></TR>\n";
 			}
 			echo "</TABLE><BR>\n<INPUT TYPE=\"submit\" VALUE=\"Mark Mission\">&nbsp;&nbsp;<INPUT TYPE=\"reset\">\n<BR>";
 		}
@@ -418,6 +418,16 @@ function savemark() {
 				$pleb = $roster->GetPerson(mysql_result($ans, 0, 'person'));
 				$results .= $pleb->IDLine(0) . "\n";
 				mysql_query("UPDATE answers SET correct=0 WHERE id=$aid", $db);
+			}
+		}
+		reset($result);
+		$results .= "\n<U>No effort</U>\n\n";
+		foreach ($result as $aid=>$correct) {
+			if ($correct == 2) {
+				$ans = mysql_query("SELECT * FROM answers WHERE id=$aid", $db);
+				$pleb = $roster->GetPerson(mysql_result($ans, 0, 'person'));
+				$results .= $pleb->IDLine(0) . "\n";
+				mysql_query("UPDATE answers SET correct=2 WHERE id=$aid", $db);
 			}
 		}
 		$results .= "\n<U>Bonus for good report (50k)</U>\n\n";
@@ -469,7 +479,7 @@ function omcredits() {
 				$last_mission = $answer['mission'];
 				$new_mission = 1;
 			}
-			if ($answer['correct']) {
+			if ($answer['correct'] == 1) {
 				if ($new_mission) {
 					$new_mission = 0;
 					$add = 100000;
@@ -480,7 +490,7 @@ function omcredits() {
 				}
 				$plebs[$answer['person']] += $add;
 			}
-			else {
+			elseif ($answer['correct'] == 0) {
 				$plebs[$answer['person']] += 25000;
 			}
 			if ($answer['bonus']) {
