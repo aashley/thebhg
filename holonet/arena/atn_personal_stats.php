@@ -68,6 +68,7 @@ function output() {
 	    $table->EndTable();
 	    
 	    $pending = $arena->Search(array('table'=>'ams_records', 'search'=>array('id` > \''.$last.'\' AND `outcome` > 0 AND `bhg_id'=>$_REQUEST['id'], 'date_deleted'=>0), 'limit'=>20), 0, 1);
+	    print_r($pending);
 	    $denbo = $arena->Search(array('table'=>'ams_records', 'search'=>array('id` < \''.$first.'\' AND `outcome` > 0 AND `bhg_id'=>$_REQUEST['id'], 'date_deleted'=>0), 'limit'=>20), 0, 1);
 	    
 	    $table->EndTable();
