@@ -56,7 +56,7 @@ function output() {
     	}
     	if ($_REQUEST['kabal'] == 'all' || $_REQUEST['kabal'] == $kabal->GetID()){
 	    	if ($_REQUEST['order'] == 'sub'){
-	    		$sheets[$character->LastEdit()] = $character;
+	    		$sheets[$character->cs_last_change] = $character;
     		} elseif ($_REQUEST['order'] == 'stat'){
 	    		$sheets[$character->Status('HUMAN')] = $character;
     		} else {
