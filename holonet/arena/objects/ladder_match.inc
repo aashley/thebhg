@@ -402,7 +402,7 @@
     }
 
 
-    function Complete($id, $xp, $creds, $outcome, $date = '0') {
+    function Complete($id, $xp, $creds, $outcome, $date = '0', $close = true) {
 
         if ($date == 0){
             $end = time();
@@ -418,9 +418,10 @@
 
             if (mysql_query($sql, $this->connect)) {
 
-	            
-	            $person = new Person($id, 'fight-51-me');
-	            $person->AddCredits($creds, 'Arena Match');
+	            if ($close){
+		            $person = new Person($id, 'fight-51-me');
+		            $person->AddCredits($creds, 'Arena Match');
+	            }
 	            
                 return true;
 

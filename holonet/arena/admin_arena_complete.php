@@ -61,7 +61,7 @@ function output() {
 	    $match = new Match($_REQUEST['match_id']);
 
         foreach($_REQUEST['person'] as $id=>$pid){
-            if ($match->Complete($pid, $_REQUEST['xp'][$id], $_REQUEST['creds'][$id], $_REQUEST['outcome'][$id])) {
+            if ($match->Complete($pid, $_REQUEST['xp'][$id], $_REQUEST['creds'][$id], $_REQUEST['outcome'][$id], 0, $_REQUEST['add_xp'])) {
 	            
 	            if (!$_REQUEST['add_xp']){
 		            $character = new Character($pid);
