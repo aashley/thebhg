@@ -45,7 +45,9 @@
 	    $sorted = $this->npc_stats;
 	    arsort($sorted);
 	    $highest = array_shift($sorted)
-	    
+	   
+	    print_r($this->npc_stats);
+	     
 	    foreach ($this->npc_stats as $name=>$stat){
 		    $point = $stat*$this->type->GetPoints();
 		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $point);
