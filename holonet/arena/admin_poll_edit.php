@@ -63,6 +63,7 @@ function output() {
 				$news[] = $option;
 			} else {
 				$optiono = new Option($key);
+				print_r($optiono);
 				if ($optiono->IsDeleted()){
 					$optiono->Undelete();
 				}
