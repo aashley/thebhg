@@ -1,0 +1,14 @@
+<menu>
+    <item>
+        <name>Index</name>
+        <page>index</page>
+    </item>
+    <item>
+        <name>About</name>
+        <page>version</page>
+    </item>
+    <item>
+        <name>Administration</name>
+        <page>admin</page>
+    </item>    
+</menu>
