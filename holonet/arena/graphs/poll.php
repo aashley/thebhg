@@ -14,7 +14,7 @@ foreach ($poll->GetOptions() as $option){
 	$i++;
 }
 
-$graph = new PieGraph(400, 300, 'h3r_divisions');
+$graph = new PieGraph(400, 300, 'h3r_poll');
 $graph->title->Set($poll->GetQuestion());
 $graph->title->SetFont(FF_VERDANA, FS_BOLD, 14);
 $graph->SetBox(false);
