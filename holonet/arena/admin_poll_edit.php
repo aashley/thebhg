@@ -59,7 +59,6 @@ function output() {
 	    
 	    foreach ($_REQUEST['option'] as $key=>$option){
 			$explode = explode('_', $key);
-			print_r($explode);
 			if ($explode[1] == 'NEW'){
 				$news[] = $option;
 			} else {
@@ -70,6 +69,8 @@ function output() {
 				$optiono->Edit($option, $poll->GetID());
 			}
 	    }
+	    
+	    $poll->SetOptions($news);
 	    
 	    hr();
 	} elseif ($_REQUEST['delete']){
