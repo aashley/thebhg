@@ -95,6 +95,16 @@
 	    
 	    return $text;
     }
+    
+    function Edit($stats, $string){
+	    $sql = "UPDATE `arena_survival_npc` SET `stats` = '".serialize($stats)."', `string` = '".addslashes($string)."' WHERE `id` = '".$this->npc_id."'";
+	    
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
  }
 
 ?>
