@@ -104,8 +104,6 @@
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
-	    WHERE `end_date` <= '$end' OR `end_date` = 0 AND `end_date` >= '$start' AND `start_date` <= '$end'
-	    
 	    $endd = new Date();
 	    $endd->setDate($info['end_date'], DATE_FORMAT_UNIXTIME);
 	    $startd = new Date();
