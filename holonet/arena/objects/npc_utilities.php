@@ -70,7 +70,7 @@
 		    	}
 		    	if (is_array($npc[$field]['skills'])){
 			    	foreach($npc[$field]['skills'] as $skill=>$value){
-				    	$skill = new Statribute($skill);
+				    	$skill = new Skill($skill);
 				    	$sheets .= '<br />'.$skill->GetName().': '.$value;
 			    	}
 		    	}

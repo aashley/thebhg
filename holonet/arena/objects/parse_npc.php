@@ -264,7 +264,6 @@ function generate_word($min_syllables = 1, $max_syllables = 3, $letters = "abcde
     }
 
     function GetString(){
-	    print_r($this->npc_string);
         return serialize($this->npc_string);
     }
 
