@@ -328,14 +328,16 @@
         
         while($info = mysql_fetch_array($query)){
 	        if ($this->Permit(1, $info['statribute'], $this->project)){
-	        	$output += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col)*$info['modifier'];
-	        	foreach ($build as $ref){
+		        $point = 0;
+		        foreach ($build as $ref){
 		        	foreach ($ref as $call=>$ar){
 			        	if ($call == 'stat'){
-				        	$output += $ar[$info['statribute']];
+				        	$point += $ar[$info['statribute']];
 			        	}
 		        	}
 	        	}
+	        	$point += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col);
+	        	$output += $point*$info['modifier'];
 	        	$denominator += $info['modifier'];
         	}
         }
