@@ -48,13 +48,13 @@ function output() {
     $sk = new Person($star->CurrentSkipper());
     $mm = new Person($ro->CurrentMM());
     $hc = new Person($irca->CurrentHC());
-    $stwa = 'Steward <a href="'.internal_link('atn_general', array('id'=>$st->GetID())).'">'.$st->GetName().'</a>';
-    $djm = 'Dojo Master <a href="'.internal_link('atn_general', array('id'=>$dm->GetID())).'">'.$dm->GetName().'</a>';
-    $cbo = 'Commissioner <a href="'.internal_link('atn_general', array('id'=>$cb->GetID())).'">'.$cb->GetName().'</a>';
-    $sur = 'Ranger <a href="'.internal_link('atn_general', array('id'=>$ra->GetID())).'">'.$ra->GetName().'</a>';
-    $ski = 'Skipper <a href="'.internal_link('atn_general', array('id'=>$sk->GetID())).'">'.$sk->GetName().'</a>';
-    $mim = 'Mission Master <a href="'.internal_link('atn_general', array('id'=>$mm->GetID())).'">'.$mm->GetName().'</a>';
-    if ($hc->GetName()){ $hoc = 'Commentator <a href="'.internal_link('atn_general', array('id'=>$hc->GetID())).'">'.$hc->GetName().'</a>'; }
+    if ($st->GetName()){ $stwa = 'Steward <a href="'.internal_link('atn_general', array('id'=>$st->GetID())).'">'.$st->GetName().'</a>'; } else { $stwa = 'None'; }
+    if ($dm->GetName()){ $djm = 'Dojo Master <a href="'.internal_link('atn_general', array('id'=>$dm->GetID())).'">'.$dm->GetName().'</a>'; } else { $djm = 'None'; }
+    if ($cb->GetName()){ $cbo = 'Commissioner <a href="'.internal_link('atn_general', array('id'=>$cb->GetID())).'">'.$cb->GetName().'</a>'; } else { $cbo = 'None'; }
+    if ($ra->GetName()){ $sur = 'Ranger <a href="'.internal_link('atn_general', array('id'=>$ra->GetID())).'">'.$ra->GetName().'</a>'; } else { $sur = 'None'; }
+    if ($sk->GetName()){ $ski = 'Skipper <a href="'.internal_link('atn_general', array('id'=>$sk->GetID())).'">'.$sk->GetName().'</a>'; } else { $ski = 'None'; }
+    if ($mm->GetName()){ $mim = 'Mission Master <a href="'.internal_link('atn_general', array('id'=>$mm->GetID())).'">'.$mm->GetName().'</a>'; } else { $mim = 'None'; }
+    if ($hc->GetName()){ $hoc = 'Commentator <a href="'.internal_link('atn_general', array('id'=>$hc->GetID())).'">'.$hc->GetName().'</a>'; } else { $hoc = 'None'; }
     
     $activities['The Arena'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` = 0 AND `end` > 0')), 'oe'=>count($ladder->Pending()), 'ue'=>count($ladder->Unposted()), 'xp'=>$ladder->GetXP(), 'cr'=>$ladder->GetCreds(), 'ad'=>$stwa);
     $activities['The Dojo of Shadows'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` > 0 AND `end` > 0')), 'oe'=>count($ladder->PendingDojo('end')), 'ue'=>count($ladder->PendingDojo()), 'xp'=>$ladder->GetDXP(), 'cr'=>$ladder->GetDCreds(), 'ad'=>$djm);
