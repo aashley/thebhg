@@ -57,7 +57,7 @@ function output() {
 				    	$table->StartRow();
 				    	$table->AddCell($data['name']);
 				    	$table->AddCell($data['planet']);
-				    	$table->AddCell(($data['arena'] ? 'Yes' : 'No'), ($data['arena'] ? '' : '2'));
+				    	$table->AddCell(($data['arena'] ? 'Yes' : '<center>No</center>'), ($data['arena'] ? '' : '2'));
 				    	if ($data['arena']){ $table->AddCell($data['used']); }
 			    	}
 		    	}
@@ -79,7 +79,7 @@ function output() {
 				    	$table->StartRow();
 				    	$table->AddCell($data['name']);
 				    	$table->AddCell($data['planet']);
-				    	$table->AddCell(($data['arena'] ? 'Yes' : 'No'), ($data['arena'] ? '' : '2'));
+				    	$table->AddCell(($data['arena'] ? 'Yes' : '<center>No</center>'), ($data['arena'] ? '' : '2'));
 				    	if ($data['arena']){ $table->AddCell($data['used']); }
 			    	}
 		    	}
