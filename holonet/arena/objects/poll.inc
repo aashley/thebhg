@@ -146,7 +146,7 @@
 
         if ($rpa != $this->poll_rpa){
             array_push($add, "`rpa` = '".addslashes($rpa)."'");
-            $return .= "Location Table Edited.<br />";
+            $return .= "Role Playing Aide Position Edited.<br />";
         }
 
         if ($multiple != $this->poll_multiple){

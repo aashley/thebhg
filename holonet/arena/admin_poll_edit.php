@@ -110,8 +110,12 @@ function output() {
 		    $opt = '';
 		    $opn = $i.'_NEW';
 		    if (is_object($options[$o])){
-			    $opt = $options[$o]->GetQuestion();
-			    $opn = $options[$o]->GetID();
+			    if ($options[$o]->GetQuestion()){
+			    	$opt = $options[$o]->GetQuestion();
+		    	}
+		    	if ($options[$o]->GetID()){
+			    	$opn = $options[$o]->GetID();
+		    	}
 		    }
 		    $form->AddTextBox('Option '.$i, 'option['.$opn.']', $opt);
 	    }
