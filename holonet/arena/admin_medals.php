@@ -162,7 +162,7 @@ function output() {
 	<?php
 	$form = new Form($page);
 	
-	if (count($arena->CanBe()){
+	if (count($arena->CanBe())){
 		$form->AddSectionTitle('Award As: ');
 		$i = 0;
 		
