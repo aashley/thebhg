@@ -99,7 +99,7 @@ function output() {
     else {
 	    if (count($solo->RequestedContracts())){
 	        $form = new Form($page);
-	        $form->StartSelect('MIssion:', 'contract_id');
+	        $form->StartSelect('Mission:', 'contract_id');
 	        foreach ($solo->RequestedContracts() as $value) {
 		        $hunter = $value->GetHunter();
 		        if ($hunter){
