@@ -261,12 +261,24 @@
 	    $sql = "INSERT INTO `character_sheet_ca` (`bhg_id`, `ca`) VALUES ('".$this->GetID()."', '$id')";
 	    $query = mysql_query($sql, $this->connect);
 	    
+	    $text = "You have been awarded a character attribute. This attribute modifies your stats, so you may want to go re-arrange things.";
+
+        $from = "overseer@thebhg.org";
+        $subject = "Character Attribute Awarded";
+
+        $this->cs_person->SendEmail($from, $subject, $text);
+	    
 	    return ($query ? true : false);
     }
     
     function DeleteCA($id){
 	    $sql = "UPDATE `character_sheet_ca` SET `date_deleted` = '".time()."' WHERE `bhg_id` = '".$this->GetID()."' AND `ca` = '$id'";
 	    $query = mysql_query($sql, $this->connect);
+	    
+	    $text = "The Registrar has removed a character attribute from your character.";
+
+        $from = "overseer@thebhg.org";
+        $subject = "Character Attribute Removed";
 	    
 	    return ($query ? true : false);
     }
