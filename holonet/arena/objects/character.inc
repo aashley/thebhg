@@ -1210,7 +1210,7 @@
 	    	$table->AddRow('Position', '<a href="'.internal_link('position', array('id'=>$position->GetID()), 'roster').'">'.$position->GetName().'</a>');
     	}
     	$project = $this->project;
-    	if ($this->Permit(1, $stat->GetID(), $project)){
+    	
     	if ($this->HasValue($look, $col, $id)){
 	    	foreach ($this->ModFields($project) as $id){
 	    		$field = new Field($id);
