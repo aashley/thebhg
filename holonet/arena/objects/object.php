@@ -4,14 +4,17 @@ Class Obj extends Arena {
 	
 	var $data = array();
 	var $table;
+	var $con;
 	 
-    function Obj($table, $id) {
+    function Obj($table, $id, $con) {
         Arena::Arena();
 
         $this->table = $table;
         
+        $this->con = $this->$con;
+        
         $sql = "SELECT * FROM `".$this->table."` WHERE `id` = '$id'";
-        $query = mysql_query($sql, $this->connect);
+        $query = mysql_query($sql, $this->con);
 
         if ($result = @mysql_fetch_assoc($query)) {
             foreach ($result as $key => $value) {
@@ -48,7 +51,7 @@ Class Obj extends Arena {
         if (count($add)){
 	        $sql .= implode(', ', $add)." WHERE `id` = '".$this->id."'";
 	        
-	        if (mysql_query($sql, $this->connect)){
+	        if (mysql_query($sql, $this->con)){
 	            return implode(' Edited.<br />', $return).' Edited.<br />';	
 	        } else {
 				return 'Error';

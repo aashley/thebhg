@@ -2,12 +2,12 @@
 
  Class Arena extends Roster {
 	 
-	var $connect;
+	var $holonet;
 	var $lyarna;
 	var $bastion;
 
     function Arena(){
-	    $connects = array('connect'=>array('name'=>'holonet', 'pass'=>'w0rdy'), 'lyarna'=>array('name'=>'lyarna', 'pass'=>'lyarnasys55'), 
+	    $connects = array('holonet'=>array('name'=>'holonet', 'pass'=>'w0rdy'), 'lyarna'=>array('name'=>'lyarna', 'pass'=>'lyarnasys55'), 
 	    			'bastion'=>array('name'=>'overseer', 'pass'=>'01c81257'));
 	    
 	    foreach ($connects as $name=>$data){
@@ -24,8 +24,14 @@
     }
     
     function NewRow($data){
+	    if ($data['resource']){
+	    	$res = $data['resource'];
+    	} else {
+	    	$res = 'holonet';
+    	}
+	    
 	    $sql = "INSERT INTO `".$data['table']."` (`".implode('`, `', $data['fields'])."`) VALUES ('".implode('', '', $data['values'])."')";
-	    $query = mysql_query($sql, $this->$data['resource']);
+	    $query = mysql_query($sql, $res);
 	    
 	    return ($query ? true : false);
     }
@@ -62,7 +68,7 @@
     	if ($data['resource']){
 	    	$res = $data['resource'];
     	} else {
-	    	$res = 'connect';
+	    	$res = 'holonet';
     	}
     	
 	    $sql = "SELECT $sel FROM `".$data['table']."` WHERE ".implode(' AND ', $implode).($data['group'] ? 'GROUP BY `'.$data['group'].'`' : '').(count($order) ? ' ORDER BY '.implode(', ', $order) : '');
@@ -70,7 +76,7 @@
 		
 		while ($info = mysql_fetch_assoc($query)){
 			if ($obj){
-				$new = new Obj($data['table'], $info['id']);
+				$new = new Obj($data['table'], $info['id'], $res);
 			} else {
 				$new = $info;
 			}
