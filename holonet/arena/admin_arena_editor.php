@@ -25,7 +25,7 @@ function output() {
 	    $types = $ladder->Rules();
     }
 
-    if (isset($_REQUEST['next'])) {
+    if (isset($_REQUEST['hunters'])) {
 	    
 	    for ($i = 1; $i <= $_REQUEST['persons']; $i++){
 		    if ($_REQUEST['change'][$i]){
