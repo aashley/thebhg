@@ -1,4 +1,8 @@
--- version 1.1.0 (to be released) --
+-- version 1.1.1 (15/9/2004) --
+1. Changed authentication to allow broader Commission access.
+2. Made the autolinker a bit smarter.
+
+-- version 1.1.0 (14/9/2004) --
 1. Changed all layout to be done through CSS.
 2. Ported changes from 1.0.2 (1.1 was branched after 1.0.1).
 3. Changed all markup to be XHTML.

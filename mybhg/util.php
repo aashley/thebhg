@@ -91,6 +91,6 @@ function get_section_name($id) {
 }
 
 function autolink($text) {
-	return preg_replace(array('|http://(\\S+)|', '|(\\S+)@([A-Za-z0-9-]+)\\.([A-Za-z0-9-]+)|'), array('<a href="http://\\1">http://\\1</a>', '<a href="mailto:\\1@\\2.\\3">\\1@\\2.\\3</a>'), $text);
+	return preg_replace(array("|http://([^ \t\n\r<>()]+)|", "|([^ \t\n\r()<>]+)@([A-Za-z0-9-]+)\\.([A-Za-z0-9-]+)|"), array('<a href="http://\\1">http://\\1</a>', '<a href="mailto:\\1@\\2.\\3">\\1@\\2.\\3</a>'), $text);
 }
 ?>

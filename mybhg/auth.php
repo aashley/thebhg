@@ -4,7 +4,7 @@ function lookup_auth_level($user) {
 	$div = $user->GetDivision();
 
 	// Does the user hold one of the positions required for global access?
-	if ($pos->GetID() == 2 || $pos->GetID() == 4 || $pos->GetID() == 1) {
+	if ($div->GetID() == 10 || $div->GetID() == 9) {
 		$auth_level = 2;
 	}
 	// How about being a special user?
@@ -12,7 +12,7 @@ function lookup_auth_level($user) {
 		$auth_level = 2;
 	}
 	// OK, if not, is this person able to post news?
-	elseif ($div->GetID() == 10 || $div->GetID() == 9 || $pos->GetID() == 10 || $pos->GetID() == 11 || $pos->GetID() == 12) {
+	elseif ($pos->GetID() == 10 || $pos->GetID() == 11 || $pos->GetID() == 12) {
 		$auth_level = 1;
 	}
 	// Well then, I guess this person can't do anything, and we should
