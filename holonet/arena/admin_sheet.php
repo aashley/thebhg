@@ -48,7 +48,7 @@ function output() {
 
 		    $sheets = array();
 		    
-		    foreach ($sheet->SheetHolders(1) as $data){
+		    foreach ($sheet->SheetHolders(2) as $data){
 			    $sheets[$data->Status('SYSTEM')][] = $data;
 		    }
 		    
@@ -118,7 +118,143 @@ function output() {
 			}
 			
 		if (isset($_REQUEST['save'])){
-					    	
+			if ($auth_data['sheet']){
+					if (!$_REQUEST['canedit']){
+						$character->Ban(parse_date_box('edit'));
+						$sheet->RegistrarTrack('ban');
+					}
+					if ($_REQUEST['approve']){
+						echo $character->Approve();
+						$sheet->RegistrarTrack('approve');
+					} else {
+						echo $character->Deny($_REQUEST['reason']);
+						$sheet->RegistrarTrack('deny');
+					}
+				} else {
+					echo $character->SubmitSheet();
+					$sheet->RegistrarTrack('submit');
+				}
+			} elseif (isset($_REQUEST['view'])){
+				if (isset($_REQUEST['process'])){
+					echo $character->SaveSheet($_REQUEST['stat'], $_REQUEST['expr'], $_REQUEST['pers']);
+					$sheet->RegistrarTrack('saves');
+					hr();
+				}
+				
+				$character->ParseSheet('pending');
+			    
+			    hr();
+			    
+			    if ($auth_data['sheet']){
+				    $form = new Form($page);	
+				    $form->AddHidden('id', $_REQUEST['id']);    	
+				    $form->AddHidden('save', 1);
+				    $form->AddCheckBox('Can Always Edit: ', 'canedit', '1', true);
+				    $time = time()+(60*60*24*7);
+				    $form->AddDateBox('Can Not Edit Until: ', 'edit', $time);
+				    $form->AddTextArea('Reason (for denial): ', 'reason');
+				    $form->table->StartRow();
+				    $form->table->AddCell('<input type="submit" name="deny" Value="Deny Sheet"> || <input type="submit" name="approve" Value="Approve Sheet">', 2);
+				    $form->table->EndRow();
+			    	$form->EndForm();
+		    	} else {
+			    	$form = new Form($page);	
+				    $form->AddHidden('id', $_REQUEST['id']);    	
+				    $form->table->AddRow('<input type="submit" name="save" Value="Submit Sheet">');
+			    	$form->EndForm();
+		    	}
+			} else {
+				
+				$points = $character->GetExperiencePoints()/350;			
+				$tobuy = floor($points);
+				
+				if ($tobuy < 1){
+					$tobuy = 0;
+				}
+				
+				$s = '';
+				
+				if ($tobuy > 1){
+					$s = 's';
+				}
+				
+				if ($tobuy){
+					$form = new Form($page);
+					$form->AddHidden('points', $tobuy);
+					$form->AddHidden('buypoint', 1);
+					$form->AddHidden('id', $_REQUEST['id']);
+					$form->table->AddRow('<input type="submit" name="buypoint" value="Buy '.$tobuy.' Bonus Point'.$s.'">');
+					$form->EndForm();
+				}
+				
+				$table = new Table();
+				$table->StartRow();
+				$table->AddHeader('Points to Distribute', 2);
+				$table->EndRow();
+				$table->AddRow('Statribute Points: ', $sheet->StatributePoints());
+				$table->AddRow('Expertise Points: ', $character->TotalPoints());
+				$table->EndTable();
+				
+				hr();
+			    
+		    	$form = new Form($page);
+		    	
+		    	foreach($sheet->GetStats(12) as $stat){
+			    	if ($stat->IsInt()){
+				    	$value = 0;
+				    	if (array_key_exists($stat->GetID(), $value_set)){
+					    	$value = $value_set[$stat->GetID()];
+				    	}
+			    		$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", $value, 5);
+		    		} else {
+			    		$value = '';
+				    	if (array_key_exists($stat->GetID(), $value_set)){
+					    	$value = $value_set[$stat->GetID()];
+				    	}
+			    		$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", stripslashes($value));
+		    		}
+		    	}
+		    	
+		    	for ($i = 1; $i <= 6; $i++){
+			    	$field = new Field($i);
+				    $form->AddSectionTitle($field->GetName());
+			    	foreach($sheet->GetStats($i) as $stat){
+				    	if ($i <= 2){
+					    	$prefix = 'stat';
+				    	} else {
+					    	$prefix = 'expr';
+				    	}
+				    	$value = 0;
+				    	if (array_key_exists($stat->GetID(), $value_set)){
+					    	$value = $value_set[$stat->GetID()];
+				    	}
+					    $form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', $prefix."[".$stat->GetID()."]", $value, 5);
+			    	}
+		    	}
+		    	for ($i = 10; $i <= 11; $i++){
+			    	$field = new Field($i);
+				    $form->AddSectionTitle($field->GetName());
+			    	foreach($sheet->GetStats($i) as $stat){
+				    	if ($stat->IsInt()){
+					    	$value = 0;
+					    	if (array_key_exists($stat->GetID(), $value_set)){
+						    	$value = $value_set[$stat->GetID()];
+					    	}
+				    		$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", $value, 5);
+			    		} else {
+				    		$value = '';
+					    	if (array_key_exists($stat->GetID(), $value_set)){
+						    	$value = $value_set[$stat->GetID()];
+					    	}
+				    		$form->AddTextArea($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", stripslashes($value));
+			    		}
+			    	}
+		    	}
+		    	$form->AddHidden('id', $_REQUEST['id']);
+		    	$form->AddHidden('process', 1);
+		    	$form->AddSubmitButton('view', 'Check Sheet');
+		    	$form->EndForm();
+	    	}	  	
     	} else {
 	    	echo 'Can not make any edits to this sheet.';
 	    	if ($character->GetBan()){
