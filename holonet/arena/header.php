@@ -312,7 +312,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_equation') . '">Create&nbsp;New&nbsp;Variable</a><br />';
 
         echo '<br />Arena&nbsp;System<br />';
-        echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Old&nbsp;Matches</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Matches</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_complete') . '">Complete&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_editor') . '">Edit&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_post') . '">Post&nbsp;New&nbsp;Match</a><br />';

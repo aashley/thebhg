@@ -22,6 +22,7 @@ function output() {
     $table = new Table('Pending Challenges', true);
     $table->StartRow();
     $table->AddHeader('Challenger');
+    $table->AddHeader('Challengee');
     $table->AddHeader('Match Type');
     $table->AddHeader('Location');
     $table->AddHeader('Weapon Type');
@@ -33,6 +34,7 @@ function output() {
     foreach($recent as $value) {
         $type = $value->GetType();
         $challenger = $value->GetChallenger();
+        $challengee = $value->GetChallengee();
         $weapon = $value->GetWeaponType();
         $location = $value->GetLocation();
         $gauntlet = 'No';
@@ -42,15 +44,16 @@ function output() {
         }
         
         $table->StartRow();
-        $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challenger->GetID()), 'roster') . '">' . $challenger->GetName() . '</a>');
+        $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$challenger->GetID())) . '">' . $challenger->GetName() . '</a>');
+        $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$challengee->GetID())) . '">' . $challengee->GetName() . '</a>');
         $table->AddCell($type->GetName());
         $table->AddCell($location->GetName());
         $table->AddCell($weapon->GetWeapon());
         $table->AddCell($value->GetWeapons());
         $table->AddCell($value->GetPosts());
 	    $table->AddCell($gauntlet);
-        $table->AddCell('<a href="' . internal_link('acn_arena_accept', array('id'=>$value->GetID())) . '">Accept</a>');
-        $table->AddCell('<a href="' . internal_link('acn_arena_decline', array('id'=>$value->GetID())) . '">Decline</a>');
+        $table->AddCell('<a href="' . internal_link('admin_arena_complete', array('id'=>$value->GetID())) . '">Complete</a>');
+        $table->AddCell('<a href="' . internal_link('admin_arena_remove', array('id'=>$value->GetID())) . '">Remove</a>');
         $table->EndRow();
     }
     $table->EndTable();

@@ -40,9 +40,9 @@ function output() {
             $location = $value->GetLocation();
             $setting = $value->GetSettings();
             $table->StartRow();
-            $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challenger->GetID()), 'roster') . '">' . $challenger->GetName() . '</a>');
+            $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$challenger->GetID())) . '">' . $challenger->GetName() . '</a>');
             $table->AddCell($challenger->GetShipLink());
-            $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challengee->GetID()), 'roster') . '">' . $challengee->GetName() . '</a>');
+            $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$challengee->GetID())) . '">' . $challengee->GetName() . '</a>');
             $table->AddCell($challengee->GetShipLink());
             if ($value->HasLocation()){
                 $table->AddCell($location->GetName());
