@@ -34,8 +34,12 @@ Class Chara extends Sheet {
     }
     
     function GetName(){
-	    
 	    return $this->cs_person->GetName();
+    }
+    
+    function LastEdit(){
+	    $date = getdate($this->cs_last_change);
+	    return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
     }
     
     function HasValue(){
