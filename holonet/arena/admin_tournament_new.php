@@ -22,6 +22,8 @@ function output() {
     
     $activity = new Obj('ams_activities', $_REQEUST['act'], 'holonet');
     $type = new Obj('ams_types', $activity->Get(type), 'holonet');
+    print_r($type);
+    print_r($activity);
     if ($type->Get(opponent)){
 	    $at = new Tournament($_REQUEST['act']);
 	    
