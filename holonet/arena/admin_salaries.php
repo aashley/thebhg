@@ -21,6 +21,7 @@ function output() {
 			$person = $roster->GetPerson($rid);
 			$person->AddCredits($credits, 'RP Aide Salary');
 		}
+		echo 'Salaries paid';
 	}
 	elseif ($_REQUEST['submit']) {
 		$startut = parse_date_box('start');
