@@ -417,6 +417,7 @@ function admin_footer($auth_data) {
 	    echo '<br /><b>Coder&nbsp;Resources</b><br />';
 	    echo '&nbsp;<a href="' . internal_link('coder_mod') . '">Add&nbsp;CS&nbsp;Modifcation</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('coder_mod_mod') . '">Modify&nbsp;CS&nbsp;Modifcation</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('coder_mod_ss') . '">Modify&nbsp;Mod&nbsp;Skill/Stats</a><br />';
     }
     
 	if ($auth_data['aa']){

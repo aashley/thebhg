@@ -11,6 +11,7 @@
     var $cs_ban;
     var $cs_date_deleted;
     var $LastID;
+    var $project;
 
     function Character($id) {
         Sheet::Sheet();
@@ -28,6 +29,8 @@
             }
 
         }
+        
+        $this->project = $this->GetSheetMod('base');
 
     }
     
@@ -241,18 +244,22 @@
     function GetValue($skill, $look = 'values', $render = 'SHEET', $id = 0, $col = 'id'){
 	    $sql = "SELECT * FROM `cs_skill_equ` WHERE `skill` = '$skill'";
         $query = mysql_query($sql, $this->connect);
-        
-        $output = 0;
+
+	    $output = 0;
+	    $denominator = 0;
         
         while($info = mysql_fetch_array($query)){
-	        $output += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col)*$info['modifier'];
+	        if ($this->Permit(1, $info['statribute'], $this->project)){
+	        	$output += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col)*$info['modifier'];
+	        	$denominator += $info['modifier'];
+        	}
         }
         
-        $sql = "SELECT SUM(`modifier`) as denominator FROM `cs_skill_equ` WHERE `skill` = '$skill'";
-        $query = mysql_query($sql, $this->connect);
-        $info = mysql_fetch_array($query);
-        
-        $denominator = $info['denominator'];
+        if ($denominator){
+        	$value = round($output/$denominator);
+    	} else {
+	    	return 0;
+    	}
         
         $value = round($output/$denominator);
         if ($render == 'SHEET'){
@@ -1202,8 +1209,8 @@
 	    	$table->AddRow('Division', '<a href="'.internal_link('division', array('id'=>$division->GetID()), 'roster').'">'.$division->GetName().'</a>');
 	    	$table->AddRow('Position', '<a href="'.internal_link('position', array('id'=>$position->GetID()), 'roster').'">'.$position->GetName().'</a>');
     	}
-    	$project = $this->GetSheetMod('base');
-    	
+    	$project = $this->project;
+    	if ($this->Permit(1, $stat->GetID(), $project)){
     	if ($this->HasValue($look, $col, $id)){
 	    	foreach ($this->ModFields($project) as $id){
 	    		$field = new Field($id);
