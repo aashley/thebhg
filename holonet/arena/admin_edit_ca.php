@@ -68,10 +68,9 @@ function output() {
 		    	$stval = $val['field'];
 	    	}
 
-		    $form->StartSelect('Skill', 'skill['.$id.']', 1);
+		    $form->StartSelect('Skill', 'skill['.$id.']', $skval);
 		    $form->AddOption(0, '');
 		    foreach ($sheet->GetSkills() as $value){
-			    echo $value->GetID().'|';
 			    if ($sheet->Permit(2, $value->GetID(), 1)){
 			    	$form->AddOption($value->GetID(), $value->GetName());
 		    	}
