@@ -37,5 +37,6 @@ cd /tmp
 LogMsg "New Commit: $REV"
 
 checkUpdate projects/trunk/holonet holonet-devel
+checkUpdate projects/trunk/mybhg mybhg-devel
 
 LogMsg "Revision $REV complete"
