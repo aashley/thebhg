@@ -7,10 +7,12 @@ $replacements = array();
 $replace = new Shell(0, 'ams_replacements', 'date_deleted');
 
 foreach ($replace->storage as $dump){
+	$funcs = array();
 	if (class_exists($replace->GetValue('class'))){
-		echo $replace->GetValue('class');
-		$class = new Roster;
+		$function = array($replace->GetValue('class'));
+		$funcs = 
 	}
+	if (function_exists($replace->GetValue('class')))
 	
 	$replacements[$replace->GetValue('name')] = 0;
 }
