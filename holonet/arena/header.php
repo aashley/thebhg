@@ -313,7 +313,7 @@ function get_auth_data($hunter) {
 }
 
 function admin_footer($auth_data) {
-	global $roster;
+	global $roster, $arena;
 	
 	$citadel = new Citadel();
 	

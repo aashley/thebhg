@@ -34,7 +34,7 @@ function output() {
         $form = new Form($page);
         $form->AddSectionTitle('Roster ID Number of Sheet to Add');
         $form->AddTextBox('BHG ID', 'person', '', 5);
-        $form->AddSubmitButton('Go Go Low-Tech Sheet Add');
+        $form->AddSubmitButton('Go Go Low-Tech Sheet Add Sheet!');
         $form->EndForm();
     }
 
