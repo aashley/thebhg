@@ -43,7 +43,7 @@ function output() {
 	    } else {
 		    $table = new Table('', true);
 		    $table->StartRow();
-		    $table->AddHeader('Character Sheets', 6);
+		    $table->AddHeader('Character Sheets', 7);
 		    $table->EndRow();
 
 		    $sheets = array();

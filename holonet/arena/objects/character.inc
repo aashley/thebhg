@@ -51,7 +51,7 @@
     }
     
     function Status($output){
-	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 5=>'Pending Approval', 4=>'Denied Character', 6=>'Pending Approval');
+	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 5=>'Pending Approval', 4=>'Denied Character', 6=>'Pending Approval', 7=>'Blank Sheet');
 	    if ($this->cs_bhg_id){
 		    if ($this->cs_last_change){
 			    if ($this->cs_approved){
@@ -73,7 +73,7 @@
 		    	$return = 4;
 	    	} else {
 		    	if ($this->cs_pending){
-		    		$return = 2;
+		    		$return = 7;
 	    		} else {
 		    		$return = 6;
 	    		}
