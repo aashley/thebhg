@@ -628,6 +628,39 @@
 		}	   
 	}
 	
+	function ValidLoad($id){
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '$id'";
+		$query = mysql_query($sql, $this->connect);
+		$info = mysql_fetch_array($query);
+		
+		return ($info['bhg_id'] == $this->GetID());
+	}
+	
+	function LoadBackup($id){
+		$sql = "SELECT * FROM `character_sheet_backups` WHERE `id` = '".$id."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    mysql_query($delsql, $this->connect);
+	    }
+	    
+	    $errors = 0;
+	    
+	    while($info = mysql_fetch_array($query)){
+		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".$info['value']."')";
+		    if (!mysql_query($sql, $this->connect)){
+			    $errors++;
+		    }
+	    }
+	    
+		if (!$errors){
+			return 'Backup loaded as edit sheet.';
+		} else {
+			return 'Error in update. Contact Overseer.';
+		}	   
+	}
+	
 	function Approve(){
 	    $sql = "SELECT * FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
 	    $query = mysql_query($sql, $this->connect);

@@ -38,7 +38,21 @@ function output() {
     
     if ($_REQUEST['load']){
     
-	    $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
+	    if ($character->ValidLoad($_REQUEST['sheet'])){
+	    
+		    $form = new Form($page);
+		    
+		    $form->AddHidden('sheet', $_REQUEST['sheet']);
+		    
+		    $form->table->AddRow('<input type="submit" value="Load Backup as Edit Sheet" name="goload">');
+		    
+		    $form->EndForm();
+		    hr();
+		    
+		    $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
+	    } else {
+		    echo 'This is an invlaid load. You can only load your own Backup sheets.';
+	    }
 	    
     } elseif ($_REQUEST['view']){
 	    
