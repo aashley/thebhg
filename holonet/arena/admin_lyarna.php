@@ -156,29 +156,7 @@ function output() {
 		$form->table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
 		$i = 0;
 		
-        while ($row = mysql_fetch_array($locations)) {
-	        $form->table->StartRow();
-	        if ($row['division']){
-		        $divi = new Division($row['division']);
-		        $position = new Position($row['position']);
-		        $owner = $position->GetName().' of '.$divi->GetName();
-	        } elseif ($row['bhg_id']){
-		        $hunter = new Person($row['bhg_id']);
-		        $owner = $hunter->GetName();
-	        } else {
-		        $owner = 'Not Listed in System';
-	        }
-	        $form->AddHidden('property'.$i, $row['id']);
-		  	
-			$form->table->EndRow();
-			$i++;
-        }
-        $run = $i-1;
-        $form->AddHidden('runs', $run);
-        $form->table->StartRow();
-        $form->table->AddCell('<input type="submit" name="submit" value="Update Properties">', 7);
-        $form->table->EndRow();
-        $form->EndForm();
+        
     }
 
     admin_footer($auth_data);
