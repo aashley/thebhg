@@ -165,9 +165,8 @@ function output() {
 	    $character = new Character($hunter->GetID());
 	    
 	    $saves = $character->GetBackups();
-		    
+		    echo '<table border=0 width="100%"><tr valign="top"><td>';
 		    if (count($saves)){
-			    echo '<center>';
 			    $table = new Table('', true);
 			    $table->StartRow();
 			    $table->AddHeader('Sheet Backups', 5);
@@ -182,9 +181,10 @@ function output() {
 			    }
 			    
 			    $table->EndTable();
-			    echo '</center>';
 			    hr();
 		    }
+		    echo '</td><td align="center"><div style="text-align: left">';
+		    echo '</div></td></tr></table>';
 	    
 	    $character->ParseSheet();
 	    
