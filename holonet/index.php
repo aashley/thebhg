@@ -126,7 +126,7 @@ foreach ($coders as $coder) {
 ksort($cnames);
 echo implode(', ', $cnames) . '.<br>Bugs should be reported at the <a href="http://bugs.thebhg.org/">Bug Tracker</a>.</p';
 ?>
-		<p>All rights reserved 1995-2003; original contents are protected by the United States (US) Copyright Act in accordance with the Emperor's Hammer <a href="http://www.emperorshammer.org/disclaim.htm">Disclaimers and Copyrights</a> detailed herein. This site abides by the Emperor's Hammer <a href="http://www.emperorshammer.org/privacy.htm">Privacy Policy</a>.</p>
+		<p>All rights reserved 1995-2005; original contents are protected by the United States (US) Copyright Act in accordance with the Emperor's Hammer <a href="http://www.emperorshammer.org/disclaim.htm">Disclaimers and Copyrights</a> detailed herein. This site abides by the Emperor's Hammer <a href="http://www.emperorshammer.org/privacy.htm">Privacy Policy</a>.</p>
 		<p>I hope he tells us to burn our pants.. these things are driving me nuts!</p>
 	</div>
 </body>
