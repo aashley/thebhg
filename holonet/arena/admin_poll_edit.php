@@ -120,7 +120,7 @@ function output() {
 	    	$form = new Form($page);
 	    	$form->StartSelect('Poll', 'poll');
 	    	foreach ($arena->GetPolls() as $poll){
-		    	$form->AddOption($poll->GetID(), $poll->GetQuestion);
+		    	$form->AddOption($poll->GetID(), $poll->GetQuestion());
 	    	}
 	    	$form->EndSelect();
 	    	$form->AddSubmitButton('initial', 'Edit This Poll');
