@@ -109,7 +109,6 @@ if ($_REQUEST['match']){
 			
 			
 			if ($type->Get(npc)){
-				$data = unserialize($obj->Get(specifics));
 				$npcs = array();
 				for ($i = 1; $i <= $activity->Get(num_npc); $i++){
 					$npcs[] = new Parse_NPC($data[$arena->NPCID()]);
