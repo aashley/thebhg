@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.5";
+    echo "Current version: v1.5.1";
     
     hr();
     
@@ -20,7 +20,7 @@ function output() {
     
     hr();
     
-    echo "Last Update: Higher ups can award creds quickly to RP Aides, and added the ACNC. Also took away the ACN link to Starfield Arena Challenges. This will come back when the SSL is refit, and it is at this time the ACNC will be up for use.";
+    echo "Last Update: Fixed credit award problems. Higher ups can award creds quickly to RP Aides, and added the ACNC. Also took away the ACN link to Starfield Arena Challenges. This will come back when the SSL is refit, and it is at this time the ACNC will be up for use.";
     
     hr();
     

@@ -19,7 +19,7 @@ function output() {
     if ($_REQUEST['aides']) {
 		foreach ($_REQUEST['aides'] as $rid=>$credits) {
 			$person = $roster->GetPerson($rid);
-			$person->AddCredits($credits, 'salary');
+			$person->AddCredits($credits, 'RP Aide Salary');
 		}
 	}
 	elseif ($_REQUEST['submit']) {
@@ -45,7 +45,7 @@ function output() {
 				    if ($pay['start_date'] > $start){
 					    $time = $pay['end_date'] - $pay['start_date'];
 				    } else {
-				    	$time = $pay['end_date'] - $start;
+				    	$time = $pay['end_date'] - $starut;
 			    	}
 		    	}
 		    	

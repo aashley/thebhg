@@ -24,7 +24,7 @@ function output() {
       
 			$credits = "credits$i";
 			
-			$awarded = new Person($_REQUEST[$person]);
+			$awarded = $roster->GetPerson($_REQUEST[$person]);
 			$awarded->AddCredits($_REQUEST[$credits], $_REQUEST['reason']);
 			
 		}
@@ -132,12 +132,6 @@ function output() {
 	<input type="hidden" name="page" value="<?=$page?>">
 	Reason: <input type="text" name="reason" size=25>
 	<?php
-	if ($pos->GetID() == 11) {
-	?>
-	<br>Dates: <input type="text" name="startdate" size=10>&nbsp;to&nbsp;<input type="text" name="enddate" size=10>
-	<br><br>Hunters Involved: <select name="active[]" size=5 multiple><? echo implode("", $plebs); ?></select><br>(Hold Control to select more than one Hunter.)<br><br>
-	<?php
-	}
   
 	$table = new Table('', true);
   
@@ -152,14 +146,10 @@ function output() {
 	for ($i = 0; $i < $fields; $i++) {
     
     $table->StartRow();
-    
-		if ($pos->GetID() != 11) {
       
 			$table->AddCell("<select name=\"kabal$i\" "
         ."onChange=\"swap_kabal(this.form, $i)\">"
         ."<option value=\"-1\">N/A</option>$kabals</select>");
-      
-    }
     
 		$cell = "<select name=\"person$i\">";
       

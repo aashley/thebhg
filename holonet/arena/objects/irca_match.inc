@@ -155,7 +155,7 @@
             if (mysql_query($sql, $this->connect)) {
 
 	            
-	            $person = new Person($id);
+	            $person = new Person($id, 'fight-51-me');
 	            $person->AddCredits($creds, 'IRCA Match');
 	            
                 return true;
