@@ -43,7 +43,12 @@ function output() {
 	    		}
 	    	}
     	}
-		    
+    	
+    	if ($errors){
+	    	echo 'Errors occured while compiling';
+    	} else {
+	    	echo 'Hunters updated';
+    	}		    
 	    
     } 
     elseif (isset($_REQUEST['next'])) {
