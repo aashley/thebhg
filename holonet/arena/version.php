@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.8";
+    echo "Current version: v1.9";
     
     hr();
     
