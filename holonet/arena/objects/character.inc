@@ -163,7 +163,7 @@
     }
     
     function Ban($date){
-	    $sql = "UPDATE `character_sheets` SET `ban` = '$date' WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `ban` = '$date' WHERE `id` = '".$this->GetSheetID()."'";
 	    $query = mysql_query($sql, $this->connect);
 	    return ($query ? true : false);
     }
@@ -488,7 +488,7 @@
 	    
 	    //No errors, update status
 	    
-	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 1, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 1, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
 		if (mysql_query($sql, $this->connect)){
 			return 'Your character sheet has been saved. The Save number is '.$this->LastID.' for your records. You may submit it at any time for approval. Your sheet can not be approved until you submit it.';
 		} else {
@@ -497,7 +497,7 @@
     }
 	
     function SubmitSheet(){
-	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
 		if (mysql_query($sql, $this->connect)){
 			$sheet = new Sheet();
 			$registrar = new Person($sheet->CurrentRegistrar());
@@ -961,7 +961,7 @@
 		    }
 	    }
 	    
-	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
 		if (!$errors && mysql_query($sql, $this->connect)){
 			return 'Backup loaded as edit sheet.';
 		} else {
@@ -988,7 +988,7 @@
 		    }
 	    }
 	    
-	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
 		if (!$errors && mysql_query($sql, $this->connect)){
 			return 'Auto-Save loaded as edit sheet.';
 		} else {
@@ -1015,7 +1015,7 @@
 		    }
 	    }
 	    
-	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$this->GetSheetID()."'";
 		if (!$errors && mysql_query($sql, $this->connect)){
 			return 'CORE loaded as edit sheet.';
 		} else {
@@ -1040,7 +1040,7 @@
 		    mysql_query($sql, $this->connect);
 	    }
 	    
-	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `id` = '".$this->GetSheetID()."'";
 		if (mysql_query($sql, $this->connect)){
 			$sheet = new Sheet();
 			$registrar = new Person($sheet->CurrentRegistrar());            
@@ -1060,7 +1060,7 @@
 	}
 	
 	function Deny($reason = ''){
-		$sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";		
+		$sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `id` = '".$this->GetSheetID()."'";		
 		if (mysql_query($sql, $this->connect)){
 			$sheet = new Sheet();
 			$registrar = new Person($sheet->CurrentRegistrar()); 
