@@ -68,6 +68,7 @@ function output() {
 			}
 			print_r($names);
 			$positions = implode('', $names);
+			echo $positions;
 	    
 			foreach ($kabals_result as $kabal) {
 	      
