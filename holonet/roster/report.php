@@ -14,7 +14,7 @@ function output() {
 		$author = $roster->GetPerson($report['author']);
 		$pos = $roster->GetPosition($report['position']);
 		$pos_text = '<a href="' . internal_link('position', array('id'=>$pos->GetID())) . '">' . $pos->GetName() . '</a>';
-		if ($report['position'] >= 10) {
+		if ($report['division'] != 10 && $report['division'] != 9) {
 			$div = $roster->GetDivision($report['division']);
 			$pos_text = '<a href="' . internal_link('division', array('id'=>$div->GetID())) . '">' . $div->GetName() . '</a> ' . $pos_text;
 		}
