@@ -75,11 +75,11 @@ function next_medal($person, $group) {
 }
 
 function acn_nav(){
-	echo 'Offline';
+	echo '&nbsp;Offline';
 }
 
 function atn_nav(){
-	echo 'Offline';
+	echo '&nbsp;Offline';
 }
 
 function arena_footer($show_list = true) {
