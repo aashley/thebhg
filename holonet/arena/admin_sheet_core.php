@@ -43,7 +43,7 @@ function output() {
 		    $table->EndTable();
 	    }
 	    
-	    $sheets = $sheet->GetCores();
+	    $sheets = $sheet->GetCores('WHERE `date_deleted` = 0');
 	    
 	    if ($auth_data['sheet']){
 		    if (count($saves) && count($sheets)){
@@ -85,7 +85,7 @@ function output() {
 				echo $character->SubmitCore($_REQUEST['sheet']);
 			}
 		} elseif (isset($_REQUEST['view'])){
-			if (($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()) && isset($_REQUEST['process'])){
+			if (isset($_REQUEST['process'])){
 				echo $character->SaveCore($_REQUEST['stat'], $_REQUEST['expr'], $_REQUEST['pers'], $_REQUEST['sheet']);
 				hr();
 				$_REQUEST['sheet'] = $character->LastID;
@@ -180,6 +180,7 @@ function output() {
 	    		$form->AddHidden('sheet', $_REQUEST['sheet']);
     		}
 	    	$form->AddSubmitButton('view', 'Check Sheet');
+	    	$form->AddHidden('process', 1);
 	    	$form->EndForm();
 		}		    	
 	}
