@@ -20,7 +20,6 @@
 
     }
 
-
     function Build() {
         $sql = "SELECT arena_irca_records.bhg_id, arena_irca_records.outcome FROM arena_irca_records, arena_irca_match WHERE arena_irca_match.id = "
         	   ."arena_irca_records.match_id AND arena_irca_match.date_deleted = 0 AND arena_irca_match.match != '' ORDER BY arena_irca_records.bhg_id";
