@@ -53,19 +53,19 @@ function output() {
 	    $ski = $skippe->GetStatus();
 	    $ste = $stewar->GetStatus();
 		
-	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = 'ov'; $aa = true;}
-		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = 'aj'; $aa = true;}
-		if ($hunter->GetID() == 2650){ $rewards['Arena Management System Coder'] = 'coder'; }
-		if ($at->IsGladius($hunter->GetID())){ $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius'; }
-	    if (in_array($hunter->GetID(), $arena->GetTeta())){ $rewards['Owner of Teta\'s Knives'] = 'dagger'; }	
-		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows'; $aa = true;}
-		if ($boc){ $rewards[$boc.'of the Bounty Office'] = 'bountyoffice'; $aa = true;}
-		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = 'ocd'; $aa = true;}
-		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = 'mm'; $aa = true;}
-		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = 'skipper'; $aa = true;}
-		if ($ste){ $rewards[$ste.'Steward of the Arena'] = 'steward'; $aa = true;}
-		if ($properties){ $rewards['Owns '.pluralise('piece', $properties).' of property in Lyarna.'] = 'lyarna'; }
-		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows'] = 'dojo'; }
+	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = array('pic'=>'ov', 'page'=>'atn_award', 'anch'=>'overseer'); $aa = true;}
+		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = array('pic'=>'aj', 'page'=>'atn_award', 'anch'=>'adjunct'); $aa = true;}
+		if ($hunter->GetID() == 2650){ $rewards['Arena Management System Coder']['pic'] = 'coder'; }
+		if ($at->IsGladius($hunter->GetID())){ $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))]['pic'] = 'gladius'; }
+	    if (in_array($hunter->GetID(), $arena->GetTeta())){ $rewards['Owner of Teta\'s Knives']['pic'] = 'dagger'; }	
+		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = array('pic'=>'dojoofshadows', 'page'=>'atn_award', 'anch'=>'dojo'); $aa = true;}
+		if ($boc){ $rewards[$boc.'of the Bounty Office'] = array('pic'=>'bountyoffice', 'page'=>'atn_award', 'anch'=>'commiss'); $aa = true;}
+		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = array('pic'=>'ocd', 'page'=>'atn_award', 'anch'=>'registrar'); $aa = true;}
+		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = array('pic'=>'mm', 'page'=>'atn_award', 'anch'=>'mission'); $aa = true;}
+		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = array('pic'=>'skipper', 'page'=>'atn_award', 'anch'=>'skipper'); $aa = true;}
+		if ($ste){ $rewards[$ste.'Steward of the Arena'] = array('pic'=>'steward', 'page'=>'atn_award', 'anch'=>'steward'); $aa = true;}
+		if ($properties){ $rewards['Owns '.pluralise('piece', $properties).' of property in Lyarna.'] = array('pic'=>'lyarna', 'page'=>'lyarna'); }
+		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows']['pic'] = 'dojo'; }
 	    
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
 	    
@@ -142,7 +142,8 @@ function output() {
 			$setups = array();
 			
 			foreach ($rewards as $info=>$reward){				
-				$setups[] = '<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>';				
+				$setups[] = '<a href="'.internal_link($reward['page'], array('id'=>$hunter->GetID()).'#'.$reward['anch'].'" title="'.$info.
+							'"><img border=0 src="arena/images/distinctions/'.$reward['pic'].'.png"></a>';				
 			}
 			
 			for ($i = 0; $i < count($setups); $i += 5) {

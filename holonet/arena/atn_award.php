@@ -6,7 +6,7 @@ if (isset($_REQUEST['id'])){
 function title() {
     global $hunter;
 
-    $return = 'AMS Tracking Network :: Awarding History';
+    $return = 'AMS Tracking Network :: Administrative History';
     
     if (is_object($hunter)){
 	    $return .= ' :: ' . $hunter->GetName();
@@ -62,6 +62,7 @@ function output() {
 	    
 	    if ($overse->GetStatus()){
 			
+		    echo '<a name="overseer"></a>';
 			$table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Overseer of the Guild', 3);
@@ -86,6 +87,7 @@ function output() {
 	    
 	    if ($adjunc->GetStatus()){
 			
+		    echo '<a name="adjunct"></a>';
 			$table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Adjunct of the Guild', 2);
@@ -107,28 +109,7 @@ function output() {
 	    
 	    if ($stewar->GetStatus()){
 			
-			$table = new Table();
-		    $table->StartRow();
-		    $table->AddHeader('Steward of the Arena', 2);
-		    $table->EndRow();
-		    if ($stewar->GetMatches() || $stewar->GetCreds() || $stewar->GetXP() || $stewar->GetMedals()){
-			    if ($stewar->GetMatches()){ $table->AddRow('Matches Run:', number_format($stewar->GetMatches())); }
-			    if ($stewar->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($stewar->GetCreds()).' Imperial Credits'); }
-			    if ($stewar->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($stewar->GetXP())); }
-			    if ($stewar->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($stewar->GetMedals())); }
-		    } else {
-			    $table->StartRow();
-			    $table->AddCell('<center>No Contributions Made</center>');
-			    $table->EndRow();
-		    }
-		    $table->EndTable();
-		    echo '<br />';
-		    
-		    hr();
-	    }
-	    
-	    if ($stewar->GetStatus()){
-			
+		    echo '<a name="steward"></a>';
 			$table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Steward of the Arena', 2);
@@ -151,6 +132,7 @@ function output() {
 	    
 	    if ($master->GetStatus()){
 			
+		    echo '<a name="dojo"></a>';
 			$table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Master of the Dojo of Shadows', 2);
@@ -173,6 +155,7 @@ function output() {
 	    
 	    if ($skippe->GetStatus()){
 			
+		    echo '<a name="skipper"></a>';
 			$table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Skippers of the Starfield Arena', 2);
@@ -195,6 +178,7 @@ function output() {
 	    
 	    if ($missio->GetStatus()){
 			
+		    echo '<a name="mission"></a>';
 			$table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Mission Master of Run-Ons', 2);
@@ -217,6 +201,7 @@ function output() {
 	    
 		if ($comiss->GetStatus()){
 			
+			echo '<a name="commiss"></a>';
 			$table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Commissioner of the Bounty Office', 2);
@@ -239,6 +224,7 @@ function output() {
 	    
 	    if ($regist->GetStatus()){
 			
+		    echo '<a name="registrar"></a>';
 			$table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Office of Character Development Registrar', 2);
