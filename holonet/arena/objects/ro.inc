@@ -58,8 +58,10 @@
         $from = "overseer@thebhg.org";
         $subject = "Character Attribute Awarded";
 
-        $ro = new Person($this->CurrentMM());
-        $ro->SendEmail($from, $subject, $text);
+        if ($this->CurrentMM()){
+	        $ro = new Person($this->CurrentMM());
+	        $ro->SendEmail($from, $subject, $text);
+        }
 	    
 	    return ($query ? true : false);
     }
