@@ -654,7 +654,8 @@
 		    }
 	    }
 	    
-		if (!$errors){
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+		if (!$errors && mysql_query($sql, $this->connect)){
 			return 'Backup loaded as edit sheet.';
 		} else {
 			return 'Error in update. Contact Overseer.';
