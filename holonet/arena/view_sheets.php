@@ -30,8 +30,13 @@ function output() {
     $table->AddRow('Hunter Name', 'Date Submitted', 'Status');
     
     foreach ($sheet->SheetHolders() as $character){
-	    $person = new Person($character->GetID());
-	    $sheets[$character->GetName()] = $character;
+	    if ($_REQUEST['name'] == 'bhg'){
+	    	$person = new Person($character->GetID());
+	    	$name = $person->GetName();
+    	} else {
+	    	$name = $character->GetName();
+    	}
+	    $sheets[$name] = $character;
     }
     
     ksort($sheets);
