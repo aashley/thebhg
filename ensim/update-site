@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SVN="/usr/local/bin/svn"
+SVN="/usr/bin/svn"
 
 if [[ $# -eq 0 ]]; then
   echo "You must specify at least one of the following sites to update:"
