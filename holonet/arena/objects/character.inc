@@ -78,7 +78,7 @@
 			    	}
 			    }
 		    }
-		    if ((!$this->HasValue()) && (!this->HasValue('pending'))){
+		    if (!$this->HasValue() && !$this->HasValue('pending')){
 			    $return = -1;
 		    }
 		    if (!$this->HasValue()){
