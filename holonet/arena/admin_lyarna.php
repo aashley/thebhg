@@ -57,8 +57,10 @@ function output() {
 	    } else {
 		    $table = 'complex';
 	    }
-        $form = new Form($page);
-        $form->AddHidden('table', $table);
+        <form name="award" method="post" action="<?=$PHP_SELF?>">
+	<input type="hidden" name="module" value="<?=$module?>">
+	<input type="hidden" name="page" value="<?=$page?>">
+	<input type="hidden" name="table" value="<?=$table?>">
         $locations = mysql_query('SELECT * FROM ' . $table . ' ORDER BY name', $lyarna);        
         $kabals_result = $roster->GetDivisions();
 	    
@@ -81,11 +83,88 @@ function output() {
 	    
 			$kabals = implode('', $kabals);
 	
+<<<<<<< .mine
+		?>
+		<script language="JavaScript1.1" type="text/javascript">
+		<!--
+		function person(id, name) {
+			this.id = id;
+			this.name = name;
+		}
+	
+		<?php
+  
+			reset($kabals_result);
+	    
+		  $commindex = 0;
+	    
+			foreach ($kabals_result as $kabal) {
+	      
+				if ($kabal->GetID() == 16) {
+	        
+					continue;
+	        
+				}
+	      
+				echo 'roster' . $kabal->GetID() . " = new Array();\n";
+	      
+				$plebs = $kabal->GetMembers('name');
+	      
+		    if (is_array($plebs)) {
+	        
+		      $plebindex = 0;
+	        
+	        foreach ($plebs as $pleb) {
+	          
+	          $div_peeps[$pleb->GetName().':'.$plebindex] = 'roster'.$kabal->GetID().'['.$plebindex++.'] = new person('.$pleb->GetID().', \''
+	            .str_replace("'", "\\'", shorten_string($pleb->GetName(), 40))
+	            ."');\n";
+	            
+	        }
+	        
+	        echo implode('', $div_peeps);
+	        
+	        unset($div_peeps);
+	        
+		    }
+	      
+			}
+	    
+		?>
+	
+		function swap_kabal(frm, id) {
+		var kabal_list = eval("frm.kabal" + id);
+		var person_list = eval("frm.person" + id);
+		var kabal = kabal_list.options[kabal_list.options.selectedIndex].value;
+			if (kabal > 0) {
+				var kabal_array = eval("roster" + kabal);
+				var new_length = kabal_array.length;
+				person_list.options.length = new_length;
+				for (i = 0; i < new_length; i++) {
+					person_list.options[i] = new Option(kabal_array[i].name, kabal_array[i].id, false, false);
+				}
+			}
+			else {
+				person_list.options.length = 1;
+				person_list.options[0] = new Option("N/A", -1, false, false);
+			}
+		}
+	
+		// -->
+		</script>
+		<noscript>
+		This page requires JavaScript to function properly.
+		</noscript>
+	<?
+		$table = new Table('', true);
+		$table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
+=======
 		$form->table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position');
+>>>>>>> .r2985
 		$i = 0;
 		
         while ($row = mysql_fetch_array($locations)) {
-	        $form->table->StartRow();
+	        $table->StartRow();
 	        if ($row['division']){
 		        $divi = new Division($row['division']);
 		        $position = new Position($row['position']);
@@ -96,26 +175,31 @@ function output() {
 	        } else {
 		        $owner = 'Not Listed in System';
 	        }
-	        $form->AddHidden('property'.$i, $row['id']);
-		  	$form->table->AddCell('<input type="checkbox" name="process'.$i.'" value=1>');
-	        $form->table->AddCell($owner);
-	        $form->table->AddCell($row['name']);
-	        $form->table->AddCell($row['owner']);
-	        $form->table->AddCell("<select name=\"kabal$i\" "
+	        echo '<input type="hidden" name="property'.$i.'" value="'.$row['id'].'">';
+		  	$table->AddCell('<input type="checkbox" name="process'.$i.'" value=1>');
+	        $table->AddCell($owner);
+	        $table->AddCell($row['name']);
+	        $table->AddCell($row['owner']);
+	        $table->AddCell("<select name=\"kabal$i\" "
 	        .">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
 
-			$form->table->AddCell("<select name=\"position$i\">"
+			$table->AddCell("<select name=\"position$i\">"
 	        ."<option value=\"-1\">N/A</option>$positions</select>");
+<<<<<<< .mine
+			$table->AddCell($cell);
+			$table->EndRow();
+=======
 			$form->table->EndRow();
+>>>>>>> .r2985
 			$i++;
         }
         $run = $i-1;
-        $form->AddHidden('runs', $run);
-        $form->table->StartRow();
-        $form->table->AddCell('<input type="submit" name="submit" value="Update Properties">', 7);
-        $form->table->EndRow();
-        $form->EndForm();
+        echo '<input type="hidden" name="runs" value="'.$i.'">';
+        $table->StartRow();
+        $table->AddCell('<input type="submit" name="submit" value="Update Properties">', 7);
+        $table->EndRow();
+        $table->EndTable();
     }
 
     admin_footer($auth_data);
