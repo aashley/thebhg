@@ -461,7 +461,7 @@
 					$value = addslashes($value);
 				}
 			    
-				$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."' AND `statribute` = '$key'";
+				$sql = "DELETE FROM `character_sheet_pending` WHERE `id` = '".$this->GetSheetID()."' AND `statribute` = '$key'";
 			    mysql_query($sql, $this->connect);
 				
 			    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '$key', '$value')";
