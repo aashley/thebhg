@@ -17,16 +17,6 @@ function output() {
     global $auth_data, $hunter, $page, $roster, $sheet, $arena;
     
     arena_header();
-
-    $sql = "SELECT * FROM `character_sheets` WHERE `date_deleted` = 0";
-    $query = mysql_query($sql, $arena->connect);
-    
-    while ($info = mysql_fetch_array($query)){
-	    $sql = "UPDATE `character_sheet_values` SET `id` = '".$info['id']."' WHERE `id` = '".$info['bhg_id']."'";
-	    mysql_query($sql, $arena->connect);
-	    $sql = "UPDATE `character_sheet_pending` SET `id` = '".$info['id']."' WHERE `id` = '".$info['bhg_id']."'";
-	    mysql_query($sql, $arena->connect);
-    }
     
     if ($_REQUEST['delb']){
 	    $sheet->DeleteBlank();
