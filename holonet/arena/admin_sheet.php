@@ -129,10 +129,15 @@ function output() {
 				    $form->table->EndRow();
 			    	$form->EndForm();
 		    	} else {
-			    	$form = new Form($page);	
-				    $form->AddHidden('id', $_REQUEST['id']);    	
-				    $form->table->AddRow('<input type="submit" name="save" Value="Submit Sheet">');
-			    	$form->EndForm();
+			    	$character->UpdateCache();
+			    	if ($character->HasValue('pending')){
+				    	$form = new Form($page);	
+					    $form->AddHidden('id', $_REQUEST['id']);    	
+					    $form->table->AddRow('<input type="submit" name="save" Value="Submit Sheet">');
+				    	$form->EndForm();
+			    	} else {
+				    	echo '<h4>You Cannot Submit a Blank Sheet for Approval!';
+			    	}
 		    	}
 			} else {
 				
