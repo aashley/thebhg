@@ -26,6 +26,9 @@
                 ."AND arena_starfield_match.id = arena_starfield_records.match_id AND arena_starfield_match.match_id > 0 AND arena_starfield_match.date_deleted = 0 AND "
                 ."arena_starfield_match.match_id > 0 ORDER BY arena_starfield_records.bhg_id";
         $query = mysql_query($sql, $this->connect);
+        $total = "SELECT * FROM `arena_starfield_match` WHERE `match_id` > 0 AND `date_deleted` = 0";
+        $qtotal = mysql_query($total, $this->connect);
+        $total = mysql_num_rows($total);
         $return = array();
         $var = array();
 
@@ -41,7 +44,7 @@
             $key = $keys[$i];
             $result = $var[$key];
             $new = array_sum($result);
-            $put = array($key => $new);
+            $put = array($key => $new/$total);
             $return = $return + $put;
             $i++;
         }

@@ -28,6 +28,9 @@
         $query = mysql_query($sql, $this->connect);
         $return = array();
         $var = array();
+        $total = "SELECT * FROM `arena_ladder_match` WHERE `match_id` > 0 AND `date_deleted` = 0";
+        $qtotal = mysql_query($total, $this->connect);
+        $total = mysql_num_rows($total);
 
         while ($result = mysql_fetch_array($query)){
             $var[$result['bhg_id']][] = $result['outcome'];
@@ -41,7 +44,7 @@
             $key = $keys[$i];
             $result = $var[$key];
             $new = array_sum($result);
-            $put = array($key => $new);
+            $put = array($key => $new/$total);
             $return = $return + $put;
             $i++;
         }

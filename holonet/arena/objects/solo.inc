@@ -262,7 +262,10 @@
         $query = mysql_query($sql, $this->connect);
         $return = array();
         $var = array();
-
+		$total = "SELECT * FROM `arena_solo_contracts` WHERE `bhg_id` > 0";
+        $qtotal = mysql_query($total, $this->connect);
+        $total = mysql_num_rows($total);
+        
         while ($result = mysql_fetch_array($query)){
             $grade = new Grade($result['grade']);
             $var[$result['bhg_id']][] = $grade->GetPoints();
@@ -276,7 +279,7 @@
             $key = $keys[$i];
             $result = $var[$key];
             $new = array_sum($result);
-            $put = array($key => $new);
+            $put = array($key => $new/$total);
             $return = $return + $put;
             $i++;
         }

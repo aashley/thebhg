@@ -169,7 +169,9 @@
     }
     
     function Build() {
-
+		$total = "SELECT * FROM `arena_lw_contract` WHERE `bhg_id` > 0";
+        $qtotal = mysql_query($total, $this->connect);
+        $total = mysql_num_rows($total);
         $sql = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` > 0 ORDER BY `bhg_id` ASC";
         $query = mysql_query($sql, $this->connect);
         $return = array();
@@ -187,7 +189,7 @@
             $key = $keys[$i];
             $result = $var[$key];
             $new = array_sum($result);
-            $put = array($key => $new);
+            $put = array($key => $new/$total);
             $return = $return + $put;
             $i++;
         }
