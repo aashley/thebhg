@@ -12,28 +12,50 @@ $table = new Table();
 $table->StartRow();
 $table->AddHeader('');
 $table->AddHeader('Hunter');
-$table->AddHeader('Point Average');
-$table->AddHeader('Points');
+$table->AddHeader('Scaled Point Average');
+$table->AddHeader('Scaled Points');
 $table->AddHeader('KAGs');
 $table->AddHeader('Completed Events');
 $table->EndRow();
 
-$result = mysql_query('SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT kag) AS kags, SUM(points)/COUNT(DISTINCT id) AS pav FROM kag_signups WHERE state > 0 GROUP BY person ORDER BY pav DESC, points DESC, events ASC, kags ASC', $db);
-if ($result && mysql_num_rows($result)) {
-	$rank = 0;
-	while (($row = mysql_fetch_array($result)) && $rank < 10) {
-		if ($row['events'] >= 10) {
-			$hunter =& $roster->GetPerson($row['person']);
-			$table->StartRow();
-			$table->AddCell('<div style="text-align: right">' . number_format(++$rank) . '</div>');
-			$table->AddCell('<a href="../stats/hunter.php?id=' . $hunter->GetID() . '">' . htmlspecialchars($hunter->GetName()) . '</a>');
-			$table->AddCell('<div style="text-align: right">' . number_format($row['pav'], 1) . '</div>');
-			$table->AddCell('<div style="text-align: right">' . number_format($row['points']) . '</div>');
-			$table->AddCell('<div style="text-align: right">' . number_format($row['kags']) . '</div>');
-			$table->AddCell('<div style="text-align: right">' . number_format($row['events']) . '</div>');
-			$table->EndRow();
+$maxima = GetKAGMaxima();
+$hunters = array();
+foreach (array_unique($maxima) as $points) {
+	$kags = implode(', ', array_keys($maxima, $points));
+	$result = mysql_query("SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT kag) AS kags FROM kag_signups WHERE state > 0 AND kag IN ($kags) GROUP BY person ORDER BY person", $db);
+	if ($result && mysql_num_rows($result))
+		while ($row = mysql_fetch_array($result)) {
+			if (isset($hunters[$row['person']])) {
+				$hunters[$row['person']]['points'] += ScalePointsWithMaximum($points, $row['points'], $row['events']);
+				$hunters[$row['person']]['events'] += $row['events'];
+				$hunters[$row['person']]['kags'] += $row['kags'];
+				$hunters[$row['person']]['pe'] = $hunters[$row['person']]['points'] / $hunters[$row['person']]['events'];
+			}
+			else {
+				$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']);
+				$row['pe'] = $row['points'] / $row['events'];
+				$hunters[$row['person']] = $row;
+			}
 		}
-	}
+}
+
+usort($hunters, 'SortPEDesc');
+
+$rank = 0;
+$i = -1;
+while ($rank < 10 && ++$i < count($hunters)) {
+	if ($hunters[$i]['events'] < 10)
+		continue;
+	
+	$hunter =& $roster->GetPerson($hunters[$i]['person']);
+	$table->StartRow();
+	$table->AddCell('<div style="text-align: right">' . number_format(++$rank) . '</div>');
+	$table->AddCell('<a href="../stats/hunter.php?id=' . $hunter->GetID() . '">' . htmlspecialchars($hunter->GetName()) . '</a>');
+	$table->AddCell('<div style="text-align: right">' . number_format($hunters[$i]['pe'], 1) . '</div>');
+	$table->AddCell('<div style="text-align: right">' . number_format($hunters[$i]['points']) . '</div>');
+	$table->AddCell('<div style="text-align: right">' . number_format($hunters[$i]['kags']) . '</div>');
+	$table->AddCell('<div style="text-align: right">' . number_format($hunters[$i]['events']) . '</div>');
+	$table->EndRow();
 }
 
 $table->EndTable();

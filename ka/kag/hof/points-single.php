@@ -13,25 +13,35 @@ $table->AddHeader('');
 $table->AddHeader('Hunter');
 $table->AddHeader('Kabal');
 $table->AddHeader('KAG');
-$table->AddHeader('Points');
+$table->AddHeader('Scaled Points');
 $table->AddHeader('Completed Events');
 $table->EndRow();
 
-$result = mysql_query('SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, kag, kabal FROM kag_signups WHERE state > 0 GROUP BY person, kag ORDER BY points DESC, events ASC, kag ASC LIMIT 10', $db);
-if ($result && mysql_num_rows($result)) {
-	$rank = 0;
-	while ($row = mysql_fetch_array($result)) {
-		$hunter =& $roster->GetPerson($row['person']);
-		$kabal =& $roster->GetKabal($row['kabal']);
-		$table->StartRow();
-		$table->AddCell('<div style="text-align: right">' . number_format(++$rank) . '</div>');
-		$table->AddCell('<a href="../hunter.php?kag=' . $row['kag'] . '&amp;id=' . $hunter->GetID() . '">' . htmlspecialchars($hunter->GetName()) . '</a>');
-		$table->AddCell('<a href="../kabal.php?kag=' . $row['kag'] . '&amp;kabal=' . $kabal->GetID() . '">' . htmlspecialchars($kabal->GetName()) . '</a>');
-		$table->AddCell('<a href="../kag.php?id=' . $row['kag'] . '">KAG ' . roman($row['kag']) . '</a>');
-		$table->AddCell('<div style="text-align: right">' . number_format($row['points']) . '</div>');
-		$table->AddCell('<div style="text-align: right">' . number_format($row['events']) . '</div>');
-		$table->EndRow();
-	}
+$maxima = GetKAGMaxima();
+$hunters = array();
+foreach (array_unique($maxima) as $points) {
+	$kags = implode(', ', array_keys($maxima, $points));
+	$result = mysql_query("SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, kabal, kag FROM kag_signups WHERE state > 0 AND kag IN ($kags) GROUP BY person, kag ORDER BY points DESC, events ASC LIMIT 10", $db);
+	if ($result && mysql_num_rows($result))
+		while ($row = mysql_fetch_array($result)) {
+			$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']);
+			$hunters[] = $row;
+		}
+}
+
+usort($hunters, 'SortPointsDesc');
+
+for ($i = 0; $i < 10; $i++) {
+	$hunter =& $roster->GetPerson($hunters[$i]['person']);
+	$kabal =& $roster->GetKabal($hunters[$i]['kabal']);
+	$table->StartRow();
+	$table->AddCell('<div style="text-align: right">' . number_format($i + 1) . '</div>');
+	$table->AddCell('<a href="../stats/hunter.php?id=' . $hunter->GetID() . '">' . htmlspecialchars($hunter->GetName()) . '</a>');
+	$table->AddCell('<a href="../kabal.php?kag=' . $row['kag'] . '&amp;kabal=' . $kabal->GetID() . '">' . htmlspecialchars($kabal->GetName()) . '</a>');
+	$table->AddCell('<a href="../kag.php?id=' . $hunters[$i]['kag'] . '">KAG ' . roman($hunters[$i]['kag']) . '</a>');
+	$table->AddCell('<div style="text-align: right">' . number_format($hunters[$i]['points']) . '</div>');
+	$table->AddCell('<div style="text-align: right">' . number_format($hunters[$i]['events']) . '</div>');
+	$table->EndRow();
 }
 
 $table->EndTable();
