@@ -444,7 +444,7 @@ function admin_footer($auth_data) {
 	    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
-	    echo '&nbsp;<a href="' . internal_link('admin_sheet_blank') . '">Insert&nbsp;Blank&nbsp;Sheet</a><br />';
+	    //echo '&nbsp;<a href="' . internal_link('admin_sheet_blank') . '">Insert&nbsp;Blank&nbsp;Sheet</a><br />';
 	    
 	    echo '<br />Polls<br />';
         echo '&nbsp;<a href="' . internal_link('admin_poll') . '">New&nbsp;Poll</a><br />';
