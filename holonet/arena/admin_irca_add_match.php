@@ -61,9 +61,8 @@ function output() {
                 $combatants = $value->GetContenders();
                 $weapon = $value->GetWeaponType();
                 $location = $value->GetLocation();
-                print_r($combatants);
-                $challenger = new Person($combatants[0]);
-                $challengee = new Person($combatants[1]);
+                $challenger = $combatants[0];
+                $challengee = $combatants[1];
 
                 $table->StartRow();
                 $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challenger->GetID()), 'roster') . '">' . $challenger->GetName() . '</a>');
