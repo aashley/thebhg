@@ -41,7 +41,7 @@ function output() {
 	if ($_REQUEST['submit']) {
         $local = explode("_", $_REQUEST['location']);
 
-        $vs = $person1->GetID().' vs '.$person2->GetID();
+        $vs = $person1->GetName().' vs '.$person2->GetName();
         
         $new = $control->OldMatch($_REQUEST['rules'], $local[0], $local[1], $_REQUEST['posts'], $_REQUEST['num_weapon'], $person1, $person2, 
         		$_REQUEST['type_weapon'], 'Ladder Faceoff: '.$vs, 0, 0, 0, 0);
