@@ -83,11 +83,10 @@ function output() {
         $form->table->EndRow();
 
         foreach ($restrictions as $value) {
-            $form->AddCheckBox($value->GetName(), 'restriction_'.$value->GetID(), 1, $match->IsRestriction($value->GetID()));
+            $form->AddCheckBox($value->GetName(), 'restriction[]', $value->GetID(), $match->IsRestriction($value->GetID()));
         }
 
         $form->AddHidden('match_id', $_REQUEST['match_id']);
-        $form->AddHidden('restrictions', count($restrictions));
 
         $form->AddSubmitButton('submit', 'Edit Match');      
         $form->EndForm();
@@ -95,22 +94,7 @@ function output() {
     }
     elseif (isset($_REQUEST['submit'])) {
 
-        $i = 0;
-        $num = 1;
-        $restriction = array();
-
-        while ($i < $_REQUEST['restrictions']){
-            $value = $_REQUEST['restriction_'.$i];
-
-            if ($value){
-                array_push($restriction, $num);
-                $num++;
-            }
-
-            $i++;
-        }
-
-        $edit = $match->Edit($_REQUEST['name'], $_REQUEST['location'], $_REQUEST['setting'], $restriction, $_REQUEST['posts'], $_REQUEST['match_id'], $_REQUEST['type']);
+        $edit = $match->Edit($_REQUEST['name'], $_REQUEST['location'], $_REQUEST['setting'], $_REQUEST['restriction'], $_REQUEST['posts'], $_REQUEST['match_id'], $_REQUEST['type']);
 		echo $edit;
 
     }

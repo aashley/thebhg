@@ -126,11 +126,7 @@
 
     function GetRestrictions() {
 
-	    if ($this->arena_starfield_restrictions == 0){
-		    $restrictions = array();
-	    } else {
-        	$restrictions = explode("_", $this->arena_starfield_restrictions);
-		}
+	    $restrictions = unserialize($this->arena_starfield_restrictions);
 		
         return $restrictions;
     }
@@ -437,7 +433,7 @@
         }
 
         if ($restriction[0] != $this->arena_starfield_restrictions){
-            array_push($add, "`restrictions` = '".$restriction[0]."'");
+            array_push($add, "`restrictions` = '".serialize($restriction)."'");
             $return .= "Match Restructions Edited.<br />";
         }
 

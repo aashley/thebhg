@@ -162,6 +162,10 @@
 		$positions['ov']['desc'] = 'Overseer of the Guild';
 		$aas['aj'] = new Adjunct($bhg_id);
 		$positions['aj']['desc'] = 'Adjunct of the Guild';
+		$aas['sk'] = new Skipper($bhg_id);
+		$positions['sk']['desc'] = 'Skipper of the Starfield Arena';
+		$aas['st'] = new Steward($bhg_id);
+		$positions['st']['desc'] = 'Steward of the Arena';
 		
 		$output = array();
 		
@@ -201,6 +205,12 @@
 		$aas['aj'] = new Adjunct($bhg_id);
 		$positions['aj']['desc'] = 'Adjunct of the Guild';
 		$positions['aj']['table'] = 'adjunct';
+		$aas['sk'] = new Skipper($bhg_id);
+		$positions['sk']['desc'] = 'Skipper of the Starfield Arena';
+		$positions['sk']['table'] = 'skippers';
+		$aas['st'] = new Steward($bhg_id);
+		$positions['st']['desc'] = 'Steward of the Arena';
+		$positions['st']['table'] = 'stwards';
 		
 		foreach ($aas as $class=>$object){
 			if ($object->GetStatus() == 'Current '){

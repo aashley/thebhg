@@ -23,10 +23,14 @@
 
         $rest .= "0";
 
-        $restriction = explode("_0", $rest);
+        $restriction = serialize($rest);
 
+        $new = new Starfield();
+    	$skip = $new->CurrentSkipper();
+    	$skipper = new Skipper($skip);
+        
         $sql = "INSERT INTO `arena_starfield_match` (`name`, `type`, `restrictions`, `location`, `settings`, `num_posts`) "
-                ."VALUES ('".addslashes($name)."', '$type', '".$restriction[0]."', '$location', '$settings', '$posts')";
+                ."VALUES ('".addslashes($name)."', '$type', '".$restriction[0]."', '$location', '$settings', '$posts', '".$skipper->GetID()."')";
 
         if (mysql_query($sql, $this->connect)) {
 

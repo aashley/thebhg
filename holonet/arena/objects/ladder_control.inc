@@ -27,8 +27,12 @@
 	    	$dojo = $dm->GetID();
     	}
     	
-        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `start`, `end`, `accepted`, `match_id`, `is_dojo`) "
-                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$start', '$end', '1', '$match_id', '$dojo')";
+    	$new = new Ladder();
+    	$stew = $new->CurrentSteward();
+    	$steward = new Steward($stew);
+    	
+        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `start`, `end`, `accepted`, `match_id`, `is_dojo`, `steward`) "
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$start', '$end', '1', '$match_id', '$dojo', '".$steward->GetID()."')";
 
         if (mysql_query($sql, $this->connect)) {
 
@@ -63,6 +67,10 @@
 	    	$dojo = $dm->GetID();
     	}
         
+    	$new = new Ladder();
+    	$stew = $new->CurrentSteward();
+    	$steward = new Steward($stew);
+    	
         /*$ttg = new TTG();
         $gauntlet = 0;
         
@@ -72,8 +80,8 @@
 	        }
         }*/
         
-        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `is_dojo`) "
-                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$dojo')";
+        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `is_dojo`, `steward`) "
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$dojo', '".$steward->GetID()."')";
 
         if (mysql_query($sql, $this->connect)) {
 

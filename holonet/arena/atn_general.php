@@ -39,6 +39,8 @@ function output() {
 	    $missio = new MissionMaster($hunter->GetID());
 	    $overse = new Overseer($hunter->GetID());
 	    $adjunc = new Adjunct($hunter->GetID());
+	    $skippe = new Skipper($hunter->GetID());
+	    $stewar = new Steward($hunter->GetID());
 	    
 	    $boc = $comiss->GetStatus();
 	    $djm = $master->GetStatus();
@@ -46,6 +48,8 @@ function output() {
 	    $mis = $missio->GetStatus();
 	    $ove = $overse->GetStatus();
 	    $adj = $adjunc->GetStatus();
+	    $ski = $skippe->GetStatus();
+	    $ste = $stewar->GetStatus();
 		
 	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = 'ov'; $aa = true;}
 		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = 'aj'; $aa = true;}
@@ -56,6 +60,8 @@ function output() {
 		if ($boc){ $rewards[$boc.'of the Bounty Office'] = 'bountyoffice'; $aa = true;}
 		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = 'ocd'; $aa = true;}
 		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = 'mm'; $aa = true;}
+		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = 'skipper'; $aa = true;}
+		if ($ste){ $rewards[$ste.'Steward of the Arena'] = 'steward'; $aa = true;}
 		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows'] = 'dojo'; }
 	    
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';

@@ -61,6 +61,27 @@
 	    }
     }
     
+    function CurrentSteward(){
+        $sql = "SELECT * FROM `arena_stewards` WHERE `end_date` = '0'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        return $info['bhg_id'];
+    }
+    
+    function NewSteward($bhg_id){
+	    $current = new Steward($this->CurrentSteward());
+	    $current->EndTerm();
+	    
+	    $sql = "INSERT INTO `arena_stewards` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
     function PendingDojo($type = 'match_id'){
         $sql = "SELECT * FROM `arena_ladder_match` WHERE `date_deleted` = 0 AND `accepted` = 1 AND `$type` = 0 AND `is_dojo` = 1";
         $query = mysql_query($sql, $this->connect);

@@ -93,10 +93,9 @@ function output() {
 		            $form->table->EndRow();
 		
 		            foreach ($restrictions_type as $value) {
-		                $form->AddCheckBox($value->GetName(), 'restriction_'.$value->GetID(), 1);
+		                $form->AddCheckBox($value->GetName(), 'restriction[]', $value->GetID());
 		            }
 		
-		            $form->AddHidden('num_restriction', count($restrictions_type));
 		            $form->AddHidden('challengee', $_REQUEST['challengee']);
 		
 		            $form->AddSubmitButton('submit', 'Challenge');

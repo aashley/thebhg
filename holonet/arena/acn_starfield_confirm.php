@@ -23,21 +23,10 @@ function output() {
     $i = 0;
     $num = 1;
     $restrictions = array();
-
-    while ($i < $_REQUEST['num_restriction']+1){
-
-        if (isset($_REQUEST['restriction_'.$i])){
-            array_push($restrictions, $num);
-        }
-        
-        $num++;
-
-        $i++;
-    }
     
     $starfield = new StarfieldControl();
     
-    $challenge = $starfield->Challenge($_REQUEST['type'], $restrictions, $_REQUEST['setting'], $_REQUEST['location'], $_REQUEST['posts'],
+    $challenge = $starfield->Challenge($_REQUEST['type'], $_REQUEST['restriction'], $_REQUEST['setting'], $_REQUEST['location'], $_REQUEST['posts'],
     				$hunter->GetID(), $_REQUEST['challengee'], $_REQUEST['my_ship'], $_REQUEST['their_ship'], 
     				'http://holonet.thebhg.org/');
     				

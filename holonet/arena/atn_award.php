@@ -32,11 +32,13 @@ function output() {
 	    $missio = new MissionMaster($hunter->GetID());
 	    $overse = new Overseer($hunter->GetID());
 	    $adjunc = new Adjunct($hunter->GetID());
+	    $stewar = new Steward($hunter->GetID());
+	    $skippe = new Skipper($hunter->GetID());
 	    
-	    if ($comiss->GetStatus() || $master->GetStatus() || $regist->GetStatus() || $missio->GetStatus() || $overse->GetStatus() || $adjunc->GetStatus()){
-		    $cred_total = $overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
-		    $xp_total = $overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
-		    $meda_total = $overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
+	    if ($comiss->GetStatus() || $master->GetStatus() || $regist->GetStatus() $stewar->GetStatus() || $skippe->GetStatus() || $missio->GetStatus() || $overse->GetStatus() || $adjunc->GetStatus()){
+		    $cred_total = $stewar->GetStatus()+$skippe->GetStatus()+$overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
+		    $xp_total = $stewar->GetStatus()+$skippe->GetStatus()+$overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
+		    $meda_total = $stewar->GetStatus()$skippe->GetStatus()+$overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
 		    $table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Total Contributions', 2);
@@ -103,18 +105,40 @@ function output() {
 		    hr();
 	    }
 	    
-		if ($comiss->GetStatus()){
+	    if ($stewar->GetStatus()){
 			
 			$table = new Table();
 		    $table->StartRow();
-		    $table->AddHeader('Commissioner of the Bounty Office', 2);
+		    $table->AddHeader('Steward of the Arena', 2);
 		    $table->EndRow();
-		    if ($comiss->GetContracts() || $comiss->GetCreds() || $comiss->GetXP() || $comiss->GetMedals()){
-			    if ($comiss->GetContracts()){ $table->AddRow('Contracts Overseen:', number_format($comiss->GetContracts())); }
-			    if ($comiss->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($comiss->GetCreds()).' Imperial Credits'); }
-			    if ($comiss->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($comiss->GetXP())); }
-			    if ($comiss->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($comiss->GetMedals())); }
-			} else {
+		    if ($stewar->GetMatches() || $stewar->GetCreds() || $stewar->GetXP() || $stewar->GetMedals()){
+			    if ($stewar->GetMatches()){ $table->AddRow('Matches Run:', number_format($stewar->GetMatches())); }
+			    if ($stewar->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($stewar->GetCreds()).' Imperial Credits'); }
+			    if ($stewar->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($stewar->GetXP())); }
+			    if ($stewar->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($stewar->GetMedals())); }
+		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
+		    $table->EndTable();
+		    echo '<br />';
+		    
+		    hr();
+	    }
+	    
+	    if ($stewar->GetStatus()){
+			
+			$table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Steward of the Arena', 2);
+		    $table->EndRow();
+		    if ($stewar->GetMatches() || $stewar->GetCreds() || $stewar->GetXP() || $stewar->GetMedals()){
+			    if ($stewar->GetMatches()){ $table->AddRow('Matches Run:', number_format($stewar->GetMatches())); }
+			    if ($stewar->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($stewar->GetCreds()).' Imperial Credits'); }
+			    if ($stewar->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($stewar->GetXP())); }
+			    if ($stewar->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($stewar->GetMedals())); }
+		    } else {
 			    $table->StartRow();
 			    $table->AddCell('<center>No Contributions Made</center>');
 			    $table->EndRow();
@@ -137,6 +161,72 @@ function output() {
 			    if ($master->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($master->GetXP())); }
 			    if ($master->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($master->GetMedals())); }
 		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
+		    $table->EndTable();
+		    echo '<br />';
+		    
+		    hr();
+	    }
+	    
+	    if ($skippe->GetStatus()){
+			
+			$table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Skippers of the Starfield Arena', 2);
+		    $table->EndRow();
+		    if ($skippe->GetMatches() || $skippe->GetCreds() || $skippe->GetXP() || $skippe->GetMedals()){
+			    if ($skippe->GetMatches()){ $table->AddRow('Matches Run:', number_format($skippe->GetMatches())); }
+			    if ($skippe->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($skippe->GetCreds()).' Imperial Credits'); }
+			    if ($skippe->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($skippe->GetXP())); }
+			    if ($skippe->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($skippe->GetMedals())); }
+		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
+		    $table->EndTable();
+		    echo '<br />';
+		    
+		    hr();
+	    }
+	    
+	    if ($missio->GetStatus()){
+			
+			$table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Mission Master of Run-Ons', 2);
+		    $table->EndRow();
+		    if ($missio->GetROs() || $missio->GetXP() || $missio->GetCreds() || $missio->GetMedals()){
+			    if ($missio->GetROs()){ $table->AddRow('Run-Ons Moderated:', number_format($missio->GetROs())); }
+			    if ($missio->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($missio->GetCreds()).' Imperial Credits'); }
+			    if ($missio->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($missio->GetXP())); }
+			    if ($missio->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($missio->GetMedals())); }
+		    } else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
+		    $table->EndTable();
+		    echo '<br />';
+		    
+		    hr();
+	    }
+	    
+		if ($comiss->GetStatus()){
+			
+			$table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Commissioner of the Bounty Office', 2);
+		    $table->EndRow();
+		    if ($comiss->GetContracts() || $comiss->GetCreds() || $comiss->GetXP() || $comiss->GetMedals()){
+			    if ($comiss->GetContracts()){ $table->AddRow('Contracts Overseen:', number_format($comiss->GetContracts())); }
+			    if ($comiss->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($comiss->GetCreds()).' Imperial Credits'); }
+			    if ($comiss->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($comiss->GetXP())); }
+			    if ($comiss->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($comiss->GetMedals())); }
+			} else {
 			    $table->StartRow();
 			    $table->AddCell('<center>No Contributions Made</center>');
 			    $table->EndRow();
@@ -174,29 +264,6 @@ function output() {
 		    $table->EndTable();
 		    echo '<br />';
 		    
-		    hr();
-	    }
-	    
-	    if ($missio->GetStatus()){
-			
-			$table = new Table();
-		    $table->StartRow();
-		    $table->AddHeader('Mission Master of Run-Ons', 2);
-		    $table->EndRow();
-		    if ($missio->GetROs() || $missio->GetXP() || $missio->GetCreds() || $missio->GetMedals()){
-			    if ($missio->GetROs()){ $table->AddRow('Run-Ons Moderated:', number_format($missio->GetROs())); }
-			    if ($missio->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($missio->GetCreds()).' Imperial Credits'); }
-			    if ($missio->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($missio->GetXP())); }
-			    if ($missio->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($missio->GetMedals())); }
-		    } else {
-			    $table->StartRow();
-			    $table->AddCell('<center>No Contributions Made</center>');
-			    $table->EndRow();
-		    }
-		    $table->EndTable();
-		    echo '<br />';
-		    
-		    hr();
 	    }
 		
 	}

@@ -230,6 +230,7 @@ function get_auth_data($hunter) {
     $ladder = new Ladder();
     $ro = new RO();
     $sheet = new Sheet();
+    $starfield = new Starfield();
 
     $auth_data['id'] = $hunter->GetID();
 
@@ -259,6 +260,7 @@ function get_auth_data($hunter) {
         $auth_data['sheet'] = true;
         $auth_data['ro'] = true;
         $auth_data['aa'] = true;
+        $auth_data['arena'] = true;
     } else {
         $auth_data['rp'] = false;
         $auth_data['solo'] = false;
@@ -273,6 +275,7 @@ function get_auth_data($hunter) {
         $auth_data['sheet'] = false; 
         $auth_data['ro'] = false; 
         $auth_data['aa'] = false;
+        $auth_data['arena'] = false;
     }
     
     if ($pos->GetID() == 7 || $pos->GetID() == 3) {
@@ -281,6 +284,16 @@ function get_auth_data($hunter) {
     
     if ($hunter->GetID() == $ladder->CurrentMaster()){
 	    $auth_data['dojo'] = true;
+	    $auth_data['aa'] = true;
+    }
+    
+    if ($hunter->GetID() == $ladder->CurrentSteward()){
+	    $auth_data['arena'] = true;
+	    $auth_data['aa'] = true;
+    }
+    
+    if ($hunter->GetID() == $starfield->CurrentSkipper()){
+	    $auth_data['star'] = true;
 	    $auth_data['aa'] = true;
     }
     

@@ -94,6 +94,27 @@
         return $return;
     }
     
+    function CurrentSkipper(){
+        $sql = "SELECT * FROM `arena_skippers` WHERE `end_date` = '0'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        return $info['bhg_id'];
+    }
+    
+    function NewSkipper($bhg_id){
+	    $current = new Skipper($this->CurrentSkipper());
+	    $current->EndTerm();
+	    
+	    $sql = "INSERT INTO `arena_kippers` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
     function NewType($name, $description){
 	    $sql = "INSERT INTO `arena_starfield_type` (`name`, `description`) VALUES ('".addslashes($name)."', '".addslashes($description)."')";
 	    
