@@ -164,7 +164,7 @@ function output() {
 			}
 			
 			for ($i = 0; $i < count($setups); $i += 5) {
-				echo implode('', array_slice($setups, $i, 5)).'<br />';
+				echo '<br />'.implode('', array_slice($setups, $i, 5));
 			}
 		}
 	    
@@ -187,7 +187,7 @@ function output() {
 			}
 			
 			for ($i = 0; $i < count($setups); $i += 5) {
-				echo implode('', array_slice($setups, $i, 5)).'<br />';
+				echo '<br />'.implode('', array_slice($setups, $i, 5));
 			}
 		}
 	    
