@@ -77,7 +77,7 @@
     }
     
     function GetEnd() {
-        if ($this->GetEnds() > time()){
+        if ($this->GetEnds() < time()){
             $date = getdate($this->GetEnds());
             return $date['month']." ".$date['mday'].", ".$date['year'];
         } else {
