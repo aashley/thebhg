@@ -34,16 +34,11 @@ function output() {
 	    $aides = array();
 	    
 	    $pp = $endut - $startut;
-	    
-	    echo $pp;
-	    
+
 	    foreach ($bitches as $bitch){
 		    foreach ($bitch as $pay){
-			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
+			    if ($pay['end_date'] == 0 && $pay['start_date'] < $startut){
 				    $time = $endut - $pay['start_date'];
-				    if ($pay['bhg_id'] == 1625){
-					    echo '|'.$time.'|'.$pay['start_date'];
-				    }
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
 				    $time = $endut - $startut;
 			    } else {
