@@ -30,11 +30,6 @@ function coders(){
 	return array(2650);
 }
 
-function NEC($error){
-	global $arena;
-	echo $arena->NEC($error);
-}
-
 function mb_link($id){
 	return '<a href="http://boards.thebhg.org/index.php?op=view&topic='.$id.'">'.$id.'</a>';
 }
@@ -136,13 +131,8 @@ function atn_nav(){
     }
 }
 
-function arena_footer($show_list = true) {
+function arena_footer() {
     global $roster, $arena;
-
-    if ($show_list == false) {
-        echo '</td></tr></table>';
-        return;
-    }
 
     acn_nav();
 

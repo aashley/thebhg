@@ -34,6 +34,6 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
    	echo "The Arena Management System is &copy; Ric Gravant, 2004-2005.";
 	
-    arena_footer(false);
+    arena_footer();
 }
 ?>
