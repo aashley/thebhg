@@ -67,6 +67,10 @@
 		    $return = 2;
 	    }
 	    
+	    if (!$this->HasValue()){
+		    $return = 2;
+	    }
+	    
 	    if ($output == 'HUMAN'){
 		    return $status[$return];
 	    } elseif ($output == 'SYSTEM'){
