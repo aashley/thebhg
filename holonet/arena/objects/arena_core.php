@@ -31,7 +31,7 @@
     	}
 	    
 	    $sql = "INSERT INTO `".$data['table']."` (`".implode('`, `', $data['fields'])."`) VALUES ('".implode("', '", $data['values'])."')";
-	    $query = mysql_query($sql, $res);
+	    $query = mysql_query($sql, $this->$res);
 	    
 	    return ($query ? true : false);
     }
