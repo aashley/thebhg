@@ -31,7 +31,7 @@ function output() {
     
     $values = array();
 
-    if (!isset($_REQEUST['submit'])){
+    if (isset($_REQEUST['submit'])){
 	    echo $character->Backup($_REQEUST['save'], $_REQUEST['sheet']);
 	    hr();		     
     }

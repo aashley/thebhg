@@ -596,6 +596,8 @@
 	    $id = mysql_insert_id($this->connect);
 	    $errors = 0;
 	    
+	    echo $save_name;
+	    
 	    while($info = mysql_fetch_array($query)){
 		    $sql = "INSERT INTO `character_sheet_backups` VALUES ('$id', '".$info['statribute']."', '".$info['value']."')";
 		    if (!mysql_query($sql, $this->connect)){
