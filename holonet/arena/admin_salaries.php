@@ -46,7 +46,7 @@ function output() {
 		    	}
 	    	}
 	    	
-	    	echo $time.'|';
+	    	echo $startut.'|';
 	    	
 	    	$creds = round(($time / ($endut - $startut)) * 350000);
 	
