@@ -1,7 +1,7 @@
 <?php
 function get_points($hunter) {
 	global $last_kag, $db;
-	
+	 
 	$points = 0;
 	$result = mysql_query('SELECT kag, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE person=' . $hunter->GetID() . ' AND kag>' . ($last_kag->GetID() - 5) . ' GROUP BY kag ORDER BY kag DESC', $db);
 	if ($result && mysql_num_rows($result)) {
