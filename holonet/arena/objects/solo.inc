@@ -68,7 +68,7 @@
     }
 
     function NewGrade($name, $description, $points){
-	    $sql = "INSERT INTO `arena_solo_grades` (`name`, `desc`, `points`) VALUES ('".addslashes($name)."', '".addslashes($description)."')";
+	    $sql = "INSERT INTO `arena_solo_grades` (`name`, `desc`, `points`) VALUES ('".addslashes($name)."', '".addslashes($description)."', '$points')";
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;
@@ -77,8 +77,8 @@
 	    }
     }
     
-    function NewType($name, $description){
-	    $sql = "INSERT INTO `arena_solo_types` (`name`, `description`, `points`) VALUES ('".addslashes($name)."', '".addslashes($description)."')";
+    function NewType($name, $description, $points){
+	    $sql = "INSERT INTO `arena_solo_types` (`name`, `description`, `points`) VALUES ('".addslashes($name)."', '".addslashes($description)."', '$points')";
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;

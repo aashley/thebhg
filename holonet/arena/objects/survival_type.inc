@@ -77,8 +77,6 @@
 
         } else {
 	        
-	        echo mysql_error($this->connect);
-
             $arena = new Arena();
 	        
             return $arena->NEC(175);
