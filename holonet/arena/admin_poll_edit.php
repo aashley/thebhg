@@ -51,7 +51,7 @@ function output() {
 	    $opts = $poll->GetOptions(0);
 	    
 	    if (count($opts) > count($_REQUEST['option'])){
-		    $num = count($opts)--;
+		    $num = count($opts)-1;
 		    for ($i = count($_REQUEST['option']); $i <= $num; $i++){
 			    $opts[$i]->Delete();
 		    }
