@@ -31,8 +31,8 @@ function output() {
     	$form->AddOption('stat', 'Status');
     $form->EndSelect();
     $form->StartSelect('From: ', 'list', $_REQUEST['list']);
-    	$form->AddOption('az', 'A-Z | Recent-Old');
-    	$form->AddOption('za', 'Z-A | Old-Recent');
+    	$form->AddOption('az', 'A-Z | Old-Recent');
+    	$form->AddOption('za', 'Z-A | Recent-Old');
     $form->EndSelect();
     $form->AddSubmitButton('submit', 'Filter and Reorganize');
     $form->EndForm();
