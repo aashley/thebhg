@@ -89,7 +89,7 @@
     }	    
     
     function Editable(){
-	    if ($this->Status('SYSTEM') == 5 || $this->Status('SYSTEM') == 6 || $this->cs_ban <= time()){
+	    if ($this->Status('SYSTEM') == 5 || $this->Status('SYSTEM') == 6 || $this->cs_ban > time()){
 		    return false;
 	    } else {
 		    return true;

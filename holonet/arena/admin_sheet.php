@@ -53,7 +53,7 @@ function output() {
 		    }
 		    
 		    krsort($sheets);
-		    $table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban', '&nbsp;', '&nbsp;', '&nbsp;');
+		    $table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban Till', '&nbsp;', '&nbsp;', '&nbsp;');
 		    
 		    foreach ($sheets as $sheeted){
 			    foreach ($sheeted as $character){
