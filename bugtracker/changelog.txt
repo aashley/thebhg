@@ -1,6 +1,6 @@
 -- version 3.2.1 (5/10/04) --
 1. Added magic_quotes_gpc workaround.
-2. Changed behaviour of bleach, since we htmlspecialchars everything now anyway.
+2. Don't htmlspecialchars bleached input.
 
 -- version 3.2.0 (4/10/04) --
 1. Disabled gzip compression of the output.

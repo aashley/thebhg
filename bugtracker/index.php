@@ -289,7 +289,7 @@ function bleach($str, $nowrap) {
 	if (!$nowrap) {
 		$str = wordwrap($str, 60);
 	}
-	return $str;
+	return htmlspecialchars($str);
 }
 
 function email($module, $subject, $message) {
@@ -414,8 +414,8 @@ function viewbug() {
 	echo '<tr><td>Assigned To:</td><td>' . $code_monkey . '</td></tr>';
 	echo '<tr><td>Reported:</td><td>' . date('l j/n/Y \a\t G:i:s T', $bug['time']) . '</td></tr>';
 	echo '<tr><td>Last Update:</td><td>' . date('l j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
-	echo '<tr><td>Subject:</td><td>' . htmlspecialchars($bug['subject']) . '</td></tr>';
-	echo '<tr><td>Description:</td><td><pre>' . htmlspecialchars($bug['description']) . '</pre></td></tr>';
+	echo '<tr><td>Subject:</td><td>' . $bug['subject'] . '</td></tr>';
+	echo '<tr><td>Description:</td><td><pre>' . $bug['description'] . '</pre></td></tr>';
 	echo '</table>';
 
 	echo '<hr />';
@@ -427,7 +427,7 @@ function viewbug() {
 			echo '<tr>';
 			$nper = $roster->GetPerson($note['writer']);
 			echo '<td>By: ' . htmlspecialchars($nper->GetName()) . '<br />On: ' . date('j/n/Y \a\t G:i:s T', $note['time']) . '</td>';
-			echo '<td><pre>' . htmlspecialchars($note['note']) . '</pre></td>';
+			echo '<td><pre>' . $note['note'] . '</pre></td>';
 			echo '</tr>';
 		}
 		echo '</table>';
@@ -483,7 +483,7 @@ function listbugs() {
 			else {
 				echo '<tr>';
 			}
-			echo '<td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . htmlspecialchars($bug['subject']) . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
+			echo '<td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . $bug['subject'] . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
 		}
 	}
 	else {
@@ -504,7 +504,7 @@ function listnewbugs() {
 	echo '<tr><th>Module</th><th>Status</th><th>Priority</th><th>Subject</th><th>Date/Time</th><th>Last Update</th></tr>';
 	if (count($bugs) > 0) {
 		foreach ($bugs as $bug) {
-			echo '<tr><td><a href="' . $_SERVER['PHP_SELF'] . '?page=listbugs&amp;module=' . $bug['module'] . '">' . htmlspecialchars($bug['name']) . '</a></td><td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . htmlspecialchars($bug['subject']) . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
+			echo '<tr><td><a href="' . $_SERVER['PHP_SELF'] . '?page=listbugs&amp;module=' . $bug['module'] . '">' . htmlspecialchars($bug['name']) . '</a></td><td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . $bug['subject'] . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
 		}
 	}
 	else {
@@ -708,7 +708,7 @@ function my() {
 	echo '<tr><th>Module</th><th>Status</th><th>Priority</th><th>Subject</th><th>Date/Time</th><th>Last Update</th></tr>';
 	if (count($bugs) > 0) {
 		foreach ($bugs as $bug) {
-			echo '<tr><td><a href="' . $_SERVER['PHP_SELF'] . '?page=listbugs&amp;module=' . $bug['module'] . '">' . htmlspecialchars($bug['name']) . '</a></td><td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . htmlspecialchars($bug['subject']) . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
+			echo '<tr><td><a href="' . $_SERVER['PHP_SELF'] . '?page=listbugs&amp;module=' . $bug['module'] . '">' . htmlspecialchars($bug['name']) . '</a></td><td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . $bug['subject'] . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
 		}
 	}
 	else {
@@ -727,7 +727,7 @@ function my() {
 	echo '<tr><th>Module</th><th>Status</th><th>Priority</th><th>Subject</th><th>Date/Time</th><th>Last Update</th></tr>';
 	if (count($bugs) > 0) {
 		foreach ($bugs as $bug) {
-			echo '<tr><td><a href="' . $_SERVER['PHP_SELF'] . '?page=listbugs&amp;module=' . $bug['module'] . '">' . htmlspecialchars($bug['name']) . '</a></td><td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . htmlspecialchars($bug['subject']) . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
+			echo '<tr><td><a href="' . $_SERVER['PHP_SELF'] . '?page=listbugs&amp;module=' . $bug['module'] . '">' . htmlspecialchars($bug['name']) . '</a></td><td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . $bug['subject'] . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
 		}
 	}
 	else {
@@ -796,7 +796,7 @@ function dosearch() {
 	echo '<tr><th>Module</th><th>Status</th><th>Priority</th><th>Subject</th><th>Date/Time</th><th>Last Update</th></tr>';
 	if (count($bugs) > 0) {
 		foreach ($bugs as $bug) {
-			echo '<tr><td><a href="' . $_SERVER['PHP_SELF'] . '?page=listbugs&amp;module=' . $bug['module'] . '">' . htmlspecialchars($bug['name']) . '</a></td><td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . htmlspecialchars($bug['subject']) . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
+			echo '<tr><td><a href="' . $_SERVER['PHP_SELF'] . '?page=listbugs&amp;module=' . $bug['module'] . '">' . htmlspecialchars($bug['name']) . '</a></td><td>' . htmlspecialchars($bug['status']) . '</td><td>' . htmlspecialchars($bug['priority']) . '</td><td><a href="' . $_SERVER['PHP_SELF'] . '?page=viewbug&amp;bugid=' . $bug['id'] . '">' . $bug['subject'] . '</a></td><td>' . date('j/n/Y \a\t G:i:s T', $bug['time']) . '</td><td>' . date('j/n/Y \a\t G:i:s T', $bug['lastupdate']) . '</td></tr>';
 		}
 	}
 	else {
@@ -937,7 +937,7 @@ function admin_deletebug() {
 	echo '<select size="1" name="bugid">';
 	$bugs = $db->getAll('SELECT * FROM bugs ORDER BY id DESC');
 	foreach ($bugs as $bug) {
-		echo '<option value="' . $bug['id'] . '">' . $bug['id'] . ': ' . htmlspecialchars($bug['subject']) . '</option>';
+		echo '<option value="' . $bug['id'] . '">' . $bug['id'] . ': ' . $bug['subject'] . '</option>';
 	}
 	echo '</select>';
 	echo '<br /><br /><input type="submit" value="Delete Bug" /></form>';
