@@ -42,6 +42,19 @@ Class Chara extends Sheet {
 	    return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
     }
     
+    function GetBan($type = 'SYSTEM'){
+	    if ($type == 'HUMAN'){
+		    if ($this->cs_ban >= time()){
+			    $date = getdate($this->cs_ban);
+			    return $date['mon'].'/'.$date['mday'].'/'.$date['year'];
+		    } else {
+			    return 'No Edit Ban';
+		    }
+	    } else {
+		    return $this->cs_ban;
+	    }
+    }
+    
     function HasValue(){
 	    $sql = "SELECT * FROM `character_sheet_values` WHERE `bhg_id` = '".$this->GetID()."' LIMIT 1";
         $query = mysql_query($sql, $this->connect);
