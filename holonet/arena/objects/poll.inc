@@ -312,10 +312,11 @@
 			    $percent = 0;
 		    }
 		    $table->AddRow($option->GetQuestion(), $percent.'%');
-		    hr();
-		    echo '<img src="roster/graphs/poll.php?id='.$this->poll_id.'" alt="Poll Graph" width=400 height=300 border=0>';
 	    }
 	    $table->EndTable();
+	    
+	    hr();
+	    echo '<img src="roster/graphs/poll.php?id='.$this->poll_id.'" alt="Poll Graph" width=400 height=300 border=0>';
     }
     
     function Undelete() {
