@@ -56,6 +56,8 @@
 		    $i++;
 	    }
 	    
+	    print_r($return);
+	    
 	    return ($bhg_id ? $return[$bhg_id] : $return);
     }	    
     
