@@ -17,6 +17,8 @@ function output(){
 	
 	arena_header();
 	
+	$show = true;
+	
 	if ($_REQUEST['submit']){
 		if ($arena->NewRow($_REQUEST['data'])){
 			echo 'Addition performed.';
@@ -24,7 +26,33 @@ function output(){
 			echo 'Error encountered.';
 		}
 		
-		echo '<a href="'.internal_link($page).'">View All</a>';
+		echo '<p><a href="'.internal_link($page).'">View All</a>';
+		hr();
+	} elseif ($_REQUEST['op']){
+		$obj = new Obj('ams_activities', $_REQUEST['id'], 'holonet');
+		switch ($_REQUEST['op']){
+			case 'ud':
+			$obj->Edit(array('date_deleted'=>0));
+			$show = false;
+			break;
+			
+			case 'de:
+			$obj->Edit(array('date_deleted'=>time()));
+			$show = false;
+			break;
+			
+			case 'ed:
+			if ($_REQUEST['stage'] == 2){
+				$obj->Edit(array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]));
+			} else {
+				$name = $obj->Get(name);
+				$desc = $obj->Get(desc);
+				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
+				$type = $type->Get(id);
+			}
+			break;
+		
+		echo '<p><a href="'.internal_link($page).'">View All</a>';
 		hr();
 	} else {
 		//Write the current activities
@@ -55,26 +83,29 @@ function output(){
 		}
 	}
 	
-	//'Add New' Block
-	$form = new Form($page);
-	$form->AddSectionTitle('Add New');
-	$form->AddHidden('data[table]', 'ams_activities');
-	$form->AddTextBox('Name', 'data[values][]');
-	$form->AddHidden('data[fields][]', 'name');
-	$form->AddTextArea('Description', 'data[values][]');
-	$form->AddHidden('data[fields][]', 'desc');
-	
-	$search = $arena->Search(array('table'=>'ams_types', 'search'=>array('date_deleted'=>'0'), 'order'=>array('name'=>'ASC')));
-	
-	$form->StartSelect('Activity Type', 'data[values][]');
-	foreach ($search as $obj){
-		$form->AddOption($obj->Get(id), $obj->Get(name));
+	if ($show){
+		//'Add New' Block
+		$form = new Form($page);
+		$form->AddSectionTitle(($_REQUEST['op'] ? 'Edit' : 'Add New'));
+		$form->AddHidden('data[table]', 'ams_activities');
+		$form->AddHidden('stage', '2');
+		$form->AddTextBox('Name', 'data[values][]', $name);
+		$form->AddHidden('data[fields][]', 'name');
+		$form->AddTextArea('Description', 'data[values][]', $desc);
+		$form->AddHidden('data[fields][]', 'desc');
+		
+		$search = $arena->Search(array('table'=>'ams_types', 'search'=>array('date_deleted'=>'0'), 'order'=>array('name'=>'ASC')));
+		
+		$form->StartSelect('Activity Type', 'data[values][]', $type);
+		foreach ($search as $obj){
+			$form->AddOption($obj->Get(id), $obj->Get(name));
+		}
+		$form->EndSelect();
+		$form->AddHidden('data[fields][]', 'type');
+		
+		$form->AddSubmitButton('submit', 'Process');
+		$form->EndForm();
 	}
-	$form->EndSelect();
-	$form->AddHidden('data[fields][]', 'type');
-	
-	$form->AddSubmitButton('submit', 'Process');
-	$form->EndForm();
 	
 	admin_footer($auth_data);
 }

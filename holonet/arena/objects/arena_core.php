@@ -82,10 +82,8 @@
 			} else {
 				$new = $info;
 			}
-			
 			$return[] = $new;
 		}
-		
 		return $return;
 	}
 			
