@@ -192,35 +192,39 @@
 	    $sql = "SELECT * FROM `arena_poll_bans` WHERE `bhg_id` = '".$hunter->GetID()."' AND `date` >= '".time()."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
-	    if (!$this->DidVote()){
-		    if (!mysql_num_rows($query)){	    
-			    if (in_array($div->GetID(), $open['divisions'])){
-				    return true;
-			    } else {
-				    if (in_array($aas, $open['aas'])){
+	    if (count($open)){	    
+		    if (!$this->DidVote()){
+			    if (!mysql_num_rows($query)){	    
+				    if (in_array($div->GetID(), $open['divisions'])){
 					    return true;
 				    } else {
-					    if (count($aas) && $open['aa']){
+					    if (in_array($aas, $open['aas'])){
 						    return true;
 					    } else {
-						    if (in_array($pos->GetID(), $open['positions'])){
+						    if (count($aas) && $open['aa']){
 							    return true;
 						    } else {
-							    return false;
+							    if (in_array($pos->GetID(), $open['positions'])){
+								    return true;
+							    } else {
+								    return false;
+						    	}
 					    	}
 				    	}
 			    	}
-		    	}
+				} else {
+					$info = mysql_fetch_array($query);
+					$date = getdate($info['date']);
+		            $date = $date['month']." ".$date['mday'].", ".$date['year'];
+					echo 'You are banned from participating in polls until '.$date;
+					return false;
+				}
 			} else {
-				$info = mysql_fetch_array($query);
-				$date = getdate($info['date']);
-	            $date = $date['month']." ".$date['mday'].", ".$date['year'];
-				echo 'You are banned from participating in polls until '.$date;
+				echo 'You have already voted for this poll';
 				return false;
 			}
 		} else {
-			echo 'You have already voted for this poll';
-			return false;
+			return true;
 		}
 	}
     
