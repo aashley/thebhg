@@ -127,7 +127,7 @@ class Store {
 	 */
 	function GetSales($person) {
 		global $db, $db_name, $prefix;
-		if (get_class($person) != 'person') return false;
+		if (strcasecmp(get_class($person), 'person') != 0) return false;
 		$sales_result = mysql_db_query($db_name, 'SELECT id FROM '.$prefix.'sales WHERE owner='.$person->GetID().' ORDER BY name ASC', $db);
 		if ($sales_result && mysql_num_rows($sales_result)) {
 			while ($sale = mysql_fetch_array($sales_result)) {
@@ -715,7 +715,7 @@ class Item {
 	 * Returns: True if the pleb may buy this item, false otherwise.
 	 */
 	function CheckPerson($person) {
-		if (get_class($person) != 'person') return false;
+		if (strcasecmp(get_class($person), 'person') != 0) return false;
 		$prank = $person->GetRank();
 		$ppos = $person->GetPosition();
 		$pdiv = $person->GetDivision();
@@ -749,7 +749,7 @@ class Item {
 	 */
 	function SetItemType($type) {
 		global $db, $db_name, $prefix;
-		if (is_object($type) && get_class($type) == 'itemtype') $type = $type->GetID();
+		if (is_object($type) && strcasecmp(get_class($type), 'itemtype') == 0) $type = $type->GetID();
 		if (!is_numeric($type)) return false;
 		if (mysql_db_query($db_name, 'UPDATE '.$prefix."items SET type=$type WHERE id=".$this->id, $db)) {
 			$this->UpdateCache();
@@ -973,7 +973,7 @@ class Item {
 	 */
 	function Sell($person, $name, $nocredits = 0, $ship = false) {
 		global $db, $db_name, $prefix, $str_name;
-		if (get_class($person) != 'person') return false;
+		if (strcasecmp(get_class($person), 'person') != 0) return false;
 		$total_credits = $this->price;
 		$rank = $person->GetRank();
 		if (($nocredits == 0 && $person->GetAccountBalance() < $total_credits && !$rank->IsUnlimitedCredits()) || !$this->CheckPerson($person) || ($ship == false && $this->limit > 0 && $this->GetTotalSales() >= $this->limit)) return false;
@@ -998,7 +998,7 @@ class Item {
 	 */
 	function AddBay($bay, $size) {
 		global $db, $db_name, $prefix;
-		//if (get_class($bay) != 'bay' || !is_numeric($bay)) return false;
+		//if (strcasecmp(get_class($bay), 'bay') != 0 || !is_numeric($bay)) return false;
 		if (is_object($bay)) $bay = $bay->GetID();
 		if (mysql_db_query($db_name, 'INSERT INTO '.$prefix.'hull_bays (hull, bay, size) VALUES ('.$this->id.", $bay, $size)", $db)) return true;
 		else return false;
@@ -1013,7 +1013,7 @@ class Item {
 	 */
 	function DeleteBay($bay) {
 		global $db, $db_name, $prefix;
-		if (get_class($bay) != 'bay' || !is_numeric($bay)) return false;
+		if (strcasecmp(get_class($bay), 'bay') != 0 || !is_numeric($bay)) return false;
 		if (is_object($bay)) $bay = $bay->GetID();
 		return !!mysql_db_query($db_name, 'DELETE FROM '.$prefix.'hull_bays WHERE hull='.$this->id." AND bay=$bay LIMIT 1", $db);
 	}
@@ -1198,8 +1198,8 @@ class Sale {
 	 */
 	function GetPartsInBay($bay) {
 		global $db, $db_name, $prefix;
-		if (get_class($bay) != 'hullbay' && !is_numeric($bay)) return false;
-		if (get_class($bay) == 'hullbay') $bay = $bay->GetID();
+		if (strcasecmp(get_class($bay), 'hullbay') != 0 && !is_numeric($bay)) return false;
+		if (strcasecmp(get_class($bay), 'hullbay') == 0) $bay = $bay->GetID();
 		$parts_result = mysql_db_query($db_name, 'SELECT * FROM '.$prefix.'partsales WHERE sale='.$this->id." AND bay=$bay", $db);
 		if ($parts_result && mysql_num_rows($parts_result)) {
 			while ($part = mysql_fetch_array($parts_result)) {
@@ -1217,7 +1217,7 @@ class Sale {
 	 * Returns: The amount of space.
 	 */
 	function GetFreeSpace($bay) {
-		if (get_class($bay) != 'hullbay' && !is_numeric($bay)) return false;
+		if (strcasecmp(get_class($bay), 'hullbay') != 0 && !is_numeric($bay)) return false;
 		if (is_numeric($bay)) $bay = new HullBay($bay);
 		$parts_in_bay = $this->GetPartsInBay($bay);
 		if ($parts_in_bay) {
@@ -1369,7 +1369,7 @@ class Sale {
 	 */
 	function SetOwner($person, $record = true) {
 		global $db, $db_name, $prefix, $roster;
-		if (get_class($person) != 'person') $person = $roster->GetPerson($person);
+		if (strcasecmp(get_class($person), 'person') != 0) $person = $roster->GetPerson($person);
 		if (mysql_db_query($db_name, 'UPDATE '.$prefix.'sales SET owner='.$person->GetID().' WHERE id='.$this->id, $db)) {
 			$person->SetHasShip();
 			if ($record) {
@@ -1435,7 +1435,7 @@ class Sale {
 	function AddPart($part, $hullbay, $nocredits = 0) {
 		global $db, $db_name, $prefix, $str_name;
 		if ($this->IsForSale()) return -7;
-		if ((!is_numeric($part) && get_class($part) != 'part') || (!is_numeric($hullbay) && get_class($hullbay) != 'hullbay')) return 0;
+		if ((!is_numeric($part) && strcasecmp(get_class($part), 'part') != 0) || (!is_numeric($hullbay) && strcasecmp(get_class($hullbay), 'hullbay') != 0)) return 0;
 		if (is_numeric($part)) $part = new Part($part);
 		if (is_numeric($hullbay)) $hullbay = new HullBay($hullbay);
 		$bay = $hullbay->GetBay();
@@ -1509,7 +1509,7 @@ class Sale {
 	 */
 	function Sell($buyer, $credits) {
 		global $db, $db_name, $prefix, $roster;
-		if ((get_class($buyer) != 'person' && !is_numeric($buyer)) || (!is_numeric($credits) || $credits < 0)) return false;
+		if ((strcasecmp(get_class($buyer), 'person') != 0 && !is_numeric($buyer)) || (!is_numeric($credits) || $credits < 0)) return false;
 		if (is_numeric($buyer)) $buyer = $roster->GetPerson($buyer);
 		$rank = $buyer->GetRank();
 		if ($buyer->GetAccountBalance() < $credits && !$rank->IsUnlimitedCredits()) return false;
@@ -1664,7 +1664,7 @@ class HullBay {
 	 */
 	function SetItem($item) {
 		global $db, $db_name, $prefix;
-		if (!is_numeric($item) && get_class($item) != 'item') return false;
+		if (!is_numeric($item) && strcasecmp(get_class($item), 'item') != 0) return false;
 		if (!is_numeric($item)) $item = $item->GetID();
 		if (mysql_db_query($db_name, 'UPDATE '.$prefix.'hull_bays SET hull='.$item.' WHERE id='.$this->id, $db)) {
 			$this->UpdateCache();
@@ -1681,7 +1681,7 @@ class HullBay {
 	 */
 	function SetBay($bay) {
 		global $db, $db_name, $prefix;
-		if (!is_numeric($bay) && get_class($bay) != 'bay') return false;
+		if (!is_numeric($bay) && strcasecmp(get_class($bay), 'bay') != 0) return false;
 		if (!is_numeric($bay)) $bay = $bay->GetID();
 		if (mysql_db_query($db_name, 'UPDATE '.$prefix.'hull_bays SET bay='.$bay.' WHERE id='.$this->id, $db)) {
 			$this->UpdateCache();
@@ -2271,7 +2271,7 @@ class Part {
 	 * Returns: True if the pleb may buy this part, false otherwise.
 	 */
 	function CheckPerson($person) {
-		if (get_class($person) != 'person') return false;
+		if (strcasecmp(get_class($person), 'person') != 0) return false;
 		$prank = $person->GetRank();
 		$ppos = $person->GetPosition();
 		$pdiv = $person->GetDivision();
@@ -2305,7 +2305,7 @@ class Part {
 	 */
 	function SetPartType($type) {
 		global $db, $db_name, $prefix;
-		if (is_object($type) && get_class($type) == 'parttype') $type = $type->GetID();
+		if (is_object($type) && strcasecmp(get_class($type), 'parttype') == 0) $type = $type->GetID();
 		if (!is_numeric($type)) return false;
 		if (mysql_db_query($db_name, 'UPDATE '.$prefix."parts SET type=$type WHERE id=".$this->id, $db)) {
 			$this->UpdateCache();

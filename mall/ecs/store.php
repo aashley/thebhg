@@ -74,7 +74,7 @@ class Store {
 	 */
 	function GetSales($person) {
 		global $db, $db_name, $prefix;
-		if (get_class($person) != 'person') return false;
+		if (strcasecmp(get_class($person), 'person') != 0) return false;
 		$sales_result = mysql_db_query($db_name, 'SELECT id FROM '.$prefix.'sales WHERE owner='.$person->GetID(), $db);
 		if ($sales_result && mysql_num_rows($sales_result)) {
 			while ($sale = mysql_fetch_array($sales_result)) {
@@ -466,7 +466,7 @@ class Item {
 	 * Returns: True if the pleb may buy this item, false otherwise.
 	 */
 	function CheckPerson($person) {
-		if (get_class($person) != 'person') return false;
+		if (strcasecmp(get_class($person), 'person') != 0) return false;
 		$prank = $person->GetRank();
 		$ppos = $person->GetPosition();
 		$pdiv = $person->GetDivision();
@@ -500,7 +500,7 @@ class Item {
 	 */
 	function SetType($type) {
 		global $db, $db_name, $prefix;
-		if (is_object($type) && get_class($type) == 'type') $type = $type->GetID();
+		if (is_object($type) && strcasecmp(get_class($type), 'type') == 0) $type = $type->GetID();
 		if (!is_numeric($type)) return false;
 		if (mysql_db_query($db_name, 'UPDATE '.$prefix."items SET type=$type WHERE id=".$this->id, $db)) {
 			$this->UpdateCache();
@@ -636,7 +636,7 @@ class Item {
 	 */
 	function Sell($person, $quantity) {
 		global $db, $db_name, $prefix, $str_name;
-		if (get_class($person) != 'person' || !is_numeric($quantity)) return false;
+		if (strcasecmp(get_class($person), 'person') != 0 || !is_numeric($quantity)) return false;
 		$past_sale = mysql_db_query($db_name, 'SELECT * FROM '.$prefix.'sales WHERE item='.$this->id.' AND owner='.$person->GetID(), $db);
 		if ($this->limit > 0) {
 			$quantity = 1;
@@ -772,7 +772,7 @@ class Sale {
 	 */
 	function SetOwner($person) {
 		global $db, $db_name, $prefix;
-		if (get_class($person) != 'person') return false;
+		if (strcasecmp(get_class($person), 'person') != 0) return false;
 		if (mysql_db_query($db_name, 'UPDATE '.$prefix.'sales SET owner='.$person->GetID().' WHERE id='.$this->id, $db)) {
 			$this->UpdateCache();
 			return true;

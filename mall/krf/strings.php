@@ -27,7 +27,7 @@ $str_plural = 'droids';
 $roster_person_url = 'http://holonet.thebhg.org/index.php?module=roster&amp;page=hunter&amp;id=<id>';
 
 // Base URL for the store, ending with a slash.
-$base_url = 'http://mall.thebhg.org/mpp/';
+$base_url = 'http://mall.thebhg.org/krf/';
 
 // Singular and plural forms of whatever you want to call the plebs.
 $str_person = 'hunter';
