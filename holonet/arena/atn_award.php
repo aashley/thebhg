@@ -20,6 +20,10 @@ function output() {
 
     arena_header();
 
+    echo '<a href="'.internal_link('atn_general', array('id'=>$hunter->GetID())).'">'.$hunter->GetName().'</a>';
+    
+    hr();
+    
     if (is_object($hunter)){
     
 	    $comiss = new Comissioner($hunter->GetID());
