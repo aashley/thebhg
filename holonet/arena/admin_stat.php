@@ -18,8 +18,8 @@ function output() {
     arena_header();
     
     $int = '';
-    if (isset($REQUEST['int'])){
-	    $int = $REQUEST['int'];
+    if (isset($_REQUEST['int'])){
+	    $int = $_REQUEST['int'];
     }
     
     if (isset($_REQUEST['submit'])){
