@@ -90,21 +90,17 @@ function output() {
 	$table->AddRow('Time in the BHG:', format_time(time() - $pleb->GetJoinDate(), FT_DAY));
   $table->AddRow('Join Date:', date('jS F Y', $pleb->GetJoinDate()));
 
-	$table->StartRow();
-	$table->AddCell('Time at Current Rank:');
 	$history = new PersonHistory($pleb->GetID());
 	$history->Load(0, 0, array(1), 'DESC');
 	if ($history->Count()) {
 		$item = $history->GetItem();
-		$table->AddCell(format_time(time() - $item->GetDate(), FT_DAY));
-	}
-	elseif ($rank->GetID() == 1) {
-		$table->AddCell(format_time(time() - $pleb->GetJoinDate(), FT_DAY));
+		$promoDate = $item->GetDate();
 	}
 	else {
-		$table->AddCell('Unknown');
+		$promoDate = $pleb->GetJoinDate();
 	}
-	$table->EndRow();
+	$table->AddRow('Time at Current Rank:', format_time(time() - $promoDate, FT_DAY));
+	$table->AddRow('Last Promotion Date:', date('jS F Y', $promoDate));
 	
 	$table->AddRow('ID Line:', html_escape($pleb->IDLine()));
 	$table->EndTable();
