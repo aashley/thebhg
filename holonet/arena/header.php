@@ -513,6 +513,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_irca_pending') . '">Pending&nbsp;Matches</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_irca_complete') . '">Complete&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_irca_add_match') . '">Add&nbsp;Match&nbsp;Text</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_irca_faceoff') . '">Add&nbsp;Ladder&nbsp;Faceoff</a><br />';
         
         echo '<br />IRC Arena&nbsp;Tournament<br />';
         if (count($iat->GetHunters())){
