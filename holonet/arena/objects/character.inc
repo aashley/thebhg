@@ -734,6 +734,7 @@
 	}
     
 	function HasValue($look = 'values', $col = 'bhg_id', $id = 0){
+		echo $id;
 		if ($id){
 			$id = $id;
 		} else {
