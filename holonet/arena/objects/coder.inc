@@ -10,7 +10,7 @@
     
     function Fileds($table){   
 	    $sql = "SHOW COLUMNS FROM `$table`";
-	    $result = mysql_query($sql, $connect);
+	    $result = mysql_query($sql, $this->connect);
 		if (mysql_num_rows($result) > 0) {
 		   while ($row = mysql_fetch_assoc($result)) {
 		       $fields[] = array('name'=>$row[Field], 'type'=>$row[Type]);
