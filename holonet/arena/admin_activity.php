@@ -108,7 +108,7 @@ function output() {
 	    }
 	    $table->EndTable();
 	    
-	    /* if ($type->Get(opponent)){
+	    if ($type->Get(opponent)){
 		    hr();
 		    $table = new Table('', true);
 		    $table->StartRow();
@@ -140,7 +140,7 @@ function output() {
 			    $table->EndRow();
 		    }
 		    $table->EndTable();
-	    }*/
+	    }
 		    
 	    
     } else {
