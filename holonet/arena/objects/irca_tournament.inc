@@ -140,7 +140,7 @@
 			$return[] = $person;
         }
         
-        return $return;
+        return ((count($return) > 1) ? $return : array());
     }
 
     function CurrentRound(){
