@@ -301,7 +301,6 @@
 		    
 		    foreach ($return as $id){
 			    $ca = $this->GetCA($id);
-			    print_r($ca);
 			    $stats = $this->GetCAValues($id);
 			    $stat = '';			    
 			    if (count($stats)){
