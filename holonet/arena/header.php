@@ -180,12 +180,12 @@ function get_auth_data($hunter) {
     }
     
     if ($pos->GetID() == 29 || $hunter->GetID() == 2650){
+	    $auth_data['coder'] = true;
     	$auth_data['overseer'] = true;
     	$auth_data['sheet'] = true;
     	$auth_data['ch'] = true;
 	} else {
 		$auth_data['overseer'] = false;
-		$auth_data['sheet'] = false;
 		$auth_data['ch'] = false;
 	}
 	

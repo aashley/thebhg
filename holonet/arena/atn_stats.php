@@ -82,13 +82,13 @@ function output() {
 							    $info = new Obj('ams_specifics', $valu, 'holonet');
 							    $print[] = $info->Get(name);
 						    }
-						    $table->AddCell($ob->Get(name).':', implode("<br />", $print));
+						    $table->AddRow($ob->Get(name).':', implode("<br />", $print));
 					    } else {
-						    $table->AddCell($ob->Get(name).':', 'None');
+						    $table->AddRow($ob->Get(name).':', 'None');
 					    }
 				    } else {
 					    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
-					    $table->AddCell($ob->Get(name).':', $info->Get(name));
+					    $table->AddRow($ob->Get(name).':', $info->Get(name));
 				    }
 			    }
 		    }

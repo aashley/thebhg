@@ -28,7 +28,7 @@ function output() {
     $table->EndRow();
     
     foreach($at->GetHunters() as $value){
-        $table->AddRow('<a href="' . internal_link('admin_tournament_delete', array('id'=>$value->GetID())) . '">' . $value->GetName() . '</a>');
+        $table->AddRow('<a href="' . internal_link('admin_tournament_delete', array('id'=>$value->GetID(), 'act'=>$_REQUEST['act'])) . '">' . $value->GetName() . '</a>');
     }
 
     $table->EndTable();

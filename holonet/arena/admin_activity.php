@@ -120,6 +120,7 @@ function output() {
 		    
 		    if (!$at->Ended() && $at->season){
 			    $options[] = formt('Add Hunter as Wildcard', 'tournament_wildcard', 'Adds a new hunter to the mix.');
+			    $options[] = formt('Edit Double Elimination', 'tournament_change_de', 'Allows you to set the Tournament to be either Single or Double Elimination for the remainder of the rounds.');
 			    $options[] = formt('Delete Hunters', 'tournament_manage', 'Allows you to delete people you have teh hate for.');
 			    $options[] = formt('Randomize Brackets', 'tournament_random', 'Randomizes the brackets. <b>Warning: Sentience Has Power Here</b>');
 			    $options[] = formt('Organize Round Brackets', 'tournament_organize', 'Allows you to fuddle with the brackets.');

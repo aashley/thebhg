@@ -7,6 +7,12 @@ if ($_REQUEST['match']){
 		$obj = new Obj('ams_match', $_REQUEST['match'], 'holonet');
 		
 		if ($_REQUEST['submit']){
+			if ($_REQUEST['npc']){
+				for ($i = 1; $i <= count($_REQUEST['npc']); $i++){
+					$npc[] = serialize($_REQUEST['npc'][$i]);
+				}
+				$_REQUEST['data']['values'][] = serialize($npc);
+			}
 			if ($_REQUEST['serialize']){
 				$_REQUEST['data']['values'][] = addslashes(serialize($_REQUEST['serialize']));
 			}
@@ -14,12 +20,12 @@ if ($_REQUEST['match']){
 				$_REQUEST['data'][values][] = parse_date_box('should_be');
 				$_REQUEST['data'][fields][] = 'should_be';
 			}
-			$return = array();
+			/*$return = array();
 			foreach ($_REQUEST['data'][fields] as $i=>$field){
 				$return[$field] = $_REQUEST['data']['values'][$i];
-			}
+			}*/
 			//When PHP 5:
-			//$return = array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]);
+			$return = array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]);
 			$obj->Edit($return, 1);
 			echo 'Edits Made';
 		} else {
@@ -94,6 +100,41 @@ if ($_REQUEST['match']){
 			    }
 		    }
 		    
+		    $form->AddSectionTitle('Edit NPCs');
+
+		    $ser = unserialize($obj->Get(data));
+		    if (is_array($ser)){
+			    $form->AddHidden('data[fields][]', 'data');
+			    $bld = new NPC_Utilities();
+			    $i = 0;
+			    foreach ($ser as $npc){
+				    $i++;
+				    $form->AddHidden('Test', $obj->Get(data));
+				    $npc = unserialize($npc);
+			    	$form->AddTextBox('First Name:', 'npc['.$i.'][first]', $npc[first]);
+			    	$form->AddTextBox('Last Name:', 'npc['.$i.'][last]', $npc[last]);
+			    	$form->AddRadioButton('Male:', 'npc['.$i.'][sex]', 'Male', ($npc[sex] == 'Male'));
+			    	$form->AddRadioButton('Female:', 'npc['.$i.'][sex]', 'Female', ($npc[sex] == 'Female'));
+			    	$form->AddTextBox('Species:', 'npc['.$i.'][species]', $npc[species]);
+			    	foreach ($npc[field] as $field){
+			    		$form->AddHidden('npc['.$i.'][field][]', $field);
+		    		}
+			    	for ($a = 1; $a <= 10; $a++){
+				    	if (is_array($npc[$a][stats])){
+					    	foreach ($npc[$a][stats] as $stat=>$value){
+						    	$stat = new Statribute($stat);
+						    	$form->AddTextBox($stat->GetName(), 'npc['.$i.']['.$a.'][stats]['.$stat->GetID().']', $value, 5);
+					    	}
+				    	}
+				    	if (is_array($npc[$a][skills])){
+					    	foreach ($npc[$a][skills] as $stat=>$value){
+						    	$stat = new Skill($stat);
+						    	$form->AddTextBox($stat->GetName(), 'npc['.$i.']['.$a.'][skills]['.$stat->GetID().']', $value, 5);
+					    	}
+				    	}
+			    	}
+		    	}
+		    }
 		    $form->AddHidden('data[fields][]', 'specifics');
 		    $form->AddSubmitButton('submit', 'Transmit to Holonet Servers');
 		    $form->EndForm();

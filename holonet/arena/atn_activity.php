@@ -30,6 +30,8 @@ function output() {
 
     if (is_object($activity)){
 		
+	    $at = new Tournament($activity->Get(id));
+	    
 		$table = new Table('', true);
 	    $table->StartRow();
 	    $table->AddCell('Topic ID');
@@ -94,6 +96,22 @@ function output() {
 	    }
 	    
 	    hr();
+	    
+	    if (count($at->Seasons())){
+		    $table = new Table();
+	    
+		    $table->StartRow();
+		    $table->AddHeader('Tournaments', 2);
+		    $table->EndRow();
+		    
+		    foreach ($at->Seasons() as $id){
+			    $table->AddRow('<a href="'.internal_link('atn_tourney', array('act'=>$activity->Get(id), 'season'=>$id)).'">Season '.$id).'</a>';
+		    }
+		    
+		    $table->EndTable();
+
+	    	hr();
+    	}
 	    
 	    $table = new Table();
 	    
