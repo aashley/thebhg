@@ -31,6 +31,7 @@ if ($_POST['submit']) {
 			setcookie('mybhg_key', $key, time() + (365 * 86400));
 		}
 
+		header('Location: /news.php');
 		echo 'Thank you. You are now logged in, and may return to the index by clicking <a href="index.php">here</a>. Alternately, you could <a href="prefs.php">change your preferences</a>.';
 	}
 	else {

@@ -7,6 +7,7 @@ if ($_COOKIE['mybhg_rid']) {
 	setcookie('mybhg_key');
 }
 
+header('Location: /news.php');
 echo 'You are now logged out.';
 
 include('footer.php');
