@@ -9,6 +9,7 @@ include_once('blue/theme.php');
 include_once('boba/theme.php');
 include_once('bobaflip/theme.php');
 include_once('foldout/theme.php');
+include_once('goodtext/theme.php');
 
 function get_themes() {
 	return array(
@@ -18,6 +19,7 @@ function get_themes() {
 		'boba' => new Theme_Boba(),
 		'bobaflip' => new Theme_BobaFlip(),
 		'foldout' => new Theme_FoldOut(),
+		'goodtext' => new Theme_GoodText(),
 	);
 }
 
