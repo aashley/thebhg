@@ -188,7 +188,7 @@
         if (mysql_query($sql, $this->connect)) {
 
             $person = new Person($this->contract_bhg_id);
-            $person->AddCredits($creds);
+            $person->AddCredits($creds, 'Lone Wolf Contract');
 	        
             return true;
 

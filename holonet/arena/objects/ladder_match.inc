@@ -449,7 +449,7 @@
 
 	            
 	            $person = new Person($id);
-	            $person->AddCredits($creds);
+	            $person->AddCredits($creds, 'Arena Match');
 	            
                 return true;
 

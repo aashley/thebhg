@@ -514,7 +514,7 @@
 
 	            
 	            $person = new Person($id);
-	            $person->AddCredits($creds);
+	            $person->AddCredits($creds, 'Starfield Arena Match');
 	            
                 return true;
 

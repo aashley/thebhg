@@ -137,7 +137,7 @@
 
 	            
 	            $person = new Person($id);
-	            $person->AddCredits($creds);
+	            $person->AddCredits($creds, 'IRCA Match');
 	            
                 return true;
 

@@ -207,7 +207,7 @@
 
 	        
             $person = new Person($this->contract_bhg_id);
-            $person->AddCredits($creds);
+            $person->AddCredits($creds, 'Solo Mission');
 	        
             return true;
 
