@@ -232,7 +232,7 @@ function output(){
 				
 				$form->AddSectionTitle($type->GetName().': Round '.$round->GetRoundID());
 				
-				$form->AddHidden('event', $_REQUEST['event']);
+				
 				
 				if ($type->HasImage()){
 					$form->table->StartRow();
@@ -263,7 +263,7 @@ function output(){
 		        hr();
 		        
 		        $form = new Form($_SERVER['PHP_SELF']);
-				
+				$form->AddHidden('id', $_REQUEST['id']);
 				foreach ($event->GetSubmissions() as $sub){
 				
 					$hunter = $sub->GetHunter();
