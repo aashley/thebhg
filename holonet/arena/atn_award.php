@@ -33,6 +33,9 @@ function output() {
 		    $cred_total = $overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
 		    $xp_total = $overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
 		    $meda_total = $overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();
+		    
+		    echo $overse->GetCreds();
+		    
 		    $table = new Table();
 		    $table->StartRow();
 		    $table->AddHeader('Total Contributions', 3);
