@@ -6,8 +6,8 @@
         Arena::Arena();
     }
 
-    function Matches(){
-        $sql = "SELECT * FROM `arena_ladder_match` WHERE `date_deleted` = 0 AND `match_id` > 0 ORDER BY `start` DESC";
+    function Matches($add = ''){
+        $sql = "SELECT * FROM `arena_ladder_match` WHERE `date_deleted` = 0 AND `match_id` > 0 $add ORDER BY `start` DESC";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 

@@ -4,6 +4,8 @@
 
 	var $xp;
 	var $creds;
+	var $dxp;
+	var $dcreds;
 	 
     function Ladder(){
         Arena::Arena();
@@ -81,6 +83,15 @@
 
         $this->creds = $info['credits'];
         $this->xp = $info['xp'];
+        
+        $sql = "SELECT SUM(arena_ladder_records.xp) as xp, SUM(arena_ladder_records.credits) as credits FROM arena_ladder_records, arena_ladder_match WHERE arena_ladder_match.accepted = 1 "
+                ."AND arena_ladder_match.id = arena_ladder_records.match_id AND arena_ladder_match.match_id > 0 AND arena_ladder_match.steward > 0 AND arena_ladder_match.date_deleted = 0 AND arena_ladder_match.is_dojo > '0'";
+       
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        $this->dcreds = $info['credits'];
+        $this->dxp = $info['xp'];
     }
     
     function GetXP(){
@@ -89,6 +100,14 @@
     
     function GetCreds(){
 	    return $this->creds;
+    }
+    
+    function GetDXP(){
+	    return $this->dxp;
+    }
+    
+    function GetDCreds(){
+	    return $this->dcreds;
     }
     
     function CurrentSteward(){

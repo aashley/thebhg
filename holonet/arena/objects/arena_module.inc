@@ -495,9 +495,9 @@
         return new Type($id);
     }
 
-    function ArenaMatches(){
+    function ArenaMatches($ex = ''){
         $details = new Details();
-        return $details->Matches();
+        return $details->Matches($ex);
     }
     
     function IRCAMatches(){
