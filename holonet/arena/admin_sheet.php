@@ -58,7 +58,7 @@ function output() {
 		    foreach ($sheets as $sheeted){
 			    foreach ($sheeted as $character){
 			    
-				    if ($character->Status('SYSTEM') == 4){
+				    if ($character->Status('SYSTEM') == 5 || $character->Status('SYSTEM') == 6){
 					    $status = '<b>'.$character->Status('HUMAN').'</b>';
 				    } else {
 					    $status = $character->Status('HUMAN');
