@@ -229,6 +229,18 @@
 	    return $return;
     }
     
+    function DeleteBlank(){
+	    $sql = "SELECT * FROM `character_sheets` ORDER BY `pending` ASC, `approved` ASC, `last_change` DESC";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $new = new Character($info['bhg_id']);
+		    if ($new->Status('SYSTEM') == -1){
+		    	$new->Kill('Cleaning out old blank sheets.');
+	    	}
+	    }
+    }
+    
     function HasSheet($bhg_id){
 	    $new = new Character($bhg_id);
 	    return ($new->Includeable() ? true : false);

@@ -18,6 +18,10 @@ function output() {
     
     arena_header();
 
+    echo '<a href="'.internal_link($page, array('delb'=>1)).'">Clean Out Blank Sheets</a>';
+    
+    hr();
+    
     $table = new Table('', true);
     $table->StartRow();
     $table->AddHeader('Character Sheets', 7);
