@@ -449,6 +449,11 @@
 		    return implode('<br />', $errors);
 	    }
 	    
+	    $new = "INSERT INTO `character_sheet_record` VALUES ('', '".$this->GetID()."', '".time()."')";
+	    $store = mysql_query($new, $this->connect);
+	    $id = mysql_insert_id($this->connect);
+	    $this->LastID = $id;
+	    
 	    $errors = array();
 	    
 	    //No errors, write the document to Pending Sheets
@@ -467,6 +472,9 @@
 			    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '$key', '$value')";
 			    if (!mysql_query($sql, $this->connect)){
 				    $errors[] = 'Error Generated During Publish: '.mysql_error($this->connect);
+			    } else {				    
+				    $sql = "INSERT INTO `character_sheet_records` VALUES ('".$this->LastID."', '$key', '$value')";
+				    mysql_query($sql, $this->connect);
 			    }
 		    }
 	    }
@@ -482,7 +490,7 @@
 	    
 	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 1, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
 		if (mysql_query($sql, $this->connect)){
-			return 'Your character sheet has been saved. You may submit it at any time for approval. Your sheet can not be approved until you submit it.';
+			return 'Your character sheet has been saved. The Save number is '.$this->LastID.' for your records. You may submit it at any time for approval. Your sheet can not be approved until you submit it.';
 		} else {
 			return 'Error in update: '.mysql_error($this->connect);
 		}	    
@@ -641,7 +649,7 @@
 	    if (array_sum($expertises) > $this->ExpertisePoints()){
 			$errors[] = 'You have used more Expertise Points than you are allowed. ('.array_sum($expertises).'/'.$this->TotalPoints().')'; 
 	    }
-	    
+	     
 	    foreach($statributes as $stat=>$value){
 		    if ($value == 0){
 			    $statribute = new Statribute($stat);
@@ -689,6 +697,10 @@
 		    $errors = array();
 	    }
 	    
+	    $new = "INSERT INTO `character_sheet_record` VALUES ('', '".$this->GetID()."', '".time()."')";
+	    $store = mysql_query($new, $this->connect);
+	    $sid = mysql_insert_id($this->connect);
+	    
 	    for ($i = 1; $i <= 3; $i++){
 		    foreach($compile[$i] as $key=>$value){
 			    if (is_numeric($value)){
@@ -700,6 +712,9 @@
 			    $sql = "INSERT INTO `character_sheet_cores` VALUES ('".$id."', '$key', '$value')";
 			    if (!mysql_query($sql, $this->connect)){
 				    $errors[] = 'Error Generated During Publish: '.mysql_error($this->connect);
+			    } else {				    
+				    $sql = "INSERT INTO `character_sheet_records` VALUES ('".$sid."', '$key', '$value')";
+				    mysql_query($sql, $this->connect);
 			    }
 		    }
 	    }
@@ -713,7 +728,7 @@
 	    
 	    //No errors, update status
 	    
-	    return 'Your core sheet has been saved.';	    
+	    return 'Your core sheet has been saved. The save ID is '.$sid.' for your records.';	    
     }
     
     function SubmitCore($id){
@@ -814,6 +829,19 @@
 		return $return;
 	}
 	
+	function GetSaveFunctions(){
+		$sql = "SELECT * FROM `character_sheet_record` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$date = getdate($info['date']);
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year']);
+		}
+		
+		return $return;
+	}
+	
 	function GetCores(){
 		$sql = "SELECT * FROM `character_sheet_core` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0 ORDER BY `date` DESC";
 		$query = mysql_query($sql, $this->connect);
@@ -827,8 +855,11 @@
 		return $return;
 	}
 	
-	function Backup($save_name, $from = 'values'){
-	    $sql = "SELECT * FROM `character_sheet_$from` WHERE `id` = '".$this->GetSheetID()."'";
+	function Backup($save_name, $from = 'values', $id = 0){
+		if (!$id){
+			$id = $this->GetSheetID();
+		}
+	    $sql = "SELECT * FROM `character_sheet_$from` WHERE `id` = '".$id."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    $new = "INSERT INTO `character_sheet_backup` VALUES ('', '".$this->GetID()."', '".addslashes($save_name)."', '".time()."', '')";

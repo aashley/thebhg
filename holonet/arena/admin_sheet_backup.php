@@ -33,7 +33,19 @@ function output() {
     $show = true;
     
     if (isset($_REQUEST['submit'])){
-	    echo $character->Backup($_REQUEST['save'], $_REQUEST['sheet']);
+	    $go = true;
+	    if ($_REQUEST['sheet'] == 'records'){
+		    if (in_array($_REQUEST['saveid'], $character->GetSaveFunctions())){
+			    $go = true;
+		    } else {
+			    $go = false;
+		    }
+	    }
+	    if ($go){
+	    	echo $character->Backup($_REQUEST['save'], $_REQUEST['sheet'], $_REQUEST['saveid']);
+    	} else {
+	    	echo 'This is not your save ID. Please stop trying to hack my Holonet.';
+    	}
 	    hr();		     
     }
     
@@ -261,16 +273,43 @@ function output() {
 		    
 	    } elseif ($_REQUEST['view']){
 		    
-		    $form = new Form($page);
-		    $form->AddSectionTitle('Backup Resource');
-		    $form->AddTextBox('Save name:', 'save');
-		    $form->AddHidden('sheet', $_REQUEST['sheet']);
-		    $form->AddSubmitButton('submit', 'Save Sheet');
-		    $form->EndForm();
+		    $show = true;
+		    
+		    if ($_REQUEST['sheet'] == 'records'){
+			    $show = false;
+			    $form = new Form($page);
+			    $form->StartSelect('Choose Save', 'saveid');
+			    foreach ($character->GetSaveFunctions() as $sheet){
+				    $form->AddOption($sheet['id'], 'Save '.$sheet['id']);
+			    }
+			    $form->EndSelect();
+			    $form->AddHidden('sheet', $_REQUEST['sheet']);
+			    $form->AddSubmitButton('view', 'View Sheet');
+			    $form->EndForm();
+		    }
+		    
+		    $id = 0;
+		    
+		    if ($_REQUEST['saveid']){
+			    if (in_array($_REQUEST['saveid'], $character->GetSaveFunctions())){
+				    $id = $_REQUEST['saveid'];
+				    $show = true;
+			    }
+		    }
+		    
+		    if ($show){
+			    $form = new Form($page);
+			    $form->AddSectionTitle('Backup Resource');
+			    $form->AddTextBox('Save name:', 'save');
+			    $form->AddHidden('sheet', $_REQUEST['sheet']);
+			    $form->AddHidden('saveid', $_REQUEST['saveid']);
+			    $form->AddSubmitButton('submit', 'Save Sheet');
+			    $form->EndForm();
+		    }
 		    
 		    hr();
 		    
-		    $character->ParseSheet($_REQUEST['sheet']);
+		    $character->ParseSheet($_REQUEST['sheet'], $id);
 	    } else {    
 		    if (!$character->IsNew()){
 			    if ($character->HasValue('values')){
@@ -278,6 +317,9 @@ function output() {
 			    }
 			    if ($character->HasValue('pending')){
 				    $values['My Editing Sheet'] = 'pending';
+			    }
+			    if (count($character->GetSaveFunctions()){
+				    $values['Auto-Saved Sheet'] = 'records';
 			    }
 		    }
 		    
