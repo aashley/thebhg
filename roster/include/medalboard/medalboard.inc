@@ -266,13 +266,13 @@ class MedalBoard extends BHGObject {
 
           $message = ParseEmailTemplate($message, $replace);
 
-          $recipient->SendEmail("BHG Roster <roster@thebhg.org>",
+          $recipient->SendEmail("roster@thebhg.org",
                                 "[Roster] Congratulations "
                                 .$recipient->GetName()." you have recieved a "
                                 ."medal",
                                 $message);
 
-          $awarder->SendEmail("BHG Roster <roster@thebhg.org>",
+          $awarder->SendEmail("roster@thebhg.org",
                               "[Roster] Congratulations "
                               .$recipient->GetName()." you have recieved a "
                               ."medal",
@@ -284,7 +284,7 @@ class MedalBoard extends BHGObject {
 
             $chief = $rkabal->GetChief();
 
-            $chief->SendEmail("BHG Roster <roster@thebhg.org>",
+            $chief->SendEmail("roster@thebhg.org",
                               "[Roster] Congratulations "
                               .$recipient->GetName()." you have recieved a "
                               ."medal",

@@ -1389,7 +1389,7 @@ class Person extends BHGObject {
 
                 if ($chief->GetID() != $this->GetID()) {
             
-                  $chief->SendEmail("BHG Roster <roster@thebhg.org>",
+                  $chief->SendEmail("roster@thebhg.org",
                                     "[Roster] $oldname has changed their name.",
                                     $message);
 
@@ -1552,12 +1552,12 @@ class Person extends BHGObject {
           $message = ParseEmailTemplate($message, $replace);
 
           if ($newposition->GetID() == 14) {
-            $this->SendEmail("BHG Roster <roster@thebhg.org>",
+            $this->SendEmail("roster@thebhg.org",
                              "[Roster] ".$this->person_name
                              .", you are now a hunter.",
                              $message);
           } else {
-            $this->SendEmail("BHG Roster <roster@thebhg.org>",
+            $this->SendEmail("roster@thebhg.org",
                              "[Roster] ".$this->person_name
                              .", you have been reassigned.",
                              $message);
@@ -1573,7 +1573,7 @@ class Person extends BHGObject {
 
             if ($chief->GetID() != $this->GetID()) {
             
-              $chief->SendEmail("BHG Roster <roster@thebhg.org>",
+              $chief->SendEmail("roster@thebhg.org",
                                 "[Roster] ".$this->person_name
                                 .", you have been reassigned.",
                                 $message);
@@ -1591,12 +1591,12 @@ class Person extends BHGObject {
             if ($warden->GetID() != $this->GetID()) {
               
               if ($newposition->GetID() == 14) {
-                $this->SendEmail("BHG Roster <roster@thebhg.org>",
+                $this->SendEmail("roster@thebhg.org",
                                  "[Roster] ".$this->person_name
                                  .", you are now a hunter.",
                                  $message);
               } else {
-                $this->SendEmail("BHG Roster <roster@thebhg.org>",
+                $this->SendEmail("roster@thebhg.org",
                                  "[Roster] ".$this->person_name
                                  .", you have been reassigned.",
                                  $message);
@@ -1711,7 +1711,7 @@ class Person extends BHGObject {
           
           $message = ParseEmailTemplate($message, $replace);
 
-          $this->SendEmail("BHG Roster <roster@thebhg.org>",
+          $this->SendEmail("roster@thebhg.org",
                            "[Roster] Congratulations ".$this->person_name
                            .". You have been promoted.",
                            $message);
@@ -1726,7 +1726,7 @@ class Person extends BHGObject {
 
             if ($chief->GetID() != $this->GetID()) {
             
-              $chief->SendEmail("BHG Roster <roster@thebhg.org>",
+              $chief->SendEmail("roster@thebhg.org",
                                 "[Roster] Congratulations ".$this->person_name
                                 .". You have been promoted.",
                                 $message);
@@ -1796,7 +1796,7 @@ class Person extends BHGObject {
 
           $message = ParseEmailTemplate($message, $replace);
 
-          $this->SendEmail("BHG Roster <roster@thebhg.org>",
+          $this->SendEmail("roster@thebhg.org",
                            "[Roster] Your New Password",
                            $message);
 
@@ -2026,7 +2026,7 @@ class Person extends BHGObject {
 
           $message = ParseEmailTemplate($message, $replace);
 
-          $this->SendEmail("BHG Roster <roster@thebhg.org>",
+          $this->SendEmail("roster@thebhg.org",
                            "[Roster] ".$this->person_name
                            .", you have been transferred.",
                            $message);
@@ -2040,7 +2040,7 @@ class Person extends BHGObject {
 
             if ($chief->GetID() != $this->GetID()) {
 
-              $chief->SendEmail("BHG Roster <roster@thebhg.org>",
+              $chief->SendEmail("roster@thebhg.org",
                                 "[Roster] ".$this->person_name
                                 .", you have been transferred.",
                                 $message);
@@ -2058,7 +2058,7 @@ class Person extends BHGObject {
 
               $welmessage = ParseEmailTemplate($welmessage, $replace);
 
-              $this->SendEmail("BHG Roster <roster@thebhg.org>",
+              $this->SendEmail("roster@thebhg.org",
                                "[Roster] ".$this->person_name.", welcome to "
                                .$kabal->GetName()." Kabal.",
                                $welmessage);
@@ -2077,7 +2077,7 @@ class Person extends BHGObject {
 
             if ($chief->GetID() != $this->GetID()) {
             
-              $chief->SendEmail("BHG Roster <roster@thebhg.org>",
+              $chief->SendEmail("roster@thebhg.org",
                                 "[Roster] ".$this->person_name
                                 .", you have been transferred.",
                                 $message);
@@ -2219,7 +2219,7 @@ class Person extends BHGObject {
 
                 if ($chief->GetID() != $this->GetID()) {
             
-                  $chief->SendEmail("BHG Roster <roster@thebhg.org>",
+                  $chief->SendEmail("roster@thebhg.org",
                                     "[Roster] ".$this->person_name
                                     ." has changed their e-mail address.",
                                     $message);

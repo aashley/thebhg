@@ -1305,19 +1305,19 @@ class Roster extends BHGObject {
 
           $message = ParseEmailTemplate($message, $replace);
 
-          $person->SendEmail("BHG Roster <roster@thebhg.org>",
+          $person->SendEmail("roster@thebhg.org",
                              "[Roster] Welcome to the Bounty Hunters Guild "
                              .$person->GetName(),
                              $message);
 
-          $warden->SendEmail("BHG Roster <roster@thebhg.org>",
+          $warden->SendEmail("roster@thebhg.org",
                              "[Roster] Welcome to the Bounty Hunters Guild "
                              .$person->GetName(),
                              $message);
 
           if ($this->GetSetting('newmemberemailexecutor') == 1) {
 
-            $executor->SendEmail("BHG Roster <roster@thebhg.org>",
+            $executor->SendEmail("roster@thebhg.org",
                                  "[Roster] Welcome to the Bounty Hunters Guild "
                                  .$person->GetName(),
                                  $message);
@@ -1339,7 +1339,7 @@ class Roster extends BHGObject {
 
           $message = ParseEmailTemplate($message, $replace);
 
-          $person->SendEmail("BHG Roster <roster@thebhg.org>",
+          $person->SendEmail("roster@thebhg.org",
                              "[Roster] Your Initial Password",
                              $message);
 
