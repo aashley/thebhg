@@ -35,14 +35,14 @@
 	    $division = $divi->GetID();
 	    $position = $posi->GetID();
 	    
-	    $tables = array('`complex`', '`estate`', '`hq`', '`other`', '`personal`');
+	    $tables = array('complex', 'estate', 'hq', 'other', 'personal');
 	    $return = array();
 	    foreach ($tables as $table){
-		    $sql = "SELECT * FROM $table WHERE (`division` = '$division' AND `position` = '$position') OR (`bhg_id` = '$bhg_id')";
+		    $sql = "SELECT * FROM `$table` WHERE (`division` = '$division' AND `position` = '$position') OR (`bhg_id` = '$bhg_id')";
 		    $query = mysql_query($sql, $this->LyarnaConnect());
 		    
 		    while ($info = mysql_fetch_array($query)){
-			    $return[mysql_field_table($query, 'id')] = $info['id'];
+			    $return[mysql_field_table($query, 'id')][] = $info['id'];
 		    }
 	    }
 	    
