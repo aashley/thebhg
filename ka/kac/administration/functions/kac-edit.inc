@@ -100,8 +100,8 @@ function output(){
 			$form->AddTextBox('Last KAG Season', 'id', $kac->GetSeasonID(), 5);
 			$form->AddDateBox('Start', 'start', $kac->Dates('SYSTEM', 'start'), true);
 			$form->AddDateBox('End', 'end', $kac->Dates('SYSTEM', 'end'), true);
-			$form->AddTextBox('Maximum Points', 'maximum', $kac->GetMaximum(), 5);
-			$form->AddTextBox('Minimum Points', 'minimum', $kac->GetMinimum(), 5);
+			$form->AddTextBox('Maximum Points', 'maximum', $kac->GetMaximum(true), 5);
+			$form->AddTextBox('Minimum Points', 'minimum', $kac->GetMinimum(true), 5);
 			$form->AddTextBox('Top Finishers Per Kabal', 'kabal_count', $kac->GetKabalCount(), 5);
 				
 			$form->AddHidden('kac', $_REQUEST['kac']);

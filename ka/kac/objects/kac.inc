@@ -73,12 +73,12 @@ class KAC extends KA_1 {
         return $return;
     }
 
-	function GetMaximum(){
-		return $this->maximum;
+	function GetMaximum($frmt = false){
+		return ($frmt ? ($this->maximum)-1 : $this->maximum);
 	}
 
-	function GetMinimum(){
-		return $this->minimum;
+	function GetMinimum($frmt = false){
+		return $frmt ? ($this->minimum)-1 : $this->minimum);
 	}
 	
 	function GetKabalCount(){
@@ -292,6 +292,8 @@ class KAC extends KA_1 {
 		
 		$sql = "SELECT SUM(`points`) as `total`, COUNT(DISTINCT id) AS `events`, `kabal`, `bhg_id` FROM `kac_submissions` WHERE `event` IN (".implode(', ', $event).") AND `date_deleted` = 0 AND `place` != 0 GROUP BY `bhg_id` ORDER BY `total` DESC $limit";
 	    $query = mysql_query($sql, $this->connect);
+	    
+	    echo mysql_error($this->connect);
 	    
 	    while ($info = mysql_fetch_array($query)) {
 			$guy = new Person($info['bhg_id']);
