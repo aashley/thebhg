@@ -4,54 +4,54 @@ $prefix = 'bb_';
 $roster = new Roster('roster-69god');
 
 function bb_header() {
-	echo '<table border=0 width="100%"><tr valign="top"><td width="90%">';
 }
 
 function bb_footer() {
 	global $prefix, $db;
 
-	echo '</td><td style="border-left: solid 1px black">Sports<small><br>';
-
 	$sports_result = mysql_query("SELECT * FROM {$prefix}sports ORDER BY name ASC", $db);
 	if ($sports_result && mysql_num_rows($sports_result)) {
+		$items = array();
 		while ($sport_row = mysql_fetch_array($sports_result)) {
-			echo '<br><a href="' . internal_link('sport', array('id'=>$sport_row['id'])) . '">' . str_replace(' ', '&nbsp;', stripslashes($sport_row['name'])) . '</a>';
+			$items[stripslashes($sport_row['name'])] = internal_link('sport', array('id'=>$sport_row['id']));
 		}
+		addMenu('Sports', $items);
 	}
 
-	echo '</small></td></tr></table>';
 }
 
 function bb_admin_footer($valid) {
-	echo '</td><td style="border-left: solid 1px black">Admin&nbsp;Menu<small><br>';
 
-	echo '<br><b>Sport&nbsp;Options</b>';
 	$pages = array('admin_add_comp'=>'Add Competition', /*'admin_edit_comp'=>'Edit Competition', */'admin_del_comp'=>'Delete Competition', 'admin_set_winner'=>'Set Competition Winner', 'admin_league_wizard'=>'League Wizard');
+	$items = array();
 	foreach ($pages as $page=>$title) {
-		echo '<br><a href="' . internal_link($page, array()) . '">' . str_replace(' ', '&nbsp;', $title) . '</a>';
+		$items[$title] = internal_link($page, array());
 	}
+	addMenu('Sport Options', $items);
 
 	if ($valid['global']) {
-		echo '<br><br><b>Global&nbsp;Options</b>';
 		$pages = array('admin_add_sport'=>'Add Sport', 'admin_edit_sport'=>'Edit Sport', /*'admin_del_sport'=>'Delete Sport', */'admin_users'=>'Edit User List');
+		$items = array();
 		foreach ($pages as $page=>$title) {
-			echo '<br><a href="' . internal_link($page, array()) . '">' . str_replace(' ', '&nbsp;', $title) . '</a>';
+			$items[$title] = internal_link($page, array());
 		}
+		addMenu('Global Options', $items);
 
-		echo '<br><br><b>FAQ&nbsp;Section&nbsp;Options</b>';
 		$pages = array('admin_add_faq_section'=>'Add FAQ Section', 'admin_edit_faq_section'=>'Edit FAQ Section', 'admin_delete_faq_section'=>'Delete FAQ Section');
+		$items = array();
 		foreach ($pages as $page=>$title) {
-			echo '<br><a href="' . internal_link($page, array()) . '">' . str_replace(' ', '&nbsp;', $title) . '</a>';
+			$items[$title] = internal_link($page, array());
 		}
+		addMenu('FAQ Section Options', $items);
 
-		echo '<br><br><b>FAQ&nbsp;Options</b>';
 		$pages = array('admin_add_faq'=>'Add FAQ ', 'admin_edit_faq'=>'Edit FAQ ', 'admin_delete_faq'=>'Delete FAQ ');
+		$items = array();
 		foreach ($pages as $page=>$title) {
-			echo '<br><a href="' . internal_link($page, array()) . '">' . str_replace(' ', '&nbsp;', $title) . '</a>';
+			$items[$title] = internal_link($page, array());
 		}
+		addMenu('FAQ Options', $items);
 	}
 	
-	echo '</small></td></tr></table>';
 }
 
 function bb_get_sports($user) {
