@@ -41,9 +41,14 @@
 	    
 	    $stat = array_shift($this->npc_stats);
 	    $table->AddRow('Name: ', $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8"));
+	    
+	    $sorted = arsort($this->npc_stats);
+	    $highest = array_shift($sorted);
+	    
 	    foreach ($this->npc_stats as $name=>$stat){
-		    $point = $stat*$this->type->GetPoints()
+		    $point = $stat*$this->type->GetPoints();
 		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $point);
+		    $value .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', $highest-$value);
 		    $table->AddRow($name, $value);
 	    }
     }
