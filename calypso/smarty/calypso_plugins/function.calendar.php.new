@@ -1,0 +1,118 @@
+<?php
+
+	/**
+	 * Smarty plugin
+	 * @package Calypso
+	 * @subpackage plugins
+	 */
+
+	/**
+	 * Smarty {calendar} function plugin
+	 *
+	 * Type:     function<br>
+	 * Name:     calendar<br>
+	 * Date:     Feb 12, 2004<br>
+	 * Purpose:  Create a calendar<br>
+	 * Input:<br>
+	 *         - blogid = the unique id of the blog
+	 *         - month = calendar month
+	 *         - day = calendar day
+	 *         - year = calendar year
+	 *
+	 * Examples: {calendar blogid=1 year=2004 month=2 day=12}
+	 * @author   Thomas Reynolds <Thomas.Reynolds@asu.edu>
+	 * @param array
+	 * @param Smarty
+	 * @return array
+	 */
+	function smarty_function_calendar ($params, &$smarty)
+	{
+		// If an output variable name is not set, create a default.
+		if ($params['assign'] == '')
+			$params['assign'] = 'calendar';
+
+		if (empty ($params['blogid']))
+			$smarty->trigger_error ('calendar: blogid is a required parameter');
+
+		if (empty ($params['year']))
+			$smarty->trigger_error ('calendar: year is a required parameter');
+
+		if (empty ($params['month']))
+			$smarty->trigger_error ('calendar: month is a required parameter');
+
+		if (empty ($params['day']))
+			$smarty->trigger_error ('calendar: day is a required parameter');
+
+		// Timstamps for the current, previous and next months.
+		$selected_date    = mktime (0, 0, 0, $params['month'], $params['day'], $params['year']);
+		$prev_month_end   = mktime (0, 0, 0, $params['month'], 0, $params['year']);
+		$next_month_begin = mktime (0, 0, 0, $params['month'] + 1, 1, $params['year']);
+
+		// Various facts about last and next month.
+		$prev_month        = date ('n', $prev_month_end);
+		$prev_month_year   = date ('Y', $prev_month_end);
+		$prev_month_abbrev = date ('M', $prev_month_end);
+		$next_month_abbrev = date ('M', $next_month_begin);
+
+		// Get a list of the abbriviated day names.
+		$day_of_week_abbrevs = array ();
+		for ($i = 0; $i < 7; $i++) {
+			$timestamp = mktime (0, 0, 0, 1, (2 + $day_of_week), 2000);
+			$day_of_week_abbrevs [] = date ('D', $timestamp);
+		}
+
+		// Build a two-dimensional array of UNIX timestamps.
+		$calendar = array ();
+
+		// Start the first row with the final day(s) of the previous month.
+		$week = array ();
+		$month_begin = mktime (0, 0, 0, $params['month'], 1, $params['year']);
+		$month_begin_day_of_week = strftime ('%w', $month_begin);
+		$days_in_prev_month = date ('t', $prev_month_end);
+
+		for ($day_of_week = 0; $day_of_week < $month_begin_day_of_week; $day_of_week++) {
+			$day = $days_in_prev_month - $month_begin_day_of_week + $day_of_week;
+			$week[] = mktime(0, 0, 0, $params['month'] - 1, $params['day'], $params['year']);
+		}
+
+		// Fill in the days of the selected month.
+		$days_in_month = date ('t', $selected_date);
+		for ($i = 1; $i <= $days_in_month; $i++) {
+			if ($day_of_week == 7) {
+				$calendar[] = $week;
+
+				// re-initialize $day_of_week and $week
+				$day_of_week = 0;
+				unset($week);
+				$week = array();
+			}
+			$week[] = mktime(0, 0, 0, $month, $i, $year);
+			$day_of_week++;
+		}
+
+		// Fill out the last row with the first day(s) of the next month.
+		for ($i = 1; $day_of_week < 7; $i++, $day_of_week++)
+			$week[] = mktime(0, 0, 0, $month + 1, $i, $year);
+
+		$calendar[] = $week;
+
+		$array = array (
+			'selected_date' => $selected_date,
+			'day_of_week_abbrevs' => $day_of_week_abbrevs
+		);
+		$smarty->assign ('month', $month);
+		$smarty->assign ('year', $year);
+		$smarty->assign ('url_format', $url_format);
+		$smarty->assign ('items', $items);
+		$smarty->assign ('prev_month_end', $prev_month_end);
+		$smarty->assign ('prev_month_abbrev', $prev_month_abbrev);
+		$smarty->assign ('next_month_begin', $next_month_begin);
+		$smarty->assign ('next_month_abbrev', $next_month_abbrev);
+		$smarty->assign ('calendar', $calendar);
+
+		$smarty->display('calendar:month');
+
+		// Send the generated array to smarty.
+		$smarty->assign ($params['assign'], $array); 
+	}
+?>
