@@ -36,11 +36,15 @@ function output(){
 			$table->AddHeader('Description');
 			$table->AddHeader('Type');
 			$table->AddHeader('&nbsp;');
+			$table->AddHeader('&nbsp;');
 			$table->EndRow();
 			
 			foreach ($current as $obj){
 				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
-				$table->AddRow($obj->Get(name), $obj->Get(desc, true), $type->Get(name), ($obj->Get(date_deleted) ? 'Deleted' : ''));
+				$table->AddRow($obj->Get(name), $obj->Get(desc, true), $type->Get(name), ($obj->Get(date_deleted) ? 
+				'<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$id=>$obj->Get(id))).'">Undelete</a>' : 
+				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$id=>$obj->Get(id))).'">Delete</a>'), 
+				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$id=>$obj->Get(id))).'">Edit</a>');
 			}
 			
 			$table->EndTable();
