@@ -17,13 +17,13 @@ function title() {
 }
 
 function output() {
-    global $activity, $arena, $type, $page;
+    global $person, $arena, $page;
 
     $sheet = new Sheet();
     
     arena_header();
 
-    if (is_object($activity)){
+    if (is_object($person)){
 		
 		$table = new Table('', true);
 	    $table->StartRow();
