@@ -37,7 +37,9 @@ if ($_REQUEST['match']){
 				$bild = new NPC_Utilities();
 				echo '<br />[b]Target[/b]';
 				$deal = ($obj->Get(data) ? $obj->Get(data) : stripslashes($_REQUEST['npc']));
-				echo $bild->Construct($deal);
+				foreach ($deal as $npc){
+					echo $bild->Construct($npc);
+				}
 			} elseif ($type->Get(creature)){
 				echo $creature->WriteSheet();
 				$_REQUEST['name'] = 'Challenge: '.$creature->GetName();				
@@ -51,8 +53,10 @@ if ($_REQUEST['match']){
 			$form->AddHidden('data[fields][]', 'mbid');
 			
 			if ($type->Get(npc)){
-				$form->AddHidden('data[values][]', $_REQUEST['npc']);
-				$form->AddHidden('data[fields][]', 'data');
+				if (!$obj->Get(data)){
+					$form->AddHidden('data[values][]', $_REQUEST['npc']);
+					$form->AddHidden('data[fields][]', 'data');
+				}
 			} elseif ($type->Get(creature)){
 				$form->AddHidden('data[values][]', $creature->GetID());
 				$form->AddHidden('data[fields][]', 'data');
@@ -106,15 +110,22 @@ if ($_REQUEST['match']){
 			
 			if ($type->Get(npc)){
 				$data = unserialize($obj->Get(specifics));
-				$npc = new Parse_NPC($data[$arena->NPCID()]);
+				$npcs = array();
+				for ($i = 1; $i <= $activity->Get(num_npc); $i++){
+					$npcs[] = new Parse_NPC($data[$arena->NPCID()]);
+				}
 				$bild = new NPC_Utilities();
-				$form->AddHidden('npc', $npc->GetString());
-				$form->AddHidden('name', 'Target: '.$bild->GetName($npc->GetString()));
+				$form->AddHidden('npc', serialize($npcs));
+				$form->AddHidden('name', 'Target: '.$bild->GetName($npcs[0]->GetString()));
 				
 				$form->AddSectionTitle('NPC');
-				$form->table->StartRow();
-				$form->table->AddCell($bild->Construct($npc->GetString()), 2);
-				$form->table->EndRow();
+				
+				foreach ($npcs as $npc){
+					$form->table->StartRow();
+					$form->table->AddCell($bild->Construct($npc->GetString()), 2);
+					$form->table->EndRow();
+				}
+				
 			} elseif ($type->Get(creature)){
 				$form->StartSelect('Creature', 'creature');
 			    foreach ($arena->Creatures() as $creature){

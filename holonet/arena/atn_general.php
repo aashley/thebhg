@@ -32,7 +32,7 @@ function output() {
 	    $table->EndRow();
 	    $table->AddRow('Name:', '<a href="' . internal_link('hunter', array('id'=>$hunter->GetID()), 'roster') . '">' . $hunter->GetName() . '</a>');   
 	    $table->AddRow('ID Line:', $hunter->IDLine(0));
-	    $table->AddRow('Stat Tracker:', '<a href="' . internal_link('atn_match_stats', array('id'=>$hunter->GetID())) . '">Arena Match Stats</a>'); 
+	    $table->AddRow('Stat Tracker:', '<a href="' . internal_link('atn_stats', array('id'=>$hunter->GetID())) . '">View All Events</a>'); 
 	    $table->AddRow('Character History:', '<a href="' . internal_link('point_history', array('id'=>$hunter->GetID())) . '">Experience/BP History</a>');
 	    
 	    if ($properties){ $table->AddRow('Property in Lyarna:', '<a href="'.internal_link('atn_lyarna', array('id'=>$hunter->GetID())).'">Owns '.pluralise('Piece', $properties).' of Property</a>'); }

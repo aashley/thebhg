@@ -87,7 +87,9 @@ function output() {
 			    $ser = unserialize($match->Get(data));
 			    if (is_array($ser)){
 				    $bld = new NPC_Utilities();
-				    $table->AddRow('NPC:', $bld->Construct($match->Get(data, 1)));
+				    foreach ($ser as $npc){
+				    	$table->AddRow('NPC:', $bld->Construct(stripslashes(serialize($npc))));
+			    	}
 			    } elseif (is_numeric(($match->Get(data)))) {
 				    $cre = new Creature($match->Get(data));
 				    $table->AddRow('Creature:', $cre->WriteSheet());

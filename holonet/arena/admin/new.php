@@ -91,20 +91,33 @@ function display(){
 		
 		$form->AddSubmitButton('submit', 'Transmit to Holonet Servers');
 		if ($_REQUEST['npc']){
-			$npc = new Parse_NPC($_REQUEST['max'], true);
+			$npcsa = array();
+			if ($_REQUEST['npcs'] > 3){
+				$npcs = 3;
+			} elseif ($_REQUEST['npcs'] < 1){
+				$npcs = 1;
+			} else {
+				$npcs = $_REQUEST['npcs'];
+			}
+			for ($i = 1; $i <= $npcs; $i++){
+				$npcsa[] = new Parse_NPC($_REQUEST['max'], true);
+			}
 			$bild = new NPC_Utilities();
-			$form->AddHidden('data[values][]', $npc->GetString());
+			$form->AddHidden('data[values][]', serialize($npcsa));
 			$form->AddHidden('data[fields][]', 'data');
 			$form->AddSectionTitle('NPC');
-			$form->table->StartRow();
-			$form->table->AddCell($bild->Construct($npc->GetString()), 2);
-			$form->table->EndRow();
+			foreach ($npcsa as $npc){
+				$form->table->StartRow();
+				$form->table->AddCell($bild->Construct($npc->GetString()), 2);
+				$form->table->EndRow();
+			}
 		}
 		$form->AddHidden('data[fields][]', 'specifics');
 		$form->EndForm();
 	} else {
 		$form = new Form($page);
 		$form->AddCheckBox('Use NPC:', 'npc', 1);
+		$form->AddTextBox('Number of NPCs (3 max):', 'npcs', 1);
 		$form->StartSelect('Max Stat Value for NPC:', 'max');
 		for ($i = 5; $i <= 10; $i++){
 			$form->AddOption($i, $i);
