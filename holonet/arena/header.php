@@ -415,7 +415,8 @@ function admin_footer($auth_data) {
     
     if ($auth_data['coder']){
 	    echo '<br /><b>Coder&nbsp;Resources</b><br />';
-	    echo '&nbsp;<a href="' . internal_link('coder_mod') . '">Generate&nbsp;CS&nbsp;Modifcation</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('coder_mod') . '">Add&nbsp;CS&nbsp;Modifcation</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('coder_mod_mod') . '">Modify&nbsp;CS&nbsp;Modifcation</a><br />';
     }
     
 	if ($auth_data['aa']){

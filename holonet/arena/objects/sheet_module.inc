@@ -24,6 +24,30 @@
 	    return new Character($info['bhg_id']);
     }
     
+    function AllMods(){
+	    $sql = "SELECT * FROM `cs_mods` WHERE `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[] = array('id'=>$info['id'], 'name'=>$info['name']);
+	    }
+	    
+	    return $return;
+    }
+    
+    function BuildModEdit($id){
+    	$sql = "SELECT * FROM `cs_mods` WHERE `name` = '$field' AND `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $info = mysql_fetch_array($query);
+		    return array('id'=>$info['id'], 'name'=>$info['name'], 'desc'=>stripslashes($info['description']), 'fields'=>unserialize($info['fields']));
+	    } else {
+		    return 0;
+	    }
+    }
+    
     function GetSheetMod($field){
 	    $sql = "SELECT * FROM `cs_mods` WHERE `name` = '$field' AND `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
