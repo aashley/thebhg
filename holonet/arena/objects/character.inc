@@ -32,7 +32,7 @@
     }
     
     function UpdateCache(){
-	    $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '".$this->cs_bhg_id."'";
+	    $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '".$this->cs_bhg_id."' AND `date_deleted` = 0";
         $query = mysql_query($sql, $this->connect);
         
         if ($result = @mysql_fetch_array($query)) {
@@ -1104,7 +1104,6 @@
 		if ($bio->GetHomeworld()){ $homeworld = $bio->GetHomeworld(); }
 		if ($bio->GetSex()){ $sex = $bio->GetSex(); }
 		if ($bio->GetSpecies()){ $species = $bio->GetSpecies(); }
-		echo $id;
 		if ($id == 0){ $id = $this->GetSheetID(); }
 
 		if ($look != 'cores' || $show_anyway){
