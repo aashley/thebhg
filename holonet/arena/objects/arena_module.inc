@@ -63,7 +63,8 @@
     }
     
     function BastionPlayer($bhg_id){
-		$result = mysql_query('SELECT SUM(points) AS total, person, kabal, kag FROM `bastion_signups` WHERE `person` = \'$bhg_id\' GROUP BY person, kabal, kag ORDER BY kag ASC', $this->bastion);
+	    $sql = "SELECT SUM(points) AS total, person, kabal, kag FROM `bastion_signups` WHERE `person` = '$bhg_id' GROUP BY person, kabal, kag ORDER BY kag ASC";
+		$result = mysql_query($sql, $this->bastion);
 		if ($result && mysql_num_rows($result)) {
 			$hunters = array();
 			while ($row = mysql_fetch_array($result)) {
