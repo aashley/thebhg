@@ -36,9 +36,9 @@ function output() {
 		    					'planet'=>'<a href="'.$planet->GetLink().'">'.$planet->GetName().'</a>',
 		    					'arena'=>($land['arena'] ? true : false), 'used'=>$local->GetUsed());
 		    	if ($land['posi']){
-			    	$posi[$planet->GetName()] = $data;
+			    	$posi[$planet->GetName()][] = $data;
 		    	} else {
-			    	$pers[$planet->GetName()] = $data;
+			    	$pers[$planet->GetName()][] = $data;
 		    	}
 	    	}
 	    	
@@ -52,12 +52,14 @@ function output() {
 		    	$table->EndRow();
 		    	
 		    	$table->AddRow('Name', 'Planet', 'Arena Approved', 'Times Used');
-		    	foreach ($pers as $data){
-			    	$table->StartRow();
-			    	$table->AddCell($data['name']);
-			    	$table->AddCell($data['planet']);
-			    	$table->AddCell(($data['arena'] ? 'Yes' : 'No'), ($data['arena'] ? '' : '2'));
-			    	if ($data['arena']){ $table->AddCell($data['used']); }
+		    	foreach ($pers as $datum){
+			    	foreach ($datum as $data){
+				    	$table->StartRow();
+				    	$table->AddCell($data['name']);
+				    	$table->AddCell($data['planet']);
+				    	$table->AddCell(($data['arena'] ? 'Yes' : 'No'), ($data['arena'] ? '' : '2'));
+				    	if ($data['arena']){ $table->AddCell($data['used']); }
+			    	}
 		    	}
 		    	$table->EndTable();			    	
 	    	}
@@ -69,12 +71,14 @@ function output() {
 		    	$table->EndRow();
 		    	
 		    	$table->AddRow('Name', 'Planet', 'Arena Approved', 'Times Used');
-		    	foreach ($posi as $data){
-			    	$table->StartRow();
-			    	$table->AddCell($data['name']);
-			    	$table->AddCell($data['planet']);
-			    	$table->AddCell(($data['arena'] ? 'Yes' : 'No'), ($data['arena'] ? '' : '2'));
-			    	if ($data['arena']){ $table->AddCell($data['used']); }
+		    	foreach ($posi as $datum){
+			    	foreach ($datum as $data){
+				    	$table->StartRow();
+				    	$table->AddCell($data['name']);
+				    	$table->AddCell($data['planet']);
+				    	$table->AddCell(($data['arena'] ? 'Yes' : 'No'), ($data['arena'] ? '' : '2'));
+				    	if ($data['arena']){ $table->AddCell($data['used']); }
+			    	}ata['arena']){ $table->AddCell($data['used']); }
 		    	}
 		    	$table->EndTable();
 	    	}
