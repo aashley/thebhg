@@ -128,20 +128,7 @@ function output() {
 		This page requires JavaScript to function properly.
 		</noscript>
 	<?
-		$form = new Form($page);
-    	$form->AddSectionTitle('Make Blank Sheet');
-        $form->table->StartRow();
-        $form->table->AddCell("<select name=\"kabal\" "
-        ."onChange=\"swap_kabal(this.form)\">"
-        ."<option value=\"-1\">N/A</option>$kabals</select>");
-	
-	    
-    
-		$form->table->AddCell($cell);
-
-		$form->table->EndRow();
-        $form->AddSubmitButton('submit', 'Insert Blank into AMS');
-        $form->EndForm();
+		echo $kabals;
     }
 
     admin_footer($auth_data);
