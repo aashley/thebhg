@@ -128,7 +128,7 @@ function get_auth_data($hunter) {
 	    $auth_data['aa'] = true;
     }
     
-    /*Elite RP nonsense.    
+    Elite RP nonsense.    
     if (in_array($hunter->GetID(), $tempy->ActiveMods())){
 	    $auth_data['tempy_mod'] = true;
     }
@@ -147,7 +147,6 @@ function get_auth_data($hunter) {
 	    $auth_data['tempy_sub'] = true;
 	    $auth_data['elite'] = true;
     }
-    */
     
     if (in_array($hunter->GetID(), $lw->Members())){
 	    $auth_data['lw'] = true;
