@@ -45,16 +45,15 @@ function output() {
 	    $form->AddHidden('mod', $_REQUEST['mod']);
 	    $form->table->AddRow('Stat/Skill', 'Include?');
 	    
-	    $mod = $sheet->BuildModEdit($_REQUEST['mod']);
-	    $fields = array_flip($mod['fields']);
+	    $fields = array_flip($sheet->ModFields($_REQUEST['mod']));
 	    
 	    foreach ($fields as $field=>$s){
 		    foreach ($sheet->GetStats($field) as $stat){
-			    $form->AddCheckBox($stat->GetName(), 'stat['.$stat->GetID().']', 1, $fields[$field->GetID()]);
+			    $form->AddCheckBox($stat->GetName(), 'stat['.$stat->GetID().']', 1, $sheet->Permit(1, $stat->GetID(), $_REQUEST['mod']);
 			    $form->AddHidden('stats[]', $stat->GetID());
 		    }
 		    foreach ($sheet->GetSkills($field) as $skill){
-			    $form->AddCheckBox($skill->GetName(), 'skill['.$skill->GetID().']', 1, $fields[$field->GetID()]);
+			    $form->AddCheckBox($skill->GetName(), 'skill['.$skill->GetID().']', 1, $fields[$stat->GetID()]);
 			    $form->AddHidden('skills[]', $skill->GetID());
 		    }
 	    }
