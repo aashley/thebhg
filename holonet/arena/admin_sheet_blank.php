@@ -36,7 +36,12 @@ function output() {
 			$kabals = array();
 			$hunters = array();
 			$plebsheet = array();
-	    
+	    	$ids = array();
+			
+			foreach ($sheet->SheetHolders() as $char){
+				$ids[] = $char->GetID();
+			}
+			
 			foreach ($kabals_result as $kabal) {
 	      
 			      if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
@@ -45,7 +50,7 @@ function output() {
 			          .$kabal->GetName()."</option>\n";
 			          
 			        foreach ($kabal->GetMembers('name') as $char) {
-						if (!in_array($char->GetID(), $sheet->SheetHolders(1))){
+						if (!in_array($char->GetID(), )){
 					    	$hunters[$char->GetName()] = new Person($char->GetID());
 				    	}
 			    	}
