@@ -52,15 +52,10 @@
     }
 
     function GetContracts(){
-        $sql = "SELECT * FROM `arena_solo_contracts` WHERE `ranger` = '".$this->ranger_id."'";
+        $sql = "SELECT * FROM `arena_survival_contracts` WHERE `ranger` = '".$this->ranger_id."'";
         $query = mysql_query($sql, $this->connect);
 
-        $base = mysql_num_rows($query);
-        
-        $sql = "SELECT * FROM `arena_lw_contracts` WHERE `ranger` = '".$this->ranger_id."'";
-        $query = mysql_query($sql, $this->connect);
-        
-        return $base+mysql_num_rows($query);
+        return mysql_num_rows($query);
     }
 
     function GetXP(){
