@@ -240,6 +240,7 @@
 	        	}
 	    	}
 	    	if ($val > 10){ $val = 10; }
+	    	if ($val < 0) { $val = 0; }
     	}
         
         if ($output == 'SHEET'){
