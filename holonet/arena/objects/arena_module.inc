@@ -37,6 +37,30 @@
         return $bastion;
     }
     
+    function StorePendingXP($bhg_id, $reason, $xp, $by){
+	    $sql = "INSERT INTO `arena_pending_xp` VALUES ('$bhg_id', '".addslashes($reason)."', '$xp', '$by')";
+	    mysql_query($sql, $this->connect);
+    }		    
+    
+    function GetPendingXP(){
+	    $sql = "SELECT * FROM `arena_pending_xp`";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $by = new Person($info['by']);
+		    $kabal = $by->GetDivision();
+		    $return[$kabal->GetName()][] = array('bhg_id'=>new Person($info['bhg_id']), 'by'=>$by, 'xp'=>$info['xp'], 'reason'=>stripslashes($info['reason']));
+	    }
+	    
+	    return ksort($return);
+    }
+    
+    function RemovePendingXP(){
+	    $sql = "DELETE FROM `arena_pending_xp`";
+	    mysql_query($sql, $this->connect);
+    }
+    
     function MyProperties($hunter){
 	    $bhg_id = $hunter->GetID();
 	    $divi = $hunter->GetDivision();

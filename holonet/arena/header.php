@@ -400,6 +400,7 @@ function admin_footer($auth_data) {
 	if ($auth_data['ch']){
 	    echo '<br /><b>Chief&nbsp;Resources</b><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_ch_npc') . '">Generate&nbsp;NPC</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_ch_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
     }
 	
 	if ($auth_data['citadel']){
@@ -417,6 +418,7 @@ function admin_footer($auth_data) {
         	echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
         	echo '&nbsp;<a href="' . internal_link('admin_teta_award') . '">Award&nbsp;Teta\'s&nbsp;Knives</a><br />';	    
 	    	echo '&nbsp;<a href="' . internal_link('admin_teta_remove') . '">Remove&nbsp;Teta\'s&nbsp;Knives</a><br />';
+	    	echo '&nbsp;<a href="' . internal_link('admin_approve_xp') . '">Approve&nbsp;CH&nbsp;XP</a><br />';
     	}
         echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
