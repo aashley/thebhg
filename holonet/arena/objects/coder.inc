@@ -1,19 +1,19 @@
 <?
 
-Class Coder extends Arena {
+Class Coder extends Core {
 
 	var $tables = array();
 	var $fields = array();
 	var $allowed = array();
 	 
-	function Coder(){
+	function Coder () {
 	    Arena::Arena();
 	    
 	    $this->allowed = array('arena', 'character_sheet', 'cs');
 	    $this->LoadTables();	    
 	}
 	
-	function LoadTables(){   
+	function LoadTables () {   
 		$sql = "SHOW TABLES FROM `thebhg_holonet`";
 	    $query = mysql_query($sql, $this->connect);
 	    
@@ -28,7 +28,7 @@ Class Coder extends Arena {
 		}
 	}
 	
-	function LoadFields($table){   
+	function LoadFields ($table) {   
 	    $sql = "SHOW COLUMNS FROM `$table`";
 	    $query = mysql_query($sql, $this->connect);
 	   	while ($info = mysql_fetch_assoc($query)) {
@@ -36,8 +36,8 @@ Class Coder extends Arena {
 	   	}
 	}
 	
-	function Add(){
-			
+	function Add () {
+		
 	}
 }
 

@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Coder Resources :: System :: Fields';
+    return 'Coder Resources :: System';
 }
 
 function auth($person) {
@@ -18,25 +18,11 @@ function output() {
 
     $coder = new Coder();
     
-    if ($_REQUEST['submit']){
+    $core = new Core();
     
-	    $coder = new Coder();
-	    
-	    $coder->LoadFields($_REQUEST['table']);
-	    
-	    echo '<pre>';
-	    print_r($coder->fields);
-	    echo '</pre>';
-    } else {
-	    $form = new Form($page);
-	    $form->AddTextBox('Table', 'table');
-	    $form->AddSubmitButton('submit', 'Submit');
-	    $form->EndForm();
-    }
+    $shell = new Shell(5, 'arena_ladder_match');
     
-    echo '<pre>';
-    print_r($coder->tables);
-    echo '</pre>';
+    echo $shell->GetValue('match_id');
 
     admin_footer($auth_data);
 }

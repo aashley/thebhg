@@ -1,5 +1,17 @@
 <?php
 include_once('roster.inc');
+include_once 'objects/core.inc';
+include_once 'objects/shell.inc';
+
+
+
+
+
+
+
+
+
+
 include_once('objects/arena.inc');
 include_once('library.inc');
 include_once('citadel.inc');
