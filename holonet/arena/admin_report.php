@@ -8,32 +8,57 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['rp'];
+    return $auth_data['aa'];
 }
 
 function output() {
-    global $auth_data, $page, $roster, $hunter;
+    global $auth_data, $page, $roster, $hunter, $arena;
 
     arena_header();
 
+    $holonet = false;
+    
     $pos = $hunter->GetPosition();
 	$div = $hunter->GetDivision();
+	if (($pos->GetID() == 29 && $_REQUEST['position'] == 'ov') || ($pos->GetID() == 9 && $_REQUEST['position'] == 'aj')){
+		$holonet = true;
+	}
 	
 	if (isset($_REQUEST['submit'])) {
-		if (mysql_query('INSERT INTO hn_reports (position, division, author, time, report, html) VALUES (' . $pos->GetID() . ', ' . $div->GetID() . ', ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')', $roster->roster_db)) {
-			echo 'Report added successfully.';
+		if ($holonet){
+			if (mysql_query('INSERT INTO hn_reports (position, division, author, time, report, html) VALUES (' . $pos->GetID() . ', ' . $div->GetID() . ', ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')', $roster->roster_db)) {
+				echo 'Formal Commission Report added successfully.';
+			}
+			else {
+				echo 'Error adding Commission report: ' . mysql_error($roster->roster_db);
+			}
+			echo '<br />';
+		}
+		if (mysql_query('INSERT INTO arena_reports (admin, author, time, report, html) VALUES (' . $_REQUEST['position'] . ', ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')', $arena->connect)) {
+			echo 'Arena Report added successfully.';
 		}
 		else {
 			echo 'Error adding report: ' . mysql_error($roster->roster_db);
 		}
 	}
 	else {
-		$form = new Form($page);
-		$form->AddTextArea('Report:', 'report', '', 20, 70);
-		$form->AddCheckBox('Enable HTML:', 'html', 'on');
-		$form->table->AddRow('Note:', 'This report cannot be deleted once added.');
-		$form->AddSubmitButton('submit', 'Add Report');
-		$form->EndForm();
+		$can = $arena->CanBe($hunter->GetID());
+		
+		if (count($can)){		
+			$form = new Form($page);
+			$form->StartSelect('Post As:', 'position');
+			foreach ($can as $call=>$desc){
+				$form->AddOption($call, $desc);
+			}
+			$form->EndSelect();
+			$form->AddTextArea('Report:', 'report', '', 20, 70);
+			$form->AddCheckBox('Enable HTML:', 'html', 'on');
+			$form->table->AddRow('Note:', 'This report cannot be deleted once added.');
+			$form->AddSubmitButton('submit', 'Add Report');
+			$form->EndForm();
+		} else {
+			echo 'You cannot submit as any kind of Arena Aide.';
+		}
 	}
 
     admin_footer($auth_data);

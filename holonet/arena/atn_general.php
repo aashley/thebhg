@@ -80,7 +80,7 @@ function output() {
 	    $table->AddRow('ID Line:', $hunter->IDLine(0));
 	    $table->AddRow('Stat Tracker:', '<a href="' . internal_link('atn_match_stats', array('id'=>$hunter->GetID())) . '">Arena Match Stats</a>'); 
 	    $table->AddRow('Character History:', '<a href="' . internal_link('point_history', array('id'=>$hunter->GetID())) . '">Experience/BP History</a>');
-	    if (count($rewards)){ $table->AddRow('Administrative History:', '<a href="' . internal_link('atn_award', array('id'=>$hunter->GetID())) . '">Experience/BP History</a>'); }
+	    if (count($rewards)){ $table->AddRow('Administrative History:', '<a href="' . internal_link('atn_award', array('id'=>$hunter->GetID())) . '">Credits/Medals/XP Awarding History</a>'); }
 	    
 	    $arr = $arena_ladder->Search($hunter->GetID());
 	    //$sar = $starfield_ladder->Search($hunter->GetID());

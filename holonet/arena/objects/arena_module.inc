@@ -182,6 +182,48 @@
         return $return;
     }
     
+    function ArenaPositions(){
+	    $positions = array();
+		
+		$positions['reg']['desc'] = 'Office of Character Development Registrar';
+		$positions['dojo']['desc'] = 'Master of the Dojo of Shadows';
+		$positions['mm']['desc'] = 'Mission Master of Run-Ons';
+		$positions['cbo']['desc'] = 'Commissioner of the Bounty Office';
+		$positions['ov']['desc'] = 'Overseer of the Guild';
+		$positions['aj']['desc'] = 'Adjunct of the Guild';
+		$positions['sk']['desc'] = 'Skipper of the Starfield Arena';
+		$positions['st']['desc'] = 'Steward of the Arena';
+		$positions['irca']['desc'] = 'Holonet Commentator of the IRC Arena';
+		$positions['ranger']['desc'] = 'Survival Mission Ranger';
+		
+		return $positions;
+	}
+	
+	function CurrentHolders(){
+		$aas = array();
+		
+		$sheet = new Sheet();
+		$ladder = new Ladder();
+		$ro = new RO();
+		$solo = new Solo();
+		$surv = new Survival();
+		$skip = new Starfield();
+		$irca = new IRCA();
+		
+		$aas['reg'] = $sheet->CurrentRegistrar();
+		$aas['dojo'] = $ladder->CurrentMaster();
+		$aas['mm'] = $ro->CurrentMM();
+		$aas['cbo'] = $solo->CurrentComissioner();
+		$aas['ov'] = $this->CurrentOV();
+		$aas['aj'] = $this->CurrentAJ();
+		$aas['sk'] = $skip->CurrentSkipper();
+		$aas['st'] = $ladder->CurrentSteward();
+		$aas['irca'] = $irca->CurrentHC();
+		$aas['ranger'] = $surv->CurrentRanger();
+		
+		return $aas;
+	}
+    
     function CanBe($hunter){
 	    $bhg_id = $hunter->GetID();
 	    
