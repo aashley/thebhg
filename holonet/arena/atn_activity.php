@@ -44,7 +44,7 @@ function output() {
 		    $fst = 'id` < \''.$grtrt.'\' AND `';
 	    } 
 	    
-	    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('type'=>$activity->Get(id), 'accepted'=>1, 'started` > 0 AND `completed` > 0 AND `date_deleted'=>0), 'limit'=>20));
+	    $pending = $arena->Search(array('table'=>'ams_match', 'order'=>array('id'=>'desc'), 'search'=>array('type'=>$activity->Get(id), 'accepted'=>1, 'started` > 0 AND `completed` > 0 AND `date_deleted'=>0), 'limit'=>20));
 	    $pendings = array();
 	    
 	    foreach ($pending as $obj){
@@ -56,7 +56,7 @@ function output() {
 		    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$obj->Get(id)))) as $yarm){		   				    
 				$chal[$obj->Get(id)][$yarm->Get(challenger)] = new Person($yarm->Get(bhg_id));
 		    }
-		    $last = $match->Get(id);
+		    $last = $obj->Get(id);
 	    }
 	    
 	    foreach ($pendings as $ja=>$match){
