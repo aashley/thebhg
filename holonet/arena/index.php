@@ -9,11 +9,21 @@ function output() {
     $ov = $arena->Overseer();
     $aj = $arena->Adjunct();
     
-    $overseer = '<a href="'.internal_link('atn_general', array('id'=>$ov->GetID())).'">'.$ov->GetName().'</a>';
-    $adjunct = '<a href="'.internal_link('atn_general', array('id'=>$aj->GetID())).'">'.$aj->GetName().'</a>';
+    $overseer = ($ov ? 'Overseer <a href="'.internal_link('atn_general', array('id'=>$ov->GetID())).'">'.$ov->GetName().'</a>' : '');
+    $adjunct = ($aj ? 'Adjunct <a href="'.internal_link('atn_general', array('id'=>$aj->GetID())).'">'.$aj->GetName().'</a>' : '');
     
+    if ($ov && $aj){
+	    $by = 'jointly by the Guild '.$overseer.' and '.$adjunct;
+    } elseif($ov || $aj){
+	    $by = 'by the overworked Guild '.$overseer.$adjunct;
+    } elseif {
+	    $by = 'by magic';
+    }
+
     arena_header();
 
+    echo '<h3>The AMS is being fixed so it works. Please be patient.</h3>';
+    
    echo "
 The cold breeze blows around a lone fighter, who stands amidst of the
 electric glow of the lights in the Gaea Lynn Stadium. With weapons in hand
@@ -38,17 +48,9 @@ The AMS Challenge Network, or ACN, is the complex holonet contact system
 which allows you to quickly and easily challenge another member of the Guild
 to a match in any of the Arenas, as well as sign up for Bounty Contracts.<p>
 
-The Arena Management System is run jointly by the Guild Overseer $overseer
-and Adjunct $adjunct. If you have any questions or
+The Arena Management System is run $by. If you have any questions or
 comments, please direct them there.
-<br /><br />
-- Overseer Signature<br />".
-$arena->Signature(1)."<p>
-- Adjunct Signature<br />".
-$arena->Signature(0);
-    hr();
-echo '<a href="'.internal_link('reports').'">View Latest Reports</a><br />';
-echo '<a href="'.internal_link('view_reports').'">View All Reports</a>';
-    arena_footer();
+
+arena_footer();
 }
 ?>

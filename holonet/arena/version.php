@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v2.3.5";
+    echo "Current version: v0.0.0";
     
     hr();
     
@@ -24,20 +24,16 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: Hacked the network systems to run things.";
+    echo "Version Comments: On the table.";
     
     hr();
     
-    echo "Last Update: December 13, 2004";
+    echo "Last Update: 12/20";
     
     hr();
     
    	echo "The Arena Management System is &copy; Ric Gravant, 2004.";
-
-   	hr();
-   	
-   	echo 'Did you find an NEC Error while using the AMS and want to know what it is? Check <a href="' . internal_link('nec') . '">here [NEC]</a> for more information on the error.';
-   	
+	
     arena_footer();
 }
 ?>
