@@ -5,6 +5,10 @@ function title() {
 	return 'Lost Password';
 }
 
+function coders() {
+	return array(666);
+}
+
 function output() {
 	global $roster, $page;
 
@@ -36,5 +40,7 @@ function output() {
 		$form->AddSubmitButton('', 'Reset Password');
 		$form->EndForm();
 	}
+
+	roster_footer();
 }
 ?>
