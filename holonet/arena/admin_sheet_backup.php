@@ -251,7 +251,7 @@ function output() {
 			    } elseif ($_REQUEST['prompt'] == 'core'){
 				    $load = 'cores';
 				    $name = 'CORE';
-			    } else { {
+			    } else {
 				    $load = 'backups';
 				    $name = 'Backup';
 			    }
@@ -408,7 +408,7 @@ function output() {
 		    	hr();
 			    $table = new Table('', true);
 			    $table->StartRow();
-			    $table->AddHeader('Core Characters', 5);
+			    $table->AddHeader('Auto-Saves', 5);
 			    $table->EndRow();
 			    
 			    $table->AddRow('Save ID', 'Date', '&nbsp');
