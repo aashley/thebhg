@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v3.2";
+    echo "Current version: v3.2.1";
     
     hr();
     
@@ -24,7 +24,7 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: Updated the CSes, granted full access to OV/AJ, added NPC editor.";
+    echo "Version Comments: Made it so you could, yaknow, signup for an AT.";
     
     hr();
     
