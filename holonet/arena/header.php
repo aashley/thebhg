@@ -99,7 +99,7 @@ function next_medal($person, $group) {
 }
 
 function acn_nav(){
-	echo '&nbsp;<a href="'.internal_link('acn').'">View Activities</a><br />';
+	addMenu('Challenge Network', array('View Activities'=>internal_link('acn')));
 }
 
 function atn_nav(){
@@ -144,17 +144,9 @@ function arena_footer($show_list = true) {
         return;
     }
 
-    echo '</td><td style="border-left: solid 1px black">';
-
-    echo '<small><u>Challenge Netowrk</u><br />';
-
     acn_nav();
-    
-    echo '<br /><u>Tracking Network</u><br />';
 
     atn_nav();
-    
-	echo '</small>';
 
   echo '</td></tr></table>';
 }
@@ -377,7 +369,7 @@ function admin_footer($auth_data) {
 		}
 	}
 
-    echo '</table>';
+    echo '</td></tr></table>';
 }
 
 ?>
