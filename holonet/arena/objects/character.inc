@@ -162,9 +162,14 @@
     }
 		    
     
-    function GetSheetValues($value = 'values'){
+    function GetSheetValues($value = 'values', $id = 0, $col = 'bhg_id'){
+	    if ($id){
+		    $id = $id;
+	    } else {
+		    $id = $this->GetID();
+	    }
 	    $table = '`character_sheet_'.$value.'`';
-	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."'";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 
@@ -451,6 +456,169 @@
 		}	    
     }
     
+    function SaveCore($statributes, $expertises, $personalinfo, $coreid = 0){
+		$errors = array();
+		$compile = array(1=>$statributes, 2=>$expertises, 3=>$personalinfo);
+		//Error Checking
+		
+	    if (array_sum($statributes) > $this->StatributePoints()){
+		    $errors[] = 'You have used more Statribute Points than you are allowed. ('.array_sum($statributes).'/'.$this->StatributePoints().')'; 
+	    }
+	    
+	    if (array_sum($expertises) > $this->ExpertisePoints()){
+			$errors[] = 'You have used more Expertise Points than you are allowed. ('.array_sum($expertises).'/'.$this->TotalPoints().')'; 
+	    }
+	    
+	    foreach($statributes as $stat=>$value){
+		    if ($value == 0){
+			    $statribute = new Statribute($stat);
+			    $errors[] = 'You must allocate at least 1 point to your '.$statribute->GetName().'.';
+		    }
+		    if ($value > 10){
+			    $statribute = new Statribute($stat);
+			    $errors[] = 'You have allocate more than 10 points to your '.$statribute->GetName().'.';
+		    }
+	    }
+	    
+	    foreach($expertises as $stat=>$value){
+		    if ($value > 10){
+			    $statribute = new Statribute($stat);
+			    $errors[] = 'You have allocate more than 10 points to your '.$statribute->GetName().' expertise.';
+		    }
+	    }
+	    
+	    foreach($personalinfo as $stat=>$value){
+		    if (is_numeric($value)){
+			    if ($value > 10){
+				    $statribute = new Statribute($stat);
+				    $errors[] = 'You have allocate more than 10 points to your '.$statribute->GetName().'.';
+			    }
+		    }
+	    }
+	    
+	    if (count($errors)){
+		    return implode('<br />', $errors);
+	    }
+	    
+	    $errors = array();
+	    
+	    //No errors, write the document to Pending Sheets
+	    
+	    for ($i = 1; $i <= 3; $i++){
+		    foreach($compile[$i] as $key=>$value){
+			    if (is_numeric($value)){
+					$value = floor($value);
+				} else {
+					$value = addslashes($value);
+				}
+			    
+				if ($coreid){
+					$sql = "DELETE FROM `character_sheet_cores` WHERE `id` = '$coreid'";
+					mysql_query($sql, $this->connect);
+					$id = $coreid;
+				} else {
+					$new = "INSERT INTO `character_sheet_core` VALUES ('', '".$this->GetID()."', 0, '".time()."', '')";
+				    $store = mysql_query($new, $this->connect);
+				    $id = mysql_insert_id($this->connect);
+				    $errors = 0;
+			    }
+				
+			    $sql = "INSERT INTO `character_sheet_cores` VALUES ('".$id."', '$key', '$value')";
+			    if (!mysql_query($sql, $this->connect)){
+				    $errors[] = 'Error Generated During Publish: '.mysql_error($this->connect);
+			    }
+		    }
+	    }
+	    
+	    if (count($errors)){
+		    $sql = "DELETE FROM `character_sheet_cores` WHERE `id` = '".$id."'";
+			mysql_query($sql, $this->connect);
+			$errors[] = '<b>Problem publishing sheet. Changes not published, report this error ASAP</b>';
+		    return implode('<br />', $errors);
+	    }
+	    
+	    //No errors, update status
+	    
+	    return 'Your core sheet has been saved.';	    
+    }
+    
+    function SubmitCore($id){
+	    $sql = "UPDATE `character_sheet_core` SET `pending` = '1', `approved` = 0 WHERE `id` = '$id'";
+		if (mysql_query($sql, $this->connect)){
+			$adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+            
+            $text = "A new CORE sheet has been submitted for approval.";
+
+            $from = "Office of Character Development <overseer@thebhg.org>";
+            $subject = "Character Pending Approval";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
+			return 'Your CORE sheet has been submitted for approval. It is now pending review by the Overseer or Adjunct.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	   
+	}
+    
+	function DeleteCore($coreid){
+		$sql = "DELETE FROM `character_sheet_cores` WHERE `id` = '$coreid'";
+		mysql_query($sql, $this->connect);
+		
+	    $sql = "DELETE FROM `character_sheet_core` WHERE `id` = '$coreid'";		
+		if (mysql_query($sql, $this->connect)){
+			return 'Your CORE sheet has been deleted.';
+		} else {
+			return 'Error in delete: '.mysql_error($this->connect);
+		}	   
+	}
+	
+	function ApproveCore($id){	    
+	    $sql = "UPDATE `character_sheet_core` SET `date` = '".time()."', `pending` = 0, `approved` = 1 WHERE `id` = '".$id."'";
+		if (mysql_query($sql, $this->connect)){
+			$adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+            $hunter = new Person($this->GetID());
+            
+            $text = $hunter->GetName().", one of your CORE sheet has been approved by the RP staff.";
+
+            $from = "Office of Character Development <overseer@thebhg.org>";
+            $subject = "CORE Character Approved";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
+            $hunter->SendEmail($from, $subject, $text);
+			return 'Sheet approved.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	   
+	}
+	
+	function DenyCore($id, $reason = ''){
+		$sql = "UPDATE `character_sheet_core` SET `date` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$id."'";		
+		if (mysql_query($sql, $this->connect)){
+			$adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+            $hunter = new Person($this->GetID());
+            
+            $text = $hunter->GetName().", one of your CORE sheet has been denied by the RP staff.";
+            
+            if ($reason){
+	            $text .= "\r\n\r\nReason: ".$reason;
+            }
+
+            $from = "Office of Character Development <overseer@thebhg.org>";
+            $subject = "CORE Character Denied";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
+            $hunter->SendEmail($from, $subject, $text);
+			return 'Character Denied.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	   
+	}
+	
     function SubmitSheet(){
 	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
 		if (mysql_query($sql, $this->connect)){
@@ -612,6 +780,19 @@
 			$info = mysql_fetch_array($querya);
 			$date = getdate($info['date']);
 			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$this->GetID(), 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'share'=>1);
+		}
+		
+		return $return;
+	}
+	
+	function GetCores(){
+		$sql = "SELECT * FROM `character_sheet_core` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$date = getdate($info['date']);
+			$return[stripslashes($info['name'])] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'app'=>$info['approved'], 'pending'=>$info['pending']);
 		}
 		
 		return $return;

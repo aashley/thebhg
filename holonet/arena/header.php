@@ -404,9 +404,10 @@ function admin_footer($auth_data) {
 	echo '<br /><b>External Links</b><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_general', array('id'=>$person->GetID())) . '">View&nbsp;My&nbsp;Profile</a><br />';
 	echo '&nbsp;<a href="' . internal_link('acn_challenge', array('id'=>$person->GetID())) . '">Network&nbsp;Control</a><br />';
-	echo '<br /><b>Personal Details</b><br />';
+	echo '<br /><b>Hunter Options</b><br />';
 	echo '&nbsp;<a href="' . internal_link('admin_sheet', array('id'=>$person->GetID())) . '">Edit&nbsp;My&nbsp;Sheet</a><br />';
 	echo '&nbsp;<a href="' . internal_link('admin_sheet_backup', array('id'=>$person->GetID())) . '">Sheet&nbsp;Backups</a><br />';
+	echo '&nbsp;<a href="' . internal_link('admin_sheet_core') . '">Edit&nbsp;Core&nbsp;Sheets</a><br />';
 	
 	if ($auth_data['citadel']){
 		echo '<br /><b>Pending&nbsp;Citadel&nbsp;Exams</b><br />';
@@ -461,10 +462,11 @@ function admin_footer($auth_data) {
     if ($auth_data['sheet']){
         echo '<br />Character&nbsp;Sheets<br />';
         echo '&nbsp;<a href="' . internal_link('admin_sheet') . '">Edit&nbsp;Character&nbsp;Sheets</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_sheet_core') . '">Edit&nbsp;Core&nbsp;Sheets</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_field') . '">Create&nbsp;New&nbsp;Field</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_stat') . '">Create&nbsp;New&nbsp;Statribute</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_skill') . '">Create&nbsp;New&nbsp;Skill</a><br />';        
-        echo '&nbsp;<a href="' . internal_link('admin_equation') . '">Create&nbsp;New&nbsp;Variable</a><br />';        
+        echo '&nbsp;<a href="' . internal_link('admin_equation') . '">Create&nbsp;New&nbsp;Variable</a><br />';
     }
     
     if ($auth_data['arena']) {    
