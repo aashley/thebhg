@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Cheif Resources :: Generate NPC';
+    return 'Administration :: Chief Resources :: Generate NPC';
 }
 
 function auth($person) {
