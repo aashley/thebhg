@@ -27,4 +27,8 @@
 		<name>Administration</name>
 		<page>admin</page>
 	</item>
+	<item>
+		<name>Lost Password</name>
+		<page>lost</page>
+	</item>
 </menu>
