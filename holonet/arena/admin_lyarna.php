@@ -169,23 +169,7 @@ function output() {
 		        $owner = 'Not Listed in System';
 	        }
 	        $form->AddHidden('property'.$i, $row['id']);
-		  	$form->table->AddCell('<input type="checkbox" name="process'.$i.'" value=1>');
-	        $form->table->AddCell($owner);
-	        $form->table->AddCell($row['name']);
-	        $form->table->AddCell($row['owner']);
-	        $form->table->AddCell("<select name=\"kabal$i\" "
-	        ."onChange=\"swap_kabal(this.form, $i)\">"
-	        ."<option value=\"-1\">N/A</option>$kabals</select>");
-	
-	    	$cell = "<select name=\"person$i\">";
-	    
-				$cell .= "<option value=\"-1\" selected>N/A</option>\n";
-	    
-			$cell .= "</select>";
-
-			$form->table->AddCell("<select name=\"position$i\">"
-	        ."<option value=\"-1\">N/A</option>$positions</select>");
-			$form->table->AddCell($cell);
+		  	
 			$form->table->EndRow();
 			$i++;
         }
