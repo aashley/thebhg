@@ -52,9 +52,8 @@ function output() {
     $form->EndSelect();
     
     $form->StartSelect('Skill', 'skill');
-    
+    $form->AddOption(0, '');
     foreach ($sheet->GetSkills() as $value){
-	    $form->AddOption(0, '');
 	    if ($sheet->Permit(2, $value->GetID(), 1)){
 	    	$form->AddOption($value->GetID(), $value->GetName());
     	}
@@ -63,9 +62,8 @@ function output() {
     $form->EndSelect();
     
     $form->StartSelect('Statribute', 'stat');
-    
+    $form->AddOption(0, '');
     foreach ($sheet->GetStats() as $value){
-	    $form->AddOption(0, '');
 	    if ($sheet->Permit(1, $value->GetID(), 1)){
 	    	$form->AddOption($value->GetID(), $value->GetName());
     	}
