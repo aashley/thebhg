@@ -88,7 +88,8 @@ function output() {
 			    if (is_array($ser)){
 				    $bld = new NPC_Utilities();
 				    foreach ($ser as $npc){
-				    	$table->AddRow('NPC:', $bld->Construct(stripslashes(serialize($npc))));
+					    echo $npc;
+				    	$table->AddRow('NPC:', $bld->Construct($npc));
 			    	}
 			    } elseif (is_numeric(($match->Get(data)))) {
 				    $cre = new Creature($match->Get(data));
