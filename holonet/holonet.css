@@ -14,8 +14,8 @@ hr {
 border: none;
 border-bottom: 1px solid black;
 width: 98%;
-			 padding-top: 0.5em;
-			 padding-bottom: 0.5em;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
 }
 
 h1 {
