@@ -117,7 +117,7 @@
 	    $votes = array();
 	    $total = 0;
 	    foreach ($this->GetOptions() as $option){
-		    $votes[$option->GetID()] $option->GetVotes();
+		    $votes[$option->GetID()] = $option->GetVotes();
 		    $total += count($option->GetVotes());
 	    }
 	    $votes['total'] = $total;
