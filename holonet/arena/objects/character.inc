@@ -64,23 +64,21 @@
 			    	}
 			    }
 		    }
+		    if (!$this->HasValue()){
+			    if ($this->cs_approved){
+			    	$return = 4;
+		    	} else {
+			    	if ($this->cs_pending){
+			    		$return = -1;
+		    		} else {
+			    		$return = 6;
+		    		}
+		    	}
+		    }
 	    } else {
 		    $return = 2;
 	    }
-	    
-	    if (!$this->HasValue()){
-		    if ($this->cs_approved){
-		    	$return = 4;
-	    	} else {
-		    	if ($this->cs_pending){
-		    		$return = -1;
-	    		} else {
-		    		$return = 6;
-	    		}
-	    	}
-	    }
-		    
-	    
+
 	    if ($output == 'HUMAN'){
 		    return $status[$return];
 	    } elseif ($output == 'SYSTEM'){
@@ -670,7 +668,7 @@
 	}
 	
 	function NewSheet(){
-	    $sql = "INSERT INTO `character_sheets` VALUES ('".$this->GetID()."', '".time()."', 1, 0)";
+	    $sql = "INSERT INTO `character_sheets` VALUES ('".$this->GetID()."', '".time()."', 1, 0, 0)";
 		if (mysql_query($sql, $this->connect)){
 			return true;
 		} else {
