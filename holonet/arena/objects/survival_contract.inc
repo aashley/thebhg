@@ -127,7 +127,7 @@
         return new SurvivalType($this->contract_type);
     }
 
-    function GetSurvivalHunter(){
+    function GetHunter(){
 
         if ($this->GetDCO()){
             return false;
