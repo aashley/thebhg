@@ -526,9 +526,9 @@
         return $details->Matches($ex);
     }
     
-    function IRCAMatches(){
+    function IRCAMatches($ex = ''){
         $details = new IRCADetails();
-        return $details->Matches();
+        return $details->Matches($ex);
     }
 
     function StarfieldMatches($ex = ''){

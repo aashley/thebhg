@@ -6,8 +6,8 @@
         Arena::Arena();
     }
 
-    function Matches(){
-        $sql = "SELECT * FROM `arena_irca_match` WHERE `date_deleted` = 0 AND `match` != '' ORDER BY `date` DESC";
+    function Matches($and = ''){
+        $sql = "SELECT * FROM `arena_irca_match` WHERE `date_deleted` = 0 $and AND `match` != '' ORDER BY `date` DESC";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 

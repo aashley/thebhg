@@ -2,6 +2,9 @@
 
  Class IRCA extends Arena {
 
+	var $xp;
+	var $creds;
+	 
     function IRCA(){
         Arena::Arena();
     }
@@ -30,6 +33,25 @@
         }
 
         return $return;
+    }
+    
+    function Build(){
+	    $sql = "SELECT SUM(arena_irca_records.xp) as xp, SUM(arena_irca_records.credits) as credits FROM arena_irca_records, arena_irca_match WHERE "
+	    	."arena_irca_match.id = arena_irca_records.match_id AND arena_irca_match.graded > 0 AND arena_irca_match.hc > 0 AND arena_irca_match.date_deleted = 0";
+                
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        $this->creds = $info['credits'];
+        $this->xp = $info['xp'];
+    }
+    
+    function GetXP(){
+	    return $this->xp;
+    }
+    
+    function GetCreds(){
+	    return $this->creds;
     }
     
     function CurrentHC(){
