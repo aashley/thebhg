@@ -158,7 +158,6 @@ function output() {
 	$form->table->StartRow();
 	$form->table->AddHeader('Kabal');
 	$form->table->AddHeader('Person');
-	$form->table->AddHeader('Until');
 	$form->table->EndRow();
   
 	for ($i = 0; $i < 5; $i++) {
@@ -177,7 +176,7 @@ function output() {
     
 		$form->table->AddCell($cell);
 		
-		$form->AddDateBox($i);
+		$form->AddDateBox('Until', $i);
 	}
 	
 	$form->AddSubmitButton('submit', 'Submit Bans');
