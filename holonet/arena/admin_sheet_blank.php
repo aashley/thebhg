@@ -56,7 +56,7 @@ function output() {
 
 	<?php
   
-		include_once 'build.php';
+		//include_once 'build.php';
     
 	?>
 
