@@ -139,29 +139,16 @@ function output() {
 	    */
 		
 		if (count($rewards)){
-		
-			$table = new Table();
-			$table->StartRow();
-			$table->AddHeader('Arena Distinctions', count($rewards));
-			$table->EndRow();
-			
+			$table = new Table();			
 			$setups = array();
 			
 			foreach ($rewards as $info=>$reward){				
 				$setups[] = '<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>';				
 			}
 			
-			$table->StartRow();
-			
-			$text = '';
-			
 			for ($i = 0; $i < count($setups); $i += 5) {
-				$text .= implode('', array_slice($setups, $i, 5)).'<br />';
+				echo implode('', array_slice($setups, $i, 5)).'<br />';
 			}
-			$table->AddCell($text);
-			$table->EndRow();
-
-			$table->EndTable();
 		}
 	    
 	    echo '</div></td></tr></table>';
