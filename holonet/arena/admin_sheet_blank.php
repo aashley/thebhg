@@ -50,7 +50,7 @@ function output() {
 			          .$kabal->GetName()."</option>\n";
 			          
 			        foreach ($kabal->GetMembers('name') as $char) {
-						if (!in_array($char->GetID(), )){
+						if (!in_array($char->GetID(), $ids){
 					    	$hunters[$char->GetName()] = new Person($char->GetID());
 				    	}
 			    	}
