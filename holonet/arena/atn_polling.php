@@ -2,6 +2,10 @@
 
 $poll = new Poll($_REQUEST['poll']);
 
+if (!$poll->GetID()){
+	$poll = false;
+}
+
 function auth($person) {
     global $hunter, $roster, $auth_data;
     
