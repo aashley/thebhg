@@ -144,6 +144,7 @@ function get_auth_data($hunter) {
 
 function ah($name){
 	echo '<b>'.$name.'</b><br />';
+}
 
 function al($page, $name){
 	echo '<a href="' . internal_link('admin_'.$page) . '">'.str_replace(' ', '&nbsp;', $name).'</a><br>';
