@@ -3,7 +3,7 @@
 if (isset($_REQUEST['id'])){
 	$activity = new Obj('ams_activities', $_REQUEST['id'], 'holonet');
 }
-
+print_r($activity);
 function title() {
     global $activity;
 
