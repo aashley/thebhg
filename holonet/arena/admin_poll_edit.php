@@ -104,21 +104,21 @@ function output() {
 	    
 	    if ($_REQUEST['restrict']){
 		    $form->AddCheckBox('RP Aides Only', 'open[aa]', 1, $open['aa']);
-		    $form->AddSelectButton('Use Arena Limiter', 'area', 1, count($open['aas']));
+		    $form->AddCheckBox('Use Arena Limiter', 'area', 1, count($open['aas']));
 		    $form->StartSelect('Arena Position', 'arenaposi[]', $open['aas'], 5, true);
 		    foreach ($arena->ArenaPositions() as $id=>$data){
 			    $form->AddOption($id, $data['desc']);
 		    }
 		    $form->EndSelect();
 		    
-		    $form->AddSelectButton('Use Position Limiter', 'posit', 1, count($open['positions']));
+		    $form->AddCheckBox('Use Position Limiter', 'posit', 1, count($open['positions']));
 		    $form->StartSelect('Position', 'posi[]', $open['positions'], 5, true);
 		    foreach ($roster->GetPositions() as $data){
 			    $form->AddOption($data->GetID(), $data->GetName());
 		    }
 		    $form->EndSelect();
 		    
-		    $form->AddSelectButton('Use Division Limiter', 'divis', 1, count($open['divisions']));
+		    $form->AddCheckBox('Use Division Limiter', 'divis', 1, count($open['divisions']));
 		    $form->StartSelect('Division', 'divi[]', $open['divisions'], 5, true);
 		    foreach ($roster->GetDivisions() as $data){
 			    $form->AddOption($data->GetID(), $data->GetName());
