@@ -210,7 +210,7 @@
 		$positions['sk']['table'] = 'skippers';
 		$aas['st'] = new Steward($bhg_id);
 		$positions['st']['desc'] = 'Steward of the Arena';
-		$positions['st']['table'] = 'stwards';
+		$positions['st']['table'] = 'stewards';
 		
 		foreach ($aas as $class=>$object){
 			if ($object->GetStatus() == 'Current '){
@@ -233,18 +233,11 @@
 			break;
 		}
 		
-		echo $aa;
-		
 		if (count($output)){
 			$return = ($aa ? $output[$aa] : $ouput[key(end($output))]);
 			$use = ($aa ? $aa : key(end($output)));
-
-			echo '|'.$use;
-			echo '|'.$return;
 			
 			$sql = "UPDATE `arena_".$positions[$use]['table']."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aas[$use]->GetID()."'";
-			
-			echo $sql;
 			
 			if (mysql_query($sql, $this->connect)){
 				return $return.': ';
