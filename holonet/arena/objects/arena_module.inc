@@ -99,7 +99,7 @@
     
     function GetPayData($start, $end, $table){
 	    $table = "`arena_$table`";
-	    $sql = "SELECT * FROM $table WHERE (`end_date` = 0 OR `end_date` <= '$end') AND `start_date` <= '$end' AND `end_date` >= '$start'";
+	    $sql = "SELECT * FROM $table WHERE (`end_date` = 0 OR `end_date` <= '$end' OR `end_date` >= '$start') AND `start_date` <= '$end'";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
