@@ -16,6 +16,10 @@
 		<name>Medal Board</name>
 	</module>
 	<module>
+		<directory>arena</directory>
+		<name>Arena</name>
+	</module>
+	<module>
 		<directory>acquisition</directory>
 		<name>Acquisition</name>
 	</module>
