@@ -304,6 +304,8 @@ function output() {
 		    
 		    $cores = $sheet->GetCores();
 		    
+		    print_r($cores);
+		    
 		    if (count($cores)){
 			    hr();
 			    $table = new Table('', true);
