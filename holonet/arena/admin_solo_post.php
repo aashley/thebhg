@@ -85,7 +85,14 @@ function output() {
         $form = new Form($page);
         $form->StartSelect('Contract:', 'contract_id');
         foreach ($solo->RequestedContracts() as $value) {
-            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
+	        $hunter = $value->GetHunter();
+	        if ($hunter){
+		        $name = $hunter->GetName();
+	        } else {
+		        $name = "Dead Contract";
+	        }
+	        $type = $value->GetType();
+            $form->AddOption($value->GetID(), $type->GetName()." Contract ".$value->GetContractID()." - ".$name);
         }
         $form->EndSelect();
         $form->AddSubmitButton('next', 'Next >>');
