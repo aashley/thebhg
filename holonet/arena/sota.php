@@ -79,7 +79,30 @@ function output() {
 	
 	hr();
 	
+	$table = new Table('SECTION C: Ladder Leaders', true);
 	
+	$table->StartRow();
+	$table->AddHeader('Ladder');
+	$table->AddHeader('Hunter');
+	$table->EndRow();
+	
+	$al = new Person(array_shift(array_keys($arena->ArenaLadder())));
+	$il = new Person(array_shift(array_keys($arena->IRCALadder())));
+	$sl = new Person(array_shift(array_keys($arena->StarfieldLadder())));
+	$ol = new Person(array_shift(array_keys($arena->SoloLadder())));
+	$ll = new Person(array_shift(array_keys($arena->LWLadder())));
+	$ul = new Person(array_shift(array_keys($arena->SurvivalLadder())));
+	$rl = new Person(array_shift(array_keys($arena->ROLadder())));
+	
+	$table->AddRow('The Arena', '<a href="'.internal_link('atn_general', array('id'=>$al->GetID())).'">'.$al->GetName().'</a>');
+	$table->AddRow('Run-Ons', '<a href="'.internal_link('atn_general', array('id'=>$rl->GetID())).'">'.$rl->GetName().'</a>');
+	$table->AddRow('Starfield Arena', '<a href="'.internal_link('atn_general', array('id'=>$sl->GetID())).'">'.$sl->GetName().'</a>');
+	$table->AddRow('IRC Arena', '<a href="'.internal_link('atn_general', array('id'=>$il->GetID())).'">'.$il->GetName().'</a>');
+	$table->AddRow('Solo Missions', '<a href="'.internal_link('atn_general', array('id'=>$ol->GetID())).'">'.$ol->GetName().'</a>');
+	$table->AddRow('Survival Missions', '<a href="'.internal_link('atn_general', array('id'=>$ul->GetID())).'">'.$ul->GetName().'</a>');
+	$table->AddRow('Lone Wolf Missions', '<a href="'.internal_link('atn_general', array('id'=>$ll->GetID())).'">'.$ll->GetName().'</a>');
+	
+	$table->EndTable();
 	
     arena_footer();
 }

@@ -571,6 +571,11 @@
         return $details->Build();
     }
     
+    function ROLadder(){
+        $details = new RODetails();
+        return $details->Build();
+    }
+    
     function SurvivalLadder(){
         $details = new Survival();
         return $details->Build();
