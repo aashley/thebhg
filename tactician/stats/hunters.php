@@ -9,19 +9,16 @@ echo 'Minimum: ' . $min . ' answers<HR NOSHADE>';
 $hunters = array();
 $totals = array();
 
-$result = mysql_query('SELECT answers.person, COUNT(DISTINCT answers.id) AS num FROM answers, missions WHERE answers.mission=missions.id AND answers.correct=1 GROUP BY answers.person', $db);
+$result = mysql_query('SELECT answers.person, COUNT(DISTINCT answers.id) AS num FROM answers, missions WHERE answers.mission=missions.id GROUP BY answers.person', $db);
 while ($row = mysql_fetch_array($result)) {
-	if ($row['num'] > $min) {
-		$hunters[$row['person']] = $row['num'];
+	if ($row['num']) {
+		$totals[$row['person']] = $row['num'];
 	}
 }
 
-$result = mysql_query('SELECT answers.person, COUNT(DISTINCT answers.id) AS num FROM answers, missions WHERE answers.mission=missions.id GROUP BY answers.person', $db);
+$result = mysql_query('SELECT answers.person, COUNT(DISTINCT answers.id) AS num FROM answers, missions WHERE answers.mission=missions.id AND answers.correct=1 GROUP BY answers.person', $db);
 while ($row = mysql_fetch_array($result)) {
-	if (isset($hunters[$row['person']])) {
-		$hunters[$row['person']] /= $row['num'];
-		$totals[$row['person']] = $row['num'];
-	}
+	$hunters[$row['person']] = $row['num'] / $totals[$row['person']];
 }
 
 arsort($hunters);
@@ -39,6 +36,9 @@ $last_rank = 0;
 $last_perc = -1;
 
 foreach ($hunters as $rid=>$perc) {
+	if ($totals[$rid] < $min)
+		continue;
+
 	$perc *= 100;
 	$row_no++;
 	if ($perc != $last_perc) {
