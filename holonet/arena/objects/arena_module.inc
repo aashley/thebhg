@@ -121,7 +121,7 @@
 		
 		foreach ($aas as $class=>$object){
 			if ($object->GetStatus() == 'Current '){
-				$output[$class]['desc'] = $positions[$class];
+				$output[$class] = $positions[$class];
 			}
 		}
 		

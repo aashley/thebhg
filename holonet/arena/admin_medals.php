@@ -167,7 +167,10 @@ function output() {
 		$i = 0;
 		
 		foreach ($arena->CanBe($hunter) as $call=>$value){
-			$form->AddRadioButton($value, 'use', $call, ($i ? '' : true));
+			$form->table->StartRow();
+			$form->table->AddCell($value, 2);
+			$form->table->AddCell('<input type="radio" name="use" value ="'.$call.'" '.($i ? '' : 'checked'));
+			$form->table->EndRow();
 			$i++;
 		}
 	}
