@@ -60,7 +60,7 @@ function output() {
 ?>
 
 You'll need the CS fields included. If FC ever adds them to the Roster doc, then it'll be kinky and run off that. If not, I can make an include for you
-to them from here.
+to them from here.<pre>
 
 if ($_REQUEST['submit']){
     	
@@ -98,7 +98,7 @@ if ($_REQUEST['submit']){
 	    $form->AddSubmitButton('next', 'Choose fields.');
 	    $form->EndForm();
     }
-
+</pre>
 <?php
 
     admin_footer($auth_data);
