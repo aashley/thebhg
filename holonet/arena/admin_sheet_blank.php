@@ -131,9 +131,7 @@ function output() {
 		$form = new Form($page);
     	$form->AddSectionTitle('Make Blank Sheet');
         $form->table->StartRow();
-        $form->table->AddCell("<select name=\"kabal\" "
-        ."onChange=\"swap_kabal(this.form)\">"
-        ."<option value=\"-1\">N/A</option>$kabals</select>");
+        $form->table->AddCell("");
 	
 	    $cell = "<select name=\"bhg_id\">";
 	    
