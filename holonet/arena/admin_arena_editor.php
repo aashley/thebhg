@@ -236,7 +236,7 @@ function output() {
 	        $form->table->StartRow();
 	        $form->table->AddCell('<input type="checkbox" name="change['.$i.']" value=1>');
 	        $form->table->AddCell($contender->GetName());
-	        $form->AddHidden('old['.$id.']', $contender->GetID());
+	        $form->AddHidden('old['.$i.']', $contender->GetID());
 	     	$form->table->AddCell("<select name=\"kabal$i\" "
 	        ."onChange=\"swap_kabal(this.form, $i)\">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
