@@ -102,6 +102,7 @@ function output() {
 	    $form->AddSubmitButton('next', 'Edit Attribute');
 	    
 	    $form->EndForm();
+    }
     
     admin_footer($auth_data);
 }
