@@ -26,6 +26,7 @@ function output() {
 	    }
 	    ksort($fields);
 		reset($fields);
+		print_r($fields);
 	    if ($sheet->UpdateSheetMod($_REQEUST['mod'], $_REQUEST['name'], $_REQUEST['desc'], $fields)){
 		    echo 'Modifcation Updated Successfully!';
 	    } else {
@@ -46,7 +47,7 @@ function output() {
 	    foreach ($sheet->GetFields() as $field){
 		    $form->AddTextBox($field->GetName(), 'field['.$field->GetID().']', $fields[$field->GetID()], 5);
 	    }
-	    $form->AddSubmitButton('submit', 'Add Modification');
+	    $form->AddSubmitButton('submit', 'Submit Modification');
 	    
 	    $form->EndForm();
     } else {
