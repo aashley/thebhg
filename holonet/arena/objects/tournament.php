@@ -38,6 +38,7 @@
             $info = mysql_fetch_array($query);
 
             $this->season = $info['id'];
+            echo $this->season;
         }
 
         return $this->season;
