@@ -97,7 +97,7 @@ Index: header.php
 +		$dir = $mod->getElementsByTagName('directory')->item(0);
 +		if ($dir->textContent == $module) {
 +			$name = $mod->getElementsByTagName('name')->item(0);
-+			$title = $name->testContent . ' :: ' . title();
++			$title = $name->textContent . ' :: ' . title();
  			break;
  		}
  	}
