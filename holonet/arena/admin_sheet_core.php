@@ -37,7 +37,7 @@ function output() {
 			    $table->AddRow('<a href="'.internal_link($page, array('view'=>1, 'sheet'=>$data['id'])).'">'.$character->GetName('cores', $data['id'], 'id').'</a>', $data['date'], ($data['app'] ? 'Yes' : 'No'), ($data['pending'] ? 'Yes' : 'No'),
 			    	'<a href="'.internal_link($page, array('sheet'=>$data['id'])).'">Load to Edit</a>', 
 			    	($data['share'] ? '' : '<a href="'.internal_link($page, array('save'=>1, 'delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>'), 
-			    	($data['share'] ? '' : '<a href="'.internal_link($page, array('save'=>1, 'share'=>1, 'sheet'=>$data['id'])).'">Submit for Approval</a>'));
+			    	($data['share'] ? '' : '<a href="'.internal_link($page, array('save'=>1, 'submit'=>1, 'sheet'=>$data['id'])).'">Submit for Approval</a>'));
 		    }
 		    
 		    $table->EndTable();
@@ -46,7 +46,7 @@ function output() {
 		$value_set = $character->GetSheetValues('cores', $_REQUEST['sheet'], 'id');
 		
 		if (isset($_REQUEST['save'])){
-			if ($auth_data['sheet']){
+			if ($auth_data['sheet'] && !$_REQUEST['submit']){
 				if ($_REQUEST['delete']){
 					$character->DeleteCore($_REQUEST['sheet']);
 				}

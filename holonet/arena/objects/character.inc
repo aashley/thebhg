@@ -1095,7 +1095,7 @@
 		$table = new Table();
 		
 		$table->StartRow();
-		$table->AddHeader(($namez ? 'Dossier file for '.$rank->GetName().' ' : '').$this->GetName($look, $id, $col), 2);
+		$table->AddHeader(($namez ? 'Dossier file for '.$rank->GetName().' ' : 'CORE Sheet Name: ').$this->GetName($look, $id, $col), 2);
 		$table->EndRow();
 		if ($look != 'cores'){
 			$table->AddRow('Visual Identification', '<img src='.$url.'>');
