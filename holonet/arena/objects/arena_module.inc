@@ -58,6 +58,15 @@
 	    return $return;
     }
 
+    function NewPoll($poster, $rpa, $question, $multiple, $open_to, $starts, $ends){
+	    $sql = "INSERT INTO `arena_poll` VALUES ('', '$poster', '$rpa', '".addslashes($question)."', '$multiple', '".serialize($open_to)."', '$starts', '$ends', '')";
+	    if (mysql_query($sql, $this->connect)){
+		    return mysql_insert_id($this->connect);
+	    } else {
+		    return false;
+	    }
+    }
+    
     function NEC($error){
 	    return 'System Processing Error - <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/index.php?page=reportbug">Bug Tracker. Module: Holonet - Arena</a></b><br />NEC Error Code: '.$error;
     }

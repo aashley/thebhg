@@ -91,4 +91,8 @@ include_once 'run_on.inc';
 include_once 'run_on_hunter.inc';
 include_once 'run_on_details.inc';
 
+include_once 'poll.inc';
+include_once 'option.inc';
+include_once 'votes.inc';
+
 ?>
