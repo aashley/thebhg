@@ -67,7 +67,7 @@
 	    }
     }
     
-    function GetPolls($rpa = array(), $edit = 1){
+    function GetPolls($rpa = array(), $edits = 1){
 	    $rp = '';
 	    $rps = array();
 	    if (count($rpa)){
@@ -77,7 +77,7 @@
 		    }
 		    $rp .= implode(' OR ', $rps).')';
 	    }
-	    if ($edit){
+	    if ($edits){
 		    if (count($rpa)){
 			    $edit = 'AND `date_deleted` = 0';
 		    } else {
