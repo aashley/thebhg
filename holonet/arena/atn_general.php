@@ -161,17 +161,18 @@ function output() {
 			
 			$int_counter = 1;
 			
-			foreach ($rewards as $info=>$reward){
-				if ($int_counter == 1){
-					$table->StartRow();
-				}
-				$table->AddCell('<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>');
-				if ($int_counter == 5){
-					$int_counter = 1;
-					$table->EndRow();
-				}
+			$setups = array();
+			
+			foreach ($rewards as $info=>$reward){				
+				$setups = '<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>';				
 			}
 			
+			for ($i = 0; $i < count($addresses); $i += 5) {
+				$table->StartRow();
+				$table->AddCell(implode(', ', array_slice($addresses, $i, 5)));
+				$table->EndRow();
+			}
+
 			$table->EndTable();
 		}
 	    
