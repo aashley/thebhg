@@ -3,7 +3,6 @@
 Class Obj extends Arena {
 	
 	var $data = array();
-	var $fields = array();
 	var $table;
 	 
     function Obj($table, $id) {

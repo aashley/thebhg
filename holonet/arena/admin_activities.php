@@ -17,6 +17,23 @@ function output(){
 	//Write the current activities
 	$current = $arena->Search(array('table'=>'ams_activities', 'search'=>array('date_deleted'=>'0')));
 	
-	print_r($current);
+	if (count($current)){
+		$table = new Table('', true);
+		
+		$table->StartRow();
+		$table->AddHeader('Activty');
+		$table->AddHeader('Description');
+		$table->AddHeader('&nbsp;');
+		$table->EndRow();
+		
+		foreach ($current as $obj){
+			$table->AddRow($obj->Get(name), $obj->Get(desc, true), ($obj->Get(date_deleted) ? 'Deleted' : ''));
+		}
+		
+		$table-EndTable();
+		
+		hr();
+	}
+
 }
 ?>

@@ -5,8 +5,6 @@
 	var $connect;
 	var $lyarna;
 	var $bastion;
-	var $roster;
-	var $mb;
 
     function Arena(){
 	    $connects = array('connect'=>array('name'=>'holonet', 'pass'=>'w0rdy'), 'lyarna'=>array('name'=>'lyarna', 'pass'=>'lyarnasys55'), 
