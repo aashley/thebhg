@@ -117,16 +117,16 @@ function output() {
 	    if (count($polls)){
 		    $table = new Table('', true);
 		    $table->StartRow();
-		    $table->AddHeader('Arena Polls', 2);
+		    $table->AddHeader('Arena Polls', 3);
 		    $table->EndRow();
 		    $table->StartRow();
 		    $table->AddCell('Poll Question');
 		    $table->AddCell('Start Date');
-		    $table->AddCell('End Date');
+		    $table->AddCell('End Date/Time Remaining');
 		    $table->EndRow();
 		    
 		    foreach ($polls as $poll){
-			    $table->AddRow('<a href="'.internal_link($page, array('poll'=>$poll->GetID())).'">'.$poll->GetQuestion().'</a>', $poll->GetEnd());
+			    $table->AddRow('<a href="'.internal_link($page, array('poll'=>$poll->GetID())).'">'.$poll->GetQuestion().'</a>', $poll->GetStart(), $poll->GetEnd());
 		    }
 		    
 		    $table->EndTable();
