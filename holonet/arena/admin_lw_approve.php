@@ -56,8 +56,8 @@ function output() {
 	        foreach ($solo->NeedApproval() as $value) {
 		        $person = new Person($value);
 		        $form->table->AddRow('<a href="'.internal_link('atn_general', array('id'=>$person->GetID())).'">'.$person->GetName().'</a>', 
-					'<input type="checkbox" name="approve['.$i.']" value="'.$value['bhg_id'].'">', 
-		        	'<input type="checkbox" name="deny['.$i.']" value="'.$value['bhg_id'].'">');
+					'<input type="checkbox" name="approve['.$i.']" value="'.$value.'">', 
+		        	'<input type="checkbox" name="deny['.$i.']" value="'.$value.'">');
 		        $i++;
 	        }
 	        $form->table->StartRow();
