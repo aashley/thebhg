@@ -81,10 +81,15 @@ function output() {
 		if ($can_edit){			
 			
 			if (isset($_REQUEST['buypoint'])){
-				for ($i = 1; $i <= $_REQUEST['points']; $i++){
-					$character->BuyPoint();
+				$points = $character->GetExperiencePoints()/350;
+				if ($points == $_REQUEST['points']){
+					for ($i = 1; $i <= $_REQUEST['points']; $i++){
+						$character->BuyPoint();
+					}
+					echo 'Purchased '.$_REQUEST['points'].' bonus points';
+				} else {
+					'Bad monkey. No cookie.';
 				}
-				echo 'Purchased '.$_REQUEST['points'].' bonus points';
 				admin_footer($auth_data);
 	    		return;
 			}
@@ -157,6 +162,8 @@ function output() {
 					$form->AddHidden('bhg_id', $_REQUEST['bhg_id']);
 					$form->table->AddRow('<input type="submit" name="buypoint" value="Buy '.$tobuy.' Bonus Point'.$s.'">');
 					$form->EndForm();
+					
+					hr();
 				}
 				
 				$table = new Table();
