@@ -35,6 +35,13 @@ include_once 'irca_fighter.inc';
 include_once 'parse_npc.inc';
 include_once 'npc_utilities.inc';
 
+include_once 'survival.inc';
+include_once 'survival_contract.inc';
+include_once 'survival_control.inc';
+include_once 'survival_grade.inc';
+include_once 'survival_hunter.inc';
+include_once 'survival_type.inc';
+
 include_once 'solo.inc';
 include_once 'solo_comissioner.inc';
 include_once 'solo_contract.inc';

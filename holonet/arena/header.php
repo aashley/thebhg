@@ -428,6 +428,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_steward') . '">Edit&nbsp;Arena&nbsp;Steward</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_skipper') . '">Edit&nbsp;Starfield&nbsp;Skipper</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_commentator') . '">Edit&nbsp;Holonet&nbsp;Commentator</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_ranger') . '">Edit&nbsp;Holonet&nbsp;Commentator</a><br />';
         //echo '&nbsp;<a href="' . internal_link('admin_salaries') . '">Pay&nbsp;Aides</a><br />';
     }
     

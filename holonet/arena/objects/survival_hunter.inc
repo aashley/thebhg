@@ -1,0 +1,108 @@
+<?
+
+ Class SurvivalHunter extends Survival {
+
+    var $bhg_id;
+    var $creds;
+    var $xp;
+
+    function SurvivalHunter($bhg_id) {
+        Arena::Arena();
+
+        $sql = "SELECT SUM(xp) as xp, "
+                ."SUM(creds) as credits "
+                ."FROM `arena_survival_contracts` WHERE `bhg_id` = '$bhg_id' AND `completed` > 0";
+
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        $this->creds = $info['credits'];
+        $this->xp = $info['xp'];
+        $this->bhg_id = $bhg_id;
+
+    }
+
+    function GetID() {
+        return $this->bhg_id;
+    }
+
+    function GetName(){
+
+        $person = new Person($this->bhg_id);
+
+        return $person->GetName();
+    }
+
+    function GetXP() {
+        return $this->xp;
+    }
+
+    function GetCredits() {
+        return $this->creds;
+    }
+
+    function GetContracts() {
+        return mysql_num_rows(mysql_query("SELECT * FROM `arena_survival_contracts` WHERE `bhg_id` = '".$this->bhg_id."' AND `completed` > 0", $this->connect));
+    }
+
+    function ReadContracts(){
+        $sql = "SELECT * FROM `arena_survival_contracts` WHERE `bhg_id` = '".$this->bhg_id."' AND `completed` > 0";
+        $query = mysql_query($sql, $this->connect);
+        $return = array();
+
+        while ($result = mysql_fetch_array($query)){
+            $new = new SurvivalContract($result['id']);
+            array_push($return, $new);
+        }
+        
+        return $return;
+    }
+    
+    function DCOPenalty(){
+	    $time = time()-(60*60*24*10);
+	    
+	    $sql = "SELECT * FROM `arena_survival_dco` WHERE `bhg_id` = '".$this->bhg_id."' AND `date` >= '$time' ORDER BY `date` DESC LIMIT 1";
+	    $query = mysql_query($sql, $this->connect);
+	    $info = mysql_fetch_array($query);
+	    
+	    if (mysql_num_rows($query)){
+		    return $info['date']+(60*60*24*10);
+	    } else {
+		    return false;
+	    }
+    }
+    
+    function Contracts(){
+        $sql = "SELECT * FROM `arena_survival_contracts` WHERE `bhg_id` = '".$this->bhg_id."' AND `completed` = 0";
+        $query = mysql_query($sql, $this->connect);
+        $return = array();
+
+        while ($result = mysql_fetch_array($query)){
+            $new = new SurvivalContract($result['id']);
+            array_push($return, $new);
+        }
+        
+        return $return;
+    }
+
+    function Notify($mbid){
+                $text = "Your Survival Mission has been posted on the Message Boards. \r\n\r\nhttp://boards.thebhg.org/index.php?op=view&topic=$mbid\r\n\r\n Ric Gravant";
+
+                $person = new Person($this->bhg_id);
+                $from = "Office of Survival Skills <adjunct@thebhg.org>";
+                $subject = "Your Survival Mission is Ready";
+
+                $person->SendEmail($from, $subject, $text);
+    }
+
+    function IsComissioner(){
+        $sql = "SELECT * FROM `comissioners` WHERE `end_date` = 0";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        return ($this->bhg_id == $info['bhg_id']);
+    }
+
+ }
+
+?>
