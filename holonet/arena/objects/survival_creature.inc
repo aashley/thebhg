@@ -44,9 +44,7 @@
 	   
 	    $sorted = $this->npc_stats;
 	    arsort($sorted);
-	    $highest = array_shift($sorted)
-	   
-	    print_r($this->npc_stats);
+	    $highest = array_shift($sorted);
 	     
 	    foreach ($this->npc_stats as $name=>$stat){
 		    $point = $stat*$this->type->GetPoints();
