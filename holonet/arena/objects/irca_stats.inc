@@ -11,7 +11,7 @@
     function IRCAStats($id) {
         Arena::Arena();
 
-        $this->matches = mysql_num_rows(mysql_query("SELECT * FROM `arena_irca_records` WHERE `bhg_id` = '$id' AND `date_deleted` = 0", $this->connect));
+        $this->matches = mysql_num_rows(mysql_query("SELECT * FROM `arena_irca_records` WHERE `bhg_id` = '$id' AND `date_deleted` = 0 AND `match_id` > 0", $this->connect));
 
         $sql = "SELECT SUM(`xp`) as xp, "
                 ."SUM(`credits`) as credits, "
