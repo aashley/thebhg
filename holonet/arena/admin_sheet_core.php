@@ -56,7 +56,7 @@ function output() {
 		    
 		    $table->AddRow('Save Name', 'Date', 'Approved', 'Pending Approval', '&nbsp', '&nbsp', '&nbsp');
 		    
-		    foreach ($saves as $data){
+		    foreach ($sheets as $data){
 			    $table->AddRow($character->GetName('cores', $data['id'], 'id'), $data['date'], ($data['app'] ? 'Yes' : 'No'), ($data['pending'] ? '<b>Yes</b>' : 'No'),
 			    	'<a href="'.internal_link($page, array('sheet'=>$data['id'])).'">Load to Edit</a>', 
 			    	'<a href="'.internal_link($page, array('save'=>1, 'delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>', 
