@@ -213,10 +213,6 @@ function get_auth_data($hunter) {
         $auth_data['sheet'] = false;  
     }
     
-    if ($hunter->GetID() == 569){
-	    $auth_data['sheet'] = true;
-    }
-    
     if ($pos->GetID() == 7 || $pos->GetID() == 3) {
         $auth_data['star'] = true;
     }
