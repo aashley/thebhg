@@ -181,11 +181,10 @@
     }
 
     function Ended(){
-	    echo $this->season;
         $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '1' AND `round` = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
         $query = mysql_query($sql, $this->holonet);
 
-        return (mysql_num_rows($query) == 1);
+        return (mysql_num_rows($query) == 1 && $this->season);
     }
     
     function Randomize(){
