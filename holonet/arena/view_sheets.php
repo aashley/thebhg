@@ -19,6 +19,7 @@ function output() {
     $table->AddRow('Hunter Name', 'Date Submitted', 'Status');
     
     foreach ($sheet->SheetHolders() as $character){
+	    $person = $character->GetPerson();
 	    $sheets[$character->GetName()] = $character;
     }
     
