@@ -34,7 +34,13 @@ function output(){
 			
 			case 'ed':
 			if ($_REQUEST['stage'] == 2){
-				$obj->Edit(array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]));
+				$return = array();
+				foreach ($_REQUEST['data'][fields] as $i=>$field){
+					$return[$field] = $_REQUEST['values'][$i];
+				}
+				//When PHP 5:
+				//$return = array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]);
+				$obj->Edit($return);
 				$show = false;
 			} else {
 				$name = $obj->Get(name);
