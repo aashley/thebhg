@@ -2,12 +2,12 @@
 
 $include = array('arena_core', 'tournament', 'sheet_module', 'character', 'field', 'npc_utilities', 'object', 'parse_npc', 'skill', 'statribute');
 
-foreach ($include as $page){
-	$page = $page.'.php';
-	//echo $page;
-	if (file_exists('arena/objects/'.$page)){
+foreach ($include as $pages){
+	$pages = $pages.'.php';
+	//echo $pages;
+	if (file_exists('arena/objects/'.$pages)){
 		//echo ' got in.';
-		include_once $page;
+		include_once $pages;
 	}
 	//echo '<br />';
 }
