@@ -318,7 +318,7 @@ function output() {
 			    if ($character->HasValue('pending')){
 				    $values['My Editing Sheet'] = 'pending';
 			    }
-			    if (count($character->GetSaveFunctions()){
+			    if (count($character->GetSaveFunctions())){
 				    $values['Auto-Saved Sheet'] = 'records';
 			    }
 		    }
