@@ -68,7 +68,7 @@
     }
     
     function ReadPolls($hunter){
-	    $sql = "SELECT * FROM `arena_poll` WHERE `date_deleted` = 0 AND `starts` <= '".time()."' AND `ends` <= '".time()."'";
+	    $sql = "SELECT * FROM `arena_poll` WHERE `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
