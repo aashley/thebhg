@@ -285,7 +285,7 @@ function links($id){
 function external($auth_data){
 	$app = array();
 	$app['Pending Challenges'] = internal_link('acn');
-	$app['My Profile'] = internal_link('atn_general', array('id']=>$auth_data['id']);
+	$app['My Profile'] = internal_link('atn_general', array('id'=>$auth_data['id']);
 	addMenu('External Links', $app);
 }
 
