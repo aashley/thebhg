@@ -149,8 +149,8 @@
     }
 
     function Edit($bhg_id, $mbid){
-        $sql = "UPDATE `arena_lw_contracts` SET `id` = '".$this->contract_id."'";
-        $add = array();
+        $sql = "UPDATE `arena_lw_contracts` SET ";
+        $add = array("`id` = '".$this->contract_id."'");
         $return = "";
 
         if ($bhg_id != $this->contract_bhg_id){

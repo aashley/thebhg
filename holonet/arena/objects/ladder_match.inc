@@ -339,8 +339,8 @@
     }
 
     function Edit($name, $location, $location_table, $weapons, $weapon_type, $posts, $match_id, $type) {
-        $sql = "UPDATE `arena_ladder_match` SET `id` = '".$this->arena_id."'";
-        $add = array();
+        $sql = "UPDATE `arena_ladder_match` SET ";
+        $add = array("`id` = '".$this->arena_id."'");
         $return = "";
 
         if ($name != $this->arena_name){
