@@ -486,6 +486,8 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_stat') . '">Create&nbsp;New&nbsp;Statribute</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_skill') . '">Create&nbsp;New&nbsp;Skill</a><br />';        
         echo '&nbsp;<a href="' . internal_link('admin_equation') . '">Create&nbsp;New&nbsp;Variable</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_sheet_ss') . '">Modify&nbsp;Shown&nbsp;Stats</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_sheet_fo') . '">Modify&nbsp;Field&nbsp;Order</a><br />';
     }
     
     if ($auth_data['arena']) {    

@@ -1,7 +1,7 @@
 <?php
 
 function title() {
-    return 'Administration :: Coder Utilities :: Modify Modification Sheet Stats';
+    return 'Administration :: Character Sheet :: Modify Modification Sheet Stats';
 }
 
 function auth($person) {
@@ -9,7 +9,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['coder'];
+    return $auth_data['sheet'];
 }
 
 function output() {
@@ -38,14 +38,14 @@ function output() {
 	    }
 		
 		echo 'System updated.';
-    } elseif ($_REQUEST['next']) {
+    } else {
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Character Sheet Modifications');
 	    
-	    $form->AddHidden('mod', $_REQUEST['mod']);
+	    $form->AddHidden('mod', 1);
 	    $form->table->AddRow('Stat/Skill', 'Include?');
 	    
-	    $fields = array_flip($sheet->ModFields($_REQUEST['mod']));
+	    $fields = array_flip($sheet->ModFields(1));
 	    
 	    foreach ($fields as $field=>$s){
 		    foreach ($sheet->GetStats($field) as $stat){
@@ -58,20 +58,6 @@ function output() {
 		    }
 	    }
 	    $form->AddSubmitButton('submit', 'Submit Modification Skill/Stats');
-	    
-	    $form->EndForm();
-    } else {
-	    $form = new Form($page);
-	    $form->AddSectionTitle('Character Sheet Modifications');
-	    
-	    if (count($sheet->AllMods())){
-		    $form->StartSelect('Modification Name:', 'mod');
-		    foreach ($sheet->AllMods() as $mod){
-			    $form->AddOption($mod['id'], $mod['name']);
-		    }
-		    $form->EndSelect();
-		    $form->AddSubmitButton('next', 'Set Modification Skill/Stats');
-	    }	    
 	    
 	    $form->EndForm();
     }
