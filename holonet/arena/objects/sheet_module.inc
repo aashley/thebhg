@@ -83,8 +83,6 @@
 	    $sql = "UPDATE `cs_mods` SET `fields` = '".serialize($fields)."', `name` = '$name', `description` = '".addslashes($description)."' WHERE `id` = '$id'";
 	    $query = mysql_query($sql, $this->connect);
 	    
-	    echo $sql;
-	    
 	    return ($query ? true : false);
     }
     
