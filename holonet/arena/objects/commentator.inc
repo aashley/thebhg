@@ -11,6 +11,8 @@
      var $hc_end_date;
      var $creds;
      var $xp;
+     var $multiple;
+     var $matches;
 
      function Commentator($bhg_id){
         Arena::Arena();
@@ -18,6 +20,17 @@
         $sql = "SELECT * FROM `arena_commentator` WHERE `bhg_id` = '$bhg_id'";
         $query = mysql_query($sql, $this->connect);
 
+        if (mysql_num_rows($query) > 1){
+	        $this->multiple = array();
+	        while ($info = mysql_fetch_array($query)){
+		        $this->multiple[] = "arena_irca_match.hc = '".$info['id']."'";
+	        }
+	        $this->multiple = '('.implode(' OR ', $this->multiple).')';
+        } else {
+	        $info = mysql_fetch_array($query);
+	        $this->multiple = "arena_irca_match.hc = '".$info['id']."'"
+        }
+        
         if ($result = @mysql_fetch_array($query)) {
 
             foreach ($result as $key => $value) {
@@ -53,21 +66,19 @@
     
     function SecondBuild(){
 	    $sql = "SELECT SUM(arena_irca_records.xp) as xp, SUM(arena_irca_records.credits) as credits FROM arena_irca_records, arena_irca_match WHERE "
-	    	."arena_irca_match.id = arena_irca_records.match_id AND arena_irca_match.graded > 0 AND arena_irca_match.hc > 0 AND arena_irca_match.date_deleted = 0 AND arena_irca_match.hc = '".$this->hc_id."'";
+	    	."arena_irca_match.id = arena_irca_records.match_id AND arena_irca_match.graded > 0 AND arena_irca_match.hc > 0 AND arena_irca_match.date_deleted = 0 AND '".$this->multiple."";
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
 
         $this->creds = $info['credits']+$this->hc_creds;
         $this->xp = $info['xp']+$this->hc_xp;
+        $this->matches = mysql_num_rows($query);
 
     }
 
     function GetMatches(){
-        $sql = "SELECT * FROM `arena_irca_match` WHERE `hc` = '".$this->hc_id."' AND `graded` > 0 AND `date_deleted` = 0";
-        $query = mysql_query($sql, $this->connect);
-        
-        return mysql_num_rows($query);
+        return $this->matches;
     }
 
     function GetXP(){
