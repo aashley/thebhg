@@ -582,7 +582,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_starfield_restriction') . '">Edit&nbsp;Restrictions</a><br />';
         
         echo '<br />Starfield Arena&nbsp;Tournament<br />';
-        if (count($iat->GetHunters())){
+        if (count($sat->GetHunters())){
 	        echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
 	        echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
     		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
