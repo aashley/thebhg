@@ -401,8 +401,8 @@ function savemark() {
 				$pleb = $roster->GetPerson(mysql_result($ans, 0, 'person'));
 				if ($first_correct) {
 					$first_correct = false;
-					$results .= "<U>First correct answer (100k + HP)</U>\n\n";
-					$results .= $pleb->IDLine(0) . "\n\n<U>Correct answers (75k)</U>\n\n";
+					$results .= "<U>First correct answer (75k + HP)</U>\n\n";
+					$results .= $pleb->IDLine(0) . "\n\n<U>Correct answers (50k)</U>\n\n";
 				}
 				else {
 					$results .= $pleb->IDLine(0) . "\n";
@@ -411,7 +411,7 @@ function savemark() {
 			}
 		}
 		reset($result);
-		$results .= "\n<U>Incorrect answers (25k)</U>\n\n";
+		$results .= "\n<U>Incorrect answers (15k)</U>\n\n";
 		foreach ($result as $aid=>$correct) {
 			if ($correct == 0) {
 				$ans = mysql_query("SELECT * FROM answers WHERE id=$aid", $db);
@@ -430,7 +430,7 @@ function savemark() {
 				mysql_query("UPDATE answers SET correct=2 WHERE id=$aid", $db);
 			}
 		}
-		$results .= "\n<U>Bonus for good report (50k)</U>\n\n";
+		$results .= "\n<U>Bonus for good report (30k)</U>\n\n";
 		foreach ($bonus as $aid=>$on) {
 			$ans = mysql_query("SELECT * FROM answers WHERE id=$aid", $db);
 			$pleb = $roster->GetPerson(mysql_result($ans, 0, 'person'));
@@ -482,19 +482,19 @@ function omcredits() {
 			if ($answer['correct'] == 1) {
 				if ($new_mission) {
 					$new_mission = 0;
-					$add = 100000;
+					$add = 75000;
 					$hp[] = $answer['person'];
 				}
 				else {
-					$add = 75000;
+					$add = 50000;
 				}
 				$plebs[$answer['person']] += $add;
 			}
 			elseif ($answer['correct'] == 0) {
-				$plebs[$answer['person']] += 25000;
+				$plebs[$answer['person']] += 15000;
 			}
 			if ($answer['bonus']) {
-				$plebs[$answer['person']] += 50000;
+				$plebs[$answer['person']] += 30000;
 			}
 		}
 		echo "[OM Set $set]<BR>\n";
