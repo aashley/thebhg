@@ -29,7 +29,7 @@ function output() {
     
     $activities = array();
     $ladder = new Ladder();
-    $star = new StarfieldArena();
+    $star = new Starfield();
     $star->Build();
     $ladder->Build();
     $solo = new Solo();
