@@ -36,7 +36,7 @@ function output(){
 			if ($_REQUEST['stage'] == 2){
 				$return = array();
 				foreach ($_REQUEST['data'][fields] as $i=>$field){
-					$return[$field] = $_REQUEST['values'][$i];
+					$return[$field] = $_REQUEST['data']['values'][$i];
 				}
 				//When PHP 5:
 				//$return = array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]);
