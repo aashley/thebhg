@@ -55,15 +55,12 @@ function output() {
 	    if ($sor){ $table->AddRow('Solo Mission Ladder Rank:', $sor); }
 	    if ($lwr){ $table->AddRow('Lone Wolf Mission Ladder Rank:', $lwr); }
 	    if ($irr){ $table->AddRow('IRC Arena Ladder Rank:', $irr); }
-	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', $tgc); }
+	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', pluralise('Time', $tgc)); }
 	    
 	    $plural = '';
 	    
 	    if ($at->IsGladius($hunter->GetID())){
-		    if ($at->IsGladius($hunter->GetID()) > 1){ 
-			    $plural = 's';
-		    }
-		    $table->AddRow('Achieved Gladius Prime:', $at->IsGladius($hunter->GetID()).' time'.$plural);
+		    $table->AddRow('Achieved Gladius Prime:', pluralise($at->IsGladius('Time', $hunter->GetID())));
 	    }
 	    
 	    $table->EndTable();

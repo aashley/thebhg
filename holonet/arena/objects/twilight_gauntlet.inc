@@ -281,7 +281,7 @@
     }
     
     function QueueHistory($bhg_id){
-	    $sql = "SELECT * FROM `arena_ttg_queue` WHERE `approved` = 0 AND `bhg_id` = '$bhg_id'";
+	    $sql = "SELECT * FROM `arena_ttg_queue` WHERE `approved` = 1 AND `bhg_id` = '$bhg_id'";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    return mysql_num_rows($query);

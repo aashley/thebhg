@@ -111,8 +111,8 @@ function output() {
                 $location = $value->GetLocation();
 
                 $table->StartRow();
-                $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challenger->GetID()), 'roster') . '">' . $challenger->GetName() . '</a>');
-                $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challengee->GetID()), 'roster') . '">' . $challengee->GetName() . '</a>');
+                $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$challenger->GetID())) . '">' . $challenger->GetName() . '</a>');
+                $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$challengee->GetID())) . '">' . $challengee->GetName() . '</a>');
                 $table->AddCell($type->GetName());
                 $table->AddCell($location->GetName());
                 $table->AddCell($weapon->GetWeapon());
