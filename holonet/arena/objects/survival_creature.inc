@@ -88,7 +88,7 @@
 	    foreach ($this->npc_stats as $name=>$stat){
 		    $point = round($stat*$this->type->GetPoints());
 
-		    $text .= '<br />'.$name.$point;
+		    $text .= '<br />'.$name.': '.$point;
 	    }
 
 	    $text .= '<br /><br />Description: '.nl2br(stripslashes($this->npc_string));
