@@ -81,7 +81,7 @@ function output() {
 	    
 			$kabals = implode('', $kabals);
 	
-		$form->table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
+		$form->table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position');
 		$i = 0;
 		
         while ($row = mysql_fetch_array($locations)) {
@@ -107,7 +107,6 @@ function output() {
 
 			$form->table->AddCell("<select name=\"position$i\">"
 	        ."<option value=\"-1\">N/A</option>$positions</select>");
-			hunter_dropdown($form);
 			$form->table->EndRow();
 			$i++;
         }
