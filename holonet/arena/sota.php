@@ -48,7 +48,7 @@ function output() {
     $activities['The Dojo of Shadows'] = array('ce'=>count($arena->ArenaMatches('AND `is_dojo` > 0 AND `end` > 0')), 'oe'=>count($ladder->PendingDojo('end')), 'ue'=>count($ladder->PendingDojo()), 'xp'=>$ladder->GetDXP(), 'cr'=>$ladder->GetDCreds(), 'ad'=>$djm);
     $activities['Solo Missions'] = array('ce'=>count($arena->SoloContracts()), 'oe'=>count($solo->PendingContracts()), 'ue'=>count($solo->RequestedContracts()), 'xp'=>$solo->GetXP(), 'cr'=>$solo->GetCreds(), 'ad'=>$cbo);
     $activities['Lone Wolf Missions'] = array('ce'=>count($arena->LWContracts()), 'oe'=>count($lw->PendingContracts()), 'ue'=>count($lw->RequestedContracts()), 'xp'=>$solo->GetDXP(), 'cr'=>$solo->GetDCreds(), 'ad'=>$cbo);
-    $activities['Survival Missions'] = array('ce'=>count($arena->SurvivalContracts()), 'oe'=>count($surv->PendingContracts()), 'ue'=>count($surv->RequestedContracts()), 'xp'=>$surv->GetDXP(), 'cr'=>$surv->GetDCreds(), 'ad'=>$sur);
+    $activities['Survival Missions'] = array('ce'=>count($arena->SurvivalContracts()), 'oe'=>count($surv->PendingContracts()), 'ue'=>count($surv->RequestedContracts()), 'xp'=>$surv->GetXP(), 'cr'=>$surv->GetCreds(), 'ad'=>$sur);
     
     foreach ($activities as $activity=>$stats){
 	    $table->AddRow($activity, nf($stats['ce']), nf($stats['oe']), nf($stats['ue']), nf($stats['xp']), nf($stats['cr']), $stats['ad']);	    
