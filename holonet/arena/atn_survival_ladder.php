@@ -17,7 +17,7 @@ function output() {
     $table->EndRow();
     $table->AddRow('Place', 'Name');
 
-    $keys = array_keys($arena->SoloLadder());
+    $keys = array_keys($arena->SurvivalLadder());
     $place = 0;
 
     foreach($keys as $value){
