@@ -30,7 +30,7 @@ function output() {
 	    $error = true;
 	    for ($i = 0; $i < $_REQUEST['runs']; $i++){
 		    if ($_REQUEST['process'.$i]){
-			    if ($_REQUEST['position'.$i]){
+			    if ($_REQUEST['position'.$i] > 0){
 				    $sets = "`position` = '".$_REQUEST['position'.$i]."', `division` = '".$_REQUEST['kabal'.$i]."'";
 			    } elseif ($_REQUEST['person'.$i]) {
 				    $sets = "`bhg_id` = '".$_REQUEST['person'.$i]."'";
