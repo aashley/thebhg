@@ -46,9 +46,7 @@ div#header {
 	height: 125px;
 	top: 0;
 	left: 0;
-	right: 0;
-	padding-left: 3px;
-	padding-right: 3px;
+	width: 100%;
 	vertical-align: middle;
 	font-weight: bold;
 	background-image: url("/themes/default/header.png");
@@ -63,6 +61,7 @@ div#title {
 	top: 125px;
 	left: 0;
 	width: 35%;
+	padding-left: 3px;
 	border-top: solid 2px black;
 	border-bottom: solid 2px black;
 }
@@ -81,12 +80,10 @@ div#menu ul {
 }
 div#menu ul li {
 	display: inline;
-}
-div#menu ul li:before {
-	content: " :: ";
-}
-div#menu ul li.first:before {
-	content: "";
+	line-height: 20px;
+	border-left: solid 1px black;
+	padding-left: 1em;
+	padding-right: 1em;
 }
 
 div#content {

@@ -92,11 +92,17 @@ $calendar = new Calendar($db);
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <title>MyBHG<?php if (isset($title)) echo ' :: ' . $title; ?></title>
+<?php
+if (!$theme->IECompliant()) {
+?>
 <!-- compliance patch for microsoft browsers -->
 <!--[if lt IE 7]>
-<script src="/themes/ie7/ie7-standard-p.js" type="text/javascript">
+<script src="/themes/ie7/ie7-standard.js" type="text/javascript">
 </script>
 <![endif]-->
+<?php
+}
+?>
 <style type="text/css">
 <!--
 <?php
