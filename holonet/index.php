@@ -1,5 +1,7 @@
 <?php
 ob_start('ob_gzhandler');
+define('DEBUG', true);
+if (DEBUG) include_once 'debug.php';
 //header('Content-Type: text/html; charset=UTF-8');
 header('Content-Type: text/html; charset=ISO-8859-1');
 include('header.php');
