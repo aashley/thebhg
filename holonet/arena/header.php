@@ -411,17 +411,17 @@ function admin_footer($auth_data) {
 	echo '&nbsp;<a href="' . internal_link('admin_sheet_backup', array('id'=>$person->GetID())) . '">Sheet&nbsp;Backups</a><br />';
 	echo '&nbsp;<a href="' . internal_link('admin_sheet_core') . '">Edit&nbsp;Core&nbsp;Sheets</a><br />';
 	
+	if ($auth_data['ch']){
+	    echo '<br /><b>Chief&nbsp;Resources</b><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_ch_npc') . '">Generate&nbsp;NPC</a><br />';
+    }
+	
 	if ($auth_data['citadel']){
 		echo '<br /><b>Pending&nbsp;Citadel&nbsp;Exams</b><br />';
 	    foreach ($tests as $value){
 		    echo '<a target="citadel" href="http://citadel.thebhg.org/admin/grade/'. $value->GetAbbrev() .'">' . $value->CountPending().' '
 		    	.$value->GetAbbrev().' exams</a><br />';
 	    }
-    }
-	
-    if ($auth_data['ch']){
-	    echo '<br />Chief&nbsp;Resources<br />';
-	    echo '&nbsp;<a href="' . internal_link('admin_ch_npc') . '">Generate&nbsp;NPC</a><br />';
     }
     
 	if ($auth_data['aa']){

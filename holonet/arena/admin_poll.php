@@ -20,11 +20,8 @@ function output() {
     $show = true;
     
     if (isset($_REQUEST['submit'])){
-	    if ($arena->NewPoll($_REQUEST['name'], $_REQUEST['desc'])){
-		    echo 'New Poll Added Successfully!';
-	    } else {
-		    NEC(152);
-	    }
+	    print_r($_REQUEST['posi']);
+	    print_r($_REQUEST['arenaposi']);
 	    
 	    hr();
     } elseif ($_REQUEST['next']){
@@ -41,10 +38,24 @@ function output() {
 	    
 	    if ($_REQUEST['restrict']){
 		    $form->AddCheckBox('RP Aides Only', 'open[aa]', 1);
-		    $form->AddCheckBox('Use Aide Limiter?' 'aidelimit', 1);
-		    $form->StartSelect('Arena Position', 'arenaposi', true);
+		    $form->AddCheckBox('Use Aide Limiter?', 'aidelimit', 1);
+		    $form->StartSelect('Arena Position', 'arenaposi[]', '', 5, true);
 		    foreach ($arena->ArenaPositions() as $id=>$data){
 			    $form->AddOption($id, $data['desc']);
+		    }
+		    $form->EndSelect();
+		    
+		    $form->AddCheckBox('Use Position Limiter?', 'posilimit', 1);
+		    $form->StartSelect('Position', 'posi[]', '', 5, true);
+		    foreach ($roster->GetPositions() as $data){
+			    $form->AddOption($data->GetID(), $data->GetName());
+		    }
+		    $form->EndSelect();
+		    
+		    $form->AddCheckBox('Use Division Limiter?', 'divilimit', 1);
+		    $form->StartSelect('Division', 'divi[]', '', 5, true);
+		    foreach ($roster->GetPositions() as $data){
+			    $form->AddOption($data->GetID(), $data->GetName());
 		    }
 		    $form->EndSelect();
 	    }
