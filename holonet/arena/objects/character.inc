@@ -733,16 +733,20 @@
 		}
 	}
     
-	function HasValue($look = 'values'){
+	function HasValue($look = 'values', $col = 'bhg_id', $id){
+		if ($id){
+			$id = $id;
+		} else {
+			$id = $this->GetID();
+		}
 		$table = '`character_sheet_'.$look.'`';
-		echo $table;
-	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."'";
         $query = mysql_query($sql, $this->connect);
         
         return (mysql_num_rows($query));
     }
 	
-	function ParseSheet($look = 'values', $id = 0){
+	function ParseSheet($look = 'values', $id = 0, $field){
 		$this->UpdateCache();
 		$bio = $this->cs_person->GetBioData();
 		$division = $this->cs_person->GetDivision();
@@ -805,7 +809,7 @@
     	$table->AddRow('Species', $species);
     	$table->AddRow('Division', '<a href="'.internal_link('division', array('id'=>$division->GetID()), 'roster').'">'.$division->GetName().'</a>');
     	$table->AddRow('Position', '<a href="'.internal_link('position', array('id'=>$position->GetID()), 'roster').'">'.$position->GetName().'</a>');
-    	if ($this->HasValue($look)){
+    	if ($this->HasValue($look, $field, $id)){
 	    	for ($i = 1; $i <= 6; $i++){
 		    	$field = new Field($i);
 		    	$table->StartRow();

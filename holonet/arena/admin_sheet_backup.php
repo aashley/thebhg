@@ -38,7 +38,7 @@ function output() {
     
     if ($_REQUEST['load']){
     
-	    $character->ParseSheet('backups', $_REQUEST['id']);
+	    $character->ParseSheet('backups', $_REQUEST['id'], 'id');
 	    
     } elseif ($_REQUEST['view']){
 	    
