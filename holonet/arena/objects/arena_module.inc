@@ -63,19 +63,18 @@
     }
     
     function BastionPlayer($bhg_id){
-	    $sql = "SELECT * FROM `bastion_signups` WHERE `person` = '$bhg_id'";
-	    $query = mysql_query($sql, $this->bastion);
-	    $return = array();
-	    
-	    while ($info = mysql_fetch_array($query)){
-		    if (isset($return[$info['kag']])){
-		    	$return[$info['kag']] += $info['points'];
-	    	} else {
-		    	$return[$info['kag']] = $info['points'];
-	    	}
-    	}
-    	
-    	return $return;
+		$result = mysql_query('SELECT SUM(points) AS total, person, kabal, kag FROM `bastion_signups` WHERE `person` = \'$bhg_id\' GROUP BY person, kabal, kag ORDER BY kag ASC', $this->bastion);
+		if ($result && mysql_num_rows($result)) {
+			$hunters = array();
+			while ($row = mysql_fetch_array($result)) {
+				$array = array('total'=>$row['total'], 'kabal'=>new Kabal($row['kabal']));
+				$hunters[$row['kag']] = $array;
+			}
+			return $hunters;
+		}
+		else {
+			return false;
+		}
 	}
     
     function Overseer(){
