@@ -110,9 +110,7 @@ if ($_REQUEST['match']){
 			if ($type->Get(npc)){
 				$npcs = array();
 				for ($i = 1; $i <= $activity->Get(num_npc); $i++){
-					print_r($data);
-					echo $arena->NPCID();
-					$npcs[] = new Parse_NPC($data[$arena->NPCID()]);
+					$npcs[] = new Parse_NPC($data[$arena->NPCID($activity->Get(id))]);
 				}
 				$bild = new NPC_Utilities();
 				$form->AddHidden('npc', serialize($npcs));

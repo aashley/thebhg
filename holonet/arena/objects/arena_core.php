@@ -193,8 +193,8 @@
 		}
 	}
 	
-	function NPCID(){
-		$sql = "SELECT * FROM `ams_npc_id` WHERE `date_deleted` = 0";
+	function NPCID($activity){
+		$sql = "SELECT * FROM `ams_npc_id` WHERE `activity` = '$activity' AND `date_deleted` = 0";
 		$query = mysql_query($sql, $this->holonet);
 		
 		$result = mysql_fetch_assoc($query);
