@@ -22,7 +22,7 @@ function output() {
     
 		foreach ($kabals_result as $kabal) {
       
-      if ($kabal->GetID() == 12) {
+      if ($kabal->GetID() == 10) {
         
         $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
           .$kabal->GetName()."</option>\n";
