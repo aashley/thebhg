@@ -248,7 +248,7 @@
 		
 		foreach ($medals as $value){
 			$medal = $value->GetMedal();
-			$group = $medal->GetGroup
+			$group = $medal->GetGroup();
 			$build[] = $group->GetID();
 		}
 		
