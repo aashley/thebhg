@@ -26,7 +26,6 @@
                     ."arena_ro.id = arena_ro_hunters.run_on AND arena_ro.date_deleted = 0 GROUP BY arena_ro_hunters.bhg_id";
 
         $query = mysql_query($sql, $this->connect);
-        echo mysql_error($this->connect);
         $total = "SELECT * FROM `arena_ro` WHERE `graded` = 1 AND `date_deleted` = 0";
         $qtotal = mysql_query($total, $this->connect);
         $total = mysql_num_rows($qtotal);
