@@ -528,7 +528,7 @@
         }
     }
 
-    function AddToATN($type = 4, $setting = 3, $posts = 3, $location = '', $restruction = array()){	    
+    function AddToATN($type = 4, $setting = 3, $posts = 3, $location = '', $restriction = array()){	    
         $errors = false;
         
 	    for ($i = 1; $i <= $this->RoundBrackets($this->CurrentRound()); $i++){

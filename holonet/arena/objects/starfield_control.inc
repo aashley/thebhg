@@ -55,9 +55,6 @@
 	    $new = new Starfield();
     	$skip = $new->CurrentSkipper();
     	$skipper = new Skipper($skip);
-	    
-    	echo $challenger;
-    	echo $restrictions;
     	
         $person1 = new Person($challenger);
         $person2 = new Person($challengee);
@@ -73,6 +70,8 @@
 
         if (mysql_query($sql, $this->connect)) {
 
+	        $this->new_match_id = mysql_insert_id($this->connect);
+	        
 	        $this->Fighter($challenger, 1, $ship_id1);
             $this->Fighter($challengee, 0, $ship_id2);
 	        
