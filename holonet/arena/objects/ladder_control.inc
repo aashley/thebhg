@@ -48,17 +48,17 @@
 
         $name = $person1->GetName()." vs. ".$person2->GetName();
 
-        $ttg = new TTG();
+        /*$ttg = new TTG();
         $gauntlet = 0;
         
         if (in_array($challenger, $ttg->Members())){
 	        if (in_array($challengee, $ttg->Members())){
 		        $gauntlet = 1;
 	        }
-        }
+        }*/
         
-        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `is_ttg`) "
-                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$gauntlet')";
+        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`) "
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type')";
 
         if (mysql_query($sql, $this->connect)) {
 
