@@ -87,7 +87,8 @@ class Wing extends Division {
         
         $sql = "SELECT slogan, "
                      ."logo, "
-                     ."welcomemessage "
+                     ."welcomemessage, "
+										 ."home_page_url "
               ."FROM roster_divisions "
               ."WHERE id = $id";
               
