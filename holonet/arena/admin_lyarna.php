@@ -31,9 +31,9 @@ function output() {
 	    for ($i = 0; $i < $_REQUEST['runs']; $i++){
 		    if ($_REQUEST['process'.$i]){
 			    if ($_REQUEST['position'.$i] > 0){
-				    $sets = "`position` = '".$_REQUEST['position'.$i]."', `division` = '".$_REQUEST['kabal'.$i]."'";
+				    $sets = "`position` = '".$_REQUEST['position'.$i]."', `division` = '".$_REQUEST['kabal'.$i]."', `bhg_id` = '0'";
 			    } elseif ($_REQUEST['person'.$i]) {
-				    $sets = "`bhg_id` = '".$_REQUEST['person'.$i]."'";
+				    $sets = "`bhg_id` = '".$_REQUEST['person'.$i]."', `position` = '0', `division` = '0'";
 			    }
 			    
 			    if ($sets){ 
