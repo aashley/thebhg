@@ -165,7 +165,7 @@ EOF;
 <div class="section">
 <div class="footer">Copy &copy; 2001-04 <a href="mailto:$rm_coder_email">$rm_coder_name</a>.</div>
 EOF;
-	echo '<div class="footer">This is ' . CODENAME . ' version ' . VERSION . '.</div>';
+	echo '<div class="footer">This is ' . CODENAME . ' version ' . VERSION . '. (<a href="/changelog.php">Change Log</a>)</div>';
 	echo <<<EOF
 </div>
 </div>
@@ -807,6 +807,16 @@ function dosearch() {
 	page_end();
 }
 
+function changelog() {
+	page_start('Change Log');
+
+	echo preg_replace(array('/^-- /m', '/ --$/m', '/^[0-9]+. (.*)$/m', '/^$/m'),
+			  array('<b>', '</b><ol>', '<li>\1</li>', '</ol>'),
+			  file_get_contents('changelog.txt'));
+
+	page_end();
+}
+
 function admin_index() {
 	echo 'Welcome to the administration interface to the bug tracker. You may select from the options at right.';
 }
@@ -1135,6 +1145,9 @@ switch ($pages[0]) {
 		break;
 	case "dosearch":
 		dosearch();
+		break;
+	case "changelog":
+		changelog();
 		break;
 	case "index": default:
 		index();
