@@ -34,15 +34,14 @@ function output() {
 	    $aides = array();
 	    
 	    $pp = $endut - $startut;
-	    
-	    echo $pp;
+	    $credits = round(350000*($pp/2678400));
 	    
 	    foreach ($bitches as $bitch){
 		    foreach ($bitch as $pay){
 			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 				    $time = $endut - $pay['start_date'];
 				    echo '<br />END:'.$endut;
-				    echo '<br />START:'.$sartut;
+				    echo '<br />START:'.$startut;
 				    echo '<br />START DATE:'.$pay['start_date'];
 				    echo '<br />TIME:'.$time;
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
@@ -57,7 +56,7 @@ function output() {
 		    	
 		    	$time = $time / $pp;
 		    	
-		    	$creds = round($time * 350000);
+		    	$creds = round($time * $credits);
 		    	
 		      	if (isset($aides[$pay['bhg_id']])) {
 		        	$aides[$pay['bhg_id']] += $creds;
