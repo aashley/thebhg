@@ -69,7 +69,7 @@ function output() {
 		if ($com){ $rewards[$com.'Holonet Commentator of the IRC Arena'] = array('pic'=>'hc', 'page'=>'atn_award', 'anch'=>'commentator');}
 		if ($ran){ $rewards[$ran.'Survival Mission Ranger'] = array('pic'=>'ranger', 'page'=>'atn_award', 'anch'=>'ranger');}
 	    
-	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
+	    echo '<table border=0 width="100%"><tr valign="top"><td>';
 	    
 	    echo '<a name="stats"></a>';
 	    $table = new Table();
@@ -116,7 +116,7 @@ function output() {
 		if (count($rewards)){			
 			$table = new Table('', true);
 		    $table->StartRow();
-		    $table->AddHeader('Arena Aide Positions');
+		    $table->AddHeader('Arena Administrative Positions');
 		    $table->EndRow();
 			
 			foreach ($rewards as $info=>$reward){
