@@ -28,7 +28,7 @@ function output() {
 		$form->table->AddHeader('6');
 		$form->table->EndRow();
 		for ($i = 1; $i <= $_REQUEST['stats']; $i++){
-			$form->table->AddRow('<input type="text" name="name['.$i.']">', '<input type="text" name="stat['.$i.']">');
+			$form->table->AddRow('<input type="text" name="names['.$i.']">', '<input type="text" name="stat['.$i.']">');
 		}
 		$form->AddTextArea('Description', 'string');
 		$form->AddSubmitButton('submit', 'Save Creature');
@@ -40,7 +40,7 @@ function output() {
 	    
 	    $stats['name'] = $_REQUEST['name'];
 	    
-	    foreach ($_REQUEST['name'] as $key=>$name){
+	    foreach ($_REQUEST['names'] as $key=>$name){
 		    $stats[$name] = $_REQUEST['stat'][$key];
 	    }
 	    
