@@ -66,9 +66,6 @@
 	    $current = new Commentator($this->CurrentHC());
 	    $current->EndTerm();
 	    
-	    $sql = "SELECT * FROM `arena_commentator` WHERE `bhg_id` = '$bhg_id'";
-	    $query = mysql_query($sql, $this->connect);
-	    
 	    $sql = "INSERT INTO `arena_commentator` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
 	    
 	    if (mysql_query($sql, $this->connect)){
