@@ -34,10 +34,6 @@ function output() {
 		    $xp_total = $overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
 		    $meda_total = $overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();
 		    
-		    echo $adjunc->GetCreds();
-		    echo $comiss->GetCreds();
-		    echo $missio->GetCreds();
-		    echo $regist->GetCreds();
 		    echo $master->GetCreds();
 		    
 		    $table = new Table();
