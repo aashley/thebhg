@@ -6,10 +6,16 @@ create Hunt Types and Individual Hunts. You can also grade and manage
 submissions from previous hunts.</p>
 </div>
 <?php
+if (!isset($_POST['num_months'])) {
+    $show_months = 1;
+} else {
+    $show_months = $_POST['num_months'];
+}
+
+echo '<div>'."\n";
+echo '<h2>Limit Displayed Hunts:</h2>'."\n";
+echo "<form action=\"".$_SERVER['REQUEST_URI']."\" method=\"post\">\n";
 if ($access == 2) {
-    echo '<div>'."\n";
-    echo '<h2>Limit Displayed Hunts to those for:</h2>'."\n";
-    echo "<form action=\"".$_SERVER['REQUEST_URI']."\" method=\"post\">\n";
     echo "<select name=\"division\" id=\"division\">\n";
     echo "<option value=\"-1\"";
     if ($division == -1) echo " selected=\"selected\"";
@@ -27,9 +33,11 @@ if ($access == 2) {
     }
     echo "</select>\n";
     echo "<input type=\"submit\" value=\"View Division\"></input><br />\n";
-    echo "</form>\n";
-    echo '</div>';
 }
+echo '<br />Show hunts from <input type="text" name="num_months" value="'.$show_months.'" size="5"></input> months ago.<br />'
+   . '<input type="submit" value="View"></input>'
+   . "</form></div><br />\n";
+$smonth = time() - (2592000 * $show_months); //Current time minus 30 days times number of months
 $tblhead = array(
     'Hunt Type',
     'Hunt #',
@@ -109,7 +117,7 @@ echo $table->toHTML();
 <?php
 $table = new HTML_Table();
 $table->setCaption("Past Hunts");
-$pasthunts = $ka->GetHunts('none', 'past', -1, $division, true);
+$pasthunts = $ka->GetHunts('end', 'past', -1, $division, true, $smonth);
 $table->AddRow(
     $tblhead,
     $tblheadattr,
