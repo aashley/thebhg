@@ -9,8 +9,8 @@
      function Auth($bhg_id){
         Arena::Arena();
 
-        $this->id = $bhg_id;
-        $this->person = new Person($bhg_id);
+        $this->person = $bhg_id;
+        $this->id = $bhg_id->GetID();
         $this->posi = $this->person->GetPosition();
 
     }
@@ -92,7 +92,6 @@
     }
     
     function LW(){
-	    print_r($this->id);
 	    return ($this->RP() || in_array($this->id, $this->Populate('lw_members')));
     }
     
