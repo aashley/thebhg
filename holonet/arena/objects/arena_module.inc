@@ -84,7 +84,17 @@
 			    $edit = '`date_deleted` = 0';
 		    }
 	    }
-	    $sql = "SELECT * FROM `arena_poll` WHERE $rp $edit";
+	    $sql = "SELECT * FROM `arena_poll`";
+	    if ($rp){
+			$sql .= " WHERE $rp";
+		    if ($edit){
+				$sql .= " $edit";
+		    }
+	    } else {
+		    if ($edit){
+			    $sql .= " WHERE $edit";
+		    }
+	    }
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
