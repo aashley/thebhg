@@ -599,6 +599,222 @@
 	
 	
 	
+<<<<<<< .mine
+	function DenyCore($id, $reason = ''){
+		$sql = "UPDATE `character_sheet_core` SET `date` = '".time()."', `pending` = 0, `approved` = 0 WHERE `id` = '".$id."'";		
+		if (mysql_query($sql, $this->connect)){
+			$adjunct = $this->Adjunct();
+            $overseer = $this->Overseer();
+            $hunter = new Person($this->GetID());
+            
+            $text = $hunter->GetName().", one of your CORE sheet has been denied by the RP staff.";
+            
+            if ($reason){
+	            $text .= "\r\n\r\nReason: ".$reason;
+            }
+
+            $from = "Office of Character Development <overseer@thebhg.org>";
+            $subject = "CORE Character Denied";
+
+            $adjunct->SendEmail($from, $subject, $text);
+            $overseer->SendEmail($from, $subject, $text);
+            $hunter->SendEmail($from, $subject, $text);
+			return 'Character Denied.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	   
+	}
+	
+	function GetBackups(){
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$date = getdate($info['date']);
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'share'=>0);
+		}
+		
+		$sql = "SELECT * FROM `cs_shares` WHERE `bhg_id` = '".$this->GetID()."'";
+		$query = mysql_query($sql, $this->connect);
+		
+		while ($mofo = mysql_fetch_array($query)){
+			$sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '".$mofo['sheet']."'";
+			$querya = mysql_query($sql, $this->connect);
+			$info = mysql_fetch_array($querya);
+			$date = getdate($info['date']);
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$this->GetID(), 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'share'=>1);
+		}
+		
+		return $return;
+	}
+	
+	function GetCores(){
+		$sql = "SELECT * FROM `character_sheet_core` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$date = getdate($info['date']);
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'app'=>$info['approved'], 'pending'=>$info['pending']);
+		}
+		
+		return $return;
+	}
+	
+	function Backup($save_name, $from = 'values'){
+	    $sql = "SELECT * FROM `character_sheet_$from` WHERE `bhg_id` = '".$this->GetID()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    $new = "INSERT INTO `character_sheet_backup` VALUES ('', '".$this->GetID()."', '".addslashes($save_name)."', '".time()."')";
+	    $store = mysql_query($new, $this->connect);
+	    $id = mysql_insert_id($this->connect);
+	    $errors = 0;
+	    
+	    while($info = mysql_fetch_array($query)){
+		    $sql = "INSERT INTO `character_sheet_backups` VALUES ('$id', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    if (!mysql_query($sql, $this->connect)){
+			    $errors++;
+		    }
+	    }
+
+		if (!$errors){
+			return 'Sheet stored.';
+		} else {
+			$arena = new Arena();
+			return $arena->NEC(160);
+		}	   
+	}
+	
+	function ValidLoad($id, $manage = 0){
+		$backups = $this->GetBackups();
+		$backup = $backups[$id];
+		
+		if ($manage){
+			if ($backup['share']){
+				$other = false;
+			} else {
+				$other = true;
+			}
+		} else {
+			$other = true;
+		}
+		
+		if ($backup && $other){
+			return true;
+		} else {
+			if ($manage){
+				if ($backup){
+					echo 'You cannot manage sheets which others have shared with you.';
+					hr();
+				}
+			}
+			return false;
+		}
+	}
+	
+	function MyShares(){
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$sqla = "SELECT * FROM `cs_shares` WHERE `sheet` = '".$info['id']."'";
+			$querya = mysql_query($sqla, $this->connect);
+			$infer = mysql_fetch_array($querya);
+			if (mysql_num_rows($querya)){
+				$return[] = array('id'=>$info['id'], 'hunter'=>$infer['bhg_id'], 'name'=>stripslashes($info['save_name']));
+			}
+		}
+		
+		return $return;
+	}		
+	
+	function Share($bhg_id, $sheet){
+		$sql = "INSERT INTO `cs_shares` VALUES ('$bhg_id', '$sheet')";
+		if (mysql_query($sql, $this->connect)){
+			return 'Sheet shared successfully';
+		} else {
+			return 'Sheet shared failed';
+		}
+	}
+	
+	function RemoveShare($bhg_id, $sheet){
+		$sql = "DELETE FROM `cs_shares` WHERE `bhg_id` = '$bhg_id' AND `sheet` = '$sheet'";
+		if (mysql_query($sql, $this->connect)){
+			return 'Sheet deshare successful';
+		} else {
+			return 'Sheet deshare failed';
+		}
+	}
+	
+	function DeleteBackup($id){
+		$delsql = "DELETE FROM `character_sheet_backup` WHERE `id` = '".$id."'";
+		mysql_query($delsql, $this->connect);
+
+	    $delsql = "DELETE FROM `character_sheet_backups` WHERE `id` = '".$id."'";
+	    mysql_query($delsql, $this->connect);
+	    
+	    $delsql = "DELETE FROM `cs_shares` WHERE `sheet` = '".$id."'";
+	    mysql_query($delsql, $this->connect);
+	}
+	
+	function LoadBackup($id){
+		$sql = "SELECT * FROM `character_sheet_backups` WHERE `id` = '".$id."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    mysql_query($delsql, $this->connect);
+	    }
+	    
+	    $errors = 0;
+	    
+	    while($info = mysql_fetch_array($query)){
+		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    if (!mysql_query($sql, $this->connect)){
+			    $errors++;
+		    }
+	    }
+	    
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+		if (!$errors && mysql_query($sql, $this->connect)){
+			return 'Backup loaded as edit sheet.';
+		} else {
+			$arena = new Arena();
+			return $arena->NEC(159);
+		}	   
+	}
+	
+	function LoadCore($id){
+		$sql = "SELECT * FROM `character_sheet_cores` WHERE `id` = '".$id."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    mysql_query($delsql, $this->connect);
+	    }
+	    
+	    $errors = 0;
+	    
+	    while($info = mysql_fetch_array($query)){
+		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    if (!mysql_query($sql, $this->connect)){
+			    $errors++;
+		    }
+	    }
+	    
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+		if (!$errors && mysql_query($sql, $this->connect)){
+			return 'CORE loaded as edit sheet.';
+		} else {
+			$arena = new Arena();
+			return $arena->NEC(159);
+		}	   
+	}	
+	
+=======
+>>>>>>> .r2718
 	function Approve(){
 	    $sql = "SELECT * FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
 	    $query = mysql_query($sql, $this->connect);
