@@ -48,7 +48,7 @@ function output() {
 
 		    $sheets = array();
 		    
-		    foreach ($sheet->SheetHolders() as $data){
+		    foreach ($sheet->SheetHolders(1) as $data){
 			    $sheets[$data->Status('SYSTEM')][] = $data;
 		    }
 		    
