@@ -50,8 +50,21 @@ function display(){
 		    $table->AddCell(($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
 		    $table->AddCell(($match->Get(name) ? $match->Get(name) : 'No Name'));
 		    foreach ($builds as $build){
-			    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
-			    $table->AddCell($info->Get(name));
+			    if ($build->Get(multiple)){
+				    $print = array();
+				    if (is_array($data[$build->Get(id)])){
+					    foreach ($data[$build->Get(id)] as $valu){
+						    $info = new Obj('ams_specifics', $valu, 'holonet');
+						    $print[] = $info->Get(name);
+					    }
+					    $table->AddCell(implode("<br />", $print));
+				    } else {
+					    $table->AddCell('None');
+				    }
+			    } else {
+				    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
+				    $table->AddCell($info->Get(name));
+			    }
 		    }
 		    
 		    $urg = ($match->Get(should_be) <= time() && $match->Get(should_be) > 0);

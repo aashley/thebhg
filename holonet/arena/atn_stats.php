@@ -75,8 +75,21 @@ function output() {
 		    ($match->Get(location) ? $table->AddRow('Location:', $locations[$match->Get(location)]) : '');
 		    foreach ($builds as $build){
 			    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get(id)))) as $ob) {
-				    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
-			        $table->AddRow($ob->Get(name).':', $info->Get(name));
+				    if ($build->Get(multiple)){
+					    $print = array();
+					    if (is_array($data[$build->Get(id)])){
+						    foreach ($data[$build->Get(id)] as $valu){
+							    $info = new Obj('ams_specifics', $valu, 'holonet');
+							    $print[] = $info->Get(name);
+						    }
+						    $table->AddCell($ob->Get(name).':', implode("<br />", $print));
+					    } else {
+						    $table->AddCell($ob->Get(name).':', 'None');
+					    }
+				    } else {
+					    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
+					    $table->AddCell($ob->Get(name).':', $info->Get(name));
+				    }
 			    }
 		    }
 		    
