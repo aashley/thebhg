@@ -305,11 +305,11 @@ function output() {
 			    $form->AddHidden('saveid', $_REQUEST['saveid']);
 			    $form->AddSubmitButton('submit', 'Save Sheet');
 			    $form->EndForm();
+		    
+			    hr();
+			    
+			    $character->ParseSheet($_REQUEST['sheet'], $id);
 		    }
-		    
-		    hr();
-		    
-		    $character->ParseSheet($_REQUEST['sheet'], $id);
 	    } else {    
 		    if (!$character->IsNew()){
 			    if ($character->HasValue('values')){
