@@ -734,7 +734,6 @@
 	}
     
 	function HasValue($look = 'values', $col = 'bhg_id', $id = 0){
-		echo $id;
 		if ($id){
 			$id = $id;
 		} else {
@@ -743,8 +742,6 @@
 		$table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."'";
         $query = mysql_query($sql, $this->connect);
-        
-        echo $sql;
         
         return (mysql_num_rows($query));
     }
