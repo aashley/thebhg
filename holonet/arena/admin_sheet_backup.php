@@ -302,7 +302,7 @@ function output() {
 			    $table->EndTable();
 		    }
 		    
-		    $cores = $sheet->GetCores();
+		    $cores = $sheet->GetCores('WHERE `approved` = 1');
 		    
 		    if (count($cores)){
 			    hr();

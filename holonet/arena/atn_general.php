@@ -100,6 +100,7 @@ function output() {
 	    $tgc = $ttg->QueueHistory($hunter->GetID());
 	    $rod = $ro->Search($hunter->GetID());
 	    $sur = $survival->Search($hunter->GetID());
+	    $bast = $arena->BastionPlayer($hunter->GetID());
 	    
 	    if ($arr){ $table->AddRow('Arena Ladder Rank:', $arr); }
 	    //if ($sar){ $table->AddRow('Starfield Arena Ladder Rank:', $sar); }
@@ -109,6 +110,7 @@ function output() {
 	    if ($rod){ $table->AddRow('Run On Ladder Rank:', $rod); }
 	    if ($tgc){ $table->AddRow('Twilight Gauntlet Challenges:', pluralise('Time', $tgc)); }
 	    if ($sur){ $table->AddRow('Survival Mission Ladder Rank:', $sur); }
+	    if (count($bast)){ $table->AddRow('Bastion Challenge:', 'Kabal Representative '.pluralise('Time', count($bast))); }
 
 	    if ($properties){ $table->AddRow('Property in Lyarna:', '<a href="'.internal_link('atn_lyarna', array('id'=>$hunter->GetID())).'">Owns '.pluralise('Piece', $properties).' of Property</a>'); }
 		$table->AddRow('Dojo of Shadows', (in_array($hunter->GetID(), $arena->GetApproved()) ? 'Graduate of' : 'Learner in').'the Dojo of Shadows');

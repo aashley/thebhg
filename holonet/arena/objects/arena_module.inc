@@ -5,6 +5,7 @@
 	var $connect;
 	var $lyarna;
 	var $fiction;
+	var $bastion;
 
     function Arena(){   
 		$this->connect = mysql_connect('localhost', 'thebhg_holonet', 'w0rdy');
@@ -26,6 +27,13 @@
         mysql_select_db('thebhg_lyarna', $lyarna);
         
         return $lyarna;
+    }
+    
+    function Bastion(){
+	    $bastion = mysql_connect('localhost', 'thebhg_overseer', '01c81257');
+		mysql_select_db('thebhg_overseer', $bastion);
+        
+        return $bastion;
     }
     
     function MyProperties($hunter){
@@ -52,6 +60,22 @@
     function NEC($error){
 	    return 'System Processing Error - <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/index.php?page=reportbug">Bug Tracker. Module: Holonet - Arena</a></b><br />NEC Error Code: '.$error;
     }
+    
+    function BastionPlayer($bhg_id){
+	    $sql = "SELECT * FROM `bastion_signups` WHERE `person` = '$bhg_id'";
+	    $query = mysql_query($sql, $this->bastion);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    if (isset($return[$info['kag']])){
+		    	$return[$info['kag']] += $info['points'];
+	    	} else {
+		    	$return[$info['kag']] = $info['points'];
+	    	}
+    	}
+    	
+    	return $return;
+	}
     
     function Overseer(){
 	    $roster = new Roster();
