@@ -114,7 +114,7 @@ for site in $*; do
 			echo Updating IRC Stats...
 			pushd /home/virtual/anya/var/www/html > /dev/null
 			$SVN update
-			chown -R 22091:admin5 .
+			chown -R anya:admin5 .
 			popd > /dev/null
 			;;
 
