@@ -69,6 +69,24 @@ function output() {
 	    } else {
 		    echo 'You have no sheets to backup.';
 	    }
+	    
+	    $saves = $character->GetBackups();
+	    
+	    if (count($saves)){
+		    hr();
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('Sheet Backups', 3);
+		    $table->EndRow();
+		    
+		    $table->AddRow('Save Name', 'Date', '&nbsp');
+		    
+		    foreach ($saves as $data){
+			    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link($page, array('exam'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>');
+		    }
+		    
+		    $table->EndTable();
+	    }
     }
 	
 	admin_footer($auth_data);

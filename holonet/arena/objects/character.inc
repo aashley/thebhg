@@ -587,6 +587,19 @@
 		$table->EndTable();
 	}
 	
+	function GetBackups(){
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$date = getdate($info['date']);
+			$return[] = array('id'=>$info['id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']));
+		}
+		
+		return $return;
+	}
+	
 	function Backup($save_name, $from = 'values'){
 	    $sql = "SELECT * FROM `character_sheet_$from` WHERE `bhg_id` = '".$this->GetID()."'";
 	    $query = mysql_query($sql, $this->connect);
@@ -595,8 +608,6 @@
 	    $store = mysql_query($new, $this->connect);
 	    $id = mysql_insert_id($this->connect);
 	    $errors = 0;
-	    
-	    echo $save_name;
 	    
 	    while($info = mysql_fetch_array($query)){
 		    $sql = "INSERT INTO `character_sheet_backups` VALUES ('$id', '".$info['statribute']."', '".$info['value']."')";
