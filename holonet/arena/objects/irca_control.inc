@@ -23,6 +23,7 @@
 
     	$irca = new IRCA();
     	$hc = $irca->CurrentHC();
+    	$hc = $hc->GetID();
     	
         $sql = "INSERT INTO `arena_irca_match` (`name`, `type`, `location`, `location_table`, `weapons`, `weapon_type`, `posts`, `date`, `hc`) "
                 ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$weapon_type', '$posts', '".time()."', '$hc')";
@@ -46,8 +47,12 @@
 
         $name = $person1->GetName()." vs. ".$person2->GetName();
 
-        $sql = "INSERT INTO `arena_irca_match` (`match`, `name`, `type`, `location`, `location_table`, `weapons`, `weapon_type`, `posts`, `date`) "
-                ."VALUES ('".addslashes($match)."', '".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$weapon_type', '$posts', '".time()."')";
+        $irca = new IRCA();
+    	$hc = $irca->CurrentHC();
+    	$hc = $hc->GetID();
+        
+        $sql = "INSERT INTO `arena_irca_match` (`match`, `name`, `type`, `location`, `location_table`, `weapons`, `weapon_type`, `posts`, `date`, `hc`) "
+                ."VALUES ('".addslashes($match)."', '".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$weapon_type', '$posts', '".time()."', '$hc')";
                 
         if (mysql_query($sql, $this->connect)) {
 

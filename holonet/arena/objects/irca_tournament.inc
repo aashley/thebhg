@@ -553,7 +553,7 @@
             
             $local = explode('_', $location);
             
-            $control = new Control();
+            $control = new IRCAControl();
             if (!$control->OldMatch($type, $local[0], $local[1], $weapons, $person1->GetID(), $person2->GetID(), $weapon_type, $posts, $name)){
 	            $errors = true;
             }
