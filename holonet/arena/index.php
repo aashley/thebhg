@@ -47,12 +47,8 @@ $arena->Signature(1)."<p>
 - Adjunct Signature<br />".
 $arena->Signature(0);
     hr();
-    echo '<a href="'.internal_link('reports').'">View Latest Reports</a><br />';
-    echo '<a href="'.internal_link('view_reports').'">View All Reports</a>';
-    hr();
-$arena->LatestReport('ov');
-echo '<br />';
-$arena->LatestReport('aj');
+echo '<a href="'.internal_link('reports').'">View Latest Reports</a><br />';
+echo '<a href="'.internal_link('view_reports').'">View All Reports</a>';
     arena_footer();
 }
 ?>
