@@ -34,7 +34,7 @@ function output() {
         $ro->ProcessCadreRO($_REQUEST['ro']);
 	    $ro = $ros[$_REQUEST['ro']];
 	    
-	    $text = $person->GetName().", the Mission Master has posted your Cadre Run-On. http://boards.thebhg.org/index.php?op=view&topic=".$_REQUEST['mbid'];
+	    $text = $ro['person']->GetName().", the Mission Master has posted your Cadre Run-On. http://boards.thebhg.org/index.php?op=view&topic=".$_REQUEST['mbid'];
 
         $from = "overseer@thebhg.org";
         $subject = "Cadre RO Posted!";
@@ -47,7 +47,7 @@ function output() {
 	    $ro->ProcessCadreRO($_REQUEST['ro']);
 	    $ro = $ros[$_REQUEST['ro']];
 	    
-	    $text = $person->GetName().", the Mission Master has denied your Cadre Run-On.";
+	    $text = $ro['person']->GetName().", the Mission Master has denied your Cadre Run-On.";
 
         $from = "overseer@thebhg.org";
         $subject = "Cadre RO Denied!";
