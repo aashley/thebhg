@@ -44,6 +44,7 @@ function output() {
 	    $skippe = new Skipper($hunter->GetID());
 	    $stewar = new Steward($hunter->GetID());
 	    $commen = new Commentator($hunter->GetID());
+	    $ranger = new Ranger($hunter->GetID());
 	    
 	    $boc = $comiss->GetStatus();
 	    $djm = $master->GetStatus();
@@ -54,6 +55,7 @@ function output() {
 	    $ski = $skippe->GetStatus();
 	    $ste = $stewar->GetStatus();
 	    $com = $commen->GetStatus();
+	    $ran = $ranger->GetStatus();
 		
 	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = array('pic'=>'ov', 'page'=>'atn_award', 'anch'=>'overseer'); $aa = true;}
 		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = array('pic'=>'aj', 'page'=>'atn_award', 'anch'=>'adjunct'); $aa = true;}
@@ -67,6 +69,7 @@ function output() {
 		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = array('pic'=>'skipper', 'page'=>'atn_award', 'anch'=>'skipper'); $aa = true;}
 		if ($ste){ $rewards[$ste.'Steward of the Arena'] = array('pic'=>'steward', 'page'=>'atn_award', 'anch'=>'steward'); $aa = true;}
 		if ($com){ $rewards[$com.'Holonet Commentator of the IRC Arena'] = array('pic'=>'hc', 'page'=>'atn_award', 'anch'=>'commentator'); $aa = true;}
+		if ($ran){ $rewards[$ran.'Survival Mission Ranger'] = array('pic'=>'ranger', 'page'=>'atn_award', 'anch'=>'ranger'); $aa = true;}
 		if ($properties){ $rewards['Owns '.pluralise('piece', $properties).' of property in Lyarna.'] = array('pic'=>'lyarna', 'page'=>'atn_lyarna'); }
 		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows']['pic'] = 'dojo'; }
 		if ($aa) { $rewards['Contributions to the Arena'] = array('pic'=>'contrib', 'page'=>'atn_award', 'anch'=>'total'); }

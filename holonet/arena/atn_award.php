@@ -35,11 +35,12 @@ function output() {
 	    $stewar = new Steward($hunter->GetID());
 	    $skippe = new Skipper($hunter->GetID());
 	    $commen = new Commentator($hunter->GetID());
+	    $ranger = new Ranger($hunter->GetID());
 	    
-	    if ($commen->GetStatus() || $comiss->GetStatus() || $master->GetStatus() || $regist->GetStatus() || $stewar->GetStatus() || $skippe->GetStatus() || $missio->GetStatus() || $overse->GetStatus() || $adjunc->GetStatus()){
-		    $cred_total = $commen->GetCreds()+$stewar->GetCreds()+$skippe->GetCreds()+$overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
-		    $xp_total = $commen->GetXP()+$stewar->GetXP()+$skippe->GetXP()+$overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
-		    $meda_total = $commen->GetMedals()+$stewar->GetMedals()+$skippe->GetMedals()+$overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
+	    if ($ranger->GetStatus() || $commen->GetStatus() || $comiss->GetStatus() || $master->GetStatus() || $regist->GetStatus() || $stewar->GetStatus() || $skippe->GetStatus() || $missio->GetStatus() || $overse->GetStatus() || $adjunc->GetStatus()){
+		    $cred_total = $ranger->GetCreds()+$commen->GetCreds()+$stewar->GetCreds()+$skippe->GetCreds()+$overse->GetCreds()+$adjunc->GetCreds()+$comiss->GetCreds()+$master->GetCreds()+$regist->GetCreds()+$missio->GetCreds();
+		    $xp_total = $ranger->GetXP()+$commen->GetXP()+$stewar->GetXP()+$skippe->GetXP()+$overse->GetXP()+$adjunc->GetXP()+$comiss->GetXP()+$master->GetXP()+$regist->GetXP()+$missio->GetXP();
+		    $meda_total = $ranger->GetMedals()+$commen->GetMedals()+$stewar->GetMedals()+$skippe->GetMedals()+$overse->GetMedals()+$adjunc->GetMedals()+$comiss->GetMedals()+$master->GetMedals()+$regist->GetMedals()+$missio->GetMedals();		    
 		    
 		    echo '<a name="total"></a>';
 		    $table = new Table();
@@ -237,6 +238,29 @@ function output() {
 			    if ($comiss->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($comiss->GetCreds()).' Imperial Credits'); }
 			    if ($comiss->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($comiss->GetXP())); }
 			    if ($comiss->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($comiss->GetMedals())); }
+			} else {
+			    $table->StartRow();
+			    $table->AddCell('<center>No Contributions Made</center>');
+			    $table->EndRow();
+		    }
+		    $table->EndTable();
+		    echo '<br />';
+		    
+		    hr();
+	    }
+	    
+	    if ($ranger->GetStatus()){
+			
+			echo '<a name="ranger"></a>';
+			$table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Survival Mission Ranger', 2);
+		    $table->EndRow();
+		    if ($ranger->GetContracts() || $ranger->GetCreds() || $ranger->GetXP() || $ranger->GetMedals()){
+			    if ($ranger->GetContracts()){ $table->AddRow('Contracts Overseen:', number_format($ranger->GetContracts())); }
+			    if ($ranger->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($ranger->GetCreds()).' Imperial Credits'); }
+			    if ($ranger->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($ranger->GetXP())); }
+			    if ($ranger->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($ranger->GetMedals())); }
 			} else {
 			    $table->StartRow();
 			    $table->AddCell('<center>No Contributions Made</center>');

@@ -24,6 +24,7 @@ include_once 'mission.inc';
 include_once 'skipper.inc';
 include_once 'steward.inc';
 include_once 'commentator.inc';
+include_once 'ranger.inc';
 
 include_once 'irca.inc';
 include_once 'irca_match.inc';

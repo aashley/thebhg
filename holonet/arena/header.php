@@ -237,6 +237,7 @@ function get_auth_data($hunter) {
     $sheet = new Sheet();
     $starfield = new Starfield();
     $irca = new IRCA();
+    $survival = new Survival();
 
     $auth_data['id'] = $hunter->GetID();
 
@@ -268,6 +269,7 @@ function get_auth_data($hunter) {
         $auth_data['aa'] = true;
         $auth_data['arena'] = true;
         $auth_data['irc'] = true;
+        $auth_data['survival'] = true;
     } else {
         $auth_data['rp'] = false;
         $auth_data['solo'] = false;
@@ -284,6 +286,7 @@ function get_auth_data($hunter) {
         $auth_data['aa'] = false;
         $auth_data['arena'] = false;
         $auth_data['irc'] = false;
+        $auth_data['survival'] = false;
     }
     
     if ($pos->GetID() == 7 || $pos->GetID() == 3) {
@@ -297,6 +300,11 @@ function get_auth_data($hunter) {
     
     if ($hunter->GetID() == $ladder->CurrentSteward()){
 	    $auth_data['arena'] = true;
+	    $auth_data['aa'] = true;
+    }
+    
+    if ($hunter->GetID() == $survival->CurrentRanger()){
+	    $auth_data['survival'] = true;
 	    $auth_data['aa'] = true;
     }
     
@@ -462,6 +470,20 @@ function admin_footer($auth_data) {
     		echo '&nbsp;<a href="' . internal_link('admin_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
     	}
     	echo '&nbsp;<a href="' . internal_link('admin_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
+    }
+    
+    if ($auth_data['survival']){
+	    echo '<br />Survival&nbsp;Contracts<br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_complete') . '">Complete&nbsp;a&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Contracts</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco') . '">Declare&nbsp;Dead&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_editor') . '">Edit&nbsp;Contracts</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_approve') . '">Process&nbsp;Requested&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_retire') . '">Process&nbsp;Retired&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_type') . '">Edit&nbsp;Types</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_grade') . '">Edit&nbsp;Grades</a><br />';
     }
     
     if ($auth_data['irc']){

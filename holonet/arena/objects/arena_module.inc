@@ -191,6 +191,10 @@
 		$positions['sk']['desc'] = 'Skipper of the Starfield Arena';
 		$aas['st'] = new Steward($bhg_id);
 		$positions['st']['desc'] = 'Steward of the Arena';
+		$aas['irca'] = new Commentator($bhg_id);
+		$positions['irca']['desc'] = 'Holonet Commentator of the IRC Arena';
+		$aas['ranger'] = new Ranger($bhg_id);
+		$positions['ranger']['desc'] = 'Survival Mission Ranger';
 		
 		$output = array();
 		
@@ -236,6 +240,12 @@
 		$aas['st'] = new Steward($bhg_id);
 		$positions['st']['desc'] = 'Steward of the Arena';
 		$positions['st']['table'] = 'stewards';
+		$aas['irca'] = new Commentator($bhg_id);
+		$positions['irca']['desc'] = 'Holonet Commentator of the IRC Arena';
+		$positions['irca']['table'] = 'commentator';
+		$aas['ranger'] = new Ranger($bhg_id);
+		$positions['ranger']['desc'] = 'Survival Mission Ranger';
+		$positions['ranger']['table'] = 'rangers';
 		
 		foreach ($aas as $class=>$object){
 			if ($object->GetStatus() == 'Current '){

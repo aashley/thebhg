@@ -35,26 +35,16 @@
 	    return $this->ranger_id;
     }
     
-    function SecondBuild(){
+    function SecondBuild(){       
         $sql = "SELECT SUM(xp) as xp, "
                 ."SUM(creds) as credits "
-                ."FROM `arena_solo_contracts` WHERE `comissioner` = '".$this->ranger_id."'";
+                ."FROM `arena_survival_contracts` WHERE `ranger` = '".$this->ranger_id."'";
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
 
-        $this->creds = $info['credits'];
-        $this->xp = $info['xp'];
-        
-        $sql = "SELECT SUM(xp) as xp, "
-                ."SUM(creds) as credits "
-                ."FROM `arena_lw_contracts` WHERE `comissioner` = '".$this->ranger_id."'";
-
-        $query = mysql_query($sql, $this->connect);
-        $info = mysql_fetch_array($query);
-
-        $this->creds = $this->creds+$info['credits']+$this->ranger_creds;
-        $this->xp = $this->xp+$info['xp']+$this->ranger_xp;
+        $this->creds = $info['credits']+$this->ranger_creds;
+        $this->xp = $info['xp']+$this->ranger_xp;
     }
 
     function GetHunter(){
@@ -62,12 +52,12 @@
     }
 
     function GetContracts(){
-        $sql = "SELECT * FROM `arena_solo_contracts` WHERE `comissioner` = '".$this->ranger_id."'";
+        $sql = "SELECT * FROM `arena_solo_contracts` WHERE `ranger` = '".$this->ranger_id."'";
         $query = mysql_query($sql, $this->connect);
 
         $base = mysql_num_rows($query);
         
-        $sql = "SELECT * FROM `arena_lw_contracts` WHERE `comissioner` = '".$this->ranger_id."'";
+        $sql = "SELECT * FROM `arena_lw_contracts` WHERE `ranger` = '".$this->ranger_id."'";
         $query = mysql_query($sql, $this->connect);
         
         return $base+mysql_num_rows($query);
