@@ -31,16 +31,8 @@ function output() {
 	    $table->EndRow();
 	
 	    if ($div->GetMemberCount()) {
-	        foreach ($div->GetMembers() as $hunter) {
-	            $posi = $hunter->GetPosition();
-	            $rank = $hunter->GetRank();
-	
-	            $table->StartRow();
-	            $table->AddCell($posi->GetName());
-	            $table->AddCell($rank->GetName());
-	            $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$hunter->GetID())) . '">' . html_escape($hunter->GetName()) . '</a>');
-	            $table->EndRow();
-	        }
+	        echo $div->GetMemberCount();
+	        print_r($div->GetMembers());
 	    }
 	
 	    $table->EndTable();
