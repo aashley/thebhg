@@ -44,7 +44,7 @@ function output() {
 	    $pendings = array();
 	    foreach ($pending as $oba){
 		    if (!count($pendings)){
-			    $first = $obj->Get(id);
+			    $first = $oba->Get(id);
 		    }
 		    
 		    $pendings[] = new Obj('ams_match', $oba->Get(match), 'holonet');
