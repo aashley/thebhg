@@ -51,10 +51,10 @@
     }
     
     function GetVotes(){
-	    $sql = "SELECT * FROM `arena_option_votes` WHERE `date_deleted` = 0 AND `option` = '".$this->option_id."'";
+	    $sql = "SELECT * FROM `arena_poll_votes` WHERE `date_deleted` = 0 AND `option` = '".$this->option_id."'";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
-	    echo mysql_error($this->connect);
+
 	    while ($info = mysql_fetch_array($query)){
 		    $return[] = new Vote($info['id']);
 	    }
