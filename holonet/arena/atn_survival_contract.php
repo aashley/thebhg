@@ -102,12 +102,7 @@ function output() {
 	
 	    hr();
 	
-	    $table = new Table('', true);
-	    $table->StartRow();
-	    $table->AddHeader('Creature Target');
-	    $table->EndRow();
-	    $table->AddRow($npc->WriteSheet());
-	    $table->EndTable();
+	    $npc->BuildSheet();
     }
 
     arena_footer();
