@@ -213,7 +213,7 @@
 	    if (count($open)){	    
 		    if (!$this->DidVote($hunter)){
 			    if (!mysql_num_rows($query)){	    
-				    if (is_array($open['divisions']){
+				    if (is_array($open['divisions'])){
 					    if (!in_array($div->GetID(), $open['divisions'])){
 					    	return false;
 				    	}
