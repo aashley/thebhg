@@ -13,7 +13,7 @@ function auth($person) {
 }
 
 function output(){
-	global $arena;
+	global $arena, $auth_data;
 	
 	arena_header();
 	
@@ -38,6 +38,6 @@ function output(){
 		hr();
 	}
 	
-	admin_footer();
+	admin_footer($auth_data);
 }
 ?>
