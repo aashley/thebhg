@@ -71,6 +71,7 @@ function output() {
 		    $data = unserialize($match->Get(specifics));
 		    $table->AddRow('Topic ID:', ($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
 		    $table->AddRow('Name:', ($match->Get(name) ? $match->Get(name) : 'No Name'));
+		    $locations = $arena->Locations();
 		    ($match->Get(location) ? $table->AddRow('Location:', $locations[$match->Get(location)]) : '');
 		    foreach ($builds as $build){
 			    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get(id)))) as $ob) {
