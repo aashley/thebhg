@@ -109,14 +109,16 @@
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    $end[] = array();
+	    $i = 0;
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $new = new Character($info['bhg_id']);
 		    if ($info['approved']){
-			    $end[] = $new;
+			    $end[$i] = $new;
 		    } else {
-			    $return[] = $new;
+			    $return[$i] = $new;
 		    }
+		    $i++;
 	    }
 	    
 	    $output = $return+$end;
