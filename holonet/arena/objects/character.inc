@@ -289,6 +289,7 @@
 	    }
 	    
 	    if (count($return)){
+		    hr();
 		    $table = new Table('', true);
 		    $table->StartRow();
 		    $table->AddHeader('Character Attributes', 2);
