@@ -736,7 +736,7 @@
 	}
     
 	function DeleteCore($coreid){		
-	    $sql = "UPDATE `character_sheet_core` SET `date_deleted` = 0 WHERE `id` = '$coreid'";		
+	    $sql = "UPDATE `character_sheet_core` SET `date_deleted` = '".time()."' WHERE `id` = '$coreid'";		
 		if (mysql_query($sql, $this->connect)){
 			return 'Your CORE sheet has been deleted.';
 		} else {
