@@ -36,7 +36,7 @@ function output() {
 
         $form = new Form($page);
         $form->table->StartRow();
-        $form->table->AddHeader('Confirm Repost', 2);
+        $form->table->AddHeader('Confirm Retire', 2);
         $form->table->EndRow();
         $form->AddHidden('contract_id', $_REQUEST['contract_id']);
         $form->AddSubmitButton('dco', 'Complete Process');
