@@ -22,7 +22,7 @@
     
     function Connect($info){
 	    $connect = mysql_connect("localhost", "thebhg_".$info['name'], $info['pass']);
-        mysql_select_db("thebhg_".$info['name'], $lyarna);
+        mysql_select_db("thebhg_".$info['name'], $connect);
         
         return $connect;
     }
