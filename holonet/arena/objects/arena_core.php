@@ -41,14 +41,13 @@
 	    
 	    while ($info = mysql_fetch_assoc($query)){
 		    $outcome = new Obj('ams_specifics', $info['outcome'], 'holonet');
-		    $return[$info['bhg_id']]['points'] += $outcome->Get(points);
-		    $return[$info['bhg_id']]['points'] += round($info['xp']/5, 2);
-		    $return[$info['bhg_id']]['points'] += round($info['creds']/10, 2);
-		    $return[$info['bhg_id']]['points'] += ($info['medal'] ? 3 : 0);
+		    $return[$info['bhg_id']] += $outcome->Get(points);
+		    $return[$info['bhg_id']] += round($info['xp']/5, 2);
+		    $return[$info['bhg_id']] += round($info['creds']/10, 2);
+		    $return[$info['bhg_id']] += ($info['medal'] ? 3 : 0);
 	    }
 	    
 	    foreach ($return as $id=>$points){
-		    print_r($points);
 		    $work[$points][] = $id;
 	    }
 	    
