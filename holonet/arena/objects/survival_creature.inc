@@ -44,6 +44,8 @@
 	    $stat = array_shift($this->npc_stats);
 	    $table->AddRow('Name: ', $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8"));
 	   
+	    $table->AddRow('Difficulty: ', $this->type->GetName());
+	    
 	    $sorted = $this->npc_stats;
 	    arsort($sorted);
 	    $highest = round(array_shift($sorted)*$this->type->GetPoints());
@@ -78,6 +80,8 @@
 	    $stat = array_shift($this->npc_stats);
 	    $text = 'Name: '.$namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8");
 	    
+	    $text .= '<br />Difficulty: '.$this->type->GetName().'<br />';
+	    
 	    $sorted = $this->npc_stats;
 	    arsort($sorted);
 	    $highest = round(array_shift($sorted)*$this->type->GetPoints());
@@ -88,10 +92,10 @@
 		    if ($check){ $value .= str_repeat('<img src="arena/images/bonus.png" alt="*" height=20 width=20>', round($point-$stat)); }
 		    $value .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', round($highest-$point));
 
-		    $text .= $name.$value;
+		    $text .= '<br />'.$name.$value;
 	    }
 
-	    $text .= 'Description: '.nl2br(stripslashes($this->npc_string));
+	    $text .= '<br /><br />Description: '.nl2br(stripslashes($this->npc_string));
 	    
 	    return $text;
     }
