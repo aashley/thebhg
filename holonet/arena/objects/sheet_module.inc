@@ -30,12 +30,14 @@
 		$return = array();
 		
 		while ($info = mysql_fetch_array($query)){
-			$sqla = "SELECT * FROM `cs_sheet_backups` WHERE `id` = '".$info['sheet']."'";
+			$sqla = "SELECT * FROM `character_sheet_backups` WHERE `id` = '".$info['sheet']."'";
 			$querya = mysql_query($sqla, $this->connect);
 			$infer = mysql_fetch_array($querya);
-			$sqlb = "SELECT * FROM `cs_sheet_backup` WHERE `id` = '".$info['sheet']."'";
+			
+			$sqlb = "SELECT * FROM `character_sheet_backup` WHERE `id` = '".$info['sheet']."'";
 			$queryb = mysql_query($sqlb, $this->connect);
 			$infor = mysql_fetch_array($queryb);
+			
 			if (mysql_num_rows($querya)){
 				$return[] = array('id'=>$info['sheet'], 'hunter'=>$infor['bhg_id'], 'name'=>stripslashes($infor['save_name']));
 			}
