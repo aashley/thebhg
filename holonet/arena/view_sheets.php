@@ -25,6 +25,15 @@ function output() {
     		}
     	}
     $form->EndSelect();
+    $form->StartSelect('Order By: ', 'order', $_REQUEST['order']);
+    	$form->AddOption('name', 'Name');
+    	$form->AddOption('sub', 'Submitted');
+    	$form->AddOption('stat', 'Status');
+    $form->EndSelect();
+    $form->StartSelect('From: ', 'list', $_REQUEST['list']);
+    	$form->AddOption('az', 'A-Z | Recent-Old');
+    	$form->AddOption('za', 'Z-A | Old-Recent');
+    $form->EndSelect();
     $form->AddSubmitButton('submit', 'Filter and Reorganize');
     $form->EndForm();
     
@@ -46,13 +55,30 @@ function output() {
 	    	$name = $character->GetName();
     	}
     	if ($_REQUEST['kabal'] == 'all' || $_REQUEST['kabal'] == $kabal->GetID()){
-	    	$sheets[$name] = $character;
+	    	if ($_REQUEST['order'] == 'name'){
+	    		$sheets[$name] = $character;
+    		} elseif ($_REQUEST['order'] == 'sub'){
+	    		$sheets[$character->LastEdit()] = $character;
+    		} elseif ($_REQUEST['order'] == 'stat'){
+	    		$sheets[$character->Status('HUMAN')] = $character;
+    		}
     	}
     }
     
-    ksort($sheets);
+    if ($_REQUEST['list'] == 'za'){
+	    krsort($sheets);
+    } else {
+	    ksort($sheets);
+    }
     
-    foreach ($sheets as $name=>$character){
+    foreach ($sheets as $character){
+	    $person = new Person($character->GetID());
+	    $kabal = $person->GetDivision();
+	    if ($_REQUEST['name'] == 'bhg'){
+	    	$name = $person->GetName();
+    	} else {
+	    	$name = $character->GetName();
+    	}
 	    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $name . '</a>', 
 	    $character->LastEdit(), $character->Status('HUMAN'));
     }
