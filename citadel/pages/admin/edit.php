@@ -124,11 +124,11 @@ function Admin_Edit($crumbTrail, $path, &$login) {
       $form->addRule('passgrade', 'Passing Grade is a required field', 'required');
       $form->addRule('creditaward', 'Credit Award is a required field', 'required');
       $form->addRule('notebook', 'Course Notes is a required field', 'required');
-      $form->addRule('abbr', 'Exam Abbreviations must be between 2 and 6 characters', 'rangelength', '2,6');
+      $form->addRule('abbr', 'Exam Abbreviations must be between 2 and 6 characters', 'rangelength', array('2','6'));
       $form->addRule('numberquestions', 'Number of Questions must be a number', 'numeric');
       $form->addRule('creditaward', 'Credit Award must be a number', 'numeric');
       $form->addRule('passgrade', 'Passing Grade must be a number', 'numeric');
-      $form->addRule('passgrade', 'Passing Grade must be between 1 and 3 characters', 'rangelength', '1,3');
+      $form->addRule('passgrade', 'Passing Grade must be between 1 and 3 characters', 'rangelength', array('1','3'));
       $form->addRule('numberquestions', 'Number of Questions must be non-zero', 'nonzero');
   
 /*      $renderer = &$form->defaultRenderer();
