@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.2";
+    echo "Current version: v1.2.4";
     
     hr();
     
@@ -20,7 +20,7 @@ function output() {
     
     hr();
     
-    echo "Last Update: Approved. All things functional.";
+    echo "Last Update: Fixed a problem with XP BP buying in the Character Sheet functions and added in Automatic Credit awarding for all events.";
     
     hr();
     

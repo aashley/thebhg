@@ -4,7 +4,7 @@ include_once('objects/arena.inc');
 include_once('library.inc');
 include_once('citadel.inc');
 
-$roster = new Roster();
+$roster = new Roster('fight-51-me');
 $arena = new Arena();
 $library = new Library();
 $at = new Tournament();

@@ -205,9 +205,9 @@
 
         if (mysql_query($sql, $this->connect)) {
 
-	        //Edit out until get coder id
-            //$person = new Person($this->contract_bhg_id);
-            //$person->AddCredits($creds);
+	        
+            $person = new Person($this->contract_bhg_id);
+            $person->AddCredits($creds);
 	        
             return true;
 

@@ -512,9 +512,9 @@
 
             if (mysql_query($sql, $this->connect)) {
 
-	            //Edit out until get coder id
-	            //$person = new Person($id);
-	            //$person->AddCredits($creds);
+	            
+	            $person = new Person($id);
+	            $person->AddCredits($creds);
 	            
                 return true;
 
