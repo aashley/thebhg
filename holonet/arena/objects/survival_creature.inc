@@ -52,8 +52,6 @@
 	   
 	    $table->AddRow('Difficulty: ', $this->type->GetName());
 	    
-	    array_shift($this->npc_stats);
-	    
 	    $sorted = $this->npc_stats;
 	    arsort($sorted);
 	    $highest = round(array_shift($sorted)*$this->type->GetPoints());
@@ -82,8 +80,6 @@
 	    $text = 'Name: '.$this->GetName();
 	    
 	    $text .= '<br />Difficulty: '.$this->type->GetName().'<br />';
-	    
-	    array_shift($this->npc_stats);
 	    
 	    $sorted = $this->npc_stats;
 	    arsort($sorted);
