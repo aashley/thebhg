@@ -192,7 +192,7 @@ function output() {
 		    	}
 		    	foreach ($sheet->ModFields(1) as $i){
 			    	$count = 0;
-			    	foreach ($sheet->GetStats($i)){
+			    	foreach ($sheet->GetStats($i) as $stat){
 				    	if ($sheet->Permit(1, $stat->GetID(), 1)){
 					    	$count++;
 				    	}
