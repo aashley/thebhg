@@ -78,13 +78,13 @@ function atn_nav(){
 	
 	echo '<small>';
 	
-	echo '&nbsp;<u>Division Tracking</u>';
+	echo '&nbsp;Division Tracking';
 
     $cats = $roster->GetDivisionCategories();
     foreach ($cats as $dc) {
         $divs = $dc->GetDivisions();
         foreach ($divs as $div) {
-            echo '<br />&nbsp;&nbsp;<a href="' . internal_link('atn_division', array('id' => $div->GetID())) . '">' . str_replace(' ', '&nbsp;', $div->GetName()) . '</a>';
+            echo '<br />&nbsp;<a href="' . internal_link('atn_division', array('id' => $div->GetID())) . '">' . str_replace(' ', '&nbsp;', $div->GetName()) . '</a>';
         }
         echo '<br />';
     }
