@@ -164,6 +164,7 @@ function output() {
 	?>
 	<input type="submit" value="Insert Blank Sheet" class="button" name="submit">&nbsp;<input type="reset" class="button">
 	</form>
+	<?
     }
 
     admin_footer($auth_data);
