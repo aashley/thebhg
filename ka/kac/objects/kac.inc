@@ -78,7 +78,7 @@ class KAC extends KA_1 {
 	}
 
 	function GetMinimum($frmt = false){
-		return $frmt ? ($this->minimum)-1 : $this->minimum);
+		return ($frmt ? ($this->minimum)-1 : $this->minimum);
 	}
 	
 	function GetKabalCount(){
