@@ -27,9 +27,30 @@
         
         return $lyarna;
     }
+    
+    function MyProperties($hunter){
+	    $bhg_id = $hunter->GetID();
+	    $divi = $hunter->GetDivision();
+	    $posi = $hunter->GetPosition();
+	    $division = $divi->GetID();
+	    $position = $posi->GetID();
+	    
+	    $tables = array('`complex`', '`estate`', '`hq`', '`other`', '`personal'`);
+	    $return = array();
+	    foreach ($tables as $table){
+		    $sql = "SELECT * FROM $table WHERE (`division` = '$division' AND `position` = '$position') OR (`bhg_id` = '$bhg_id')";
+		    $query = mysql_query($sql, $this->LyarnaConnect());
+		    
+		    while ($info = mysql_fetch_array($query)){
+			    $return[mysql_field_table($query, 'id')] = $info['id'];
+		    }
+	    }
+	    
+	    return $return;
+    }
 
     function NEC($error){
-	    return 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: '.$error;
+	    return 'System Processing Error - <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/index.php?page=reportbug">Bug Tracker. Module: Holonet - Arena</a></b><br />NEC Error Code: '.$error;
     }
     
     function Overseer(){

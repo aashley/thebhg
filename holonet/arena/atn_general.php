@@ -22,6 +22,8 @@ function output() {
 
     if (is_object($hunter)){
     
+	    print_r($arena->MyProperties($hunter));
+	    
 	    $arena_ladder = new Details();
 	    $starfield_ladder = new StarfieldDetails();
 	    $solo = new Solo();
