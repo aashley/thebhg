@@ -4,6 +4,9 @@
 
      var $comish_id;
      var $comish_bhg_id;
+     var $comish_xp;
+     var $comish_creds;
+     var $comish_medal;
      var $comish_start_date;
      var $comish_end_date;
      var $creds;
@@ -28,6 +31,10 @@
 
     }
 
+    function GetID(){
+	    return $this->comish_id;
+    }
+    
     function SecondBuild(){
         $sql = "SELECT SUM(xp) as xp, "
                 ."SUM(creds) as credits "
@@ -46,8 +53,8 @@
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
 
-        $this->creds = $this->creds+$info['credits'];
-        $this->xp = $this->xp+$info['xp'];
+        $this->creds = $this->creds+$info['credits']+$this->comish_creds;
+        $this->xp = $this->xp+$info['xp']+$this->comish_xp;
     }
 
     function GetHunter(){
@@ -72,6 +79,10 @@
 
     function GetCreds(){
         return $this->creds;
+    }
+    
+    function GetMedals(){
+	    return $this->comish_medal;
     }
 
     function GetStatus(){

@@ -99,6 +99,101 @@
         return $return;
     }
     
+    function CanBe($hunter){
+	    $bhg_id = $hunter->GetID();
+	    
+	    $aas = array();
+		
+		$positions = array();
+		$output = array();
+		
+		//Get the Arena Aide positions
+		$aas['reg'] = new Registrar($bhg_id);
+		$positions['reg']['desc'] = 'Office of Character Development Registrar';
+		$aas['dojo'] = new Master($bhg_id);
+		$positions['dojo']['desc'] = 'Master of the Dojo of Shadows';
+		$aas['mm'] = new MissionMaster($bhg_id);
+		$positions['mm']['desc'] = 'Mission Master of Run-Ons';
+		$aas['cbo'] = new Comissioner($bhg_id);
+		$positions['cbo']['desc'] = 'Commissioner of the Bounty Office';
+		
+		$output = array();
+		
+		foreach ($aas as $class=>$object){
+			if ($object->GetStatus() == 'Current '){
+				$output[$class]['desc'] = $positions[$class];
+			}
+		}
+		
+		return $output;
+	}
+    
+    function Tracker($hunter, $flag, $value, $aa = 0){
+		$bhg_id = $hunter->GetID();
+		
+		$aas = array();
+		
+		$positions = array();
+		$output = array();
+		
+		foreach ($aas as $class=>$object){
+			if ($object->GetStatus() == 'Current '){
+				$output[$class]['desc'] = $positions[$class];
+			}
+		}
+		
+		//Get the Arena Aide positions
+		$aas['reg'] = new Registrar($bhg_id);
+		$positions['reg']['desc'] = 'Office of Character Development Registrar';
+		$positions['reg']['table'] = 'registrar';
+		$aas['dojo'] = new Master($bhg_id);
+		$positions['dojo']['desc'] = 'Master of the Dojo of Shadows';
+		$positions['dojo']['table'] = 'dojo_masters';
+		$aas['mm'] = new MissionMaster($bhg_id);
+		$positions['mm']['desc'] = 'Mission Master of Run-Ons';
+		$positions['mm']['table'] = 'mission';
+		$aas['cbo'] = new Comissioner($bhg_id);
+		$positions['cbo']['desc'] = 'Commissioner of the Bounty Office';
+		$positions['cbo']['table'] = 'solo_comissioners';
+		
+		foreach ($aa as $class=>$object){
+			if ($object->GetStatus() == 'Current '){
+				$output[$class]['desc'] = $positions[$class];
+			}
+		}
+		
+		switch ($flag){
+			case 'XP':
+			$column = 'xp';
+			break;
+			
+			case 'CREDS':
+			$column = 'creds';
+			break;
+			
+			case 'MEDAL':
+			$column = 'medal';
+			$value = 1;
+			break;
+		}
+		
+		if (count($output)){
+			$return = ($aa ? $output[$aa] : $ouput[key(end($output))]);
+			$use = ($aa ? $aa : key(end($output)));
+		
+			$sql = "UPDATE `".$positions[$use]."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aa[$use]->GetID()."'";
+		
+			if (mysql_query($sql, $this->connect)){
+				return $return.': ';
+			} else {
+				return '';
+			}
+		} else {
+			return '';
+		}
+	    
+    }
+    
     function ArenaType($id){
         return new Type($id);
     }

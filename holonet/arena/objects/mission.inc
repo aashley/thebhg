@@ -4,8 +4,13 @@
 
      var $mm_id;
      var $mm_bhg_id;
+     var $mm_xp;
+     var $mm_creds;
+     var $mm_medal;
      var $mm_start_date;
      var $mm_end_date;
+     var $creds;
+     var $xp;
 
      function MissionMaster($bhg_id){
         Arena::Arena();
@@ -26,6 +31,10 @@
         
     }
 
+    function GetID(){
+	    return $this->mm_id;
+    }
+    
     function GetHunter(){
         return new ROHunter($this->mm_bhg_id);
     }
@@ -49,9 +58,21 @@
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
 
-        $this->creds = $info['credits'];
-        $this->xp = $info['xp'];
+        $this->creds = $info['credits']+$this->mm_creds;
+        $this->xp = $info['xp']+$this->mm_xp;
         
+    }
+    
+    function GetXP(){
+        return $this->xp;
+    }
+
+    function GetCreds(){
+        return $this->creds;
+    }
+    
+    function GetMedals(){
+	    return $this->mm_medal;
     }
 
     function GetROs(){

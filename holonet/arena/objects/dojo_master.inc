@@ -4,8 +4,13 @@
 
      var $dojo_id;
      var $dojo_bhg_id;
+     var $dojo_xp;
+     var $dojo_creds;
+     var $dojo_medal;
      var $dojo_start_date;
      var $dojo_end_date;
+     var $creds;
+     var $xp;
 
      function Master($bhg_id){
         Arena::Arena();
@@ -53,8 +58,8 @@
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
 
-        $this->creds = $info['credits'];
-        $this->xp = $info['xp'];
+        $this->creds = $info['credits']+$this->dojo_creds;
+        $this->xp = $info['xp']+$this->dojo_xp;
 
     }
 
@@ -71,6 +76,10 @@
 
     function GetCreds(){
         return $this->creds;
+    }
+    
+    function GetMedals(){
+	    return $this->dojo_medal;
     }
     
     function EndTerm(){

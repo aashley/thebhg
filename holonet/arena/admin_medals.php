@@ -8,58 +8,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['rp'];
-}
-
-function next_medal($person, $group) {
-	global $mb;
-
-	$mg = $mb->GetMedalGroup($group);
-	if ($mg->GetDisplayType() != 0) {
-		echo 'Numeric medal, leaving immediately.<br>';
-		$medals = $mg->GetMedals();
-		return $medals[0];
-	}
-	
-	$medals = $person->GetMedals();
-	if (count($medals)) {
-		$orders = array();
-		$group_medals = $mg->GetMedals();
-		foreach ($group_medals as $medal) {
-			$orders[$medal->GetOrder()] = 0;
-		}
-		foreach ($medals as $am) {
-			$medal = $am->GetMedal();
-			$mgroup = $medal->GetGroup();
-			if ($mgroup->GetID() == $group) {
-				$orders[$medal->GetOrder()]++;
-			}
-		}
-		ksort($orders);
-		$last = 0;
-		foreach ($orders as $key=>$o) {
-			if ($o < $last) {
-				$order = $key;
-				break;
-			}
-			$last = $o;
-		}
-		if (empty($order)) {
-			$order = min(array_keys($orders));
-		}
-		
-		$medals = $mg->GetMedals();
-		foreach ($medals as $medal) {
-			if ($medal->GetOrder() == $order) {
-				return $medal;
-			}
-		}
-		return $medals[0];
-	}
-	else {
-		$medals = $mg->GetMedals();
-		return $medals[0];
-	}
+    return $auth_data['aa'];
 }
 
 function output() {
@@ -75,9 +24,11 @@ function output() {
       
 			$medal = "medal$i";
 			
-			$awarded = $roster->GetPerson($_REQUEST[$person]);
-			
-			$mb->AwardMedal($awarded, $hunter, next_medal($awarded, $_REQUEST[$medal]), $_REQUEST['reason']);
+			if ($_REQUEST[$person]){
+				$message = $arena->Tracker($hunter, 'MEDAL', $_REQUEST[$medal]);
+				$awarded = $roster->GetPerson($_REQUEST[$person]);
+				$mb->AwardMedal($awarded, $hunter, next_medal($awarded, $_REQUEST[$medal]), $message.$_REQUEST['reason']);
+			}
 			
 		}
 		
@@ -210,6 +161,17 @@ function output() {
 	</noscript>
 	<?php
 	$form = new Form($page);
+	
+	if (count($arena->CanBe()){
+		$form->AddSectionTitle('Award As: ');
+		$i = 0;
+		
+		foreach ($arena->CanBe() as $call=>$value){
+			$form->AddRadioButton($value, 'use', $call, ($i ? '' : true));
+			$i++;
+		}
+	}
+	
 	$form->table->StartRow();
 	$form->table->AddCell('Reason');
 	$form->table->AddCell('<input type="text" name="reason" size="50">', 2);

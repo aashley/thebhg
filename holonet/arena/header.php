@@ -27,6 +27,57 @@ function rp_staff($person){
 	return ($position->GetID() == 9 || $position->GetID() == 29);
 }
 
+function next_medal($person, $group) {
+	global $mb;
+
+	$mg = $mb->GetMedalGroup($group);
+	if ($mg->GetDisplayType() != 0) {
+		echo 'Numeric medal, leaving immediately.<br>';
+		$medals = $mg->GetMedals();
+		return $medals[0];
+	}
+	
+	$medals = $person->GetMedals();
+	if (count($medals)) {
+		$orders = array();
+		$group_medals = $mg->GetMedals();
+		foreach ($group_medals as $medal) {
+			$orders[$medal->GetOrder()] = 0;
+		}
+		foreach ($medals as $am) {
+			$medal = $am->GetMedal();
+			$mgroup = $medal->GetGroup();
+			if ($mgroup->GetID() == $group) {
+				$orders[$medal->GetOrder()]++;
+			}
+		}
+		ksort($orders);
+		$last = 0;
+		foreach ($orders as $key=>$o) {
+			if ($o < $last) {
+				$order = $key;
+				break;
+			}
+			$last = $o;
+		}
+		if (empty($order)) {
+			$order = min(array_keys($orders));
+		}
+		
+		$medals = $mg->GetMedals();
+		foreach ($medals as $medal) {
+			if ($medal->GetOrder() == $order) {
+				return $medal;
+			}
+		}
+		return $medals[0];
+	}
+	else {
+		$medals = $mg->GetMedals();
+		return $medals[0];
+	}
+}
+
 function acn_nav(){
 	global $at, $lw, $person, $iat;
 	
@@ -314,33 +365,22 @@ function admin_footer($auth_data) {
 	    }
     }
 	
-	if ($auth_data['rp'] || $auth_data['solo']){
-		echo '<br /><b>Arena&nbsp;System&nbsp;Management</b><br />';
-	}
-	
-    if ($auth_data['aa']) {    
+	if ($auth_data['aa']){
+		echo '<br /><b>Arena&nbsp;System&nbsp;Management</b><br />';   
 
         echo '<br />General&nbsp;Management<br />';
-        if ($auth_data['rp']){
-	        echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
+        if ($auth_data['aa']){
+	        if ($auth_data['rp']){
+	        	echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
+	        	echo '&nbsp;<a href="' . internal_link('admin_teta_award') . '">Award&nbsp;Teta\'s&nbsp;Knives</a><br />';	    
+		    	echo '&nbsp;<a href="' . internal_link('admin_teta_remove') . '">Remove&nbsp;Teta\'s&nbsp;Knives</a><br />';
+        	}
 	        echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
 		    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
 		    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_teta_award') . '">Award&nbsp;Teta\'s&nbsp;Knives</a><br />';	    
-		    echo '&nbsp;<a href="' . internal_link('admin_teta_remove') . '">Remove&nbsp;Teta\'s&nbsp;Knives</a><br />';
+		    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
+		    echo '&nbsp;<a href="' . internal_link('admin_sheet_blank') . '">Insert&nbsp;Blank&nbsp;Sheet</a><br />';
 	    }
-	    if ($auth_data['solo'] && !$auth_data['rp']){
-		    echo '&nbsp;<a href="' . internal_link('admin_solo_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_solo_credits') . '">Award&nbsp;Credits</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_solo_medals') . '">Award&nbsp;Medals</a><br />';	    
-	    }
-	    if ($auth_data['dojo'] && !$auth_data['rp']){
-		    echo '&nbsp;<a href="' . internal_link('admin_dojo_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_dojo_credits') . '">Award&nbsp;Credits</a><br />';
-		    echo '&nbsp;<a href="' . internal_link('admin_dojo_medals') . '">Award&nbsp;Medals</a><br />';   
-	    }
-	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
-	    echo '&nbsp;<a href="' . internal_link('admin_sheet_blank') . '">Insert&nbsp;Blank&nbsp;Sheet</a><br />';
 
     }
     
@@ -376,7 +416,6 @@ function admin_footer($auth_data) {
     }
     
     if ($auth_data['rp']) {    
-
         echo '<br />Arena&nbsp;System<br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_complete') . '">Complete&nbsp;Match</a><br />';

@@ -9,11 +9,11 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['sheet'];
+    return $auth_data['aa'];
 }
 
 function output() {
-    global $auth_data, $hunter, $page, $roster, $sheet;
+    global $auth_data, $hunter, $page, $roster, $sheet, $arena;
 
     arena_header();
 
@@ -26,8 +26,9 @@ function output() {
 			$xp = "xp$i";
 			
 			if ($_REQUEST[$person]){
+				$message = $arena->Tracker($hunter, 'XP', $_REQUEST[$xp]);
 				$character = new Character($_REQUEST[$person]);
-	            $character->XPEvent($_REQUEST[$xp], $_REQUEST['reason']);
+	            $character->XPEvent($_REQUEST[$xp], $message.$_REQUEST['reason']);
             }
 			
 		}
@@ -151,6 +152,17 @@ function output() {
 	</noscript>
 	<?php
 	$form = new Form($page);
+	
+	if (count($arena->CanBe()){
+		$form->AddSectionTitle('Award As: ');
+		$i = 0;
+		
+		foreach ($arena->CanBe() as $call=>$value){
+			$form->AddRadioButton($value, 'use', $call, ($i ? '' : true));
+			$i++;
+		}
+	}
+	
 	$form->table->StartRow();
 	$form->table->AddCell('Reason');
 	$form->table->AddCell('<input type="text" name="reason" size="50">', 2);

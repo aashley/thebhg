@@ -8,11 +8,11 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['rp'];
+    return $auth_data['aa'];
 }
 
 function output() {
-    global $arena, $auth_data, $hunter, $page, $roster;
+    global $arena, $auth_data, $hunter, $page, $roster, $arena;
     
     arena_header();
 
@@ -24,8 +24,11 @@ function output() {
       
 			$credits = "credits$i";
 			
-			$awarded = $roster->GetPerson($_REQUEST[$person]);
-			$awarded->AddCredits($_REQUEST[$credits], $_REQUEST['reason']);
+			if ($_REQUEST[$person]){
+				$message = $arena->Tracker($hunter, 'CREDS', $_REQUEST[$credits]);
+				$awarded = $roster->GetPerson($_REQUEST[$person]);
+				$awarded->AddCredits($_REQUEST[$credits], $message.$_REQUEST['reason']);
+			}
 			
 		}
 		
@@ -149,6 +152,17 @@ function output() {
 	</noscript>
 	<?php
 	$form = new Form($page);
+	
+	if (count($arena->CanBe()){
+		$form->AddSectionTitle('Award As: ');
+		$i = 0;
+		
+		foreach ($arena->CanBe() as $call=>$value){
+			$form->AddRadioButton($value, 'use', $call, ($i ? '' : true));
+			$i++;
+		}
+	}
+	
 	$form->table->StartRow();
 	$form->table->AddCell('Reason');
 	$form->table->AddCell('<input type="text" name="reason" size="50">', 2);

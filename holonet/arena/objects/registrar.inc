@@ -4,6 +4,9 @@
 
      var $reg_id;
      var $reg_bhg_id;
+     var $reg_xp;
+     var $reg_creds;
+     var $reg_medal;
      var $reg_start_date;
      var $reg_end_date;
 
@@ -23,6 +26,10 @@
         }
 
     }
+    
+    function GetID(){
+	    return $this->reg_id;
+    }
 
     function GetHunter(){
         return new Person($this->reg_bhg_id);
@@ -38,6 +45,18 @@
         }else {
 	        return false;
         }
+    }
+    
+    function GetXP(){
+        return $this->reg_xp;
+    }
+
+    function GetCreds(){
+        return $this->reg_creds;
+    }
+    
+    function GetMedals(){
+	    return $this->reg_medal;
     }
     
     function EndTerm(){
