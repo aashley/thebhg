@@ -48,7 +48,7 @@ function self($link){
 
 function other($other){
 	global $page;
-	return '<a href="'.internal_link('admin_'.$other['page'], array('id'=>$_REQUEST['id'])).'">'.$link['name'].'</a>';
+	return '<a href="'.internal_link('admin_'.$other['page'], array('id'=>$_REQUEST['id'])).'">'.$other['name'].'</a>';
 }
 
 function frmt($name, $op, $desc, $attn = 0){
@@ -116,7 +116,7 @@ function output() {
 		    $table->EndRow();
 		    $options = array();
 		    
-		    $options[] = formt('Begin a new Tournament', 'tournament_new', 'Grade an event and award credits/experience points.');  
+		    $options[] = formt('Begin a new Tournament', 'tournament_new', 'Start a new Tournament for the '.$activity->Get(name).'.');  
 	    
 		    foreach ($options as $option){
 			    $table->StartRow();
