@@ -51,6 +51,7 @@
 				<li><a href="<?=$base?>kabals/" title="Kabals">Kabals</a></li>
 				<li><a href="<?=$base?>hunts/" title="View hunts you have not completed">Hunts</a></li>
 				<li><a href="<?=$base?>kag/" title="Kabal Authority Games">KAGs</a></li>
+				<li><a href="<?=$base?>kac/" title="Kabal Authority Cup">KACs</a></li>
 				<li><a href="<?=$base?>cg/" title="Cadre Games">CGs</a></li>
 				<li><a href="<?=$base?>application/" title="Apply for KA Positions">Applications</a></li>
 			</ol>
