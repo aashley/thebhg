@@ -148,7 +148,7 @@
             return true;
 
         } else {
-
+			echo mysql_error($this->connect);
             return false;
 
         }

@@ -10,7 +10,7 @@
 
 	    $solo = new Survival();
 	    
-        $sql = "INSERT INTO `arena_survival_contracts` (`type`, `bhg_id`, `ranger`) VALUES ('$type', '$bhg_id', '".$solo->CurrentRanger()."')";
+        $sql = "INSERT INTO `arena_survival_contracts` (`type`, `bhg_id`, `ranger`) VALUES ('$type', '$bhg_id', '".$solo->CurrentRangerID()."')";
 
         if (mysql_query($sql, $this->connect)) {
 
