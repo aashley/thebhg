@@ -32,7 +32,7 @@ function output() {
     }
     else {
         $form = new Form($page);
-        $form->AddSectionTitle('Declare New Commissioner');
+        $form->AddSectionTitle('Blank Sheet Admin');
         $kabals_result = $roster->GetDivisions();
 	    
 			$kabals = array();
@@ -155,17 +155,8 @@ function output() {
 			$form->table->AddCell($cell);
 	
 			$form->table->EndRow();
-        $form->AddSubmitButton('submit', 'Make New Commissioner');
+        $form->AddSubmitButton('submit', 'Insert Sheet Blank');
         $form->EndForm();
-        
-        hr();
-        
-        $form = new Form($page);
-        $form->AddSectionTitle('Downsize Current Commissioner');
-        $form->table->StartRow();
-        $form->table->AddCell('<input type="submit" name="end" value="End Term">');
-        $form->table->EndRow();
-        $form->EndForm(); 
     }
 
     admin_footer($auth_data);
