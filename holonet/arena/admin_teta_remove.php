@@ -17,7 +17,7 @@ function output() {
     arena_header();
     
     if (isset($_REQUEST['submit'])) {
-		if ($arena->RemoveTeta($_REQUEST['hunter'])){
+		if ($arena->RemoveTeta($_REQUEST['challengee'])){
 			echo 'Hunter got their pointy friends taken from them.';
 		} else {
 			echo 'Error.';
