@@ -39,6 +39,7 @@ function output() {
     $kabals_result = $roster->GetDivisions();
     
 		$kabals = array();
+		$plebs = array();
     
 		foreach ($kabals_result as $kabal) {
       
