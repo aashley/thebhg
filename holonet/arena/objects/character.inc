@@ -1064,6 +1064,7 @@
 	function NewSheet(){
 	    $sql = "INSERT INTO `character_sheets` VALUES ('', '".$this->GetID()."', '".time()."', 1, 0, 0, '')";
 		if (mysql_query($sql, $this->connect)){
+			$this->UpdateCache();
 			return true;
 		} else {
 			return false;
