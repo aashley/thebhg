@@ -268,7 +268,7 @@
     }
     
     function CABuild(){
-	    $sql = "SELECT * FROM `character_sheet_ca` WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "SELECT * FROM `character_sheet_ca` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    $output = array();
