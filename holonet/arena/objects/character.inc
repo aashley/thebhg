@@ -573,6 +573,29 @@
 		$table->EndTable();
 	}
 	
+	function Backup($save_name, $from = 'values'){
+	    $sql = "SELECT * FROM `character_sheet_$from` WHERE `bhg_id` = '".$this->GetID()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    $new = "INSERT INTO `character_sheet_backup` VALUES ('', '".$this->GetID()."', '".addslashes($save_name)."', '".time()."')";
+	    $store = mysql_query($new, $this->connect);
+	    $id = mysql_insert_id($this->connect);
+	    $errors = 0;
+	    
+	    while($info = mysql_fetch_array($query)){
+		    $sql = "INSERT INTO `character_sheet_backups` VALUES ('$id', '".$info['statribute']."', '".$info['value']."')";
+		    if (!mysql_query($sql, $this->connect)){
+			    $errors++;
+		    }
+	    }
+	   
+		if ($errors){
+			return 'Sheet stored.';
+		} else {
+			return 'Error in storage. Report to Overseer.';
+		}	   
+	}
+	
 	function Approve(){
 	    $sql = "SELECT * FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
 	    $query = mysql_query($sql, $this->connect);

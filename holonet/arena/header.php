@@ -284,6 +284,7 @@ function admin_footer($auth_data) {
 	echo '<small>';
 	echo '<br /><b>Personal Details</b><br />';
 	echo '&nbsp;<a href="' . internal_link('admin_sheet', array('id'=>$person->GetID())) . '">Edit&nbsp;My&nbsp;Sheet</a><br />';
+	echo '&nbsp;<a href="' . internal_link('admin_sheet_backup', array('id'=>$person->GetID())) . '">Sheet&nbsp;Backups</a><br />';
 	
 	if ($auth_data['citadel']){
 		echo '<br /><b>Pending&nbsp;Citadel&nbsp;Exams</b><br />';
