@@ -109,15 +109,22 @@ if ($_GET['css']) {
 	echo '<link rel="stylesheet" href="' . $_GET['css'] . '" />';
 }
 
-$themes = array();
-foreach (get_themes() as $th) {
-	$themes[$th->GetName()] = $th->GetStyleSheet();
+if ($_POST['cssSandbox']) {
+	echo '<style type="text/css">';
+	echo $_POST['cssSandbox'];
+	echo '</style>';
 }
-ksort($themes);
-unset($themes[$theme->GetName()]);
-echo '<link rel="stylesheet" title="' . $theme->GetName() . '" href="' . $theme->GetStyleSheet() . '" />';
-foreach ($themes as $name => $ss) {
-	echo '<link rel="alternate stylesheet" title="' . $name . '" href="' . $ss . '" />';
+else {
+	$themes = array();
+	foreach (get_themes() as $th) {
+		$themes[$th->GetName()] = $th->GetStyleSheet();
+	}
+	ksort($themes);
+	unset($themes[$theme->GetName()]);
+	echo '<link rel="stylesheet" title="' . $theme->GetName() . '" href="' . $theme->GetStyleSheet() . '" />';
+	foreach ($themes as $name => $ss) {
+		echo '<link rel="alternate stylesheet" title="' . $name . '" href="' . $ss . '" />';
+	}
 }
 ?>
 </head>
