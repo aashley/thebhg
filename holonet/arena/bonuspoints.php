@@ -18,8 +18,13 @@ function Output(){
 	
 	arena_header();
 	
-	if ($hunter->GetID()){
-		$character = new Character($hunter->GetID());
+	if ($hunter->GetID() || $_REQUEST['id']){
+		if ($_REQUEST['id']){
+			$id = $_REQUEST['id'];
+		} else {
+			$id = $hunter->GetID();
+		}
+		$character = new Character($id);
 		
 		echo $character->BonusPoints().'<br />';
 		
