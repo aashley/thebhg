@@ -27,8 +27,10 @@ function output() {
 			
 			if ($split == 'skill'){
 				$retrn = new Skill($value);
+				echo 'Skill';
 			} else {
 				$retrn = new Statribute($value);
+				echo 'Stat';
 			}
 		    
 		    if ($sheet->HasValue($hunter->GetID(), $_REQUEST[$name], $_REQUEST['txt_'.$name])){			    
