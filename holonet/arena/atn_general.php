@@ -167,7 +167,7 @@ function output() {
 	    $saves = $character->GetBackups();
 		    
 		    if (count($saves)){
-			    hr();
+			    echo '<center>';
 			    $table = new Table('', true);
 			    $table->StartRow();
 			    $table->AddHeader('Sheet Backups', 5);
@@ -182,6 +182,8 @@ function output() {
 			    }
 			    
 			    $table->EndTable();
+			    echo '</center>';
+			    hr();
 		    }
 	    
 	    $character->ParseSheet();
