@@ -23,7 +23,7 @@ Class Coder extends Arena {
 			if (in_array($exp[0], $this->allowed)){
 				array_shift($exp);
 				$ref = implode(' ', $exp);
-				$this->tables[] = array('full'=>$name, 'index'=>mb_convert_case($ref, MB_CASE_TITLE, "UTF-8"));
+				$this->tables[] = array('full'=>$name, 'index'=>mb_strtoupper($ref));
 			}
 		}
 	}
