@@ -23,7 +23,7 @@ function display_articles($items) {
 					$blurb = $item->Render('%message%');
 				}
 			}
-			$blurb = autolink($blurb);
+			//$blurb = autolink($blurb);
 			$columns = ($read_more ? 3 : 2);
 			
 			echo '<a name="' . $item->GetID() . '"></a>';
