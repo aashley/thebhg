@@ -26,7 +26,9 @@ function output() {
     $sheets = array();
     
     foreach ($sheet->GetSheets() as $data){
-	    $sheets[$data->Status('SYSTEM')][] = $data;
+	    if ($data->Status('SYSTEM') > -1){
+	    	$sheets[$data->Status('SYSTEM')][] = $data;
+    	}
     }
     
     krsort($sheets);
