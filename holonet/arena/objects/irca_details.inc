@@ -25,6 +25,7 @@
         	   ."arena_irca_records.match_id AND arena_irca_match.date_deleted = 0 AND arena_irca_match.match != '' GROUP BY `arena_irca_records.bhg_id` ORDER BY arena_irca_records.bhg_id";
 
         $query = mysql_query($sql, $this->connect);
+        echo mysql_error($this->connect);
         $total = "SELECT * FROM `arena_irca_match` WHERE `match_id` > 0 AND `date_deleted` = 0";
         $qtotal = mysql_query($total, $this->connect);
         $total = mysql_num_rows($qtotal);
