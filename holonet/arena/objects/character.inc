@@ -28,6 +28,20 @@
 
     }
     
+    function UpdateCache(){
+	    $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '".$this->cs_bhg_id."'";
+        $query = mysql_query($sql, $this->connect);
+        
+        if ($result = @mysql_fetch_array($query)) {
+
+            foreach ($result as $key => $value) {
+                $key = 'cs_'.$key;
+                $this->$key = stripslashes($value);
+            }
+
+        }
+    }
+    
     function GetID(){
 	    return $this->cs_person->GetID();
     }
@@ -710,6 +724,7 @@
     }
 	
 	function ParseSheet($look = 'values'){
+		$this->UpdateCache();
 		$bio = $this->cs_person->GetBioData();
 		$division = $this->cs_person->GetDivision();
 		$position = $this->cs_person->GetPosition();
