@@ -24,9 +24,10 @@ if ($page == 'admin'){
 }
 
 function get_auth_data($hunter) {
-    $pos = $hunter->GetPosition();
+	$auth_data['aa'] = true;
+    /*$pos = $hunter->GetPosition();
     $div = $hunter->GetDivision();
-    /*$tempy = new Tempy();
+    $tempy = new Tempy();
     $lw = new LW_Solo();
     $solo = new Solo();
     $ladder = new Ladder();
@@ -34,7 +35,7 @@ function get_auth_data($hunter) {
     $sheet = new Sheet();
     $starfield = new Starfield();
     $irca = new IRCA();
-    $survival = new Survival();*/
+    $survival = new Survival();
 
     $auth_data['id'] = $hunter->GetID();
 
@@ -88,7 +89,7 @@ function get_auth_data($hunter) {
         $auth_data['ch'] = false;
     }
     
-    /*$cadre = $hunter->GetCadre();
+    $cadre = $hunter->GetCadre();
     $auth_data['cadre'] = false;
     if ($cadre){
 	    if ($hunter->IsCadreLeader($cadre)){
