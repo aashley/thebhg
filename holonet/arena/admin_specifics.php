@@ -101,7 +101,7 @@ function output(){
 		$form->AddTextBox('Name', 'data[values][]', $name);
 		$form->AddHidden('data[fields][]', 'name');
 		
-		$form->AddTextArea('Name', 'data[values][]', $desc);
+		$form->AddTextArea('Description', 'data[values][]', $desc);
 		$form->AddHidden('data[fields][]', 'description');
 		
 		$form->AddSubmitButton('submit', 'Process');
