@@ -54,6 +54,8 @@ function output() {
 		}
 	}
     
+	print_r($_REQUEST);
+	
     if (is_object($poll)){
 	    if (rp_staff($hunter) || (!$poll->IsDeleted() && $poll->CanView($hunter))){
 		    if ($poll->CanSubmit($hunter, 1)){
