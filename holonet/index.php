@@ -107,29 +107,11 @@ A:HOVER {
 $modarray = array();
 $before = 0;
 $found = false;
-foreach ($modules as $mod) {
-	$modtext = false;
-	if (PHP5) {
-		if ($mod->nodeName == 'link') {
-			$url = $mod->getElementsByTagName('url')->item(0);
-			$name = $mod->getElementsByTagName('name')->item(0);
-			$modtext = '<a href="' . $url->textContent . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
-		}
-		elseif ($mod->nodeName == 'module' && !$mod->hasAttribute('hidden')) {
-			$dir = $mod->getElementsByTagName('directory')->item(0);
-			$name = $mod->getElementsByTagName('name')->item(0);
-			if ($dir->textContent == $module) {
-				$found = true;
-				$modtext = '<span class="SELECTED">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</span>';
-			}
-			else {
-				if (!$found) {
-					$before += 2;
-				}
-				$modtext = '<a href="' . internal_link('index', array(), $dir->textContent) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
-			}
-		}
-	} else {
+if (PHP5) {
+	include_once 'index.php5.inc';
+} else {
+	foreach ($modules as $mod) {
+		$GLOBALS['modtext'] = false;
 		if ($mod->node_name() == 'link') {
 			$url = current($mod->get_elements_by_tagname('url'));
 			$name = current($mod->get_elements_by_tagname('name'));
@@ -159,31 +141,7 @@ $after = (2 * count($modarray)) - $before;
 echo implode('<td class="MODULE">&nbsp;|&nbsp;</td>', $modarray) . '<td class="MODULE" width="100%">&nbsp;</td></tr>';
 
 if (PHP5) {
-	if (file_exists($mdir . '/menu.xml')) {
-		$menuxml = new DomDocument();
-		$menuxml->load($mdir . '/menu.xml');
-		$items = $menuxml->getElementsByTagName('item');
-	}
-	else {
-		$items = false;
-	}
-	
-	if ($items) {
-		echo '<tr>';
-		if ($before) {
-			echo '<td colspan=' . $before . ' class="MODULE">&nbsp;</td>';
-		}
-		echo '<td colspan=' . $after . '><span class="SUBMENU">';
-		$menuarray = array();
-		foreach ($items as $item) {
-			if (!$item->hasAttribute('hidden')) {
-				$name = $item->getElementsByTagName('name')->item(0);
-				$pg = $item->getElementsByTagName('page')->item(0);
-				$menuarray[] = '<a href="' . internal_link($pg->textContent) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
-			}
-		}
-		echo implode(' | ', $menuarray) . '</span></td></tr>';
-	}
+	include_once 'index.php5.menu.inc';
 } else {
 	if (file_exists($mdir . '/menu.xml')) {
 		$menuxml = domxml_open_file($mdir . '/menu.xml');

@@ -96,20 +96,9 @@ else {
 	include_once('error.php');
 }
 
+$modules = array();
 if (PHP5) {
-	$modxml = new DomDocument();
-	$modxml->load('modules.xml');
-	$modules = $modxml->documentElement->childNodes;
-	foreach ($modules as $mod) {
-		if ($mod->nodeName == 'module') {
-			$dir = $mod->getElementsByTagName('directory')->item(0);
-			if ($dir->textContent == $module) {
-				$name = $mod->getElementsByTagName('name')->item(0);
-				$title = $name->textContent . ' :: ' . title();
-				break;
-			}
-		}
-	}
+	include_once 'header.php5.inc';
 } else {
 	$modxml = domxml_open_file('modules.xml');
 	$modtag = current($modxml->get_elements_by_tagname('modules'));
