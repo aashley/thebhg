@@ -184,9 +184,8 @@ function output() {
         ."<option value=\"-1\">N/A</option>$kabals</select>");
 
     $cell = "<select name=\"challengee\">";
-      $plebs = array();
     
-			$cell .= "<option value=\"-1\" selected>N/A</option>\n".implode("", $plebs);
+			$cell .= "<option value=\"-1\" selected>N/A</option>\n";
     
 		$cell .= "</select>";
     
