@@ -6,7 +6,7 @@ echo $poll->GetID();
 if (!$poll->GetID()){
 	$poll = false;
 }
-
+echo $poll->GetID();
 function auth($person) {
     global $hunter, $roster, $auth_data;
     
