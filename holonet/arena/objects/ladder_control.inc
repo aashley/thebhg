@@ -63,7 +63,7 @@
         
         if ($dojo){
 	    	$ladder = new Ladder();
-	    	$dojo = $ladder->CurrentMaster();
+	    	$dojo = new Master($ladder->CurrentMaster());
     	}
         
     	$new = new Ladder();
@@ -71,7 +71,7 @@
     	$steward = new Steward($stew);
         
         $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `is_dojo`, `steward`) "
-                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$dojo', '".$steward->GetID()."')";
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '".$dojo->GetID()."', '".$steward->GetID()."')";
 
         if (mysql_query($sql, $this->connect)) {
 

@@ -99,7 +99,7 @@
     }
     
     function PendingDojo($type = 'match_id'){
-        $sql = "SELECT * FROM `arena_ladder_match` WHERE `date_deleted` = 0 AND `accepted` = 1 AND `$type` = 0 AND `is_dojo` = 1";
+        $sql = "SELECT * FROM `arena_ladder_match` WHERE `date_deleted` = 0 AND `accepted` = 1 AND `$type` = 0 AND `is_dojo` > 0";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 
