@@ -47,6 +47,8 @@ function output() {
 		    echo '<br />';
 		    
 		    hr();
+	    } else {
+		    echo 'This hunter has not made any tracked contributions to the awards in the Arena.';
 	    }
 	    
 	    if ($overse->GetStatus()){
