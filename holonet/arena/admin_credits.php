@@ -136,9 +136,7 @@ function output() {
 	$table = new Table('', true);
   
 	$table->StartRow();
-	if ($pos->GetID() != 11) {
-		$table->AddHeader('Kabal');
-	}
+	$table->AddHeader('Kabal');
 	$table->AddHeader('Person');
 	$table->AddHeader('Credits');
 	$table->EndRow();

@@ -178,6 +178,9 @@
         $sql = "UPDATE `arena_irca_match` SET `date_deleted` = '".time()."' WHERE `id` = '".$this->arena_id."'";
 
         if (mysql_query($sql, $this->connect)) {
+	        
+	        $sql = "UPDATE `arena_irca_records` SET `date_deleted` = '".time()."' WHERE `match_id` = '".$this->arena_id."'";
+	        mysql_query($sql, $this->connect);
 
             return true;
 

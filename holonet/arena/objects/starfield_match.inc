@@ -261,6 +261,9 @@
 
         if (mysql_query($sql, $this->connect)) {
 
+	        $sql = "UPDATE `arena_starfield_records` SET `date_deleted` = '1' WHERE `match_id` = '".$this->arena_starfield_id."'";
+	        mysql_query($sql, $this->connect);
+	        
             $contenders = $this->GetContenders();
 
             $person1 = new Person($contenders[1]->GetID());
@@ -310,6 +313,9 @@
         $sql = "UPDATE `arena_starfield_match` SET `date_deleted` = '".time()."' WHERE `id` = '".$this->arena_starfield_id."'";
 
         if (mysql_query($sql, $this->connect)) {
+	        
+	        $sql = "UPDATE `arena_starfield_records` SET `date_deleted` = '".time()."' WHERE `match_id` = '".$this->arena_starfield_id."'";
+	        mysql_query($sql, $this->connect);
 
             $contenders = $this->GetContenders();
 
