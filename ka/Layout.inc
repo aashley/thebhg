@@ -9,9 +9,8 @@
 	require_once 'roster.inc';
 	$roster = new Roster($coder);
 	
-//	require_once 'BHGLogin.inc';
 	require_once 'hunts/objects/ka.inc';
-	$ka = new KA ();
+	$ka = new KA ('ka-4-hunt');
 				
 	$results = $roster->SearchPosition('JUD');
 	$judicator = $results[0];
@@ -20,7 +19,7 @@
 	$proctor = $results[0];
 	
 	
-	$base = "http://" . $_SERVER["HTTP_HOST"].'/';
+	$base = "http://" . $_SERVER["HTTP_HOST"] . "/";
 		
 	ob_start();
 
@@ -29,7 +28,6 @@
 		global $roster, $judicator, $proctor, $ka, $base, $subarray;
 		
 		$kabals = $roster->GetKabals(1);
-		//$hunts = $ka->GetActiveHunts();
 		
 		$output = ob_get_contents();
 		ob_end_clean();
@@ -50,16 +48,15 @@
 			<ol id="topnav">
 				<li><a href="<?=$base?>news/" title="Get the latest Kabal Authority news">News</a></li>
 				<li><a href="<?=$base?>headquarters/" title="Headquarters">Headquarters</a></li>
+				<li><a href="<?=$base?>kabals/" title="Kabals">Kabals</a></li>
 				<li><a href="<?=$base?>hunts/" title="View hunts you have not completed">Hunts</a></li>
 				<li><a href="<?=$base?>kag/" title="Kabal Authority Games">KAGs</a></li>
-				<li><a href="<?=$base?>kabals/" title="Kabals">Kabals</a></li>
 				<li><a href="<?=$base?>cg/" title="Cadre Games">CGs</a></li>
 				<li><a href="<?=$base?>application/" title="Apply for KA Positions">Applications</a></li>
 			</ol>
 		</div>
 		<div id="content">
 <?=$output?>
-
 		</div>
 		<ol id="leftnav">
 <?	if (isset($subarray)) { ?>
@@ -267,21 +264,4 @@
 			ConstructLayout();
 		}
 	}
-	
-	
-	function CheckAdmin ($id) {
-		global $roster;
-		$person = $roster->GetPerson($id);
-		$position = $person->GetPosition();
-		if ($id == 1768) return 2;
-		if (!in_array($position->GetID(), array (2, 6, 8, 10, 11, 12))) {
-			echo "Error, you are not allowed to access this page. You must be either JUD/PR/U/WARD/CH/CRA to view this page.";
-			ConstructLayout();
-			exit;
-		}
-		if (in_array($position->GetID(), array (2, 6, 8))) {
-			return 2;
-		}
-		else return 1;
-	} 
 ?>

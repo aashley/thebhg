@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
     echo '<select id="division" name="division">';
     // REMOVE "2500" FROM PR/JUD CHECK BELOW
     //CHECKING IF PERSON ADDING HUNT IS JUD/PR/U/SP, RESPECTIVELY
-    if (($login_position->GetID() == 6) || ($login_position->GetID() == 8) || ($login_position->GetID() == 2) || ($login_position->GetID() == 4)) {
+    if (($login_position->GetID() == 6) || ($login_position->GetID() == 8) || ($login_position->GetID() == 2) || ($login_position->GetID() == 5)) {
         $kabals = $roster->GetKabals();
         $viewable = $hunt->GetDivisionID();
         foreach ($kabals as $kabal) {

@@ -6,13 +6,14 @@
  *
  *  <pre>Date      Version        Summary
  *
+ *  20040910  1.2.0          Added Seasons to KA Hunts
  *  20031214  1.1.0          Completed Credit and Grade changing functions.
  *  20031214  1.0.1          Added Get functions, fixed argument order error in RenderStats().
  *  20031210  1.0.0          First official documentation release. Added in coder id security.</pre>
  *
  * @package KA
- * @version 1.1.0 Taste of Nirvana
- * @copyright Copyright © 2003 SyNthetiC PaRadoX. Licensed for use by
+ * @version 1.2.0 Idyllic Dream
+ * @copyright Copyright © 2003-2004 SyNthetiC PaRadoX. Licensed for use by
  *            the Emperor's Hammer.
  * @author Rewritten and completed by SyNthetiC PaRadoX <synthparadox@thebhg.org>
  * @author Code started by Khylari <Khylari@cox.net>
@@ -27,6 +28,7 @@ require_once('hunts/hunt.inc');
 require_once('hunts/hunt_type.inc');
 require_once('hunts/submission.inc');
 require_once('hunts/grades.inc');
+require_once('hunts/seasons.inc');
 
 /**
  * KA class
@@ -38,13 +40,14 @@ require_once('hunts/grades.inc');
  *  |-- Hunt
  *  |   |--Grades
  *  |   `--Submission
- *  `-- Hunt Type</pre>
+ *  |-- Hunt Type
+ *  `-- Season</pre>
  * @package KA
  * @access public
- * @copyright Copyright © 2003 SyNthetiC PaRadoX. Licensed for use by
+ * @copyright Copyright © 2003-2004 SyNthetiC PaRadoX. Licensed for use by
  *            the Emperor's Hammer.
  * @author SyNthetiC PaRadoX <synthparadox@thebhg.org>
- * @version 1.1.0 Taste of Nirvana
+ * @version 1.2.0 Idyllic Dream
  * @since The Very Beginning. August 18, 2003.
  */
 class KA extends BHGObject {
@@ -69,9 +72,9 @@ class KA extends BHGObject {
     function KA ($coder = '') {
         $this->BHGObject($coder); //Setting coder id
         $dbi["host"] = "localhost";   //MySQL host
-        $dbi["user"] = "thebhg_ka";   //MySQL username
-        $dbi["pass"] = "bhgkapass";   //MySQL password
-        $dbi["name"] = "thebhg_ka";   //MySQL database name
+        $dbi["user"] = "thebhg_katest";   //MySQL username
+        $dbi["pass"] = "katest";   //MySQL password
+        $dbi["name"] = "thebhg_katest";   //MySQL database name
         $this->ka_db = @mysql_connect ($dbi["host"], $dbi["user"], $dbi["pass"]) or $this->roster_error = "Can't connect to database. ".mysql_error($this->ka_db);
         @mysql_select_db ($dbi["name"]) or $this->roster_error = "Can't select database. ".mysql_error($this->ka_db);
     }
@@ -119,6 +122,33 @@ class KA extends BHGObject {
     }
 
     /**
+     * Gets a season.
+     *
+     * Mostly used if coder id is not known or if use of coder id not wanted.
+     *
+     * @param mixed $sea Season ID number if int or Timestamp if array, should be array with keys ts and div and values of timestamp and division id
+     * @return Season|false Season with the season id given or false if unsuccessful
+     * @access public
+     * @since v. 1.2.0
+     */
+    function GetSeason($sea) {
+        if (!is_array($sea)) { //Not array, assumed int
+            return new Season($sea, $this->roster_coder);
+        } else { //Array
+            $ts = $sea['ts'];
+            $div = $sea['div'];
+            $sql = "SELECT * FROM `hunt_seasons` WHERE `season_start`<'$ts' AND `season_stop`>'$ts' AND `season_div`='$div' LIMIT 1";
+            $season = new Season(@mysql_result(@mysql_query($sql, $this->ka_db), 0, 'season_id'), $this->roster_coder);
+            if (is_int($season->GetID())) {
+                return $season;
+            } else {
+                $this->roster_error = "Error, no season matching the time and division. MySQL Error: ".mysql_error($this->ka_db);
+                return false;
+            }
+        }
+    }
+
+    /**
      * Creates a new hunt
      *
      * Requires coder id to have either 'allhunts' field, or the 'hunts' field and is adding a hunt for his/her own division
@@ -138,17 +168,63 @@ class KA extends BHGObject {
      */
     function CreateHunt ($hunt_type, $hunt_division, $hunt_rewards, $hunt_content, $hunt_start_timestamp, $hunt_end_timestamp, $hunt_first = 0) {
         if (($this->Allowed('allhunts') == true) || (($this->Allowed('hunts') == true) && ($this->CheckDivision($hunt_division) == true))) {
+            if ($this->GetSeason(array('ts'=>$hunt_end_timestamp, 'div'=>$hunt_division)) === false) {
+                if (!$this->CreateSeason($hunt_division)) return false;
+            }
             $rewards = serialize($hunt_rewards);
             $hunt_content = base64_encode($hunt_content);
             $next = (@mysql_result (@mysql_query ("SELECT MAX(`hunt_num`) AS `num` FROM `hunts` WHERE `hunt_type` = $hunt_type AND `hunt_division` = $hunt_division;", $this->ka_db), 0, "num") + 1);
-            if (@mysql_query ("INSERT INTO `hunts` (`hunt_type`, `hunt_num`, `hunt_division`, `hunt_first`, `hunt_rewards`, `hunt_content`, `hunt_start_timestamp`, `hunt_end_timestamp`) VALUES ('$hunt_type', '$next', '$hunt_division', '$hunt_first', '$rewards', '$hunt_content', '$hunt_start_timestamp', '$hunt_end_timestamp');", $this->ka_db)) {
+            if (@mysql_query ("INSERT INTO `hunts` (`hunt_type`, `hunt_num`, `hunt_division`, `hunt_first`, `hunt_rewards`, `hunt_content`, `hunt_start_timestamp`, `hunt_end_timestamp`) VALUES ('$hunt_type', '$next', '$hunt_division', '$hunt_first', '$rewards', '$hunt_content', '$hunt_start_timestamp', '$hunt_end_timestamp')", $this->ka_db)) {
                 return new Hunt (@mysql_insert_id ($this->ka_db), $this->roster_coder);
             } else {
                 $this->roster_error = "Error adding hunt. ".mysql_error($this->ka_db);
                 return false;
             }
         } else {
-            $this->roster_error = "You do not have access to this function.";
+            $this->roster_error = "You do not have access to this function. (KA::CreateHunt())";
+            return false;
+        }
+    }
+    
+    /**
+     * Creates a new season
+     *
+     * Requires coder id to have either 'allhunts' field, or the 'hunts' field and is adding a hunt for his/her own division
+     *
+     * @param int $div The Division ID number that this season is for.
+     * @param int $end The end timestamp.
+     * @return Season|false The newly created Hunt object or false if unsuccessful
+     * @access protected
+     * @since v. 1.2.0
+     * @uses BHGObject::Allowed()
+     * @uses KA::CheckDivision()
+     */
+    function CreateSeason($div = -1, $end = null) {
+        if (($this->Allowed('allhunts') == true) || (($this->Allowed('hunts') == true) && ($this->CheckDivision($div) == true))) {
+            $sql = "SELECT * FROM `hunt_seasons` WHERE `season_div`='$div'";
+            $result = @mysql_query($sql, $this->ka_db);
+            $num = @mysql_num_rows($result);
+            $last_end = @mysql_result($result, $num - 1, 2);
+            $start = $last_end + 1;
+            if ($last_end == 0) $start = 0;
+            if (($end == null) || ($last_end < time()) || ($end <= $start)) { //No end specified or no current season running or end time is before start time
+                $ts_end = $last_end;
+                if ($last_end == 0) $ts_end = time();
+                $le_ts = strtotime('+4 month', $ts_end);
+                $le_arr = getdate($le_ts);
+                if ($last_end == 0) $year = (int)date('Y');
+                $end = mktime(23, 59, 59, $le_arr['mon'], 0, $le_arr['year']); //Defaults to end of +3 months
+            }
+            //Otherwise, end time's ok, make season
+            $sql = "INSERT INTO `hunt_seasons` (`season_start`, `season_stop`, `season_div`) VALUES ('$start', '$end', '$div')";
+            if (@mysql_query ($sql, $this->ka_db)) {
+                return new Season (@mysql_insert_id ($this->ka_db), $this->roster_coder);
+            } else {
+                $this->roster_error = "Error adding season. ".mysql_error($this->ka_db);
+                return false;
+            }
+        } else {
+            $this->roster_error = "You do not have access to this function. (KA::CreateSeason())";
             return false;
         }
     }
@@ -184,7 +260,7 @@ class KA extends BHGObject {
                 return false;
             }
         } else {
-            $this->roster_error = "You do not have access to this function.";
+            $this->roster_error = "You do not have access to this function. (KA::CreateHunt_Type())";
             return false;
         }
     }
@@ -401,7 +477,7 @@ class KA extends BHGObject {
 
             return $files_arr;
         } else {
-            $this->roster_error = "You do not have access to this function.";
+            $this->roster_error = "You do not have access to this function. (KA::GetDirFiles())";
             return false;
         }
     }
@@ -626,7 +702,7 @@ class KA extends BHGObject {
      * @internal Be sure to update the division ids with the coder ids. Make sure to make them correspond.
      * @param int $div_id Division ID to check
      * @return boolean True or False
-     * @access private
+     * @access protected
      * @since 1.0.0
      */
     function CheckDivision($div_id) {

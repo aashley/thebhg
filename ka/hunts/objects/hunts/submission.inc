@@ -19,7 +19,8 @@
  *  |-- Hunt
  *  |   |--Grades
  *  |   `--<b><i>Submission</i></b>
- *  `-- Hunt Type</pre>
+ *  |-- Hunt Type
+ *  `-- Season</pre>
  * @access public
  * {@inheritdoc }
  * @package KA
