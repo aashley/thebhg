@@ -30,6 +30,7 @@ function output() {
     $character = new Character($hunter->GetID());
     
     $values = array();
+    $show = true;
     
     if (isset($_REQUEST['submit'])){
 	    echo $character->Backup($_REQUEST['save'], $_REQUEST['sheet']);
@@ -53,79 +54,82 @@ function output() {
 		    $form->AddHidden('confirm', 1);
 		    echo '<input type="submit" name="delete" value="Confirm Delete">';
 		    $form->EndForm();
+		    $show = false;
 	    }
     }
     
-    if ($_REQUEST['load']){
-    
-	    if ($character->ValidLoad($_REQUEST['sheet'])){
+    if ($show){
+	    if ($_REQUEST['load']){
 	    
-		    $form = new Form($page);
+		    if ($character->ValidLoad($_REQUEST['sheet'])){
 		    
+			    $form = new Form($page);
+			    
+			    $form->AddHidden('sheet', $_REQUEST['sheet']);
+			    $form->table->StartRow();
+			    $form->table->AddHeader('Upload Backup');
+			    $form->table->EndRow();
+			    $form->table->AddRow('<input type="submit" value="Load Backup as Edit Sheet" name="goload">');
+			    
+			    $form->EndForm();
+			    hr();
+			    
+			    $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
+		    } else {
+			    echo 'This is an invlaid load. You can only load your own Backup sheets.';
+		    }
+		    
+	    } elseif ($_REQUEST['view']){
+		    
+		    $form = new Form($page);
+		    $form->AddSectionTitle('Backup Resource');
+		    $form->AddTextBox('Save name:', 'save');
 		    $form->AddHidden('sheet', $_REQUEST['sheet']);
-		    $form->table->StartRow();
-		    $form->table->AddHeader('Upload Backup');
-		    $form->table->EndRow();
-		    $form->table->AddRow('<input type="submit" value="Load Backup as Edit Sheet" name="goload">');
-		    
+		    $form->AddSubmitButton('submit', 'Save Sheet');
 		    $form->EndForm();
+		    
 		    hr();
 		    
-		    $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
-	    } else {
-		    echo 'This is an invlaid load. You can only load your own Backup sheets.';
-	    }
-	    
-    } elseif ($_REQUEST['view']){
-	    
-	    $form = new Form($page);
-	    $form->AddSectionTitle('Backup Resource');
-	    $form->AddTextBox('Save name:', 'save');
-	    $form->AddHidden('sheet', $_REQUEST['sheet']);
-	    $form->AddSubmitButton('submit', 'Save Sheet');
-	    $form->EndForm();
-	    
-	    hr();
-	    
-	    $character->ParseSheet($_REQUEST['sheet']);
-    } else {    
-	    if ($character->HasValue('values')){
-		    $values['My Approved Sheet'] = 'values';
-	    }
-	    if ($character->HasValue('pending')){
-		    $values['My Editing Sheet'] = 'pending';
-	    }
-	    
-	    if (count($values)){
-		    $form = new Form($page);
-		    $form->AddSectionTitle('Save a Sheet Backup');
-		    $form->StartSelect('Sheet to Save', 'sheet');
-		    foreach ($values as $name=>$value){
-			    $form->AddOption($value, $name);
+		    $character->ParseSheet($_REQUEST['sheet']);
+	    } else {    
+		    if ($character->HasValue('values')){
+			    $values['My Approved Sheet'] = 'values';
 		    }
-		    $form->EndSelect();
-		    $form->AddSubmitButton('view', 'View This Sheet');
-		    $form->EndForm();
-	    } else {
-		    echo 'You have no sheets to backup.';
-	    }
-	    
-	    $saves = $character->GetBackups();
-	    
-	    if (count($saves)){
-		    hr();
-		    $table = new Table('', true);
-		    $table->StartRow();
-		    $table->AddHeader('Sheet Backups', 4);
-		    $table->EndRow();
-		    
-		    $table->AddRow('Save Name', 'Date', '&nbsp', '&nbsp');
-		    
-		    foreach ($saves as $data){
-			    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>', ($data['share'] ? '' : '<a href="'.internal_link($page, array('delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>'));
+		    if ($character->HasValue('pending')){
+			    $values['My Editing Sheet'] = 'pending';
 		    }
 		    
-		    $table->EndTable();
+		    if (count($values)){
+			    $form = new Form($page);
+			    $form->AddSectionTitle('Save a Sheet Backup');
+			    $form->StartSelect('Sheet to Save', 'sheet');
+			    foreach ($values as $name=>$value){
+				    $form->AddOption($value, $name);
+			    }
+			    $form->EndSelect();
+			    $form->AddSubmitButton('view', 'View This Sheet');
+			    $form->EndForm();
+		    } else {
+			    echo 'You have no sheets to backup.';
+		    }
+		    
+		    $saves = $character->GetBackups();
+		    
+		    if (count($saves)){
+			    hr();
+			    $table = new Table('', true);
+			    $table->StartRow();
+			    $table->AddHeader('Sheet Backups', 4);
+			    $table->EndRow();
+			    
+			    $table->AddRow('Save Name', 'Date', '&nbsp', '&nbsp');
+			    
+			    foreach ($saves as $data){
+				    $table->AddRow($data['name'], $data['date'], '<a href="'.internal_link($page, array('load'=>1, 'sheet'=>$data['id'])).'">Load Sheet</a>', ($data['share'] ? '' : '<a href="'.internal_link($page, array('delete'=>1, 'sheet'=>$data['id'])).'">Delete</a>'));
+			    }
+			    
+			    $table->EndTable();
+		    }
 	    }
     }
 	
