@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.5.7";
+    echo "Current version: v1.6";
     
     hr();
     
@@ -16,11 +16,11 @@ function output() {
     
     hr();
     
-    echo "Version Comments: Main updates for the RP Aides, per order of Tuss.";
+    echo "Version Comments: The Solo Missions now run on CSv4.0 Standards. Hooray!";
     
     hr();
     
-    echo "Last Update: Made it possible to end the terms of the current CBO and DM without assigning a new one.";
+    echo "Last Update: Version comments say it all.";
     
     hr();
     
