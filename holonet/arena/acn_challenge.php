@@ -31,6 +31,8 @@ function output() {
 	    hr();
 	    
 	    echo '<h5>The Arena</h5>';
+	    
+	    echo '<br /><a href="'.internal_link('acn_arena_challenge').'">Make New Challenge</a>';
 	
 	    $challenges = $ladder->Pending($hunter->GetID());
 	
@@ -43,9 +45,6 @@ function output() {
 	        $table->AddHeader('Weapon Type');
 	        $table->AddHeader('Num. of Weapons');
 	        $table->AddHeader('Posts');
-	        if (in_array($hunter->GetID(), $ttg->Members())){
-		        $table->AddHeader('Gauntlet Match');
-	        }
 	        $table->AddHeader('&nbsp;', 2);
 	        $table->EndRow();
 	        foreach($challenges as $value) {
@@ -53,11 +52,6 @@ function output() {
 	            $challenger = $value->GetChallenger();
 	            $weapon = $value->GetWeaponType();
 	            $location = $value->GetLocation();
-	            $gauntlet = 'No';
-	            
-	            if ($value->IsTTG()){
-		            $gauntlet = 'Yes';
-	            }
 	            
 	            $table->StartRow();
 	            $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challenger->GetID()), 'roster') . '">' . $challenger->GetName() . '</a>');
@@ -66,9 +60,6 @@ function output() {
 	            $table->AddCell($weapon->GetWeapon());
 	            $table->AddCell($value->GetWeapons());
 	            $table->AddCell($value->GetPosts());
-	            if (in_array($hunter->GetID(), $ttg->Members())){
-			        $table->AddCell($gauntlet);
-		        }
 	            $table->AddCell('<a href="' . internal_link('acn_arena_accept', array('id'=>$value->GetID())) . '">Accept</a>');
 	            $table->AddCell('<a href="' . internal_link('acn_arena_decline', array('id'=>$value->GetID())) . '">Decline</a>');
 	            $table->EndRow();
@@ -79,6 +70,8 @@ function output() {
 	        echo 'You have no challenges pending.';
 	    }
 	
+	    /*
+	    Commented Out until the SA is fixed
 	    hr();
 	
 	    echo '<h5>Starfield Arena</h5>';
@@ -126,6 +119,7 @@ function output() {
 	    else {
 	        echo 'You have no challenges pending.';
 	    }
+	    */
 	    
 	} else {	    
 	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';

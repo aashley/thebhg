@@ -30,8 +30,8 @@ function rp_staff($person){
 function acn_nav(){
 	global $at, $lw, $person, $iat;
 	
-	//echo '<br />General<br />';
-	//echo '&nbsp;<a href="' . internal_link('acn_challenge') . '">My&nbsp;Pending&nbsp;Challenges</a><br />';
+	echo '<br />General<br />';
+	echo '&nbsp;<a href="' . internal_link('acn_challenge') . '">Network&nbsp;Control</a><br />';
 	
 	if ($at->ValidSignup()){
 		echo '<br />Arena Tournament<br />';
@@ -156,7 +156,7 @@ function arena_footer($show_list = true) {
 
     echo '<u>AMS Challenge Netowrk</u><small><br />';
 
-    acn_nav();
+    echo '&nbsp;<a href="' . internal_link('acn_challenge') . '">Network&nbsp;Control</a><br />';
 
     echo '</small>';
     

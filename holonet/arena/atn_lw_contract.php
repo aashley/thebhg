@@ -72,7 +72,7 @@ function output() {
 		    $table->EndRow();
 		    
 		    foreach ($dcos as $data){
-			    $table->AddRow($data['writedate'], $data['hunter']->GetName());
+			    $table->AddRow($data['writedate'], '<a href="' . internal_link('atn_general', array('id'=>$data['hunter']->GetID())) . '">' . $data['hunter']->GetName() . '</a>');
 		    }
 		    
 		    $table->EndTable();

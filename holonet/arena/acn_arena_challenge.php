@@ -28,55 +28,6 @@ function output() {
     echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 
     if ($sheet->HasSheet($hunter->GetID())){
-    
-	    $challenges = $ladder->Pending($hunter->GetID());
-	
-	    if (count($challenges)) {
-	        $table = new Table('Pending Challenges', true);
-	        $table->StartRow();
-	        $table->AddHeader('Challenger');
-	        $table->AddHeader('Match Type');
-	        $table->AddHeader('Location');
-	        $table->AddHeader('Weapon Type');
-	        $table->AddHeader('Num. of Weapons');
-	        $table->AddHeader('Posts');
-	        /*if (in_array($hunter->GetID(), $ttg->Members())){
-		        $table->AddHeader('Gauntlet Match');
-	        }*/
-	        $table->AddHeader('&nbsp;', 2);
-	        $table->EndRow();
-	        foreach($challenges as $value) {
-	            $type = $value->GetType();
-	            $challenger = $value->GetChallenger();
-	            $weapon = $value->GetWeaponType();
-	            $location = $value->GetLocation();
-	            /*$gauntlet = 'No';
-	            
-	            if ($value->IsTTG()){
-		            $gauntlet = 'Yes';
-	            }*/
-	            
-	            $table->StartRow();
-	            $table->AddCell('<a href="' . internal_link('hunter', array('id'=>$challenger->GetID()), 'roster') . '">' . $challenger->GetName() . '</a>');
-	            $table->AddCell($type->GetName());
-	            $table->AddCell($location->GetName());
-	            $table->AddCell($weapon->GetWeapon());
-	            $table->AddCell($value->GetWeapons());
-	            $table->AddCell($value->GetPosts());
-	            /*if (in_array($hunter->GetID(), $ttg->Members())){
-			        $table->AddCell($gauntlet);
-		        }*/
-	            $table->AddCell('<a href="' . internal_link('acn_arena_accept', array('id'=>$value->GetID())) . '">Accept</a>');
-	            $table->AddCell('<a href="' . internal_link('acn_arena_decline', array('id'=>$value->GetID())) . '">Decline</a>');
-	            $table->EndRow();
-	        }
-	        $table->EndTable();
-	    }
-	    else {
-	        echo 'You have no challenges pending.';
-	    }
-	
-	    hr();
 	
 	    $i = 1;
 	    $wtypes = $ladder->WeaponTypes();
