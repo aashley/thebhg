@@ -61,6 +61,27 @@ function output() {
         $form->AddHidden('table', $table);
         $locations = mysql_query('SELECT * FROM ' . $table . ' ORDER BY name', $lyarna);        
 
+        $kabals_result = $roster->GetDivisions();
+	    
+		$kabals = array();
+		$names = array();
+		foreach ($roster->GetPositions() as $name){
+			$names[] = '<option value="'.$name->GetID().'">'.$name->GetName().'</option>';
+		}
+		$positions = implode('', $names);
+    
+		foreach ($kabals_result as $kabal) {
+      
+		      if ($kabal->GetID() != 16) {
+		        
+		        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
+		          .$kabal->GetName()."</option>\n";
+		      }
+      
+    	}
+    
+		$kabals = implode('', $kabals);
+        
 		$form->table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
 		$i = 0;
 		
