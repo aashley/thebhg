@@ -85,7 +85,7 @@ class Form {
 		$this->table->AddRow('<label for="' . htmlspecialchars($name) . '">' . $label . '</label>', '<input type="file" id="' . htmlspecialchars($name) . '" name="' . htmlspecialchars($name) . '">');
 	}
 
-	function AddSubmitButton($name = '', $value = '') {
+	function AddSubmitButton($name = '', $value = '', $resetText = 'Reset') {
 		$this->table->StartRow();
 		$sb = '<input type="submit"';
 		if ($name) {
@@ -94,7 +94,7 @@ class Form {
 		if ($value) {
 			$sb .= ' value="' . htmlspecialchars($value) . '"';
 		}
-		$this->table->AddCell('<div style="text-align: right"><input type="reset">&nbsp;&nbsp;&nbsp;' . $sb . '></div>', 2);
+		$this->table->AddCell('<div style="text-align: right"><input type="reset" value="' . htmlspecialchars($resetText) .'">&nbsp;&nbsp;&nbsp;' . $sb . '></div>', 2);
 		$this->table->EndRow();
 	}
 

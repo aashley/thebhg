@@ -26,7 +26,7 @@ function output() {
 			echo 'Are you sure you wish to reset the password for ' . $pleb->GetName() . '?';
 			$form = new Form($page, 'post');
 			$form->AddHidden('id', $_POST['id']);
-			$form->AddSubmitButton('confirm', 'Yes');
+			$form->AddSubmitButton('confirm', 'Yes', 'No');
 			$form->EndForm();
 		}
 	}
@@ -37,7 +37,7 @@ function output() {
 		
 		$form = new Form($page, 'post');
 		$form->AddTextBox('Roster ID:', 'id', '', 5);
-		$form->AddSubmitButton('', 'Reset Password');
+		$form->AddSubmitButton('', 'Reset Password', 'Clear');
 		$form->EndForm();
 	}
 
