@@ -922,7 +922,7 @@
 	}
 	
 	function LoadBackup($id){
-		$sql = "SELECT * FROM `character_sheet_backups` WHERE `id` = '".$id."' AND `date_deleted` = 0";
+		$sql = "SELECT * FROM `character_sheet_backups` WHERE `id` = '".$id."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    if (mysql_num_rows($query)){
@@ -949,7 +949,7 @@
 	}
 	
 	function LoadCore($id){
-		$sql = "SELECT * FROM `character_sheet_cores` WHERE `id` = '".$id."' AND `date_deleted` = 0";
+		$sql = "SELECT * FROM `character_sheet_cores` WHERE `id` = '".$id."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    if (mysql_num_rows($query)){
