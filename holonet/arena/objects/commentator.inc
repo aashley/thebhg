@@ -28,7 +28,7 @@
 	        $this->multiple = '('.implode(' OR ', $this->multiple).')';
         } else {
 	        $info = mysql_fetch_array($query);
-	        $this->multiple = "arena_irca_match.hc = '".$info['id']."'"
+	        $this->multiple = "arena_irca_match.hc = '".$info['id']."'";
         }
         
         if ($result = @mysql_fetch_array($query)) {
