@@ -208,6 +208,8 @@ function get_auth_data($hunter) {
     
     $lists = array();
     $activities = array();
+    $acts = array();
+    $listy = array();
     
     $search = $arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'bhg_id'=>$hunter->GetID())));
     foreach ($search as $obj){

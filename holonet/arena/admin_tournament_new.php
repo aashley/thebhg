@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Arena Tournament :: Start New Tournament';
+    return 'Administration :: Tournament :: Start New Tournament';
 }
 
 function auth($person) {
@@ -8,13 +8,10 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    $activity = new Obj('ams_activities', $_REQEUST['id'], 'holonet');
-    $type = new Obj('ams_types', $activity->Get(type), 'holonet');
-    if ($type->Get(opponent)){
+    
+    if (in_array($_REQUEST['act'], $auth_data['activities'])){
     	return $auth_data['aide'];
 	}
-	
-	return false;
 }
 
 function output() {
@@ -22,29 +19,33 @@ function output() {
 
     arena_header();
     
-    $at = new Tournament();
-    
-    if (isset($_REQUEST['submit'])) {
+    $activity = new Obj('ams_activities', $_REQEUST['act'], 'holonet');
+    $type = new Obj('ams_types', $activity->Get(type), 'holonet');
+    if ($type->Get(opponent)){
+	    $at = new Tournament($_REQUEST['act']);
 	    
-	    if ($at->SetSignup(parse_date_box('start'), parse_date_box('end'), $_REQUEST['double_elim'], $_REQUEST['id'])){
-		    echo "New season information added.";
+	    if (isset($_REQUEST['submit'])) {
+		    
+		    if ($at->SetSignup(parse_date_box('start'), parse_date_box('end'), $_REQUEST['double_elim'], $_REQUEST['act'])){
+			    echo "New season information added.";
+		    } else {
+			    echo 'Error';
+		    }
+		    
 	    } else {
-		    echo 'Error';
+	    
+		    $form = new Form($page);
+		    
+		    $form->AddDateBox('Start Date', 'start');
+		    $form->AddDateBox('End Date', 'end');
+		    $form->AddCheckBox('Double Elimination', 'double_elim', '1');
+		    $form->AddHidden('act', $_REQUEST['act']);
+		    
+		    $form->AddSubmitButton('submit', 'Start New Season');
+		    
+		    $form->EndForm();
+		    
 	    }
-	    
-    } else {
-    
-	    $form = new Form($page);
-	    
-	    $form->AddDateBox('Start Date', 'start');
-	    $form->AddDateBox('End Date', 'end');
-	    $form->AddCheckBox('Double Elimination', 'double_elim', '1');
-	    $form->AddHidden('id', $_REQUEST['id']);
-	    
-	    $form->AddSubmitButton('submit', 'Start New Season');
-	    
-	    $form->EndForm();
-	    
     }
     
     admin_footer($auth_data);

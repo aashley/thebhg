@@ -48,7 +48,7 @@ function self($link){
 
 function other($other){
 	global $page;
-	return '<a href="'.internal_link('admin_'.$other['page'], array('id'=>$_REQUEST['id'])).'">'.$other['name'].'</a>';
+	return '<a href="'.internal_link('admin_'.$other['page'], array('act'=>$_REQUEST['id'])).'">'.$other['name'].'</a>';
 }
 
 function frmt($name, $op, $desc, $attn = 0){
@@ -116,7 +116,18 @@ function output() {
 		    $table->EndRow();
 		    $options = array();
 		    
-		    $options[] = formt('Begin a new Tournament', 'tournament_new', 'Start a new Tournament for the '.$activity->Get(name).'.');  
+		    $at = new Tournament($activity->Get(id));
+		    
+		    if ($at->Started() && !$at->Ended()){
+			    $options[] = formt('Add Hunter as Wildcard', 'tournament_wildcard', 'Adds a new hunter to the mix.');
+			    $options[] = formt('Delete Hunters', 'tournament_manage', 'Allows you to delete people you have teh hate for.');
+			    $options[] = formt('Randomize Brackets', 'tournament_random', 'Randomizes the brackets. <h5>Warning: Sentience Has Power Here</h5>');
+			    $options[] = formt('Organize Round Brackets', 'tournament_organize', 'Allows you to fuddle with the brackets.');
+			    $options[] = formt('Add Round to ATN', 'tournament_atn', 'Once you are good and happy, add round to the tracker.');
+			    $options[] = formt('Enter Round Stats', 'tournament_round', 'Select winners, losers, DQers, et cetra.');
+		    } else {
+		    	$options[] = formt('Begin a new Tournament', 'tournament_new', 'Start a new Tournament for the '.$activity->Get(name).'.');
+	    	}  
 	    
 		    foreach ($options as $option){
 			    $table->StartRow();

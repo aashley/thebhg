@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Arena Tournament :: Add Wildcard';
+    return 'Administration :: Tournament :: Add Wildcard';
 }
 
 function auth($person) {
@@ -8,7 +8,9 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['aide'];
+    if (in_array($_REQUEST['act'], $auth_data['activities'])){
+    	return $auth_data['aide'];
+	}
 }
 
 function output() {
@@ -16,7 +18,7 @@ function output() {
 
     arena_header();
     
-    $at = new Tournament();
+    $at = new Tournament($_REQUEST['act']);
 
     if (isset($_REQUEST['submit'])) {
 	    if ($at->Wildcard($_REQUEST['bhg_id'])){
@@ -28,6 +30,7 @@ function output() {
 	    $form = new Form($page);
         include_once 'search.php';
         $form->AddSubmitButton('submit', 'Add Wildcard');
+        $form->AddHidden('act', $_REQUEST['act']);
         $form->EndForm();
 	}
     

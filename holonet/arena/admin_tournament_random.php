@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Arena Tournament :: Randomize Brackets';
+    return 'Administration :: Tournament :: Randomize Brackets';
 }
 
 function auth($person) {
@@ -8,7 +8,9 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['aide'];
+    if (in_array($_REQUEST['act'], $auth_data['activities'])){
+    	return $auth_data['aide'];
+	}
 }
 
 function output() {
@@ -16,7 +18,7 @@ function output() {
 
     arena_header();
     
-    $at = new Tournament();
+    $at = new Tournament($_REQUEST['act']);
 
     if ($at->Randomize()){
         echo "Brackets randomized.";

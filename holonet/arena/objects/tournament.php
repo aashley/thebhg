@@ -5,12 +5,14 @@
 	var $season;
 	var $doubleelim;
 	var $denied;
+	var $activity;
 	 
-    function Tournament($id = 0){
+    function Tournament($activity, $id = 0){
         Arena::Arena();
         
         $this->CurrentSeason($id);
         $this->DoubleElim($id);
+        $this->activity = $activity;
     }
     
 	function Seasons(){
@@ -29,7 +31,7 @@
         if ($old){
             $this->season = $old;
         } else {
-            $sql = "SELECT * FROM `ams_tourney_dates` ORDER BY `start` DESC LIMIT 1";
+            $sql = "SELECT * FROM `ams_tourney_dates` WHERE `activity` = '".$this->activity."' ORDER BY `start` DESC LIMIT 1";
             $query = mysql_query($sql, $this->holonet);
             $info = mysql_fetch_array($query);
 
@@ -50,7 +52,7 @@
     }
 
     function SetSignup($start, $end, $double_elim, $activity){
-        $sql = "INSERT INTO `ams_tourney_dates` (`start`, `end`, `doubleelim`, `activity`) VALUES ('$start', '$end', '$double_elim')";
+        $sql = "INSERT INTO `ams_tourney_dates` (`start`, `end`, `doubleelim`, `activity`) VALUES ('$start', '$end', '$double_elim', '$activity')";
 
         if (mysql_query($sql, $this->holonet)){
             return true;
@@ -71,29 +73,20 @@
         $info = mysql_fetch_array($query);
 
         if ($info['start'] < time()){
-
             if ($info['end'] > time()){
-
                 return true;
-
             } else {
-
                 return false;
-
             }
 
         } else {
-
             return false;
-
         }
 
     }
 
     function Signup($bhg_id){
-
         if ($this->ValidSignup()){
-
             $sql = "SELECT * FROM `ams_tourney_data` WHERE `bhg_id` = '$bhg_id' AND `season` = '".$this->season."'";
             $query = mysql_query($sql, $this->holonet);
 
@@ -120,12 +113,9 @@
             }
 
         } else {
-
 	        $this->denied = 'Invalid signup dates.';
             return false;
-
         }
-
     }
 
     function GetHunters(){
@@ -190,6 +180,13 @@
         return (mysql_num_rows($query) > 0);
     }
 
+    function Ended(){
+        $sql = "SELECT * FROM `ams_tourney_data` WHERE `bracket` = '1' AND `round` = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->holonet);
+
+        return (mysql_num_rows($query) == 1);
+    }
+    
     function Randomize(){
         $sql = "SELECT * FROM `ams_tourney_data` WHERE `graded` > '0' AND round = '".$this->CurrentRound()."' AND `season` = '".$this->season."'";
         $query = mysql_query($sql, $this->holonet);
@@ -514,57 +511,6 @@
             }
         }
     }
-
-    function AddToATN($location = '', $type = 3, $posts = 3, $weapons = 3, $weapon_type = 3){
-	 
-	    $random = false;
-	    
-	    if (!$location){
-            $ladder = new Ladder();
-            
-            $locations = $ladder->Locations();
-            
-            $random = true;
-        }
-	    
-        $errors = false;
-        
-	    for ($i = 1; $i <= $this->RoundBrackets($this->CurrentRound()); $i++){
-		    
-		    $sql = "SELECT * FROM `ams_tourney_data` WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
-		    		"`bracket` = '$i'";
-		    $query = mysql_query($sql, $this->holonet);
-		    $people = array();
-		    
-		    while ($info = mysql_fetch_array($query)){
-			    $people[] = new Person($info['bhg_id']);
-		    }
-		    
-		    $person1 = $people[0];
-		    $person2 = $people[1];
-		    
-            $name = "Arena Tournament Round ".$this->CurrentRound().": ".$person1->GetName()." vs. ".$person2->GetName();
-            
-            if ($random){
-	            $location = array_rand($locations);
-            }
-            
-            $local = explode('_', $location);
-            
-            $control = new Control();
-            if (!$control->OldMatch($type, $local[0], $local[1], $posts, $weapons, $person1->GetID(), $person2->GetID(), $weapon_type, $name, 0, 0, 0)){
-	            $errors = true;
-            }
-
-        }
-        
-        if ($errors){
-	        return false;
-        } else {
-	        return true;
-        }
-	       
-    }    
     
     function Organize($bracket_start, $hunter_start, $bracket_end, $hunter_end){
 	    $sql = "UPDATE `ams_tourney_data` SET `bracket` = '$bracket_start' WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
@@ -659,16 +605,16 @@
         $table->EndRow();
         
         $table->StartRow();
-        $table->AddCell('<a href="'. internal_link('admin_tournament_win', array('id'=>$person1->GetID(), 'bracket'=>$bracket)) . '">' . $person1->GetName() . '</a>'.' ('.$win1.')');
+        $table->AddCell('<a href="'. internal_link('admin_tournament_win', array('id'=>$person1->GetID(), 'bracket'=>$bracket, 'act'=>$this->activity)) . '">' . $person1->GetName() . '</a>'.' ('.$win1.')');
         $table->EndRow();
         
         $table->StartRow();
-	    $table->AddCell('<a href="'. internal_link('admin_tournament_ddq', array('id'=>$bracket)) . '">Double DQ</a> | <a href="'
-	    		. internal_link('admin_tournament_tie', array('id'=>$bracket)) . '">Tie</a>');
+	    $table->AddCell('<a href="'. internal_link('admin_tournament_ddq', array('id'=>$bracket, 'act'=>$this->activity)) . '">Double DQ</a> | <a href="'
+	    		. internal_link('admin_tournament_tie', array('id'=>$bracket, 'act'=>$this->activity)) . '">Tie</a>');
         $table->EndRow();
         
         $table->StartRow();
-        $table->AddCell('<a href="'. internal_link('admin_tournament_win', array('id'=>$person2->GetID(), 'bracket'=>$bracket)) . '">' . $person2->GetName() . '</a>'.' ('.$win2.')');
+        $table->AddCell('<a href="'. internal_link('admin_tournament_win', array('id'=>$person2->GetID(), 'bracket'=>$bracket, 'act'=>$this->activity)) . '">' . $person2->GetName() . '</a>'.' ('.$win2.')');
         $table->EndRow();
 
     }
@@ -709,7 +655,7 @@
         
         $person1 = new Person($first['bhg_id']);
         $person2 = new Person($second['bhg_id']);
-        
+        $form->AddHidden('act', $this->activity);
         $form->table->StartRow();
         $form->table->AddHeader('Bracket '.$bracket, 2);
         $form->table->EndRow();
@@ -725,17 +671,11 @@
     }
     
     function DeleteSignup($bhg_id){
-
         $sql = "DELETE FROM `ams_tourney_data` WHERE `bhg_id` = '$bhg_id' AND `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."'";
-
         if (mysql_query($sql, $this->holonet)){
-			
             return true;
-
         } else {
-
             return false;
-
         }
 
     }
