@@ -233,11 +233,13 @@ function output() {
 		    $table->AddHeader('Shared Sheets', 5);
 		    $table->EndRow();
 		    
-		    $table->AddRow('Sheet', 'Person', '&nbsp');
+		    $table->AddRow('Sheet', 'Person', 'Shared With', '&nbsp');
 		    
 		    foreach ($shares as $data){
 			    $hunt = new Person($data['hunter']);
-			    $table->AddRow($data['name'], '<a href="'.internal_link('atn_general', array('id'=>$data['hunter'])).'">'.$hunt->GetName().'</a>',
+			    $with = new Person($data['with']);
+			    $table->AddRow($data['name'], '<a href="'.internal_link('atn_general', array('id'=>$data['hunter'])).'">'.$hunt->GetName().'</a>', 
+			    '<a href="'.internal_link('atn_general', array('id'=>$with->GetID())).'">'.$with->GetName().'</a>',
 			    '<a href="'.internal_link($page, array('delshare'=>1, 'sheet'=>$data['id'], 'hunt'=>$data['hunter'])).'">Delete Share</a>');
 		    }
 		    

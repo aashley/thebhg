@@ -39,7 +39,7 @@
 			$infor = mysql_fetch_array($queryb);
 			
 			if (mysql_num_rows($querya)){
-				$return[] = array('id'=>$info['sheet'], 'hunter'=>$infor['bhg_id'], 'name'=>stripslashes($infor['save_name']));
+				$return[] = array('id'=>$info['sheet'], 'with'=>$info['bhg_id'], 'hunter'=>$infor['bhg_id'], 'name'=>stripslashes($infor['save_name']));
 			}
 		}
 		
