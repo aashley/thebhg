@@ -66,7 +66,7 @@ function output() {
 			    foreach ($poll->GetOptions() as $option){
 				    $per = $votes[$option->GetID()];
 				    if ($votes['total']){
-					    $perce = $per/$votes['total'];
+					    $perce = count($per)/$votes['total'];
 					    $percent = $perce*100;
 					    $percent = round($percent, 0);
 				    } else {
