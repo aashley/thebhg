@@ -51,7 +51,7 @@ function output() {
 	$form->AddHidden('id', $pleb->GetID());
 	$form->StartSelect('Month:', 'month', $month);
 	for ($i = 1; $i <= 12; $i++) {
-		$m = mktime(0, 0, 0, $i);
+		$m = mktime(0, 0, 0, $i, 1);
 		$form->AddOption(date('n', $m), date('F', $m));
 	}
 	$form->EndSelect();
