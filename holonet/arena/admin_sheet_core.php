@@ -20,7 +20,7 @@ function output() {
     $character = new Character($hunter->GetID());
     
     $saves = $character->GetCores();
-print_r($saves);
+
     if (!$_REQUEST['sheet'] && !$_REQUEST['new'] && !$_REQUEST['view'] && !$_REQUEST['save']){
 	    echo '<a href="'.internal_link($page, array('new'=>1)).'">Make new CORE Sheet</a>.';
 		hr();
@@ -177,6 +177,7 @@ print_r($saves);
 		    	}
 	    	}
 	    	$form->AddHidden('process', 1);
+	    	echo $saves[$_REQUEST['sheet']]['bhg_id'];
 	    	if (($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID())){
 	    		$form->AddHidden('sheet', $_REQUEST['sheet']);
     		}
