@@ -53,6 +53,14 @@
 	    $sql = "INSERT INTO `arena_ro_cadre` (`hunter`, `cadre`, `title`, `plot`) VALUES ('".$leader->GetID()."', '".$cadre->GetID()."', '".addslashes($title)."', '".addslashes($plot)."')";
 	    $query = mysql_query($sql, $this->connect);
 	    
+	    $text = $cadre->GetName()." Cadre has requested a Run-On.";
+
+        $from = "overseer@thebhg.org";
+        $subject = "Character Attribute Awarded";
+
+        $ro = new Person($this->CurrentMM());
+        $ro->SendEmail($from, $subject, $text);
+	    
 	    return ($query ? true : false);
     }
     
