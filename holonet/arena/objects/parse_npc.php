@@ -46,6 +46,7 @@
 	    	}
 	    	$this->npc_string['field'][] = $field;
     	}
+    	print_r($this->npc_string);
 	}
 
 function letters_in_set($word, $letters) {
