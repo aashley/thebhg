@@ -81,6 +81,28 @@ if ($_REQUEST['match']){
 			$form = new Form($page);
 			
 			$form->AddTextArea('Post Info', 'poster', $obj->Get(comments));
+			$locations = $arena->Locations();
+			
+			($obj->Get(location) ? $form->table->AddRow('Location:', $locations[$obj->Get(location)]) : '');
+			$data = unserialize($match->Get(specifics));
+			
+			$builds = array();
+	    
+		    foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>0))) as $ob){
+			    $new = new Obj('ams_specifics_types', $ob->Get(resource), 'holonet');
+			    $builds[addslashes($new->Get(name))] = $new;
+			}
+			
+			ksort($builds);
+			
+		    $table->AddRow('Name:', ($match->Get(name) ? $match->Get(name) : 'No Name'));
+		    foreach ($builds as $build){
+			    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get(id)))) as $ob) {
+				    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
+			        $table->AddRow($ob->Get(name).':', $info->Get(name));
+			    }
+		    }
+			
 			
 			if ($type->Get(npc)){
 				$data = unserialize($obj->Get(specifics));

@@ -31,6 +31,8 @@ function output() {
 
     if (is_object($activity)){
     
+	    $builds = array();
+	    
 	    foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>0))) as $ob){
 		    $new = new Obj('ams_specifics_types', $ob->Get(resource), 'holonet');
 		    $builds[addslashes($new->Get(name))] = $new;
@@ -69,6 +71,7 @@ function output() {
 		    $data = unserialize($match->Get(specifics));
 		    $table->AddRow('Topic ID:', ($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
 		    $table->AddRow('Name:', ($match->Get(name) ? $match->Get(name) : 'No Name'));
+		    ($obj->Get(location) ? $table->AddRow('Location:', $locations[$obj->Get(location)]) : '');
 		    foreach ($builds as $build){
 			    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get(id)))) as $ob) {
 				    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
