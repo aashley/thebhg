@@ -62,7 +62,7 @@ function output() {
 	    }
     }
     
-    $form->table->EndForm();
+    $form->EndForm();
     admin_footer($auth_data);
 }
 ?>
