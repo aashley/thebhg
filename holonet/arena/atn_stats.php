@@ -78,6 +78,7 @@ function output() {
 		    
 		    $urg = ($match->Get(should_be) <= time() && $match->Get(should_be) > 0);
 		    ($urg ? $table->AddRow('Due By:', $match->Get(should_be, 0, 1)) : '');
+		    $table->AddRow('Status:', $stat);
 		    if ($match->Get(data)){
 			    $ser = unserialize($match->Get(data));
 			    if (is_array($ser)){
@@ -91,7 +92,7 @@ function output() {
 			    }
 		    }
 		    ($match->Get(comments) ? $table->AddRow('Comments:', $match->Get(comments, 1)) : '');
-		    $table->AddRow('Status:', $stat);
+		    
 		    $table->EndRow();
 	    }
 	    
