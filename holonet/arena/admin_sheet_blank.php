@@ -16,14 +16,40 @@ function output() {
 
     arena_header();
 	
-	$form = new Form($page);
-	$form->StartSelect('Choose Division');
-	foreach ($roster->GetDivisions() as $kabal){
-		$form->AddOption($kabal->GetID(), $kabal->GetName());
+    if (isset($_REQUEST['submit'])) {
+	    $character = new Character($_REQUEST['person']);
+		if ($character->IsNew()){
+			if (!$character->NewSheet()){
+				NEC(158);
+				admin_footer($auth_data);
+				return;
+			} else {
+				echo 'Sheet created.';
+			}
+		} else {
+			echo 'Character has a sheet.';
+		}
+    }
+    elseif ($_REQUEST['next'){
+	    $form = new Form($page);
+		$form->StartSelect('Choose Hunter', 'person');
+		$kab = new Division($_REQUEST['kabal']);
+		foreach ($kab->GetMembers('name') as $kabal){
+			$form->AddOption($kabal->GetID(), $kabal->GetName());
+		}
+		$form->EndSelect();
+		$form->AddSubmitButton('submit', 'Insert Blank');
+		$form->EndForm();
+    } else {
+		$form = new Form($page);
+		$form->StartSelect('Choose Division', 'kabal');
+		foreach ($roster->GetDivisions() as $kabal){
+			$form->AddOption($kabal->GetID(), $kabal->GetName());
+		}
+		$form->EndSelect();
+		$form->AddSubmitButton('next', 'Choose Hunter');
+		$form->EndForm();
 	}
-	$form->EndSelect();
-	$form->AddSubmitButton('next', 'Choose Hunter');
-	$form->EndForm();
 
     admin_footer($auth_data);
 }
