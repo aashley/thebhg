@@ -298,12 +298,11 @@
 		    $table->StartRow();
 		    $table->AddHeader('Character Attributes', 2);
 		    $table->EndRow();
-		    
+		    print_r($return);
 		    foreach ($return as $id){
 			    $ca = $this->GetCA($id);
 			    $stats = $this->GetCAValues($id);
-			    $stat = '';
-			    print_r($stats);
+			    $stat = '';			    
 			    if (count($stats)){
 				    $stat .= '<hr noshade height=1 width=50%>Stat Modifiers';
 			    	foreach ($stats as $info){
