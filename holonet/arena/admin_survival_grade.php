@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Solo Mission :: Contract Grade Editor';
+    return 'Administration :: Survival Missions :: Contract Grade Editor';
 }
 
 function auth($person) {
@@ -8,7 +8,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['solo'];
+    return $auth_data['survival'];
 }
 
 function output() {
@@ -16,9 +16,9 @@ function output() {
 
     arena_header();
 
-    $solo = new Solo();
+    $solo = new Survival();
     if (isset($_REQUEST['id'])){
-    	$type = new Grade($_REQUEST['id']);
+    	$type = new SurvivalGrade($_REQUEST['id']);
 	}
 
     if (isset($_REQUEST['edit'])){
@@ -54,21 +54,21 @@ function output() {
 		if ($new){
 			echo "Successfully added new grade.";
 		} else {
-			NEC(87);
+			NEC(181);
         }
     }
     elseif (isset($_REQUEST['delete'])) {
         if ($type->Delete()) {
             echo "Deleted successfully.";
         } else {
-	        NEC(85);
+	        NEC(182);
         }
     }
     elseif (isset($_REQUEST['undelete'])) {
         if ($type->Undelete()) {
             echo "Undeleted successfully.";
         } else {
-	        NEC(86);
+	        NEC(183);
         }
     }
     else {

@@ -67,8 +67,8 @@
 	    }
     }
 
-    function NewGrade($name, $description){
-	    $sql = "INSERT INTO `arena_solo_grades` (`name`, `desc`) VALUES ('".addslashes($name)."', '".addslashes($description)."')";
+    function NewGrade($name, $description, $points){
+	    $sql = "INSERT INTO `arena_solo_grades` (`name`, `desc`, `points`) VALUES ('".addslashes($name)."', '".addslashes($description)."')";
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;
@@ -78,7 +78,7 @@
     }
     
     function NewType($name, $description){
-	    $sql = "INSERT INTO `arena_solo_types` (`name`, `description`) VALUES ('".addslashes($name)."', '".addslashes($description)."')";
+	    $sql = "INSERT INTO `arena_solo_types` (`name`, `description`, `points`) VALUES ('".addslashes($name)."', '".addslashes($description)."')";
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;
@@ -264,7 +264,8 @@
         $var = array();
 
         while ($result = mysql_fetch_array($query)){
-            $var[$result['bhg_id']][] = $result['grade'];
+            $grade = new Grade($result['grade']);
+            $var[$result['bhg_id']][] = $grade->GetPoints();
         }
 
         $count = count($var);

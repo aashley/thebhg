@@ -9,6 +9,7 @@
     var $contract_grade;
     var $contract_creds;
     var $contract_xp;
+    var $contract_creature;
     var $contract_requested;
     var $contract_completed;
 

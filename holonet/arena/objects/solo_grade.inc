@@ -5,6 +5,7 @@
     var $arena_solo_id;
     var $arena_solo_name;
     var $arena_solo_description;
+	var $arena_solo_points;
 
     function Grade($id) {
         Arena::Arena();
@@ -31,6 +32,10 @@
         return stripslashes($this->arena_solo_name);
     }
 
+    function GetPoints(){
+	    return $this->arena_solo_points;
+    }
+    
     function GetDesc() {
         return stripslashes(nl2br($this->arena_solo_description));
     }
@@ -42,7 +47,7 @@
         return mysql_num_rows($query);
     }
 
-    function Edit($name, $description) {
+    function Edit($name, $description, $points) {
         $sql = "UPDATE `arena_solo_grades` SET ";
         $add = array();
         $return = "";
@@ -57,6 +62,11 @@
             $return .= "Description Edited.<br />";
         }
 
+        if ($points != $this->arena_solo_points){
+            array_push($add, "`points` = '$points'");
+            $return .= "Award Points Edited.<br />";
+        }
+        
         $sql .= implode(', ', $add);
 
         $sql .= " WHERE `id` = '".$this->arena_solo_id."'";

@@ -5,6 +5,7 @@
     var $arena_survival_id;
     var $arena_survival_name;
     var $arena_survival_description;
+    var $arena_survival_points;
 
     function SurvivalGrade($id) {
         Arena::Arena();
@@ -26,6 +27,10 @@
     function GetID() {
         return $this->arena_survival_id;
     }
+    
+    function GetPoints(){
+	    return $this->arena_survival_points;
+    }
 
     function GetName() {
         return stripslashes($this->arena_survival_name);
@@ -42,7 +47,7 @@
         return mysql_num_rows($query);
     }
 
-    function Edit($name, $description) {
+    function Edit($name, $description, $points) {
         $sql = "UPDATE `arena_survival_grades` SET ";
         $add = array();
         $return = "";
@@ -55,6 +60,11 @@
         if ($description != $this->arena_survival_description){
             array_push($add, "`description` = '".addslashes($description)."'");
             $return .= "Description Edited.<br />";
+        }
+        
+        if ($points != $this->arena_survival_points){
+            array_push($add, "`points` = '$points'");
+            $return .= "Award Points Edited.<br />";
         }
 
         $sql .= implode(', ', $add);
