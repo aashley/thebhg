@@ -11,6 +11,8 @@ function auth($person) {
     if (in_array($_REQUEST['act'], $auth_data['activities'])){
     	return $auth_data['aide'];
 	}
+	
+	return false;
 }
 
 function output() {

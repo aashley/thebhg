@@ -8,10 +8,11 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    
     if (in_array($_REQUEST['act'], $auth_data['activities'])){
     	return $auth_data['aide'];
 	}
+	
+	return false;
 }
 
 function output() {
