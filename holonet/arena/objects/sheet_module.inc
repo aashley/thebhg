@@ -147,6 +147,7 @@
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $ca = $this->GetCa($info['ca']);
+		    echo $ca['date_deleted'];
 		    if (!$ca['date_deleted']){
 		    	$return[] = array('ca'=>$info['ca'], 'person'=>new Person($info['bhg_id']), 'name'=>$ca['name']);
 	    	}
