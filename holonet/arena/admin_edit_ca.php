@@ -27,6 +27,7 @@ function output() {
 		    } else {
 			    NEC(217);
 		    }
+		    print_r($_REQUEST);
 			foreach ($_REQUEST['stats'] as $id){
 				if ($_REQUEST['del'][$id]){
 					$sheet->DeleteCAValue($id);
