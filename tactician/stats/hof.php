@@ -2,6 +2,8 @@
 include('../header.php');
 page_header('Mission Hall of Fame');
 
+define('NA', 1000);
+
 class Mission {
 	var $id;
 	var $author;
@@ -9,15 +11,18 @@ class Mission {
 	var $correct;
 	var $total;
 
-	function Mission($id, $author, $title, $correct, $total) {
+	function Mission($id, $author, $title) {
 		$this->id = $id;
 		$this->author = $author;
 		$this->title = $title;
-		$this->correct = $correct;
-		$this->total = $total;
+		$this->correct = 0;
+		$this->total = 0;
 	}
 
 	function GetPercentage() {
+		if ($this->total == 0)
+			return NA;
+		
 		return (100 * ($this->correct / $this->total));
 	}
 }
@@ -39,17 +44,19 @@ function sort_missions($a, $b) {
 
 $missions = array();
 
-$total_result = mysql_query('SELECT missions.id, missions.author, missions.title, COUNT(DISTINCT answers.id) AS num FROM answers, missions WHERE answers.mission=missions.id AND missions.complete=1 GROUP BY missions.id', $db);
-while ($row = mysql_fetch_array($total_result)) {
-	$missions[$row['id']] = new Mission($row['id'], $row['author'], stripslashes($row['title']), 0, $row['num']);
-}
+$all_result = mysql_query('SELECT id, author, title FROM missions WHERE complete=1 AND hidden=0', $db);
+while ($row = mysql_fetch_array($all_result))
+	$missions[$row['id']] = new Mission($row['id'], $row['author'], stripslashes($row['title']));
 
-$correct_result = mysql_query('SELECT missions.id, COUNT(DISTINCT answers.id) AS num FROM answers, missions WHERE answers.mission=missions.id AND answers.correct=1 AND missions.complete=1 GROUP BY missions.id', $db);
-while ($row = mysql_fetch_array($correct_result)) {
+$total_result = mysql_query('SELECT missions.id, COUNT(DISTINCT answers.id) AS num FROM answers, missions WHERE answers.mission=missions.id AND missions.complete=1 AND missions.hidden=0 GROUP BY missions.id', $db);
+while ($row = mysql_fetch_array($total_result))
+	$missions[$row['id']]->total = $row['num'];
+
+$correct_result = mysql_query('SELECT missions.id, COUNT(DISTINCT answers.id) AS num FROM answers, missions WHERE answers.mission=missions.id AND answers.correct=1 AND missions.complete=1 AND missions.hidden=0 GROUP BY missions.id', $db);
+while ($row = mysql_fetch_array($correct_result))
 	$missions[$row['id']]->correct = $row['num'];
-}
 
-usort($missions, sort_missions);
+usort($missions, 'sort_missions');
 
 $table = new Table();
 $table->StartRow();
@@ -69,11 +76,16 @@ foreach ($missions as $mission) {
 		$last_rank = $row_no;
 	}
 
+	if ($perc == NA)
+		$perc = 'N/A';
+	else
+		$perc = number_format($perc, 1) . '%';
+
 	$table->StartRow();
 	$table->AddCell($last_rank);
 	$table->AddCell('<A HREF="../mission.php?id=' . $mission->id . '">' . htmlspecialchars($mission->title) . '</A>');
 	$table->AddCell(roster_link($mission->author));
-	$table->AddCell(number_format($perc, 1) . '%');
+	$table->AddCell($perc);
 	$table->EndRow();
 }
 $table->EndTable();
