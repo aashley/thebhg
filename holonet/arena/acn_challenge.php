@@ -139,7 +139,7 @@ function output() {
 		    $table->AddRow('Difficulty', 'Contract ID', '&nbsp');
 		    
 	        foreach ($hunter->Contracts() as $value) {
-		        $table->AddRow($type->GetName(), $value->GetContractID(), '<a href="'.internal_link('acn_solo_retire', array('contract'=>$value->GetID())).'">Retire Contract</a>'
+		        $table->AddRow($type->GetName(), $value->GetContractID(), '<a href="'.internal_link('acn_solo_retire', array('contract'=>$value->GetID())).'">Retire Contract</a>');
 	        }
 	        
 	        $table->EndTable();
