@@ -6,16 +6,17 @@ if [[ $# -eq 0 ]]; then
   echo "You must specify at least one of the following sites to update:"
   echo " roster          Roster Objects and Utilities"
 	echo " bugs            Bug Tracker"
+  echo " calypso         BHG Blogs"
+	echo " citadel         Citadel"
   echo " holonet         Main Holonet Site"
   echo " holonet-devel   Development and testing Holonet Site"
-	echo " mybhg           MyBHG - Main Website"
-	echo " mybhg-devel     MyBHG - Testing"
+	echo " ircstats        IRC Stats (Hermit)"
 	echo " ka              Kabal Authority"
   echo " ka-devel        Kabal Authority Development"
-  echo " calypso         BHG Blogs"
-	echo " tactician       Tactician Website"
 	echo " mall            Mall"
-	echo " ircstats        IRC Stats (Hermit)"
+	echo " mybhg           MyBHG - Main Website"
+	echo " mybhg-devel     MyBHG - Testing"
+	echo " tactician       Tactician Website"
 fi
 
 for site in $*; do
@@ -34,7 +35,7 @@ for site in $*; do
 			echo Updating Bug Tracker...
 			pushd /home/virtual/thebhg.org/home/bugs/public_html > /dev/null
 			$SVN update
-			chown -R 22238:admin5 .
+			chown -R 22096:admin5 .
 			popd > /dev/null
 			;;
 
@@ -42,7 +43,7 @@ for site in $*; do
 			echo Updating Holonet...
 			pushd /home/virtual/thebhg.org/home/holonet/public_html > /dev/null
 			$SVN update
-			chown -R 22257:admin5 .
+			chown -R 22110:admin5 .
 			popd > /dev/null
 			;;
 
@@ -66,7 +67,7 @@ for site in $*; do
 			echo Updating MyBHG Development...
 			pushd /home/virtual/thebhg.org/home/my/public_html > /dev/null
 			$SVN update
-			chown -R 22277:admin5 .
+			chown -R 22129:admin5 .
 			popd > /dev/null
 			;;
 
@@ -74,7 +75,7 @@ for site in $*; do
 			echo Updating Tactician Website...
 			pushd /home/virtual/thebhg.org/home/tactician/public_html > /dev/null
 			$SVN update
-			chown -R 22256:admin5 .
+			chown -R 22109:admin5 .
 			popd > /dev/null
 			;;
 
@@ -82,7 +83,7 @@ for site in $*; do
 			echo Updating Calypso...
 			pushd /home/virtual/thebhg.org/home/blogs/public_html > /dev/null
 			$SVN update
-			chown -R 22268:admin5 .
+			chown -R 22120:admin5 .
 			popd > /dev/null
 			;;
 
@@ -107,6 +108,14 @@ for site in $*; do
 			pushd /home/virtual/thebhg.org/home/mall/public_html > /dev/null
 			$SVN update
 			chown -R 22136:admin5 .
+			popd > /dev/null
+			;;
+
+		citadel)
+			echo Updating Citadel...
+			pushd /home/virtual/thebhg.org/home/citadel/public_html > /dev/null
+			$SVN update
+			chown -R 22117:admin5 .
 			popd > /dev/null
 			;;
 
