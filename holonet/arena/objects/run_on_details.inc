@@ -23,7 +23,7 @@
 
     function Build() {
        $sql = "SELECT arena_ro_hunters.bhg_id as bhg_id, SUM(arena_ro_hunters.creds) as points, SUM(arena_ro_hunters.first) as first FROM arena_ro, arena_ro_hunters WHERE `graded` = 1 AND "
-                    ."arena_ro.id = arena_ro_hunters.run_on AND arena_ro.date_deleted = 0 GROUP BY `arena_ro_hunters.bhg_id`";
+                    ."arena_ro.id = arena_ro_hunters.run_on AND arena_ro.date_deleted = 0 GROUP BY arena_ro_hunters.bhg_id";
 
         $query = mysql_query($sql, $this->connect);
         echo mysql_error($this->connect);
