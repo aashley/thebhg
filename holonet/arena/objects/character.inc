@@ -271,11 +271,43 @@
 	    $sql = "SELECT * FROM `character_sheet_ca` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
-	    $output = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $return[] = $this->CharacterAttributes($info['ca']);
 	    }
+	    
+	    return $return;
+    }
+    
+    function CAWrite(){
+	    $sql = "SELECT * FROM `character_sheet_ca` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[] = $info['ca'];
+	    }
+	    
+	    $table = new Table('', true);
+	    $table->StartRow();
+	    $table->AddHeader('Character Attributes', 2);
+	    $table->EndRow();
+	    
+	    foreach ($return as $id){
+		    $ca = $this->GetCA($id);
+		    $stats = $this->GetCAValues($id);
+		    $stat = '';
+		    if (count($stats)){
+			    $stat .= '<hr noshade height=1 width=50%>Stat Modifiers';
+		    	foreach ($stats as $info){
+			    	$c = ($info['mod'] > 0);
+			    	$stat .= '<br />'.$info['fo']->GetName().' '.($c ? '+' : '').$info['mod'];
+		    	}
+	    	}
+		    $table->AddRow('<div valign=top>'.$ca['name'].$stat.'</div>', $ca['description']);
+	    }
+	    
+	    $table->EndRow();
 	    
 	    return $return;
     }
@@ -1248,7 +1280,13 @@
     	
     	$table->EndTable();
 		
-    	if ($look != 'cores' || $show_anyway){ echo '</td></tr></table>'; }
+    	if ($look != 'cores' || $show_anyway){ 
+	    	
+	    	echo '</td></tr><tr><td colspan=2 align=center>';
+	    	
+	    	$this->CAWrite();
+	    	
+	    	echo '</td></tr></table>'; }
     	
 		hr();
 		
