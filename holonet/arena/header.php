@@ -15,7 +15,9 @@ if ($page == 'admin'){
 	include_once 'nav_admin.php';
 } elseif ($exp[0] == 'admin' || $exp[0] == 'coder'){
 	function admin_footer($auth){
+		echo '</td><td style="border-left: solid 1px black">';
 		echo '&nbsp;<a href="' . internal_link('admin') . '">Return&nbsp;To&nbsp;Admin</a><br />';
+		echo '</small></td></tr></table>';
 	}
 } else {
 	include_once 'navigation.php';
