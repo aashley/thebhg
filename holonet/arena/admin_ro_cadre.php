@@ -67,7 +67,7 @@ function output() {
 	    
 	    $form->table->AddRow('Approve:', '<input type="submit" name="post" value="Yes, I\'m Posting">');
 	    $form->table->StartRow();
-	    $form->table->AddCell('<input type="submit" name="deny" value="No, Deny">');
+	    $form->table->AddCell('<input type="submit" name="deny" value="No, Deny">', 2);
 	    $form->table->EndRow();
 	    
 	    $form->EndForm();
