@@ -16,123 +16,92 @@ function output() {
 
     arena_header();
     
-    if (isset($_REQUEST['submit'])){
-	    
-	    $error = false;
-	    
-	    for ($i = 0; $i < 20; $i++) {
-      
-			$person = "person$i";
-      
-			$xp = "xp$i";
-			
-			if ($_REQUEST[$person] > 0){
-				$message = $arena->Tracker($hunter, 'XP', $_REQUEST[$xp], $_REQUEST['use']);
-				$character = new Character($_REQUEST[$person]);
-	            if (!$character->XPEvent($_REQUEST[$xp], $message.$_REQUEST['reason'])){
-		            $error = true;
-	            }
-            }
-			
-		}
-		
-		if ($error){
-			NEC(169);
-		} else {
-			echo 'Experience points added.';
-		}
-		
-		hr();
-	    
-    }
-
-    $kabals_result = $roster->GetDivisions();
-	    
-			$kabals = array();
-			$sheet = new Sheet();
-	    
-			foreach ($kabals_result as $kabal) {
-	      
-			      if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
-			        
-			        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
-			          .$kabal->GetName()."</option>\n";
-			      }
-	      
-	    	}
-	    
-			$kabals = implode('', $kabals);
-			
-			$hunters = array();
-			$plebsheet = array();
-			
-			foreach ($sheet->SheetHolders() as $char) {
-			     $hunters[$char->GetName()] = new Person($char->GetID());
-	    	}
-	    	
-	    	ksort($hunters);
-	    	
-	    	foreach ($hunters as $name=>$person){
-		    	$kabal = $person->GetDivision();
-		    	$plebsheet[$kabal->GetID()][] = $person;
-	    	}
-	
-		?>
-		<script language="JavaScript1.1" type="text/javascript">
-		<!--
-		function person(id, name) {
-			this.id = id;
-			this.name = name;
-		}
-	
-		<?php
-	  
-			reset($kabals_result);
-	    
-		  $commindex = 0;
-	    
-			foreach ($kabals_result as $kabal) {
-	      
-				if ($kabal->GetID() == 16) {
-	        
-					continue;
-	        
-				}
-	      
-				echo 'roster' . $kabal->GetID() . " = new Array();\n";
-	      
-				$plebs = $plebsheet[$kabal->GetID()];
-	      
-		    if (is_array($plebs)) {
-	        
-		      $plebindex = 0;
-	        
-	        foreach ($plebs as $pleb) {
-	          
-	          $div_peeps[$pleb->GetName().':'.$plebindex] = 
-	            'roster'
-	            .(($kabal->GetID() == 9) 
-	              ? '10' 
-	              : $kabal->GetID()) 
-	            .'['.
-	            (($kabal->GetID() == 9 || $kabal->GetID() == 10) 
-	              ? $commindex++ 
-	              : $plebindex++)
-	            .'] = new person('.$pleb->GetID().', \''
-	            .str_replace("'", "\\'", shorten_string($pleb->GetName(), 40))
-	            ."');\n";
-	            
-	        }
-	        
-	        echo implode('', $div_peeps);
-	        
-	        unset($div_peeps);
-	        
-		    }
-	      
+    if (isset($_REQUEST['submit'])) {
+	    $character = new Character($_REQUEST['person0']);
+		if ($character->IsNew()){
+			if (!$character->NewSheet()){
+				NEC(158);
+				admin_footer($auth_data);
+				return;
+			} else {
+				echo 'Sheet created.';
 			}
-	    
-		?>
+		} else {
+			echo 'Character has a sheet.';
+		}
+    }
+    else {
+        $kabals_result = $roster->GetDivisions();
+    
+		$kabals = array();
+    
+		foreach ($kabals_result as $kabal) {
+      
+      if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
+        
+        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
+          .$kabal->GetName()."</option>\n";
+      }
+      
+    }
+    
+		$kabals = implode('', $kabals);
+	?>
+	<script language="JavaScript1.1" type="text/javascript">
+	<!--
+	function person(id, name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	<?php
+  
+		reset($kabals_result);
+    
+	  $commindex = 0;
+    
+		foreach ($kabals_result as $kabal) {
+      
+			if ($kabal->GetID() == 16) {
+        
+				continue;
+        
+			}
+      
+			echo 'roster' . $kabal->GetID() . " = new Array();\n";
+      
+			$plebs = $kabal->GetMembers('name');
+      
+	    if (is_array($plebs)) {
+        
+	      $plebindex = 0;
+        
+        foreach ($plebs as $pleb) {
+          
+          $div_peeps[$pleb->GetName().':'.$plebindex] = 
+            'roster'
+            .(($kabal->GetID() == 9) 
+              ? '10' 
+              : $kabal->GetID()) 
+            .'['.
+            (($kabal->GetID() == 9 || $kabal->GetID() == 10) 
+              ? $commindex++ 
+              : $plebindex++)
+            .'] = new person('.$pleb->GetID().', \''
+            .str_replace("'", "\\'", shorten_string($pleb->GetName(), 40))
+            ."');\n";
+            
+        }
+        
+        echo implode('', $div_peeps);
+        
+        unset($div_peeps);
+        
+	    }
+      
+		}
+    
+	?>
 
 	function swap_kabal(frm, id) {
 		var kabal_list = eval("frm.kabal" + id);
@@ -157,62 +126,50 @@ function output() {
 	<noscript>
 	This page requires JavaScript to function properly.
 	</noscript>
+	<form name="award" method="post" action="<?=$PHP_SELF?>">
+	<input type="hidden" name="module" value="<?=$module?>">
+	<input type="hidden" name="page" value="<?=$page?>">
+	Reason: <input type="text" name="reason" size=25>
 	<?php
-	$form = new Form($page);
-	
-	if (count($arena->CanBe($hunter))){
-		$form->table->StartRow();
-		$form->table->AddHeader('Award As: ', 3);
-		$form->table->EndRow();
-		$i = 0;
-		
-		foreach ($arena->CanBe($hunter) as $call=>$value){
-			$form->table->StartRow();
-			$form->table->AddCell($value, 2);
-			$form->table->AddCell('<input type="radio" name="use" value ="'.$call.'" '.($i ? '' : 'checked'));
-			$form->table->EndRow();
-			$i++;
-		}
-	}
-	
-	$form->table->StartRow();
-	$form->table->AddCell('Reason');
-	$form->table->AddCell('<input type="text" name="reason" size="50">', 2);
-	$form->table->EndRow();
   
-	$form->table->StartRow();
-	$form->table->AddHeader('Kabal');
-	$form->table->AddHeader('Person');
-	$form->table->AddHeader('Experience Points');
-	$form->table->EndRow();
+	$table = new Table('', true);
   
-	for ($i = 0; $i < 20; $i++) {
+	$table->StartRow();
+	$table->AddHeader('Kabal');
+	$table->AddHeader('Person');
+	$table->AddHeader('Credits');
+	$table->EndRow();
+  
+	for ($i = 0; $i < 1; $i++) {
     
-    	$form->table->StartRow();
-      
-		$form->table->AddCell("<select name=\"kabal$i\" "
+    $table->StartRow();
+    
+			$table->AddCell("<select name=\"kabal$i\" "
         ."onChange=\"swap_kabal(this.form, $i)\">"
         ."<option value=\"-1\">N/A</option>$kabals</select>");
     
 		$cell = "<select name=\"person$i\">";
-      
+    
 		$cell .= "<option value=\"-1\">N/A</option>";
     
 		$cell .= "</select>";
     
-		$form->table->AddCell($cell);
+		$table->AddCell($cell);
     
-		$form->table->AddCell("<input type=\"text\" name=\"xp$i\" value=\"0\" "
-      	."size=7 onFocus=\"if (this.value == '0') this.value = ''\" "
-      	."onBlur=\"if (this.value == '') this.value = '0'\">");
+		$table->AddCell("<input type=\"text\" name=\"credits$i\" value=\"0\" "
+      ."size=7 onFocus=\"if (this.value == '0') this.value = ''\" "
+      ."onBlur=\"if (this.value == '') this.value = '0'\">");
     
-		$form->table->EndRow();
+		$table->EndRow();
 	}
-	
-    $form->table->StartRow();
-	$form->table->AddCell('<input type="submit" name="submit" value="Add Experience Points" size="50">', 3);
-	$form->table->EndRow();
-    $form->EndForm();
+  
+	$table->EndTable();
+  
+	?>
+	<input type="submit" value="Submit Credit Award" class="button" name="submit">&nbsp;<input type="reset" class="button">
+	</form>
+	<?php
+    }
 
     admin_footer($auth_data);
 }
