@@ -84,6 +84,7 @@ function output() {
 			    	$form->AddOption($value->GetID(), $value->GetName());
 		    	}
 		    }
+		    $form->EndSelect();
 		    $form->AddTextBox('Modifier', 'mod['.$id.']', $ca['mod'], 5);
 		    $form->AddCheckBox('Delete', 'del['.$id.']', 1);
 		    $form->AddHidden('stats[]', $id);
