@@ -134,11 +134,12 @@ function output() {
 	    if (count($hunter->Contracts())){
 		    $table = new Table('', true);
 		    $table->StartRow();
-		    $table->AddHeader('Pending Contracts');
+		    $table->AddHeader('Pending Contracts', 3);
 		    $table->EndRow();
 		    $table->AddRow('Difficulty', 'Contract ID', '&nbsp');
 		    
 	        foreach ($hunter->Contracts() as $value) {
+		        $type = $value->GetType();
 		        $table->AddRow($type->GetName(), $value->GetContractID(), '<a href="'.internal_link('acn_solo_retire', array('contract'=>$value->GetID())).'">Retire Contract</a>');
 	        }
 	        
