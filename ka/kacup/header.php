@@ -3,6 +3,7 @@ include_once 'roster.inc';
 include_once 'objects/include.inc';
 include_once 'Numbers/Roman.php';
 include_once 'auth.php';
+include_once 'sort.inc';
 
 if (!function_exists('constructlayout')) {
 	include_once('../Layout.inc');
@@ -48,7 +49,7 @@ function page_footer() {
 function add_menu($menu_array) {
 	global $subarray;
 
-	$subarray = array_merge(array('<b>Page Links</b>'=>'#'), $menu_array, array('<b>KAG Links</b>'=>'#'), $subarray);
+	$subarray = array_merge(array('<b>Page Links</b>'=>'#'), $menu_array, array('<b>KAC Links</b>'=>'#'), $subarray);
 }
 
 function roman($number) {
