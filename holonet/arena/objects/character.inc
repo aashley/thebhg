@@ -198,7 +198,7 @@
 	    if ($id){
 		    $id = $id;
 	    } else {
-		    $id = $this->GetID();
+		    $id = $this->GetSheetID();
 	    }
 	    $table = '`character_sheet_'.$value.'`';
 	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."'";
@@ -216,7 +216,7 @@
 	    if ($id){
 		    $id = $id;
 	    } else {
-		    $id = $this->GetID();
+		    $id = $this->GetSheetID();
 	    }
 	    $table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."' AND `statribute` = '$stat'";
