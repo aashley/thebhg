@@ -57,6 +57,19 @@
         
         return $return;
     }
+    
+    function Contracts(){
+        $sql = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` = '".$this->bhg_id."' AND `completed` = 0";
+        $query = mysql_query($sql, $this->connect);
+        $return = array();
+
+        while ($result = mysql_fetch_array($query)){
+            $new = new LW_Contract($result['id']);
+            array_push($return, $new);
+        }
+        
+        return $return;
+    }
 
     function Notify($mbid){
                 $text = "Your Solo Mission has been posted on the Message Boards. \n\nhttp://boards.thebhg.org/index.php?op=view&topic=$mbid\n\n Ric Gravant";

@@ -54,10 +54,12 @@ function acn_nav(){
     echo '<br />Solo Missions<br />';
     echo '&nbsp;<a href="' . internal_link('acn_solo_contract') . '">Request&nbsp;Contract</a><br />';
     echo '&nbsp;<a href="' . internal_link('acn_solo_dco') . '">Request&nbsp;Dead&nbsp;Contract</a><br />';
+    echo '&nbsp;<a href="' . internal_link('acn_solo_retire') . '">Retire&nbsp;a&nbsp;Contract</a><br />';
     
     echo '<br />Lone Wolf Contracts<br />';
     echo '&nbsp;<a href="' . internal_link('acn_lw_contract') . '">Request&nbsp;Contract</a><br />';
     echo '&nbsp;<a href="' . internal_link('acn_lw_dco') . '">Request&nbsp;Dead&nbsp;Contract</a><br />';
+    echo '&nbsp;<a href="' . internal_link('acn_lw_retire') . '">Retire&nbsp;a&nbsp;Contract</a><br />';
     
     echo '<br />IRC Arena<br />';
     echo '&nbsp;<a href="' . internal_link('acn_irca_submit') . '">Submit&nbsp;Match</a><br />';

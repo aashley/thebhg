@@ -44,9 +44,13 @@
 
             $text = "A Lone Wolf Mission has been requested. Please go here to begin the posting process.\n\n http://holonet.thebhg.org/";
 
-        } else {
+        } elseif ($type == 2) {
 
-            $text = "A Lone Wolf Dead Contract has been requested by $name. \n\n Link to the contract: http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
+            $text = "A Dead Contract has been requested by $name. \n\n Link to the contract: http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
+
+        } elseif ($type == 3) {
+
+            $text = "A Lone Wolf Mission has been retired by $name. \n\n Link to the contract: http://boards.thebhg.org/index.php?op=view&topic=$mb_id";
 
         }
 

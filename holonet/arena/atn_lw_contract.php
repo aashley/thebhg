@@ -64,6 +64,9 @@ function output() {
 		    
 		    $table = new Table('', true);
 		    $table->StartRow();
+		    $table->AddHeader('Dead Contracts', 2);
+		    $table->EndRow();
+		    $table->StartRow();
 		    $table->AddHeader('Hunter');
 		    $table->AddHeader('Date');
 		    $table->EndRow();
