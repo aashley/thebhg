@@ -24,8 +24,6 @@ function auth($person) {
 
 function output() {
     global $auth_data, $hunter, $page, $roster, $sheet;
-
-    $position = $hunter->GetPosition();
     
     arena_header();
 
@@ -86,25 +84,11 @@ function output() {
 		
 		if ($character->Editable()){
 			$can_edit = true;
-		} elseif ($position->GetID() == 29 || $position->GetID() == 9){
+		} elseif ($_REQUEST['approve']){
 			$can_edit = true;
 		}
 		
-		if ($can_edit){
-			
-			$points = $character->GetExperiencePoints()/350;			
-			$tobuy = floor($points);
-			
-			if ($tobuy < 1){
-				$tobuy = 0;
-			}
-			
-			$s = '';
-			
-			if ($tobuy > 1){
-				$s = 's';
-			}
-			
+		if ($can_edit){			
 			
 			if (isset($_REQUEST['buypoint'])){
 				for ($i = 1; $i <= $_REQUEST['points']; $i++){
@@ -115,20 +99,15 @@ function output() {
 	    		return;
 			}
 			
-			if ($tobuy){
-				$form = new Form($page);
-				$form->AddHidden('points', $tobuy);
-				$form->AddHidden('buypoint', 1);
-				$form->AddHidden('id', $_REQUEST['id']);
-				$form->table->AddRow('<input type="submit" name="buypoint" value="Buy '.$tobuy.' Bonus Point'.$s.'">');
-				$form->EndForm();
-			}
-			
 			if (isset($_REQUEST['save'])){
-				if ($position->GetID() != 29 && $position->GetID() != 9){
-					echo $character->SubmitSheet();
+				if ($auth_data['sheet']){
+					if ($_REQUEST['approve']){
+						echo $character->Approve();
+					} else {
+						echo $character->Deny();
+					}
 				} else {
-					echo $character->Approve();
+					echo $character->SubmitSheet();
 				}
 			} elseif (isset($_REQUEST['view'])){
 				if (isset($_REQUEST['process'])){
@@ -140,11 +119,43 @@ function output() {
 			    
 			    hr();
 			    
-			    $form = new Form($page);	
-			    $form->AddHidden('id', $_REQUEST['id']);    	
-			    $form->table->AddRow('<input type="submit" name="save" Value="Submit Sheet">');
-		    	$form->EndForm();
+			    if ($auth_data['sheet']){
+				    $form = new Form($page);	
+				    $form->AddHidden('id', $_REQUEST['id']);    	
+				    $form->AddHidden('save', 1);
+				    $form->table->AddRow('<input type="submit" name="approve" Value="Approve Sheet">');
+				    $form->table->AddRow('<input type="submit" name="deny" Value="Deny Sheet">');
+			    	$form->EndForm();
+		    	} else {
+			    	$form = new Form($page);	
+				    $form->AddHidden('id', $_REQUEST['id']);    	
+				    $form->table->AddRow('<input type="submit" name="save" Value="Submit Sheet">');
+			    	$form->EndForm();
+		    	}
 			} else {
+				
+				$points = $character->GetExperiencePoints()/350;			
+				$tobuy = floor($points);
+				
+				if ($tobuy < 1){
+					$tobuy = 0;
+				}
+				
+				$s = '';
+				
+				if ($tobuy > 1){
+					$s = 's';
+				}
+				
+				if ($tobuy){
+					$form = new Form($page);
+					$form->AddHidden('points', $tobuy);
+					$form->AddHidden('buypoint', 1);
+					$form->AddHidden('id', $_REQUEST['id']);
+					$form->table->AddRow('<input type="submit" name="buypoint" value="Buy '.$tobuy.' Bonus Point'.$s.'">');
+					$form->EndForm();
+				}
+				
 				$table = new Table();
 				$table->StartRow();
 				$table->AddHeader('Points to Distribute', 2);

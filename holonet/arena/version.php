@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.6";
+    echo "Current version: v1.7";
     
     hr();
     
@@ -16,11 +16,11 @@ function output() {
     
     hr();
     
-    echo "Version Comments: The Solo Missions now run on CSv4.0 Standards. Hooray!";
+    echo "Version Comments: Updated a few features, namely the ACN and Dojo of Shadows. The AMS now runs exclusivly off the Character Sheet standard, meaning you can't challenge nor be challenged without a character sheet. Additionally, all challenges made will be in the Dojo of Shadows, unless you are a listed graduate of the Dojo. To check your status, check both the Graduate and Learner list in the ATN Dojo of Shadows.";
     
     hr();
     
-    echo "Last Update: Version comments say it all.";
+    echo "Last Update: October 3, 2004";
     
     hr();
     

@@ -29,7 +29,7 @@ function rp_staff($person){
 function acn_nav(){
 	global $at, $lw, $person, $iat;
 	
-	//echo '<small>ACN<br />';
+	//echo '<br />General<br />';
 	//echo '&nbsp;<a href="' . internal_link('acn_challenge') . '">My&nbsp;Pending&nbsp;Challenges</a><br />';
 	
 	if ($at->ValidSignup()){
@@ -44,9 +44,6 @@ function acn_nav(){
 	
 	echo '<small>Arena<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_arena_challenge') . '">Arena&nbsp;Challenges</a><br />';
-	
-	echo '<br />Dojo of Shadows<br />';
-	echo '&nbsp;<a href="' . internal_link('acn_dojo_challenge') . '">Dojo&nbsp;Challenges</a><br />';
 	
 	//echo '<br />Starfield Arena<br />';
     //echo '&nbsp;<a href="' . internal_link('acn_starfield_challenge') . '">Starfield&nbsp;Arena&nbsp;Challenges</a><br />';
@@ -75,6 +72,10 @@ function atn_nav(){
 	echo '<small>Arena<br />';
 	echo '&nbsp;<a href="' . internal_link('atn_arena') . '">Matches</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_arena_ladder') . '">Ladder</a><br />';
+    
+    echo '<br />Dojo of Shadows<br />';
+	echo '&nbsp;<a href="' . internal_link('atn_dojo') . '">Dojo&nbsp;Learners</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_dojo_grad') . '">Dojo&nbsp;Graduates</a><br />';
     
 	echo '<br />Starfield Arena<br />';
     echo '&nbsp;<a href="' . internal_link('atn_starfield') . '">Matches</a><br />';
@@ -181,7 +182,7 @@ function get_auth_data($hunter) {
 	    $auth_data['coder'] = false;
     }
     
-    if ($pos->GetID() == 29){
+    if ($pos->GetID() == 29 || $hunter->GetID() == 2650){
     	$auth_data['demerit'] = true;
 	} else {
 		$auth_data['demerit'] = false;
@@ -295,9 +296,17 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_location') . '">Modify&nbsp;Arena&nbsp;Locations</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_bp') . '">Award&nbsp;Bonus&nbsp;Points</a><br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_npc') . '">Generate&nbsp;NPC</a><br />';
+	    
+    }
+    
+    if ($auth_data['demerit']) {   
+	    echo '<br />Overseer&nbsp;Utilities<br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_demerit') . '">Issue&nbsp;Demerit&nbsp;Points</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
-        
+    }
+	    
+    if ($auth_data['rp']) {      
         echo '<br />RP&nbsp;Aides<br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_commish') . '">Edit&nbsp;Solo&nbsp;Comissioner</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_master') . '">Edit&nbsp;Dojo&nbsp;Master</a><br />';
@@ -364,6 +373,12 @@ function admin_footer($auth_data) {
     if ($auth_data['dojo']){
 	    echo '<br />Dojo&nbsp;of&nbsp;Shadows<br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_post') . '">Post&nbsp;New&nbsp;Match</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_dojo_complete') . '">Complete&nbsp;Dojo&nbsp;Match</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_dojo_graduate') . '">Declare&nbsp;Dojo&nbsp;Graduate</a><br />';
+    }
+    
+    if ($auth_data['rp']){
+	    echo '&nbsp;<a href="' . internal_link('admin_dojo_retrain') . '">Declare&nbsp;Dojo&nbsp;Retraining</a><br />';
     }
     
     if ($auth_data['solo']){

@@ -37,9 +37,7 @@
 	    		}
 	    	}
 	    	foreach($sheet->GetSkills($i) as $skills){
-		    	if ($stat->isint()){
-		    		$this->npc_string .= '/'.$this->Roll($this->maxv);
-	    		}
+		    	$this->npc_string .= '/'.$this->Roll($this->maxv);
 	    	}
     	}
 	}

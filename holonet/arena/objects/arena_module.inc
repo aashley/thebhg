@@ -228,6 +228,62 @@
     function Points(){
         return array('5'=>'Win', '2'=>'Win via Disqualification', '3'=>'Draw', '-2'=>'Loss', '-5'=>'Loss via Disqualification');
     }
+    
+    function AddApproved($bhg_id){
+	    $sql = "INSERT INTO `arena_approved` VALUES ('$bhg_id')";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    $text = "Your Dojo Master has declared you a graduate of the institute.";
+		
+        $from = "Dojo of Shadows <overseer@thebhg.org>";
+        $subject = "Notice of Graduation";
+	    
+	    $person = new Person($bhg_id);
+	    $person->SendMail($from, $subject, $text);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function RemoveApproved($bhg_id){
+	    $sql = "DELETE FROM `arena_approved` WHERE `bhg_id` = '$bhg_id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    $text = "The Overseer has declared you undergo a retraining in the Dojo of Shadows.";
+		
+        $from = "Dojo of Shadows <overseer@thebhg.org>";
+        $subject = "Notice of Retraining";
+	    
+	    $person = new Person($bhg_id);
+	    $person->SendMail($from, $subject, $text);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function GetApproved(){
+	    $sql = "SELECT * FROM `arena_approved`";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[] = $info['bhg_id'];
+	    }
+	    
+	    return array_unique($return);
+    }
+    
+    function GetDojo(){
+	    $compare = $this->GetApproved();
+	    $sheet = new Sheet();
+	    $dojo = array();
+	    
+	    foreach ($sheet->SheetHolders() as $char){
+		    if (!in_array($char->GetID(), $compare)){
+			    $dojo[] = $char->GetID();
+		    }
+	    }
+	    
+	    return array_unique($dojo);
+    }
 
  }
 

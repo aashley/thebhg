@@ -23,40 +23,45 @@ function output() {
 
     if (isset($_REQUEST['next'])) {
 	    
-        $type = $match->GetType();
-        $location = $match->GetLocation();
-        $weapon = $match->GetWeaponType();
-        $challenger = $match->GetChallenger();
-        $challengee = $match->GetChallengee();
-
-        echo "<b>Subject Line</b>: ".$match->GetName()."<br /><br />";
-
-		echo "Data You'll Need to Construct Opener:<br /><br />"
-        ."Location: ".$location->GetName()." <br />Number of Weapons: ".$match->GetWeapons()." <br />Type of Weapons: ".$weapon->GetWeapon().
-        " <br />Post Limit: ".$match->GetPosts()." <br />Rules: ".$type->GetRules();
-
-        hr();
-
-        $form = new Form($page);
-        $form->AddHidden('match_id', $_REQUEST['match_id']);
-        $form->table->StartRow();
-        $form->table->AddHeader('Enter Message Board ID', 2);
-        $form->table->EndRow();
-        $form->AddTextBox('Topic Number:', 'mbid');
-
-        $form->AddSubmitButton('submit', 'Complete Process');
-        $form->EndForm();
+	    if ($match->IsDojo()){	    
+	        $type = $match->GetType();
+	        $location = $match->GetLocation();
+	        $weapon = $match->GetWeaponType();
+	        $challenger = $match->GetChallenger();
+	        $challengee = $match->GetChallengee();
+	
+	        echo "<b>Subject Line</b>: ".$match->GetName()."<br /><br />";
+	
+			echo "Data You'll Need to Construct Opener:<br /><br />"
+	        ."Location: ".$location->GetName()." <br />Number of Weapons: ".$match->GetWeapons()." <br />Type of Weapons: ".$weapon->GetWeapon().
+	        " <br />Post Limit: ".$match->GetPosts()." <br />Rules: ".$type->GetRules();
+	
+	        hr();
+	
+	        $form = new Form($page);
+	        $form->AddHidden('match_id', $_REQUEST['match_id']);
+	        $form->table->StartRow();
+	        $form->table->AddHeader('Enter Message Board ID', 2);
+	        $form->table->EndRow();
+	        $form->AddTextBox('Topic Number:', 'mbid');
+	
+	        $form->AddSubmitButton('submit', 'Complete Process');
+	        $form->EndForm();
+        } else {
+	        echo 'Not a Dojo Match.';
+        }
 
     }
     elseif (isset($_REQUEST['submit'])) {
 	    
-        if ($match->StartMatch($_REQUEST['mbid'])){
-
-            echo "Match process completed.";
-
-        } else {
-
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 71';
+	    if ($match->IsDojo()){	 
+	        if ($match->StartMatch($_REQUEST['mbid'])){
+	            echo "Match process completed.";
+	        } else {
+	            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 71';
+	        }
+	    } else {
+	        echo 'Not a Dojo Match.';
         }
 
     }

@@ -54,9 +54,7 @@
 	    for ($i = 1; $i <= 11; $i++){
 		    $sheet = new Sheet();
 	    	$field = new Field($i);
-	    	if ($i <= 7){
-		    	$sheets .= '<br />';
-	    	}
+		    $sheets .= '<br />';
 	    	foreach($sheet->GetStats($i) as $stat){
 		    	if ($stat->IsInt()){
 			    	if (isset($npc[$ref])){
@@ -67,6 +65,15 @@
 		    		$sheets .= $stat->GetName().': '.$value.'<br />';
 		    		$ref++;
 	    		}
+	    	}
+	    	foreach($sheet->GetSkills($i) as $stat){
+		    	if (isset($npc[$ref])){
+			    	$value = $npc[$ref];
+		    	} else {
+			    	$value = 0;
+		    	}
+	    		$sheets .= $stat->GetName().': '.$value.'<br />';
+	    		$ref++;
 	    	}
     	}
 	    

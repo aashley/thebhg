@@ -47,7 +47,7 @@
     function IsDojo(){
 	    $location = $this->GetLocation();
 	    
-	    if ($location->GetID() == 31 && $location->GetTable == 'complex'){
+	    if ($location->GetID() == 31 && $location->GetTable() == 'complex'){
 		    return true;
 	    } else {
 		    return false;

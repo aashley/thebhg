@@ -505,6 +505,18 @@
 		}	   
 	}
 	
+	function Deny(){
+		$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		mysql_query($sql, $this->connect);
+
+		$sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";		
+		if (mysql_query($sql, $this->connect)){
+			return 'Character Denyed.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	   
+	}
+	
 	function Kill(){
 		$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
 		mysql_query($sql, $this->connect);

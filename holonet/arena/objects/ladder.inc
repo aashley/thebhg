@@ -61,8 +61,8 @@
 	    }
     }
     
-    function PendingDojo(){
-        $sql = "SELECT * FROM `arena_ladder_match` WHERE `date_deleted` = 0 AND `accepted` = 1 AND `match_id` = 0 AND `location` = 31 AND `location_table` = 'complex'";
+    function PendingDojo($type = 'match_id'){
+        $sql = "SELECT * FROM `arena_ladder_match` WHERE `date_deleted` = 0 AND `accepted` = 1 AND `$type` = 0 AND `location` = 31 AND `location_table` = 'complex'";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 
