@@ -43,7 +43,7 @@
     }
     
     function SecondBuild(){
-        $sql = "SELECT SUM(arena_ro_hunters.xp) as xp, SUM(arena_ro_hunters.credits) as credits, FROM arena_ro_hunters, arena_ro WHERE arena_ro.id = arena_ro_hunters.run_on"
+        $sql = "SELECT SUM(arena_ro_hunters.xp) as xp, SUM(arena_ro_hunters.creds) as credits, FROM arena_ro_hunters, arena_ro WHERE arena_ro.id = arena_ro_hunters.run_on"
                 ." AND arena_ro.mbid > 0 AND arena_ro.date_deleted = 0 AND arena_ro.mm = '".$this->mm_id."'";
 
         $query = mysql_query($sql, $this->connect);
