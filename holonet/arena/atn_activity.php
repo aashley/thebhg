@@ -80,15 +80,15 @@ function output() {
 		    $form->AddHidden('id', $_REQUEST['id']);
 			$form->AddHidden('op', $_REQUEST['op']);
 			$form->table->StartRow();
-			if ($pending){
-				$form->AddHidden('last', $last);
-				$form->table->AddCell('<input type="submit" name="nexter" value="Next 20 >>">');
-			} 
-			
 			if ($denbo){
 				$form->AddHidden('first', $first);
 				$form->table->AddCell('<input type="submit" name="nextdw" value="<< Last 20">');
 			}
+			
+			if ($pending){
+				$form->AddHidden('last', $last);
+				$form->table->AddCell('<input type="submit" name="nexter" value="Next 20 >>">');
+			} 
 		    $form->table->EndRow();
 		    $form->EndForm();
 	    }
