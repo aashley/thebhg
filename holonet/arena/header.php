@@ -490,6 +490,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_sheet_ss') . '">Modify&nbsp;Shown&nbsp;Stats</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_sheet_fo') . '">Modify&nbsp;Field&nbsp;Order</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ca') . '">Create&nbsp;Character&nbsp;Attribute</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_ca_stats') . '">Attribute&nbsp;Stat&nbsp;Modifier</a><br />';
     }
     
     if ($auth_data['arena']) {    
