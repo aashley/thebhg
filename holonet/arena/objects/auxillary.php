@@ -56,7 +56,7 @@ Class Saves extends Character {
 	    $errors = 0;
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_backups` VALUES ('$id', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    $sql = "INSERT INTO `character_sheet_backups` (`id`, `statribute`, `value`) VALUES ('$id', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    if (!mysql_query($sql, $this->holonet)){
 			    $errors++;
 		    }
@@ -152,7 +152,7 @@ Class Saves extends Character {
 	    $errors = 0;
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    $sql = "INSERT INTO `character_sheet_pending` (`id`, `statribute`, `value`) VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    if (!mysql_query($sql, $this->holonet)){
 			    $errors++;
 		    }
@@ -179,7 +179,7 @@ Class Saves extends Character {
 	    $errors = 0;
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    $sql = "INSERT INTO `character_sheet_pending` (`id`, `statribute`, `value`) VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    if (!mysql_query($sql, $this->holonet)){
 			    $errors++;
 		    }

@@ -565,7 +565,7 @@
 		    return implode('<br />', $errors);
 	    }
 	    
-	    $new = "INSERT INTO `character_sheet_record` VALUES ('', '".$this->GetID()."', '".time()."')";
+	    $new = "INSERT INTO `character_sheet_record` (`id`, `bhg_id`, `date`) VALUES ('', '".$this->GetID()."', '".time()."')";
 	    $store = mysql_query($new, $this->holonet);
 	    $id = mysql_insert_id($this->holonet);
 	    $this->LastID = $id;
@@ -585,11 +585,11 @@
 				$sql = "DELETE FROM `character_sheet_pending` WHERE `id` = '".$this->GetSheetID()."' AND `statribute` = '$key'";
 			    mysql_query($sql, $this->holonet);
 				
-			    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '$key', '$value')";
+			    $sql = "INSERT INTO `character_sheet_pending` (`id`, `statribute`, `value`) VALUES ('".$this->GetSheetID()."', '$key', '$value')";
 			    if (!mysql_query($sql, $this->holonet)){
 				    $errors[] = 'Error Generated During Publish: '.mysql_error($this->holonet);
 			    } else {				    
-				    $sql = "INSERT INTO `character_sheet_records` VALUES ('".$this->LastID."', '$key', '$value')";
+				    $sql = "INSERT INTO `character_sheet_records` (`id`, `statribute`, `value`) VALUES ('".$this->LastID."', '$key', '$value')";
 				    mysql_query($sql, $this->holonet);
 			    }
 		    }
@@ -770,7 +770,7 @@
 	    }
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_values` VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".$info['value']."')";
+		    $sql = "INSERT INTO `character_sheet_values` (`id`, `statribute`, `value`) VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    mysql_query($sql, $this->holonet);
 	    }
 	    
