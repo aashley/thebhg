@@ -564,8 +564,7 @@ class Citadel_CompletedExam extends BHGObject {
 
       if (is_object($grader)) {
 
-        if (!(   get_class($grader) == 'person'
-              || is_subclass_of($grader, 'person'))) {
+        if (!($grader instanceof Person)) {
 
           $this->roster_error = 'Invalid Object Passed to Grade.';
 

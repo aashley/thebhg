@@ -290,8 +290,7 @@ class Rank extends BHGObject {
 
     if (is_object($otherrank)) {
 
-      if (   get_class($otherrank) == 'rank'
-          || is_subclass_of($otherrank, 'rank')) {
+      if ($otherrank instanceof Rank) {
 
       } else {
 
@@ -324,8 +323,7 @@ class Rank extends BHGObject {
 
     if (is_object($otherrank)) {
 
-      if (   get_class($otherrank) == 'rank'
-          || is_subclass_of($otherrank, 'rank')) {
+      if ($otherrank instanceof Rank) {
 
       } else {
 
@@ -358,8 +356,7 @@ class Rank extends BHGObject {
 
     if (is_object($otherrank)) {
 
-      if (   get_class($otherrank) == 'rank'
-          || is_subclass_of($otherrank, 'rank')) {
+      if ($otherrank instanceof Rank) {
 
       } else {
 
@@ -394,8 +391,7 @@ class Rank extends BHGObject {
 
     if (is_object($otherrank)) {
 
-      if (   get_class($otherrank) == 'rank'
-          || is_subclass_of($otherrank, 'rank')) {
+      if ($otherrank instanceof Rank) {
 
       } else {
 

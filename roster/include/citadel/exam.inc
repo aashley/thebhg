@@ -1007,8 +1007,7 @@ class Citadel_Exam extends BHGObject {
       
       if (is_object($medal)) {
 
-        if (   get_class($medal) == 'medal'
-            || is_subclass_of($medal, 'medal')) {
+        if ($medal instanceof Medal) {
 
           $medalid = $medal->GetID();
 
@@ -1078,8 +1077,7 @@ class Citadel_Exam extends BHGObject {
 
       if (is_object($book)) {
 
-        if (   get_class($book) == 'book'
-            || is_subclass_of($book, 'book')) {
+        if ($book instanceof Book) {
 
           $bookid = $book->GetID();
 
@@ -1149,8 +1147,7 @@ class Citadel_Exam extends BHGObject {
 
       if (is_object($person)) {
 
-        if (   get_class($person) == 'person'
-            || is_subclass_of($person, 'person')) {
+        if ($person instanceof Person) {
 
           $personid = $person->GetID();
 
@@ -1219,8 +1216,7 @@ class Citadel_Exam extends BHGObject {
 
       if (is_object($person)) {
 
-        if (   get_class($person) == 'person'
-            || is_subclass_of($person, 'person')) {
+        if ($person instanceof Person) {
 
           $personid = $person->GetID();
 
@@ -1360,8 +1356,7 @@ class Citadel_Exam extends BHGObject {
 
       if (is_object($person)) {
 
-        if (   get_class($person) == 'person'
-            || is_subclass_of($person, 'person')) {
+        if ($person instanceof Person) {
 
         } else {
 

@@ -730,8 +730,7 @@ class Roster extends BHGObject {
     
     if (is_object($searchfor)) {
       
-      if (   get_class($searchfor) == "position"
-          || is_subclass_of($searchfor, 'position')) {
+      if ($searchfor instanceof Position) {
         
         $results = mysql_query("SELECT id "
                               ."FROM roster_roster "
@@ -812,8 +811,7 @@ class Roster extends BHGObject {
     
     if (is_object($searchfor)) {
       
-      if (   get_class($searchfor) == "rank"
-          || is_subclass_of($searchfor, 'rank')) {
+      if ($searchfor instanceof Rank) {
         
         $results = mysql_query("SELECT id "
                               ."FROM roster_roster "
@@ -1077,8 +1075,7 @@ class Roster extends BHGObject {
 
       if (is_object($leader)) {
 
-        if (   get_class($leader) == 'person'
-            || is_subclass_of($leader, 'person')) {
+        if ($leader instanceof Person) {
 
         } else {
 
@@ -1154,8 +1151,7 @@ class Roster extends BHGObject {
     if ($this->Allowed('god')) {
       
       if (   is_object($category) 
-          && (   get_class($category) == "divisioncategory"
-              || is_subclass_of($category, 'divisioncategory'))) {
+          && ($category instanceof DivisionCategory)) {
         
         $cat = $category->GetID();
         
@@ -1222,8 +1218,7 @@ class Roster extends BHGObject {
     if ($this->Allowed('god')) {
 
       if (   is_object($division) 
-          && (   get_class($division) == "division"
-              || is_subclass_of($division, 'division'))) {
+          && ($division instanceof Division)) {
 
         $div = $division->GetID();
 
@@ -1396,8 +1391,7 @@ class Roster extends BHGObject {
     if ($this->Allowed('god')) {
       
       if (   is_object($after) 
-          && (   get_class($after) == "position"
-              || is_subclass_of($after, 'position'))) {
+          && ($after instanceof Position)) {
         
         $order = $after->GetWeight() + 1;
         
@@ -1488,8 +1482,7 @@ class Roster extends BHGObject {
     if ($this->Allowed('god')) {
       
       if (   is_object($after) 
-          && (   get_class($after) == "rank"
-              || is_subclass_of($after, 'rank'))) {
+          && ($after instanceof Rank)) {
         
         $order = $after->GetWeight() + 1;
         

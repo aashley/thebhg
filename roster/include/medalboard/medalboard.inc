@@ -99,8 +99,7 @@ class MedalBoard extends BHGObject {
       
       if (is_object($recipient)) {
         
-        if (   get_class($recipient) == "person"
-            || is_subclass_of($recipient, 'person')) {
+        if ($recipient instanceof Person) {
           
           $recipient_id = $recipient->GetID();
           
@@ -142,8 +141,7 @@ class MedalBoard extends BHGObject {
       
       if (is_object($awarder)) {
         
-        if (   get_class($awarder) == "person"
-            || is_subclass_of($awarder, 'person')) {
+        if ($awarder instanceof Person) {
           
           $awarder_id = $awarder->GetID();
           
@@ -182,8 +180,7 @@ class MedalBoard extends BHGObject {
       
       if (is_object($medal)) {
         
-        if (   get_class($medal) == "medal"
-            || is_subclass_of($medal, 'medal')) {
+        if ($medal instanceof Medal) {
           
           $medal_id = $medal->GetID();
           

@@ -497,8 +497,7 @@ class Book extends BHGObject {
 
       if (is_object($person)) {
 
-        if (   get_class($person) == 'person'
-            || is_subclass_of($person, 'person')) {
+        if ($person instanceof Person) {
 
           $id = $id->GetID();
 
@@ -577,8 +576,7 @@ class Book extends BHGObject {
 
       if (is_object($person)) {
 
-        if (   get_class($person) == 'person'
-            || is_subclass_of($person, 'person')) {
+        if ($person instanceof Person) {
 
           $id = $id->GetID();
 
@@ -730,8 +728,7 @@ class Book extends BHGObject {
 
       if (is_object($shelf)) {
 
-        if (   get_class($shelf) == 'shelf'
-            || is_subclass_of($shelf, 'shelf')) {
+        if ($shelf instanceof Shelf) {
 
           $id = $shelf->GetID();
 

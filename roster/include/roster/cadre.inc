@@ -519,8 +519,7 @@ class Cadre extends BHGObject {
 
     if (is_object($person)) {
 
-      if (   get_class($person) == 'person'
-          || is_subclass_of($person, 'person')) {
+      if ($person instanceof Person) {
 
         $rank = $person->GetRank();
 
@@ -640,8 +639,7 @@ class Cadre extends BHGObject {
 
     if (is_object($person)) {
 
-      if (   get_class($person) == 'person'
-          || is_subclass_of($person, 'person')) {
+      if ($person instanceof Person) {
 
         $rank = $person->GetRank();
 
@@ -709,8 +707,7 @@ class Cadre extends BHGObject {
 
       if (is_object($person)) {
 
-        if (   get_class($person) == 'person'
-            || is_subclass_of($person, 'person')) {
+        if ($person instanceof Person) {
 
         } else {
 
@@ -781,8 +778,7 @@ class Cadre extends BHGObject {
 
       if (is_object($person)) {
 
-        if (   get_class($person) == 'person'
-            || is_subclass_of($person, 'person')) {
+        if ($person instanceof Person) {
 
         } else {
 

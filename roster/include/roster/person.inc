@@ -1040,8 +1040,7 @@ class Person extends BHGObject {
 
       if (is_object($cadre)) {
 
-        if (   get_class($cadre) == 'cadre'
-            || is_subclass_of($cadre, 'cadre')) {
+        if ($cadre instanceof Cadre) {
 
           if (isset($this->person_cadre)
               && $this->person_cadre > 0
@@ -1233,8 +1232,7 @@ class Person extends BHGObject {
 
     if (is_object($cadre)) {
 
-      if (   get_class($cadre) == 'cadre'
-          || is_subclass_of($cadre, 'cadre')) {
+      if ($cadre instanceof Cadre) {
 
       } else {
 
@@ -1478,8 +1476,7 @@ class Person extends BHGObject {
       // do it
 
       if (   is_object($position)
-          && (   get_class($position) == "position"
-              || is_subclass_of($position, 'position'))) {
+          && ($position instanceof Position)) {
 
         $positionid = $position->GetID();
 
@@ -1650,8 +1647,7 @@ class Person extends BHGObject {
       // do it
 
       if (   is_object($rank)
-          && (   get_class($rank) == "rank"
-              || is_subclass_of($rank, 'rank'))) {
+          && ($rank instanceof Rank)) {
 
         $rankid = $rank->GetID();
 
@@ -1845,8 +1841,7 @@ class Person extends BHGObject {
       // do it
 
       if (   is_object($cadre)
-          && (   get_class($cadre) == 'cadre'
-              || is_subclass_of($cadre, 'cadre'))) {
+          && ($cadre instanceof Cadre) {
 
         $cadreid = $cadre->GetID();
 
@@ -1924,8 +1919,7 @@ class Person extends BHGObject {
       // do it
 
       if (   is_object($division)
-          && (   get_class($division) == "division"
-              || is_subclass_of($division, 'division'))) {
+          && ($division instanceof Division)) {
 
         $divisionid = $division->GetID();
 
