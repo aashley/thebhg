@@ -20,15 +20,19 @@ function output() {
     $table = new Table();
     
     $table->StartRow();
-    $table->AddHeader('Post New Topic');
+    $table->AddHeader('Post New Topic', 2);
     $table->EndRow();
     echo '<FORM NAME="post" METHOD="post" ACTION="http://boards.thebhg.org/index.php">
     <INPUT TYPE="hidden" NAME="op" VALUE="post">
 	<INPUT TYPE="hidden" NAME="board" VALUE="1">';
     $table->AddRow('Topic: ', '<INPUT TYPE="text" NAME="subject" SIZE=35 MAXLENGTH=85>');
     $table->AddRow('Message: ', '<TEXTAREA NAME="message" ROWS=9 COLS=65 WRAP="virtual"></TEXTAREA>');
-    echo '<INPUT TYPE="submit" VALUE="Post New Topic"><INPUT TYPE="checkbox" name="signature" value="1" CHECKED>'
-    	.'<INPUT TYPE="checkbox" NAME="sticky" VALUE="1" CHECKED></FORM>';
+    $table->StartRow();
+    $table->AddCell('<INPUT TYPE="submit" VALUE="Post New Topic">', 2);
+    $table->EndRow();
+    echo '<INPUT TYPE="hidden" name="signature" value="1" CHECKED>'
+    	.'<INPUT TYPE="hidden" NAME="sticky" VALUE="1" CHECKED></FORM>';
+    $table->EndTable();
 
     admin_footer($auth_data);
 
