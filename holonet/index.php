@@ -5,7 +5,7 @@ if (version_compare(phpversion(), '5.0.0', '>=')) {
 } else {
 	define('PHP5', false);
 }
-define('DEBUG', true);
+define('DEBUG', false);
 if (DEBUG) include_once 'debug.php';
 //header('Content-Type: text/html; charset=UTF-8');
 header('Content-Type: text/html; charset=ISO-8859-1');
