@@ -10,21 +10,19 @@ function mb_footer($show_list = true) {
 	global $mb;
 
 	if ($show_list == false) {
-		echo '</td></tr></table>';
 		return;
 	}
 	
-	echo '</td><td style="border-left: solid 1px black">Medals<small>';
-	
 	$cats = $mb->GetMedalCategories();
 	foreach ($cats as $cat) {
-		echo '<br>';
+		$items = array();
 		$groups = $cat->GetMedalGroups();
 		foreach ($groups as $group) {
-			echo '<br><a href="' . internal_link('browse', array('group' => $group->GetID())) . '">' . str_replace(' ', '&nbsp;', $group->GetName()) . '</a>';
+			$items[$group->getName()] = internal_link('browse', array('group' => $group->GetID()));
 		}
+		addMenu($cat->getName(), $items);
 	}
 
-	echo '</small></td></tr></table>';
+
 }
 ?>
