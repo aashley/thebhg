@@ -77,7 +77,12 @@ function output() {
 			    $form->table->AddCell('<input type="submit" name="deny" Value="Deny CORE"> || <input type="submit" name="approve" Value="Approve CORE">', 2);
 			    $form->table->EndRow();
 		    	$form->EndForm();
-	    	} else {
+		    	if ($saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()){
+			    	hr();
+		    	}
+	    	}
+	    	
+	    	if ($saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()){
 		    	$form = new Form($page);	
 			    $form->AddHidden('sheet', $_REQUEST['sheet']);    	
 			    $form->table->AddRow('<input type="submit" name="save" Value="Submit CORE">');
