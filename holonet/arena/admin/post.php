@@ -113,7 +113,8 @@ if ($_REQUEST['match']){
 			if ($type->Get(npc)){
 				$npcs = array();
 				for ($i = 1; $i <= $activity->Get(num_npc); $i++){
-					$npcs[] = new Parse_NPC($data[$arena->NPCID($activity->Get(id))]);
+					$noc = new Parse_NPC($data[$arena->NPCID($activity->Get(id))]);
+					$npcs[] = $noc->GetString();
 				}
 				$bild = new NPC_Utilities();
 				$form->AddHidden('npc', serialize($npcs));
@@ -123,7 +124,7 @@ if ($_REQUEST['match']){
 				
 				foreach ($npcs as $npc){
 					$form->table->StartRow();
-					$form->table->AddCell($bild->Construct($npc->GetString()), 2);
+					$form->table->AddCell($bild->Construct($npc), 2);
 					$form->table->EndRow();
 				}
 				
