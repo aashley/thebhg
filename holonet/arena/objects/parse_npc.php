@@ -19,6 +19,7 @@
        $this->npc_string[sex] = $this->GetGender(); 
        $this->npc_string[species] = $this->Species();       
        $this->Generate();
+       print_r($this->npc_string);
     }
 
     function Roll($high){
@@ -46,7 +47,6 @@
 	    	}
 	    	$this->npc_string['field'][] = $field;
     	}
-    	print_r($this->npc_string);
 	}
 
 function letters_in_set($word, $letters) {
