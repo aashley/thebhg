@@ -4,6 +4,8 @@ include_once('objects/arena.inc');
 include_once('library.inc');
 include_once('citadel.inc');
 
+//Set the Arena Page Handler
+
 $roster = new Roster('fight-51-me');
 $mb = new MedalBoard('fight-51-me');
 $arena = new Arena();

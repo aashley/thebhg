@@ -9,7 +9,7 @@ Class Coder extends Core {
 	function Coder () {
 	    Arena::Arena();
 	    
-	    $this->allowed = array('arena', 'character_sheet', 'cs');
+	    $this->allowed = array('ams', 'character_sheet', 'cs');
 	    $this->LoadTables();	    
 	}
 	
