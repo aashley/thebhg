@@ -25,7 +25,7 @@ function output() {
 	    for ($i = 1; $i <= $_REQUEST['total']; $i++) {
       
 			$person = "person$i";
-      		$reason = "reason$i"
+      		$reason = "reason$i";
 			$xp = "xp$i";
 			$deny = "deny$i";
 			
