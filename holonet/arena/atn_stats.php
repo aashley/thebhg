@@ -110,7 +110,7 @@ function output() {
 				    $table->AddRow('Match Data:', $match->Get(data, 1));
 			    }
 		    }
-		    ($match->Get(comments) ? $table->AddRow('Information:', $match->Get(comments, 1)) : '');
+		    ($match->Get(comments) ? $table->AddRow(($type->Get(submits) ? 'Grading' : 'Introduction').':', $match->Get(comments, 1)) : '');
 		    
 		    $table->EndRow();
 	    }
