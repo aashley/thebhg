@@ -5,6 +5,7 @@
     var $arena_survival_id;
     var $arena_survival_name;
     var $arena_survival_description;
+    var $arena_survival_points;
 
     function SurvivalType($id) {
         Arena::Arena();
@@ -29,6 +30,10 @@
 
     function GetName() {
         return stripslashes($this->arena_survival_name);
+    }
+    
+    function GetPoints(){
+	    return $this->arena_survival_points;
     }
 
     function GetDesc() {

@@ -7,13 +7,8 @@
     function Parse_NPC($difficulty){
         $this->difficulty = $difficulty;
 
-        if ($difficulty == 1){
-            $this->maxv = 6;
-        } elseif ($difficulty == 2){
-            $this->maxv = 8;
-        } elseif ($difficulty == 3){
-            $this->maxv = 10;
-        }
+        $type = new SoloType($difficulty);
+        $this->maxv = $type->GetPoints();
 
        $this->npc_string = $this->GetName().'/'.$this->GetLastName().'/'.$this->GetGender().'/'.$this->Species();       
        $this->Generate();

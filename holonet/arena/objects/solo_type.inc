@@ -5,6 +5,7 @@
     var $arena_solo_id;
     var $arena_solo_name;
     var $arena_solo_description;
+    var $arena_solo_points;
 
     function SoloType($id) {
         Arena::Arena();
@@ -31,6 +32,10 @@
         return stripslashes($this->arena_solo_name);
     }
 
+    function GetPoints(){
+	    return $this->arena_solo_points;
+    }
+    
     function GetDesc() {
         return stripslashes(nl2br($this->arena_solo_description));
     }
