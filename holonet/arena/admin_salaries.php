@@ -37,10 +37,12 @@ function output() {
 
 	    foreach ($bitches as $bitch){
 		    foreach ($bitch as $pay){
-			    if ($pay['end_date'] == 0 && $pay['start_date'] < $startut){
-				    $time = $endut - $pay['start_date'];
-			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
-				    $time = $endut - $startut;
+			    if ($pay['end_date'] == 0){
+				    if ($pay['start_date'] < $startut){
+					    $time = $endut - $pay['start_date'];
+				    } else {
+				    	$time = $endut - $startut;
+			    	} 
 			    } else {
 				    if ($pay['start_date'] < $startut){
 					    $time = $pay['end_date'] - $startut;
