@@ -63,8 +63,14 @@
 	    	$sel = '*';
     	}
     	
+    	if ($data['resource']){
+	    	$res = $data['resource'];
+    	} else {
+	    	$res = 'connect';
+    	}
+    	
 	    $sql = "SELECT $sel FROM `".$data['table']."` WHERE ".implode(' AND ', $implode).($data['group'] ? 'GROUP BY `'.$data['group'].'`' : '').(count($order) ? ' ORDER BY '.implode(', ', $order) : '');
-		$query = mysql_query($sql, $this->$data['resource']);
+		$query = mysql_query($sql, $this->$res);
 		
 		while ($info = mysql_fetch_assoc($query)){
 			if ($obj){
