@@ -20,10 +20,6 @@
 		<name>Acquisition</name>
 	</module>
 	<module>
-		<directory>arena</directory>
-		<name>Arena</name>
-	</module>
-	<module>
 		<directory>boloball</directory>
 		<name>Boloball</name>
 	</module>

@@ -46,7 +46,7 @@ if (   isset($_SERVER['PATH_INFO'])
 }
 
 // Sort out the $module variable.
-if ($_REQUEST['module']) {
+if (isset($_REQUEST['module'])) {
 	$module = $_REQUEST['module'];
 }
 else {
@@ -54,7 +54,7 @@ else {
 }
 
 // Now sort out the $page variable.
-if ($_REQUEST['page']) {
+if (isset($_REQUEST['page'])) {
 	$page = str_replace('/', '', $_REQUEST['page']);
 }
 else {

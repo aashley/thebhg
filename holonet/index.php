@@ -110,8 +110,9 @@ $found = false;
 if (PHP5) {
 	include_once 'index.php5.inc';
 } else {
+	
 	foreach ($modules as $mod) {
-		$GLOBALS['modtext'] = false;
+		$modtext = false;
 		if ($mod->node_name() == 'link') {
 			$url = current($mod->get_elements_by_tagname('url'));
 			$name = current($mod->get_elements_by_tagname('name'));
@@ -131,10 +132,10 @@ if (PHP5) {
 				$modtext = '<a href="' . internal_link('index', array(), $dir->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
 			}
 		}
-	}
 
-	if ($modtext) {
-		$modarray[] = '<td class="MODULE">' . $modtext . '</td>';
+		if ($modtext) {
+			$modarray[] = '<td class="MODULE">' . $modtext . '</td>';
+		}
 	}
 }
 $after = (2 * count($modarray)) - $before;
