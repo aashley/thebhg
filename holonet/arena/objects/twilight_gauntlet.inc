@@ -151,7 +151,7 @@
     }
     
     function Start(){
-	    $sql = "SELECT * FROM `arena_ttg_queue` WHERE `c1` > 0 AND `c2` > 0 AND `c3` > 0 AND `match_id1` = 1 AND `match_id3` = 0 AND `completed` = 0 AND `date_deleted` = 0 AND `approved` = 1";
+	    $sql = "SELECT * FROM `arena_ttg_queue` WHERE `c1` > 0 AND `c2` > 0 AND `c3` > 0 AND `match_id1` = 0 AND `match_id3` = 0 AND `completed` = 0 AND `date_deleted` = 0 AND `approved` = 1";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
