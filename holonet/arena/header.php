@@ -483,7 +483,10 @@ function admin_footer($auth_data) {
         echo '<br />Character&nbsp;Sheets<br />';
         echo '&nbsp;<a href="' . internal_link('admin_sheet_list') . '">Edit&nbsp;Character&nbsp;Sheets</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_sheet_core') . '">Edit&nbsp;Core&nbsp;Sheets</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_field') . '">Create&nbsp;New&nbsp;Field</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_cas') . '">Award/Delete&nbsp;Character&nbsp;Attributes</a><br />';
+        
+        echo '<br />Character&nbsp;Sheet&nbsp;Development<br />';
+  		echo '&nbsp;<a href="' . internal_link('admin_field') . '">Create&nbsp;New&nbsp;Field</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_stat') . '">Create&nbsp;New&nbsp;Statribute</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_skill') . '">Create&nbsp;New&nbsp;Skill</a><br />';        
         echo '&nbsp;<a href="' . internal_link('admin_equation') . '">Create&nbsp;New&nbsp;Variable</a><br />';
@@ -491,6 +494,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_sheet_fo') . '">Modify&nbsp;Field&nbsp;Order</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ca') . '">Create&nbsp;Character&nbsp;Attribute</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ca_stats') . '">Attribute&nbsp;Stat&nbsp;Modifier</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_edit_ca') . '">Attribute&nbsp;Stat&nbsp;Modifier</a><br />';
     }
     
     if ($auth_data['arena']) {    

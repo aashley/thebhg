@@ -108,10 +108,18 @@
 	    $return = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
-		    $return[$info['id']] = array('name'=>$info['name'], 'desc'=>$info['description']);
+		    $return[$info['id']] = array('name'=>stripslashes($info['name']), 'desc'=>stripslashes($info['description']), 'description'=>stripslashes(nl2br($info['description'])));
 	    }
 	    
 	    return $return;
+    }
+    
+    function GetCA($id){
+	    $sql = "SELECT * FROM `cs_ca` WHERE `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    $info = mysql_fetch_array($query);
+	    
+	    return array('id'=>$info['id'], 'name'=>stripslashes($info['name']), 'desc'=>stripslashes($info['description']), 'description'=>stripslashes(nl2br($info['description'])));
     }
     
     function GetCAValues($id){
