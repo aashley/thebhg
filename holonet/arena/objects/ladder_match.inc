@@ -407,6 +407,8 @@
     function RemoveContender($id) {
         $sql = "DELETE FROM `arena_ladder_records` WHERE `bhg_id` = '$id' AND `match_id` = '".$this->arena_id."'";
 
+        echo $sql;
+        
         if (mysql_query($sql, $this->connect)) {
 
             return true;
