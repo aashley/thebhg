@@ -28,7 +28,46 @@ function output() {
 
     if ($sheet->HasSheet($hunter->GetID())){
 	
+	    $i = 1;
+	    $wtypes = $ladder->WeaponTypes();
+	    $locations = $ladder->Locations();
+	    $types = $ladder->Rules();
 	    
+	    $me = $citadel->GetPersonsResults($hunter, CITADEL_PASSED);
+	    $mytest = array();
+	    foreach ($me as $test){
+		    $exam = $test->GetExam();
+		    $mytest[] = $exam->GetID();
+	    }
+	    
+	    if ($_REQUEST['challengee']){
+		    $pers = $_REQUEST['challengee'];
+	    } else {
+		    $pers = 1;
+	    }
+	    
+	    $them = $citadel->GetPersonsResults($pers, CITADEL_PASSED);
+	    $themtest = array();
+	    foreach ($them as $test){
+		    $exam = $test->GetExam();
+		    $themtest[] = $exam->GetID();
+	    }
+	    
+	    $exam = $citadel->GetExambyAbbrev('AT');
+	    
+	    $tests = (in_array($exam->GetID(), $mytest) && in_array($exam->GetID(), $themtest));
+	    
+	    if ($_REQUEST['submit']){
+		    if (in_array($hunter->GetID(), $arena->GetApproved()) && in_array($_REQUEST['challengee'], $arena->GetApproved()) && $tests){
+			    $page_to = 'acn_arena_confirm';
+			    $dojo = false;
+		    } else {
+			    $page_to = 'acn_dojo_confirm';
+			    $dojo = true;
+		    }
+	    } else {
+		    $page_to = $page;
+	    }
 	    
 	    $form = new Form($page_to, 'post', '', '', 'Challenge Another Hunter');
 	    $form->table->StartRow();
@@ -166,13 +205,53 @@ function output() {
 			$form->table->EndRow();
 		}
 	
+		if ($_REQUEST['submit']){
+		    $form->StartSelect('Number of Weapons:', 'num_weapon');
+		    while ($i <= 5) {
+		        $form->AddOption($i, $i);
+		        $i++;
+		    }
+		    $i = 3;
+		    $form->EndSelect();
+		    $form->StartSelect('Weapon Type:', 'type_weapon');
+		    foreach($wtypes as $value) {
+		        $form->AddOption($value->GetID(), $value->GetWeapon());
+		    }
+		    $form->EndSelect();
+
+		    $form->StartSelect(($dojo ? 'Holographic ' : '').'Location:', 'location', $locations[array_rand($locations)]);
+		    foreach ($locations as $lid=>$lname) {
+		        $form->AddOption($lid, $lname);
+		    }
+		    $form->EndSelect();
+			    
+			if (!$dojo){
+			    $form->StartSelect('Rules:', 'rules');
+			    foreach($types as $value) {
+			        $form->AddOption($value->GetID(), $value->GetName());
+			    }
+			    $form->EndSelect();
+		    }
 		
+		    $form->StartSelect('Number of Posts:', 'posts');
+		    while ($i <= 5) {
+		        $form->AddOption($i, $i);
+		        $i++;
+		    }
+		    $form->EndSelect();
+	    }
 	
 	    $form->AddSubmitButton('submit', 'Challenge');
 	    $form->EndForm();
 	    
 	    hr();
 	
+	    $table = new Table('Explanation of Rules', true);
+	    $table->AddRow('Name', 'Description', 'Damage Allowed');
+	    foreach($types as $value) {
+	        $table->AddRow($value->GetName(), $value->GetDesc(), $value->GetRules());
+	    }
+	    $table->EndTable();
 	    
     } else {	    
 	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
