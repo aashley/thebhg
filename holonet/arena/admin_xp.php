@@ -25,8 +25,10 @@ function output() {
       
 			$xp = "xp$i";
 			
-			$character = new Character($_REQUEST[$person]);
-            $character->XPEvent($_REQUEST[$xp], $_REQUEST['reason']);
+			if ($_REQUEST[$person]){
+				$character = new Character($_REQUEST[$person]);
+	            $character->XPEvent($_REQUEST[$xp], $_REQUEST['reason']);
+            }
 			
 		}
 		

@@ -17,7 +17,7 @@ function auth($person) {
 }
 
 function output() {
-    global $arena, $hunter, $roster, $page, $auth_data;
+    global $arena, $hunter, $roster, $page, $auth_data, $citadel;
 
     arena_header();
 
@@ -83,8 +83,32 @@ function output() {
 	    $locations = $ladder->Locations();
 	    $types = $ladder->Rules();
 	    
+	    $me = $citadel->GetPersonsResults($hunter, CITADEL_PASSED);
+	    $mytest = array();
+	    foreach ($me as $test){
+		    $exam = $test->GetExam();
+		    $mytest[] = $exam->GetID();
+	    }
+	    
+	    if ($_REQUEST['challengee']){
+		    $pers = $_REQUEST['challengee'];
+	    } else {
+		    $pers = 1;
+	    }
+	    
+	    $them = $citadel->GetPersonsResults($pers, CITADEL_PASSED);
+	    $themtest = array();
+	    foreach ($them as $test){
+		    $exam = $test->GetExam();
+		    $themtest[] = $exam->GetID();
+	    }
+	    
+	    $exam = $citadel->GetExambyAbbrev('AT');
+	    
+	    $tests = (in_array($exam->GetID(), $mytest) && in_array($exam->GetID(), $themtest));
+	    
 	    if ($_REQUEST['submit']){
-		    if (in_array($hunter->GetID(), $arena->GetApproved()) && in_array($_REQUEST['challengee'], $arena->GetApproved())){
+		    if (in_array($hunter->GetID(), $arena->GetApproved()) && in_array($_REQUEST['challengee'], $arena->GetApproved()) && $tests){
 			    $page_to = 'acn_arena_confirm';
 			    $dojo = false;
 		    } else {
