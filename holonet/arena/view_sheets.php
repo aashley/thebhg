@@ -30,7 +30,7 @@ function output() {
     $table->AddRow('Hunter Name', 'Date Submitted', 'Status');
     
     foreach ($sheet->SheetHolders() as $character){
-	    $person = $character->GetPerson();
+	    $person = new Person($character->GetID());
 	    $sheets[$character->GetName()] = $character;
     }
     
