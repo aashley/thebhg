@@ -190,39 +190,29 @@ function output() {
 			    		$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", stripslashes($value));
 		    		}
 		    	}
-		    	
-		    	for ($i = 1; $i <= 6; $i++){
-			    	$field = new Field($i);
-				    $form->AddSectionTitle($field->GetName());
-			    	foreach($sheet->GetStats($i) as $stat){
-				    	if ($i <= 2){
-					    	$prefix = 'stat';
-				    	} else {
-					    	$prefix = 'expr';
-				    	}
-				    	$value = 0;
+		    	foreach ($sheet->ModFields(1) as $i){
+		    		$field = new Field($i);
+			    	$table->StartRow();
+					$table->AddHeader($field->GetName(), 2);
+					$table->EndRow();
+			    	foreach($this->GetStats($i) as $stat){
+				    	$value = '';
 				    	if (array_key_exists($stat->GetID(), $value_set)){
 					    	$value = $value_set[$stat->GetID()];
 				    	}
-					    $form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', $prefix."[".$stat->GetID()."]", $value, 5);
-			    	}
-		    	}
-		    	for ($i = 10; $i <= 11; $i++){
-			    	$field = new Field($i);
-				    $form->AddSectionTitle($field->GetName());
-			    	foreach($sheet->GetStats($i) as $stat){
-				    	if ($stat->IsInt()){
-					    	$value = 0;
-					    	if (array_key_exists($stat->GetID(), $value_set)){
-						    	$value = $value_set[$stat->GetID()];
-					    	}
-				    		$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", $value, 5);
-			    		} else {
-				    		$value = '';
-					    	if (array_key_exists($stat->GetID(), $value_set)){
-						    	$value = $value_set[$stat->GetID()];
-					    	}
-				    		$form->AddTextArea($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", stripslashes($value));
+				    	if ($i <= 2){
+					    	$prefix = 'stat';
+				    	} elseif ($i <= 6){ {
+					    	$prefix = 'expr';
+				    	} else {
+					    	$prefix = 'pers';
+				    	}
+				    	if ($this->Permit(1, $stat->GetID(), $project)){
+					    	if ($stat->IsInt()){
+				    			$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', $prefix."[".$stat->GetID()."]", $value, 5);
+			    			} else {
+				    			$form->AddTextArea($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", stripslashes($value));
+			    			}
 			    		}
 			    	}
 		    	}
