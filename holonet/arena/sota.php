@@ -25,7 +25,7 @@ function output() {
     $activities = array();
     $ladder = new Ladder();
     $ladder->Build();
-    $st = new Person($arena->CurrentSteward());
+    $st = new Person($ladder->CurrentSteward());
     $stwa = 'Steward <a href="'.internal_link('atn_general', array('id'=>$st->GetID())).'">'.$st->GetName().'</a>';
     
     $activities['The Arena'] = array('te'=>count($arena->ArenaMatches()), 'oe'=>count($ladder->Pending()), 'ce'=>count($ladder->Unposted()), 'xp'=>$ladder->GetXP(), 'cr'=>$ladder->GetCreds(), 'ad'=>$stwa);
