@@ -531,6 +531,16 @@
     function AddToATN($type = 4, $setting = 3, $posts = 3, $location = '', $restriction = array()){	    
         $errors = false;
         
+        $random = false;
+	    
+	    if ($location === ''){
+            $ladder = new Ladder();
+            
+            $locations = $ladder->Locations();
+            
+            $random = true;
+        }
+        
 	    for ($i = 1; $i <= $this->RoundBrackets($this->CurrentRound()); $i++){
 		    
 		    $sql = "SELECT * FROM `arena_sa_tournament_data` WHERE `season` = '".$this->season."' AND `round` = '".$this->CurrentRound()."' AND ".
@@ -548,6 +558,10 @@
 		    $ship1 = $ships[0];
 		    $person2 = $people[1];
 		    $ship2 = $ships[1];
+		    
+		    if ($random){
+	            $location = array_rand($locations);
+            }
 		    
             $name = "Starfield Arena Tournament Round ".$this->CurrentRound().": ".$person1->GetName()." vs. ".$person2->GetName();
             

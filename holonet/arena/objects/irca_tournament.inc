@@ -548,8 +548,7 @@
             $name = "IRC Arena Tournament Round ".$this->CurrentRound().": ".$person1->GetName()." vs. ".$person2->GetName();
             
             if ($random){
-	            print_r(array_rand($locations));
-	            $location = key(array_rand($locations));
+	            $location = array_rand($locations);
             }
             
             $local = explode('_', $location);
