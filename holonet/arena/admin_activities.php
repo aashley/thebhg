@@ -53,16 +53,19 @@ function output(){
 	$form = new Form($page);
 	$form->AddSectionTitle('Add New');
 	$form->AddHidden('data[table]', 'ams_activities');
-	$form->AddTextBox('Name', 'data[name]');
-	$form->AddTextArea('Description', 'data[desc]');
+	$form->AddTextBox('Name', 'data[values][]');
+	$form->AddHidden('data[fields][]', 'name');
+	$form->AddTextArea('Description', 'data[values][]');
+	$form->AddHidden('data[fields][]', 'desc');
 	
 	$search = $arena->Search(array('table'=>'ams_types', 'search'=>array('date_deleted'=>'0'), 'order'=>array('name'=>'ASC')));
 	
-	$form->StartSelect('Activity Type', 'data[type]');
+	$form->StartSelect('Activity Type', 'data[values][]');
 	foreach ($search as $obj){
 		$form->AddOption($obj->Get(id), $obj->Get(name));
 	}
 	$form->EndSelect();
+	$form->AddHidden('data[fields][]', 'type');
 	
 	$form->AddSubmitButton('submit', 'Process');
 	$form->EndForm();
