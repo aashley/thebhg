@@ -129,7 +129,7 @@
         }
 
         if ($rpa != $this->poll_rpa){
-            array_push($add, "`rpa` = '".addslashes($rpa).'");
+            array_push($add, "`rpa` = '".addslashes($rpa)."'");
             $return .= "Location Table Edited.<br />";
         }
 
@@ -139,7 +139,7 @@
         }
 
         if ($open_to != $this->GetOpen){
-            array_push($add, "`open_to` = '".serialize($open_to).'");
+            array_push($add, "`open_to` = '".serialize($open_to)."'");
             $return .= "Open To Option Edited.<br />";
         }
 
