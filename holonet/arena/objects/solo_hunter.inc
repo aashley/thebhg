@@ -86,7 +86,7 @@
     }
 
     function Notify($mbid){
-                $text = "Your Solo Mission has been posted on the Message Boards. \n\nhttp://boards.thebhg.org/index.php?op=view&topic=$mbid\n\n Ric Gravant";
+                $text = "Your Solo Mission has been posted on the Message Boards. \r\n\r\nhttp://boards.thebhg.org/index.php?op=view&topic=$mbid\r\n\r\n Ric Gravant";
 
                 $person = new Person($this->bhg_id);
                 $from = "Bounty Office <adjunct@thebhg.org>";

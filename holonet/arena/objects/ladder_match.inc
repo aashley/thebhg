@@ -85,23 +85,23 @@
             $weapon = $this->GetWeaponType();
 
             $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was accepted. Here are the details of the match:"
-                    ."\nMatch Type - ".$type->GetName()
-                    ."\nLocation - ".$location->GetName()
-                    ."\nWeapon Types - ".$weapon->GetWeapon()
-                    ."\nWeapons - ".$this->GetWeapons()
-                    ."\nPosts - ".$this->GetPosts();
+                    ."\r\nMatch Type - ".$type->GetName()
+                    ."\r\nLocation - ".$location->GetName()
+                    ."\r\nWeapon Types - ".$weapon->GetWeapon()
+                    ."\r\nWeapons - ".$this->GetWeapons()
+                    ."\r\nPosts - ".$this->GetPosts();
                     
             $staff = '';
             
             if ($this->IsDojo()){
-	            $text .= "\nThis match is a Dojo of Shadows match and will be found there instead of on the Arena Board.";
+	            $text .= "\r\nThis match is a Dojo of Shadows match and will be found there instead of on the Arena Board.";
 	            $staff = "Dojo Master, ";
             }
             
             $staff .= "Overseer, or Adjunct.";
 
-            $text .= "\nYou will be notified when your match has been posted on the boards by the $staff"
-                    ."\n\n-The Overseer";
+            $text .= "\r\nYou will be notified when your match has been posted on the boards by the $staff"
+                    ."\r\n\r\n-The Overseer";
 
             $from = "Arena <overseer@thebhg.org>";
             $subject = "Challenge Accepted!";
@@ -145,13 +145,13 @@
             $weapon = $this->GetWeaponType();
 
             $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was declined. These were the details of the match:"
-                    ."\nMatch Type - ".$type->GetName()
-                    ."\nLocation - ".$location->GetName()
-                    ."\nWeapon Types - ".$weapon->GetWeapon()
-                    ."\nWeapons - ".$this->GetWeapons()
-                    ."\nPosts - ".$this->GetPosts();
+                    ."\r\nMatch Type - ".$type->GetName()
+                    ."\r\nLocation - ".$location->GetName()
+                    ."\r\nWeapon Types - ".$weapon->GetWeapon()
+                    ."\r\nWeapons - ".$this->GetWeapons()
+                    ."\r\nPosts - ".$this->GetPosts();
 
-            $text .= "\nThank you for using the Arena Challenge Network.";
+            $text .= "\r\nThank you for using the Arena Challenge Network.";
 
             $from = "Arena <overseer@thebhg.org>";
             $subject = "Challenge Declined!";
@@ -187,13 +187,13 @@
             $weapon = $this->GetWeaponType();
 
             $text = $person1->GetName()."'s Arena Challenge to ".$person2->GetName()." was removed by the Overseer."
-                    ."\nMatch Type - ".$type->GetName()
-                    ."\nLocation - ".$location->GetName()
-                    ."\nWeapon Types - ".$weapon->GetWeapon()
-                    ."\nWeapons - ".$this->GetWeapons()
-                    ."\nPosts - ".$this->GetPosts();
+                    ."\r\nMatch Type - ".$type->GetName()
+                    ."\r\nLocation - ".$location->GetName()
+                    ."\r\nWeapon Types - ".$weapon->GetWeapon()
+                    ."\r\nWeapons - ".$this->GetWeapons()
+                    ."\r\nPosts - ".$this->GetPosts();
 
-            $text .= "\nThank you for using the Arena Challenge Network.";
+            $text .= "\r\nThank you for using the Arena Challenge Network.";
 
             $from = "Arena <overseer@thebhg.org>";
             $subject = "Challenge Removed!";
@@ -323,9 +323,9 @@
 	            $person1 = new Person($contenders[1]->GetID());
 	            $person2 = new Person($contenders[0]->GetID());
 	
-	            $text = "Your arena match has been posted.\n\n".$this->RawLink($id);
+	            $text = "Your arena match has been posted.\r\n\r\n".$this->RawLink($id);
 	
-	            $text .= "\nThank you for using the Arena Challenge Network.";
+	            $text .= "\r\nThank you for using the Arena Challenge Network.";
 	
 	            $from = "Arena <overseer@thebhg.org>";
 	            $subject = "Match Posted!";

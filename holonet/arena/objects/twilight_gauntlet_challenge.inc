@@ -49,8 +49,8 @@
             		."opponent's have signed up to face you. You will be notified when a challenger signs up to face you and then finally when your "
             		."match is ready.";
 
-            $text .= "\n\nGood luck. You will need it."
-                    ."\n\n-The Overseer, ".$overseer->GetName();
+            $text .= "\r\r\n\r\r\nGood luck. You will need it."
+                    ."\r\r\n\r\r\n-The Overseer, ".$overseer->GetName();
 
             $from = "Twilight Gauntlet <overseer@thebhg.org>";
             $subject = "Gauntlet Approved";
@@ -359,7 +359,7 @@
  			$challenger = new Person($this->Opponent($this->CurrentChallenger()));
  			$match = $this->GetMatch(1);
 
-            $text = $person->GetName().", your first Twilight Gauntlet match has been posted.\n\n".$match->RawLink();
+            $text = $person->GetName().", your first Twilight Gauntlet match has been posted.\r\r\n\r\r\n".$match->RawLink();
 
             $from = "Twilight Gauntlet <overseer@thebhg.org>";
             $subject = "Your gauntlet has begun!";
@@ -382,7 +382,7 @@
 		$person = new Person($this->ttg_bhg_id);
 		$challenger = new Person($this->Opponent($this->CurrentChallenger()));
 
-        $text = $person->GetName().", a Twilight Gauntlet match has been posted.\n\n".$match->RawLink();
+        $text = $person->GetName().", a Twilight Gauntlet match has been posted.\r\r\n\r\r\n".$match->RawLink();
 
         $from = "Twilight Gauntlet <overseer@thebhg.org>";
         $subject = "Twilight Match Posted";
@@ -437,7 +437,7 @@
 		$match = $this->FinalMatch();
 
         $text = "Your final Twilight Gauntlet match is up, ".$person->GetName().". You will challenge your opponent, ".$challenger->GetName()." for "
-        		."their spot in the Twilight Gauntlet. Best of luck to both of you, and may the best hunter win.\n\n".$match->RawLink();
+        		."their spot in the Twilight Gauntlet. Best of luck to both of you, and may the best hunter win.\r\r\n\r\r\n".$match->RawLink();
 
         $from = "Twilight Gauntlet <overseer@thebhg.org>";
         $subject = "Final Match Posted";
@@ -471,7 +471,7 @@
             $text = $person->GetName().", congratulations. You have successfully won your Gauntlet Run! You have earned the right to challenge any "
             		."Gauntlet Member for their spot on the Twilight Gauntlet. Please go to the Arena section of the Holonet and click on Admin. There,"
             		." you will find a link for you to use to choose the member of the Twilight Gauntlet that you wish to challenge to a final duel. "
-            		."Good luck in your last match, and once again, congratulations!\n\n";
+            		."Good luck in your last match, and once again, congratulations!\r\r\n\r\r\n";
 
             $from = "Twilight Gauntlet <overseer@thebhg.org>";
             $subject = "You have completed the Gauntlet Run!";

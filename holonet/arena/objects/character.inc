@@ -457,7 +457,7 @@
 			$adjunct = $this->Adjunct();
             $overseer = $this->Overseer();
             
-            $text = "A new sheet has been submitted. Please go and review it at your earliest convenience.\n\n-Office of Character Development";
+            $text = "A new sheet has been submitted. Please go and review it at your earliest convenience.\r\n\r\n-Office of Character Development";
 
             $from = "Office of Character Development <overseer@thebhg.org>";
             $subject = "Character Pending Approval";
@@ -712,7 +712,7 @@
             $text = $hunter->GetName().", your sheet has been denied by the RP staff.";
             
             if ($reason){
-	            $text .= "\n\nReason: ".$reason;
+	            $text .= "\r\n\r\nReason: ".$reason;
             }
 
             $from = "Office of Character Development <overseer@thebhg.org>";
@@ -744,7 +744,7 @@
             $text = $hunter->GetName().", your sheet has been killed by the RP staff.";
             
             if ($reason){
-	            $text .= "\n\nReason: ".$reason;
+	            $text .= "\r\n\r\nReason: ".$reason;
             }
 
             $from = "Office of Character Assassinations<overseer@thebhg.org>";

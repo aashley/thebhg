@@ -72,15 +72,15 @@
             $location = $match->GetLocation();
             $weapon = $match->GetWeaponType();
 
-            $text = $person1->GetName()." has issued an Arena Challenge to ".$person2->GetName()." with the following details: \n"
-                    ."Match Type - ".$type->GetName()."\n"
-                    ."Location - ".$location->GetName()."\n"
-                    ."Weapon Types - ".$weapon->GetWeapon()."\n"
-                    ."Weapons - ".$match->GetWeapons()."\n"
-                    ."Posts - ".$match->GetPosts()."\n";
+            $text = $person1->GetName()." has issued an Arena Challenge to ".$person2->GetName()." with the following details: \r\n"
+                    ."Match Type - ".$type->GetName()."\r\n"
+                    ."Location - ".$location->GetName()."\r\n"
+                    ."Weapon Types - ".$weapon->GetWeapon()."\r\n"
+                    ."Weapons - ".$match->GetWeapons()."\r\n"
+                    ."Posts - ".$match->GetPosts()."\r\n";
 
-            $text .= "\nTo accept this challenge, please go to $link and choose ACCEPT for the pending challenge."
-                    ."\n\n-The Overseer";
+            $text .= "\r\nTo accept this challenge, please go to $link and choose ACCEPT for the pending challenge."
+                    ."\r\n\r\n-The Overseer";
 
             $from = "Arena <overseer@thebhg.org>";
             $subject = "You have been challenged!";

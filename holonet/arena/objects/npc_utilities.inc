@@ -21,7 +21,7 @@
     }
 
     function Parse($blocktext, $name){
-        $stats = explode("\n", $blocktext);
+        $stats = explode("\r\n", $blocktext);
         $i = 0;
         $count = count($stats);
         $pieces = array();

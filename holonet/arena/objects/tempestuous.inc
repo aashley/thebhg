@@ -119,7 +119,7 @@
 		    foreach ($this->ActiveMods() as $value){
 
 				$text = $person->GetName()." has submitted a petition for admittance to the Tempestuous Group. Please go to the Holonet to either "
-			    		."approve or deny their request.\n\nTheir reason they think they should be admitted is:\n".$reason;
+			    		."approve or deny their request.\r\n\r\nTheir reason they think they should be admitted is:\r\n".$reason;
 
 	            $from = "Tempestuous Group <overseer@thebhg.org>";
 	            $subject = "Tempestuous Petition Submitted";
