@@ -4,9 +4,12 @@ $include = array('arena_core', 'tournament', 'character', 'field', 'npc_utilitie
 
 foreach ($include as $page){
 	$page = $page.'.php';
+	echo $page;
 	if (file_exists($page)){
+		echo ' got in.';
 		include_once $page;
 	}
+	echo '<br />';
 }
 
 ?>
