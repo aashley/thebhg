@@ -65,6 +65,7 @@ function output() {
 			    hr();		
 		    } else {
 			    $form = new Form($page);
+			    $form->AddSectionTitle('Choose Hunter');
 			    $form->AddHidden('sheet', $_REQUEST['sheet']);
 			    $kabals_result = $roster->GetDivisions();
 	    
@@ -93,7 +94,9 @@ function output() {
 	    	
 	    	foreach ($hunters as $name=>$person){
 		    	$kabal = $person->GetDivision();
-		    	$plebsheet[$kabal->GetID()][] = $person;
+		    	if ($person->GetID() != $hunter->GetID()){
+		    		$plebsheet[$kabal->GetID()][] = $person;
+	    		}
 	    	}
 	
 		?>
@@ -264,7 +267,7 @@ function output() {
 			    hr();
 			    $table = new Table('', true);
 			    $table->StartRow();
-			    $table->AddHeader('Sheet Backups', 4);
+			    $table->AddHeader('Sheet Backups', 5);
 			    $table->EndRow();
 			    
 			    $table->AddRow('Save Name', 'Date', '&nbsp', '&nbsp', '&nbsp');

@@ -671,18 +671,18 @@
 	function Share($bhg_id, $sheet){
 		$sql = "INSERT INTO `cs_shares` VALUES ('$bhg_id', '$sheet')";
 		if (mysql_query($sql, $this->connect)){
-			return true;
+			return 'Sheet shared successfully';
 		} else {
-			return false;
+			return 'Sheet shared failed';
 		}
 	}
 	
 	function RemoveShare($bhg_id, $sheet){
 		$sql = "DELETE FROM `cs_shares` WHERE `bhg_id` = '$bhg_id' AND `sheet` = '$sheet'";
 		if (mysql_query($sql, $this->connect)){
-			return true;
+			return 'Sheet deshare successful';
 		} else {
-			return false;
+			return 'Sheet deshare failed';
 		}
 	}
 	
