@@ -148,7 +148,7 @@
 		    $cell .= '<option value="stat_'.$stat->GetID().'">'.$stat->GetName().'</option>';
 	    }
 	    
-	    $cell .= '</select><input type="text" name="txt_'.$name.'" value=0>';
+	    $cell .= '</select> Value: <input type="text" name="txt_'.$name.'" value=0>';
 	    
 		$form->table->AddCell($cell);
 		$form->table->EndRow();
