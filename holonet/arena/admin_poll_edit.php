@@ -77,12 +77,14 @@ function output() {
 		} else {
 			NEC(209);
 		}
+		hr();
 	} elseif ($_REQUEST['undelete']){
 		if ($poll->Undelete()){
 			echo 'Poll undeleted.';
 		} else {
 			NEC(210);
 		}
+		hr();
     } elseif ($_REQUEST['next']){
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Add Options');

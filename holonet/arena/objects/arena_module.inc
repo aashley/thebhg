@@ -67,7 +67,7 @@
 	    }
     }
     
-    function GetPolls($rpa = array()){
+    function GetPolls($rpa = array(), $edit = 1){
 	    $rp = '';
 	    $rps = array();
 	    if (count($rpa)){
@@ -77,7 +77,14 @@
 		    }
 		    $rp .= implode(' OR ', $rps).')';
 	    }
-	    $sql = "SELECT * FROM `arena_poll` WHERE $rp `date_deleted` = 0";
+	    if ($edit){
+		    if (count($rpa)){
+			    $edit = 'AND `date_deleted` = 0';
+		    } else {
+			    $edit = '`date_deleted` = 0';
+		    }
+	    }
+	    $sql = "SELECT * FROM `arena_poll` WHERE $rp $edit";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
