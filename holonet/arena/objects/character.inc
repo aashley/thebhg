@@ -1212,18 +1212,17 @@
     	$project = $this->project;
     	
     	if ($this->HasValue($look, $col, $id)){
-	    	foreach ($this->ModFields($project) as $id){
-	    		$field = new Field($id);
+	    	foreach ($this->ModFields($project) as $i){
+	    		$field = new Field($i);
 		    	$table->StartRow();
 				$table->AddHeader($field->GetName(), 2);
 				$table->EndRow();
-		    	foreach($this->GetStats($id) as $stat){
+		    	foreach($this->GetStats($i) as $stat){
 			    	if ($this->Permit(1, $stat->GetID(), $project)){
-				    	echo $id;
 			    		$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look, $id, $col));
 		    		}
 		    	}
-		    	foreach($this->GetSkills($id) as $skill){
+		    	foreach($this->GetSkills($i) as $skill){
 			    	if ($this->Permit(2, $skill->GetID(), $project)){
 			    		$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look, 'SHEET', $id, $col));
 		    		}
