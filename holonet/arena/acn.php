@@ -14,7 +14,7 @@ function auth($person) {
 }
 
 function output() {
-    global $arena, $hunter, $roster, $auth_data, $sheet, $citadel;
+    global $arena, $hunter, $roster, $auth_data, $sheet, $citadel, $page;
 
     arena_header();
 	
@@ -151,6 +151,21 @@ function output() {
 			    }
 			    
 			    $table->EndTable();
+			    
+			    $at = new Tournament($obj->Get(id));
+		    
+			    if (!$at->Ended() && $at->season){
+				    $table = new Table();
+				    $table->StartRow();
+				    $table->AddHeader('Tournament');
+				    $table->EndRow();
+				    
+				    if ($at->CanSignup($hunter->GetID())){
+				    	$table->AddRow('<a href="'.internal_link($page, array('at-id'=>$at->CurrentSeason())).'">Sign Up!</a>');
+			    	} else {
+				    	$table->AddRow('You are signed up for this tournament. <a href="'.internal_link($page, array('at-id'=>$at->CurrentSeason(), 'del'=>1)).'">Remove Me</a>');
+			    	}
+			    }
 			    
 			    if (count($pendings[$obj->Get(id)])){
 				    echo '<p>';
