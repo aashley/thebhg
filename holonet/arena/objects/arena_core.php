@@ -48,6 +48,7 @@
 	    }
 	    
 	    foreach ($return as $id=>$points){
+		    print_r($points);
 		    $work[$points][] = $id;
 	    }
 	    
