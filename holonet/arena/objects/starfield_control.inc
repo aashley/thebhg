@@ -52,6 +52,10 @@
 
     function OldMatch($type, $restrictions, $settings, $location, $posts, $challenger, $challengee, $ship_id1, $ship_id2, $name){
 
+	    $new = new Starfield();
+    	$skip = $new->CurrentSkipper();
+    	$skipper = new Skipper($skip);
+	    
         $person1 = new Person($challenger);
         $person2 = new Person($challengee);
 
