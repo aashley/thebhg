@@ -2,6 +2,9 @@
 
  Class Ladder extends Arena {
 
+	var $xp;
+	var $creds;
+	 
     function Ladder(){
         Arena::Arena();
     }
@@ -67,6 +70,25 @@
 	    } else {
 		    return false;
 	    }
+    }
+    
+    function Build(){
+	   $sql = "SELECT SUM(arena_ladder_records.xp) as xp, SUM(arena_ladder_records.credits) as credits FROM arena_ladder_records, arena_ladder_match WHERE arena_ladder_match.accepted = 1 "
+                ."AND arena_ladder_match.id = arena_ladder_records.match_id AND arena_ladder_match.match_id > 0 AND arena_ladder_match.steward > 0 AND arena_ladder_match.date_deleted = 0 AND arena_ladder_match.is_dojo = '0'";
+       
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        $this->creds = $info['credits'];
+        $this->xp = $info['xp'];
+    }
+    
+    function GetXP(){
+	    return $this->xp;
+    }
+    
+    function GetCreds(){
+	    return $this->creds;
     }
     
     function CurrentSteward(){
@@ -138,7 +160,7 @@
                     ."arena_ladder_match.accepted = 0 AND arena_ladder_records.challenger = 0 AND arena_ladder_match.id = arena_ladder_records.match_id AND "
                     ."arena_ladder_match.date_deleted = 0";
         } else {
-            $sql = "SELECT * FROM `arena_ladder_match` WHERE `accepted` = 1 AND `date_deleted` = 0 AND `end` = 0";
+            $sql = "SELECT * FROM `arena_ladder_match` WHERE `accepted` = 1 AND `date_deleted` = 0 AND `end` = 0 AND `is_dojo` = 0";
         }
 
         $query = mysql_query($sql, $this->connect);
