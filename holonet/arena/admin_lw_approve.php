@@ -51,12 +51,12 @@ function output() {
 	        $form->table->StartRow();
 	        $form->table->AddHeader('Approve Requested Contracts', 4);
 	        $form->table->EndRow();
-	        $form->table->AddRow('Requester', 'Difficulty', 'Approve', 'Deny');
+	        $form->table->AddRow('Requester', 'Approve', 'Deny');
 	        $i = 1;
 	        foreach ($solo->NeedApproval() as $value) {
 		        $person = new Person($value['bhg_id']);
 		        $form->table->AddRow('<a href="'.internal_link('atn_general', array('id'=>$person->GetID())).'">'.$person->GetName().'</a>', 
-		        	$type->GetName(), '<input type="checkbox" name="approve['.$i.']" value="'.$value['bhg_id'].'">', 
+					'<input type="checkbox" name="approve['.$i.']" value="'.$value['bhg_id'].'">', 
 		        	'<input type="checkbox" name="deny['.$i.']" value="'.$value['bhg_id'].'">');
 		        $i++;
 	        }
