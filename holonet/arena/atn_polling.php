@@ -42,9 +42,34 @@ function output() {
     if (is_object($poll)){
 	    if (rp_staff($hunter) || (!$poll->IsDeleted() && ($poll->CanSubmit($hunter) || $poll->DidVote($hunter)))){
 		    if ($poll->CanSubmit($hunter)){
-			    echo 'Submit';
+			    $form = new Form($page);
+			    $form->table->StartRow();
+			    $form->table->AddHeader($poll->GetQuestion(), 3);
+			    $form->table->EndRow();
+			    $votes = $poll->GetVotes();
+			    $form->table->AddRow('&nbsp', 'Question', 'Stats');
+			    foreach ($poll->GetOptions() as $option){
+				    $per = $votes[$option->GetID()];
+				    if ($votes['total']){
+					    $perce = $per/$votes['total'];
+					    $percent = $perce*100;
+					    $percent = round($percent, 0);
+				    } else {
+					    $percent = 0;
+				    }
+				    if ($poll->GetMultiple()){
+					    $put = '<input type="checkbox" name="votes[]" value="'.$option->GetID().'">';
+				    } else {
+					    $put = '<input type="radio" name="votes" value="'.$option->GetID().'">';
+				    }
+					$form->table->AddRow($put, $option->GetQuestion(), $percent.'%');
+			    }
+			    $form->table->StartRow();
+			    $form->table->AddCell('<input type="submit" value="Vote!" name="submit">');
+			    $form->table->EndRow();
+			    $form->EndForm();
 		    } else {
-	    		echo 'View';
+	    		$poll->WriteResults();
     		}
 	    } else {
 		    echo 'Invalid polling number';
