@@ -18,7 +18,7 @@ function output(){
 	arena_header();
 	
 	//Write the current activities
-	$current = $arena->Search(array('table'=>'ams_activities', 'search'=>array('date_deleted'=>'0')));
+	$current = $arena->Search(array('table'=>'ams_activities', 'search'=>array('date_deleted'=>'0')), 'order'=>array('name'));
 	
 	if (count($current)){
 		$table = new Table('Current Activities', true);
