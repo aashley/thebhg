@@ -48,7 +48,7 @@ function output() {
 		    }
 		    
 		    $pendings[] = new Obj('ams_match', $oba->Get(match), 'holonet');
-		    $last = $obj->Get(id);
+		    $last = $oba->Get(id);
 	    }
 	    
 	    foreach ($pendings as $ja=>$match){
