@@ -26,7 +26,7 @@ function output() {
             NEC(171);
         }
     } elseif (isset($_REQUEST['end'])){
-		$commentator = new Commentator($irc->NewHC());
+		$commentator = new Commentator($irc->CurrentHC());
 		
 		if ($commentator->EndTerm()){
 			echo 'Term Ended.';

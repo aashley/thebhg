@@ -11,7 +11,7 @@ function output() {
     global $arena;
 
     arena_header();
-    echo 'The State of the Arena Report is an automatically generate stat printout of the current status of the Arena, valid up to the second which this page is viewed.';
+    echo 'The State of the Arena Report is an automatically generate stat printout of the current status of the Arena.';
     
     hr();
 
@@ -76,6 +76,11 @@ function output() {
     hr();
 
 	$arena->LatestReport($arena->ArenaPositions(), 'SECTION B: Arena Reports');
+	
+	hr();
+	
+	
+	
     arena_footer();
 }
 ?>
