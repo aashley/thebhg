@@ -53,10 +53,8 @@ function output() {
 	    	
 	    	foreach ($kabals_result as $div){
 		    	foreach ($div->GetMembers() as $person){
-			    	if (!$sheet->HasSheet($person->GetID())){
-				    	$kabal = $person->GetDivision();
-				    	$plebsheet[$kabal->GetID()][] = $person;
-			    	}
+			    	$kabal = $person->GetDivision();
+			    	$plebsheet[$kabal->GetID()][] = $person;
 		    	}
 	    	}
 	
