@@ -20,7 +20,7 @@ function output() {
     $table->AddHeader('Awarded XP');
     $table->AddHeader('Awarded Credits');
     $table->AddHeader('Administrator');
-    $table->EndTable();
+    $table->EndRow();
     
     $activities = array();
     $ladder = new Ladder();
@@ -28,10 +28,10 @@ function output() {
     $st = new Person($ladder->CurrentSteward());
     $stwa = 'Steward <a href="'.internal_link('atn_general', array('id'=>$st->GetID())).'">'.$st->GetName().'</a>';
     
-    $activities['The Arena'] = array('te'=>count($arena->ArenaMatches()), 'oe'=>count($ladder->Pending()), 'ce'=>count($ladder->Unposted()), 'xp'=>$ladder->GetXP(), 'cr'=>$ladder->GetCreds(), 'ad'=>$stwa);
+    $activities['The Arena'] = array('ce'=>count($arena->ArenaMatches()), 'oe'=>count($ladder->Pending()), 'ue'=>count($ladder->Unposted()), 'xp'=>$ladder->GetXP(), 'cr'=>$ladder->GetCreds(), 'ad'=>$stwa);
     
     foreach ($activities as $activity=>$stats){
-	    $table->AddRow($activity);	    
+	    $table->AddRow($activity, $stats['ce'], $stats['oe'], $stats['ue'], $stats['xp'], $stats['cr'], $stats['ad']);	    
     }
     
     $table->EndTable();
