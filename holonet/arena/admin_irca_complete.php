@@ -56,6 +56,8 @@ function output() {
             $form->AddTextBox('Credits Earned:', 'creds[' . $i . ']');
             $form->AddTextBox('Experience Points:', 'xp[' . $i . ']');
         }
+        
+        $form->AddTextArea('Match Comments:', 'comments');
 
         $form->AddSubmitButton('submit', 'Grade Match');
         $form->EndForm();
@@ -65,7 +67,7 @@ function output() {
 	    $match = new IRCAMatch($_REQUEST['match_id']);
 
         foreach($_REQUEST['person'] as $id=>$pid){
-            if ($match->Complete($pid, $_REQUEST['xp'][$id], $_REQUEST['creds'][$id], $_REQUEST['outcome'][$id])) {
+            if ($match->Complete($pid, $_REQUEST['xp'][$id], $_REQUEST['creds'][$id], $_REQUEST['outcome'][$id], $_REQUEST['comments'])) {
 	            
 	            if (!$_REQUEST['add_xp']){
 		            $character = new Character($pid);

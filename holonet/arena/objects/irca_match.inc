@@ -13,6 +13,7 @@
     var $arena_weapon_type;
     var $arena_posts;
     var $arena_graded;
+    var $arena_comments;
     var $arena_date_deleted;
 
     function IRCAMatch($id) {
@@ -48,6 +49,10 @@
 
     function GetID() {
         return $this->arena_id;
+    }
+    
+    function GetComments(){
+	    return nl2br(stripslashes($this->arena_comments));
     }
 
     function GetStatus() {
@@ -125,9 +130,9 @@
     }
 
 
-    function Complete($id, $xp, $creds, $outcome, $date = '0') {
+    function Complete($id, $xp, $creds, $outcome, $date = '0', $comment) {
 	    
-        $sql = "UPDATE `arena_irca_match` SET `graded` = '1' WHERE `id` = '".$this->arena_id."'";
+        $sql = "UPDATE `arena_irca_match` SET `graded` = '1', `comments` = '".addslashes($comment)."' WHERE `id` = '".$this->arena_id."'";
 
         if (mysql_query($sql, $this->connect)) {
 

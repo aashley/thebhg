@@ -74,6 +74,18 @@ function output() {
 	                $table->AddRow('Total Expirence Points:', number_format($value->GetXP()));
 	                $table->EndTable();
 	            }
+	            
+	            hr();
+	            
+	            $table = new Table();
+	            
+	            $table->StartRow();
+	            $table->AddHeader('Match Comments');
+	            $table->EndRow();
+	            
+	            $table->AddRow($atn->GetComments());
+	            
+	            $table->EndTable();
 	
 	        }
 	

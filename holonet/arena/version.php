@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v1.2.4";
+    echo "Current version: v1.2.6";
     
     hr();
     
@@ -16,11 +16,11 @@ function output() {
     
     hr();
     
-    echo "Version Comments: The AMS Module has been launched at version 1.2.";
+    echo "Version Comments: Minor updates, ahoy!";
     
     hr();
     
-    echo "Last Update: Fixed a problem with XP BP buying in the Character Sheet functions and added in Automatic Credit awarding for all events.";
+    echo "Last Update: Updated the IRCA objects to allow for comments by the graders, which is a necessity, due to the IRCA base.";
     
     hr();
     
