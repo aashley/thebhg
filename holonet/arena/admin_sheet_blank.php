@@ -33,7 +33,7 @@ function output() {
     else {
         $form = new Form($page);
         $form->StartSelect('Hunter:', 'person');
-        //hunter_dropdown($form);
+        hunter_dropdown($form);
         $form->EndSelect();
         $form->AddSubmitButton('submit', 'Insert Blank Sheet');
         $form->EndForm();
