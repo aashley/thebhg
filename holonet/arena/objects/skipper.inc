@@ -53,7 +53,7 @@
     
     function SecondBuild(){
 	    $sql = "SELECT SUM(arena_starfield_records.xp) as xp, SUM(arena_starfield_records.credits) as credits FROM arena_starfield_records, arena_starfield_match WHERE arena_starfield_match.accepted = 1 "
-                ."AND arena_starfield_match.id = arena_starfield_records.match_id AND arena_starfield_match.match_id > 0 AND arena_starfield_match.skipard > 0 AND arena_starfield_match.date_deleted = 0 AND arena_starfield_match.skipard = '".$this->skip_id."'";
+                ."AND arena_starfield_match.id = arena_starfield_records.match_id AND arena_starfield_match.match_id > 0 AND arena_starfield_match.skipper > 0 AND arena_starfield_match.date_deleted = 0 AND arena_starfield_match.skipper = '".$this->skip_id."'";
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
