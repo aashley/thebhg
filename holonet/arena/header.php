@@ -6,14 +6,6 @@ include_once('citadel.inc');
 
 $roster = new Roster('fight-51-me');
 $mb = new MedalBoard('fight-51-me');
-$arena = new Arena();
-$library = new Library();
-$at = new Tournament();
-$iat = new IRCTournament();
-$sat = new SATournament();
-$citadel = new Citadel();
-$lw = new LW_Solo();
-$sheet = new Sheet();
 
 function arena_header() {
     echo '<table border=0 width="100%"><tr valign="top"><td width="90%">';
