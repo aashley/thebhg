@@ -88,6 +88,7 @@
         $sql = "SELECT * FROM `ams_tourney_data` WHERE `bhg_id` = '$bhg_id' AND `season` = '".$this->season."'";
         $query = mysql_query($sql, $this->holonet);
         echo mysql_num_rows($query);
+        echo $bhg_id;
         if (mysql_num_rows($query) == 0){
             return true;
         }
