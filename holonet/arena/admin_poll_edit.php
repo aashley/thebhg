@@ -113,12 +113,13 @@ function output() {
 	    $form->AddSubmitButton('next', 'Edit Options');
 	    
 	    $form->EndForm();
+	    $show = false;
     }
     
     if ($show){
 	    if (count($arena->GetPolls())){
 	    	$form = new Form($page);
-	    	$form->StartSelect('Poll', 'poll');
+	    	$form->StartSelect('Poll Question ', 'poll');
 	    	foreach ($arena->GetPolls() as $poll){
 		    	$form->AddOption($poll->GetID(), $poll->GetQuestion());
 	    	}
