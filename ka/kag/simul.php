@@ -11,7 +11,7 @@ function get_points($hunter) {
 		while ($row = mysql_fetch_array($result)) {
 			$weight = $row['kag'] - ($last_kag->GetID() - 5);
 			$parts += $weight;
-			$points += ($weight * ScalePoints($row['kag'], $row['points'], $row['events']));
+			$points += ($weight * (ScalePoints($row['kag'], $row['points'], $row['events']) / $row['events']));
 			$kags++;
 			$events += $row['events'];
 		}
