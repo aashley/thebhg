@@ -16,21 +16,7 @@ function output() {
 
     arena_header();
     
-    if (isset($_REQUEST['submit'])) {
-	    $character = new Character($_REQUEST['bhg_id']);
-		if ($character->IsNew()){
-			if (!$character->NewSheet()){
-				NEC(158);
-				admin_footer($auth_data);
-				return;
-			} else {
-				echo 'Sheet created.';
-			}
-		} else {
-			echo 'Character has a sheet.';
-		}
-    }
-    else {
+    
         $kabals_result = $roster->GetDivisions();
 	    
 			$kabals = array();
@@ -149,7 +135,6 @@ function output() {
 		$form->table->EndRow();
         $form->AddSubmitButton('submit', 'Insert Blank into AMS');
         $form->EndForm();
-    }
 
     admin_footer($auth_data);
 }
