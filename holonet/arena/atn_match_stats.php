@@ -28,16 +28,16 @@ function output() {
 	    $irca = new IRCAStats($hunter->GetID());
 	    $lw = new LW_Hunter($hunter->GetID());
 	
-	    $table = new Table();
-	    $table->StartRow();
-	    $table->AddHeader('Arena Stats', 2);
-	    $table->EndRow();
-	    $table->AddRow('Arena Matches:', $arena_ladder->GetMatches());
-	    $table->AddRow('Arena Credits:', number_format($arena_ladder->GetCredits()).' Imperial Credits');
-	    $table->AddRow('Arena Expirence Points:', number_format($arena_ladder->GetXP()));
-	    $table->EndTable();
-	
 	    if ($arena_ladder->GetMatches()){
+		    $table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Arena Stats', 2);
+		    $table->EndRow();
+		    $table->AddRow('Arena Matches:', $arena_ladder->GetMatches());
+		    $table->AddRow('Arena Credits:', number_format($arena_ladder->GetCredits()).' Imperial Credits');
+		    $table->AddRow('Arena Expirence Points:', number_format($arena_ladder->GetXP()));
+		    $table->EndTable();
+		    
 		    echo '<br /><a name="matches"></a>';
 		    $table = new Table('', true);
 		    $table->StartRow();
@@ -57,16 +57,16 @@ function output() {
 		
 		hr();
 		
-		$table = new Table();
-	    $table->StartRow();
-	    $table->AddHeader('Starfield Arena Stats', 2);
-	    $table->EndRow();
-	    $table->AddRow('Starfield Arena Matches:', $starfield_ladder->GetMatches());
-	    $table->AddRow('Starfield Arena Credits:', number_format($starfield_ladder->GetCredits()).' Imperial Credits');
-	    $table->AddRow('Starfield Arena Expirence Points:', number_format($starfield_ladder->GetXP()));
-	    $table->EndTable();
-		
 		if ($starfield_ladder->GetMatches()){
+			$table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Starfield Arena Stats', 2);
+		    $table->EndRow();
+		    $table->AddRow('Starfield Arena Matches:', $starfield_ladder->GetMatches());
+		    $table->AddRow('Starfield Arena Credits:', number_format($starfield_ladder->GetCredits()).' Imperial Credits');
+		    $table->AddRow('Starfield Arena Expirence Points:', number_format($starfield_ladder->GetXP()));
+		    $table->EndTable();
+		    
 		    echo '<br /><a name="matches"></a>';
 		    $table = new Table('', true);
 		    $table->StartRow();
@@ -99,17 +99,17 @@ function output() {
 		    $table->EndTable();
 		    echo '<br />';
 	    }		
-		
-		$table = new Table();
-	    $table->StartRow();
-	    $table->AddHeader('Solo Mission Stats', 2);
-	    $table->EndRow();
-	    $table->AddRow('Contracts Completed:', $solo->GetContracts()+$lw->GetContracts());
-	    $table->AddRow('Contract Credits:', number_format($solo->GetCredits()+$lw->GetCredits()).' Imperial Credits');
-	    $table->AddRow('Contract Expirence Points:', number_format($solo->GetXP()+$lw->GetXP()));
-	    $table->EndTable();
-	
+	    
 	    if ($solo->GetContracts()){
+		    $table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('Solo Mission Stats', 2);
+		    $table->EndRow();
+		    $table->AddRow('Contracts Completed:', $solo->GetContracts()+$lw->GetContracts());
+		    $table->AddRow('Contract Credits:', number_format($solo->GetCredits()+$lw->GetCredits()).' Imperial Credits');
+		    $table->AddRow('Contract Expirence Points:', number_format($solo->GetXP()+$lw->GetXP()));
+		    $table->EndTable();
+		    
 		    echo '<br /><a name="matches"></a>';
 		    $table = new Table('', true);
 		    $table->StartRow();
@@ -142,17 +142,17 @@ function output() {
 	    }
 	    
 	    hr();
-	    
-	    $table = new Table();
-	    $table->StartRow();
-	    $table->AddHeader('IRC Arena Stats', 2);
-	    $table->EndRow();
-	    $table->AddRow('IRC Arena Matches:', $irca->GetMatches());
-	    $table->AddRow('IRC Arena Credits:', number_format($irca->GetCredits()).' Imperial Credits');
-	    $table->AddRow('IRC Arena Expirence Points:', number_format($irca->GetXP()));
-	    $table->EndTable();
 	
 	    if ($irca->GetMatches()){
+		    $table = new Table();
+		    $table->StartRow();
+		    $table->AddHeader('IRC Arena Stats', 2);
+		    $table->EndRow();
+		    $table->AddRow('IRC Arena Matches:', $irca->GetMatches());
+		    $table->AddRow('IRC Arena Credits:', number_format($irca->GetCredits()).' Imperial Credits');
+		    $table->AddRow('IRC Arena Expirence Points:', number_format($irca->GetXP()));
+		    $table->EndTable();
+		    
 		    echo '<br /><a name="matches"></a>';
 		    $table = new Table('', true);
 		    $table->StartRow();
