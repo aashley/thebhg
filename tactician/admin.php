@@ -183,7 +183,7 @@ function choose() {
 	page_header('Edit Mission');
 
 	echo "Select the mission to edit:<BR><BR>\n";
-	$missions_result = mysql_query("SELECT * FROM missions ORDER BY mset ASC, title ASC", $db);
+	$missions_result = mysql_query("SELECT * FROM missions ORDER BY mset DESC, title ASC", $db);
 	if ($missions_result && mysql_num_rows($missions_result)) {
 		while ($mission = mysql_fetch_array($missions_result)) {
 			if (empty($lastset) || $mission['mset'] != $lastset) {
