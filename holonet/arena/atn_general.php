@@ -88,6 +88,8 @@ function output() {
 							'"><img border=0 src="arena/images/distinctions/'.$reward['pic'].'.png"></a>';				
 			}
 			
+			echo 'Arena Aide Positions';
+			
 			for ($i = 0; $i < count($setups); $i += 12) {
 				echo implode('', array_slice($setups, $i, 12)).'<br />';
 			}
@@ -98,8 +100,6 @@ function output() {
 			if (count($aas)){
 				hr();
 			}
-			
-			echo '<h4>Personal Stats</h4>';
 			
 			$setups = array();
 			
