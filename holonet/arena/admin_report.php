@@ -34,7 +34,9 @@ function output() {
 			}
 			echo '<br />';
 		}
-		if (mysql_query('INSERT INTO arena_reports (admin, author, time, report, html) VALUES (' . $_REQUEST['position'] . ', ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')', $arena->connect)) {
+		$sql = 'INSERT INTO arena_reports (admin, author, time, report, html) VALUES (' . addslashes($_REQUEST['position']) . ', ' . $hunter->GetID() . ', UNIX_TIMESTAMP(), "' . addslashes($_REQUEST['report']) . '", ' . ($_REQUEST['html'] == 'on' ? '1' : '0') . ')';
+		echo $sql;
+		if (mysql_query($sql, $arena->connect)) {
 			echo 'Arena Report added successfully.';
 		}
 		else {
