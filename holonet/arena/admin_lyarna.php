@@ -29,15 +29,17 @@ function output() {
     if (isset($_REQUEST['submit'])) {
 	    $error = true;
 	    for ($i = 0; $i < $_REQUEST['runs']; $i++){
-		    if ($_REQUEST['position'.$i]){
-			    $sets = "`position` = '".$_REQUEST['position'.$i]."', `division` = '".$_REQUEST['kabal'.$i]."'";
-		    } elseif ($_REQUEST['person'.$i]) {
-			    $sets = "`bhg_id` = '".$_REQUEST['person'.$i]."'";
-		    }
-		    
-		    if ($sets){ 
-	            if (!mysql_query("UPDATE " . $_REQUEST['table'] . " SET $sets WHERE `id` = '".$_REQUEST['property'.$i]."'", $lyarna)) {
-	                $error = false;	                
+		    if ($_REQUEST['process'.$i]){
+			    if ($_REQUEST['position'.$i]){
+				    $sets = "`position` = '".$_REQUEST['position'.$i]."', `division` = '".$_REQUEST['kabal'.$i]."'";
+			    } elseif ($_REQUEST['person'.$i]) {
+				    $sets = "`bhg_id` = '".$_REQUEST['person'.$i]."'";
+			    }
+			    
+			    if ($sets){ 
+		            if (!mysql_query("UPDATE " . $_REQUEST['table'] . " SET $sets WHERE `id` = '".$_REQUEST['property'.$i]."'", $lyarna)) {
+		                $error = false;	                
+		            }
 	            }
             }
         }
@@ -155,7 +157,7 @@ function output() {
 		This page requires JavaScript to function properly.
 		</noscript>
 	<?
-		$form->table->AddRow('Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
+		$form->table->AddRow('Make Change', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
 		$i = 0;
 		
         while ($row = mysql_fetch_array($locations)) {
@@ -171,7 +173,7 @@ function output() {
 		        $owner = 'Not Listed in System';
 	        }
 	        $form->AddHidden('property'.$i, $row['id']);
-		  		
+		  	$form->table->AddCell('<input type="checkbox" name="process'.$i.'" value=1>');
 	        $form->table->AddCell($owner);
 	        $form->table->AddCell($row['name']);
 	        $form->table->AddCell($row['owner']);
@@ -194,7 +196,7 @@ function output() {
         $run = $i-1;
         $form->AddHidden('runs', $run);
         $form->table->StartRow();
-        $form->table->AddCell('<input type="submit" name="submit" value="Updated Properties">', 6);
+        $form->table->AddCell('<input type="submit" name="submit" value="Updated Properties">', 7);
         $form->table->EndRow();
         $form->EndForm();
     }
