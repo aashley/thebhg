@@ -30,7 +30,10 @@ function Admin_Questions($crumbTrail, $path, &$login) {
 
     $exam = $citadel->GetExambyAbbrev($path[1]);
 
-    if (in_array($login->GetID(), $exam->GetMarkers(true))) {
+    $loginpos = $login->GetPosition();
+
+    if (in_array($login->GetID(), $exam->GetMarkers(true))
+				|| $loginpos->GetID() == 5) {
 
       if (   isset($path[2])
           && $path[2] > '') {
