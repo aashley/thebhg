@@ -15,6 +15,7 @@ class bhg_roster_person extends bhg_core_base {
 					'cadre' => 'bhg_roster_cadre',
 					'previousdivision' => 'bhg_roster_division',
 					));
+		$this->__addDefaultCodePermissions('set', 'god');
 	}
 
 	// }}}

@@ -6,4 +6,6 @@ include_once 'bhg.php';
 
 print $GLOBALS['bhg']->roster->getPerson(94)->getIDLine()."\n";
 
+print_r($GLOBALS['bhg']->roster->getPerson(94)->setName('Test'));
+
 ?>

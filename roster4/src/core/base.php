@@ -77,6 +77,15 @@ class bhg_core_base {
 	 */
 	private $fieldmap = array();
 
+	/**
+	 * Code map
+	 *
+	 * This maps specific functions to requiring specific a Code ID permission
+	 * 
+	 * @var array
+	 */
+	private $codeMap = array();
+
 	// }}}
 
 	// {{{ __construct()
@@ -122,12 +131,40 @@ class bhg_core_base {
 
 	public function __call($function, $params) {
 
-		if (strtolower(substr($function, 0, 3)) == 'get') {
+		$allowed = false;
 
-			$varname = strtolower(substr($function, 3));
+		$lfunc = strtolower($function);
+
+		if (isset($this->codeMap[$lfunc])) {
+
+			if (!$GLOBALS['bhg']->hasPerm($this->codeMap[$lfunc])) {
+
+				return new bhg_error('Insufficent code ID permissions.');
+
+			} else {
+
+				$allowed = true;
+
+			}
+
+		}
+		
+		if (substr($lfunc, 0, 3) == 'get') {
+
+			$varname = substr($lfunc, 3);
 
 			if (   !in_array($varname, $this->blacklist['get'])
 					&& isset($this->data[$varname])) {
+
+				if ($allowed === false && isset($this->codeMap['defaults']['get'])) {
+
+					if (!$GLOBALS['bhg']->hasPerm($this->codeMap['defaults']['get'])) {
+
+						return new bhg_error('Insufficent code ID permissions.');
+
+					}
+
+				}
 
 				if (isset($this->fieldmap[$varname])) {
 
@@ -149,12 +186,22 @@ class bhg_core_base {
 
 			}
 
-		} elseif (strtolower(substr($function, 0, 3)) == 'set') {
+		} elseif (substr($lfunc, 0, 3) == 'set') {
 
-			$varname = strtolower(substr($function, 3));
+			$varname = substr($lfunc, 3);
 
 			if (	 !in_array($varname, $this->blacklist['set'])
 					&& isset($this->data[$varname])) {
+
+				if ($allowed === false && isset($this->codeMap['defaults']['set'])) {
+
+					if (!$GLOBALS['bhg']->hasPerm($this->codeMap['defaults']['set'])) {
+
+						return new bhg_error('Insufficent code ID permissions.');
+
+					}
+
+				}
 
 				if (isset($this->fieldmap[$varname])) {
 
@@ -558,6 +605,44 @@ class bhg_core_base {
 	protected function __addFieldMap($newmaps) {
 
 		$this->fieldmap = array_merge($this->fieldmap, $newmaps);
+
+		return true;
+
+	}
+
+	// }}}
+	// {{{ __addCodePermissions() [protected]
+
+	/**
+	 * Add required Code permissions for functions processed thru __call
+	 *
+	 * @param array
+	 * @return boolean
+	 */
+	protected function __addCodePermMap($newmaps) {
+
+		$this->codeMap = array_merge($this->codeMap, $newmaps);
+
+		return true;
+
+	}
+
+	// }}}
+	// {{{ __addDefaultCodePermissions() [protected]
+
+	/**
+	 * Set Default code id permissions for a class of functions
+	 *
+	 * Set the Defatul code id permission required to call a class of functions.
+	 * Function specific code perms set with __addCodePermissions() overrights this.
+	 *
+	 * @param string The class of functions to set the default for 'get' or 'set'
+	 * @param string The code id permission name required to call this class of functions
+	 * @return boolean
+	 */
+	protected function __addDefaultCodePermissions($class, $perm) {
+
+		$this->codeMap['defaults'][$class] = $perm;
 
 		return true;
 

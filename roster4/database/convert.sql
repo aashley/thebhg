@@ -1,3 +1,10 @@
+-- Code IDs
+ALTER TABLE coders RENAME core_code;
+ALTER TABLE core_code DROP COLUMN id;
+ALTER TABLE core_code CHANGE md5 id CHAR(32) NOT NULL;
+UPDATE core_code SET id = LOWER(id);
+ALTER TABLE core_code ADD PRIMARY KEY (id);
+
 -- Roster Bio Data
 ALTER TABLE roster_biographical_data ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE roster_biographical_data ADD COLUMN dateupdated DATETIME NOT NULL;
@@ -53,6 +60,8 @@ ALTER TABLE roster_position ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE roster_position ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE roster_position ADD COLUMN datedeleted DATETIME;
 UPDATE roster_position SET datecreated = NOW(), dateupdated = NOW();
+ALTER TABLE roster_position CHANGE special_division specialdivision TEXT NOT NULL;
+ALTER TABLE roster_position CHANGE is_email_alias emailalias INT(1) NOT NULL;
 
 -- Roster Rank
 ALTER TABLE roster_rank ADD COLUMN datecreated DATETIME NOT NULL;

@@ -50,6 +50,13 @@ class bhg {
 	 */
 	private $log = null;
 
+	/**
+	 * The BHG Code ID accessing this system
+	 *
+	 * @var object
+	 */
+	private $code = null;
+
 	// }}}
 
 	// {{{ __construct()
@@ -212,6 +219,62 @@ class bhg {
 	public function log($message, $level = PEAR_LOG_INFO) {
 
 		$this->log->log($message, $level);
+
+	}
+
+	// }}}
+	// {{{ setCodeID()
+
+	/**
+	 * Set the Code ID that has been assigned to the code accessing the roster
+	 *
+	 * @param string The Code ID
+	 * @return boolean
+	 */
+	public function setCodeID($code) {
+
+		$this->code = new bhg_core_code(strtolower(md5($code)));
+
+		if ($this->code->createFailure()) {
+
+			$this->code = null;
+
+			return false;
+
+		} else {
+
+			return true;
+
+		}
+
+	}
+
+	// }}}
+	// {{{ hasPerm()
+
+	/**
+	 * Does this code id have the requested permission
+	 *
+	 * @param string the permission name
+	 * @return boolean
+	 */
+	public function hasPerm($perm) {
+
+		$func = 'has'.strtolower($perm);
+
+		if (is_null($this->code)) {
+
+			return false;
+
+		} elseif ($this->code->hasgod()) {
+
+			return true;
+
+		} else {
+			
+			return $this->code->$func();
+
+		}
 
 	}
 
