@@ -239,7 +239,8 @@ function output() {
         
         $form->AddHidden('persons', $i);
 
-        $form->AddSubmitButton('hunters', 'Edit Hunters');
+        $form->table->StartRow();
+        $form->table->AddCell('<input type="submit" value="Edit Hunter" name="hunters">', 4);
         $form->EndForm();
     }
     elseif (isset($_REQUEST['submit'])) {
