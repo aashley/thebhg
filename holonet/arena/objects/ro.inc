@@ -41,6 +41,47 @@
 	    }
     }
     
+    function CanRequest($cadre){
+	    $sql = "SELECT * FROM `arena_ro_cadre` WHERE `date_deleted` = 0 AND `process` = 0 AND `cadre` = $cadre";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return (mysql_num_rows($query) == 0);
+    }
+    
+    function RequestCadreRO($cadre, $title, $plot){
+	    $leader = $cadre->GetLeader();
+	    $sql = "INSERT INTO `arena_ro_cadre` (`hunter`, `cadre`, `title`, `plot`) VALUES ('".$leader->GetID()."', '".$cadre->GetID()."', '".addslashes($title)."', '".addslashes($plot)."')";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function ProcessCadreRO($id){
+	    $sql = "UPDATE `arena_ro_cadre` SET `process` = '".time()."' WHERE `id` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function DeleteCadreRO($id){
+	    $sql = "UPDATE `arena_ro_cadre` SET `date_deleted` = '".time()."' WHERE `id` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function GetCadrePending(){
+	    $sql = "SELECT * FROM `arena_ro_cadre` WHERE `date_deleted` = 0 AND `process` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return = array('id'=>$info['id'], 'plot'=>nl2br(stripslashes($info['plot'])), 'title'=>stripslashes($info['title']), 'cadre'=>new Cadre($info['cadre']), 'person'=>new Person($info['person']));
+	    }
+	    
+	    return $return;
+    }
+    
     function Recent(){
         $sql = "SELECT * FROM `arena_ro` WHERE `date_deleted` = 0 ORDER BY `id` DESC LIMIT 20";
         $query = mysql_query($sql, $this->connect);

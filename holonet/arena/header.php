@@ -18,7 +18,7 @@ $sheet = new Sheet();
 function arena_header() {
     echo '<table border=0 width="100%"><tr valign="top"><td width="90%">';
 }
-
+GetCadre
 function coders(){
 	return array(2650);
 }
@@ -258,8 +258,10 @@ function get_auth_data($hunter) {
 
     if ($hunter->GetID() == 2650){
 	    $auth_data['coder'] = true;
+	    $auth_data['cadre'] = true;
     } else {
 	    $auth_data['coder'] = false;
+	    $auth_data['cadre'] = false;
     }
     
     if ($pos->GetID() == 29 || $hunter->GetID() == 2650){
@@ -302,6 +304,14 @@ function get_auth_data($hunter) {
         $auth_data['irc'] = false;
         $auth_data['survival'] = false;
         $auth_data['ch'] = false;
+    }
+    
+    $cadre = $hunter->GetCadre();
+    $auth_data['cadre'] = false;
+    if ($cadre){
+	    if ($hunter->IsCadreLeader($cadre)){
+		    $auth_data['cadre'] = true;
+	    }
     }
     
     if ($pos->GetID() == 11 || $pos->GetID() == 12){
