@@ -92,9 +92,9 @@
 				    $return = 1;
 			    } else {
 				    if ($this->cs_pending){
-					    $return = 3;
+					    $return = 5;
 				    } else {
-				    	$return = 5;
+				    	$return = 3;
 			    	}
 			    }
 		    }
