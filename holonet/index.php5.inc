@@ -11,7 +11,7 @@
 			$name = $mod->getElementsByTagName('name')->item(0);
 			if ($dir->textContent == $module) {
 				$found = true;
-				$GLOBALS['modtext'] = '<span class="SELECTED">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</span>';
+				$GLOBALS['modtext'] = '<a href="' . $url->textContent . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
 			}
 			else {
 				if (!$found) {
@@ -22,7 +22,7 @@
 		}
 
 	if ($modtext) {
-		$modarray[] = '<td class="MODULE">' . $modtext . '</td>';
+		$modarray[] = '<li>' . $modtext . "</li>";
 	}
 }
 ?>

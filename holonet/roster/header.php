@@ -5,62 +5,41 @@ $roster = new Roster('roster-69god');
 $mb = new MedalBoard('roster-69god');
 
 function roster_header() {
-	echo '<table border=0 width="100%"><tr valign="top"><td width="90%">';
 }
 
 function roster_footer($show_list = true, $more_items = false) {
 	global $roster;
 
 	if ($show_list == false) {
-		echo '</td></tr></table>';
 		return;
 	}
 
-	echo '</td><td style="border-left: solid 1px black">';
-
 	if ($more_items) {
-		echo str_replace(' ', '&nbsp;', $more_items['title']) . '<small><br>';
+		$items = array();
 		foreach ($more_items as $url=>$title) {
-			if ($title == '') {
-				echo '<br>';
-			}
-			elseif ($url != 'title') {
-				echo "<br><a href=\"$url\">" . str_replace(' ', '&nbsp;', $title) . '</a>';
-			}
+			$items[$title] = $url;
 		}
-		echo '</small><br><br>';
+		addMenu($more_items['title'], $items);
 	}
 	
-	echo 'Divisions<small>';
-	
+	$items = array();
 	$cats = $roster->GetDivisionCategories();
 	foreach ($cats as $dc) {
-		echo '<br>';
 		$divs = $dc->GetDivisions();
 		foreach ($divs as $div) {
-			echo '<br><a href="' . internal_link('division', array('id' => $div->GetID())) . '">' . str_replace(' ', '&nbsp;', $div->GetName()) . '</a>';
+			$items[$div->getName()] = internal_link('division', array('id' => $div->GetID()));
 		}
 	}
-
-	echo '</small>';
+	addMenu('Divisions', $items);
 
   $cadres = $roster->GetCadres();
-
   if ($cadres !== false) {
-    
-    echo '<br><br>Cadres<small><br>';
-
+		$items = array();
     foreach ($cadres as $cadre) {
-
-      echo '<br><a href="' . internal_link('cadre', array('id' => $cadre->GetID())) . '">' . str_replace(' ', '&nbsp;', $cadre->GetName()) . '</a>';
-
+			$items[$cadre->getName()] = internal_link('cadre', array('id' => $cadre->GetID()));
     }
-
-    echo '</small>';
-
+		addMenu('Cadres', $items);
   }
-	
-  echo '</td></tr></table>';
 }
 
 function get_auth_data($pleb) {
@@ -125,64 +104,67 @@ function get_auth_data($pleb) {
 }
 
 function admin_footer($auth_data) {
-	echo '</td><td style="border-left: solid 1px black">Admin&nbsp;Menu<small><br><br>';
-	echo '<b>Personal Details</b><br>';
-	echo '<a href="' . internal_link('admin_my_details', array()) . '">Edit&nbsp;My&nbsp;Details</a><br>';
-	echo '<a href="' . internal_link('admin_change_password', array()) . '">Change&nbsp;My&nbsp;Password</a><br>';
-	echo '<a href="' . internal_link('admin_my_ipkc', array()) . '">Edit&nbsp;My&nbsp;IPKC</a><br>';
-	echo '<a href="' . internal_link('admin_sheet', array('id'=>$auth_data['id']), 'arena') . '">Edit&nbsp;My&nbsp;Character&nbsp;Sheet</a><br>';
+	addMenu('Personal Details',
+			array('Edit My Details' => internal_link('admin_my_details', array()),
+				'Change My Password' => internal_link('admin_change_password', array()),
+				'Edit My IPKC' => internal_link('admin_my_ipkc', array()),
+				'Edit My Character Sheet' => internal_link('admin_sheet', array('id'=>$auth_data['id']), 'arena')));
+	
 	if ($auth_data['underlord']) {
-		echo '<br><b>Underlord&nbsp;Features</b><br>';
-		echo '<a href="' . internal_link('admin_pending', array()) . '">Approve&nbsp;Credit&nbsp;Awards</a><br>';
-		echo '<a href="' . internal_link('admin_pending_medal', array()) . '">Approve&nbsp;Medal&nbsp;Awards</a><br>';
-		echo '<a href="' . internal_link('admin_new_member', array()) . '">New&nbsp;Members</a><br>';
-		echo '<a href="' . internal_link('admin_transfer_members', array()) . '">Transfer&nbsp;Members</a><br>';
-		echo '<a href="' . internal_link('admin_change_position', array()) . '">Change&nbsp;Positions</a><br>';
-		echo '<a href="' . internal_link('admin_change_rank', array()) . '">Change&nbsp;Ranks</a><br>';
-		echo '<a href="' . internal_link('admin_declare_awols', array()) . '">Declare&nbsp;AWOLs</a><br>';
-		echo '<a href="' . internal_link('admin_approve_awols', array()) . '">Approve&nbsp;AWOLs</a><br>';
-		echo '<a href="' . internal_link('admin_empty_uap', array()) . '">Empty&nbsp;Unassigned&nbsp;Pool</a><br>';
-		echo '<a href="' . internal_link('admin_flush_wings', array()) . '">Flush&nbsp;Wings</a><br>';
-		echo '<a href="' . internal_link('admin_assign_newbs', array()) . '">Assign&nbsp;New&nbsp;Hunters</a><br>';
-		echo '<a href="' . internal_link('admin_salaries', array()) . '">Add&nbsp;Salaries</a><br>';
-		echo '<a href="' . internal_link('admin_chief_bonus', array()) . '">Add&nbsp;Chief&nbsp;Bonuses</a><br>';
-		echo '<a href="' . internal_link('admin_big_red_switch', array()) . '">Add&nbsp;Badges&nbsp;of&nbsp;Supremacy</a><br>';
+		addMenu('Underlord Features',
+				array('Approve Credit Awards' => internal_link('admin_pending', array()),
+					'Approve Medal Awards' => internal_link('admin_pending_medal', array()),
+					'New Members' => internal_link('admin_new_member', array()),
+					'Transfer Members' => internal_link('admin_transfer_members', array()),
+					'Change Positions' => internal_link('admin_change_position', array()),
+					'Change Ranks' => internal_link('admin_change_rank', array()),
+					'Declare AWOLs' => internal_link('admin_declare_awols', array()),
+					'Approve AWOLs' => internal_link('admin_approve_awols', array()),
+					'Empty Unassigned Pool' => internal_link('admin_empty_uap', array()),
+					'Flush Wings' => internal_link('admin_flush_wings', array()),
+					'Assign New Hunters' => internal_link('admin_assign_newbs', array()),
+					'Add Salaries' => internal_link('admin_salaries', array()),
+					'Add Chief Bonuses' => internal_link('admin_chief_bonus', array())));
 	}
+
 	if ($auth_data['commission']) {
-		echo '<br><b>Commission&nbsp;Features</b><br>';
-		echo '<a href="' . internal_link('admin_award', array()) . '">Award&nbsp;Credits</a><br>';
-		echo '<a href="' . internal_link('admin_award_medal', array()) . '">Award&nbsp;Medal</a><br>';
-		echo '<a href="' . internal_link('admin_email_members', array()) . '">E-Mail&nbsp;Members</a><br>';
-		echo '<a href="' . internal_link('admin_add_report', array()) . '">Add Report</a><br>';
-		echo '<a href="' . internal_link('admin_edit_report', array()) . '">Edit Report</a><br>';
+		addMenu('Commission Features',
+				array('Award Credits' => internal_link('admin_award', array()),
+					'Award Medal' => internal_link('admin_award_medal', array()),
+					'E-Mail Members' => internal_link('admin_email_members', array()),
+					'Add Report' => internal_link('admin_add_report', array()),
+					'Edit Report' => internal_link('admin_edit_report', array())));
 	}
+	
 	if ($auth_data['judicator']) {
-		echo '<br><b>Judicator&nbsp;Features</b><br>';
-		echo '<a href="' . internal_link('admin_pending', array()) . '">Approve&nbsp;Credit&nbsp;Awards</a><br>';
-		echo '<a href="' . internal_link('admin_pending_medal', array()) . '">Approve&nbsp;Medal&nbsp;Awards</a><br>';
-		echo '<a href="' . internal_link('admin_chief_bonus', array()) . '">Add&nbsp;Chief&nbsp;Bonuses</a><br>';
-		echo '<a href="' . internal_link('admin_big_red_switch', array()) . '">Add&nbsp;Badges&nbsp;of&nbsp;Supremacy</a><br>';
+		addMenu('Kabal Authority Features',
+				array('Approve Credit Awards' => internal_link('admin_pending', array()),
+					'Approve Medal Awards' => internal_link('admin_pending_medal', array()),
+					'Add Chief Bonuses' => internal_link('admin_chief_bonus', array()),
+					'Add Badges of Sumpremacy' => internal_link('admin_big_red_switch', array())));
 	}
-	if ($auth_data['cs']) {
+	
+/*	if ($auth_data['cs']) {
 		echo '<br><b>Character&nbsp;Sheet&nbsp;Administration</b><br>';
 		echo '<a href="' . internal_link('admin_character_sheet', array()) . '">Edit&nbsp;Character&nbsp;Sheets</a><br>';
 		echo '<a href="' . internal_link('admin_manage_mf', array()) . '">Manage&nbsp;Merits&nbsp;&amp;&nbsp;Flaws</a><br>';
 		echo '<a href="' . internal_link('admin_add_xp', array()) . '">Add&nbsp;Experience&nbsp;Points</a><br>';
-	}
+	}*/
+
   // Cadre Admin functions only to barons and above, cadre application and
   // leave options to everyone
-  echo '<br><b>Cadre Features</b><br>';
+	$items = array();
   if ($auth_data['cadre']) {
 
     if ($auth_data['cadre-leader']) {
 
-      echo '<a href="' . internal_link('admin_cadre_edit', array()) . '">Edit&nbsp;Cadre&nbsp;Details</a><br>'
-        .'<a href="'.internal_link('admin_cadre_buy_members', array()).'">Manage&nbsp;Membership</a><br>'
-        .'<a href="'.internal_link('admin_cadre_close', array()).'">Close&nbsp;Cadre</a><br>';
+			$items['Edit Cadre Details'] = internal_link('admin_cadre_edit', array());
+      $items['Manage Membership'] = internal_link('admin_cadre_buy_members', array());
+      $items['Close Cadre'] = internal_link('admin_cadre_close', array());
 
     } else {
 
-      echo '<a href="'.internal_link('admin_cadre_leave', array()).'">Leave&nbsp;Cadre</a><br>';
+      $items['Leave Cadre'] = internal_link('admin_cadre_leave', array());
 
     }
 
@@ -191,7 +173,7 @@ function admin_footer($auth_data) {
     if ($auth_data['cadre-create']) {
       
       // Person is not in a cadre and has permission to create new ones
-      echo '<a href="' . internal_link('admin_cadre_create', array()) . '">Create&nbsp;Cadre</a><br>';
+      $items['Create Cadre'] = internal_link('admin_cadre_create', array());
 
     } else {
       
@@ -199,44 +181,46 @@ function admin_footer($auth_data) {
 
     }
 
-    echo '<a href="' . internal_link('admin_cadre_apply', array()) . '">Apply&nbsp;to&nbsp;Cadre</a><br>';
+    $items['Apply to Cadre'] = internal_link('admin_cadre_apply', array());
 
   }
+	addMenu('Cadre Features', $items);
+
 	if ($auth_data['chief']) {
-		echo '<br><b>Chief&nbsp;Features</b><br>';
-		echo '<a href="' . internal_link('admin_award', array()) . '">Award&nbsp;Credits</a><br>';
-		echo '<a href="' . internal_link('admin_award_medal', array()) . '">Award&nbsp;Medal</a><br>';
-		echo '<a href="' . internal_link('admin_edit_kabal', array()) . '">Edit&nbsp;Kabal&nbsp;Details</a><br>';
-		echo '<a href="' . internal_link('admin_upload_kabal_logo', array()) . '">Upload&nbsp;New&nbsp;Kabal&nbsp;Logo</a><br>';
-		echo '<a href="' . internal_link('admin_declare_awols', array()) . '">Declare&nbsp;AWOLs</a><br>';
-		echo '<a href="' . internal_link('admin_email_members', array()) . '">E-Mail&nbsp;Members</a><br>';
-		echo '<a href="' . internal_link('admin_add_report', array()) . '">Add Report</a><br>';
-		echo '<a href="' . internal_link('admin_edit_report', array()) . '">Edit Report</a><br>';
-		echo '<a href="http://ka.thebhg.org/manuals/admin_form.php">Chief Manual</a><br>';
+		addMenu('Chief Features',
+				array('Award Credits' => internal_link('admin_award', array()),
+					'Award Medals' => internal_link('admin_award_medal', array()),
+					'Edit Kabal Details' => internal_link('admin_edit_kabal', array()),
+					'Upload New Kabal Logo' => internal_link('admin_upload_kabal_logo', array()),
+					'Declare AWOLs' => internal_link('admin_declare_awols', array()),
+					'E-Mail Members' => internal_link('admin_email_members', array()),
+					'Add Report' => internal_link('admin_add_report', array()),
+					'Edit Report' => internal_link('admin_edit_report', array()),
+					'Chief Manual' => internal_link('book', array('id' => 16), 'library')));
 	}
 	if ($auth_data['warden']) {
-		echo '<br><b>Warden&nbsp;Features</b><br>';
-		echo '<a href="' . internal_link('admin_award', array()) . '">Award&nbsp;Credits</a><br>';
-		echo '<a href="' . internal_link('admin_award_medal', array()) . '">Award&nbsp;Medal</a><br>';
-		echo '<a href="' . internal_link('admin_email_members', array()) . '">E-Mail&nbsp;Members</a><br>';
-		echo '<a href="' . internal_link('admin_add_report', array()) . '">Add Report</a><br>';
-		echo '<a href="' . internal_link('admin_edit_report', array()) . '">Edit Report</a><br>';
-		echo '<a href="http://ka.thebhg.org/manuals/admin_form.php">Warden Manual</a><br>';
+		addMenu('Warden Features',
+				array('Award Credits' => internal_link('admin_award', array()),
+					'Award Medals' => internal_link('admin_award_medal', array()),
+					'E-Mail Members' => internal_link('admin_email_members', array()),
+					'Add Report' => internal_link('admin_add_report', array()),
+					'Edit Report' => internal_link('admin_edit_report', array()),
+					'Warden Manual' => internal_link('book', array('id' => 16), 'library')));
 	}
 	if ($auth_data['sysadmin']) {
-		echo '<br><b>System&nbsp;Administration</b><br>';
-		echo '<a href="' . internal_link('admin_add_rank', array()) . '">Create&nbsp;New&nbsp;Rank</a><br>';
-//		echo '<a href="' . internal_link('admin_edit_rank', array()) . '">Edit&nbsp;Existing&nbsp;Rank</a><br>';
-		echo '<a href="' . internal_link('admin_add_position', array()) . '">Create&nbsp;New&nbsp;Position</a><br>';
-//		echo '<a href="' . internal_link('admin_edit_position', array()) . '">Edit&nbsp;Existing&nbsp;Position</a><br>';
-//		echo '<a href="' . internal_link('admin_create_division_category', array()) . '">Create&nbsp;New&nbsp;Category&nbsp;of&nbsp;Divisions</a><br>';
-		echo '<a href="' . internal_link('admin_edit_division_category', array()) . '">Edit&nbsp;Existing&nbsp;Category&nbsp;of&nbsp;Divisions</a><br>';
-		echo '<a href="' . internal_link('admin_create_division', array()) . '">Create&nbsp;New&nbsp;Division</a><br>';
-		echo '<a href="' . internal_link('admin_edit_division', array()) . '">Edit&nbsp;Existing&nbsp;Division</a><br>';
-		echo '<a href="' . internal_link('admin_delete_division', array()) . '">Delete&nbsp;Existing&nbsp;Division</a><br>';
-//		echo '<a href="' . internal_link('admin_edit_settings', array()) . '">Edit&nbsp;System&nbsp;Settings</a>';
+		addMenu('System Administration',
+				array('Create New Rank' => internal_link('admin_add_rank', array()),
+					// 'Edit Existing Rank' => internal_link('admin_edit_rank', array()),
+					'Create New Position' => internal_link('admin_add_position', array()),
+					// 'Edit Existing Position' => internal_link('admin_edit_position', array()),
+					// 'Create New Category' => internal_link('admin_create_division_category', array()),
+					'Edit Existing Category of Divisions' => internal_link('admin_edit_division_category', array()),
+					'Create New Division' => internal_link('admin_create_division', array()),
+					'Edit Existing Division' => internal_link('admin_edit_division', array()),
+					'Delete Existing Division' => internal_link('admin_delete_division', array()),
+					// 'Edit System Settings' => internal_link('admin_edit_settings', array()),
+					));
 	}
-	echo '</small></td></tr></table>';
 }
 
 function show_search_form() {

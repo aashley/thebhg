@@ -130,4 +130,42 @@ function menu_sep() {
 function menu_footer() {
 	echo '</td></tr></table>';
 }
+
+function renderMenu() {
+
+	$output = '';
+
+	if (is_array($GLOBALS['menus'])) {
+		
+		$output .= '<ul>';
+
+		foreach ($GLOBALS['menus'] as $menu) {
+
+			$output .= '<li>'.$menu['title']
+				.'<ul>';
+
+			foreach ($menu['items'] as $title => $url) {
+
+				$output .= '<li><a href="'.$url.'">'.$title.'</a></li>';
+
+			}
+
+			$output .= '</ul></li>';
+
+		}
+
+		$output .= '</ul>';
+
+		return $output;
+
+	}
+
+}
+
+function addMenu($title, $items) {
+
+	$GLOBALS['menus'][] = array('title' => $title,
+			'items' => $items);
+
+}
 ?>

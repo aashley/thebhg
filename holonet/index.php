@@ -1,5 +1,5 @@
 <?php
-ob_start('ob_gzhandler');
+ob_start();
 if (version_compare(phpversion(), '5.0.0', '>=')) {
 	define('PHP5', true);
 } else {
@@ -10,99 +10,23 @@ if (DEBUG) include_once 'debug.php';
 //header('Content-Type: text/html; charset=UTF-8');
 header('Content-Type: text/html; charset=ISO-8859-1');
 include('header.php');
+echo '<?xml version="1.0" encoding="iso-8859-1"?>';
 ?>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!--<meta http-equiv="Content-Type" content="charset=UTF-8">-->
-<title><?php echo $title; ?></title>
-<style type="text/css">
-<!--
-BODY {
-	background: #dddddd;
-	color: black;
-	font-family: Verdana, Arial, Helvetica, Sans-Serif;
-	font-size: 10pt;
-	margin: 0;
-	padding: 0;
-}
-TD {
-	font-family: Verdana, Arial, Helvetica, Sans-Serif;
-	font-size: 10pt;
-}
-SMALL {
-	font-size: 8pt;
-}
-TABLE {
-	border: 0;
-}
-TABLE.OUTER {
-	margin: 0;
-	padding: 0;
-}
-TABLE.MENU {
-	margin-top: 8px;
-}
-TD.HEADER {
-	border-bottom: solid 1px black;
-	margin: 0;
-	padding: 2px;
-}
-TD.FOOTER {
-	border-top: solid 1px black;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	font-size: 8pt;
-}
-TD.MODULE {
-	font-weight: bold;
-	margin: 0;
-	padding: 0;
-}
-SPAN.SELECTED {
-	background: #c0c0c0;
-}
-SPAN.SUBMENU {
-	background: #dddddd;
-}
-SPAN.TITLE {
-	font-size: 20pt;
-	font-weight: bold;
-}
-SPAN.PAGE-TITLE {
-	font-size: 14pt;
-	font-weight: bold;
-}
-TD.CONTENT {
-	padding: 4px;
-	background: white;
-}
-TH {
-	text-align: left;
-	background: #dddddd;
-	font-family: Verdana, Arial, Helvetica, Sans-Serif;
-	font-size: 10pt;
-	font-weight: bold;
-}
-A {
-	text-decoration: none;
-	color: #000030;
-}
-A:HOVER {
-	text-decoration: underline;
-}
--->
-</style>
+	<title><?php echo $title; ?></title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="content-style-type" content="text/css" />
+	<link rel="stylesheet" href="/holonet.css" type="text/css" />
 </head>
 <body>
-<table width="100%" class="OUTER" cellspacing=0 cellpadding=0>
-<tr>
-<td class="HEADER">
-
-<span class="TITLE"><?php echo $holonet_title; ?></span><br>
-<table class="MENU" cellspacing=0 cellpadding=0>
-<tr>
+	<div id="header">
+		<h1><?php echo $holonet_title; ?></h1>
+		<div id="bhg"><a href="http://www.thebhg.org/">BHG</a></div>
+		<ul>
 <?php
 $modarray = array();
 $before = 0;
@@ -123,7 +47,7 @@ if (PHP5) {
 			$name = current($mod->get_elements_by_tagname('name'));
 			if ($dir->get_content() == $module) {
 				$found = true;
-				$modtext = '<span class="SELECTED">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</span>';
+				$modtext = '<a href="' . $url->get_content() . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
 			}
 			else {
 				if (!$found) {
@@ -134,12 +58,18 @@ if (PHP5) {
 		}
 
 		if ($modtext) {
-			$modarray[] = '<td class="MODULE">' . $modtext . '</td>';
+			$modarray[] = '<li>' . $modtext . '</li>';
 		}
 	}
 }
 $after = (2 * count($modarray)) - $before;
-echo implode('<td class="MODULE">&nbsp;|&nbsp;</td>', $modarray) . '<td class="MODULE" width="100%">&nbsp;</td></tr>';
+echo implode("\n", $modarray);
+?>
+		</ul>
+	</div>
+	<div id="footer">
+		<ul>
+<?php
 
 if (PHP5) {
 	include_once 'index.php5.menu.inc';
@@ -153,43 +83,29 @@ if (PHP5) {
 	}
 
 	if (count($items) && $items) {
-		echo '<tr>';
-		if ($before) {
-			echo '<td colspan=' . $before . ' class="MODULE">&nbsp;</td>';
-		}
-		echo '<td colspan=' . $after . '><span class="SUBMENU">';
 		$menuarray = array();
 		foreach ($items as $item) {
 			if (!$item->has_attribute('hidden')) {
 				$name = current($item->get_elements_by_tagname('name'));
 				$pg = current($item->get_elements_by_tagname('page'));
-				$menuarray[] = '<a href="' . internal_link($pg->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+				$menuarray[] = '<li><a href="' . internal_link($pg->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a></li>';
 			}
 		}
-		echo implode(' | ', $menuarray) . '</span></td></tr>';
+		echo implode("\n", $menuarray);
 	}
 }
 ?>
-</tr>
-</table>
-
-</td>
-</tr>
-<tr>
-<td class="CONTENT">
-<span class="PAGE-TITLE"><?php echo $title; ?></span><br><br>
+		</ul>
+	</div>
+	%%sidemenu%%
+	<div id="content">
+		<h2><?php echo $title; ?></h2>
 <?php output(); ?>
-<br>
-</td>
-</tr>
-<tr>
-<td class="FOOTER">
-<table width="100%" border=0 class="OUTER" cellspacing=0 cellpadding=0><tr><td><center>
-<table width="50%" border=0>
-<tr><td><center><small>
+	</div>
+	<div id="pagefooter">
 <?php
 $jer = $roster->GetPerson(666);
-echo 'Site code &copy; 2001-03 <a href="mailto:' . $jer->GetEmail() . '">' . 'Adam Harvey</a>, and licensed for use by the Emperor\'s Hammer.<br>Page coded by ';
+echo '<p>Site code &copy; 2001-05 <a href="mailto:' . $jer->GetEmail() . '">' . 'Adam Harvey</a>, and licensed for use by the Emperor\'s Hammer.<br>Page coded by ';
 if (function_exists('coders')) {
 	$coders = coders();
 }
@@ -202,20 +118,22 @@ foreach ($coders as $coder) {
 	$cnames[$coder->GetName()] = '<a href="mailto:' . $coder->GetEmail() . '">' . html_escape($coder->GetName()) . '</a>';
 }
 ksort($cnames);
-echo implode(', ', $cnames) . '.<br>Bugs should be reported at the <a href="http://bugs.thebhg.org/">Bug Tracker</a>.<br><br>';
+echo implode(', ', $cnames) . '.<br>Bugs should be reported at the <a href="http://bugs.thebhg.org/">Bug Tracker</a>.</p';
 ?>
-All rights reserved 1995-2003; original contents are protected by the United States (US) Copyright Act in accordance with the Emperor's Hammer <a href="http://www.emperorshammer.org/disclaim.htm">Disclaimers and Copyrights</a> detailed herein. This site abides by the Emperor's Hammer <a href="http://www.emperorshammer.org/privacy.htm">Privacy Policy</a>.<br><br>
-I hope he tells us to burn our pants.. these things are driving me nuts!
-</small></center></td></tr>
-</table>
-</center></td></tr></table>
-</td>
-</tr>
-</table>
+		<p>All rights reserved 1995-2003; original contents are protected by the United States (US) Copyright Act in accordance with the Emperor's Hammer <a href="http://www.emperorshammer.org/disclaim.htm">Disclaimers and Copyrights</a> detailed herein. This site abides by the Emperor's Hammer <a href="http://www.emperorshammer.org/privacy.htm">Privacy Policy</a>.</p>
+		<p>I hope he tells us to burn our pants.. these things are driving me nuts!</p>
+	</div>
 </body>
 </html>
 <?php
-ob_end_flush();
+$output = ob_get_contents();
+
+ob_end_clean();
+
+$output = str_replace('%%sidemenu%%', '<div id="sidemenu">'.renderMenu().'</div>', $output);
+
+print $output;
+
 exit;
 
 ?>

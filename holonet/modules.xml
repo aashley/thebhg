@@ -27,8 +27,4 @@
 		<directory>boloball</directory>
 		<name>Boloball</name>
 	</module>
-	<link>
-		<url>http://www.thebhg.org/</url>
-		<name>Bounty Hunter's Guild</name>
-	</link>
 </modules>
