@@ -76,61 +76,9 @@ function acn_nav(){
 function atn_nav(){
 	global $roster, $at, $iat;
 	
-	echo '<small>Arena<br />';
-	echo '&nbsp;<a href="' . internal_link('atn_arena') . '">Matches</a><br />';
-    echo '&nbsp;<a href="' . internal_link('atn_arena_ladder') . '">Ladder</a><br />';
-    
-    echo '<br />Dojo of Shadows<br />';
-	echo '&nbsp;<a href="' . internal_link('atn_dojo') . '">Dojo&nbsp;Learners</a><br />';
-	echo '&nbsp;<a href="' . internal_link('atn_dojo_grad') . '">Dojo&nbsp;Graduates</a><br />';
-    
-	/*Commented out till it's fixed.
-	echo '<br />Starfield Arena<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_starfield') . '">Matches</a><br />';
-    echo '&nbsp;<a href="' . internal_link('atn_starfield_ladder') . '">Ladder</a><br />';
-    */
-    
-    echo '<br />Solo Missions<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_solo') . '">Contracts</a><br />';
-    echo '&nbsp;<a href="' . internal_link('atn_solo_ladder') . '">Ladder</a><br />';
-    
-    echo '<br />Lone Wolf Missions<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_lw') . '">Contracts</a><br />';
-    echo '&nbsp;<a href="' . internal_link('atn_lw_ladder') . '">Ladder</a><br />';
-    
-    echo '<br />Run-Ons<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_ro') . '">Run-Ons</a><br />';
-    echo '&nbsp;<a href="' . internal_link('atn_ro_ladder') . '">Ladder</a><br />';
-    
-    echo '<br />IRC Arena<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_irca') . '">Matches</a><br />';
-    echo '&nbsp;<a href="' . internal_link('atn_irca_ladder') . '">Ladder</a><br />';
-    
-    /*Removing the Elite RP stuff
-    echo '<br />Twilight Gauntlet<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_ttg') . '">Members</a><br />';
-    
-    echo '<br />Tempestuous Group<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_tempy') . '">Members</a><br />';
-    */
-    
-    echo '<br />Arena Tournament<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_tournament') . '">Brackets</a><br />';
-    if (count($at->GetHunters())){
-    	echo '&nbsp;<a href="' . internal_link('atn_tournament_signups') . '">Signups</a><br />';
-	}
-	echo '&nbsp;<a href="' . internal_link('atn_tournament_archive') . '">Archived Tournaments</a><br />';
-
-	echo '<br />IRC Arena Tournament<br />';
-    echo '&nbsp;<a href="' . internal_link('atn_irc_tournament') . '">Brackets</a><br />';
-    if (count($iat->GetHunters())){
-    	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_signups') . '">Signups</a><br />';
-	}
-	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_archive') . '">Archived Tournaments</a><br />';
+	echo '<small>';
 	
-    echo '<br />';
-
-    echo '&nbsp;<u>Division Tracking</u>';
+	echo '&nbsp;<u>Division Tracking</u>';
 
     $cats = $roster->GetDivisionCategories();
     foreach ($cats as $dc) {
@@ -140,6 +88,48 @@ function atn_nav(){
         }
         echo '<br />';
     }
+    
+    echo '<br />Ladders<br />';
+    echo '&nbsp;<a href="' . internal_link('atn_arena_ladder') . '">Arena Ladder</a><br />';
+    //echo '&nbsp;<a href="' . internal_link('atn_starfield_ladder') . '">Starfield Arena Ladder</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_irca_ladder') . '">IRC Arena Ladder</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_solo_ladder') . '">Solo Missions Ladder</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_lw_ladder') . '">Lone Wolf Ladder</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_ro_ladder') . '">Run-On Ladder</a><br />';
+	
+	echo '<br />History<br />';
+	echo '&nbsp;<a href="' . internal_link('atn_arena') . '">Arena Matches</a><br />';
+	//echo '&nbsp;<a href="' . internal_link('atn_starfield') . '">Starfield Arena Matches</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_irca') . '">IRC Arena Matches</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_solo') . '">Solo Contracts</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_lw') . '">Lone Wolf Contracts</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_ro') . '">Run-Ons</a><br />';
+    
+    echo '<br />Dojo of Shadows<br />';
+	echo '&nbsp;<a href="' . internal_link('atn_dojo') . '">Dojo&nbsp;Learners</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_dojo_grad') . '">Dojo&nbsp;Graduates</a><br />';
+
+    /*Removing the Elite RP stuff
+    echo '<br />Twilight Gauntlet<br />';
+    echo '&nbsp;<a href="' . internal_link('atn_ttg') . '">Members</a><br />';
+    
+    echo '<br />Tempestuous Group<br />';
+    echo '&nbsp;<a href="' . internal_link('atn_tempy') . '">Members</a><br />';
+    */
+    
+    echo '<br />Arena Tournaments<br />';
+    echo '&nbsp;<a href="' . internal_link('atn_tournament') . '">AT Brackets</a><br />';
+    echo '&nbsp;<a href="' . internal_link('atn_irc_tournament') . '">IRC AT Brackets</a><br />';
+    if (count($at->GetHunters())){
+    	echo '&nbsp;<a href="' . internal_link('atn_tournament_signups') . '">AT Signups</a><br />';
+	}
+    if (count($iat->GetHunters())){
+    	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_signups') . '">IRC AT Signups</a><br />';
+	}
+	echo '&nbsp;<a href="' . internal_link('atn_tournament_archive') . '">Archived Arena Tournaments</a><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_archive') . '">Archived IRC Arena Tournaments</a><br />';
+	
+    echo '</small>';
 }
 
 function arena_footer($show_list = true) {
@@ -163,8 +153,6 @@ function arena_footer($show_list = true) {
     echo '<br /><u>AMS Tracking Network</u><small><br />';
 
     atn_nav();
-
-    echo '</small>';
     
     echo '<br /><u>Arena Manuals</u><small><br />';
     

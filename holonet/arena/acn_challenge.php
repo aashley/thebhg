@@ -137,7 +137,7 @@ function output() {
 	    
 	    if ($dco){
 		    $date = getdate($dco);
-	    	echo 'You are currently under the Dead Contract penalty. You cannot request contracts until this ban expires.<br />'
+	    	echo '<br />You are currently under the Dead Contract penalty. You cannot request contracts until this ban expires.<br />'
 	    		.'This ban will end on: '.$date['month']." ".$date['mday'].", ".$date['year'];
     	} else {
 		    echo '<br /><a href="'.internal_link('acn_solo_contract').'">Request a New Contract</a>';
@@ -164,9 +164,17 @@ function output() {
 	        hr();
 		    
 		    echo '<b>L<u>one Wolf Mission</u>s</b>';
-		    
-		    echo '<br /><a href="'.internal_link('acn_solo_contract').'">Request a New Contract</a>';
-		    echo '<br /><a href="'.internal_link('acn_solo_dco').'">Request a Dead Contract</a>';
+		    $hunter = new LW_Hunter($hunter->GetID());
+		    $dco = $hunter->DCOPenalty();
+	    
+		    if ($dco){
+			    $date = getdate($dco);
+		    	echo '<br />You are currently under the Dead Contract penalty. You cannot request contracts until this ban expires.<br />'
+		    		.'This ban will end on: '.$date['month']." ".$date['mday'].", ".$date['year'];
+	    	} else {
+			    echo '<br /><a href="'.internal_link('acn_solo_contract').'">Request a New Contract</a>';
+			    echo '<br /><a href="'.internal_link('acn_solo_dco').'">Request a Dead Contract</a>';
+		    }
 		    
 		    $hunter = new LW_Hunter($hunter->GetID());
 		    

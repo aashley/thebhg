@@ -25,34 +25,44 @@ function output() {
 	    
 	    if ($auth_data['lw']){
 	    
-		    $solo = new LW_Solo();
-		
-		    if (isset($_REQUEST['submit'])) {
-		
-		        $contract = new LW_Contract($_REQUEST['contract_id']);
-		
-		        if ($contract->SetHunter($hunter->GetID(), 1)) {
-		            echo 'Contract Request Sent.';
+		    $hunter = new LW_Hunter($hunter->GetID());
+		    $dco = $hunter->DCOPenalty();
 	    
-		            $solo->NotifyComissioner(2, $contract->GetMBID(), $hunter->GetName());
-		        }
-		        else {
-		            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 6';
-		        }
-		    }
-		    else {
-			    if (count($solo->DeadContracts())){
-			        $form = new Form($page);
-			        $form->StartSelect('Contract:', 'contract_id');
-			        foreach ($solo->DeadContracts() as $value) {
-			            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
+		    if ($dco){
+			    $date = getdate($dco);
+		    	echo '<br />You are currently under the Dead Contract penalty. You cannot request contracts until this ban expires.<br />'
+		    		.'This ban will end on: '.$date['month']." ".$date['mday'].", ".$date['year'];
+	    	} else {
+		    	
+			    $solo = new LW_Solo();
+			
+			    if (isset($_REQUEST['submit'])) {
+			
+			        $contract = new LW_Contract($_REQUEST['contract_id']);
+			
+			        if ($contract->SetHunter($hunter->GetID(), 1)) {
+			            echo 'Contract Request Sent.';
+		    
+			            $solo->NotifyComissioner(2, $contract->GetMBID(), $hunter->GetName());
 			        }
-			        $form->EndSelect();
-			        $form->AddSubmitButton('submit', 'Request');
-			        $form->EndForm();
-		        } else {
-			        echo "No Dead Contracts available.";
-		        }
+			        else {
+			            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 6';
+			        }
+			    }
+			    else {
+				    if (count($solo->DeadContracts())){
+				        $form = new Form($page);
+				        $form->StartSelect('Contract:', 'contract_id');
+				        foreach ($solo->DeadContracts() as $value) {
+				            $form->AddOption($value->GetID(), "Contract ".$value->GetContractID());
+				        }
+				        $form->EndSelect();
+				        $form->AddSubmitButton('submit', 'Request');
+				        $form->EndForm();
+			        } else {
+				        echo "No Dead Contracts available.";
+			        }
+			    }
 		    }
 		} else {
 		    echo 'Only Lone Wolves may use this function.';
