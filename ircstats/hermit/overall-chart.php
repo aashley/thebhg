@@ -1,4 +1,5 @@
 <?php
+import_request_variables('g');
 $db = mysql_connect('localhost', 'thebhg_lawngnome', 'thej3rchr0nicles');
 mysql_select_db('thebhg_lawngnome', $db);
 
