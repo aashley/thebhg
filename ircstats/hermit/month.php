@@ -1,5 +1,5 @@
 <?php
-if (empty($_POST['month'])) {
+if (empty($_REQUEST['month'])) {
 	$title = 'Monthly Stats';
 	include('header.php');
 
@@ -25,8 +25,7 @@ EOF;
 EOF;
 }
 else {
-	$month = $_POST['month'];
-	$year = $_POST['year'];
+	import_request_variables('pg');
 	
 	$title = 'Monthly Stats :: ' . date('F', mktime(0, 0, 0, $month)) . " $year";
 	include('header.php');
