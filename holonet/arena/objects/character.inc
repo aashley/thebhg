@@ -28,6 +28,8 @@
             }
 
         }
+        
+        echo $this->cs_id;
 
     }
     
