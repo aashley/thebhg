@@ -82,9 +82,7 @@ function output() {
 		
 		$can_edit = false;
 		
-		if ($character->Editable()){
-			$can_edit = true;
-		} elseif ($_REQUEST['approve']){
+		if ($character->Editable() || $_REQUEST['approve'] || $auth_data['sheet']){
 			$can_edit = true;
 		}
 		
