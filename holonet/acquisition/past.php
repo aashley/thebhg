@@ -11,11 +11,11 @@ function output() {
 	$table->EndRow();
 
 	// First automated issue.
-	$year = 2002;
-	$week = 50;
+	$year = 2004;
+	$week = 7;
 
 	// The start of time for the automated Acquisition.
-	$start = 1039410000;
+	$start = 1076860800;
 
 	$cur_year = date('Y');
 	$cur_week = date('W') - 1;

@@ -76,7 +76,7 @@ function output() {
 	else {
 		$form = new Form($page, 'get');
 		$form->StartSelect('Issue:', 'issue');
-		$start = 1039410000;
+		$start = 1076860800;
 		$current = get_dates(date('Y'), date('W'));
 		for ($ts = $current['end'] + 1; $ts >= $start; $ts -= 604800) {
 			$year = date('Y', $ts);

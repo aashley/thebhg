@@ -58,12 +58,13 @@ function output() {
 				$author = $roster->GetPerson($cover_row['author']);
 				$body .= 'Author: ' . $author->GetName() . "\n\n";
 
-				$body .= stripslashes($cover_row['content']);
+				$body .= wordwrap(stripslashes($cover_row['content']), 72);
 				$body .= divider();
 			}
 		}
 
-		for ($i = 1; $i <= 9; $i++) {
+		$com_posids = array(1, 2, 3, 4, 5, 6, 29, 7, 8, 9);
+		foreach ($com_posids as $i) {
 			$pos = $roster->GetPosition($i);
 			$cc_result = mysql_query('SELECT * FROM hn_reports WHERE position=' . $i . ' AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
 			if ($cc_result && mysql_num_rows($cc_result)) {
@@ -73,7 +74,7 @@ function output() {
 					$body .= $pos->GetName() . ' Report' . (mysql_num_rows($cc_result) > 1 ? ' #' . $j : '') . "\n";
 					$body .= 'Author: ' . $author->GetName() . "\n";
 					$body .= 'Date: ' . date('j F Y', $row['time']) . "\n\n";
-					$body .= stripslashes($row['report']);
+					$body .= wordwrap(stripslashes($row['report']), 72);
 					$body .= divider();
 				}
 			}
@@ -91,6 +92,12 @@ function output() {
 		// Send the e-mail.
 		mail(implode(', ', $lists), $subject, $body, $headers);
 
+		$table = new Table();
+		$table->AddRow('To:', implode(', ', $lists));
+		$table->AddRow('Subject:', $subject);
+		$table->AddRow('Body:', '<pre>' . $body . '</pre>');
+		$table->EndTable();
+
 		echo 'E-mail sent.';
 	}
 	else {
@@ -103,7 +110,7 @@ function output() {
 		
 		$form = new Form($page, 'get');
 		$form->StartSelect('Issue:', 'issue', "$cur_year-$cur_week");
-		$start = 1039410000;
+		$start = 1076860800;
 		$current = get_dates(date('Y'), date('W'));
 		for ($ts = $current['end'] + 1; $ts >= $start; $ts -= 604800) {
 			$year = date('Y', $ts);

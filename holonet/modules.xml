@@ -16,6 +16,10 @@
 		<name>Medal Board</name>
 	</module>
 	<module>
+		<directory>acquisition</directory>
+		<name>Acquisition</name>
+	</module>
+	<module>
 		<directory>boloball</directory>
 		<name>Boloball</name>
 	</module>

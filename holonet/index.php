@@ -107,7 +107,7 @@ foreach ($modules as $mod) {
 		$name = current($mod->get_elements_by_tagname('name'));
 		$modtext = '<a href="' . $url->get_content() . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
 	}
-	elseif ($mod->node_name() == 'module') {
+	elseif ($mod->node_name() == 'module' && !$mod->has_attribute('hidden')) {
 		$dir = current($mod->get_elements_by_tagname('directory'));
 		$name = current($mod->get_elements_by_tagname('name'));
 		if ($dir->get_content() == $module) {
@@ -145,9 +145,11 @@ if (count($items) && $items) {
 	echo '<td colspan=' . $after . '><span class="SUBMENU">';
 	$menuarray = array();
 	foreach ($items as $item) {
-		$name = current($item->get_elements_by_tagname('name'));
-		$pg = current($item->get_elements_by_tagname('page'));
-		$menuarray[] = '<a href="' . internal_link($pg->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+		if (!$item->has_attribute('hidden')) {
+			$name = current($item->get_elements_by_tagname('name'));
+			$pg = current($item->get_elements_by_tagname('page'));
+			$menuarray[] = '<a href="' . internal_link($pg->get_content()) . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->get_content())) . '</a>';
+		}
 	}
 	echo implode(' | ', $menuarray) . '</span></td></tr>';
 }

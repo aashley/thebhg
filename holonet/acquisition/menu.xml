@@ -1,0 +1,18 @@
+<menu>
+	<item>
+		<name>Current Issue</name>
+		<page>index</page>
+	</item>
+	<item>
+		<name>Past Issues</name>
+		<page>past</page>
+	</item>
+	<item hidden="hidden">
+		<name>FAQ</name>
+		<page>faq</page>
+	</item>
+	<item>
+		<name>Administration</name>
+		<page>admin</page>
+	</item>
+</menu>

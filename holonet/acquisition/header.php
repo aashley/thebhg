@@ -51,7 +51,7 @@ function issue_footer($year, $week, $title = '') {
 
 	echo '</td><td style="border-left: solid 1px black">';
 	if ($title == '') {
-		echo str_replace(' ', '&nbsp;', 'Issue ' . $year . '-' . $week);
+		echo '<a href="' . internal_link('issue', array('year'=>$year, 'week'=>$week)) . '">' . str_replace(' ', '&nbsp;', 'Issue ' . $year . '-' . $week) . '</a>';
 	}
 	else {
 		echo str_replace(' ', '&nbsp;', $title);
@@ -61,53 +61,58 @@ function issue_footer($year, $week, $title = '') {
 	$dates = get_dates($year, $week);
 
 	// Commission reports.
-	echo '<br><br><b>Commission Reports</b><br>';
-	for ($i = 1; $i <= 9; $i++) {
-		$pos = $roster->GetPosition($i);
-		$cc_result = mysql_query('SELECT id FROM hn_reports WHERE position=' . $i . ' AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
-		if ($cc_result && mysql_num_rows($cc_result)) {
-			for ($j = 1; $j <= mysql_num_rows($cc_result); $j++) {
-				$row = mysql_fetch_array($cc_result);
-				echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $pos->GetName() . ' Report');
-				if (mysql_num_rows($cc_result) > 1) {
-					echo '&nbsp;#' . $j;
+	$com_posids = array(1, 2, 3, 4, 5, 6, 29, 7, 8, 9);
+	$cn_result = mysql_query('SELECT COUNT(*) AS rows FROM hn_reports WHERE position IN (' . implode(', ', $com_posids) . ') AND time ' . $dates['between'], $roster->roster_db);
+	if ($cn_result && mysql_result($cn_result, 0, 'rows')) {
+		echo '<br><br><b>Commission Reports</b><br>';
+		foreach ($com_posids as $i) {
+			$pos = $roster->GetPosition($i);
+			$cc_result = mysql_query('SELECT id FROM hn_reports WHERE position=' . $i . ' AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
+			if ($cc_result && mysql_num_rows($cc_result)) {
+				for ($j = 1; $j <= mysql_num_rows($cc_result); $j++) {
+					$row = mysql_fetch_array($cc_result);
+					echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $pos->GetName() . ' Report');
+					if (mysql_num_rows($cc_result) > 1) {
+						echo '&nbsp;#' . $j;
+					}
+					echo '</a>';
 				}
-				echo '</a>';
 			}
 		}
 	}
 
 	// Kabal reports.
-	echo '<br><br><b>Kabal Reports</b><br>';
-	$kabals = $roster->GetKabals();
-	foreach ($kabals as $kabal) {
-		$kr_result = mysql_query('SELECT id FROM hn_reports WHERE position=11 AND division=' . $kabal->GetID() . ' AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
-		if ($kr_result && mysql_num_rows($kr_result)) {
-			for ($j = 1; $j <= mysql_num_rows($kr_result); $j++) {
-				$row = mysql_fetch_array($kr_result);
-				echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $kabal->GetName() . ' Kabal Report');
-				if (mysql_num_rows($kr_result) > 1) {
-					echo '&nbsp;#' . $j;
+	$kn_result = mysql_query('SELECT COUNT(*) AS rows FROM hn_reports WHERE position=11 AND time ' . $dates['between'], $roster->roster_db);
+	if ($kn_result && mysql_result($kn_result, 0, 'rows')) {
+		echo '<br><br><b>Kabal Reports</b><br>';
+		$kabals = $roster->GetKabals();
+		foreach ($kabals as $kabal) {
+			$kr_result = mysql_query('SELECT id FROM hn_reports WHERE position=11 AND division=' . $kabal->GetID() . ' AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
+			if ($kr_result && mysql_num_rows($kr_result)) {
+				for ($j = 1; $j <= mysql_num_rows($kr_result); $j++) {
+					$row = mysql_fetch_array($kr_result);
+					echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $kabal->GetName() . ' Kabal Report');
+					if (mysql_num_rows($kr_result) > 1) {
+						echo '&nbsp;#' . $j;
+					}
+					echo '</a>';
 				}
-				echo '</a>';
 			}
 		}
 	}
 	
-	// Wing reports.
-	echo '<br><br><b>Wing Reports</b><br>';
-	$wings = $roster->GetWings();
-	foreach ($wings as $wing) {
-		$kr_result = mysql_query('SELECT id FROM hn_reports WHERE position=10 AND division=' . $wing->GetID() . ' AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
-		if ($kr_result && mysql_num_rows($kr_result)) {
-			for ($j = 1; $j <= mysql_num_rows($kr_result); $j++) {
-				$row = mysql_fetch_array($kr_result);
-				echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $wing->GetName() . ' Report');
-				if (mysql_num_rows($kr_result) > 1) {
-					echo '&nbsp;#' . $j;
-				}
-				echo '</a>';
+	// Citadel reports.
+	$kr_result = mysql_query('SELECT id FROM hn_reports WHERE position=10 AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
+	if ($kr_result && mysql_num_rows($kr_result)) {
+		$pos = $roster->GetPosition(10);
+		echo '<br><br><b>Citadel Reports</b><br>';
+		for ($j = 1; $j <= mysql_num_rows($kr_result); $j++) {
+			$row = mysql_fetch_array($kr_result);
+			echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $pos->GetName() . ' Report');
+			if (mysql_num_rows($kr_result) > 1) {
+				echo '&nbsp;#' . $j;
 			}
+			echo '</a>';
 		}
 	}
 
