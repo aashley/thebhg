@@ -31,7 +31,7 @@ function output() {
     
     $values = array();
     
-    if ($_REQEUST['save']){
+    if ($_REQEUST['process']){
 	    echo $character->Backup($_REQEUST['save'], $_REQUEST['sheet']);
 	    hr();		     
     }
@@ -42,7 +42,7 @@ function output() {
 	    $form->AddSectionTitle('Backup Resource');
 	    $form->AddTextBox('Save name:', 'save');
 	    $form->AddHidden('sheet', $_REQUEST['sheet']);
-	    $form->AddSubmitButton('save', 'Save Sheet');
+	    $form->AddSubmitButton('process', 'Save Sheet');
 	    
 	    hr();
 	    
