@@ -208,8 +208,6 @@
 	    $sql = "SELECT * FROM `arena_poll_bans` WHERE `bhg_id` = '".$hunter->GetID()."' AND `date` >= '".time()."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
-	    print_r($open);
-	    
 	    if (count($open)){	    
 		    if (!$this->DidVote($hunter)){
 			    if (!mysql_num_rows($query)){	    
