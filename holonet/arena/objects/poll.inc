@@ -150,7 +150,7 @@
             $return .= "Multiple Answer Option Edited.<br />";
         }
 
-        if ($open_to != $this->GetOpen){
+        if ($open_to != $this->GetOpen()){
             array_push($add, "`open_to` = '".serialize($open_to)."'");
             $return .= "Open To Option Edited.<br />";
         }

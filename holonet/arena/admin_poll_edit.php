@@ -61,6 +61,7 @@ function output() {
 	    
 	    $form->AddHidden('poll', $_REQUEST['poll']);
 	    $options = $poll->GetOptions();
+	    $open = $poll->GetOpen();
 	    
 	    $form->StartSelect('Post as', 'rpa', $poll->GetRPAKey());
 	    foreach ($arena->CanBe($hunter) as $id=>$data){
@@ -70,7 +71,11 @@ function output() {
 	    
 	    for ($i = 1; $i <= $_REQUEST['numop']; $i++){
 		    $o = $i-1;
-		    $form->AddTextBox('Option '.$i, 'option[]', $options[$o]->GetQuestion());
+		    $opt = '';
+		    if (is_object($options[$o])){
+			    $opt = $options[$o]->GetQuestion();
+		    }
+		    $form->AddTextBox('Option '.$i, 'option[]', $opt);
 	    }
 	    
 	    if ($_REQUEST['restrict']){
