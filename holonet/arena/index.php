@@ -47,9 +47,9 @@ $arena->Signature(1)."<p>
 - Adjunct Signature<br />".
 $arena->Signature(0);
     hr();
-foreach ($arena->ArenaPositions() as $key=>$t){
-	$arena->LatestReport($key);
-}
+$arena->LatestReport('ov');
+echo '<br />';
+$arena->LatestReport('aj');
     arena_footer();
 }
 ?>
