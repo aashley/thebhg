@@ -210,7 +210,10 @@
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
-	    
+	    while ($info = mysql_fetch_array($query)){
+		    $new = new Character($info['bhg_id']);
+		    $return[] = $new;
+	    }
 	    
 	    return $return;
     }
