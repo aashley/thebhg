@@ -198,7 +198,7 @@
 	    return $votes;
     }
 	    
-    function CanSubmit($hunter){
+    function CanSubmit($hunter, $sup = 0){
 	    $div = $hunter->GetDivision();
 	    $pos = $hunter->GetPosition();
 	    
@@ -240,11 +240,11 @@
 					$info = mysql_fetch_array($query);
 					$date = getdate($info['date']);
 		            $date = $date['month']." ".$date['mday'].", ".$date['year'];
-					echo 'You are banned from participating in polls until '.$date;
+					if (!$sup) { echo 'You are banned from participating in polls until '.$date; }
 					return false;
 				}
 			} else {
-				echo 'You have already voted for this poll';
+				if (!$sup) { echo 'You have already voted for this poll'; }
 				return false;
 			}
 		} else {
