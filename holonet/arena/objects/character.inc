@@ -1061,20 +1061,21 @@
 		if ($bio->GetSex()){ $sex = $bio->GetSex(); }
 		if ($bio->GetSpecies()){ $species = $bio->GetSpecies(); }
 		
-		echo '<table border=0 width="100%"><tr valign="top"><td>';
+		if ($look != 'cores'){
+			echo '<table border=0 width="100%"><tr valign="top"><td>';
+			$table = new Table();
+					$table->StartRow();
+			$table->AddHeader('Personal History', 2);
+			$table->EndRow();
+			$table->AddRow('Bonus Points ', $this->GetBonusPoints());
+			$points = $this->GetExperiencePoints();
+			if (!$points){ $points = '0'; }
+			$table->AddRow('Experience Points ', $points);
+			$table->AddRow('Dossier Status', 'Currently listed as: <b>'.$this->Status('HUMAN').'</b>');
+			$table->EndTable();
 		
-		$table = new Table();
-				$table->StartRow();
-		$table->AddHeader('Personal History', 2);
-		$table->EndRow();
-		$table->AddRow('Bonus Points ', $this->GetBonusPoints());
-		$points = $this->GetExperiencePoints();
-		if (!$points){ $points = '0'; }
-		$table->AddRow('Experience Points ', $points);
-		$table->AddRow('Dossier Status', 'Currently listed as: <b>'.$this->Status('HUMAN').'</b>');
-		$table->EndTable();
-		
-		echo '</td><td align="center">';
+			echo '</td><td align="center">';
+		}
 		
 		$table = new Table();
     	
@@ -1087,7 +1088,7 @@
     	
     	$table->EndTable();
 		
-    	echo '</td></tr></table>';
+    	if ($look != 'cores'){ echo '</td></tr></table>'; }
     	
 		hr();
 		
