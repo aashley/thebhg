@@ -26,7 +26,7 @@ function output() {
 			$xp = "xp$i";
 			
 			if ($_REQUEST[$person]){
-				$message = $arena->Tracker($hunter, 'XP', $_REQUEST[$xp]);
+				$message = $arena->Tracker($hunter, 'XP', $_REQUEST[$xp], $_REQUEST['use']);
 				$character = new Character($_REQUEST[$person]);
 	            $character->XPEvent($_REQUEST[$xp], $message.$_REQUEST['reason']);
             }

@@ -25,7 +25,7 @@ function output() {
 			$credits = "credits$i";
 			
 			if ($_REQUEST[$person]){
-				$message = $arena->Tracker($hunter, 'CREDS', $_REQUEST[$credits]);
+				$message = $arena->Tracker($hunter, 'CREDS', $_REQUEST[$credits], $_REQUEST['use']);
 				$awarded = $roster->GetPerson($_REQUEST[$person]);
 				$awarded->AddCredits($_REQUEST[$credits], $message.$_REQUEST['reason']);
 			}

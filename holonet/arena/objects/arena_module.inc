@@ -136,12 +136,6 @@
 		$positions = array();
 		$output = array();
 		
-		foreach ($aas as $class=>$object){
-			if ($object->GetStatus() == 'Current '){
-				$output[$class] = $positions[$class]['desc'];
-			}
-		}
-		
 		//Get the Arena Aide positions
 		$aas['reg'] = new Registrar($bhg_id);
 		$positions['reg']['desc'] = 'Office of Character Development Registrar';
@@ -158,7 +152,7 @@
 		
 		foreach ($aas as $class=>$object){
 			if ($object->GetStatus() == 'Current '){
-				$output[$class]['desc'] = $positions[$class];
+				$output[$class] = $positions[$class]['desc'];
 			}
 		}
 		
@@ -180,10 +174,7 @@
 		if (count($output)){
 			$return = ($aa ? $output[$aa] : $ouput[key(end($output))]);
 			$use = ($aa ? $aa : key(end($output)));
-		
-			echo $use;
-			print_r($aas[$use]);
-			
+
 			$sql = "UPDATE `".$positions[$use]."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aas[$use]->GetID()."'";
 		
 			if (mysql_query($sql, $this->connect)){

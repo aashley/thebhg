@@ -25,7 +25,7 @@ function output() {
 			$medal = "medal$i";
 			
 			if ($_REQUEST[$person]){
-				$message = $arena->Tracker($hunter, 'MEDAL', $_REQUEST[$medal]);
+				$message = $arena->Tracker($hunter, 'MEDAL', $_REQUEST[$medal], $_REQUEST['use']);
 				$awarded = $roster->GetPerson($_REQUEST[$person]);
 				$mb->AwardMedal($awarded, $hunter, next_medal($awarded, $_REQUEST[$medal]), $message.$_REQUEST['reason']);
 			}
