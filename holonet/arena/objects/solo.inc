@@ -266,7 +266,7 @@
         $qtotal = mysql_query($total, $this->connect);
         $total = mysql_num_rows($qtotal);
         
-        if ($total){ else $total = 1; }
+        if (!$total){ $total = 1; }
         
         while ($result = mysql_fetch_array($query)){
             $grade = new Grade($result['grade']);

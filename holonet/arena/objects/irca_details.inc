@@ -30,7 +30,7 @@
         $total = mysql_num_rows($qtotal);
         $var = array();
 
-        if ($total){ else $total = 1; }
+        if (!$total){ $total = 1; }
         
         while ($result = mysql_fetch_array($query)){
             $var[$result['bhg_id']] = $result['points']/$total;

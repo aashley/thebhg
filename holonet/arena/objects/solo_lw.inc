@@ -177,7 +177,7 @@
         $return = array();
         $var = array();
 
-        if ($total){ else $total = 1; }
+        if (!$total){ $total = 1; }
         
         while ($result = mysql_fetch_array($query)){
             $grade = new Grade($result['grade']);
