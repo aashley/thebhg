@@ -12,10 +12,10 @@ Class Coder extends Arena {
 	}
 	
 	function LoadTables(){   
-		$sql = "SQL SHOW TABLES `thebhg_holonet` [LIKE 'arena_']";
+		$sql = "SQL SHOW TABLES `thebhg_holonet` LIKE 'arena_'";
 	    $query = mysql_query($sql, $this->connect);
 		
-		while ($info = mysql_fetch_assoc($query)) {
+		while ($info = mysql_fetch_array($query)) {
 			$this->tables[] = $info;
 		}
 	}

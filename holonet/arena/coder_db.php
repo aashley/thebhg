@@ -16,11 +16,13 @@ function output() {
 
     arena_header();
 
+    $coder = new Coder();
+    
     if ($_REQUEST['submit']){
     
 	    $coder = new Coder();
 	    
-	    $coder->Fileds($_REQUEST['table']);
+	    $coder->LoadFields($_REQUEST['table']);
 	    
 	    echo '<pre>';
 	    print_r($coder->fields);
@@ -30,8 +32,11 @@ function output() {
 	    $form->AddTextBox('Table', 'table');
 	    $form->AddSubmitButton('submit', 'Submit');
 	    $form->EndForm();
-	    print_r($coder->tables);
     }
+    
+    echo '<pre>';
+    print_r($coder->tables);
+    echo '</pre>';
 
     admin_footer($auth_data);
 }
