@@ -27,10 +27,10 @@ function output() {
     
     hr();
     
-    $form = new Form('admin_sheet');
-    $form->table->StartRow();
-    $form->table->AddHeader('Character Sheets', 7);
-    $form->table->EndRow();
+    $table = new Table('', true);
+    $table->StartRow();
+    $table->AddHeader('Character Sheets', 7);
+    $table->EndRow();
 
     $sheets = array();
     
@@ -39,12 +39,7 @@ function output() {
     }
     
     krsort($sheets);
-    
-    $form->table->StartRow();
-    $form->table->AddCell('<right><input type="submit" value="Go"></right>', 7);
-    $form->table->EndRow();
-    
-    $form->table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban Till', 'Edit', 'View/Approve/Deny', 'Kill');
+    $table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban Till', '&nbsp;', '&nbsp;', '&nbsp;');
     
     foreach ($sheets as $sheeted){
 	    foreach ($sheeted as $character){
@@ -55,14 +50,15 @@ function output() {
 			    $status = $character->Status('HUMAN');
 		    }
 		    
-		    $form->table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
-		    $character->LastEdit(), $status, $character->GetBan('HUMAN'), '<input type="radio" name="id" value="'.$character->GetID().'">', 
-		    '<input type="radio" name="view" value="'.$character->GetID().'">', '<a href="'
-		    .internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
+		    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
+		    $character->LastEdit(), $status, $character->GetBan('HUMAN'),
+		    '<a href="' . internal_link('admin_sheet', array('id'=>$character->GetID())).'">Edit</a>', '<a href="' . 
+		    internal_link('admin_sheet', array('id'=>$character->GetID(), 'view'=>1)).'">View for Approval</a>', '<a href="' . 
+		    internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
 	    }
     }
     
-    $form->EndForm();
+    $table->EndTable();
     admin_footer($auth_data);
 }
 ?>
