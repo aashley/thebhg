@@ -292,7 +292,7 @@ class KAC extends KA_1 {
 		
 		$sql = "SELECT SUM(`points`) as `total`, COUNT(DISTINCT id) AS `events`, `kabal`, `bhg_id` FROM `kac_submissions` WHERE `event` IN (".implode(', ', $event).") AND `date_deleted` = 0 AND `place` != 0 GROUP BY `bhg_id` ORDER BY `total` DESC $limit";
 	    $query = mysql_query($sql, $this->connect);
-	    
+	    echo $sql;
 	    echo mysql_error($this->connect);
 	    
 	    while ($info = mysql_fetch_array($query)) {
