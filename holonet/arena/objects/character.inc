@@ -1105,7 +1105,7 @@
 		if ($bio->GetSex()){ $sex = $bio->GetSex(); }
 		if ($bio->GetSpecies()){ $species = $bio->GetSpecies(); }
 		if ($id == 0){ $id = $this->GetSheetID(); }
-		
+		echo $id;
 		if ($look != 'cores' || $show_anyway){
 			echo '<table border=0 width="100%"><tr valign="top"><td>';
 			$table = new Table();
