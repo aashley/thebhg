@@ -17,18 +17,7 @@ function output() {
     arena_header();
     
     if (isset($_REQUEST['submit'])) {
-	    $character = new Character($_REQUEST['bhg_id']);
-		if ($character->IsNew()){
-			if (!$character->NewSheet()){
-				NEC(158);
-				admin_footer($auth_data);
-				return;
-			} else {
-				echo 'Sheet created.';
-			}
-		} else {
-			echo 'Character has a sheet.';
-		}
+	    
     }
     else {
         $form = new Form($page);
