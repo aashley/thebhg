@@ -32,7 +32,7 @@ function output() {
     $values = array();
     
     if (isset($_REQUEST['submit'])){
-	    echo $character->Backup($_REQEUST['save'], $_REQUEST['sheet']);
+	    echo $character->Backup($_REQUEST['save'], $_REQUEST['sheet']);
 	    hr();		     
     }
     
