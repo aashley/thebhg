@@ -35,9 +35,9 @@ function output() {
 	    
 	    foreach ($bitches as $pay){
 		    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
-			    $time = $pay['start_date'] - $endut;
+			    $time = $endut - $pay['start_date'];
 		    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
-			    $time = $startut - $endut;
+			    $time = $endut - $startut;
 		    } else {
 			    if ($pay['start_date'] > $startut){
 				    $time = $pay['end_date'] - $starut;
