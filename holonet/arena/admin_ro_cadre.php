@@ -40,7 +40,6 @@ function output() {
         $subject = "Cadre RO Posted!";
 	    
 	    $ro['person']->SendEmail($from, $subject, $text);
-	    echo 'RO Posted.';
 	    
     } 
     elseif ($_REQUEST['deny']) {
