@@ -15,9 +15,7 @@
 	    foreach ($connects as $name=>$data){
 		    $this->$name = $this->Connect($data);
 	    }
-	    
-	    $this->roster = new Roster('fight-51-me');
-		$this->mb = new MedalBoard('fight-51-me');
+
     }
     
     function Connect($info){
@@ -86,12 +84,12 @@
 	}
 	
 	function Overseer(){
-        $search = $this->roster->SearchPosition('29');
+        $search = $this->SearchPosition('29');
         return (is_object($search[0]) ? $search[0] : false);
     }
 
     function Adjunct(){
-         $search = $this->roster->SearchPosition('9');
+         $search = $this->SearchPosition('9');
         return (is_object($search[0]) ? $search[0] : false);
     }
 			

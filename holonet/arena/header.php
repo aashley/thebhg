@@ -6,8 +6,8 @@ include_once('objects/arena.php');
 
 $arena = new Arena();
 $citadel = new Citadel;
-$roster = $arena->roster;
-$mb = $arena->mb;
+$roster = new Roster('fight-51-me');
+$mb = new MedalBoard('fight-51-me');
 $sheet = new Sheet();
 
 function arena_header() {
