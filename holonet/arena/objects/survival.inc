@@ -50,6 +50,32 @@
 	    }
     }
     
+    function Creatures(){
+        $sql = "SELECT * FROM `arena_survival_npc` WHERE `date_deleted` = 0";
+        $query = mysql_query($sql, $this->connect);
+        $return = array();
+
+        while ($info = mysql_fetch_array($query)){
+            $new = new Creature($info['id']);
+            array_push($return, $new);
+        }
+
+        return $return;
+    }
+    
+    function AllCreatures(){
+        $sql = "SELECT * FROM `arena_survival_npc`";
+        $query = mysql_query($sql, $this->connect);
+        $return = array();
+
+        while ($info = mysql_fetch_array($query)){
+            $new = new Creature($info['id']);
+            array_push($return, $new);
+        }
+
+        return $return;
+    }
+    
     function NewRanger($bhg_id){
 	    $current = new Ranger($this->CurrentRanger());
 	    $current->EndTerm();

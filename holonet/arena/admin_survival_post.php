@@ -22,8 +22,25 @@ function output() {
 	    $npc = $contract->GetNPC();
     }
 
+    
     if (isset($_REQUEST['next'])) {
+	    $form = new Form($page);
+	    $form->AddHidden('contract_id', $_REQUEST['contract_id']);
+	    $form->AddSectionTitle('Creature Target');
+	    $creatures = $solo->Creatures();
+	    $form->StartSelect('Creature', 'creature', $creatures[array_rand($creatures)]);
+	    foreach ($creatures as $creature){
+		    $form->AddOption($creature->GetValue(), $creature->GetName());
+	    }
+	    $form->EndSelect();
+	    $form->AddSubmitButton('second', 'Write Post');
+	    $form->EndForm();
+    }
+    elseif (isset($_REQUEST['second'])) {
 
+	    $contract->SetCreature($_REQUEST['creature']);
+	    $contract = new SurvivalContract($_REQUEST['contract_id']);
+	    
         $form = new Form($page);
         $form->table->StartRow();
         $form->table->AddHeader('Enter Mission Information', 2);
@@ -33,7 +50,7 @@ function output() {
         $form->table->AddHeader('Creature Target', 2);
         $form->table->EndRow();
         $form->table->StartRow();
-        $form->table->AddCell($npc->BuildSheet(), 2);
+        $form->table->AddCell($npc->WriteSheet(), 2);
         $form->table->EndRow();
         $form->AddHidden('contract_id', $_REQUEST['contract_id']);
 
@@ -51,7 +68,7 @@ function output() {
         echo "Mission must be completed by: ".$contract->GetTimeframe()." Midnight, EST<br /><br />";
         echo "{".$type->GetName()." Mission}<br /><br />";
         echo "[b]Information[/b]<br />".stripslashes($_REQUEST['info'])."<br /><br />";
-        echo "[b]Creature Stats[/b]<br />".$npc->BuildSheet();
+        echo "[b]Creature Stats[/b]<br />".$npc->WriteSheet();
         echo "Good Hunting.";
 
         echo "<br /><br />";
@@ -74,7 +91,6 @@ function output() {
 	        $contact = $contract->GetHunter();
             $contact->Notify($_REQUEST['mbid']);
             echo "Mission process completed.";
-
         } else {
             NEC(180);
         }
@@ -98,7 +114,7 @@ function output() {
 	        $form->AddSubmitButton('next', 'Next >>');
 	        $form->EndForm();
         } else {	        
-	        echo "No Pending MIssionss.";	        
+	        echo "No Pending Missions.";	        
         }
     }
 

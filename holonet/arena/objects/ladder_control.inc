@@ -63,8 +63,7 @@
         
         if ($dojo){
 	    	$ladder = new Ladder();
-	    	$dm = $ladder->CurrentMaster();
-	    	$dojo = $dm->GetID();
+	    	$dojo = $ladder->CurrentMaster();
     	}
         
     	$new = new Ladder();

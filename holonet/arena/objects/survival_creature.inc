@@ -32,7 +32,7 @@
         return $this->npc_id;
     }
     
-    function GetStats($table){
+    function GetName(){
 	    $check = ($this->type->GetPoints() > 1.5);
 	    
 	    if ($this->type->GetPoints() < 1){
@@ -42,7 +42,13 @@
 	    }
 	    
 	    $stat = array_shift($this->npc_stats);
-	    $table->AddRow('Name: ', $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8"));
+	    return $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8");
+    }
+    
+    function GetStats($table){
+	    $check = ($this->type->GetPoints() > 1.5);
+
+	    $table->AddRow('Name: ', $this->GetName());
 	   
 	    $table->AddRow('Difficulty: ', $this->type->GetName());
 	    
@@ -71,14 +77,7 @@
     function WriteSheet(){
 	    $check = ($this->type->GetPoints() > 1.5);
 	    
-	    if ($this->type->GetPoints() < 1){
-		    $namemod = 'Lesser ';
-	    } elseif ($check){
-		    $namemod = 'Elder ';
-	    }
-	    
-	    $stat = array_shift($this->npc_stats);
-	    $text = 'Name: '.$namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8");
+	    $text = 'Name: '.$this->GetName();
 	    
 	    $text .= '<br />Difficulty: '.$this->type->GetName().'<br />';
 	    
