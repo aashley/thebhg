@@ -103,18 +103,22 @@ if (!$theme->IECompliant()) {
 <?php
 }
 ?>
-<style type="text/css">
-<!--
 <?php
 if ($_GET['css']) {
-	readfile($_GET['css']);
+	echo '<link rel="stylesheet" href="' . $_GET['css'] . '" />';
 }
-else {
-	echo $theme->GetStyleSheet();
+
+$themes = array();
+foreach (get_themes() as $th) {
+	$themes[$th->GetName()] = $th->GetStyleSheet();
+}
+asort($themes);
+unset($themes[$theme->GetName()]);
+echo '<link rel="stylesheet" title="' . $theme->GetName() . '" href="' . $theme->GetStyleSheet() . '" />';
+foreach ($themes as $name => $ss) {
+	echo '<link rel="alternate stylesheet" title="' . $name . '" href="' . $ss . '" />';
 }
 ?>
--->
-</style>
 </head>
 <body>
 <?php
