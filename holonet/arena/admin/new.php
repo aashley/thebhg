@@ -7,7 +7,7 @@ function display(){
 		$_REQUEST['data']['values'][] = addslashes(serialize($_REQUEST['serialize']));
 	    
 	    $id = $arena->NewRow($_REQUEST['data']);
-	    echo $type->Get(submit);
+	    print_r($type);
 	    if ($type->Get(submit)){
 		    $_REQUEST['fading'] = true;
 	    }
