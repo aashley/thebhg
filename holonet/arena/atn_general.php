@@ -35,6 +35,7 @@ function output() {
 	    $ro = new RODetails();
 	    $survival = new Survival();
 	    $rewards = array();
+	    $aas = array();
 	
 	    $comiss = new Comissioner($hunter->GetID());
 	    $master = new Master($hunter->GetID());
@@ -58,22 +59,24 @@ function output() {
 	    $com = $commen->GetStatus();
 	    $ran = $ranger->GetStatus();
 		
-	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = array('pic'=>'ov', 'page'=>'atn_award', 'anch'=>'overseer'); $aa = true;}
-		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = array('pic'=>'aj', 'page'=>'atn_award', 'anch'=>'adjunct'); $aa = true;}
+	    if ($ove){ $aas[$ove.'Overseer of the Guild'] = array('pic'=>'ov', 'page'=>'atn_award', 'anch'=>'overseer'); $aa = true;}
+		if ($adj){ $aas[$adj.'Adjunct of the Guild'] = array('pic'=>'aj', 'page'=>'atn_award', 'anch'=>'adjunct'); $aa = true;}
+	    if ($djm){ $aas[$djm.'Master of the Dojo of Shadows'] = array('pic'=>'dojoofshadows', 'page'=>'atn_award', 'anch'=>'dojo'); $aa = true;}
+		if ($boc){ $aas[$boc.'of the Bounty Office'] = array('pic'=>'bountyoffice', 'page'=>'atn_award', 'anch'=>'commiss'); $aa = true;}
+		if ($reg){ $aas[$reg.'Registrar of the Office of Character Development'] = array('pic'=>'ocd', 'page'=>'atn_award', 'anch'=>'registrar'); $aa = true;}
+		if ($mis){ $aas[$mis.'Mission Master of Run-Ons'] = array('pic'=>'mm', 'page'=>'atn_award', 'anch'=>'mission'); $aa = true;}
+		if ($ski){ $aas[$ski.'Skipper of the Starfield Arena'] = array('pic'=>'skipper', 'page'=>'atn_award', 'anch'=>'skipper'); $aa = true;}
+		if ($ste){ $aas[$ste.'Steward of the Arena'] = array('pic'=>'steward', 'page'=>'atn_award', 'anch'=>'steward'); $aa = true;}
+		if ($com){ $aas[$com.'Holonet Commentator of the IRC Arena'] = array('pic'=>'hc', 'page'=>'atn_award', 'anch'=>'commentator'); $aa = true;}
+		if ($ran){ $aas[$ran.'Survival Mission Ranger'] = array('pic'=>'ranger', 'page'=>'atn_award', 'anch'=>'ranger'); $aa = true;}
+		if ($aa) { $aas['Contributions to the Arena'] = array('pic'=>'contrib', 'page'=>'atn_award', 'anch'=>'total'); }
+	    
 		if ($hunter->GetID() == 2650){ $rewards['Arena Management System Coder']['pic'] = 'coder'; }
 		if ($at->IsGladius($hunter->GetID())){ $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))]['pic'] = 'gladius'; }
 	    if (in_array($hunter->GetID(), $arena->GetTeta())){ $rewards['Owner of Teta\'s Knives']['pic'] = 'dagger'; }	
-		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = array('pic'=>'dojoofshadows', 'page'=>'atn_award', 'anch'=>'dojo'); $aa = true;}
-		if ($boc){ $rewards[$boc.'of the Bounty Office'] = array('pic'=>'bountyoffice', 'page'=>'atn_award', 'anch'=>'commiss'); $aa = true;}
-		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = array('pic'=>'ocd', 'page'=>'atn_award', 'anch'=>'registrar'); $aa = true;}
-		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = array('pic'=>'mm', 'page'=>'atn_award', 'anch'=>'mission'); $aa = true;}
-		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = array('pic'=>'skipper', 'page'=>'atn_award', 'anch'=>'skipper'); $aa = true;}
-		if ($ste){ $rewards[$ste.'Steward of the Arena'] = array('pic'=>'steward', 'page'=>'atn_award', 'anch'=>'steward'); $aa = true;}
-		if ($com){ $rewards[$com.'Holonet Commentator of the IRC Arena'] = array('pic'=>'hc', 'page'=>'atn_award', 'anch'=>'commentator'); $aa = true;}
-		if ($ran){ $rewards[$ran.'Survival Mission Ranger'] = array('pic'=>'ranger', 'page'=>'atn_award', 'anch'=>'ranger'); $aa = true;}
 		if ($properties){ $rewards['Owns '.pluralise('piece', $properties).' of property in Lyarna.'] = array('pic'=>'lyarna', 'page'=>'atn_lyarna'); }
 		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows']['pic'] = 'dojo'; }
-		if ($aa) { $rewards['Contributions to the Arena'] = array('pic'=>'contrib', 'page'=>'atn_award', 'anch'=>'total'); }
+		
 	    
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
 	    
@@ -147,6 +150,24 @@ function output() {
 	    echo '</div></td></tr><tr><td><div style="text-align: left">';
 	    */
 		
+	    if (count($aas)){			
+			$setups = array();
+			
+			echo '<h4>Arena Aide Positions</h4>';
+			
+			foreach ($aas as $info=>$reward){		
+				if (!$reward['page']){
+					$reward['page'] = $page;
+				}
+				$setups[] = '<a href="'.internal_link($reward['page'], array('id'=>$hunter->GetID())).'#'.$reward['anch'].'" title="'.$info.
+							'"><img border=0 src="arena/images/distinctions/'.$reward['pic'].'.png"></a>';				
+			}
+			
+			for ($i = 0; $i < count($setups); $i += 5) {
+				echo implode('', array_slice($setups, $i, 5)).'<br />';
+			}
+		}
+	    
 		if (count($rewards)){			
 			$setups = array();
 			
