@@ -794,7 +794,7 @@
 		
 		while ($info = mysql_fetch_array($query)){
 			$date = getdate($info['date']);
-			$return[stripslashes($info['name'])] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'app'=>$info['approved'], 'pending'=>$info['pending']);
+			$return[] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'app'=>$info['approved'], 'pending'=>$info['pending']);
 		}
 		
 		return $return;
