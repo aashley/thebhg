@@ -166,7 +166,7 @@
 				$evalue = $character->Point($resource, 'SYSTEM'); 
 			}
 			
-			$return = ($evalue == $value);
+			$return = ($evalue >= $value);
 			
 			return ($return ? true : false);
 			

@@ -20,9 +20,9 @@ function output() {
     	
 	    foreach ($_REQUEST['nameused'] as $name){
 		    if ($sheet->HasValue($hunter->GetID(), $_REQUEST[$name], $_REQUEST['txt_'.$name])){
-			    echo 'You have a '.$_REQUEST['txt_'.$name].' in the selected field.';
+			    echo 'You have at least a  '.$_REQUEST['txt_'.$name].' in the selected field.';
 		    } else {
-			    echo 'You do not have a '.$_REQUEST['txt_'.$name].' in the selected field.';
+			    echo 'You do not have at least a '.$_REQUEST['txt_'.$name].' in the selected field.';
 		    }
 		    echo '<br />';
 	    }
