@@ -22,37 +22,23 @@
 
 
     function Build() {
-        $sql = "SELECT arena_starfield_records.bhg_id, arena_starfield_records.outcome FROM arena_starfield_records, arena_starfield_match WHERE arena_starfield_match.accepted = 1 "
+        $sql = "SELECT arena_starfield_records.bhg_id, SUM(arena_starfield_records.outcome) as points FROM arena_starfield_records, arena_starfield_match WHERE arena_starfield_match.accepted = 1 "
                 ."AND arena_starfield_match.id = arena_starfield_records.match_id AND arena_starfield_match.match_id > 0 AND arena_starfield_match.date_deleted = 0 AND "
-                ."arena_starfield_match.match_id > 0 ORDER BY arena_starfield_records.bhg_id";
+                ."arena_starfield_match.match_id > 0 ORDER BY arena_starfield_records.bhg_id GROUP BY `arena_starfield_records.bhg_id`";
         $query = mysql_query($sql, $this->connect);
         $total = "SELECT * FROM `arena_starfield_match` WHERE `match_id` > 0 AND `date_deleted` = 0";
         $qtotal = mysql_query($total, $this->connect);
-        $total = mysql_num_rows($total);
-        $return = array();
+        $total = mysql_num_rows($qtotal);
         $var = array();
 
         while ($result = mysql_fetch_array($query)){
-            $var[$result['bhg_id']][] = $result['outcome'];
+            $var[$result['bhg_id']] = $result['points'];
         }
 
-        $count = count($var);
-        $i = 0;
-        $keys = array_keys($var);
+        arsort($var, SORT_NUMERIC);
+        reset($var);
 
-        while ($i < $count){
-            $key = $keys[$i];
-            $result = $var[$key];
-            $new = array_sum($result);
-            $put = array($key => $new/$total);
-            $return = $return + $put;
-            $i++;
-        }
-
-        arsort($return, SORT_NUMERIC);
-        reset($return);
-
-        return $return;
+        return $var;
     }
     
     function Search($bhg_id) {

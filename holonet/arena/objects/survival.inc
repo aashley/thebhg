@@ -294,7 +294,7 @@
 
         $total = "SELECT * FROM `arena_survival_contracts` WHERE `bhg_id` > 0";
         $qtotal = mysql_query($total, $this->connect);
-        $total = mysql_num_rows($total);
+        $total = mysql_num_rows($qtotal);
         
         while ($result = mysql_fetch_array($query)){
 	        $grade = new SurvivalGrade($result['grade']);

@@ -21,38 +21,24 @@
     }
 
     function Build() {
-        $sql = "SELECT arena_ladder_records.bhg_id, arena_ladder_records.outcome FROM arena_ladder_records, arena_ladder_match WHERE arena_ladder_match.accepted = 1 "
+        $sql = "SELECT arena_ladder_records.bhg_id, SUM(arena_ladder_records.outcome) as points FROM arena_ladder_records, arena_ladder_match WHERE arena_ladder_match.accepted = 1 "
                 ."AND arena_ladder_match.id = arena_ladder_records.match_id AND arena_ladder_match.match_id > 0 AND arena_ladder_match.date_deleted = 0 "
-                ."ORDER BY arena_ladder_records.bhg_id";
+                ."ORDER BY arena_ladder_records.bhg_id GROUP BY `arena_ladder_records.bhg_id`";
 
         $query = mysql_query($sql, $this->connect);
-        $return = array();
-        $var = array();
         $total = "SELECT * FROM `arena_ladder_match` WHERE `match_id` > 0 AND `date_deleted` = 0";
         $qtotal = mysql_query($total, $this->connect);
-        $total = mysql_num_rows($total);
+        $total = mysql_num_rows($qtotal);
+        $var = array();
 
         while ($result = mysql_fetch_array($query)){
-            $var[$result['bhg_id']][] = $result['outcome'];
+            $var[$result['bhg_id']] = $result['points'];
         }
 
-        $count = count($var);
-        $i = 0;
-        $keys = array_keys($var);
+        arsort($var, SORT_NUMERIC);
+        reset($var);
 
-        while ($i < $count){
-            $key = $keys[$i];
-            $result = $var[$key];
-            $new = array_sum($result);
-            $put = array($key => $new/$total);
-            $return = $return + $put;
-            $i++;
-        }
-
-        arsort($return, SORT_NUMERIC);
-        reset($return);
-
-        return $return;
+        return $var;
     }
     
     function Search($bhg_id) {
