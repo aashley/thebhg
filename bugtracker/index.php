@@ -289,7 +289,7 @@ function bleach($str, $nowrap) {
 	if (!$nowrap) {
 		$str = wordwrap($str, 60);
 	}
-	return htmlspecialchars($str);
+	return $str;
 }
 
 function email($module, $subject, $message) {
