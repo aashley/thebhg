@@ -33,7 +33,10 @@ function output() {
 	    	echo '<br />You are currently under the Dead Contract penalty. You cannot request contracts until this ban expires.<br />'
 	    		.'This ban will end on: '.$date['month']." ".$date['mday'].", ".$date['year'];
     	} else {
-		    if (isset($_REQUEST['submit'])) {
+		    if (isset($_REQUEST['submit']) || $_REQUEST['id']) {
+			    if ($_REQUEST['contract_id']){
+			    	$_REQUEST['contract_id'] = $_REQUEST['id'];
+		    	}
 		
 		        $contract = new Contract($_REQUEST['contract_id']);
 		

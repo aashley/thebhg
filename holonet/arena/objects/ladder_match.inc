@@ -4,7 +4,7 @@
 
     var $arena_id;
     var $arena_match_id;
-    var $arena_is_ttg;
+    var $arena_is_dojo;
     var $arena_name;
     var $arena_start;
     var $arena_end;
@@ -45,9 +45,7 @@
     }
     
     function IsDojo(){
-	    $location = $this->GetLocation();
-	    
-	    if ($location->GetID() == 31 && $location->GetTable() == 'complex'){
+	    if ($this->arena_is_dojo){
 		    return true;
 	    } else {
 		    return false;

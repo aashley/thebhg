@@ -36,7 +36,10 @@ function output() {
 		    	
 			    $solo = new LW_Solo();
 			
-			    if (isset($_REQUEST['submit'])) {
+			    if (isset($_REQUEST['submit']) || $_REQUEST['id']) {
+				    if ($_REQUEST['contract_id']){
+				    	$_REQUEST['contract_id'] = $_REQUEST['id'];
+			    	}
 			
 			        $contract = new LW_Contract($_REQUEST['contract_id']);
 			

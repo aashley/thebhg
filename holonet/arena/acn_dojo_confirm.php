@@ -28,9 +28,10 @@ function output() {
 	        
         } elseif ($_REQUEST['challengee'] != $hunter->GetID()) {
             $hunted = $roster->GetPerson($_REQUEST['challengee']);
+            $local = explode("_", $_REQUEST['location']);
 
-            $new = $control->Challenge('3', '31', 'complex', $_REQUEST['posts'], $_REQUEST['num_weapon'], $hunter->GetID(), 
-            	$hunted->GetID(), $_REQUEST['type_weapon'], 'http://holonet.thebhg.org/');
+            $new = $control->Challenge('3', $local[0], $local[1], $_REQUEST['posts'], $_REQUEST['num_weapon'], $hunter->GetID(), 
+            	$hunted->GetID(), $_REQUEST['type_weapon'], 'http://holonet.thebhg.org/', 1);
 
             if ($new){
                 echo "Challenge made successfully.";

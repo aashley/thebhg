@@ -219,14 +219,14 @@ function output() {
 		        $form->AddOption($value->GetID(), $value->GetWeapon());
 		    }
 		    $form->EndSelect();
-		
-		    if (!$dojo){
-			    $form->StartSelect('Location:', 'location', $locations[array_rand($locations)]);
-			    foreach ($locations as $lid=>$lname) {
-			        $form->AddOption($lid, $lname);
-			    }
-			    $form->EndSelect();
-			
+
+		    $form->StartSelect(($dojo ? 'Holographic ' : '').'Location:', 'location', $locations[array_rand($locations)]);
+		    foreach ($locations as $lid=>$lname) {
+		        $form->AddOption($lid, $lname);
+		    }
+		    $form->EndSelect();
+			    
+			if (!$dojo){
 			    $form->StartSelect('Rules:', 'rules');
 			    foreach($types as $value) {
 			        $form->AddOption($value->GetID(), $value->GetName());

@@ -31,7 +31,7 @@ function output() {
             $local = explode("_", $_REQUEST['location']);
 
             $new = $control->Challenge($_REQUEST['rules'], $local[0], $local[1], $_REQUEST['posts'],
-            $_REQUEST['num_weapon'], $hunter->GetID(), $hunted->GetID(), $_REQUEST['type_weapon'], 'http://holonet.thebhg.org/');
+            $_REQUEST['num_weapon'], $hunter->GetID(), $hunted->GetID(), $_REQUEST['type_weapon'], 'http://holonet.thebhg.org/', $_REQUEST['dojo']);
 
             if ($new){
                 echo "Challenge made successfully.";

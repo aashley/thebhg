@@ -41,7 +41,7 @@
 
     }
 
-    function Challenge($type, $location, $location_table, $posts, $weapons, $challenger, $challengee, $weapon_type, $link){
+    function Challenge($type, $location, $location_table, $posts, $weapons, $challenger, $challengee, $weapon_type, $link, $dojo = '0'){
 
         $person1 = new Person($challenger);
         $person2 = new Person($challengee);
@@ -57,8 +57,8 @@
 	        }
         }*/
         
-        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`) "
-                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type')";
+        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `is_dojo`) "
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', $dojo)";
 
         if (mysql_query($sql, $this->connect)) {
 
