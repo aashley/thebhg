@@ -16,7 +16,7 @@ function title() {
 }
 
 function output() {
-    global $div, $arena;
+    global $div, $arena, $sheet;
 
     arena_header();
 
