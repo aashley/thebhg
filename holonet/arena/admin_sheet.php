@@ -95,16 +95,16 @@ function output() {
 			$points = $character->GetExperiencePoints()/350;			
 			$tobuy = floor($points);
 			
+			if ($tobuy < 1){
+				$tobuy = 0;
+			}
+			
+			$s = '';
+			
 			if ($tobuy > 1){
 				$s = 's';
 			}
 			
-			if ($tobuy){
-				$form = new Form($page);
-				$form->AddHidden('points', $tobuy);
-				$form->table->AddRow('<input type="submit" name="buypoint" value="Buy '.$tobuy.' Bonus Point'.$s.'">');
-				$form->EndForm();
-			}
 			
 			if (isset($_REQUEST['buypoint'])){
 				for ($i = 1; $i <= $_REQUEST['points']; $i++){
@@ -113,6 +113,15 @@ function output() {
 				echo 'Purchased '.$_REQUEST['points'].' bonus points';
 				admin_footer($auth_data);
 	    		return;
+			}
+			
+			if ($tobuy){
+				$form = new Form($page);
+				$form->AddHidden('points', $tobuy);
+				$form->AddHidden('buypoint', 1);
+				$form->AddHidden('id', $_REQUEST['id']);
+				$form->table->AddRow('<input type="submit" name="buypoint" value="Buy '.$tobuy.' Bonus Point'.$s.'">');
+				$form->EndForm();
 			}
 			
 			if (isset($_REQUEST['save'])){
