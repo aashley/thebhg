@@ -16,7 +16,7 @@
 
             $id = mysql_insert_id($this->connect);
 
-            $this->NotifyRanger();
+            $solo->NotifyRanger();
 
            return $id;
         } else {
