@@ -33,30 +33,25 @@ function output() {
     }
     
     if (isset($_REQUEST['delete'])){
-	    if ($character->ValidLoad($_REQUEST['sheet'], 1)){
-		    if ($_REQUEST['confirm']){
-			    echo $character->DeleteBackup($_REQUEST['sheet']);
-			    hr();		
-		    } else {
-			    $form = new Form($page);
-			    $form->AddHidden('sheet', $_REQUEST['sheet']);
-			    $form->AddHidden('confirm', 1);
-			    echo '<input type="submit" name="delete" value="Confirm Delete">';
-			    $form->EndForm();
-			    $show = false;
-		    }
+	    if ($_REQUEST['confirm']){
+		    echo $character->DeleteBackup($_REQUEST['sheet']);
+		    hr();		
+	    } else {
+		    $form = new Form($page);
+		    $form->AddHidden('sheet', $_REQUEST['sheet']);
+		    $form->AddHidden('confirm', 1);
+		    echo '<input type="submit" name="delete" value="Confirm Delete">';
+		    $form->EndForm();
+		    $show = false;
 	    }
     }
     
     if (isset($_REQUEST['delshare'])){
-	    if ($character->ValidLoad($_REQUEST['sheet'], 1)){
-		    echo $character->RemoveShare($_REQUEST['hunt'], $_REQUEST['sheet']);
-		    hr();		
-	    }
+	    echo $character->RemoveShare($_REQUEST['hunt'], $_REQUEST['sheet']);
+	    hr();		
     }
     
     if (isset($_REQUEST['share'])){
-	    if ($character->ValidLoad($_REQUEST['sheet'], 1)){
 		    if ($_REQUEST['challengee']){
 			    echo $character->Share($_REQUEST['challengee'], $_REQUEST['sheet']);
 			    hr();		
@@ -200,7 +195,6 @@ function output() {
 			    $form->EndForm();
 			    $show = false;
 		    }
-	    }
     }
     
     if ($show){
