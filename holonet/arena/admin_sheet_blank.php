@@ -34,6 +34,8 @@ function output() {
         $kabals_result = $roster->GetDivisions();
 	    
 			$kabals = array();
+			$hunters = array();
+			$plebsheet = array();
 	    
 			foreach ($kabals_result as $kabal) {
 	      
@@ -41,20 +43,17 @@ function output() {
 			        
 			        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
 			          .$kabal->GetName()."</option>\n";
+			          
+			        foreach ($kabal->GetMembers('name') as $char) {
+						if (!in_array($char->GetID(), $sheet->SheetHolders(1))){
+					    	$hunters[$char->GetName()] = new Person($char->GetID());
+				    	}
+			    	}
 			      }
 	      
 	    	}
 	    
 			$kabals = implode('', $kabals);
-	
-			$hunters = array();
-			$plebsheet = array();
-			
-			foreach ($kabal->GetMembers('name') as $char) {
-				if (!in_array($char->GetID(), $sheet->SheetHolders(1))){
-			    	$hunters[$char->GetName()] = new Person($char->GetID());
-		    	}
-	    	}
 	    	
 	    	ksort($hunters);
 
