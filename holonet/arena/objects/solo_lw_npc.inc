@@ -28,30 +28,51 @@
     }
 
     function GetName1() {
-        $npc = explode("/", $this->npc_c1string);
+	    if ($this->GetID() <= 13){
+	        $npc = explode("/", $this->npc_c1string);
 
-        return mb_convert_case($npc[34], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[35], MB_CASE_TITLE, "UTF-8");
+        	return mb_convert_case($npc[34], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[35], MB_CASE_TITLE, "UTF-8");
+        } else {
+	        $npc = explode("/", $this->npc_c1string);
+	        
+	        return mb_convert_case($npc[0], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[1], MB_CASE_TITLE, "UTF-8");
+        }
+        
     }
 
 
     function BuildSheet1(){
        $build = new NPC_Utilities();
 
-       return $build->BuildSheet($this->npc_c1string);
+       if ($this->GetID() <= 13){
+       		return $build->BuildSheet($this->npc_c1string);
+	   } else {
+		    return $build->Construct($this->npc_c1string);
+	   }
 
     }
 
     function GetName2() {
-        $npc = explode("/", $this->npc_c2string);
+        if ($this->GetID() <= 13){
+	        $npc = explode("/", $this->npc_c2string);
 
-        return mb_convert_case($npc[34], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[35], MB_CASE_TITLE, "UTF-8");
+        	return mb_convert_case($npc[34], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[35], MB_CASE_TITLE, "UTF-8");
+        } else {
+	        $npc = explode("/", $this->npc_c2string);
+	        
+	        return mb_convert_case($npc[0], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[1], MB_CASE_TITLE, "UTF-8");
+        }
     }
 
 
     function BuildSheet2(){
        $build = new NPC_Utilities();
 
-       return $build->BuildSheet($this->npc_c2string);
+       if ($this->GetID() <= 13){
+       		return $build->BuildSheet($this->npc_c2string);
+	   } else {
+		    return $build->Construct($this->npc_c2string);
+	   }
 
     }
 

@@ -2,94 +2,41 @@
 
  Class Parse_NPC extends Arena {
 
-    var $difficulty;
-    var $physical;
-    var $mental;
-    var $talents;
-    var $skills;
-    var $knowledges;
-    var $history;
-    var $appearance;
-    var $dexterity;
-    var $senses;
-    var $stamina;
-    var $strength;
-    var $conscience;
-    var $courage;
-    var $selfcontrol;
-    var $allies;
-    var $alternate;
-    var $contacts;
-    var $name;
-    var $alertness;
-    var $brawl;
-    var $dodge;
-    var $intimidation;
-    var $manipulation;
-    var $stealth;
-    var $subterfuge;
-    var $demolitions;
-    var $marksmanship;
-    var $melee;
-    var $piloting;
-    var $repair;
-    var $security;
-    var $tracking;
-    var $education;
-    var $linguistics;
-    var $medicine;
-    var $poison;
-    var $politics;
-    var $science;
-    var $technology;
-    var $species;
-    var $homeworld;
-    var $language;
-    var $phymax;
-    var $stamax;
-    var $gender;
-    var $first;
-    var $last;
-
-    function Parse_NPC($difficulty){
+    var $npc_string;
+	 
+    function Parse_NPC4($difficulty){
         $this->difficulty = $difficulty;
 
         if ($difficulty == 1){
-            $this->phymax = 6;
-            $this->stamax = 6;
+            $this->maxv = 6;
         } elseif ($difficulty == 2){
-            $this->phymax = 8;
-            $this->stamax = 8;
+            $this->maxv = 8;
         } elseif ($difficulty == 3){
-            $this->phymax = 10;
-            $this->stamax = 10;
+            $this->maxv = 10;
         }
 
-        $physical_generate = $this->Physical();
-        $mental_generate = $this->Mental();
-        $history_generate = $this->History();
-        $talents_generate = $this->Talents();
-        $skills_generate = $this->Skills();
-        $knowledges_generate = $this->Knowledges();
-        $species_generate = $this->Species();
-
+       $this->npc_string = $this->GetName().'/'.$this->GetLastName().'/'.$this->GetGender().'/'.$this->Species();       
+       $this->Generate();
     }
 
-    function Roll($high){
+    function Roll($high = $this->maxv){
         return mt_rand(1, $high);
     }
 
     function RollName(){
         return mt_rand(3, 8);
     }
-
-    function RollPhysical(){
-        return mt_rand(3, $this->phymax);
-    }
-
-    function RollStats(){
-        return mt_rand(0, $this->stamax);
-    }
+    
+    function Generate(){
+	    for ($i = 1; $i <= 11; $i++){
+	    	$field = new Field($i);
+	    	foreach($sheet->GetStats($i) as $stat){
+		    	if ($stat->IsInt()){
+		    		$this->npc_string .= '/'.$this->Roll();
+	    		}
+	    	}
+    	}
+	}
 
 function letters_in_set($word, $letters) {
     for ($i = 0; $i < strlen($word); $i++) {
@@ -224,56 +171,6 @@ function generate_word($min_syllables = 1, $max_syllables = 3, $letters = "abcde
     return $word;
 }
 
-    function Physical(){
-        $this->dexterity = $this->RollPhysical();
-        $this->strength = $this->RollPhysical();
-        $this->senses = $this->RollPhysical();
-        $this->stamina = $this->RollPhysical();
-        $this->appearance = $this->RollPhysical();
-    }
-
-    function Mental(){
-        $this->conscience = $this->RollStats();
-        $this->selfcontrol = $this->RollStats();
-        $this->courage = $this->RollStats();
-    }
-
-    function Talents(){
-        $this->dodge = $this->RollStats();
-        $this->brawl = $this->RollStats();
-        $this->alertness = $this->RollStats();
-        $this->intimidation = $this->RollStats();
-        $this->stealth = $this->RollStats();
-        $this->subterfuge = $this->RollStats();
-        $this->manipulation = $this->RollStats();
-    }
-
-    function Skills(){
-        $this->melee = $this->RollStats();
-        $this->marksmanship = $this->RollStats();
-        $this->piloting = $this->RollStats();
-        $this->security = $this->RollStats();
-        $this->repair = $this->RollStats();
-        $this->demolitions = $this->RollStats();
-        $this->tracking = $this->RollStats();
-    }
-
-    function Knowledges(){
-        $this->education = $this->RollStats();
-        $this->poison = $this->RollStats();
-        $this->science = $this->RollStats();
-        $this->medicine = $this->RollStats();
-        $this->technology = $this->RollStats();
-        $this->politics = $this->RollStats();
-        $this->linguistics = $this->RollStats();
-    }
-
-    function History(){
-        $this->allies = $this->RollStats();
-        $this->alternate = $this->RollStats();
-        $this->contacts = $this->RollStats();
-    }
-
     function Species(){
         $roll = $this->Roll(6);
         if ($roll > 2){
@@ -337,169 +234,26 @@ function generate_word($min_syllables = 1, $max_syllables = 3, $letters = "abcde
 
     }
 
-    function GetSpecies(){
-        return $this->species;
-    }
-
     function GetName(){
-        $this->first = $this->generate_word();
-        return mb_convert_case($this->first, MB_CASE_TITLE, "UTF-8");;
+        return mb_convert_case($this->generate_word();, MB_CASE_TITLE, "UTF-8");;
     }
 
     function GetGender(){
         $roll = $this->Roll(6);
         if ($roll > 3){
-            $this->gender = "Male";
             return "Male";
         } else {
-            $this->gender = "Female";
             return "Female";
         }
     }
 
     function GetLastName(){
-        $this->last = $this->generate_word();
-        return mb_convert_case($this->last, MB_CASE_TITLE, "UTF-8");
-    }
-
-    function GetAppearance(){
-        return $this->appearance;
-    }
-
-    function GetStrength(){
-        return $this->strength;
-    }
-
-    function GetDexterity(){
-        return $this->dexterity;
-    }
-
-    function GetStamina(){
-        return $this->stamina;
-    }
-
-    function GetSenses(){
-        return $this->senses;
-    }
-
-    function GetCourage(){
-        return $this->courage;
-    }
-
-    function GetSelfControl(){
-        return $this->selfcontrol;
-    }
-
-    function GetConscience(){
-        return $this->conscience;
-    }
-
-    function GetAllies(){
-        return $this->allies;
-    }
-
-    function GetContacts(){
-        return $this->contacts;
-    }
-
-    function GetAlternateID(){
-        return $this->alternate;
-    }
-
-    function GetAlertness(){
-        return $this->alertness;
-    }
-
-    function GetBrawl(){
-        return $this->brawl;
-    }
-
-    function GetDodge(){
-        return $this->dodge;
-    }
-
-    function GetManipulate(){
-        return $this->manipulation;
-    }
-
-    function GetStealth(){
-        return $this->stealth;
-    }
-
-    function GetSubterfuge(){
-        return $this->subterfuge;
-    }
-
-    function GetIntimidation(){
-        return $this->intimidation;
-    }
-
-    function GetMelee(){
-        return $this->melee;
-    }
-
-    function GetMarksmanship(){
-        return $this->marksmanship;
-    }
-
-    function GetDemolitions(){
-        return $this->demolitions;
-    }
-
-    function GetSecurity(){
-        return $this->security;
-    }
-
-    function GetTracking(){
-        return $this->tracking;
-    }
-
-    function GetRepair(){
-        return $this->repair;
-    }
-
-    function GetPiloting(){
-        return $this->piloting;
-    }
-
-    function GetEducation(){
-        return $this->education;
-    }
-
-    function GetLinguistics(){
-        return $this->linguistics;
-    }
-
-    function GetMedicine(){
-        return $this->medicine;
-    }
-
-    function GetPoison(){
-        return $this->poison;
-    }
-
-    function GetPolitics(){
-        return $this->politics;
-    }
-
-    function GetScience(){
-        return $this->science;
-    }
-
-    function GetTechnology(){
-        return $this->technology;
+        return mb_convert_case($this->generate_word();, MB_CASE_TITLE, "UTF-8");
     }
 
     function GetString(){
-        $string = $this->species."/".$this->GetGender()."/".$this->appearance."/".$this->strength."/".$this->dexterity."/".$this->stamina."/".$this->senses."/".$this->courage
-                ."/".$this->selfcontrol."/".$this->conscience."/".$this->allies."/".$this->contacts."/".$this->alternate."/".$this->alertness."/".$this->brawl
-                ."/".$this->dodge."/".$this->manipulation."/".$this->stealth."/".$this->subterfuge."/".$this->intimidation."/".$this->melee."/".$this->marksmanship
-                ."/".$this->demolitions."/".$this->security."/".$this->tracking."/".$this->repair."/".$this->piloting."/".$this->education."/".$this->linguistics
-                ."/".$this->medicine."/".$this->poison."/".$this->politics."/".$this->science."/".$this->technology."/".$this->GetName()."/".$this->GetLastName();
-
-        return $string;
+        return $this->npc_string;
     }
 
  }
-
 ?>

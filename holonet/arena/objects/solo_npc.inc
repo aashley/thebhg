@@ -27,16 +27,26 @@
     }
 
     function GetName() {
-        $npc = explode("/", $this->npc_string);
-
-        return mb_convert_case($npc[34], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[35], MB_CASE_TITLE, "UTF-8");
+	    if ($this->GetID() <= 111){
+	        $npc = explode("/", $this->npc_string);
+	
+	        return mb_convert_case($npc[34], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[35], MB_CASE_TITLE, "UTF-8");
+        } else {
+	        $npc = explode("/", $this->npc_string);
+	        
+	        return mb_convert_case($npc[0], MB_CASE_TITLE, "UTF-8")." ".mb_convert_case($npc[1], MB_CASE_TITLE, "UTF-8");
+        }
     }
 
 
     function BuildSheet(){
        $build = new NPC_Utilities();
-
-       return $build->BuildSheet($this->npc_string);
+       
+       if ($this->GetID() <= 111){
+       		return $build->BuildSheet($this->npc_string);
+	   } else {
+		    return $build->Construct($this->npc_string);
+	   }
 
     }
 
