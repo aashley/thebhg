@@ -44,7 +44,7 @@ function output() {
 		    $fst = 'id` < \''.$grtrt.'\' AND `';
 	    } 
 	    
-	    $pending = $arena->Search(array('table'=>'ams_match', 'order'=>array('id'=>'desc'), 'search'=>array('type'=>$activity->Get(id), 'accepted'=>1, 'started` > 0 AND `completed` > 0 AND `date_deleted'=>0), 'limit'=>20));
+	    $pending = $arena->Search(array('table'=>'ams_match', 'order'=>array('id'=>'desc'), 'search'=>array('type'=>$activity->Get(id), 'accepted'=>1, 'started` > 0 AND `date_deleted'=>0), 'limit'=>20));
 	    $pendings = array();
 	    
 	    foreach ($pending as $obj){
@@ -69,8 +69,8 @@ function output() {
 	    
 	    $table->EndTable();
 	    
-	    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` > \''.$last.'\' AND `completed` > 0 AND `type'=>$activity->Get(id), 'date_deleted'=>0), 'limit'=>20), 0, 1);
-	    $denbo = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` < \''.$first.'\' AND `completed` > 0 AND `type'=>$activity->Get(id), 'date_deleted'=>0), 'limit'=>20), 0, 1);
+	    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` > \''.$last.'\' AND `started` > 0 AND `type'=>$activity->Get(id), 'date_deleted'=>0), 'limit'=>20), 0, 1);
+	    $denbo = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` < \''.$first.'\' AND `started` > 0 AND `type'=>$activity->Get(id), 'date_deleted'=>0), 'limit'=>20), 0, 1);
 	    
 	    $table->EndTable();
 	    if ($pending || $denbo){
