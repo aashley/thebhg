@@ -159,7 +159,7 @@
     function NeedApproval(){
 	    $sql = "SELECT * FROM `arena_lw_request`";
 	    $query = mysql_query($sql, $this->connect);
-	    $return - array();
+	    $return = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $return[] = $info['bhg_id'];

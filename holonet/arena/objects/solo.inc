@@ -186,7 +186,7 @@
     function NeedApproval(){
 	    $sql = "SELECT * FROM `arena_solo_request`";
 	    $query = mysql_query($sql, $this->connect);
-	    $return - array();
+	    $return = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $return[] = array('bhg_id'=>$info['bhg_id'], 'type'=>$info['type']);
