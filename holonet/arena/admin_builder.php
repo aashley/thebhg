@@ -115,7 +115,7 @@ function output(){
 		
 		$search = $arena->Search(array('table'=>'ams_activities', 'search'=>array('date_deleted'=>'0'), 'order'=>array('name'=>'ASC')));
 		
-		$form->StartSelect('Resource', 'data[values][]', $activity);
+		$form->StartSelect('Event', 'data[values][]', $activity);
 		foreach ($search as $obj){
 			$form->AddOption($obj->Get(id), $obj->Get(name));
 		}
