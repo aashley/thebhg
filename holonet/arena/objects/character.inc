@@ -182,7 +182,7 @@
     	}
     }
     
-    function GetValue($skill, $look = 'values', $output = 'SHEET'){
+    function GetValue($skill, $look = 'values', $render = 'SHEET'){
 	    $sql = "SELECT * FROM `cs_skill_equ` WHERE `skill` = '$skill'";
         $query = mysql_query($sql, $this->connect);
         
@@ -199,7 +199,7 @@
         $denominator = $info['denominator'];
         
         $value = round($output/$denominator);
-        if ($output == 'SHEET'){
+        if ($render == 'SHEET'){
 	        $return = str_repeat('<img src="arena/images/bonus.png" alt="*" height=20 width=20>', $value);
 	        $return .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', 10-$value);
         } else {
@@ -764,7 +764,7 @@
 				$table->AddHeader($field->GetName(), 2);
 				$table->EndRow();
 		    	foreach($this->GetSkills($i) as $skill){
-			    	$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look, 'SHEET'));
+			    	$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look));
 		    	}
 	    	}
 			for ($i = 10; $i <= 11; $i++){
