@@ -63,7 +63,7 @@ function output() {
 	    $plural = '';
 	    
 	    if ($at->IsGladius($hunter->GetID())){
-		    $table->AddRow('Achieved Gladius Prime:', pluralise($at->IsGladius('Time', $hunter->GetID())));
+		    $table->AddRow('Achieved Gladius Prime:', pluralise('Time', $at->IsGladius($hunter->GetID())));
 	    }
 	    
 	    $table->EndTable();
