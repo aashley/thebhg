@@ -41,7 +41,7 @@
 	            $ships = $ships+$base;
 	        }
 	        
-	        if (array_key_exists($bhg_id, $ships)){
+	        if (array_key_exists($ship_id, $ships)){
 	            return $ships[$ship_id];
 	        } else {
 		        return 'Decommissioned Ship';

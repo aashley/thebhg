@@ -61,7 +61,7 @@
 
         $restriction = serialize($restrictions);
         
-        $sql = "INSERT INTO `arena_starfield_match` (`name`, `type`, `restrictions`, `location`, `settings`, `num_posts`) "
+        $sql = "INSERT INTO `arena_starfield_match` (`name`, `type`, `restrictions`, `location`, `settings`, `num_posts`, `skipper`) "
                 ."VALUES ('".addslashes($name)."', '$type', '".$restriction."', '$location', '$settings', '$posts', '".$skipper->GetID()."')";
 
         if (mysql_query($sql, $this->connect)) {
