@@ -61,7 +61,7 @@ function output() {
 	    
 	    $form->StartSelect('Post as', 'rpa');
 	    foreach ($arena->CanBe($hunter) as $id=>$data){
-		    $form->AddOption($id, $data['desc']);
+		    $form->AddOption($id, $data);
 	    }
 	    $form->EndSelect();
 	    
