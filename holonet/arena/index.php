@@ -13,11 +13,11 @@ function output() {
     $adjunct = ($aj ? 'Adjunct <a href="'.internal_link('atn_general', array('id'=>$aj->GetID())).'">'.$aj->GetName().'</a>' : '');
     
     if ($ov && $aj) {
-	    $by = 'jointly by the Guild '.$overseer.' and '.$adjunct;
+	    $by = 'mainly by sentience, but credit can also be jointly give to the Guild '.$overseer.' and '.$adjunct;
     } elseif ($ov || $aj) {
-	    $by = 'by the overworked Guild '.$overseer.$adjunct;
+	    $by = 'by your friendly neighborhood sentience and the overworked Guild '.$overseer.$adjunct;
     } else {
-	    $by = 'by magic';
+	    $by = 'by sentience, your god and master';
     }
 
     arena_header();
