@@ -174,6 +174,10 @@ function atn_nav(){
 	echo '&nbsp;<a href="' . internal_link('atn_dojo_grad') . '">Dojo&nbsp;Graduates</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_teta') . '">Teta\'s&nbsp;Knives&nbsp;Holders</a><br />';
 
+	echo '<br />Reports<br />';
+    echo '&nbsp;<a href="'.internal_link('reports').'">View Latest Reports</a><br />';
+    echo '&nbsp;<a href="'.internal_link('view_reports').'">View All Reports</a><br />';
+	
     /*Removing the Elite RP stuff
     echo '<br />Twilight Gauntlet<br />';
     echo '&nbsp;<a href="' . internal_link('atn_ttg') . '">Members</a><br />';

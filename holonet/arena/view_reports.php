@@ -8,6 +8,10 @@ function output() {
 
 	arena_header();
 
+    echo '&nbsp;<a href="'.internal_link('reports').'">View Latest Reports</a><br />';
+    
+    hr();
+
 	if (isset($_REQUEST['position'])) {
 		$reports = mysql_query('SELECT * FROM arena_reports WHERE admin="' . $_REQUEST['position'] . '" ORDER BY time DESC', $arena->connect);
 		if ($reports && mysql_num_rows($reports)) {
