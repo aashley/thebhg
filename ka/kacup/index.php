@@ -18,8 +18,8 @@ foreach ($ka->GetSeasons() as $kac){
 	$kabal = new Division($leader);
 	$table->AddRow('<a href="/kac/stats.php?flag=kac&season='.$kac->GetSeasonID().'">Season '.roman($kac->GetSeasonID())
 			.'</a> (<a href="/kac/stats.php?flag=ladder&season='.$kac->GetSeasonID().'">Ladder</a>)', '<a href="/kac/stats.php?flag=kabal&kabal='
-			.$kabal->GetID().'&season='.$kac->GetSeasonID().'">'.$kabal->GetName().'</a>', $kac->Dates('HUMAN', 'start').' EST', 
-			$kac->Dates('HUMAN', 'start').' EST');
+			.$kabal->GetID().'&season='.$kac->GetSeasonID().'">'.$kabal->GetName().'</a>', $kac->Dates('HUMAN', 'start'), 
+			$kac->Dates('HUMAN', 'start'));
 }
 
 $table->EndTable();
