@@ -10,6 +10,18 @@ $roster = new Roster('fight-51-me');
 $mb = new MedalBoard('fight-51-me');
 $sheet = new Sheet();
 
+function Overseer(){
+	global $roster;
+    $search = $this->SearchPosition('29');
+    return (is_object($search[0]) ? $search[0] : false);
+}
+
+function Adjunct(){
+	global $roster;
+     $search = $this->SearchPosition('9');
+    return (is_object($search[0]) ? $search[0] : false);
+}
+
 function arena_header() {
     echo '<table border=0 width="100%"><tr valign="top"><td width="90%">';
 }

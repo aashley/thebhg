@@ -86,16 +86,6 @@
 		
 		return $return;
 	}
-	
-	function Overseer(){
-        $search = $this->SearchPosition('29');
-        return (is_object($search[0]) ? $search[0] : false);
-    }
-
-    function Adjunct(){
-         $search = $this->SearchPosition('9');
-        return (is_object($search[0]) ? $search[0] : false);
-    }
 			
  }
 

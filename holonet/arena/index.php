@@ -6,8 +6,8 @@ function title() {
 function output() {
     global $arena;
 
-    $ov = $arena->Overseer();
-    $aj = $arena->Adjunct();
+    $ov = Overseer();
+    $aj = Adjunct();
     
     $overseer = ($ov ? 'Overseer <a href="'.internal_link('atn_general', array('id'=>$ov->GetID())).'">'.$ov->GetName().'</a>' : '');
     $adjunct = ($aj ? 'Adjunct <a href="'.internal_link('atn_general', array('id'=>$aj->GetID())).'">'.$aj->GetName().'</a>' : '');
