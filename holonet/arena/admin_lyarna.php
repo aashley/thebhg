@@ -62,8 +62,11 @@ function output() {
         $kabals_result = $roster->GetDivisions();
 	    
 			$kabals = array();
-			print_r($roster->GetPositions());
-			$positions = implode('', $roster->GetPositions());
+			$names = array();
+			foreach ($roster->GetPositions() as $name){
+				$names[] = $name->GetName();
+			}
+			$positions = implode('', $names);
 	    
 			foreach ($kabals_result as $kabal) {
 	      
