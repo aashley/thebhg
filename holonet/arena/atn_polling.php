@@ -40,16 +40,18 @@ function output() {
     arena_header();
 
     if ($_REQUEST['submit']){
-	    if (is_array($_REQUEST['votes'])){
-		    foreach ($_REQUEST['votes'] as $vote){
-			    $vote = new Option($vote);
-			    echo $vote->Vote($hunter->GetID()).'<br />';
-		    }
-	    } else {
-		    $vote = new Option($_REQUEST['votes']);
-			echo $vote->Vote($hunter->GetID());
+	    if ($poll->CanSubmit($hunter)){
+		    if (is_array($_REQUEST['votes'])){
+			    foreach ($_REQUEST['votes'] as $vote){
+				    $vote = new Option($vote);
+				    echo $vote->Vote($hunter->GetID()).'<br />';
+			    }
+		    } else {
+			    $vote = new Option($_REQUEST['votes']);
+				echo $vote->Vote($hunter->GetID());
+			}
+			hr();
 		}
-		hr();
 	}
     
     if (is_object($poll)){
