@@ -1,7 +1,7 @@
 <?php
 $subarray = array(
-	'Search by Kabal'=>'kac/stats/info.php?flag=kabals',
-	'Search by Hunter'=>'kac/stats/info.php?flag=hunters',
+	'Search by Kabal'=>'kac/stats/info.php?flag=kabal',
+	'Search by Hunter'=>'kac/stats/info.php?flag=hunter',
 	'Back to KAC Home'=>'kac/index.php'
 );
 
