@@ -32,7 +32,7 @@ function output(){
 				}
 			}
 			$kabals = $ka->GetKabals($season->GetID(), '', $kabal->GetID());
-			$table->AddRow('<a href="/kac/stats.php?flag=kac&season='.$season->GetSeasonID().'">KAC '.roman($season->GetSeasonID()).'</a>', 
+			$table->AddRow('<a href="/kac/stats.php?flag=kac&season='.$season->GetSeasonID().'">KAC '.roman($season->GetID()).'</a>', 
 				number_format($kabals[$kabal->GetID()]), $submissions);
 		}
 		

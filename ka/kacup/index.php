@@ -16,9 +16,16 @@ foreach ($ka->GetSeasons() as $kac){
 	$kabals = $kac->GetKabalTotals();
 	$leader = key($kabals);
 	$kabal = new Division($leader);
-	$table->AddRow('<a href="/kac/stats.php?flag=kac&season='.$kac->GetSeasonID().'">Season '.roman($kac->GetSeasonID())
-			.'</a> (<a href="/kac/stats.php?flag=ladder&season='.$kac->GetSeasonID().'">Ladder</a>)', '<a href="/kac/stats.php?flag=kabal&kabal='
-			.$kabal->GetID().'&season='.$kac->GetSeasonID().'">'.$kabal->GetName().'</a>', $kac->Dates('HUMAN', 'start'), 
+	
+	if ($kabal->GetName()){
+		$kab_stuff = '<a href="/kac/stats.php?flag=kabal&kabal='
+			.$kabal->GetID().'&season='.$kac->GetSeasonID().'">'.$kabal->GetName().'</a>';
+	} else {
+		$kab_stuff = 'No Data';
+	}
+	
+	$table->AddRow('<a href="/kac/stats.php?flag=kac&season='.$kac->GetSeasonID().'">Season '.roman($kac->GetID())
+			.'</a> (<a href="/kac/stats.php?flag=ladder&season='.$kac->GetSeasonID().'">Ladder</a>)', $kab_stuff, $kac->Dates('HUMAN', 'start'), 
 			$kac->Dates('HUMAN', 'start'));
 }
 

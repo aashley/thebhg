@@ -18,7 +18,7 @@ function output(){
 		$table->AddHeader('Credits');
 		$table->EndRow();
 		
-		add_menu(array('KAC '.roman($season->GetSeasonID())=>'kac/stats.php?flag=kac&season='.$season->GetSeasonID()));
+		add_menu(array('KAC '.roman($season->GetID())=>'kac/stats.php?flag=kac&season='.$season->GetSeasonID()));
 		
 		foreach ($event->GetSubmissions('`points` DESC') as $sub){
 			$hunter = $sub->GetHunter();

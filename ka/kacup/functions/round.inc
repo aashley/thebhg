@@ -17,7 +17,7 @@ function output(){
 		$table->AddHeader('End');
 		$table->EndRow();
 		
-		add_menu(array('KAC '.roman($season->GetSeasonID())=>'kac/stats.php?flag=kac&season='.$season->GetSeasonID()));
+		add_menu(array('KAC '.roman($season->GetID())=>'kac/stats.php?flag=kac&season='.$season->GetSeasonID()));
 		
 		foreach ($round->NormalEvents() as $event){
 			$type = $event->GetTypes();

@@ -127,7 +127,7 @@ function output(){
 				$kabal = new Division($kabal);
 				
 				$table->AddRow('<a href="/kac/stats.php?flag=hunter&hunter='.$person->GetID().'&season='.$season->GetSeasonID().'">'.
-					roman($season->GetSeasonID()).'</a>', '<a href="/kac/stats.php?flag=kabal&kabal='.$kabal->GetID().'&season='.$season->GetSeasonID()
+					roman($season->GetID()).'</a>', '<a href="/kac/stats.php?flag=kabal&kabal='.$kabal->GetID().'&season='.$season->GetSeasonID()
 					.'">'.$kabal->GetName().'</a>', number_format($stat['points']), number_format($marked), number_format($stat['points']/$marked));
 			}
 			

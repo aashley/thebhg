@@ -74,7 +74,7 @@ function output(){
 			
 			$kabal = new Division($stat['kabals'][0]);
 			
-			add_menu(array('KAC '.roman($kac->GetSeasonID())=>'kac/stats.php?flag=kac&season='.$kac->GetSeasonID(), 
+			add_menu(array('KAC '.roman($kac->GetID())=>'kac/stats.php?flag=kac&season='.$kac->GetSeasonID(), 
 					$stat['person']->GetName().'\'s Long Term Stats'=>'kac/stats/info.php?flag=hunter&hunter='.$stat['person']->GetID(), 
 					$kabal->GetName().' Kabal'=>'kac/stats.php?flag=kabal&season='.$kac->GetSeasonID().'&kabal='.$kabal->GetID()));
 			
@@ -116,7 +116,7 @@ function output(){
 				$kabals[$hunter] = $stats['kabals'][$key];
 			}
 			
-			add_menu(array('KAC '.roman($kac->GetSeasonID())=>'kac/stats.php?flag=kac&season='.$kac->GetSeasonID()));
+			add_menu(array('KAC '.roman($kac->GetID())=>'kac/stats.php?flag=kac&season='.$kac->GetSeasonID()));
 			
 			$table = new Table();
 			

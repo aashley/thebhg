@@ -21,7 +21,7 @@ function output(){
 	
 		$kabal = new Division($_REQUEST['kabal']);
 		
-		add_menu(array('KAC '.roman($kac->GetSeasonID())=>'kac/stats.php?flag=kac&season='.$kac->GetSeasonID(), $kabal->GetName().'\'s Long Term Stats'=>'kac/stats/info.php?flag=kabal&kabal='.$kabal->GetID()));
+		add_menu(array('KAC '.roman($kac->GetID())=>'kac/stats.php?flag=kac&season='.$kac->GetSeasonID(), $kabal->GetName().'\'s Long Term Stats'=>'kac/stats/info.php?flag=kabal&kabal='.$kabal->GetID()));
 		
 		$table = new Table();
 			
