@@ -142,7 +142,7 @@ function output() {
 	    
     } else {
 	    
-	    $queue = $ttg->Ready();
+	    $queue = $ttg->Start();
 	    
 	    if (count($queue)){
 		    
@@ -167,7 +167,7 @@ function output() {
 	    
 	    } else {
 	        
-	        echo "No prepared challenges in the queue.";
+	        echo "No prepared challenges in the queue to start.";
 	        
 	    }
 	    
