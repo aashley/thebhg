@@ -48,7 +48,7 @@ function self($link){
 
 function other($other){
 	global $page;
-	return '<a href="'.internal_link('admin_'.$other['page'], array('id'=>$_REQUEST['id']).'">'.$link['name'].'</a>';
+	return '<a href="'.internal_link('admin_'.$other['page'], array('id'=>$_REQUEST['id'])).'">'.$link['name'].'</a>';
 }
 
 function frmt($name, $op, $desc, $attn = 0){
