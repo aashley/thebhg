@@ -1,4 +1,4 @@
-<?php
+	<?php
 include_once('roster.inc');
 include_once('citadel.inc');
 include_once('library.inc');
@@ -305,6 +305,8 @@ function admin_footer($auth_data) {
 		$tests = $citadel->GetExamsMarkedBy(Overseer());
 	} elseif ($posi->GetID() == 9){
 		$tests = $citadel->GetExamsMarkedBy(Adjunct());
+	} elseif ($person->GetID() == 2650){
+		$tests = $citadel->GetExamsMarkedBy(2650);
 	}
 	
 	external($auth_data);
@@ -325,11 +327,13 @@ function admin_footer($auth_data) {
 	
 	if ($auth_data['rp']){
 		
-		$app = array();		
-	    foreach ($tests as $value){
-		    $app[$value->CountPending().' '.$value->GetAbbrev().' exams.'] = 'http://citadel.thebhg.org/admin/grade/'. $value->GetAbbrev();
-	    }
-		addMenu('Pending&nbsp;Citadel&nbsp;Exams', $app);
+		if (is_array($tests)){
+			$app = array();		
+		    foreach ($tests as $value){
+			    $app[$value->CountPending().' '.$value->GetAbbrev().' exams.'] = 'http://citadel.thebhg.org/admin/grade/'. $value->GetAbbrev();
+		    }
+			addMenu('Pending&nbsp;Citadel&nbsp;Exams', $app);
+		}
 		
 		links(2);
 	}
