@@ -33,7 +33,6 @@ function output() {
 		    } else {
 			    echo 'Error';
 		    }
-		    
 	    } else {
 	    
 		    $form = new Form($page);
