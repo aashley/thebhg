@@ -1034,43 +1034,6 @@ function admin_zapcoder() {
 	}
 }
 
-function admin_stripslashes() {
-	global $db;
-
-	$bugs = $db->getAll('SELECT * FROM bugs');
-	foreach ($bugs as $bug) {
-		$result = $db->query('UPDATE bugs SET subject = ?, description = ? WHERE id = ?', array(stripslashes($bug['subject']), stripslashes($bug['description']), $bug['id']));
-		if ($result == DB_OK) {
-			echo 'Bug #'.$bug['id'].' updated successfully.<br />';
-		}
-		else {
-			echo 'Error updating bug #'.$bug['id'].'.<br />';
-		}
-	}
-
-	$modules = $db->getAll('SELECT * FROM modules');
-	foreach ($modules as $module) {
-		$result = $db->query('UPDATE modules SET name = ? WHERE id = ?', array(stripslashes($module['name']), $module['id']));
-		if ($result == DB_OK) {
-			echo 'Module #'.$module['id'].' updated successfully.<br />';
-		}
-		else {
-			echo 'Error updating module #'.$module['id'].'.<br />';
-		}
-	}
-
-	$notes = $db->getAll('SELECT * FROM notes');
-	foreach ($notes as $note) {
-		$result = $db->query('UPDATE notes SET note = ? WHERE id = ?', array(stripslashes($note['note']), $note['id']));
-		if ($result == DB_OK) {
-			echo 'Note #'.$note['id'].' updated successfully.<br />';
-		}
-		else {
-			echo 'Error updating note #'.$note['id'].'.<br />';
-		}
-	}
-}
-
 $pages = explode("/", $_REQUEST['page'], 2);
 switch ($pages[0]) {
 	case "admin":
@@ -1118,9 +1081,6 @@ switch ($pages[0]) {
 					break;
 				case "zapbug":
 					if (is_admin()) admin_zapbug();
-					break;
-				case "stripslashes":
-					if (is_admin()) admin_stripslashes();
 					break;
 				case "index": default:
 					admin_index();
