@@ -87,7 +87,7 @@
     function CanSignup($bhg_id){
         $sql = "SELECT * FROM `ams_tourney_data` WHERE `bhg_id` = '$bhg_id' AND `season` = '".$this->season."'";
         $query = mysql_query($sql, $this->holonet);
-        if (!mysql_num_rows($query) > 0){
+        if (mysql_num_rows($query) == 0){
             return true;
         }
         return false;
