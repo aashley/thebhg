@@ -28,6 +28,7 @@ function output() {
 	$table->AddRow('<a href="' . internal_link('montgomery_burns') . '">Highest Account Balances</a>', 'Displays all Active Hunters sorted by their current account balance.');
 	$table->AddRow('<a href="' . internal_link('medal_awards') . '">Medal Awards</a>', 'Displays a list and graph of the number of merit awards made each month.');
 	$table->AddRow('<a href="' . internal_link('stats') . '">Overall Statistics</a>', 'Displays some overall statistics on divisions and ranks.');
+	$table->AddRow('<a href="' . internal_link('position_changes') . '">Positional Changes</a>', 'Displays non-trivial positional changes that occurred during the selected month.');
 	$table->AddRow('<a href="' . internal_link('random') . '">Random Hunter</a>', 'Displays a random hunter\'s dossier.');
 	$table->AddRow('<a href="' . internal_link('recent_credits') . '">Recent Credit Awards</a>', 'Displays the number of credits hunters have received over the last few days.');
 	$table->AddRow('<a href="' . internal_link('rc_kabal') . '">Recent Credit Awards By Division</a>', 'Displays the number of credits hunters in each division have received over the last few days.');
