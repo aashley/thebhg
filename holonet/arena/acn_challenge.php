@@ -192,8 +192,6 @@ function output() {
 			    
 			    $form->AddHidden('data[values][]', time());
 			    $form->AddHidden('data[fields][]', 'started');
-			    $form->AddHidden('data[values][]', time());
-			    $form->AddHidden('data[fields][]', 'completed');
 			    $form->AddHidden('data[values][]', 1);
 			    $form->AddHidden('data[fields][]', 'accepted');
 		    }
