@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Survival Missions :: Approve Contract';
+    return 'Administration :: Survival Missions :: Approve Mission';
 }
 
 function auth($person) {
@@ -43,7 +43,7 @@ function output() {
 		if ($errors){
 			NEC(156);
 		} else {
-			echo 'Contracts processed.';
+			echo 'Missions processed.';
 		}
     }
     else {
@@ -68,7 +68,7 @@ function output() {
 	        $form->table->EndRow();
 	        $form->EndForm();
         } else {
-	        echo 'No Pending Contracts';
+	        echo 'No Pending Missions';
         }
     }
 

@@ -116,7 +116,7 @@
     }
 
     function GetNPC() {
-        return new NPC($this->contract_id);
+        return new Creature($this->contract_creature);
     }
 
     function GetComplete() {
@@ -187,13 +187,20 @@
         $sql = "UPDATE `arena_survival_contracts` SET `mb_id` = '$mb_id' WHERE `id` = '".$this->contract_id."'";
 
         if (mysql_query($sql, $this->connect)) {
-
             return true;
-
         } else {
-
             return false;
+        }
 
+    }
+    
+    function SetCreature($creature) {
+        $sql = "UPDATE `arena_survival_npc` SET `creature` = '$creature' WHERE `id` = '".$this->contract_id."'";
+
+        if (mysql_query($sql, $this->connect)) {
+            return true;
+        } else {
+            return false;
         }
 
     }
@@ -201,29 +208,21 @@
     function DeDCO() {
         $sql = "UPDATE `arena_survival_contracts` SET `requested` = '0' WHERE `id` = '".$this->contract_id."'";
 
-        if (mysql_query($sql, $this->connect)) {
-	        
+        if (mysql_query($sql, $this->connect)) {	        
             return true;
-
         } else {
-
             return false;
-
         }
 
     }
     
-    function SetSurvivalHunter($bhg_id, $requested = 0) {
+    function SetHunter($bhg_id, $requested = 0) {
         $sql = "UPDATE `arena_survival_contracts` SET `bhg_id` = '$bhg_id', `requested` = '$requested' WHERE `id` = '".$this->contract_id."'";
 
         if (mysql_query($sql, $this->connect)) {
-
             return true;
-
         } else {
-
             return false;
-
         }
 
     }

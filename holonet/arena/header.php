@@ -474,6 +474,7 @@ function admin_footer($auth_data) {
     
     if ($auth_data['survival']){
 	    echo '<br />Survival&nbsp;Missions<br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_survival_creature') . '">Creature&nbsp;Maker</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_complete') . '">Complete&nbsp;a&nbsp;Mission</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Missions</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_dco') . '">Declare&nbsp;Dead&nbsp;Mission</a><br />';

@@ -38,6 +38,7 @@ include_once 'npc_utilities.inc';
 
 include_once 'survival.inc';
 include_once 'survival_contract.inc';
+include_once 'survival_creature.inc';
 include_once 'survival_control.inc';
 include_once 'survival_grade.inc';
 include_once 'survival_hunter.inc';
