@@ -3,14 +3,14 @@
 function display(){
 	global $activity, $arena, $type, $roster, $page;
 	
+	if ($type->Get(submit)){
+	    $_REQUEST['fading'] = true;
+    }
+	
 	if ($_REQUEST['submit']){
 		$_REQUEST['data']['values'][] = addslashes(serialize($_REQUEST['serialize']));
 	    
 	    $id = $arena->NewRow($_REQUEST['data']);
-	    print_r($type);
-	    if ($type->Get(submit)){
-		    $_REQUEST['fading'] = true;
-	    }
 	    
 	    if ($id){		    
 		    $aux = false;
