@@ -17,7 +17,7 @@ function output() {
     arena_header();
     
     if (isset($_REQUEST['submit'])) {
-		if ($arena->RemoveApproved($_REQUEST['hunter'])){
+		if ($arena->RemoveApproved($_REQUEST['challengee'])){
 			echo 'Hunter declared as Dojo Learner.';
 		} else {
 			echo 'Error.';
