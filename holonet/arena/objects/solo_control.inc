@@ -31,6 +31,36 @@
         }
 
     }
+    
+    function NewContract($bhg_id, $type){
+        $sql = "INSERT INTO `arena_solo_request` (`type`, `bhg_id`) VALUES ('$type', '$bhg_id')";
+
+        if (mysql_query($sql, $this->connect)) {
+
+           return true;
+
+        } else {
+
+           return false;
+
+        }
+
+    }
+    
+    function Deny($bhg_id, $type){
+        $sql = "DELETE FROM `arena_solo_request` WHERE `type` = '$type' AND `bhg_id` = '$bhg_id')";
+
+        if (mysql_query($sql, $this->connect)) {
+
+           return true;
+
+        } else {
+
+           return false;
+
+        }
+
+    }
 
     function New_NPC($id, $string){
         $sql = "SELECT * FROM `arena_solo_npc` WHERE `id` = $id";

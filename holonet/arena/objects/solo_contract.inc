@@ -289,7 +289,7 @@
 
 	    $person = new Person($this->contract_bhg_id);
         $character = new Character($person->GetID());
-        $character->XPEvent(-5, 'DCOing Contract '.$contract->GetContractID());
+        $character->XPEvent(-5, 'DCOing Contract '.$this->contract_id);
 	    
         if (mysql_query($sql, $this->connect)) {
 

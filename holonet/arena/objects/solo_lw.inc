@@ -146,9 +146,28 @@
         $sql = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` = '$bhg_id' AND `completed` = 0";
         $query = mysql_query($sql, $this->connect);
 
-        return (mysql_num_rows($query));
+        if (mysql_num_rows($query)){        
+        	return (mysql_num_rows($query));
+    	} else {
+	    	$sql = "SELECT * FROM `arena_lw_request` WHERE `bhg_id` = '$bhg_id'";
+	        $query = mysql_query($sql, $this->connect);
+	
+        	return (mysql_num_rows($query));
+    	}
     }
 
+    function NeedApproval(){
+	    $sql = "SELECT * FROM `arena_lw_request`";
+	    $query = mysql_query($sql, $this->connect);
+	    $return - array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $return[] = $info['bhg_id'];
+	    }
+	    
+	    return $return;
+    }
+    
     function Build() {
 
         $sql = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` > 0 ORDER BY `bhg_id` ASC";

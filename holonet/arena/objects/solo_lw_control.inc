@@ -32,6 +32,36 @@
         }
 
     }
+    
+    function Deny($bhg_id){
+        $sql = "DELETE FROM `arena_lw_request` WHERE `bhg_id` = '$bhg_id')";
+
+        if (mysql_query($sql, $this->connect)) {
+
+           return true;
+
+        } else {
+
+           return false;
+
+        }
+
+    }
+    
+    function NewContract($bhg_id){	    
+        $sql = "INSERT INTO `arena_lw_request` VALUES ('$bhg_id')";
+
+        if (mysql_query($sql, $this->connect)) {
+
+           return true;
+
+        } else {
+
+           return false;
+
+        }
+
+    }
 
     function New_NPC($id, $string1, $string2){
         $sql = "SELECT * FROM `arena_lw_npc` WHERE `id` = $id";

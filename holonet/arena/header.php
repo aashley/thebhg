@@ -416,6 +416,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_solo_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Contracts</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_dco') . '">Declare&nbsp;Dead&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_editor') . '">Edit&nbsp;Contracts</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_solo_approve') . '">Process&nbsp;Requested&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_retire') . '">Process&nbsp;Retired&nbsp;Contract</a><br />';
@@ -428,6 +429,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_lw_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Contracts</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_dco') . '">Declare&nbsp;Dead&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_editor') . '">Edit&nbsp;Contracts</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_lw_approve') . '">Process&nbsp;Requested&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_retire') . '">Process&nbsp;Retired&nbsp;Contract</a><br />';
