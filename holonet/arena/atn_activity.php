@@ -101,9 +101,12 @@ function output() {
 	    $table->AddHeader('Ladder', 2);
 	    $table->EndRow();
 	    
-	    $table->EndTable();
+	    foreach ($arena->Ladder($activity->Get(id)) as $id=>$place){
+		    $person = new Person($id);
+		    $table->AddRow($place, '<a href="'.internal_link('atn_general', array('id'=>$id)).'">'.$person->GetName()).'</a>';
+	    }
 	    
-	    $arena->Ladder($activity->Get(id));
+	    $table->EndTable();
 	    
     }
 

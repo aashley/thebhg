@@ -42,14 +42,28 @@
 	    while ($info = mysql_fetch_assoc($query)){
 		    $outcome = new Obj('ams_specifics', $info['outcome'], 'holonet');
 		    $return[$info['bhg_id']]['points'] += $outcome->Get(points);
-		    $return[$info['bhg_id']]['points'] += $info['xp']/5;
-		    $return[$info['bhg_id']]['points'] += $info['creds']/10;
-		    $return[$info['bhg_id']]['medals'] += ($info['medal'] ? 1 : 0);
+		    $return[$info['bhg_id']]['points'] += round($info['xp']/5, 2);
+		    $return[$info['bhg_id']]['points'] += round($info['creds']/10, 2);
+		    $return[$info['bhg_id']]['points'] += ($info['medal'] ? 3 : 0);
 	    }
 	    
-	    print_r($return);
-    }
+	    foreach ($return as $id=>$points){
+		    $work[$points][] = $id;
+	    }
 	    
+	    krsort($work);
+	    $i = 0;
+	    $return = array();
+	    
+	    foreach ($return as $points=>$stack){
+		    foreach ($stack as $id){
+			    $return[$id] = $i;
+		    }
+		    $i++;
+	    }
+	    
+	    return ($bhg_id ? $return[$bhg_id] : $return);
+    }	    
     
     function GetPayData($start, $end){
 	    $table = "`arena_$table`";
