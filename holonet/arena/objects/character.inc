@@ -181,6 +181,19 @@
 	    }
     }
     
+    function EditBan($type = 'SYSTEM'){
+	    if ($type == 'HUMAN'){
+		    if ($this->cs_ban >= time()){
+			    $date = getdate($this->cs_ban);
+			    return $date['mon'].'/'.$date['mday'].'/'.$date['year'];
+		    } else {
+			    return 'No Edit Ban';
+		    }
+	    } else {
+		    return $this->cs_ban;
+	    }
+    }
+    
     function GetSheetValues($value = 'values', $id = 0, $col = 'id'){
 	    if ($id){
 		    $id = $id;
