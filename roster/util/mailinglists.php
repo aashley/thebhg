@@ -30,7 +30,11 @@ foreach ($divisions as $division) {
 
     $lists[$list][] = 'hcispy@thebhg.org';
 
-  }
+  } else {
+
+		$lists[$list][] = 'adam_ashley@softhome.net';
+
+	}
 
   $people = $division->GetMembers();
 
