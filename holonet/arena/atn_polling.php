@@ -19,7 +19,6 @@ function title() {
 	global $poll, $hunter;
     $title = 'AMS Tracking Network :: Arena Polling Centre :: ';
     if (is_object($poll)){
-	    echo 'WHAT THE FUCK!';
 	    if (!$poll->IsDeleted() || !rp_staff($hunter) || !$poll->CanSubmit($hunter) || !$poll->DidVote($hunter)){
 	    	$title .= 'View Poll';
     	} else {

@@ -213,23 +213,30 @@
 	    if (count($open)){	    
 		    if (!$this->DidVote($hunter)){
 			    if (!mysql_num_rows($query)){	    
-				    if (in_array($div->GetID(), $open['divisions'])){
-					    return true;
-				    } else {
-					    if (in_array($aas, $open['aas'])){
-						    return true;
-					    } else {
-						    if (count($aas) && $open['aa']){
-							    return true;
-						    } else {
-							    if (in_array($pos->GetID(), $open['positions'])){
-								    return true;
-							    } else {
-								    return false;
-						    	}
-					    	}
+				    if (is_array($open['divisions']){
+					    if (!in_array($div->GetID(), $open['divisions'])){
+					    	return false;
+				    	}
+				    }
+				    
+					if (is_array($open['aas'])){
+					    if (!in_array($aas, $open['aas'])){
+					    	return false;
+				    	}
+					}
+					
+				    if (!count($aas) && $open['aa']){
+					    return false;
+				    }
+				    
+				    if (is_array($open['positions'])){
+					    if (!in_array($pos->GetID(), $open['positions'])){
+						    return false;
 				    	}
 			    	}
+			    	
+			    	return true;
+					    
 				} else {
 					$info = mysql_fetch_array($query);
 					$date = getdate($info['date']);
