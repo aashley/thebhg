@@ -155,8 +155,7 @@ class Citadel extends BHGObject {
 
     if (is_object($person)) {
 
-      if (   get_class($person) == 'person'
-          || is_subclass_of($person, 'person')) {
+      if ($person instanceof Person) {
 
         $personid = $person->GetID();
 
@@ -330,8 +329,7 @@ class Citadel extends BHGObject {
     
     if (is_object($person)) {
 
-      if (   get_class($person) == 'person'
-          || is_subclass_of($person, 'person')) {
+      if ($person instanceof Person) {
 
         $personid = $person->GetID();
 
