@@ -19,6 +19,7 @@ function output() {
     arena_header();
 
     $sheet = new Sheet();
+    $starfield = new Starfield();
 	
     echo 'Welcome, ' . $hunter->GetName() . '.<br><br>';
 
