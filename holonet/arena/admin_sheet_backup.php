@@ -263,11 +263,13 @@ function output() {
 		    
 		    $character->ParseSheet($_REQUEST['sheet']);
 	    } else {    
-		    if ($character->HasValue('values')){
-			    $values['My Approved Sheet'] = 'values';
-		    }
-		    if ($character->HasValue('pending')){
-			    $values['My Editing Sheet'] = 'pending';
+		    if (!$character->IsNew()){
+			    if ($character->HasValue('values')){
+				    $values['My Approved Sheet'] = 'values';
+			    }
+			    if ($character->HasValue('pending')){
+				    $values['My Editing Sheet'] = 'pending';
+			    }
 		    }
 		    
 		    if (count($values)){
