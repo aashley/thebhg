@@ -142,7 +142,7 @@ function output() {
 			$setups = array();
 			
 			foreach ($rewards as $info=>$reward){				
-				$setups[] = '<a href="'.internal_link($reward['page'], array('id'=>$hunter->GetID()).'#'.$reward['anch'].'" title="'.$info.
+				$setups[] = '<a href="'.internal_link($reward['page'], array('id'=>$hunter->GetID())).'#'.$reward['anch'].'" title="'.$info.
 							'"><img border=0 src="arena/images/distinctions/'.$reward['pic'].'.png"></a>';				
 			}
 			
