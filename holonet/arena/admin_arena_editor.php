@@ -26,6 +26,21 @@ function output() {
     }
 
     if (isset($_REQUEST['next'])) {
+	    
+	    for ($i = 1; $i <= $_REQUEST['persons']; $i++){
+		    if ($_REQUEST['change'][$i]){
+		    	$person = $_REQUEST['person'.$i];
+		    	$old = $_REQUEST['old'][$i];
+		    	$match->RemoveContender($old);
+		    	if ($person){
+		    		$match->AddContender($person);
+	    		}
+	    	}
+    	}
+		    
+	    
+    } 
+    elseif (isset($_REQUEST['next'])) {
         
         $type = $match->GetType();
         $weapon_type = $match->GetWeaponType();
@@ -202,12 +217,15 @@ function output() {
         $form->table->AddHeader('Replace With', 2);
         $form->table->EndRow();
 
+        $form->AddHidden('match_id', $_REQUEST['match_id']);
+        
         $i = 1;
         
         foreach ($match->GetContenders() as $contender){
 	        $form->table->StartRow();
 	        $form->table->AddCell('<input type="checkbox" name="change['.$i.']" value=1>');
 	        $form->table->AddCell($contender->GetName());
+	        $form->AddHidden('old['.$id.']', $contender->GetID());
 	     	$form->table->AddCell("<select name=\"kabal$i\" "
 	        ."onChange=\"swap_kabal(this.form, $i)\">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
@@ -240,7 +258,7 @@ function output() {
         $form->AddHidden('persons', $i);
 
         $form->table->StartRow();
-        $form->table->AddCell('<input type="submit" value="Edit Hunter" name="hunters">', 4);
+        $form->table->AddCell('<input type="submit" value="Edit Hunters" name="hunters">', 4);
         $form->EndForm();
     }
     elseif (isset($_REQUEST['submit'])) {
