@@ -14,6 +14,8 @@ function auth($person) {
 function output() {
     global $arena, $auth_data, $hunter, $page;
 
+    arena_header();
+    
     $kabalch = $hunter->GetDivision();
     
     if (isset($_REQUEST['submit'])){
@@ -47,40 +49,45 @@ function output() {
 	    
     }
 
-	$form = new Form($page);
-	
-	$form->table->StartRow();
-	$form->table->AddHeader('Awarded By');
-	$form->table->AddHeader('Kabal');
-	$form->table->AddHeader('Hunter');	
-	$form->table->AddHeader('XP');
-	$form->table->AddHeader('Reason');
-	$form->table->AddHeader('Deny');
-	$form->table->EndRow();
-  	$i = 0;
-	foreach ($arena->GetPendingXP() as $kabal=>$infa) {
-		foreach ($infa as $info){
-    		$i++;
-	    	$form->table->StartRow();
-	      
-			$form->table->AddCell($info['by']->GetName());
-			$form->table->AddCell($kabal);
-			$form->table->AddCell($info['bhg_id']->GetName());    
-			$form->AddHidden('person'.$i, $info['bhg_id']->GetID());
-			$form->table->AddCell("<input type='text' name='xp".$i."' value='".$info['xp']."'>");
-			$form->table->AddCell($info['reason']);
-			$form->AddHidden('reason'.$i, $info['reason']);
-			$form->table->AddCell('<input type="checkbox" name="deny'.$i.'" value=1>');
-	    
-			$form->table->EndRow();
+    if (count($arena->GetPendingXP())){
+    
+		$form = new Form($page);
+		
+		$form->table->StartRow();
+		$form->table->AddHeader('Awarded By');
+		$form->table->AddHeader('Kabal');
+		$form->table->AddHeader('Hunter');	
+		$form->table->AddHeader('XP');
+		$form->table->AddHeader('Reason');
+		$form->table->AddHeader('Deny');
+		$form->table->EndRow();
+	  	$i = 0;
+		foreach ($arena->GetPendingXP() as $kabal=>$infa) {
+			foreach ($infa as $info){
+	    		$i++;
+		    	$form->table->StartRow();
+		      
+				$form->table->AddCell($info['by']->GetName());
+				$form->table->AddCell($kabal);
+				$form->table->AddCell($info['bhg_id']->GetName());    
+				$form->AddHidden('person'.$i, $info['bhg_id']->GetID());
+				$form->table->AddCell("<input type='text' name='xp".$i."' value='".$info['xp']."'>");
+				$form->table->AddCell($info['reason']);
+				$form->AddHidden('reason'.$i, $info['reason']);
+				$form->table->AddCell('<input type="checkbox" name="deny'.$i.'" value=1>');
+		    
+				$form->table->EndRow();
+			}
 		}
-	}
-	$form->AddHidden('total', $i);
-	
-    $form->table->StartRow();
-	$form->table->AddCell('<input type="submit" name="submit" value="Approve Experience Points" size="50">', 3);
-	$form->table->EndRow();
-    $form->EndForm();
+		$form->AddHidden('total', $i);
+		
+	    $form->table->StartRow();
+		$form->table->AddCell('<input type="submit" name="submit" value="Approve Experience Points" size="50">', 3);
+		$form->table->EndRow();
+	    $form->EndForm();
+    } else {
+	    echo 'No CH XP to award.';
+    }
     
     admin_footer($auth_data);
 }

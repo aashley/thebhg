@@ -14,6 +14,8 @@ function auth($person) {
 function output() {
     global $arena, $auth_data, $hunter, $page, $roster, $sheet;
 
+    arena_header();
+    
     $kabalch = $hunter->GetDivision();
     
     if (isset($_REQUEST['submit'])){
