@@ -14,7 +14,7 @@ function title() {
     } else {
 	    $title .= 'View Polls';
     }
-    return $titlel
+    return $title;
 }
 
 function auth($person) {
