@@ -36,6 +36,11 @@ function output() {
 	    hr();		     
     }
     
+    if ($_REQUEST['goload']){
+	    echo $character->LoadBackup($_REQUEST['sheet']);
+	    hr();
+    }
+    
     if ($_REQUEST['load']){
     
 	    if ($character->ValidLoad($_REQUEST['sheet'])){
@@ -43,7 +48,9 @@ function output() {
 		    $form = new Form($page);
 		    
 		    $form->AddHidden('sheet', $_REQUEST['sheet']);
-		    
+		    $form->table->StartRow();
+		    $form->table->AddHeader('Upload Backup');
+		    $form->table->EndRow();
 		    $form->table->AddRow('<input type="submit" value="Load Backup as Edit Sheet" name="goload">');
 		    
 		    $form->EndForm();
