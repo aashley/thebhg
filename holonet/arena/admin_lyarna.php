@@ -195,11 +195,12 @@ function output() {
         }
         $run = $i-1;
         echo '<input type="hidden" name="runs" value="'.$i.'">';
-        $table->StartRow();
-        $table->AddCell('<input type="submit" name="submit" value="Update Properties">', 7);
-        $table->EndRow();
         $table->EndTable();
     }
+    ?>
+    <input type="submit" name="submit" value="Update Properties">
+    </form>
+    <?php
 
     admin_footer($auth_data);
 }
