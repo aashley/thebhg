@@ -15,6 +15,8 @@ function output() {
     global $arena, $auth_data, $hunter, $page, $sheet, $roster;
 
     arena_header();
+
+    $solo = new Solo();
     
     if (isset($_REQUEST['submit'])) {
 	    $character = new Character($_REQUEST['bhg_id']);
@@ -30,7 +32,7 @@ function output() {
     }
     else {
         $form = new Form($page);
-        $form->AddSectionTitle('Blank Sheet Admin');
+        $form->AddSectionTitle('Declare New Commissioner');
         $kabals_result = $roster->GetDivisions();
 	    
 			$kabals = array();
@@ -49,7 +51,7 @@ function output() {
 
 			$plebsheet = array();
 	    	
-	    	foreach ($kabals_result as $div){
+	    	foreach ($kabal_result as $div){
 		    	foreach ($div->GetMembers() as $person){
 			    	if (!$sheet->HasSheet($person->GetID())){
 				    	$kabal = $person->GetDivision();
@@ -153,8 +155,17 @@ function output() {
 			$form->table->AddCell($cell);
 	
 			$form->table->EndRow();
-        $form->AddSubmitButton('submit', 'Insert Sheet Blank');
+        $form->AddSubmitButton('submit', 'Make New Commissioner');
         $form->EndForm();
+        
+        hr();
+        
+        $form = new Form($page);
+        $form->AddSectionTitle('Downsize Current Commissioner');
+        $form->table->StartRow();
+        $form->table->AddCell('<input type="submit" name="end" value="End Term">');
+        $form->table->EndRow();
+        $form->EndForm(); 
     }
 
     admin_footer($auth_data);
