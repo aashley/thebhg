@@ -112,8 +112,6 @@ function output() {
 	    
 	    $polls = $arena->ReadPolls($hunter);
 	    
-	    print_r($polls);
-	    
 	    if (count($polls)){
 		    $table = new Table('', true);
 		    $table->StartRow();
