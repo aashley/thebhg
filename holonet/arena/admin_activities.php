@@ -48,7 +48,7 @@ function output(){
 				$id = $obj->Get(id);
 				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
 				$type = $type->Get(id);
-				$show = $obj->Get(ladder);
+				$ladder = $obj->Get(ladder);
 			}
 			break;
 		}
@@ -118,7 +118,7 @@ function output(){
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'type');
 		
-		$form->StartSelect('Display Ladder on General Page', 'data[values][]', $show);
+		$form->StartSelect('Display Ladder on General Page', 'data[values][]', $ladder);
 		$form->AddOption(0, 'No');
 		$form->AddOption(1, 'Yes');
 		$form->EndSelect();
