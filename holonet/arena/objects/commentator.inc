@@ -95,7 +95,7 @@
     
     function EndTerm(){
 	    $sql = "UPDATE `arena_commentator` SET `end_date` = '".time()."' WHERE `id` = '".$this->hc_id."'";
-		
+		echo $sql;
 	    if (mysql_query($sql, $this->connect)){
 		    return true;
 	    } else {
