@@ -47,7 +47,7 @@
     }
 
     function BuildSheet(){
-       $table = new Sheet('', true);
+       $table = new Table('', true);
        
        $this->GetStats($table);
        $table->AddRow('Description: ', nl2br(stripslashes($this->npc_string)));
