@@ -8,55 +8,54 @@ function admin_header() {
 }
 
 function admin_footer($user) {
-	echo '</td><td style="border-left: solid 1px black">Administration&nbsp;Menu<small>';
 	
 	if (is_global_admin($user)) {
-		echo '<br><br><b>Issue&nbsp;Administration</b><br>';
-		echo '<br><a href="' . internal_link('issue', array('year'=>date('Y'), 'week'=>date('W'))) . '">View&nbsp;Next&nbsp;Issue</a>';
-		echo '<br><a href="' . internal_link('admin_email_issue') . '">E-mail&nbsp;an&nbsp;Issue</a>';
+		addMenu('Issue Administration',
+				array('View Next Issue' => internal_link('issue', array('year'=>date('Y'), 'week'=>date('W'))),
+					'E-mail an Issue' => internal_link('admin_email_issue'),
+					));
 		
-		echo '<br><br><b>Column&nbsp;Administration</b><br>';
-		echo '<br><a href="' . internal_link('admin_add_column') . '">Add&nbsp;Column</a>';
-		echo '<br><a href="' . internal_link('admin_edit_column') . '">Edit&nbsp;Column</a>';
+		addMenu('Column Administration',
+				array('Add Column' => internal_link('admin_add_column'),
+					'Edit Column' => internal_link('admin_edit_column'),
+					));
 	}
 
-	echo '<br><br><b>Article&nbsp;Administration</b><br>';
-	echo '<br><a href="' . internal_link('admin_add_article') . '">Add&nbsp;Article</a>';
-	echo '<br><a href="' . internal_link('admin_edit_article') . '">Edit&nbsp;Article</a>';
+	$items = array('Add Article' => internal_link('admin_add_article'),
+		'Edit Article' => internal_link('admin_edit_article'));
 	if (is_global_admin($user)) {
-		echo '<br><a href="' . internal_link('admin_delete_article') . '">Delete&nbsp;Article</a>';
+		$items['Delete Article'] = internal_link('admin_delete_article');
 	}
+	addMenu('Article Administration', $items);
 
 	if (is_global_admin($user)) {
-		echo '<br><br><b>FAQ&nbsp;Section&nbsp;Administration</b><br>';
-		echo '<br><a href="' . internal_link('admin_add_faq_section') . '">Add&nbsp;FAQ&nbsp;Section</a>';
-		echo '<br><a href="' . internal_link('admin_edit_faq_section') . '">Edit&nbsp;FAQ&nbsp;Section</a>';
-		echo '<br><a href="' . internal_link('admin_delete_faq_section') . '">Delete&nbsp;FAQ&nbsp;Section</a>';
+		addMenu('FAQ Section Administration',
+				array('Add FAQ Section' => internal_link('admin_add_faq_section'),
+					'Edit FAQ Section' => internal_link('admin_edit_faq_section'),
+					'Delete FAQ Section' => internal_link('admin_delete_faq_section'),
+					));
 
-		echo '<br><br><b>FAQ&nbsp;Administration</b><br>';
-		echo '<br><a href="' . internal_link('admin_add_faq') . '">Add&nbsp;FAQ</a>';
-		echo '<br><a href="' . internal_link('admin_edit_faq') . '">Edit&nbsp;FAQ</a>';
-		echo '<br><a href="' . internal_link('admin_delete_faq') . '">Delete&nbsp;FAQ</a>';
+		addMenu('FAQ Administration',
+				array('Add FAQ' => internal_link('admin_add_faq'),
+					'Edit FAQ' => internal_link('admin_edit_faq'),
+					'Delete FAQ' => internal_link('admin_delete_faq'),
+					));
 	}
 
-	echo '</small></td></tr></table>';
 }
 
 function issue_header() {
-	echo '<table border=0 width="100%"><tr valign="top"><td width="90%">';
 }
 
 function issue_footer($year, $week, $title = '') {
 	global $roster, $db;
 
-	echo '</td><td style="border-left: solid 1px black">';
-	if ($title == '') {
-		echo '<a href="' . internal_link('issue', array('year'=>$year, 'week'=>$week)) . '">' . str_replace(' ', '&nbsp;', 'Issue ' . $year . '-' . $week) . '</a>';
+/*	if ($title == '') {
+		echo '<a href="' . internal_link('issue', array('year'=>$year, 'week'=>$week)) . '">' . 'Issue ' . $year . '-' . $week . '</a>';
 	}
 	else {
-		echo str_replace(' ', '&nbsp;', $title);
-	}
-	echo '<small>';
+		echo $title;
+	}*/
 
 	$dates = get_dates($year, $week);
 
@@ -64,77 +63,83 @@ function issue_footer($year, $week, $title = '') {
 	$com_posids = array(1, 2, 3, 4, 5, 6, 29, 7, 8, 9);
 	$cn_result = mysql_query('SELECT COUNT(*) AS rows FROM hn_reports WHERE position IN (' . implode(', ', $com_posids) . ') AND time ' . $dates['between'], $roster->roster_db);
 	if ($cn_result && mysql_result($cn_result, 0, 'rows')) {
-		echo '<br><br><b>Commission Reports</b><br>';
+		$items = array();
 		foreach ($com_posids as $i) {
 			$pos = $roster->GetPosition($i);
 			$cc_result = mysql_query('SELECT id FROM hn_reports WHERE position=' . $i . ' AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
 			if ($cc_result && mysql_num_rows($cc_result)) {
 				for ($j = 1; $j <= mysql_num_rows($cc_result); $j++) {
 					$row = mysql_fetch_array($cc_result);
-					echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $pos->GetName() . ' Report');
+					$url = internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id']));
+					$text = $pos->GetName() . ' Report';
 					if (mysql_num_rows($cc_result) > 1) {
-						echo '&nbsp;#' . $j;
+						$text .= '&nbsp;#' . $j;
 					}
-					echo '</a>';
+					$items[$text] = $url;
 				}
 			}
 		}
+		addMenu('Commission Reports', $items);
 	}
 
 	// Kabal reports.
 	$kn_result = mysql_query('SELECT COUNT(*) AS rows FROM hn_reports WHERE position=11 AND time ' . $dates['between'], $roster->roster_db);
 	if ($kn_result && mysql_result($kn_result, 0, 'rows')) {
-		echo '<br><br><b>Kabal Reports</b><br>';
 		$kabals = $roster->GetKabals();
+		$items = array();
 		foreach ($kabals as $kabal) {
 			$kr_result = mysql_query('SELECT id FROM hn_reports WHERE position=11 AND division=' . $kabal->GetID() . ' AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
 			if ($kr_result && mysql_num_rows($kr_result)) {
 				for ($j = 1; $j <= mysql_num_rows($kr_result); $j++) {
 					$row = mysql_fetch_array($kr_result);
-					echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $kabal->GetName() . ' Kabal Report');
+					$url = internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id']));
+					$text = $kabal->GetName() . ' Kabal Report';
 					if (mysql_num_rows($kr_result) > 1) {
-						echo '&nbsp;#' . $j;
+						$text .= '&nbsp;#' . $j;
 					}
-					echo '</a>';
+					$items[$text] = $url;
 				}
 			}
 		}
+		addMenu('Kabal Reports', $items);
 	}
 	
 	// Citadel reports.
 	$kr_result = mysql_query('SELECT id FROM hn_reports WHERE position=10 AND time ' . $dates['between'] . ' ORDER BY time ASC', $roster->roster_db);
 	if ($kr_result && mysql_num_rows($kr_result)) {
 		$pos = $roster->GetPosition(10);
-		echo '<br><br><b>Citadel Reports</b><br>';
+		$items = array();
 		for ($j = 1; $j <= mysql_num_rows($kr_result); $j++) {
 			$row = mysql_fetch_array($kr_result);
-			echo '<br><a href="' . internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id'])) . '">' . str_replace(' ', '&nbsp;', $pos->GetName() . ' Report');
+			$url = internal_link('report', array('year'=>$year, 'week'=>$week, 'id'=>$row['id']));
+			$text = $pos->GetName() . ' Report';
 			if (mysql_num_rows($kr_result) > 1) {
-				echo '&nbsp;#' . $j;
+				$text .= '&nbsp;#' . $j;
 			}
-			echo '</a>';
+			$items[$text] = $url;
 		}
+		addMenu('Citadel Reports', $items);
 	}
 
 	// One-off articles.
 	$art_result = mysql_query('SELECT id, title FROM aq_articles WHERE time ' . $dates['between'] . ' AND `column`=0 ORDER BY title ASC', $db);
 	if ($art_result && mysql_num_rows($art_result)) {
-		echo '<br><br><b>Articles</b><br>';
+		$items = array();
 		while ($art_row = mysql_fetch_array($art_result)) {
-			echo '<br><a href="' . internal_link('article', array('year'=>$year, 'week'=>$week, 'id'=>$art_row['id'])) . '">' . str_replace(' ', '&nbsp;', html_escape(stripslashes($art_row['title']))) . '</a>';
+			$items[html_escape(stripslashes($art_row['title']))] = internal_link('article', array('year'=>$year, 'week'=>$week, 'id'=>$art_row['id']));
 		}
+		addMenu('Articles', $items);
 	}
 
 	// Regular columns.
 	$art_result = mysql_query('SELECT aq_articles.id, aq_columns.name AS title FROM aq_articles, aq_columns WHERE aq_articles.time ' . $dates['between'] . ' AND aq_columns.id!=0 AND aq_articles.`column`=aq_columns.id ORDER BY aq_columns.title ASC', $db);
 	if ($art_result && mysql_num_rows($art_result)) {
-		echo '<br><br><b>Columns</b><br>';
 		while ($art_row = mysql_fetch_array($art_result)) {
-			echo '<br><a href="' . internal_link('article', array('year'=>$year, 'week'=>$week, 'id'=>$art_row['id'])) . '">' . str_replace(' ', '&nbsp;', html_escape(stripslashes($art_row['title']))) . '</a>';
+			$items[html_escape(stripslashes($art_row['title']))] = internal_link('article', array('year'=>$year, 'week'=>$week, 'id'=>$art_row['id']));
 		}
+		addMenu('Columns', $items);
 	}
 
-	echo '</small></td></tr></table>';
 }
 
 function get_dates($year, $week) {
