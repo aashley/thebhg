@@ -42,7 +42,7 @@
 		    $query = mysql_query($sql, $this->LyarnaConnect());
 		    
 		    while ($info = mysql_fetch_array($query)){
-			    $return[][mysql_field_table($query, 'id')] = $info['id'];
+			    $return[] = array('arena'=>$info['arena'], 'planet'=>$info['planet'], 'table'=>mysql_field_table($query, 'id'), 'id'=>$info['id'], 'posi'=>($row['position'] ? 1 : 0));
 		    }
 	    }
 	    

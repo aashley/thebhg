@@ -9,7 +9,7 @@ function title() {
     $return = 'AMS Tracking Network';
     
     if (is_object($hunter)){
-	    $return .= ' :: Hunter Information :: ' . $hunter->GetName() . ' :: Experience History';
+	    $return .= ' :: Experience History :: ' . $hunter->GetName();
     }
     
     return $return;
@@ -24,7 +24,7 @@ function output() {
     
 	    $character = new Character($hunter->GetID());
 	    
-	    echo '<a href="' . internal_link('atn_general', array('id'=>$hunter->GetID())) . '">View ATN Profile</a><p>';
+	    echo '<a href="'.internal_link('atn_general', array('id'=>$hunter->GetID())).'">Back to '.$hunter->GetName().'\'s General Tracking</a>';
 	    
 	    $character->WriteXPEvents();
 	    

@@ -20,6 +20,8 @@ function output() {
 
     arena_header();
 
+    echo '<a href="'.internal_link('atn_general', array('id'=>$hunter->GetID())).'">Back to '.$hunter->GetName().'\'s General Tracking</a>';
+    
     if (is_object($hunter)){
     
 	    $arena_ladder = new Stats($hunter->GetID());
