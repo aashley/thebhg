@@ -117,7 +117,7 @@
     }
     
     function HasSheet($bhg_id){
-	    $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '$bhg_id' ORDER BY `approved` ASC, `last_change` DESC";
+	    $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '$bhg_id' ORDER BY `pending` DESC, `approved` ASC, `last_change` DESC";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    return mysql_num_rows($query);
