@@ -735,6 +735,7 @@
     
 	function HasValue($look = 'values'){
 		$table = '`character_sheet_'.$look.'`';
+		echo $table;
 	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$this->GetID()."'";
         $query = mysql_query($sql, $this->connect);
         
