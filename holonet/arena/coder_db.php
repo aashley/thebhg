@@ -23,6 +23,11 @@ function output() {
     $shell = new Shell(5, 'arena_ladder_match');
     
     echo $shell->GetValue('match_id');
+    
+    $solo = $shell->BuildShell(6, 'arena_solo_contracts');
+    
+    echo '<br />'.$shell->GetValue('match_id');
+    echo '<br />'.$solo->GetValue('mb_id');
 
     admin_footer($auth_data);
 }
