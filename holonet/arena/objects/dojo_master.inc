@@ -21,11 +21,17 @@
             }
 
         }
+        
+        $this->SecondBuild();
 
     }
 
+    function GetID(){
+	    return $this->dojo_id;
+    }
+    
     function GetHunter(){
-        return new Person($dojo_bhg_id);
+        return new Person($this->dojo_bhg_id);
     }
 
     function GetStatus(){
@@ -38,6 +44,33 @@
         }else {
 	        return false;
         }
+    }
+    
+    function SecondBuild(){
+	    $sql = "SELECT SUM(arena_ladder_records.xp) as xp, SUM(arena_ladder_records.credits) as credits, FROM arena_ladder_records, arena_ladder_match WHERE arena_ladder_match.accepted = 1 "
+                ."AND arena_ladder_match.id = arena_ladder_records.match_id AND arena_ladder_match.match_id > 0 AND arena_ladder_match.date_deleted = 0 AND arena_ladder_match.is_dojo = '".$this->dojo_id."'";
+
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        $this->creds = $info['credits'];
+        $this->xp = $info['xp'];
+
+    }
+
+    function GetMatches(){
+        $sql = "SELECT * FROM `arena_ladder_match` WHERE `is_dojo` = '".$this->dojo_id."'";
+        $query = mysql_query($sql, $this->connect);
+        
+        return mysql_num_rows($query);
+    }
+
+    function GetXP(){
+        return $this->xp;
+    }
+
+    function GetCreds(){
+        return $this->creds;
     }
     
     function EndTerm(){

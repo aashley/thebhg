@@ -176,7 +176,7 @@ function output() {
 	
 	    for ($i = 1; $i <= 2; $i++){
 		    $form->table->StartRow();
-		    $form->table->AddCell("<select name=\"kabal$i\" "
+		    $form->table->AddCell("Select Hunter: <select name=\"kabal$i\" "
 	        ."onChange=\"swap_kabal(this.form, $i)\">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
 	    

@@ -51,7 +51,7 @@
     }
 
     function GetHunter(){
-        return new SoloHunter($comish_bhg_id);
+        return new SoloHunter($this->comish_bhg_id);
     }
 
     function GetContracts(){

@@ -20,7 +20,6 @@
 
     }
 
-
     function Build() {
         $sql = "SELECT arena_ladder_records.bhg_id, arena_ladder_records.outcome FROM arena_ladder_records, arena_ladder_match WHERE arena_ladder_match.accepted = 1 "
                 ."AND arena_ladder_match.id = arena_ladder_records.match_id AND arena_ladder_match.match_id > 0 AND arena_ladder_match.date_deleted = 0 "

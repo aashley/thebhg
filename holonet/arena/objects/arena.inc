@@ -16,6 +16,8 @@ include_once 'ladder_type.inc';
 include_once 'ladder_weapon_type.inc';
 
 include_once 'dojo_master.inc';
+include_once 'registrar.inc';
+include_once 'mission.inc';
 
 include_once 'irca.inc';
 include_once 'irca_match.inc';

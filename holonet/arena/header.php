@@ -177,6 +177,8 @@ function get_auth_data($hunter) {
     $lw = new LW_Solo();
     $solo = new Solo();
     $ladder = new Ladder();
+    $ro = new RO();
+    $sheet = new Sheet();
 
     $auth_data['id'] = $hunter->GetID();
 
@@ -228,6 +230,16 @@ function get_auth_data($hunter) {
     
     if ($hunter->GetID() == $ladder->CurrentMaster()){
 	    $auth_data['dojo'] = true;
+	    $auth_data['aa'] = true;
+    }
+    
+    if ($hunter->GetID() == $ro->CurrentMM()){
+	    $auth_data['ro'] = true;
+	    $auth_data['aa'] = true;
+    }
+    
+    if ($hunter->GetID() == $sheet->CurrentRegistrar()){
+	    $auth_data['sheet'] = true;
 	    $auth_data['aa'] = true;
     }
     
@@ -342,6 +354,8 @@ function admin_footer($auth_data) {
         echo '<br />RP&nbsp;Aides<br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_commish') . '">Edit&nbsp;Solo&nbsp;Comissioner</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_master') . '">Edit&nbsp;Dojo&nbsp;Master</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_registrar') . '">Edit&nbsp;OCD&nbsp;Registrar</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_mission_master') . '">Edit&nbsp;Mission&nbsp;Master</a><br />';
         //echo '&nbsp;<a href="' . internal_link('admin_salaries') . '">Pay&nbsp;Aides</a><br />';
 
         echo '<br />Reports<br />';

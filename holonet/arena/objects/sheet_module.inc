@@ -8,6 +8,27 @@
 		Arena::Arena();
 	}
     
+	function CurrentRegistrar(){
+        $sql = "SELECT * FROM `arena_registrar` WHERE `end_date` = '0'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        return $info['bhg_id'];
+    }
+    
+    function NewRegistrar($bhg_id){
+	    $current = new Registrar($this->CurrentRegistrar());
+	    $current->EndTerm();
+	    
+	    $sql = "INSERT INTO `arena_registrar` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+	
     function NewField($name, $desc){
 	    $sql = "INSERT INTO `cs_fields` (`name`, `desc`) VALUES ('".addslashes($name)."', '".addslashes($desc)."')";
 	    

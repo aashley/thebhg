@@ -14,6 +14,27 @@
         return $new = new RunOn($info['id']);
     }
 
+    function CurrentMM(){
+        $sql = "SELECT * FROM `arena_mission` WHERE `end_date` = '0'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        return $info['bhg_id'];
+    }
+    
+    function NewMM($bhg_id){
+	    $current = new MissionMaster($this->CurrentMM());
+	    $current->EndTerm();
+	    
+	    $sql = "INSERT INTO `arena_mission` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
+	    
+	    if (mysql_query($sql, $this->connect)){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
     function Recent(){
         $sql = "SELECT * FROM `arena_ro` WHERE `date_deleted` = 0 ORDER BY `id` DESC LIMIT 20";
         $query = mysql_query($sql, $this->connect);
@@ -54,7 +75,7 @@
     }
     
     function NewRunOn($name, $start, $end, $mbid = 0){
-	    $sql = "INSERT INTO `arena_ro` VALUES ('', '".addslashes($name)."', '$mbid', '$start', '$end', 0, 0)";
+	    $sql = "INSERT INTO `arena_ro` VALUES ('', '".addslashes($name)."', '$mbid', '".$this->CurrentMM()."', '$start', '$end', 0, 0)";
 	    
 	    if (mysql_query($sql, $this->connect)){
 		    return true;

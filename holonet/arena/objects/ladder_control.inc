@@ -12,7 +12,7 @@
 	    return $this->new_match_id;
     }
     
-    function OldMatch($type, $location, $location_table, $posts, $weapons, $challenger, $challengee, $weapon_type, $name, $start, $end, $match_id){
+    function OldMatch($type, $location, $location_table, $posts, $weapons, $challenger, $challengee, $weapon_type, $name, $start, $end, $match_id, $dojo = 0){
 
         $person1 = new Person($challenger);
         $person2 = new Person($challengee);
@@ -21,8 +21,14 @@
         	$name = $person1->GetName()." vs. ".$person2->GetName();
     	}
 
-        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `start`, `end`, `accepted`, `match_id`) "
-                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$start', '$end', '1', '$match_id')";
+    	if ($dojo){
+	    	$ladder = new Ladder();
+	    	$dm = $ladder->CurrentMaster();
+	    	$dojo = $dm->GetID();
+    	}
+    	
+        $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `start`, `end`, `accepted`, `match_id`, `is_dojo`) "
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$start', '$end', '1', '$match_id', '$dojo')";
 
         if (mysql_query($sql, $this->connect)) {
 
@@ -51,6 +57,12 @@
         $person1 = new Person($challenger);
         $person2 = new Person($challengee);
         
+        if ($dojo){
+	    	$ladder = new Ladder();
+	    	$dm = $ladder->CurrentMaster();
+	    	$dojo = $dm->GetID();
+    	}
+        
         /*$ttg = new TTG();
         $gauntlet = 0;
         
@@ -61,7 +73,7 @@
         }*/
         
         $sql = "INSERT INTO `arena_ladder_match` (`name`, `type`, `location`, `location_table`, `weapons`, `num_posts`, `weapon_type`, `is_dojo`) "
-                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', $dojo)";
+                ."VALUES ('".addslashes($name)."', '$type', '$location', '$location_table', '$weapons', '$posts', '$weapon_type', '$dojo')";
 
         if (mysql_query($sql, $this->connect)) {
 

@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Dojo of Shadows :: Dojo Master';
+    return 'Administration :: Office of Character Development :: Registrar';
 }
 
 function auth($person) {
@@ -15,29 +15,26 @@ function output() {
     global $arena, $auth_data, $hunter, $page, $sheet, $roster;
 
     arena_header();
-
-    $ladder = new Ladder();
     
     if (isset($_REQUEST['submit'])) {
-		if ($ladder->NewMaster($_REQUEST['bhg_id'])) {
-            echo 'New Master Declared.';
+		if ($sheet->NewRegistrar($_REQUEST['bhg_id'])) {
+            echo 'New Registrar Declared.';
         }
         else {
-            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 104';
+            echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 128';
         }
     } elseif (isset($_REQUEST['end'])){
-		$master = new Master($ladder->CurrentMaster());
+		$reg = new Registrar($sheet->CurrentRegistrar());
 		
-		if ($master->EndTerm()){
+		if ($reg->EndTerm()){
 			echo 'Term Ended.';
 		} else {
-			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 120';
+			echo 'Error! <b>Please submit the following error code to the <a href="http://bugs.thebhg.org/">Bug Tracker</a></b><br />NEC Error Code: 129';
         }
     }
     else {
-	    
         $form = new Form($page);
-        $form->AddSectionTitle('Declare New Master');
+        $form->AddSectionTitle('Declare New Registrar');
         $kabals_result = $roster->GetDivisions();
 	    
 			$kabals = array();
@@ -163,15 +160,15 @@ function output() {
 			$form->table->AddCell($cell);
 	
 			$form->table->EndRow();
-        $form->AddSubmitButton('submit', 'Make New Dojo Master');
-        $form->EndForm(); 
+        $form->AddSubmitButton('submit', 'Make New Registrar');
+        $form->EndForm();
         
         hr();
         
         $form = new Form($page);
-        $form->AddSectionTitle('Downsize Current Dojo Master');
+        $form->AddSectionTitle('Downsize Current Registrar');
         $form->table->StartRow();
-        $form->table->AddCell('<input type="submit" name="end" value="End Term">', 2);
+        $form->table->AddCell('<input type="submit" name="end" value="End Term">');
         $form->table->EndRow();
         $form->EndForm(); 
     }
