@@ -117,7 +117,16 @@ function output() {
 	    		return;
 			}
 			
-		}
+		if (isset($_REQUEST['save'])){
+					    	
+    	} else {
+	    	echo 'Can not make any edits to this sheet.';
+	    	if ($character->GetBan()){
+		    	echo ' You are on an Edit Ban until '.$character->GetBan('HUMAN');
+	    	} else {
+		    	echo ' This character is pending approval.';
+	    	}
+    	}
 	}
 	
 	admin_footer($auth_data);
