@@ -83,12 +83,16 @@ function output() {
 	    $locations = $ladder->Locations();
 	    $types = $ladder->Rules();
 	    
-	    if (in_array($hunter->GetID(), $arena->GetApproved())){
-		    $page_to = 'acn_arena_confirm';
-		    $dojo = false;
+	    if ($_REQUEST['submit']){
+		    if (in_array($hunter->GetID(), $arena->GetApproved()) && in_array($_REQUEST['challengee'], $arena->GetApproved())){
+			    $page_to = 'acn_arena_confirm';
+			    $dojo = false;
+		    } else {
+			    $page_to = 'acn_dojo_confirm';
+			    $dojo = true;
+		    }
 	    } else {
-		    $page_to = 'acn_dojo_confirm';
-		    $dojo = true;
+		    $page_to = $page;
 	    }
 	    
 	    $form = new Form($page_to, 'post', '', '', 'Challenge Another Hunter');
@@ -207,6 +211,10 @@ function output() {
 		This page requires JavaScript to function properly.
 		</noscript>
 	<?
+	
+	if ($_REQUEST['submit']){
+		$form->AddHidden('challengee', $_REQUEST['challengee']);
+	} else {
 	        $form->table->StartRow();
 	        $form->table->AddCell("<select name=\"kabal\" "
 	        ."onChange=\"swap_kabal(this.form)\">"
@@ -221,40 +229,43 @@ function output() {
 			$form->table->AddCell($cell);
 	
 			$form->table->EndRow();
+		}
 	
-	    $form->StartSelect('Number of Weapons:', 'num_weapon');
-	    while ($i <= 5) {
-	        $form->AddOption($i, $i);
-	        $i++;
-	    }
-	    $i = 3;
-	    $form->EndSelect();
-	    $form->StartSelect('Weapon Type:', 'type_weapon');
-	    foreach($wtypes as $value) {
-	        $form->AddOption($value->GetID(), $value->GetWeapon());
-	    }
-	    $form->EndSelect();
-	
-	    if (!$dojo){
-		    $form->StartSelect('Location:', 'location', $locations[array_rand($locations)]);
-		    foreach ($locations as $lid=>$lname) {
-		        $form->AddOption($lid, $lname);
+		if ($_REQUEST['submit']){
+		    $form->StartSelect('Number of Weapons:', 'num_weapon');
+		    while ($i <= 5) {
+		        $form->AddOption($i, $i);
+		        $i++;
+		    }
+		    $i = 3;
+		    $form->EndSelect();
+		    $form->StartSelect('Weapon Type:', 'type_weapon');
+		    foreach($wtypes as $value) {
+		        $form->AddOption($value->GetID(), $value->GetWeapon());
 		    }
 		    $form->EndSelect();
 		
-		    $form->StartSelect('Rules:', 'rules');
-		    foreach($types as $value) {
-		        $form->AddOption($value->GetID(), $value->GetName());
+		    if (!$dojo){
+			    $form->StartSelect('Location:', 'location', $locations[array_rand($locations)]);
+			    foreach ($locations as $lid=>$lname) {
+			        $form->AddOption($lid, $lname);
+			    }
+			    $form->EndSelect();
+			
+			    $form->StartSelect('Rules:', 'rules');
+			    foreach($types as $value) {
+			        $form->AddOption($value->GetID(), $value->GetName());
+			    }
+			    $form->EndSelect();
+		    }
+		
+		    $form->StartSelect('Number of Posts:', 'posts');
+		    while ($i <= 5) {
+		        $form->AddOption($i, $i);
+		        $i++;
 		    }
 		    $form->EndSelect();
 	    }
-	
-	    $form->StartSelect('Number of Posts:', 'posts');
-	    while ($i <= 5) {
-	        $form->AddOption($i, $i);
-	        $i++;
-	    }
-	    $form->EndSelect();
 	
 	    $form->AddSubmitButton('submit', 'Challenge');
 	    $form->EndForm();
