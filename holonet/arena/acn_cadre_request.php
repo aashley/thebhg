@@ -28,9 +28,9 @@ function output() {
     if ($sheet->HasSheet($hunter->GetID())){
 	
 	    $cadre = $hunter->GetCadre();
+		$ro = new RO();	    
 	    
 	    if ($_REQUEST['submit']){
-		    $ro = new RO();
 		    if ($ro->RequestCadreRO($cadre, $cadre->GetName().': '.$_REQUEST['title'], $_REQUEST['plot'])){
 			    echo 'Cadre RO requested.';
 		    } else {
