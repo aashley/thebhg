@@ -30,8 +30,8 @@
     
     function Ladder($activity, $bhg_id = 0){
 	    $sql = "SELECT `ams_records`.`bhg_id` as `bhg_id`, `ams_records`.`xp` as `xp`, `ams_records`.`outcome` as `outcome`, `ams_records`.`creds` as `creds`, `ams_records`.`medal` as `medal`"
-	    	`.`" FROM `ams_records`, `ams_match` WHERE `ams_records`.`match` = `ams_match`.`id` AND `ams_match`.`type` = '$activity' AND `ams_match`.`date_deleted` = 0 AND"
-	    	`.`" `ams_records`.`date_deleted` = 0 AND `ams_records`.`outcome` > 0";
+	    	." FROM `ams_records`, `ams_match` WHERE `ams_records`.`match` = `ams_match`.`id` AND `ams_match`.`type` = '$activity' AND `ams_match`.`date_deleted` = 0 AND"
+	    	." `ams_records`.`date_deleted` = 0 AND `ams_records`.`outcome` > 0";
 	    	
 	    $query = mysql_query($sql, $this->holonet);
 	    $return = array();
