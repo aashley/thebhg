@@ -49,7 +49,7 @@ function output() {
 		    $sheets = array();
 		    
 		    foreach ($sheet->SheetHolders() as $data){
-			    $sheets[$character->Status('SYSTEM')][] = $data;
+			    $sheets[$data->Status('SYSTEM')][] = $data;
 		    }
 		    
 		    krsort($sheets);

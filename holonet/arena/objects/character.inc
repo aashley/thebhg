@@ -50,7 +50,7 @@
     }
     
     function Status($output){
-	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 4=>'Pending Approval');
+	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 4=>'Pending Approval', 5=>'Denied Character');
 	    if ($this->cs_bhg_id){
 		    if ($this->cs_last_change){
 			    if ($this->cs_approved){
@@ -67,8 +67,12 @@
 		    $return = 2;
 	    }
 	    
-	    if (!$this->HasValue() && $this->cs_approved){
-		    $return = 2;
+	    if (!$this->HasValue()){
+		    if ($this->cs_approved){
+		    	$return = 5;
+	    	} else {
+		    	$return = 2;
+	    	}
 	    }
 	    
 	    if ($output == 'HUMAN'){
