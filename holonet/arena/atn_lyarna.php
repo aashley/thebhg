@@ -78,7 +78,7 @@ function output() {
 				    	$table->AddCell($data['planet']);
 				    	$table->AddCell(($data['arena'] ? 'Yes' : 'No'), ($data['arena'] ? '' : '2'));
 				    	if ($data['arena']){ $table->AddCell($data['used']); }
-			    	}ata['arena']){ $table->AddCell($data['used']); }
+			    	}
 		    	}
 		    	$table->EndTable();
 	    	}
