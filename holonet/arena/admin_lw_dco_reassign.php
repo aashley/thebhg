@@ -26,7 +26,10 @@ function output() {
         $form = new Form($page);
         $form->AddHidden('contract_id', $_REQUEST['contract_id']);
         $form->StartSelect('Hunter:', 'bhg_id');
-        hunter_dropdown($form);
+        foreach ($solo->Members() as $value) {
+	        $person = new Person($value);
+            $form->AddOption($value, $person->GetName());
+        }
         $form->EndSelect();
         $form->AddSubmitButton('submit', 'Reassign Contract');
         $form->EndForm();
