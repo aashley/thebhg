@@ -37,6 +37,7 @@ if ($_REQUEST['match']){
 				$bild = new NPC_Utilities();
 				echo '<br />[b]Target[/b]';
 				$deal = ($obj->Get(data) ? $obj->Get(data) : stripslashes($_REQUEST['npc']));
+				print_r($deal);
 				$deal = unserialize($deal);
 				foreach ($deal as $npc){
 					echo $npc;
