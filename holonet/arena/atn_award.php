@@ -57,6 +57,8 @@ function output() {
 		    $table->AddRow('Credits Awarded:', number_format($overse->GetCreds()).' Imperial Credits');
 		    $table->AddRow('Experience Points Awarded:', number_format($overse->GetXP()));
 		    $table->AddRow('Medals Awarded:', number_format($overse->GetMedals()));
+		    $table->AddRow('Credits Overseen in Administration:', number_format($overse->OVCreds()).' Imperial Credits');
+		    $table->AddRow('Experience Points Overseen in Administration:', number_format($overse->OVXP()));
 		    $table->EndTable();
 		    echo '<br />';
 		    
