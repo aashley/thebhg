@@ -358,7 +358,7 @@ function admin_footer($auth_data) {
     if ($auth_data['rp']) {    
 
         echo '<br />Arena&nbsp;System<br />';
-        //echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Matches</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_complete') . '">Complete&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_editor') . '">Edit&nbsp;Match</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_post') . '">Post&nbsp;New&nbsp;Match</a><br />';
