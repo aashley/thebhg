@@ -28,7 +28,7 @@ if (!$_POST['division']) {
 } else {
     $division = $_POST['division'];
 }
-$uploaddir = '/home/virtual/site5/fst/var/subdomain/ka/public_html/hunts/hunt_images/';
+$uploaddir = dirname(realpath($_SERVER['PATH_TRANSLATED'].'/..')).'/hunt_images/';
 if($site == "") {
     $site = "index";
     include ("index.inc");

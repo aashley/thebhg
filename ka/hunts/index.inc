@@ -57,7 +57,7 @@ if ($access == 2) {
 }
 echo '<br />Show hunts from <input type="text" name="num_months" value="'.$show_months.'" size="5"></input> months ago.<br />'
    . '<input type="submit" value="View"></input>'
-   . "</form></div><br />\n";
+   . "</div><br />\n";
 
 
 $no_all = false;

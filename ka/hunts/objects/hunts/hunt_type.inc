@@ -18,8 +18,7 @@
  *  |-- Hunt
  *  |   |--Grades
  *  |   `--Submission
- *  |-- <b><i>Hunt Type</i></b>
- *  `-- Season</pre>
+ *  `-- <b><i>Hunt Type</i></b></pre>
  * @access public
  * {@inheritdoc }
  * @package KA
@@ -66,7 +65,7 @@ class Hunt_Type extends KA {
      * @since Pre 1.0.0 Unknown Creation Date.
      */
     function GetName () {
-        return $this->hunttype_arr['type_name'];
+        return stripslashes($this->hunttype_arr['type_name']);
     }
 
     /**

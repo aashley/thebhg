@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
 //            print_r($_FILES);
             switch ($_FILES['uploadhunt']['error']) {
                 case 0:
-                echo '<br />There were no errors. If you\'re reading this, something really big is wrong, contact an admin as soon as possible.<br />'.$ka->Error();
+                echo '<br />There were no errors. If you\'re reading this, something really big is wrong, contact an admin as soon as possible.<br />';
                 break;
                 case 1:
                 echo '<br />The uploaded file exceeds the upload_max_filesize directive in php.ini.<br />Please make the file smaller.<br />';
@@ -227,7 +227,7 @@ if (isset($_POST["submit"])) {
     echo '<label for="division"><strong>Who</strong> can participate?</label>';
     echo '<select id="division" name="division">';
     //CHECKING IF PERSON ADDING HUNT IS JUD/PR/U/SP, RESPECTIVELY
-    if (($login_position->GetID() == 6) || ($login_position->GetID() == 8) || ($login_position->GetID() == 2) || ($login_position->GetID() == 5)) {
+    if (($login_position->GetID() == 6) || ($login_position->GetID() == 8) || ($login_position->GetID() == 2) || ($login_position->GetID() == 4)) {
         $kabals = $roster->GetKabals();
         foreach ($kabals as $kabal) {
             echo '<option value="'.$kabal->GetID().'">'.$kabal->GetName().'</option>';
