@@ -311,12 +311,12 @@ function admin_footer($auth_data) {
 		    echo '&nbsp;<a href="' . internal_link('admin_credits') . '">Award&nbsp;Credits</a><br />';
 		    echo '&nbsp;<a href="' . internal_link('admin_medals') . '">Award&nbsp;Medals</a><br />';	    
 	    }
-	    if ($auth_data['solo'] && !auth_data['rp']){
+	    if ($auth_data['solo'] && !$auth_data['rp']){
 		    echo '&nbsp;<a href="' . internal_link('admin_solo_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
 		    echo '&nbsp;<a href="' . internal_link('admin_solo_credits') . '">Award&nbsp;Credits</a><br />';
 		    echo '&nbsp;<a href="' . internal_link('admin_solo_medals') . '">Award&nbsp;Medals</a><br />';	    
 	    }
-	    if ($auth_data['dojo'] && !auth_data['rp']){
+	    if ($auth_data['dojo'] && !$auth_data['rp']){
 		    echo '&nbsp;<a href="' . internal_link('admin_dojo_xp') . '">Award&nbsp;Experience&nbsp;Points</a><br />';
 		    echo '&nbsp;<a href="' . internal_link('admin_dojo_credits') . '">Award&nbsp;Credits</a><br />';
 		    echo '&nbsp;<a href="' . internal_link('admin_dojo_medals') . '">Award&nbsp;Medals</a><br />';   
