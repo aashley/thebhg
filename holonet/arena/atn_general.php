@@ -143,6 +143,12 @@ function output() {
 		if (in_array($hunter->GetID(), $arena->GetApproved())){
 			$rewards['Graduate of the Dojo of Shadows'] = 'dojo';
 		}
+		if ($djm){
+			$rewards['Master of the Dojo of Shadows'] = 'dojoofshadows';
+		}
+		if ($boc){
+			$rewards['Commissioner of the Bounty Office'] = 'bountyoffice';
+		}
 		
 		if (count($rewards)){
 			
