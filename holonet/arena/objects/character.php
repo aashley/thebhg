@@ -924,7 +924,7 @@
 		$table = new Table();
 		
 		$table->StartRow();
-		$table->AddHeader(($namez ? 'Dossier file for '.$this->GetName($look, $id, $col), 2);
+		$table->AddHeader('Dossier file for '.$this->GetName($look, $id, $col), 2);
 		$table->EndRow();
 		if ($look != 'cores' || $show_anyway){
 			$table->AddRow('Visual Identification', '<img src='.$url.'>');
