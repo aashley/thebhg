@@ -53,7 +53,7 @@ function output() {
 	        $table->EndRow();
 	        $table->AddRow('Grade:', '<a href="' . internal_link('atn_solo_grade', array('id'=>$grade->GetID())) . '">' . $grade->GetName() . '</a>');
 	        $table->AddRow('Credits:', number_format($atn->GetCredits()).' Imperial Credits');
-	        $table->AddRow('Expirence Points:', number_format($atn->GetXP()));
+	        $table->AddRow('Experience Points:', number_format($atn->GetXP()));
 	        $table->EndTable();
 	
 	    }

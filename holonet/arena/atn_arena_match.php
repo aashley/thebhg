@@ -61,7 +61,7 @@ function output() {
 	                $table->EndRow();
 	                $table->AddRow('Result:', $value->GetResult());
 	                $table->AddRow('Total Credits:', number_format($value->GetCredits()).' Imperial Credits');
-	                $table->AddRow('Total Expirence Points:', number_format($value->GetXP()));
+	                $table->AddRow('Total Experience Points:', number_format($value->GetXP()));
 	                $table->EndTable();
 	            }
 	

@@ -35,7 +35,7 @@ function output() {
 		    $table->EndRow();
 		    $table->AddRow('Arena Matches:', $arena_ladder->GetMatches());
 		    $table->AddRow('Arena Credits:', number_format($arena_ladder->GetCredits()).' Imperial Credits');
-		    $table->AddRow('Arena Expirence Points:', number_format($arena_ladder->GetXP()));
+		    $table->AddRow('Arena Experience Points:', number_format($arena_ladder->GetXP()));
 		    $table->EndTable();
 		    
 		    echo '<br /><a name="matches"></a>';
@@ -63,7 +63,7 @@ function output() {
 		    $table->EndRow();
 		    $table->AddRow('Starfield Arena Matches:', $starfield_ladder->GetMatches());
 		    $table->AddRow('Starfield Arena Credits:', number_format($starfield_ladder->GetCredits()).' Imperial Credits');
-		    $table->AddRow('Starfield Arena Expirence Points:', number_format($starfield_ladder->GetXP()));
+		    $table->AddRow('Starfield Arena Experience Points:', number_format($starfield_ladder->GetXP()));
 		    $table->EndTable();
 		    
 		    echo '<br /><a name="matches"></a>';
@@ -93,7 +93,7 @@ function output() {
 		    $table->EndRow();
 		    $table->AddRow('Contracts Overseen:', $comish->GetContracts());
 		    $table->AddRow('Credits Awarded:', number_format($comish->GetCreds()).' Imperial Credits');
-		    $table->AddRow('Expirence Points Awarded:', number_format($comish->GetXP()));
+		    $table->AddRow('Experience Points Awarded:', number_format($comish->GetXP()));
 		    $table->EndTable();
 		    echo '<br />';
 	    }		
@@ -105,7 +105,7 @@ function output() {
 		    $table->EndRow();
 		    $table->AddRow('Contracts Completed:', $solo->GetContracts()+$lw->GetContracts());
 		    $table->AddRow('Contract Credits:', number_format($solo->GetCredits()+$lw->GetCredits()).' Imperial Credits');
-		    $table->AddRow('Contract Expirence Points:', number_format($solo->GetXP()+$lw->GetXP()));
+		    $table->AddRow('Contract Experience Points:', number_format($solo->GetXP()+$lw->GetXP()));
 		    $table->EndTable();
 		    
 		    echo '<br /><a name="matches"></a>';
@@ -148,7 +148,7 @@ function output() {
 		    $table->EndRow();
 		    $table->AddRow('IRC Arena Matches:', $irca->GetMatches());
 		    $table->AddRow('IRC Arena Credits:', number_format($irca->GetCredits()).' Imperial Credits');
-		    $table->AddRow('IRC Arena Expirence Points:', number_format($irca->GetXP()));
+		    $table->AddRow('IRC Arena Experience Points:', number_format($irca->GetXP()));
 		    $table->EndTable();
 		    
 		    echo '<br /><a name="matches"></a>';
