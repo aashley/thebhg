@@ -60,7 +60,7 @@ function output() {
 	    
 	    $values = $sheet->GetCAValues($ca['id']);
 	    foreach ($values as $id=>$val){
-		    print_r($val);
+		    echo $val['skill'];
 		    $skval = 0;
 		    $stval = 0;
 	    	if ($val['skill']){
