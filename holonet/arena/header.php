@@ -494,7 +494,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_sheet_fo') . '">Modify&nbsp;Field&nbsp;Order</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ca') . '">Create&nbsp;Character&nbsp;Attribute</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ca_stats') . '">Attribute&nbsp;Stat&nbsp;Modifier</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_edit_ca') . '">Attribute&nbsp;Stat&nbsp;Modifier</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_edit_ca') . '">Edit&nbsp;Character&nbsp;Attribute</a><br />';
     }
     
     if ($auth_data['arena']) {    
