@@ -279,6 +279,8 @@
 
         $from = "overseer@thebhg.org";
         $subject = "Character Attribute Removed";
+        
+        $this->cs_person->SendEmail($from, $subject, $text);
 	    
 	    return ($query ? true : false);
     }
