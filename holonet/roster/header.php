@@ -92,7 +92,7 @@ function get_auth_data($pleb) {
 			$auth_data['commission'] = true;
 		}
 
-		if ($pos->GetID() == 6) {
+		if ($pos->GetID() == 6 || $pos->getID() == 8) {
 			$auth_data['judicator'] = true;
 		} elseif ($pos->GetID() == 9 || $pos->GetID() == 29) {
 			$auth_data['cs'] = true;
