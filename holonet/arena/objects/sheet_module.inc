@@ -134,14 +134,24 @@
     }
     
     function DropdownFields($form, $name = 'csfield'){
-	    $form->StartSelect('Stat/Skill', $name);
-		    foreach ($this->GetSkills() as $skill){
-			    $form->AddOption('skill_'.$skill->GetID(), $skill->GetName());
-		    }
-		    foreach ($this->GetStats() as $stat){
-			    $form->AddOption('stat_'.$stat->GetID(), $stat->GetName());
-		    }
-		$form->EndSelect();
+	    $form->table->StartRow();
+	    $form->table->AddCell('Stat/Skill');
+	    $form->AddHidden('nameused[]', $name);
+	    $cell = '';
+	    
+	    $cell .= '<select type="select" name="'.$name.'">';
+	    
+	    foreach ($this->GetSkills() as $skill){
+		    $cell .= '<option value="skill_'.$skill->GetID().'">'.$skill->GetName().'</option>';
+	    }
+	    foreach ($this->GetStats() as $stat){
+		    $cell .= '<option value="stat_'.$stat->GetID().'">'.$stat->GetName().'</option>';
+	    }
+	    
+	    $cell .= '</select><input type="text" name="txt_'.$name.'" value=0>';
+	    
+		$form->table->AddCell($cell);
+		$form->table->EndRow();
 	}	
 	
 	function HasValue($bhg_id, $field, $value){
