@@ -53,7 +53,9 @@
 	    
 	    while ($info = mysql_fetch_array($query)){
 	    	$date = getdate($info['date']);
-			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'app'=>$info['approved'], 'pending'=>$info['pending']);
+	    	$char = new Character($info['bhg_id']);
+	    	$name = $char->GetName('cores', $info['id'], 'id')
+			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>$name, 'app'=>$info['approved'], 'pending'=>$info['pending']);
 		}
 		
 		return $return;
