@@ -42,7 +42,7 @@ function output() {
 		if ($errors){
 			echo 'Errors occured during processing';
 		} else {
-			echo 'Contract\'s posted.';
+			echo 'Contracts processed.';
 		}
     }
     else {
