@@ -83,7 +83,6 @@ function output() {
 	    
 			$kabals = implode('', $kabals);
 	
-<<<<<<< .mine
 		?>
 		<script language="JavaScript1.1" type="text/javascript">
 		<!--
@@ -158,9 +157,6 @@ function output() {
 	<?
 		$table = new Table('', true);
 		$table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position', 'Hunter');
-=======
-		$form->table->AddRow('Mod', 'Current Owner', 'Name', 'Listed Owner', 'Division', 'Position');
->>>>>>> .r2985
 		$i = 0;
 		
         while ($row = mysql_fetch_array($locations)) {
@@ -181,17 +177,19 @@ function output() {
 	        $table->AddCell($row['name']);
 	        $table->AddCell($row['owner']);
 	        $table->AddCell("<select name=\"kabal$i\" "
-	        .">"
+	        ."onChange=\"swap_kabal(this.form, $i)\">"
 	        ."<option value=\"-1\">N/A</option>$kabals</select>");
+	
+	    	$cell = "<select name=\"person$i\">";
+	    
+				$cell .= "<option value=\"-1\" selected>N/A</option>\n";
+	    
+			$cell .= "</select>";
 
 			$table->AddCell("<select name=\"position$i\">"
 	        ."<option value=\"-1\">N/A</option>$positions</select>");
-<<<<<<< .mine
 			$table->AddCell($cell);
 			$table->EndRow();
-=======
-			$form->table->EndRow();
->>>>>>> .r2985
 			$i++;
         }
         $run = $i-1;
