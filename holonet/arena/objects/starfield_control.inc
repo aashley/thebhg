@@ -57,6 +57,7 @@
     	$skipper = new Skipper($skip);
 	    
     	echo $challenger;
+    	echo $restrictions;
     	
         $person1 = new Person($challenger);
         $person2 = new Person($challengee);
