@@ -49,7 +49,13 @@ function output() {
 			    	}
 		    	}
 		    	
-		    	$creds = round(($time / ($endut - $startut)) * 350000);
+		    	$pp = $endut - $startut;
+		    	
+		    	$time = $time / $pp;
+		    	
+		    	echo $time;
+		    	
+		    	$creds = round($time * 350000);
 		    	
 		      	if (isset($aides[$pay['bhg_id']])) {
 		        	$aides[$pay['bhg_id']] += $creds;
