@@ -137,24 +137,23 @@ function output() {
 		</noscript>
 	<?
 	
-	if ($_REQUEST['submit']){
-		$form->AddHidden('challengee', $_REQUEST['challengee']);
-	} else {
-	        $form->table->StartRow();
-	        $form->table->AddCell("<select name=\"kabal\" "
-	        ."onChange=\"swap_kabal(this.form)\">"
-	        ."<option value=\"-1\">N/A</option>$kabals</select>");
+	$form = new Form($page);
 	
-	    $cell = "<select name=\"challengee\">";
-	    
-				$cell .= "<option value=\"-1\" selected>N/A</option>\n";
-	    
-			$cell .= "</select>";
-	    
-			$form->table->AddCell($cell);
-	
-			$form->table->EndRow();
-		}
+	$form->AddSectionTitle('Manage Cutlery');
+        $form->table->StartRow();
+        $form->table->AddCell("<select name=\"kabal\" "
+        ."onChange=\"swap_kabal(this.form)\">"
+        ."<option value=\"-1\">N/A</option>$kabals</select>");
+
+    $cell = "<select name=\"challengee\">";
+    
+			$cell .= "<option value=\"-1\" selected>N/A</option>\n";
+    
+		$cell .= "</select>";
+    
+		$form->table->AddCell($cell);
+
+		$form->table->EndRow();
     
     $form->AddSubmitButton('submit', 'Award Sharp Item');
     $form->EndForm();
