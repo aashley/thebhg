@@ -118,16 +118,16 @@ else {
 </head>
 <body>
 <?php
-$items = array('index.php'=>'Index', 'sections.php'=>'Sections', 'calendar.php'=>'Calendar', 'about.php'=>'About', 'search.php'=>'Search');
+$items = array('index.php'=>'Welcome', 'news.php' => 'News', 'sections.php'=>'Sections', 'calendar.php'=>'Calendar', 'about.php'=>'About', 'search.php'=>'Search');
 if (isset($my_user)) {
 	$items['prefs.php'] = 'Preferences';
-	$items['logout.php'] = 'Log Out';
+	$items['logout.php'] = 'Logout';
 	if (lookup_auth_level($my_user) > 0) {
 		$items['administration/index.php'] = 'Admin';
 	}
 }
 else {
-	$items['login.php'] = 'Log In';
+	$items['login.php'] = 'Login';
 }
 ?>
 <div id="header">

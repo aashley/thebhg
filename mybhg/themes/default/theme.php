@@ -71,9 +71,10 @@ div#menu {
 	height: 20px;
 	top: 125px;
 	right: 0;
-	width: 66%;
+	width: 95%;
 	border-top: solid 2px black;
 	border-bottom: solid 2px black;
+	z-index: 1;
 }
 div#menu ul {
 	display: inline;
