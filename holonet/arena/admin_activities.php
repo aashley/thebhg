@@ -44,6 +44,7 @@ function output(){
 			case 'ed':
 			if ($_REQUEST['stage'] == 2){
 				$obj->Edit(array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]));
+				$show = false;
 			} else {
 				$name = $obj->Get(name);
 				$desc = $obj->Get(desc);
@@ -51,7 +52,9 @@ function output(){
 				$type = $type->Get(id);
 			}
 			break;
+		}
 		
+		if (!$show)
 		echo '<p><a href="'.internal_link($page).'">View All</a>';
 		hr();
 	} else {

@@ -44,7 +44,7 @@ Class Obj extends Arena {
         foreach ($input as $key=>$value){
 	        if ($value != $this->$key){
 		        $add[] = "`".$key."` = '".addslashes($value)."'";
-		        $return[] = ucfirst($key);
+		        $return[] = str_replace('_', '&nbsp;', ucfirst($key));
 	        }
         }
         
