@@ -164,7 +164,7 @@ function output() {
 			$setups = array();
 			
 			foreach ($rewards as $info=>$reward){				
-				$setups = '<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>';				
+				$setups[] = '<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>';				
 			}
 			
 			for ($i = 0; $i < count($setups); $i += 5) {
