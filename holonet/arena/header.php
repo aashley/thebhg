@@ -1,13 +1,18 @@
 <?php
 include_once('roster.inc');
 include_once('objects/arena.inc');
-include_once('objects/auth.inc');
 include_once('library.inc');
 include_once('citadel.inc');
 
 $roster = new Roster('fight-51-me');
 $mb = new MedalBoard('fight-51-me');
 $arena = new Arena();
+$library = new Library();
+$at = new Tournament();
+$iat = new IRCTournament();
+$sat = new SATournament();
+$citadel = new Citadel();
+$lw = new LW_Solo();
 $sheet = new Sheet();
 
 function arena_header() {
@@ -79,9 +84,26 @@ function next_medal($person, $group) {
 	}
 }
 
-function acn_nav(){	
+function acn_nav(){
+	global $at, $lw, $person, $iat, $sat;
+	
 	echo '<small>General<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_challenge') . '">Network&nbsp;Control</a><br />';
+	
+	if ($at->ValidSignup()){
+		echo '<br />Arena Tournament<br />';
+	    echo '&nbsp;<a href="' . internal_link('acn_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
+	}
+	
+	if ($iat->ValidSignup()){
+		echo '<br />IRC Arena Tournament<br />';
+	    echo '&nbsp;<a href="' . internal_link('acn_irc_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
+	}
+	
+	if ($sat->ValidSignup()){
+		echo '<br />Starfield Arena Tournament<br />';
+	    echo '&nbsp;<a href="' . internal_link('acn_sa_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
+	}
 	
 	echo '<br />Arena<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_arena_challenge') . '">Arena&nbsp;Challenges</a><br />';
@@ -101,10 +123,16 @@ function acn_nav(){
     
     echo '<br />IRC Arena<br />';
     echo '&nbsp;<a href="' . internal_link('acn_irca_submit') . '">Submit&nbsp;Match</a><br />';
+    
+    /*More Elite nonsense
+
+    echo '<br />Tempestuous Group<br />';
+    echo '&nbsp;<a href="' . internal_link('acn_tempy_petition') . '">Admittance&nbsp;Petition</a><br />'; 
+    */
 }
 
 function atn_nav(){
-	global $roster;
+	global $roster, $at, $iat, $sat;
 	
 	echo '<small>';
 	
@@ -150,11 +178,26 @@ function atn_nav(){
     
     echo '<br />Polling Centre<br />';
     echo '&nbsp;<a href="'.internal_link('atn_polling').'">View&nbsp;Arena&nbsp;Polls</a><br />';
+	
+    /*Removing the Elite RP stuff
+    
+    echo '<br />Tempestuous Group<br />';
+    echo '&nbsp;<a href="' . internal_link('atn_tempy') . '">Members</a><br />';
+    */
     
     echo '<br />Arena Tournaments<br />';
     echo '&nbsp;<a href="' . internal_link('atn_tournament') . '">AT Brackets</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_irc_tournament') . '">IRC AT Brackets</a><br />';
     echo '&nbsp;<a href="' . internal_link('atn_sa_tournament') . '">IRC AT Brackets</a><br />';
+    if (count($at->GetHunters())){
+    	echo '&nbsp;<a href="' . internal_link('atn_tournament_signups') . '">AT Signups</a><br />';
+	}
+    if (count($iat->GetHunters())){
+    	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_signups') . '">IRC AT Signups</a><br />';
+	}
+	if (count($sat->GetHunters())){
+    	echo '&nbsp;<a href="' . internal_link('atn_sa_tournament_signups') . '">Starfield AT Signups</a><br />';
+	}
 	echo '&nbsp;<a href="' . internal_link('atn_tournament_archive') . '">Archived [Arena]</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_irc_tournament_archive') . '">Archived [IRC Arena]</a><br />';
 	echo '&nbsp;<a href="' . internal_link('atn_sa_tournament_archive') . '">Archived [Starfield Arena]</a><br />';
@@ -163,7 +206,7 @@ function atn_nav(){
 }
 
 function arena_footer($show_list = true) {
-    global $roster;
+    global $roster, $arena, $library;
     
     $shelf = new Shelf(6);
 
@@ -199,11 +242,21 @@ function arena_footer($show_list = true) {
 }
 
 function get_auth_data($hunter) {
-    $auth = new Auth($hunter);
+    $pos = $hunter->GetPosition();
+    $div = $hunter->GetDivision();
+    $tempy = new Tempy();
+    $lw = new LW_Solo();
+    $solo = new Solo();
+    $ladder = new Ladder();
+    $ro = new RO();
+    $sheet = new Sheet();
+    $starfield = new Starfield();
+    $irca = new IRCA();
+    $survival = new Survival();
 
-    $auth_data['id'] = $auth->GetID();
+    $auth_data['id'] = $hunter->GetID();
 
-    if ($auth->Father()){
+    if ($hunter->GetID() == 2650){
 	    $auth_data['coder'] = true;
 	    $auth_data['cadre'] = true;
     } else {
@@ -211,13 +264,13 @@ function get_auth_data($hunter) {
 	    $auth_data['cadre'] = false;
     }
     
-    if ($auth->OV()){
+    if ($pos->GetID() == 29 || $hunter->GetID() == 2650){
     	$auth_data['overseer'] = true;
 	} else {
 		$auth_data['overseer'] = false;
 	}
     
-    if ($auth->RP()) {
+    if ($pos->GetID() == 9 || $pos->GetID() == 29 || $hunter->GetID() == 2650) {
         $auth_data['rp'] = true;
         $auth_data['solo'] = true;
         $auth_data['tempy'] = true;
@@ -261,50 +314,71 @@ function get_auth_data($hunter) {
 	    }
     }
     
-    if ($auth->CH()){
+    if ($pos->GetID() == 11 || $pos->GetID() == 12){
 	    $auth_data['ch'] = true;
     }
     
-    if ($auth->DM()){
+    if ($hunter->GetID() == $ladder->CurrentMaster()){
 	    $auth_data['dojo'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($auth->ST()){
+    if ($hunter->GetID() == $ladder->CurrentSteward()){
 	    $auth_data['arena'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($auth->RA()){
+    if ($hunter->GetID() == $survival->CurrentRanger()){
 	    $auth_data['survival'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($auth->SK()){
+    if ($hunter->GetID() == $starfield->CurrentSkipper()){
 	    $auth_data['star'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($auth->MM()){
+    if ($hunter->GetID() == $ro->CurrentMM()){
 	    $auth_data['ro'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($auth->RE()){
+    if ($hunter->GetID() == $sheet->CurrentRegistrar()){
 	    $auth_data['sheet'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($auth->LW()){
+    /*Elite RP nonsense.    
+    if (in_array($hunter->GetID(), $tempy->ActiveMods())){
+	    $auth_data['tempy_mod'] = true;
+    }
+    
+    if (in_array($hunter->GetID(), $tempy->Members())){
+	    $auth_data['tempy'] = true;
+	    $auth_data['elite'] = true;
+    }
+    
+    if (in_array($hunter->GetID(), $ttg->Winners())){
+	    $auth_data['fin_ttg'] = true;
+	    $auth_data['elite'] = true;
+    }
+
+    if (in_array($hunter->GetID(), $tempy->Solidified())){
+	    $auth_data['tempy_sub'] = true;
+	    $auth_data['elite'] = true;
+    }
+    */
+    
+    if (in_array($hunter->GetID(), $lw->Members())){
 	    $auth_data['lw'] = true;
     }
     
-    if ($auth->SO()){
+    if ($hunter->GetID() == $solo->CurrentComissioner()){
 	    $auth_data['solo'] = true;
 	    $auth_data['aa'] = true;
     }
     
-    if ($auth->HC()){
+    if ($hunter->GetID() == $irca->CurrentHC()){
 	    $auth_data['irc'] = true;
 	    $auth_data['aa'] = true;
     }
@@ -313,9 +387,7 @@ function get_auth_data($hunter) {
 }
 
 function admin_footer($auth_data) {
-	global $roster, $arena;
-	
-	$citadel = new Citadel();
+	global $roster, $arena, $library, $at, $iat, $sat, $citadel;
 	
 	$person = new Person($auth_data['id']);
 	$posi = $person->GetPosition();
@@ -438,12 +510,14 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_arena_weapons') . '">Edit&nbsp;Weapon&nbsp;Types</a><br />';
         
         echo '<br />Arena&nbsp;Tournament<br />';
-        echo '&nbsp;<a href="' . internal_link('admin_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_tournament_organize') . '">Organize&nbsp;Brackets</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
+        if (count($at->GetHunters())){
+	        echo '&nbsp;<a href="' . internal_link('admin_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
+	        echo '&nbsp;<a href="' . internal_link('admin_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_tournament_organize') . '">Organize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
+    	}
     	echo '&nbsp;<a href="' . internal_link('admin_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
     }
     
@@ -471,12 +545,14 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_irca_faceoff') . '">Add&nbsp;Ladder&nbsp;Faceoff</a><br />';
         
         echo '<br />IRC Arena&nbsp;Tournament<br />';
-        echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_organize') . '">Organize&nbsp;Brackets</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
+        if (count($iat->GetHunters())){
+	        echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
+	        echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_organize') . '">Organize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
+    	}
     	echo '&nbsp;<a href="' . internal_link('admin_irc_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
     } 
     
@@ -537,12 +613,14 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_starfield_restriction') . '">Edit&nbsp;Restrictions</a><br />';
         
         echo '<br />Starfield Arena&nbsp;Tournament<br />';
-        echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_organize') . '">Organize&nbsp;Brackets</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
-		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
+        if (count($sat->GetHunters())){
+	        echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_wildcard') . '">Declare&nbsp;Wildcard</a><br />';
+	        echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_manage') . '">Manage&nbsp;Signups</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_random') . '">Randomize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_organize') . '">Organize&nbsp;Brackets</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_atn') . '">Add&nbsp;Round&nbsp;to&nbsp;ATN</a><br />';
+    		echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_round') . '">Enter&nbsp;Round&nbsp;Stats</a><br />';
+    	}
     	echo '&nbsp;<a href="' . internal_link('admin_sa_tournament_new') . '">Start&nbsp;New&nbsp;Season</a><br />';
     }
     
@@ -559,6 +637,34 @@ function admin_footer($auth_data) {
 			echo '&nbsp;&nbsp;<a href="' . internal_link('admin_book', array('id'=>$book->GetID()), 'library') . '">' . $title . '</a>';
 		}		
 	}
+	
+	/*
+	All the elite RP is gone (TTG) or needs reworking, so, it's gone.
+	if ($auth_data['elite']) {
+	    echo '<br /><br /><b>Elite&nbsp;Role-Play&nbsp;Groups</b><br />';
+    }
+	
+	if ($auth_data['tempy_sub']){
+		echo '<br />Tempestuous&nbsp;Group&nbsp;Applications<br />';
+		echo '&nbsp;<b><a href="' . internal_link('admin_tempy_submit') . '">Submit&nbsp;Required&nbsp;Works</a></b><br />';
+	}
+    
+    if ($auth_data['tempy']) {
+	    echo '<br />Tempestuous&nbsp;Board<br />';
+        echo '&nbsp;<a href="' . internal_link('admin_tempy_jury') . '">Jury&nbsp;Selection</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_tempy_manage') . '">Manage&nbsp;My&nbsp;Signups</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_tempy_vote') . '">Review&nbsp;And&nbsp;Vote</a><br />';
+    }
+    
+    if ($auth_data['tempy_mod']) {
+	    echo '<br />Tempestuous&nbsp;Board&nbsp;Admin<br />';
+	    echo '&nbsp;<a href="' . internal_link('admin_tempy_members') . '">Eject&nbsp;Member</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_tempy_mods') . '">Edit&nbsp;Moderators</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_tempy_pending') . '">Pending&nbsp;Admission&nbsp;Requests</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_tempy_signups') . '">Edit&nbsp;Jury&nbsp;Signups</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_tempy_solidify') . '">Solidify&nbsp;Jury</a><br />';
+    }
+    */
 
     echo '</small></td></tr></table>';
 }
