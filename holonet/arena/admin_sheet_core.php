@@ -66,7 +66,9 @@ function output() {
 		    $table->EndTable();
 	    }
     } else {
-	    if ($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()){
+	    if ($_REQUEST['new']){
+		    $value_set = array();
+	    } elseif ($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID()){
 			$value_set = $character->GetSheetValues('cores', $_REQUEST['sheet'], 'id');
 		}
 		
