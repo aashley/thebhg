@@ -112,7 +112,54 @@ function output() {
 			this.name = name;
 		}
 	
-		
+		<?php
+	  
+			reset($kabals_result);
+	    
+		  $commindex = 0;
+	    
+			foreach ($kabals_result as $kabal) {
+	      
+				if ($kabal->GetID() == 16) {
+	        
+					continue;
+	        
+				}
+	      
+				echo 'roster' . $kabal->GetID() . " = new Array();\n";
+	      
+				$plebs = $plebsheet[$kabal->GetID()];
+	      
+		    if (is_array($plebs)) {
+	        
+		      $plebindex = 0;
+	        
+	        foreach ($plebs as $pleb) {
+	          
+	          $div_peeps[$pleb->GetName().':'.$plebindex] = 
+	            'roster'
+	            .(($kabal->GetID() == 9) 
+	              ? '10' 
+	              : $kabal->GetID()) 
+	            .'['.
+	            (($kabal->GetID() == 9 || $kabal->GetID() == 10) 
+	              ? $commindex++ 
+	              : $plebindex++)
+	            .'] = new person('.$pleb->GetID().', \''
+	            .str_replace("'", "\\'", shorten_string($pleb->GetName(), 40))
+	            ."');\n";
+	            
+	        }
+	        
+	        echo implode('', $div_peeps);
+	        
+	        unset($div_peeps);
+	        
+		    }
+	      
+			}
+	    
+		?>
 	
 		function swap_kabal(frm) {
 			var kabal_list = eval("frm.kabal");
@@ -158,53 +205,13 @@ function output() {
 			$form->table->EndRow();
 		}
 	
-		if ($_REQUEST['submit']){
-		    $form->StartSelect('Number of Weapons:', 'num_weapon');
-		    while ($i <= 5) {
-		        $form->AddOption($i, $i);
-		        $i++;
-		    }
-		    $i = 3;
-		    $form->EndSelect();
-		    $form->StartSelect('Weapon Type:', 'type_weapon');
-		    foreach($wtypes as $value) {
-		        $form->AddOption($value->GetID(), $value->GetWeapon());
-		    }
-		    $form->EndSelect();
-
-		    $form->StartSelect(($dojo ? 'Holographic ' : '').'Location:', 'location', $locations[array_rand($locations)]);
-		    foreach ($locations as $lid=>$lname) {
-		        $form->AddOption($lid, $lname);
-		    }
-		    $form->EndSelect();
-			    
-			if (!$dojo){
-			    $form->StartSelect('Rules:', 'rules');
-			    foreach($types as $value) {
-			        $form->AddOption($value->GetID(), $value->GetName());
-			    }
-			    $form->EndSelect();
-		    }
 		
-		    $form->StartSelect('Number of Posts:', 'posts');
-		    while ($i <= 5) {
-		        $form->AddOption($i, $i);
-		        $i++;
-		    }
-		    $form->EndSelect();
-	    }
 	
 	    $form->AddSubmitButton('submit', 'Challenge');
 	    $form->EndForm();
 	    
 	    hr();
 	
-	    $table = new Table('Explanation of Rules', true);
-	    $table->AddRow('Name', 'Description', 'Damage Allowed');
-	    foreach($types as $value) {
-	        $table->AddRow($value->GetName(), $value->GetDesc(), $value->GetRules());
-	    }
-	    $table->EndTable();
 	    
     } else {	    
 	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
