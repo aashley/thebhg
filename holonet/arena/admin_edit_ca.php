@@ -19,7 +19,7 @@ function output() {
     
     if (isset($_REQUEST['submit'])){
 		if ($_REQUEST['delete']){
-		    $sheet->DeleteCA($id);
+		    $sheet->DeleteCA($_REQUEST['ca']);
 		    echo 'Character Attribute Deleted';
 	    } else {
 		    if ($sheet->EditCA($_REQUEST['ca'], $_REQUEST['name'], $_REQUEST['desc'])){
