@@ -183,9 +183,9 @@ function output() {
     if ($show){
 	    
 	    if (rp_staff($hunter)){
-	    	$polls = $arena->GetPolls();
+	    	$polls = $arena->GetPolls('', 0);
     	} else {
-	    	$polls = $arena->GetPolls($arena->CanBe($hunter));
+	    	$polls = $arena->GetPolls($arena->CanBe($hunter), 0);
     	}
 	    
 	    if (count($polls)){
