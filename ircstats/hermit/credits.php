@@ -1,7 +1,7 @@
 <?php
 $admin = true;
 $jer_only = true;
-if (empty($month)) {
+if (empty($_POST['month'])) {
 	$title = 'Monthly Credits';
 	include('header.php');
 
@@ -28,6 +28,8 @@ EOF;
 EOF;
 }
 else {
+	import_request_variables('p');
+	
 	$title = 'Monthly Credits :: ' . date('F', mktime(0, 0, 0, $month)) . " $year";
 	include('header.php');
 

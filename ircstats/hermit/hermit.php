@@ -1,4 +1,5 @@
 <?php
+import_request_variables('g');
 set_time_limit(0);
 $timers['Overall'][0] = time();
 

@@ -1,5 +1,5 @@
 <?php
-if (empty($month)) {
+if (empty($_POST['month'])) {
 	$title = 'Monthly Stats';
 	include('header.php');
 
@@ -25,6 +25,9 @@ EOF;
 EOF;
 }
 else {
+	$month = $_POST['month'];
+	$year = $_POST['year'];
+	
 	$title = 'Monthly Stats :: ' . date('F', mktime(0, 0, 0, $month)) . " $year";
 	include('header.php');
 

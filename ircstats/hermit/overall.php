@@ -2,7 +2,7 @@
 $title = 'Overall Stats';
 include('header.php');
 
-if (empty($start_day)) {
+if (empty($_POST['start_day'])) {
 	echo <<<EOF
 <FORM NAME="overall" ACTION="$PHP_SELF" METHOD="post">
 <TABLE CELLSPACING=1 CELLPADDING=1>
@@ -30,6 +30,8 @@ EOF;
 EOF;
 }
 else {
+	import_request_variables('p');
+	
 	echo '<A HREF="#graph">Jump to the graph</A>';
 	echo '<TABLE CELLSPACING=1 CELLPADDING=2><TR><TH>Date</TH><TH>Words</TH></TR>';
 	$start_ts = ymd2ts($start_day, $start_month, $start_year);

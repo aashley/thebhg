@@ -3,7 +3,7 @@ $title = '#bhg Log Search';
 $admin = true;
 include('header.php');
 
-if (empty($start_day)) {
+if (empty($_POST['start_day'])) {
 ?>
 <H1>Search</H1><BR>
 <FORM NAME="searchtime" METHOD="POST" ACTION="<?php echo $PHP_SELF; ?>">
@@ -26,6 +26,8 @@ if (empty($start_day)) {
 <?php
 }
 else {
+	import_request_variables('p');
+
 	// Mangle the input into a nice, usable format.
 	if ($div->GetID() != 10 && $login->GetID() != 666) {
 		$onotice = false;

@@ -73,9 +73,9 @@ include_once('roster.inc');
 $roster = new Roster('!id-this-666');
 
 if ($admin) {
-	if (empty($PHP_AUTH_USER)) forbidden();
+	if (empty($_SERVER['PHP_AUTH_USER'])) forbidden();
 
-	$login = new Login($PHP_AUTH_USER, $PHP_AUTH_PW);
+	$login = new Login($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']);
 	if (!$login->IsValid()) forbidden();
 	else {
 		$div = $login->GetDivision();

@@ -1,4 +1,7 @@
 <?php
+import_request_variables('g');
+$log = preg_replace('/[^0-9]/', '', $log);
+
 $admin = true;
 $date = mktime(0, 0, 0, substr($log, -4, 2), substr($log, -2), substr($log, -8, 4));
 $title = '#bhg Log :: ' . date('j F Y', $date);

@@ -3,7 +3,7 @@ ini_set('include_path', ini_get('include_path') . ':/var/www/html/include');
 include_once('roster.inc');
 $roster = new Roster();
 
-if (empty($id)) {
+if (empty($_POST['id'])) {
 	$title = 'Person-Specific Stats';
 	include('header.php');
 
@@ -43,6 +43,8 @@ EOF;
 EOF;
 }
 else {
+	import_request_variables('p');
+	
 	$pleb = $roster->GetPerson($id);
 	$title = 'Person-Specific Stats :: ' . $pleb->GetName();
 	include('header.php');
