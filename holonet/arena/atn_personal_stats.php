@@ -1,21 +1,16 @@
 <?php
 
 if (isset($_REQUEST['id'])){
-	$activity = new Obj('ams_activities', $_REQUEST['id'], 'holonet');
-	if (!$activity->Get(name)){
-		$activity = false;
-	} else {
-		$type = new Obj('ams_types', $activity->Get(type), 'holonet');
-	}
+	$person = new Person($_REQUEST['id']);
 }
 
 function title() {
-    global $activity;
+    global $person;
 
     $return = 'AMS Tracking Network';
 
     if (is_object($activity)){
-	    $return .= ' :: Activity :: '.$activity->Get(name);
+	    $return .= ' :: All Activities :: '.$person->GetName();
     }
     
     return $return;
@@ -33,6 +28,7 @@ function output() {
 		$table = new Table('', true);
 	    $table->StartRow();
 	    $table->AddCell('Topic ID');
+	    $table->AddCell('Type');
 	    $table->AddCell('Name');
 	    $table->EndRow();
 	    
@@ -44,18 +40,14 @@ function output() {
 		    $fst = 'id` < \''.$grtrt.'\' AND `';
 	    } 
 	    
-	    $pending = $arena->Search(array('table'=>'ams_match', 'order'=>array('id'=>'desc'), 'search'=>array('type'=>$activity->Get(id), 'accepted'=>1, 'started` > 0 AND `date_deleted'=>0), 'limit'=>20));
+	    $pending = $arena->Search(array('table'=>'ams_records', 'order'=>array('id'=>'desc'), 'search'=>array('bhg_id'=>$_REQUEST['id'], 'outcome` > 0 AND `date_deleted'=>0), 'limit'=>20));
 	    $pendings = array();
-	    
-	    foreach ($pending as $obj){
+	    foreach ($pending as $oba){
 		    if (!count($pendings)){
 			    $first = $obj->Get(id);
 		    }
-			$pendings[] = $obj;
-	
-		    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$obj->Get(id)))) as $yarm){		   				    
-				$chal[$obj->Get(id)][$yarm->Get(challenger)] = new Person($yarm->Get(bhg_id));
-		    }
+		    
+		    $pendings[] = new Obj('ams_match', $oba->Get(match), 'holonet');
 		    $last = $obj->Get(id);
 	    }
 	    
@@ -63,6 +55,8 @@ function output() {
 		    $data = unserialize($match->Get(specifics));
 		    $table->StartRow();
 		    $table->AddCell(($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
+		    $type = new Obj('ams_activities', $match->Get(type), 'holonet');
+		    $table->AddCell($type->Get(name));
 		    $table->AddCell('<a href="'.internal_link(atn_stats, array('id'=>$match->Get(id))).'">'.($match->Get(name) ? $match->Get(name) : 'No Name').'</a>');
 		    $table->EndRow();
 	    }
