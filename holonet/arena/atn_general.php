@@ -64,7 +64,7 @@ function output() {
 		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = 'mm'; $aa = true;}
 		if ($ski){ $rewards[$ski.'Skipper of the Starfield Arena'] = 'skipper'; $aa = true;}
 		if ($ste){ $rewards[$ste.'Steward of the Arena'] = 'steward'; $aa = true;}
-		if ($properties){ $rewards['Owns '.pluralise('properties', $properties).' in Lyarna.'] = 'lyarna'; }
+		if ($properties){ $rewards['Owns '.pluralise('piece', $properties).' of property in Lyarna.'] = 'lyarna'; }
 		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows'] = 'dojo'; }
 	    
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
