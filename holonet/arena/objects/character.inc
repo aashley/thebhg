@@ -933,7 +933,7 @@
 	    $errors = 0;
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    if (!mysql_query($sql, $this->connect)){
 			    $errors++;
 		    }
@@ -960,7 +960,7 @@
 	    $errors = 0;
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
+		    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".addslashes($info['value'])."')";
 		    if (!mysql_query($sql, $this->connect)){
 			    $errors++;
 		    }
@@ -1075,7 +1075,7 @@
 		if ($id){
 			$id = $id;
 		} else {
-			$id = $this->GetID();
+			$id = $this->GetSheetID();
 		}
 		$table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."'";
