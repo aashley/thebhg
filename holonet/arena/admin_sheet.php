@@ -128,9 +128,10 @@ function output() {
 				    $form = new Form($page);	
 				    $form->AddHidden('id', $_REQUEST['id']);    	
 				    $form->AddHidden('save', 1);
-				    $form->AddTextBox('Reason (for denial): ', 'reason');
-				    $form->table->AddRow('<input type="submit" name="deny" Value="Deny Sheet">');
-				    $form->table->AddRow('<input type="submit" name="approve" Value="<b>Approve Sheet</b>">');
+				    $form->AddTextArea('Reason (for denial): ', 'reason');
+				    $form->table->StartRow();
+				    $form->table->AddCell('<input type="submit" name="deny" Value="Deny Sheet"> || <input type="submit" name="approve" Value="Approve Sheet">', 2);
+				    $form->table->EndRow();
 			    	$form->EndForm();
 		    	} else {
 			    	$form = new Form($page);	
