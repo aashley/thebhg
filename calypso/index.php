@@ -167,15 +167,19 @@
 	// Calypso RSS 1.0 and 2.0 feeds.
 		case 24:
 			header ("Content-Type: application/rss+xml");
-			$smarty->assign ('xsl', 'rss10');
-			$smarty->display ('admin_syndicate_atom.html',
-			                  'rss10');
+
+			$xml = $system ["home"] . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+     		$xsl = $system ["home"] . "xsl/atom03-to-rss10.xsl";
+			echo xslt_trans_w3 ($xml, $xsl);
+
 			break;
 		case 34:
 			header ("Content-Type: application/rss+xml");
-			$smarty->assign ('xsl', 'rss20');
-			$smarty->display ('admin_syndicate_atom.html',
-			                  'rss20');
+
+			$xml = $system ["home"] . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+     		$xsl = $system ["home"] . "xsl/atom03-to-rss20.xsl";
+			echo xslt_trans_w3 ($xml, $xsl);
+
 			break;
 		case 25:
 			header ("Content-Type: application/atom+xml");
@@ -185,13 +189,19 @@
 	// Per-blog RSS 1.0 and 2.0 feeds.
 		case 5:
 			header ("Content-Type: application/rss+xml");
-			$smarty->display ('syndicate_rss10.html', 
-					  'blog:{$_REQUEST["blogid"]}');
+
+			$xml = $system ["home"] . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+     		$xsl = $system ["home"] . "xsl/atom03-to-rss10.xsl";
+			echo xslt_trans_w3 ($xml, $xsl);
+
 			break;
 		case 32:
 			header ("Content-Type: application/rss+xml");
-			$smarty->display ('syndicate_rss20.html', 
-					  'blog:{$_REQUEST["blogid"]}');
+
+			$xml = $system ["home"] . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+     		$xsl = $system ["home"] . "xsl/atom03-to-rss20.xsl";
+			echo xslt_trans_w3 ($xml, $xsl);
+
 			break;
 		case 21:
 			header ("Content-Type: application/atom+xml");
@@ -202,15 +212,19 @@
 	// Per-category RSS 1.0 and 2.0 feeds.
 		case 29:
 			header ("Content-Type: application/rss+xml");
-			$smarty->assign ('xsl', 'rss10');
-			$smarty->display ('syndicate_category_atom.html',
-					  'blog:{$_REQUEST["blogid"]},category:{$_REQUEST["category"]},rss10');
+
+			$xml = $system ["home"] . str_replace ("rss10.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+     		$xsl = $system ["home"] . "xsl/atom03-to-rss10.xsl";
+			echo xslt_trans_w3 ($xml, $xsl);
+
 			break;
 		case 33:
 			header ("Content-Type: application/rss+xml");
-			$smarty->assign ('xsl', 'rss20');
-			$smarty->display ('syndicate_category_atom.html',
-					  'blog:{$_REQUEST["blogid"]},category:{$_REQUEST["category"]},rss20');
+
+			$xml = $system ["home"] . str_replace ("rss20.xml", "atom03.xml", $_SERVER ["REQUEST_URI"]);
+     		$xsl = $system ["home"] . "xsl/atom03-to-rss20.xsl";
+			echo xslt_trans_w3 ($xml, $xsl);
+
 			break;
 		case 30:
 			header ("Content-Type: application/atom+xml");

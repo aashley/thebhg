@@ -6,6 +6,18 @@
 		return ((float) $usec + (float) $sec);  
 	}
 
+	function xslt_trans_w3 ($xmlfile, $xslfile) 
+	{
+		$rfile = sprintf (
+			"http://www.w3.org/2000/06/webdata/xslt?xslfile=%s&xmlfile=%s",
+			$xslfile,
+			$xmlfile
+		);
+
+		return include_once ($rfile);
+	}
+
+
 	function calypso_linktitle ($string)
 	{
 		return preg_replace ("/[^\w\d]/", "", ucwords ($string));

@@ -1,6 +1,7 @@
 RewriteEngine  on
 
 # Admin
+RewriteRule   ^xsl/(.*)$      /templates/xsl/$1
 RewriteRule   ^([a-z0-9]+)/admin(.?)$ 							/index.php?route=15
 RewriteRule   ^([a-z0-9]+)/admin/create(.?)$ 						/index.php?route=15
 RewriteRule   ^([a-z0-9]+)/admin/entries(.?)$ 						/index.php?route=19
@@ -21,7 +22,6 @@ RewriteRule   ^([a-z0-9]+)/atom03.xml$    /index.php?blogid=$1&route=21
 RewriteRule   ^([a-z0-9]+)/links.xml$     /index.php?blogid=$1&route=27
 RewriteRule   ^([a-z0-9]+)/books.xml$     /index.php?blogid=$1&route=28
 RewriteRule   ^([a-z0-9]+)/images/(.*)$   /templates/general/include/$2
-RewriteRule   ^([a-z0-9]+)/xsl/(.*)$      /templates/xsl/$2
 RewriteRule   ^([a-z0-9]+)/search(.?)$    /index.php?blogid=$1&route=7
 
 # Archives
@@ -45,4 +45,4 @@ RewriteRule   ^opml.xml$ 							/index.php?route=22
 RewriteRule   ^foaf.xml$ 							/index.php?route=23
 RewriteRule   ^rss10.xml$ 							/index.php?route=24
 RewriteRule   ^rss20.xml$ 							/index.php?route=34
-RewriteRule   ^atom03.xml$ 							/index.php?route=25
+RewriteRule   ^atom03.xml$ 						/index.php?route=25
