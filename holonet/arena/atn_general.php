@@ -22,6 +22,14 @@ function output() {
 
     if (is_object($hunter)){
     
+	    $report_result = mysql_query('SELECT * FROM arena_reports WHERE author=' . $hunter->GetID() . ' ORDER BY time DESC', $arena->connect);
+		$reports = array();
+		if ($report_result && mysql_num_rows($report_result)) {
+			while ($report = mysql_fetch_array($report_result)) {
+				$reports[] = $report;
+			}
+		}
+	    
 	    $properties = count($arena->MyProperties($hunter));
 	    
 	    $arena_ladder = new Details();
@@ -109,6 +117,10 @@ function output() {
 		    $table->AddRow('Arena Designation:', 'Owns Teta\'s Knives'); 
 		}	
 		
+		if (count($reports) > 5) {
+			$table->AddRow('Arena Reports:', '<a href="' . internal_link('atn_award', array('id'=>$hunter->GetID())) . '#reports">Show All Reports</a>');
+		}
+		
 	    $table->EndTable();
 	    
 	    echo '</td><td align="center"><div style="text-align: left">';
@@ -125,6 +137,27 @@ function output() {
 			$table->EndTable();
 		}
 	    
+		if (count($reports)) {
+		hr();
+
+		echo '<a name="reports"></a>';
+		$table = new Table();
+		$table->StartRow();
+		$table->AddHeader('Recent Reports', 2);
+		$table->EndRow();
+		$table->StartRow();
+		$table->AddHeader('Date');
+		$table->AddHeader('Position');
+		$table->EndRow();
+		
+		foreach (array_slice($reports, 0, 5) as $report) {
+			$pos_text = '<a href="' . internal_link('view_reports', array('id'=>$report['admin'])) . '">' . $arena->ArenaPosition($report['admin']) . '</a>';
+			$table->AddRow('<a href="' . internal_link('report', array('id'=>$report['id'])) . '">' . date('j F Y', $report['time']) . '</a>', $pos_text);
+		}
+
+		$table->EndTable();
+	}
+		
 	    echo '</div></td></tr></table>';
 	
 	    hr();

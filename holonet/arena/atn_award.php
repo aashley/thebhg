@@ -300,7 +300,32 @@ function output() {
 		    $table->EndTable();
 		    echo '<br />';
 		    
+		    hr();
+		    
 	    }
+	    
+	    $report_result = mysql_query('SELECT * FROM arena_reports WHERE author=' . $hunter->GetID() . ' ORDER BY time DESC', $arena->connect);
+		if ($report_result && mysql_num_rows($report_result)) {
+			while ($report = mysql_fetch_array($report_result)) {
+				$reports[] = $report;
+			}
+		}
+	
+		if (count($reports)){
+			echo '<a name="reports"></a>';
+			$table = new Table();
+			$table->StartRow();
+			$table->AddHeader('Date');
+			$table->AddHeader('Position');
+			$table->EndRow();
+			
+			foreach ($reports as $report) {
+				$pos_text = '<a href="' . internal_link('view_reports', array('id'=>$report['admin'])) . '">' . $arena->ArenaPosition($report['admin']) . '</a>';
+				$table->AddRow('<a href="' . internal_link('report', array('id'=>$report['id'])) . '">' . date('j F Y', $report['time']) . '</a>', $pos_text);
+			}
+		
+			$table->EndTable();
+		}
 		
 	}
     
