@@ -127,25 +127,21 @@ function output() {
 	<noscript>
 	This page requires JavaScript to function properly.
 	</noscript>
-	<form name="award" method="post" action="<?=$PHP_SELF?>">
-	<input type="hidden" name="module" value="<?=$module?>">
-	<input type="hidden" name="page" value="<?=$page?>">
-	Reason: <input type="text" name="reason" size=25>
 	<?php
+	$form = new Form($page);
+	$form->AddTextBox('Reason', 'reason');
   
-	$table = new Table('', true);
-  
-	$table->StartRow();
-	$table->AddHeader('Kabal');
-	$table->AddHeader('Person');
-	$table->AddHeader('Credits');
-	$table->EndRow();
+	$form->table->StartRow();
+	$form->table->AddHeader('Kabal');
+	$form->table->AddHeader('Person');
+	$form->table->AddHeader('Credits');
+	$form->table->EndRow();
   
 	for ($i = 0; $i < 10; $i++) {
     
-    $table->StartRow();
+    	$form->table->StartRow();
       
-			$table->AddCell("<select name=\"kabal$i\" "
+		$form->table->AddCell("<select name=\"kabal$i\" "
         ."onChange=\"swap_kabal(this.form, $i)\">"
         ."<option value=\"-1\">N/A</option>$kabals</select>");
     
@@ -155,21 +151,19 @@ function output() {
     
 		$cell .= "</select>";
     
-		$table->AddCell($cell);
+		$form->table->AddCell($cell);
     
-		$table->AddCell("<input type=\"text\" name=\"credits$i\" value=\"0\" "
-      ."size=7 onFocus=\"if (this.value == '0') this.value = ''\" "
-      ."onBlur=\"if (this.value == '') this.value = '0'\">");
+		$form->table->AddCell("<input type=\"text\" name=\"credits$i\" value=\"0\" "
+      	."size=7 onFocus=\"if (this.value == '0') this.value = ''\" "
+      	."onBlur=\"if (this.value == '') this.value = '0'\">");
     
-		$table->EndRow();
+		$form->table->EndRow();
 	}
   
-	$table->EndTable();
+	$form->EndForm();
   
-	?>
-	<input type="submit" value="Submit Credit Award" class="button" name="submit">&nbsp;<input type="reset" class="button">
-	</form>
-	<?php
+	$form->AddSubmitButton('submit', 'Submit Credit Award');
+    $form->EndForm();
 
     admin_footer($auth_data);
 }
