@@ -46,21 +46,30 @@ function output() {
 		    $table->AddHeader('Character Sheets', 6);
 		    $table->EndRow();
 
+		    $sheets = array();
+		    
+		    foreach ($sheet->SheetHolders() as $data){
+			    $sheets[$character->Status('SYSTEM')][] = $data;
+		    }
+		    
+		    krsort($sheets);
 		    $table->AddRow('Hunter Name', 'Date Submitted', 'Status', '&nbsp;', '&nbsp;', '&nbsp;');
 		    
-		    foreach ($sheet->SheetHolders() as $character){
+		    foreach ($sheets as $sheeted){
+			    foreach ($sheeted as $character){
 			    
-			    if ($character->Status('SYSTEM') == 4){
-				    $status = '<b>'.$character->Status('HUMAN').'</b>';
-			    } else {
-				    $status = $character->Status('HUMAN');
+				    if ($character->Status('SYSTEM') == 4){
+					    $status = '<b>'.$character->Status('HUMAN').'</b>';
+				    } else {
+					    $status = $character->Status('HUMAN');
+				    }
+				    
+				    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
+				    $character->LastEdit(), $status, 
+				    '<a href="' . internal_link('admin_sheet', array('id'=>$character->GetID())).'">Edit</a>', '<a href="' . 
+				    internal_link('admin_sheet', array('id'=>$character->GetID(), 'view'=>1)).'">View for Approval</a>', '<a href="' . 
+				    internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
 			    }
-			    
-			    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
-			    $character->LastEdit(), $status, 
-			    '<a href="' . internal_link('admin_sheet', array('id'=>$character->GetID())).'">Edit</a>', '<a href="' . 
-			    internal_link('admin_sheet', array('id'=>$character->GetID(), 'view'=>1)).'">View for Approval</a>', '<a href="' . 
-			    internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
 		    }
 		    
 		    $table->EndTable();
