@@ -248,7 +248,11 @@
 				return false;
 			}
 		} else {
-			return true;
+			if ($this->DidVote($hunter)){
+				return false;
+			} else {
+				return true;
+			}
 		}
 	}
 	
