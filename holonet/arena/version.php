@@ -8,7 +8,7 @@ function output() {
 
     arena_header();
 
-    echo "Current version: v0.0.0";
+    echo "Current version: v3.0";
     
     hr();
     
@@ -24,15 +24,15 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: On the table.";
+    echo "Version Comments: First working build of the new system.";
     
     hr();
     
-    echo "Last Update: 12/20";
+    echo "Last Update: Saturday 1/15/2005";
     
     hr();
     
-   	echo "The Arena Management System is &copy; Ric Gravant, 2004.";
+   	echo "The Arena Management System is &copy; Ric Gravant, 2004-2005.";
 	
     arena_footer(false);
 }

@@ -21,8 +21,6 @@ function output() {
     }
 
     arena_header();
-
-    echo '<h3>The AMS is being fixed so it works. Please be patient.</h3>';
     
    echo "
 The cold breeze blows around a lone fighter, who stands amidst of the

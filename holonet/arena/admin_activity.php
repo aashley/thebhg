@@ -108,7 +108,7 @@ function output() {
 	    }
 	    $table->EndTable();
 	    
-	    if ($type->Get(opponent)){
+	    /* if ($type->Get(opponent)){
 		    hr();
 		    $table = new Table('', true);
 		    $table->StartRow();
@@ -121,7 +121,7 @@ function output() {
 		    if (!$at->Ended()){
 			    $options[] = formt('Add Hunter as Wildcard', 'tournament_wildcard', 'Adds a new hunter to the mix.');
 			    $options[] = formt('Delete Hunters', 'tournament_manage', 'Allows you to delete people you have teh hate for.');
-			    $options[] = formt('Randomize Brackets', 'tournament_random', 'Randomizes the brackets. <h5>Warning: Sentience Has Power Here</h5>');
+			    $options[] = formt('Randomize Brackets', 'tournament_random', 'Randomizes the brackets. <b>Warning: Sentience Has Power Here</b>');
 			    $options[] = formt('Organize Round Brackets', 'tournament_organize', 'Allows you to fuddle with the brackets.');
 			    $options[] = formt('Add Round to ATN', 'tournament_atn', 'Once you are good and happy, add round to the tracker.');
 			    $options[] = formt('Enter Round Stats', 'tournament_round', 'Select winners, losers, DQers, et cetra.');
@@ -140,7 +140,7 @@ function output() {
 			    $table->EndRow();
 		    }
 		    $table->EndTable();
-	    }
+	    }*/
 		    
 	    
     } else {

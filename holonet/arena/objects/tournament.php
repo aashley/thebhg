@@ -16,7 +16,7 @@
     }
     
 	function Seasons(){
-        $sql = "SELECT * FROM `ams_tourney_dates` ORDER BY `start`";
+        $sql = "SELECT * FROM `ams_tourney_dates` WHERE `activity` = '$activity' ORDER BY `start`";
         $query = mysql_query($sql, $this->holonet);
         $return = array();
         
