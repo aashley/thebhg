@@ -81,8 +81,8 @@
             $date = getdate($this->GetEnds());
             return $date['month']." ".$date['mday'].", ".$date['year'];
         } else {
-	        echo $this->GetEnds();
-            return format_time(time()-$this->GetEnds());
+	        $time = time()-$this->GetEnds();
+            return format_time($time);
         }
     }
     
