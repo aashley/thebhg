@@ -1,3 +1,6 @@
+-- version 1.1.1a (15/9/2004) --
+1. Fixed a bug in the sorting of the alternate themes. Hey, it was bugging me. :)
+
 -- version 1.1.1 (15/9/2004) --
 1. Changed authentication to allow broader Commission access.
 2. Made the autolinker a bit smarter.

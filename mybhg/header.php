@@ -1,5 +1,5 @@
 <?php
-define('VERSION', '1.1.1');
+define('VERSION', '1.1.1a');
 
 ob_start();
 header('Content-Type: text/html; charset=UTF-8');
@@ -113,7 +113,7 @@ $themes = array();
 foreach (get_themes() as $th) {
 	$themes[$th->GetName()] = $th->GetStyleSheet();
 }
-asort($themes);
+ksort($themes);
 unset($themes[$theme->GetName()]);
 echo '<link rel="stylesheet" title="' . $theme->GetName() . '" href="' . $theme->GetStyleSheet() . '" />';
 foreach ($themes as $name => $ss) {
