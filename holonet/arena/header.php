@@ -126,6 +126,7 @@ function atn_nav(){
     foreach ($tables as $id=>$table){
 	    $gblname = ($id ? 'Activities' : 'Lists');
 	    foreach ($arena->Search(array('table'=>$table, 'search'=>array('date_deleted'=>'0'))) as $axs){
+		    print_r($axs);
 		    if ($id){
 			    $app[$axs->Get(Name)] = internal_link('atn_activity', array('id'=>$axs->Get(id)));
 	    	} else {
