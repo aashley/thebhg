@@ -78,7 +78,7 @@ function output() {
 			$can_edit = true;
 		}
 		
-		if ($can_edit){			
+		if ($can_edit){
 			if (isset($_REQUEST['buypoint'])){
 				$points = $character->GetExperiencePoints()/350;
 				if ($points >= $_REQUEST['points']){

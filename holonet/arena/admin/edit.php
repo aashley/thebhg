@@ -26,6 +26,12 @@ if ($_REQUEST['match']){
 			}*/
 			//When PHP 5:
 			$return = array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]);
+			if (in_array('date_deleted', $_REQUEST['data']['values'])){
+				$search = $arena->Search(array('table'=>'ams_records', 'search'=>array('match'=>$match->Get(id), 'date_deleted'=>0)));
+				foreach ($search as $mtc){
+					$mtc->Edit($return, 1);
+				}
+			}
 			$obj->Edit($return, 1);
 			echo 'Edits Made';
 		} else {
