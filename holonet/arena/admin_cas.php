@@ -20,9 +20,11 @@ function output() {
     if (isset($_REQUEST['new'])){
 		 $character = new Character($_REQUEST['bhg_id']);
 		 $character->AwardCA($_REQUEST['ca']);
+		 echo 'Awarded Character Attribute';
     } elseif (isset($_REQUEST['del'])){
 		 $character = new Character($_REQUEST['bhg_id'][$_REQUEST['ca']]);
 		 $character->DeleteCA($_REQUEST['ca']);
+		 echo 'Deleted Character Attribute';
     } else {
 	    $form = new Form($page, 'New Award');
 	    $form->AddSectionTitle('Hunter');
