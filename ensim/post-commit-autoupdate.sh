@@ -20,7 +20,7 @@ function checkUpdate() {
   local UPDATE dir=$1 site=$2
 
   LogMsg "Checking Revision $REV in $REPOS for $dir update"
-  /usr/local/bin/svnlook changed "$REPOS" -r "$REV" | grep $dir > /dev/null
+  /usr/bin/svnlook changed "$REPOS" -r "$REV" | grep $dir > /dev/null
   UPDATE=$?
 
   if [[ $UPDATE -eq 0 ]]; then
@@ -38,5 +38,6 @@ LogMsg "New Commit: $REV"
 
 checkUpdate projects/trunk/holonet holonet-devel
 checkUpdate projects/trunk/mybhg mybhg-devel
+checkUpdate projects/trunk/ka ka-devel
 
 LogMsg "Revision $REV complete"

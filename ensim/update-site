@@ -10,6 +10,9 @@ if [[ $# -eq 0 ]]; then
   echo " holonet-devel   Development and testing Holonet Site"
 	echo " mybhg           MyBHG - Main Website"
 	echo " mybhg-devel     MyBHG - Testing"
+	echo " ka              Kabal Authority"
+  echo " ka-devel        Kabal Authority Development"
+  echo " calypso         BHG Blogs"
 	echo " tactician       Tactician Website"
 fi
 
@@ -70,6 +73,30 @@ for site in $*; do
 			pushd /home/virtual/thebhg.org/home/tactician/public_html > /dev/null
 			$SVN update
 			chown -R 22256:admin5 .
+			popd > /dev/null
+			;;
+
+		calypso)
+			echo Updating Calypso...
+			pushd /home/virtual/thebhg.org/home/blogs/public_html > /dev/null
+			$SVN update
+			chown -R 22268:admin5 .
+			popd > /dev/null
+			;;
+
+		ka)
+			echo Updating Kabal Authority...
+			pushd /home/virtual/thebhg.org/home/ka/public_html > /dev/null
+			$SVN update
+			chown -R 22130:admin5 .
+			popd > /dev/null
+			;;
+
+		ka-devel)
+			echo Updating Kabal Authority Development...
+			pushd /home/virtual/thebhg.org/home/katest/public_html > /dev/null
+			$SVN update
+			chown -R 22135:admin5 .
 			popd > /dev/null
 			;;
 
