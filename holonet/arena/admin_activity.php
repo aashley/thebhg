@@ -56,7 +56,7 @@ function frmt($name, $op, $desc, $attn = 0){
 }
 
 function formt($name, $page, $desc){
-	return array('name'=>$name, 'page'=>$page, 'desc'=>$desc, 'attn'=>$attn);
+	return array('name'=>$name, 'page'=>$page, 'desc'=>$desc);
 }
 
 function output() {
@@ -109,6 +109,7 @@ function output() {
 	    $table->EndTable();
 	    
 	    if ($type->Get(opponent)){
+		    hr();
 		    $table = new Table('', true);
 		    $table->StartRow();
 		    $table->AddHeader($activity->Get(name).' Tournament Options', 2);
