@@ -145,23 +145,22 @@
 	    }
     }
     
-    function LatestReport($posi){
+    function LatestReport($posis){
 	    
-	    $roster = new Roster();
-	    
-        $reports = mysql_query('SELECT * FROM arena_reports WHERE admin="' . $posi . '" ORDER BY time DESC LIMIT 1', $this->connect);
-		if ($reports && mysql_num_rows($reports)) {
-			$table = new Table();
-			$table->StartRow();
-			$table->AddHeader('Position');
-			$table->AddHeader('Latest');
-			$table->AddHeader('Author');
-			$table->EndRow();
-			$report = mysql_fetch_array($reports);
-			$author = $roster->GetPerson($report['author']);
-			$table->AddRow('<a href="'.internal_link('view_reports', array('position'=>$posi)).'">'.$this->ArenaPosition($posi).'</a>', '<a href="' . internal_link('report', array('id'=>$report['id'])) . '">' . date('j F Y', $report['time']) . '</a>', '<a href="' . internal_link('atn_general', array('id'=>$report['author'])) . '">' . $author->GetName() . '</a>');
+	    foreach ($posis as $posi=>$t){
+		    $table = new Table();
+	        $reports = mysql_query('SELECT * FROM arena_reports WHERE admin="' . $posi . '" ORDER BY time DESC LIMIT 1', $this->connect);
+			if ($reports && mysql_num_rows($reports)) {
+				$table->StartRow();
+				$table->AddHeader('Position');
+				$table->AddHeader('Latest');
+				$table->AddHeader('Author');
+				$table->EndRow();
+				$report = mysql_fetch_array($reports);
+				$author = $roster->GetPerson($report['author']);
+				$table->AddRow('<a href="'.internal_link('view_reports', array('position'=>$posi)).'">'.$this->ArenaPosition($posi).'</a>', '<a href="' . internal_link('report', array('id'=>$report['id'])) . '">' . date('j F Y', $report['time']) . '</a>', '<a href="' . internal_link('atn_general', array('id'=>$report['author'])) . '">' . $author->GetName() . '</a>');
+			}
 			$table->EndTable();
-			hr();
 		}
     }
     
