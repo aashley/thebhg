@@ -38,7 +38,9 @@
 
         while ($result = mysql_fetch_array($query)){
             $new = new Match($result['match_id']);
-            array_push($return, $new);
+            if ($new->GetMatchID()){
+            	array_push($return, $new);
+        	}
         }
         
         return $return;
