@@ -473,15 +473,15 @@ function admin_footer($auth_data) {
     }
     
     if ($auth_data['survival']){
-	    echo '<br />Survival&nbsp;Contracts<br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_complete') . '">Complete&nbsp;a&nbsp;Contract</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Contracts</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_dco') . '">Declare&nbsp;Dead&nbsp;Contract</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_editor') . '">Edit&nbsp;Contracts</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_approve') . '">Process&nbsp;Requested&nbsp;Contract</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
-        echo '&nbsp;<a href="' . internal_link('admin_survival_retire') . '">Process&nbsp;Retired&nbsp;Contract</a><br />';
+	    echo '<br />Survival&nbsp;Missions<br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_complete') . '">Complete&nbsp;a&nbsp;Mission</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_reassign') . '">Manage&nbsp;Dead&nbsp;Missions</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco') . '">Declare&nbsp;Dead&nbsp;Mission</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_editor') . '">Edit&nbsp;Missions</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_approve') . '">Process&nbsp;Requested&nbsp;Mission</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_post') . '">Post&nbsp;New&nbsp;Mission</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Mission</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_survival_retire') . '">Process&nbsp;Retired&nbsp;Mission</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_type') . '">Edit&nbsp;Types</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_survival_grade') . '">Edit&nbsp;Grades</a><br />';
     }
