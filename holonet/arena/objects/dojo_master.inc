@@ -57,8 +57,6 @@
 
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
-        
-        echo mysql_error($this->connect);
 
         $this->creds = $info['credits']+$this->dojo_creds;
         $this->xp = $info['xp']+$this->dojo_xp;
