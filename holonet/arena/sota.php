@@ -62,7 +62,10 @@ function output() {
     $activities['Lone Wolf Missions'] = array('ce'=>count($arena->LWContracts()), 'oe'=>count($lw->PendingContracts()), 'ue'=>count($lw->RequestedContracts()), 'xp'=>$solo->GetDXP(), 'cr'=>$solo->GetDCreds(), 'ad'=>$cbo);
     $activities['Survival Missions'] = array('ce'=>count($arena->SurvivalContracts()), 'oe'=>count($surv->PendingContracts()), 'ue'=>count($surv->RequestedContracts()), 'xp'=>$surv->GetXP(), 'cr'=>$surv->GetCreds(), 'ad'=>$sur);
     $activities['Starfield Arena'] = array('ce'=>count($arena->StarfieldMatches('AND `end` > 0')), 'oe'=>count($star->Pending()), 'ue'=>count($star->Unposted()), 'xp'=>$star->GetXP(), 'cr'=>$star->GetCreds(), 'ad'=>$ski);
-    $activities['Run Ons'] = array('ce'=>count($arena->IRCAMatches('AND `graded` > 0')), 'oe'=>count($irca->Ungraded()), 'ue'=>count($irca->Unfinished()), 'xp'=>$irca->GetXP(), 'cr'=>$irca->GetCreds(), 'ad'=>$hoc);    
+	$activities['Run Ons'] = array('ce'=>count($ro->GetROs()), 'oe'=>count($ro->Pending()), 'ue'=>count($ro->Unposted()), 'xp'=>$ro->GetXP(), 'cr'=>$ro->GetCreds(), 'ad'=>$mim);
+    $activities['IRC Arena'] = array('ce'=>count($arena->IRCAMatches('AND `graded` > 0')), 'oe'=>count($irca->Ungraded()), 'ue'=>count($irca->Unfinished()), 'xp'=>$irca->GetXP(), 'cr'=>$irca->GetCreds(), 'ad'=>$hoc);
+    
+    ksort($activities);
     
     foreach ($activities as $activity=>$stats){
 	    $table->AddRow($activity, nf($stats['ce']), nf($stats['oe']), nf($stats['ue']), nf($stats['xp']), nf($stats['cr']), $stats['ad']);	    
