@@ -59,7 +59,9 @@ function output() {
 		        	'<input type="checkbox" name="deny['.$i.']" value="'.$value['bhg_id'].'">');
 		        $i++;
 	        }
-	        $form->AddHidden('submit', 1);
+	        $form->table->StartRow();
+	        $form->table->AddCell('<input type="submit" name="submit" value="Process">', 4);
+	        $form->table->EndRow();
 	        $form->EndForm();
         } else {
 	        echo 'No Pending Contracts';
