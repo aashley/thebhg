@@ -59,7 +59,7 @@ function output() {
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Make New Creature');
 	    $form->AddTextBox('Creature Name:', 'name');
-	    $form->AddTextBox('Number of Stats', 'stats', 5);
+	    $form->AddTextBox('Number of Stats', 'stats', '', 5);
 	    $form->AddSubmitButton('next', 'Enter Creature Stats');
 	    $form->EndForm();
     }
