@@ -1,8 +1,8 @@
 <?php
 
 $poll = new Poll($_REQUEST['poll']);
-print_r($poll);
-echo $_REQUEST['poll'];
+
+echo $poll->GetID();
 if (!$poll->GetID()){
 	$poll = false;
 }
