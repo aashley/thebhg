@@ -142,11 +142,15 @@ function output() {
 				$setups[] = '<a href="#" title="'.$info.'"><img border=0 src="arena/images/distinctions/'.$reward.'.png"></a>';				
 			}
 			
+			$table->StartRow();
+			
+			$text = '';
+			
 			for ($i = 0; $i < count($setups); $i += 5) {
-				$table->StartRow();
-				$table->AddCell(implode('', array_slice($setups, $i, 5)));
-				$table->EndRow();
+				$text .= implode('', array_slice($setups, $i, 5)).'<br />';
 			}
+			$table->AddCell($text);
+			$table->EndRow();
 
 			$table->EndTable();
 		}
