@@ -134,7 +134,7 @@
     }
     
     function DropdownFields($form, $name = 'csfield'){
-	    $form->StartSelect('Stat/Skill', $name){
+	    $form->StartSelect('Stat/Skill', $name);
 		    foreach ($this->GetSkills() as $skill){
 			    $form->AddOption('skill_'.$skill->GetID(), $skill->GetName());
 		    }
