@@ -79,26 +79,9 @@ function next_medal($person, $group) {
 	}
 }
 
-function acn_nav(){
-	global $at, $lw, $person, $iat, $sat;
-	
+function acn_nav(){	
 	echo '<small>General<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_challenge') . '">Network&nbsp;Control</a><br />';
-	
-	if ($at->ValidSignup()){
-		echo '<br />Arena Tournament<br />';
-	    echo '&nbsp;<a href="' . internal_link('acn_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
-	}
-	
-	if ($iat->ValidSignup()){
-		echo '<br />IRC Arena Tournament<br />';
-	    echo '&nbsp;<a href="' . internal_link('acn_irc_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
-	}
-	
-	if ($sat->ValidSignup()){
-		echo '<br />Starfield Arena Tournament<br />';
-	    echo '&nbsp;<a href="' . internal_link('acn_sa_tournament_signup') . '"><b>Signup&nbsp;For&nbsp;Tournament</b></a><br />';
-	}
 	
 	echo '<br />Arena<br />';
 	echo '&nbsp;<a href="' . internal_link('acn_arena_challenge') . '">Arena&nbsp;Challenges</a><br />';
@@ -180,7 +163,7 @@ function atn_nav(){
 }
 
 function arena_footer($show_list = true) {
-    global $roster, $arena;
+    global $roster;
     
     $shelf = new Shelf(6);
 
@@ -330,7 +313,7 @@ function get_auth_data($hunter) {
 }
 
 function admin_footer($auth_data) {
-	global $roster, $arena;
+	global $roster;
 	
 	$citadel = new Citadel();
 	
