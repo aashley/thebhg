@@ -32,7 +32,7 @@ function output() {
         $form->AddTextBox('Credits Earned:', 'creds');
         $form->AddTextBox('Experience Points:', 'xp');
         $form->AddHidden('contract_id', $_REQUEST['contract_id']);
-        $form->AddSubmitButton('submit', 'Complete Contract');
+        $form->AddSubmitButton('submit', 'Complete Mission');
         $form->EndForm();
     }
     elseif (isset($_REQUEST['submit'])) {
