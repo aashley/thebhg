@@ -48,6 +48,8 @@ function output() {
 	    	
 	    	$creds = round(($time / ($endut - $startut)) * 350000);
 	
+	    	echo $endut;
+	    	
 	      	if (isset($aides[$pay['bhg_id']])) {
 	        	$aides[$pay['bhg_id']] += $creds;
 	      	} else {
@@ -61,7 +63,7 @@ function output() {
 				$hunter = $roster->GetPerson($rid);
 				$form->AddTextBox($hunter->GetName(), "aides[$rid]", $credits);
 			}
-		$form->AddSubmitButton('submit', 'Pay Salaries');
+		//$form->AddSubmitButton('submit', 'Pay Salaries');
 		$form->EndForm();
 	}
 	else {
