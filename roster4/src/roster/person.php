@@ -19,6 +19,29 @@ class bhg_roster_person extends bhg_core_base {
 
 	// }}}
 
+	// {{{ getIDLine()
+
+	/**
+	 * Get the ID Line of this person
+	 *
+	 * @return string
+	 */
+	public function getIDLine() {
+
+		$idline = $this->getRank()->getAbbrev()
+			.'/'
+			.$this->getName()
+			.'/'
+			.$this->getDivision()->getName()
+			.'/BHG -'
+			.$this->getPosition()->getAbbrev();
+
+		return $idline;
+
+	}
+
+	// }}}
+
 }
 
 ?>
