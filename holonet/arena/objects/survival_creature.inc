@@ -42,7 +42,8 @@
 	    $stat = array_shift($this->npc_stats);
 	    $table->AddRow('Name: ', $namemod.mb_convert_case($stat, MB_CASE_TITLE, "UTF-8"));
 	    foreach ($this->npc_stats as $name=>$stat){
-		    $table->AddRow($name, $stat*$this->type->GetPoints());
+		    $point = $stat*$this->type->GetPoints()
+		    $table->AddRow($name, str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $point));
 	    }
     }
 
