@@ -30,9 +30,9 @@ function output() {
 			}
 		    
 		    if ($sheet->HasValue($hunter->GetID(), $_REQUEST[$name], $_REQUEST['txt_'.$name])){			    
-			    echo 'You have at least a  '.$_REQUEST['txt_'.$name].' in '.$retrun->GetName().'.';
+			    echo 'You have at least a  '.$_REQUEST['txt_'.$name].' in '.$retrn->GetName().'.';
 		    } else {
-			    echo 'You do not have at least a '.$_REQUEST['txt_'.$name].' in '.$retrun->GetName().'.';
+			    echo 'You do not have at least a '.$_REQUEST['txt_'.$name].' in '.$retrn->GetName().'.';
 		    }
 		    echo '<br />';
 	    }
