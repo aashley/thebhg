@@ -27,7 +27,7 @@ function output() {
 			$at = new Tournament($_REQUEST['at-id']);
 			if ($at->season){
 				if ($_REQUEST['del']){
-					if ($at->DeleteSignup($hunter-GerID())){
+					if ($at->DeleteSignup($hunter->GetID())){
 						echo 'Signup delted successfully.';
 					} else {
 						echo 'Error deleting signup.';
