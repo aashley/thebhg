@@ -37,6 +37,7 @@ function output() {
 	
 		if (isset($_REQUEST['submit'])){
 			echo $character->Kill($_REQUEST['reason']);
+			$sheet->RegistrarTrack('kill');
 		} else {
 			$form = new Form($page);
 			$form->AddHidden('id', $_REQUEST['id']);

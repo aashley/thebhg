@@ -157,6 +157,14 @@ function output() {
 			    if ($regist->GetCreds()){ $table->AddRow('Credits Awarded:', number_format($regist->GetCreds()).' Imperial Credits'); }
 			    if ($regist->GetXP()){ $table->AddRow('Experience Points Awarded:', number_format($regist->GetXP())); }
 			    if ($regist->GetMedals()){ $table->AddRow('Medals Awarded:', number_format($regist->GetMedals())); }
+			    if ($regist->NewSheet()){ $table->AddRow('New Sheets Under Administration:', number_format($regist->NewSheet())); }
+			    if ($regist->Deny()){ $table->AddRow('Denied Sheets Under Administration:', number_format($regist->Deny())); }
+			    if ($regist->Ban()){ $table->AddRow('Edit Bans Under Administration:', number_format($regist->Ban())); }
+			    if ($regist->Approve()){ $table->AddRow('Approved Sheets Under Administration:', number_format($regist->Approve())); }
+			    if ($regist->Kill()){ $table->AddRow('Killed Sheets Under Administration:', number_format($regist->Kill())); }
+			    if ($regist->BP()){ $table->AddRow('Purchased Bonus Points Under Administration:', number_format($regist->BP())); }
+			    if ($regist->Submit()){ $table->AddRow('Submitted Sheets Under Administration:', number_format($regist->Submit())); }
+			    if ($regist->Saves()){ $table->AddRow('Sheet Saves Under Administration:', number_format($regist->Saves())); }
 		    } else {
 			    $table->StartRow();
 			    $table->AddCell('<center>No Contributions Made</center>');

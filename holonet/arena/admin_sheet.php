@@ -93,6 +93,8 @@ function output() {
 				echo 'Could not create a new sheet. Report this to the Overseer.';
 				admin_footer($auth_data);
 				return;
+			} else {
+				$sheet->RegistrarTrack('new');
 			}
 		}
 		
@@ -107,6 +109,7 @@ function output() {
 			if (isset($_REQUEST['buypoint'])){
 				for ($i = 1; $i <= $_REQUEST['points']; $i++){
 					$character->BuyPoint();
+					$sheet->RegistrarTrack('bp');
 				}
 				echo 'Purchased '.$_REQUEST['points'].' bonus points';
 				admin_footer($auth_data);
@@ -117,18 +120,23 @@ function output() {
 				if ($auth_data['sheet']){
 					if (!$_REQUEST['canedit']){
 						$character->Ban(parse_date_box('edit'));
+						$sheet->RegistrarTrack('ban');
 					}
 					if ($_REQUEST['approve']){
 						echo $character->Approve();
+						$sheet->RegistrarTrack('approve');
 					} else {
 						echo $character->Deny($_REQUEST['reason']);
+						$sheet->RegistrarTrack('deny');
 					}
 				} else {
 					echo $character->SubmitSheet();
+					$sheet->RegistrarTrack('submit');
 				}
 			} elseif (isset($_REQUEST['view'])){
 				if (isset($_REQUEST['process'])){
 					echo $character->SaveSheet($_REQUEST['stat'], $_REQUEST['expr'], $_REQUEST['pers']);
+					$sheet->RegistrarTrack('saves');
 					hr();
 				}
 				

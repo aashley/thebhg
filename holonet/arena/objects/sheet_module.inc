@@ -29,6 +29,19 @@
 	    }
     }
 	
+    function RegistrarTrack($event){
+	    $sql = "SELECT * FROM `arena_registrar_track` WHERE `registrar` = '".$this->CurrentRegistrar()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $sql = "UPDATE `arena_registrar_track` SET `$event` = $event+1 WHERE `registrar` = '".$this->CurrentRegistrar()."'";
+		    mysql_query($sql, $this->connect);
+	    } else {
+		    $sql = "INSERT INTO `arena_registrar_track` (`$event`, `registrar`) VALUES (1, '".$this->CurrentRegistrar()."')";
+		    mysql_query($sql, $this->connect);
+	    }
+    }
+    
     function NewField($name, $desc){
 	    $sql = "INSERT INTO `cs_fields` (`name`, `desc`) VALUES ('".addslashes($name)."', '".addslashes($desc)."')";
 	    
