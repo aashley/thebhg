@@ -167,7 +167,7 @@ function admin_footer($auth_data) {
 	echo '<small>';
 	
 	if ($auth_data['overseer']){
-		ah('System Administration');
+		ah('System Admin');
 		al('activities', 'Manage Activities');
 	}
 
