@@ -39,7 +39,7 @@ function output() {
 		if ($error){
 			echo 'Erorr';
 		} else {
-			echo 'Experience Points Added.';
+			echo 'Credits Awarded.';
 		}
 		
 		hr();
