@@ -3,7 +3,7 @@
 $poll = new Poll($_REQUEST['poll']);
 
 function title() {
-	$poll
+	global $poll;
     $title = 'AMS Tracking Network :: Arena Polling Centre :: ';
     if (is_object($poll){
 	    if (!$poll->IsDeleted()){
