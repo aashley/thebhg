@@ -1,5 +1,5 @@
 <?php
-
+  include_once ('roster.inc');
   $is_authorised = FALSE;
   
   function auth_error() {
@@ -12,7 +12,7 @@
 
   function authenticate($id, $password) {
     ini_set('include_path', ini_get('include_path').':/home/thebhg/public_html/include');
-    include_once ('roster.inc');
+    
     $hunter = new login($id, $password);
     $position_obj = $hunter->GetPosition();
     $position = $position_obj->GetID();
@@ -25,20 +25,11 @@
     }
   }
 
-  if (!isset($PHP_AUTH_USER)) { // Unauthorised
-
-    auth_error();
-    exit;
-
-  } elseif (authenticate($PHP_AUTH_USER, $PHP_AUTH_PW)) { // Authorised
-
-    $is_authorised = TRUE;
-
-  } else { // Unauthorised
-
-    auth_error();
-    exit;
-
+  $person = new Login_HTTP();
+  if(($person->IsValid()) && (($person->GetID() == 484) || ($person->GetID() == 2650) || (($person->GetPosition()->GetID() == 6) && ($person->GetDivision()->GetID() == 10)) || ($person->GetID() == 2649))) {
+	  $is_authorised = TRUE;
+  } else {
+	  auth_error();
+	  exit;
   }
-
 ?>

@@ -19,7 +19,7 @@
       $location = $_POST['location'];
       $type = $_POST['type'];
       $arena = (isset($_POST['arena'])) ? $_POST['arena'] : 0;
-      $add_query = "INSERT INTO $bldg_type VALUES (NULL, $planet, '$name', '$misc', '$pic', '$owner', '$location', '$type', $arena)";
+      $add_query = "INSERT INTO $bldg_type VALUES (NULL, $planet, '$name', '$misc', '$pic', '$owner', '$location', '$type', $arena, 0, 0, 0)";
       if (mysql_query($add_query)) {
         echo "<p>The building was successfully created.</p>\n";
       } else {
@@ -46,7 +46,7 @@
           echo "<p>An error occured modifying the building. Please <a href=\"http://bugs.thebhg.org/index.php?page=reportbug\" target=\"_blank\">report a bug</a>.</p>\n";
         }
       } else {
-        $add_query = "INSERT INTO $bldg_type VALUES (NULL, $planet, '$name', '$misc', '$pic', '$owner', '$location', '$type', $arena)";
+        $add_query = "INSERT INTO $bldg_type VALUES (NULL, $planet, '$name', '$misc', '$pic', '$owner', '$location', '$type', $arena, 0, 0, 0)";
         $del_query = "DELETE FROM $old_type WHERE id=$id LIMIT 1";
         if (mysql_query($add_query) && mysql_query($del_query)) {
           echo "<p>The building was successfully modified.</p>\n";
