@@ -29,6 +29,7 @@
     
     function CurrentSeason($old = 0){
         if ($old){
+	        echo 'Retarded';
             $this->season = $old;
         } else {
             $sql = "SELECT * FROM `ams_tourney_dates` WHERE `activity` = '".$this->activity."' ORDER BY `start` DESC LIMIT 1";
