@@ -24,10 +24,6 @@
 		<page>other</page>
 	</item>
 	<item>
-		<name>Arena</name>
-		<page>acc</page>
-	</item>
-	<item>
 		<name>Administration</name>
 		<page>admin</page>
 	</item>
