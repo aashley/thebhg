@@ -22,15 +22,11 @@ function output() {
 		    
 		    $split = explode('_', $_REQUEST[$name]);
 			$value = $split[1];
-		    
-			print_r($split);
 			
-			if ($split == 'skill'){
+			if ($split[0] == 'skill'){
 				$retrn = new Skill($value);
-				echo 'Skill';
 			} else {
 				$retrn = new Statribute($value);
-				echo 'Stat';
 			}
 		    
 		    if ($sheet->HasValue($hunter->GetID(), $_REQUEST[$name], $_REQUEST['txt_'.$name])){			    
