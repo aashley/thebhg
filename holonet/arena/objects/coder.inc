@@ -9,8 +9,8 @@ Class Coder extends Arena {
 	function Coder(){
 	    Arena::Arena();
 	    
-	    $this->LoadTables();
 	    $this->allowed = array('arena', 'character_sheet', 'cs');
+	    $this->LoadTables();	    
 	}
 	
 	function LoadTables(){   
