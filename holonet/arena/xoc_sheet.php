@@ -64,40 +64,40 @@ to them from here.<pre>
 
 if ($_REQUEST['submit']){
     	
-	    foreach ($_REQUEST['nameused'] as $name){
-		    
-		    $split = explode('_', $_REQUEST[$name]);
-			$value = $split[1];
-			
-			if ($split[0] == 'skill'){
-				$retrn = new Skill($value);
-			} else {
-				$retrn = new Statribute($value);
-			}
-		    
-		    if ($sheet->HasValue($hunter->GetID(), $_REQUEST[$name], $_REQUEST['txt_'.$name])){			    
-			    echo 'You have at least a  '.$_REQUEST['txt_'.$name].' in '.$retrn->GetName().'.';
-		    } else {
-			    echo 'You do not have at least a '.$_REQUEST['txt_'.$name].' in '.$retrn->GetName().'.';
-		    }
-		    echo '&lt;br />';
+    foreach ($_REQUEST['nameused'] as $name){
+	    
+	    $split = explode('_', $_REQUEST[$name]);
+		$value = $split[1];
+		
+		if ($split[0] == 'skill'){
+			$retrn = new Skill($value);
+		} else {
+			$retrn = new Statribute($value);
+		}
+	    
+	    if ($sheet->HasValue($hunter->GetID(), $_REQUEST[$name], $_REQUEST['txt_'.$name])){			    
+		    echo 'You have at least a  '.$_REQUEST['txt_'.$name].' in '.$retrn->GetName().'.';
+	    } else {
+		    echo 'You do not have at least a '.$_REQUEST['txt_'.$name].' in '.$retrn->GetName().'.';
 	    }
-	    
-	} elseif ($_REQUEST['next']){
-	    $form = new Form($page);
-	    
-	    for ($i = 1; $i <= $_REQUEST['fields']; $i++){
-		    $sheet->DropdownFields($form, 'field'.$i);
-	    }
-	    
-	    $form->AddSubmitButton('submit', 'Make final checks.');
-	    $form->EndForm();
-    } else {
-	    $form = new Form($page);
-	    $form->AddTextBox('Number of Fields:', 'fields');
-	    $form->AddSubmitButton('next', 'Choose fields.');
-	    $form->EndForm();
+	    echo '&lt;br />';
     }
+    
+} elseif ($_REQUEST['next']){
+    $form = new Form($page);
+    
+    for ($i = 1; $i <= $_REQUEST['fields']; $i++){
+	    $sheet->DropdownFields($form, 'field'.$i);
+    }
+    
+    $form->AddSubmitButton('submit', 'Make final checks.');
+    $form->EndForm();
+} else {
+    $form = new Form($page);
+    $form->AddTextBox('Number of Fields:', 'fields');
+    $form->AddSubmitButton('next', 'Choose fields.');
+    $form->EndForm();
+}
 </pre>
 <?php
 
