@@ -22,6 +22,25 @@ function output() {
 
     if ($sheet->HasSheet($hunter->GetID())){
     
+		if ($_REQUEST['at-id']){
+			$at = new Tournament($_REQUEST['at-id']);
+			if ($_REQUEST['del']){
+				if ($at->DeleteSignup($hunter-GerID())){
+					echo 'Signup delted successfully.';
+				} else {
+					echo 'Error deleting signup.';
+				}
+			} else {
+				if ($at->signup($hunter->GetID())){
+					echo 'Signup successful.';
+				} else {
+					echo $at->denied;
+				}
+			}
+			arena_footer();
+			exit;
+		}				
+	    
 	    hr();
 	    
 	    $pending = $arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'bhg_id'=>$hunter->GetID(), 'outcome'=>0)));
@@ -162,9 +181,9 @@ function output() {
 				    $table->EndRow();
 				    
 				    if ($at->CanSignup($hunter->GetID())){
-				    	$table->AddRow('<a href="'.internal_link($page, array('at-id'=>$at->CurrentSeason())).'">Sign Up!</a>');
+				    	$table->AddRow('<a href="'.internal_link($page, array('at-id'=>$obj->Get(id))).'">Sign Up!</a>');
 			    	} else {
-				    	$table->AddRow('You are signed up for this tournament. <a href="'.internal_link($page, array('at-id'=>$at->CurrentSeason(), 'del'=>1)).'">Remove Me</a>');
+				    	$table->AddRow('You are signed up for this tournament. <a href="'.internal_link($page, array('at-id'=>$obj->Get(id), 'del'=>1)).'">Remove Me</a>');
 			    	}
 			    	echo $table->EndTable();
 			    	
