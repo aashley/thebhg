@@ -191,29 +191,37 @@ function output() {
 		    		}
 		    	}
 		    	foreach ($sheet->ModFields(1) as $i){
-		    		$field = new Field($i);
-			    	$table->StartRow();
-					$table->AddHeader($field->GetName(), 2);
-					$table->EndRow();
-			    	foreach($sheet->GetStats($i) as $stat){
-				    	$value = '';
-				    	if (array_key_exists($stat->GetID(), $value_set)){
-					    	$value = $value_set[$stat->GetID()];
-				    	}
-				    	if ($i <= 2){
-					    	$prefix = 'stat';
-				    	} elseif ($i <= 6){
-					    	$prefix = 'expr';
-				    	} else {
-					    	$prefix = 'pers';
-				    	}
+			    	$count = 0;
+			    	foreach ($sheet->GetStats($i)){
 				    	if ($sheet->Permit(1, $stat->GetID(), 1)){
-					    	if ($stat->IsInt()){
-				    			$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', $prefix."[".$stat->GetID()."]", $value, 5);
-			    			} else {
-				    			$form->AddTextArea($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", stripslashes($value));
-			    			}
-			    		}
+					    	$count++;
+				    	}
+			    	}
+			    	if ($count){
+			    		$field = new Field($i);
+				    	$table->StartRow();
+						$table->AddHeader($field->GetName(), 2);
+						$table->EndRow();
+				    	foreach($sheet->GetStats($i) as $stat){
+					    	$value = '';
+					    	if (array_key_exists($stat->GetID(), $value_set)){
+						    	$value = $value_set[$stat->GetID()];
+					    	}
+					    	if ($i <= 2){
+						    	$prefix = 'stat';
+					    	} elseif ($i <= 6){
+						    	$prefix = 'expr';
+					    	} else {
+						    	$prefix = 'pers';
+					    	}
+					    	if ($sheet->Permit(1, $stat->GetID(), 1)){
+						    	if ($stat->IsInt()){
+					    			$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', $prefix."[".$stat->GetID()."]", $value, 5);
+				    			} else {
+					    			$form->AddTextArea($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', "pers[".$stat->GetID()."]", stripslashes($value));
+				    			}
+				    		}
+				    	}
 			    	}
 		    	}
 		    	$form->AddHidden('id', $_REQUEST['id']);
