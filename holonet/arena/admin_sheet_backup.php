@@ -256,7 +256,7 @@ function output() {
 				    $name = 'Backup';
 			    }
 			    
-			    if (!$character->EditBan('SYSTEM')){
+			    if (!$character->EditBan('SYSTEM') < time()){
 			    
 				    $form = new Form($page);
 				    
