@@ -2,6 +2,11 @@
 
 if (isset($_REQUEST['id'])){
 	$activity = new Obj('ams_activities', $_REQUEST['id'], 'holonet');
+	if (!$activity->Get(name)){
+		$activity = false;
+	} else {
+		$type = new Obj('ams_types', $activity->Get(type), 'holonet');
+	}
 }
 
 function title() {
@@ -17,7 +22,7 @@ function title() {
 }
 
 function output() {
-    global $activity, $arena;
+    global $activity, $arena, $type;
 
     $sheet = new Sheet();
     

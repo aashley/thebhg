@@ -5,8 +5,9 @@ if ($_REQUEST['id']){
 
 	if (!$activity->Get(name)){
 		$activity = false;
+	} else {
+		$type = new Obj('ams_types', $activity->Get(type), 'holonet');
 	}
-	$type = new Obj('ams_types', $activity->Get(type), 'holonet');
 }
 
 function title() {
