@@ -37,7 +37,7 @@
     }
     
     function BuildModEdit($id){
-    	$sql = "SELECT * FROM `cs_mods` WHERE `name` = '$field' AND `date_deleted` = 0";
+    	$sql = "SELECT * FROM `cs_mods` WHERE `id` = '$id' AND `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    if (mysql_num_rows($query)){

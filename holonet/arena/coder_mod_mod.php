@@ -38,7 +38,6 @@ function output() {
 	    $form->AddHidden('mod', $_REQUEST['mod']);
 	    
 	    $mod = $sheet->BuildModEdit($_REQUEST['mod']);
-	    print_r($mod);
 	    $fields = array_flip($mod['fields']);
 	    
 	    $form->AddTextBox('Name', 'name', $mod['name']);
