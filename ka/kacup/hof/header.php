@@ -6,7 +6,7 @@ $subarray = array(
 	'Most Master\'s Shields (Single KAC)'=>'kac/hof/info.php?flag=sms',
 	'Highest Point Average'=>'kac/hof/info.php?flag=ahpoint',
 	'<b>Hall of Fame Home</b>'=>'kac/hof/index.php',
-	'<b>KAG Archive Home</b>'=>'kac/index.php'
+	'<b>KAC Archive Home</b>'=>'kac/index.php'
 );
 
 include_once('../../Layout.inc');
