@@ -23,6 +23,7 @@ function output() {
     if ($sheet->HasSheet($hunter->GetID())){
     
 		if ($_REQUEST['at-id']){
+			echo '<br />';
 			$at = new Tournament($_REQUEST['at-id']);
 			if ($_REQUEST['del']){
 				if ($at->DeleteSignup($hunter-GerID())){
