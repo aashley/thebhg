@@ -207,7 +207,7 @@ function output() {
 				    	} else {
 					    	$prefix = 'pers';
 				    	}
-				    	if ($this->Permit(1, $stat->GetID(), $project)){
+				    	if ($sheet->Permit(1, $stat->GetID(), 1)){
 					    	if ($stat->IsInt()){
 				    			$form->AddTextBox($stat->GetName().' (<a href="'.internal_link('desc', array('id'=>$stat->GetID())).'">Description</a>)', $prefix."[".$stat->GetID()."]", $value, 5);
 			    			} else {
