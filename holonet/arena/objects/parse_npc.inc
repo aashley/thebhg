@@ -240,7 +240,7 @@ function generate_word($min_syllables = 1, $max_syllables = 3, $letters = "abcde
     }
 
     function GetName(){
-        return mb_convert_case($this->generate_word();, MB_CASE_TITLE, "UTF-8");;
+        return mb_convert_case($this->generate_word();, MB_CASE_TITLE, "UTF-8");
     }
 
     function GetGender(){
