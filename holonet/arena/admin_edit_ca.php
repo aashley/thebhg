@@ -27,7 +27,7 @@ function output() {
 		    } else {
 			    NEC(217);
 		    }
-		    print_r($_REQUEST);
+
 			foreach ($_REQUEST['stats'] as $id){
 				if ($_REQUEST['del'][$id]){
 					$sheet->DeleteCAValue($id);
@@ -39,7 +39,7 @@ function output() {
 						$skill = 0;
 						$field = $_REQUEST['stat'][$id];
 					}
-				    $sheet->EditCAValue($_REQUEST['ca'], $skill, $field, $_REQUEST['mod'][$id]);
+				    $sheet->EditCAValue($id, $skill, $field, $_REQUEST['mod'][$id]);
 			    }
 		    }
 		}
