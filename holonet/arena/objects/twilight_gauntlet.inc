@@ -101,6 +101,7 @@
 
             $adjunct = $this->Adjunct();
             $overseer = $this->Overseer();
+            $person = new Person($bhg_id);
 
             $text = $person->GetName()." has chllenged the gauntlet. Go now and approve or deny their petition.";
 
