@@ -292,7 +292,10 @@
 	    $return = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
-		    $return[] = $info['ca'];
+		    $ca = $this->GetCa($info['ca']);
+		    if (!$ca['date_deleted']){
+		    	$return[] = $info['ca'];
+	    	}
 	    }
 	    
 	    if (count($return)){
