@@ -40,7 +40,7 @@ function output() {
 		    $fst = 'id` < \''.$grtrt.'\' AND `';
 	    } 
 	    
-	    $pending = $arena->Search(array('table'=>'ams_records', 'order'=>array('id'=>'desc'), 'search'=>array('bhg_id'=>$_REQUEST['id'], 'outcome` > 0 AND `date_deleted'=>0), 'limit'=>20));
+	    $pending = $arena->Search(array('table'=>'ams_records', 'search'=>array('bhg_id'=>$_REQUEST['id'], 'outcome` > 0 AND `date_deleted'=>0), 'limit'=>20));
 	    $pendings = array();
 	    foreach ($pending as $oba){
 		    if (!count($pendings)){
@@ -68,7 +68,6 @@ function output() {
 	    $table->EndTable();
 	    
 	    $pending = $arena->Search(array('table'=>'ams_records', 'search'=>array('id` > \''.$last.'\' AND `outcome` > 0 AND `bhg_id'=>$_REQUEST['id'], 'date_deleted'=>0), 'limit'=>20), 0, 1);
-	    print_r($pending);
 	    $denbo = $arena->Search(array('table'=>'ams_records', 'search'=>array('id` < \''.$first.'\' AND `outcome` > 0 AND `bhg_id'=>$_REQUEST['id'], 'date_deleted'=>0), 'limit'=>20), 0, 1);
 	    
 	    $table->EndTable();
