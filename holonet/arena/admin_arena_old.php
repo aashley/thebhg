@@ -40,7 +40,11 @@ function output() {
                 
                 $form->table->AddRow('Match Added Successfully.');
                 $form->AddHidden('id', $control->LastInsert());
-                $form->AddHidden('add_xp', '1');
+                $form->table->StartRow();
+                $form->table->AddCell('Use XP Awarding', 2);
+                $form->table->EndRow();
+                $form->AddRadioButton('No', 'add_xp', 0, true);
+                $form->AddRadioButton('Yes', 'add_xp', '1');
 	
 			    $form->AddSubmitButton('', 'Complete Insert >>');
 			    $form->EndForm();

@@ -142,7 +142,9 @@ function atn_nav(){
     foreach ($cats as $dc) {
         $divs = $dc->GetDivisions();
         foreach ($divs as $div) {
-            echo '<br />&nbsp;<a href="' . internal_link('atn_division', array('id' => $div->GetID())) . '">' . str_replace(' ', '&nbsp;', $div->GetName()) . '</a>';
+	        if ($div != 16){
+            	echo '<br />&nbsp;<a href="' . internal_link('atn_division', array('id' => $div->GetID())) . '">' . str_replace(' ', '&nbsp;', $div->GetName()) . '</a>';
+        	}
         }
         echo '<br />';
     }

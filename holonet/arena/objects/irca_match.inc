@@ -144,7 +144,7 @@
 
     }
 
-    function Complete($id, $xp, $creds, $outcome, $date = '0', $comment) {
+    function Complete($id, $xp, $creds, $outcome, $date = '0', $comment, $close = true) {
 	    
         $sql = "UPDATE `arena_irca_match` SET `graded` = '1', `comments` = '".addslashes($comment)."' WHERE `id` = '".$this->arena_id."'";
 
@@ -154,9 +154,10 @@
 
             if (mysql_query($sql, $this->connect)) {
 
-	            
-	            $person = new Person($id, 'fight-51-me');
-	            $person->AddCredits($creds, 'IRCA Match');
+	            if ($close){
+		            $person = new Person($id, 'fight-51-me');
+		            $person->AddCredits($creds, 'IRCA Match');
+	            }
 	            
                 return true;
 
