@@ -362,10 +362,10 @@ function admin_footer($auth_data) {
 	if ($auth_data['list']){
 		if (count($lists)) { 
 			$app = array();
-			foreach ($activities as $obj){
+			foreach ($lists as $obj){
 				$app[$obj->Get(name)] = internal_link('admin_list', array('id'=>$obj->Get(id)));
 			}
-			addMenu('Activities', $app);
+			addMenu('member Lists', $app);
 		}
 	}
 
