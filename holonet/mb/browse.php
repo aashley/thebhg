@@ -45,10 +45,10 @@ function output() {
 	$medals = $group->GetAwardedMedals();
 	if ($medals) {
 		if ($bydate) {
-			usort($medals, recent_medals);
+			usort($medals, 'recent_medals');
 		}
 		else {
-			usort($medals, alpha_medals);
+			usort($medals, 'alpha_medals');
 		}
 		foreach ($medals as $am) {
 			$medal = $am->GetMedal();
