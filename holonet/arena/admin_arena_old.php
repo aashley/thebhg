@@ -35,10 +35,11 @@ function output() {
             $_REQUEST['num_weapon'], $_REQUEST['person1'], $_REQUEST['person2'], $_REQUEST['type_weapon'], $_REQUEST['name'], 
             parse_date_box('start'), parse_date_box('end'), $_REQUEST['mbid'], $_REQUEST['dojo']);
             
+            echo 'Match Added Successfully.';
+            
             if ($new){               
                 $form = new Form('admin_arena_complete');
                 
-                $form->table->AddRow('Match Added Successfully.');
                 $form->AddHidden('id', $control->LastInsert());
                 $form->table->StartRow();
                 $form->table->AddCell('Use XP Awarding', 2);
