@@ -305,6 +305,7 @@
 	    foreach ($this->GetOptions() as $option){
 		    $per = $votes[$option->GetID()];
 		    if ($votes['total']){
+			    echo $per.'<br />'.$votes['total'];
 			    $perce = $per/$votes['total'];
 			    $percent = $perce*100;
 			    $percent = round($percent, 0);
