@@ -119,6 +119,20 @@
 
     }
     
+    function GetDCOs(){
+	    $sql = "SELECT * FROM `arena_lw_dco` WHERE `contract` = '".$this->contract_id."' ORDER BY `date` ASC";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $new = new Person($info['bhg_id']);
+		    $date = getdate($info['date']);
+		    $return[] = array('date'=>$info['date'], 'hunter'=>$new, 'writedate'=>$date['mon']."/".$date['mday']."/".$date['year']);
+	    }
+	    
+	    return $return;
+    }
+    
     function IsRequested() {
         return ($this->contract_requested == 0);
     }
@@ -200,7 +214,6 @@
     }
 
     function Complete($creds, $xp, $grade) {
-
         $end = time();
 
         $sql = "UPDATE `arena_lw_contracts` SET `completed` = '".time()."', `creds` = '$creds', `xp` = '$xp', `grade` = '$grade' WHERE `id` = '".$this->contract_id."'";
@@ -221,11 +234,14 @@
     }
 
     function DCO() {
-        $sql = "UPDATE `arena_lw_contracts` SET `bhg_id` = '0' WHERE `id` = '".$this->contract_id."'";
+	    $sql = "INSERT INTO `arena_lw_dco` VALUES ('".$this->contract_id."', '".$this->contract_bhg_id."', '".time()."')";
 
         if (mysql_query($sql, $this->connect)) {
 
-            return true;
+	        $sql = "UPDATE `arena_lw_contracts` SET `bhg_id` = '0' WHERE `id` = '".$this->contract_id."'";
+	        $query = mysql_query($sql, $this->connect);
+            
+	        return ($query ? true : false);
 
         } else {
 

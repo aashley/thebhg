@@ -57,6 +57,24 @@ function output() {
 	
 	    }
 	
+	    $dcos = $atn->GetDCOs();
+	    
+	    if (count($dcos)){
+		    hr();
+		    
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('Hunter');
+		    $table->AddHeader('Date');
+		    $table->EndRow();
+		    
+		    foreach ($dcos as $data){
+			    $table->AddRow($data['writedate'], $data['hunter']->GetName());
+		    }
+		    
+		    $table->EndTable();
+	    }
+	    
 	    hr();
 	
 	    $table = new Table('', true);

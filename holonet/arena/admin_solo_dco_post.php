@@ -62,8 +62,11 @@ function output() {
 	        $form = new Form($page);
 	        $form->StartSelect('Contract:', 'contract_id');
 	        foreach ($solo->DCORequests() as $value) {
+		        $hunter = $value->GetHunter();
 		        $type = $value->GetType();
-	            $form->AddOption($value->GetID(), $type->GetName()." Contract ".$value->GetContractID());
+		        if (is_object($hunter)){
+	            	$form->AddOption($value->GetID(), $type->GetName()." Contract ".$value->GetContractID()." - ".$hunter->GetName());
+            	}
 	        }
 	        $form->EndSelect();
 	        $form->AddSubmitButton('next', 'Next >>');
