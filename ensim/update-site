@@ -1,0 +1,76 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+  echo "You must specify at least one of the following sites to update:"
+  echo " roster          Roster Objects and Utilities"
+	echo " bugs            Bug Tracker"
+  echo " holonet         Main Holonet Site"
+  echo " holonet-devel   Development and testing Holonet Site"
+	echo " mybhg           MyBHG - Main Website"
+	echo " mybhg-devel     MyBHG - Testing"
+	echo " tactician       Tactician Website"
+fi
+
+for site in $*; do
+	case $site in
+		roster)
+			echo Updating Roster...
+			pushd /home/virtual/thebhg.org/usr/share/roster3/include > /dev/null
+			svn update
+			popd > /dev/null
+			pushd /var/www/html/util > /dev/null
+			svn update
+			popd > /dev/null
+			;;
+
+		bugs)
+			echo Updating Bug Tracker...
+			pushd /home/virtual/thebhg.org/home/bugs/public_html > /dev/null
+			svn update
+			chown -R 22238:admin5 .
+			popd > /dev/null
+			;;
+
+		holonet)
+			echo Updating Holonet...
+			pushd /home/virtual/thebhg.org/home/holonet/public_html > /dev/null
+			svn update
+			chown -R 22257:admin5 .
+			popd > /dev/null
+			;;
+
+		holonet-devel)
+			echo Updating Holonet Devel Site...
+			pushd /home/virtual/thebhg.org/var/www/holonet-devel > /dev/null
+			svn update
+			chown -R admin5:admin5 .
+			popd > /dev/null
+			;;
+
+		mybhg)
+		  echo Updating MyBHG...
+			pushd /home/virtual/thebhg.org/var/www/html > /dev/null
+			svn update
+			chown -R admin5:admin5 .
+			popd > /dev/null
+			;;
+
+		mybhg-devel)
+			echo Updating MyBHG Development...
+			pushd /home/virtual/thebhg.org/home/my/public_html > /dev/null
+			svn update
+			chown -R 22277:admin5 .
+			popd > /dev/null
+			;;
+
+		tactician)
+			echo Updating Tactician Website...
+			pushd /home/virtual/thebhg.org/home/tactician/public_html > /dev/null
+			svn update
+			chown -R 22256:admin5 .
+			popd > /dev/null
+			;;
+
+	esac
+done
+
