@@ -21,7 +21,7 @@ else {
 	page_header('Archived Missions');
 }
 
-$missions_result = mysql_query("SELECT * FROM missions WHERE complete=$complete" . (!$hidden ? ' AND hidden=0' : '') . ' ORDER BY mset DESC, title ASC', $db);
+$missions_result = mysql_query("SELECT * FROM missions WHERE complete=$complete" . (!$hidden ? ' AND hidden=0' : ' AND hidden != 0') . ' ORDER BY mset DESC, title ASC', $db);
 if ($missions_result && mysql_num_rows($missions_result)) {
 	while ($mission = mysql_fetch_array($missions_result)) {
 		if (empty($lastset) || $mission['mset'] != $lastset) {
