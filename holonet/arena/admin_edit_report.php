@@ -12,15 +12,15 @@ function auth($person) {
 }
 
 function output() {
-    global $auth_data, $page, $roster, $hunter;
+    global $auth_data, $page, $roster, $hunter, $arena;
 
     arena_header();
 	
 	if (isset($_REQUEST['id'])) {
-		$result = mysql_query('SELECT * FROM hn_reports WHERE id=' . $_REQUEST['id'], $roster->roster_db);
+		$result = mysql_query('SELECT * FROM arena_reports WHERE id=' . $_REQUEST['id'], $arena->connect);
 		if ($result && mysql_num_rows($result)) {
 			$report = mysql_fetch_array($result);
-			if ($report['author'] != $hunter->GetID() && empty($auth_data['underlord'])) {
+			if ($report['author'] != $hunter->GetID() && empty($auth_data['rp'])) {
 				echo 'You are not permitted to edit this report.';
 				admin_footer($auth_data);
 				return;
@@ -34,7 +34,7 @@ function output() {
 	}
 
 	if (isset($_REQUEST['report'])) {
-		if (mysql_query('UPDATE hn_reports SET report="' . addslashes($_REQUEST['report']) . '", html=' . ($_REQUEST['html'] == on ? '1' : '0') . ' WHERE id=' . $_REQUEST['id'], $roster->roster_db)) {
+		if (mysql_query('UPDATE arena_reports SET report="' . addslashes($_REQUEST['report']) . '", html=' . ($_REQUEST['html'] == on ? '1' : '0') . ' WHERE id=' . $_REQUEST['id'], $arena->connect)) {
 			echo 'Report saved successfully.';
 		}
 		else {
