@@ -32,7 +32,22 @@ function output() {
     krsort($sheets);
     $table->AddRow('Hunter Name', 'Date Submitted', 'Status', 'Edit Ban Till', '&nbsp;', '&nbsp;', '&nbsp;');
     
-    
+    foreach ($sheets as $sheeted){
+	    foreach ($sheeted as $character){
+	    
+		    if ($character->Status('SYSTEM') == 5 || $character->Status('SYSTEM') == 6){
+			    $status = '<b>'.$character->Status('HUMAN').'</b>';
+		    } else {
+			    $status = $character->Status('HUMAN');
+		    }
+		    
+		    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
+		    $character->LastEdit(), $status, $character->GetBan('HUMAN'),
+		    '<a href="' . internal_link('admin_sheet', array('id'=>$character->GetID())).'">Edit</a>', '<a href="' . 
+		    internal_link('admin_sheet', array('id'=>$character->GetID(), 'view'=>1)).'">View for Approval</a>', '<a href="' . 
+		    internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
+	    }
+    }
     
     $table->EndTable();
     admin_footer($auth_data);

@@ -230,7 +230,7 @@
     }
     
     function GetSheets(){
-	    $sql = "SELECT * FROM `character_sheets` ORDER BY `pending` ASC, `approved` ASC, `last_change` DESC";
+	    $sql = "SELECT * FROM `character_sheets` WHERE `pending` = 1 AND `approved` = 0 ORDER BY `pending` ASC, `approved` ASC, `last_change` DESC";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
