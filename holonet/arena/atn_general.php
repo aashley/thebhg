@@ -33,6 +33,30 @@ function output() {
 	    $ro = new RODetails();
 	    $rewards = array();
 	
+	    $comiss = new Comissioner($hunter->GetID());
+	    $master = new Master($hunter->GetID());
+	    $regist = new Registrar($hunter->GetID());
+	    $missio = new MissionMaster($hunter->GetID());
+	    $overse = new Overseer($hunter->GetID());
+	    $adjunc = new Adjunct($hunter->GetID());
+	    
+	    $boc = $comiss->GetStatus();
+	    $djm = $master->GetStatus();
+	    $reg = $regist->GetStatus();
+	    $mis = $missio->GetStatus();
+	    $ove = $overse->GetStatus();
+	    $adj = $adjunc->GetStatus();
+		
+	    if ($ove){ $rewards[$ove.'Overseer of the Guild'] = 'ov'; }
+		if ($adj){ $rewards[$adj.'Adjunct of the Guild'] = 'aj'; }
+		if ($at->IsGladius($hunter->GetID())){ $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius'; }
+	    if (in_array($hunter->GetID(), $arena->GetTeta())){ $rewards['Owner of Teta\'s Knives'] = 'dagger'; }	
+		if ($djm){ $rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows'; }
+		if ($boc){ $rewards[$boc.'of the Bounty Office'] = 'bountyoffice'; }
+		if ($reg){ $rewards[$reg.'Registrar of the Office of Character Development'] = 'ocd'; }
+		if ($mis){ $rewards[$mis.'Mission Master of Run-Ons'] = 'mm'; }
+		if (in_array($hunter->GetID(), $arena->GetApproved())){ $rewards['Graduate of the Dojo of Shadows'] = 'dojo'; }
+	    
 	    echo '<table border=0 width="100%"><tr valign="top"><td rowspan="3">';
 	    
 	    echo '<a name="stats"></a>';
@@ -102,48 +126,6 @@ function output() {
 	    
 	    echo '</div></td></tr><tr><td><div style="text-align: left">';
 	    */
-	    
-	    $comiss = new Comissioner($hunter->GetID());
-	    $master = new Master($hunter->GetID());
-	    $regist = new Registrar($hunter->GetID());
-	    $missio = new MissionMaster($hunter->GetID());
-	    $overse = new Overseer($hunter->GetID());
-	    $adjunc = new Adjunct($hunter->GetID());
-	    
-	    $boc = $comiss->GetStatus();
-	    $djm = $master->GetStatus();
-	    $reg = $regist->GetStatus();
-	    $mis = $missio->GetStatus();
-	    $ove = $overse->GetStatus();
-	    $adj = $adjunc->GetStatus();
-		
-	    if ($ove){
-			$rewards[$ove.'Overseer of the Guild'] = 'ov';
-		}
-		if ($adj){
-			$rewards[$adj.'Adjunct of the Guild'] = 'aj';
-		}
-		if ($at->IsGladius($hunter->GetID())){
-		    $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius';
-	    }
-	    if (in_array($hunter->GetID(), $arena->GetTeta())){
-			$rewards['Owner of Teta\'s Knives'] = 'dagger';
-		}	
-		if ($djm){
-			$rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows';
-		}
-		if ($boc){
-			$rewards[$boc.'of the Bounty Office'] = 'bountyoffice';
-		}
-		if ($reg){
-			$rewards[$reg.'Registrar of the Office of Character Development'] = 'ocd';
-		}
-		if ($mis){
-			$rewards[$mis.'Mission Master of Run-Ons'] = 'mm';
-		}
-		if (in_array($hunter->GetID(), $arena->GetApproved())){
-			$rewards['Graduate of the Dojo of Shadows'] = 'dojo';
-		}
 		
 		if (count($rewards)){
 		
