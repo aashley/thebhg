@@ -18,7 +18,7 @@ function output(){
 	arena_header();
 	
 	$show = true;
-	$sql = 'aide_types';
+	$sql = 'ams_aide_types';
 	
 	if ($_REQUEST['op']){
 		$obj = new Obj($sql, $_REQUEST['id'], 'holonet');
