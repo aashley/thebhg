@@ -35,12 +35,12 @@ function output() {
 		    $table->StartRow();
 		    $table->AddHeader('Overseer of the Guild', 3);
 		    $table->EndRow();
-		    $table->StartRow();
-		    $table->AddCell('image here', 1, 3);
-		    $table->EndRow();
 		    $table->AddRow('Credits Awarded:', number_format($overse->GetCreds()).' Imperial Credits');
 		    $table->AddRow('Experience Points Awarded:', number_format($overse->GetXP()));
 		    $table->AddRow('Medals Awarded:', number_format($overse->GetMedals()));
+		    $table->StartRow();
+		    $table->AddCell('image here', 1, 3);
+		    $table->EndRow();
 		    $table->EndTable();
 		    echo '<br />';
 		    
