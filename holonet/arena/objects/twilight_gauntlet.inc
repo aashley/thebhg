@@ -125,7 +125,7 @@
     }
     
     function NeedChallengers(){
-	    $sql = "SELECT * FROM `arena_ttg_queue` WHERE `c1` = 0 OR `c2` = 0 OR `c3` = 0 AND `completed` = 0 AND `date_deleted` = 0 AND `approved` = 1";
+	    $sql = "SELECT * FROM `arena_ttg_queue` WHERE (`c1` = 0 OR `c2` = 0 OR `c3` = 0) AND `completed` = 0 AND `date_deleted` = 0 AND `approved` = 1";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
@@ -236,7 +236,7 @@
     }
     
     function MyChallenges($bhg_id){
-	    $sql = "SELECT * FROM `arena_ttg_queue` WHERE `c1` = '$bhg_id' OR `c2` = '$bhg_id' OR `c3` = '$bhg_id' AND "
+	    $sql = "SELECT * FROM `arena_ttg_queue` WHERE (`c1` = '$bhg_id' OR `c2` = '$bhg_id' OR `c3` = '$bhg_id') AND "
 	    		."`completed` = 0 AND `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
@@ -251,7 +251,7 @@
     
     function Pending($bhg_id = ''){
 	    if ($bhg_id){
-		    $sql = "SELECT * FROM `arena_ttg_queue` WHERE `c1` = '$bhg_id' OR `c2` = '$bhg_id' OR `c3` = '$bhg_id' AND `completed` = 0 AND `date_deleted` = 0 AND `approved` = 0";
+		    $sql = "SELECT * FROM `arena_ttg_queue` WHERE (`c1` = '$bhg_id' OR `c2` = '$bhg_id' OR `c3` = '$bhg_id') AND `completed` = 0 AND `date_deleted` = 0 AND `approved` = 0";
 	    } else {
 		    $sql = "SELECT * FROM `arena_ttg_queue` WHERE `completed` = 0 AND `date_deleted` = 0 AND `approved` = 0";
 	    }
