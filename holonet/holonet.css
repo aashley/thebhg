@@ -21,7 +21,12 @@ h1 {
 
 h2 {
 	font-size: 175%;
-	padding-top: 1em;
+	padding-top: 0.75em;
+	padding-bottom: 0.5em;
+}
+
+p {
+padding-bottom: 1em;
 }
 
 th {
