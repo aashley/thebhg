@@ -30,10 +30,6 @@ function output() {
    	
    	echo 'Did you find an NEC Error while using the AMS and want to know what it is? Check <a href="' . internal_link('nec') . '">here [NEC]</a> for more information on the error.';
    	
-   	hr();
-   	
-   	echo 'A nice side project, the Holonet Scanner is done! View it <a href="holonet_scanner.php">Here</a>. I promise it to be of no value to those of you without a base in coding and some understanding of the Holonet system.';
-   	
     arena_footer();
 }
 ?>
