@@ -22,9 +22,9 @@ function output() {
     $saves = $character->GetCores();
 
     if (!$_REQUEST['sheet'] && !$_REQUEST['new'] && !$_REQUEST['view'] && !$_REQUEST['save']){
-	    echo 'These are CORE Sheets, which are desiggned to help the new hunters of the guild load one of thse cookie-cutter characters, so they have a base to '
-	    	.'customize off of. The sheets are to be description of the character only, and the statributes and expertises. Please leave everything else which '
-	    	.'defines character (Actual languages spoke [not languages score], conscience, demeanor, etc) unfilled. Once approved, these CORE sheets will be avilable '
+	    echo 'These are CORE Sheets, which are designed to help the new hunters of the guild load one of these cookie-cutter characters, so they have a base to '
+	    	.'customize off of. The sheets are to be description of the character only, and the statribute and expertise points. Please leave everything else which '
+	    	.'defines character (Actual languages spoke [not languages score], conscience, demeanor, etc) unfilled. Once approved, these CORE sheets will be available '
 	    	.'to load from the Sheet Saves page to any and every hunter.';
 	    	
 	    hr();
