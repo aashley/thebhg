@@ -46,6 +46,8 @@ function output() {
 		    	}
 	    	}
 	    	
+	    	echo $time.'|';
+	    	
 	    	$creds = round(($time / ($endut - $startut)) * 350000);
 	
 	      	if (isset($hunters[$hunter->GetID()])) {
