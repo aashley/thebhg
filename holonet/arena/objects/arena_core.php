@@ -56,7 +56,7 @@
 		    $i++;
 	    }
 	    
-	    return ($bhg_id ? $return[$bhg_id] : ($limit : ? array_slice($return, 0, $limit) : $return));
+	    return ($bhg_id ? $return[$bhg_id] : ($limit ? array_slice($return, 0, $limit) : $return));
     }	    
     
     function GetPayData($start, $end){
