@@ -153,6 +153,19 @@
         return $return;
     }
 
+    function DCORequests(){
+	    $sql = "SELECT * FROM `arena_solo_contracts` WHERE `requested` = 1";
+        $query = mysql_query($sql, $this->connect);
+        $return = array();
+
+        while ($info = mysql_fetch_array($query)){
+            $new = new Contract($info['id']);
+            array_push($return, $new);
+        }
+
+        return $return;
+    }
+    
     function RequestedContracts(){
         $sql = "SELECT * FROM `arena_solo_contracts` WHERE `mb_id` = 0";
         $query = mysql_query($sql, $this->connect);

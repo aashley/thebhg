@@ -151,6 +151,21 @@
 
     }
 
+    function DeDCO() {
+        $sql = "UPDATE `arena_solo_contracts` SET `requested` = '0' WHERE `id` = '".$this->contract_id."'";
+
+        if (mysql_query($sql, $this->connect)) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+    
     function SetHunter($bhg_id, $requested = 0) {
         $sql = "UPDATE `arena_solo_contracts` SET `bhg_id` = '$bhg_id', `requested` = '$requested' WHERE `id` = '".$this->contract_id."'";
 

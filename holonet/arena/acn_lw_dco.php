@@ -41,7 +41,7 @@ function output() {
 		        }
 		    }
 		    else {
-			    if (count($solo->DEadContracts())){
+			    if (count($solo->DeadContracts())){
 			        $form = new Form($page);
 			        $form->StartSelect('Contract:', 'contract_id');
 			        foreach ($solo->DeadContracts() as $value) {
