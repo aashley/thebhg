@@ -49,11 +49,11 @@ function output() {
 	    
 	    foreach ($fields as $field=>$s){
 		    foreach ($sheet->GetStats($field) as $stat){
-			    $form->AddCheckBox($stat->GetName(), 'stat['.$stat->GetID().']', 1, $sheet->Permit(1, $stat->GetID(), $_REQUEST['mod']);
+			    $form->AddCheckBox($stat->GetName(), 'stat['.$stat->GetID().']', 1, $sheet->Permit(1, $stat->GetID(), $_REQUEST['mod']));
 			    $form->AddHidden('stats[]', $stat->GetID());
 		    }
 		    foreach ($sheet->GetSkills($field) as $skill){
-			    $form->AddCheckBox($skill->GetName(), 'skill['.$skill->GetID().']', 1, $fields[$stat->GetID()]);
+			    $form->AddCheckBox($skill->GetName(), 'skill['.$skill->GetID().']', 1, $sheet->Permit(2, $skill->GetID(), $_REQUEST['mod']));
 			    $form->AddHidden('skills[]', $skill->GetID());
 		    }
 	    }
