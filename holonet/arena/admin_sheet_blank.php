@@ -16,28 +16,186 @@ function output() {
 
     arena_header();
     
-    if (isset($_REQUEST['submit'])) {
-	    $character = new Character($_REQUEST['person']);
-		if ($character->IsNew()){
-			if (!$character->NewSheet()){
-				NEC(158);
-				admin_footer($auth_data);
-				return;
-			} else {
-				echo 'Sheet created.';
+    if ($pos->GetID() != 11) {
+    
+		$kabals_result = $roster->GetDivisions();
+    
+		$kabals = array();
+    
+		foreach ($kabals_result as $kabal) {
+      
+      if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
+        
+        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
+          .$kabal->GetName()."</option>\n";
+      }
+      
+    }
+    
+		$kabals = implode('', $kabals);
+	?>
+	<script language="JavaScript1.1" type="text/javascript">
+	<!--
+	function person(id, name) {
+		this.id = id;
+		this.name = name;
+	}
+
+	<?php
+  
+		reset($kabals_result);
+    
+	  $commindex = 0;
+    
+		foreach ($kabals_result as $kabal) {
+      
+			if ($kabal->GetID() == 16) {
+        
+				continue;
+        
 			}
-		} else {
-			echo 'Character has a sheet.';
+      
+			echo 'roster' . $kabal->GetID() . " = new Array();\n";
+      
+			$plebs = $kabal->GetMembers('name');
+      
+	    if (is_array($plebs)) {
+        
+	      $plebindex = 0;
+        
+        foreach ($plebs as $pleb) {
+          
+          $div_peeps[$pleb->GetName().':'.$plebindex] = 
+            'roster'
+            .(($kabal->GetID() == 9) 
+              ? '10' 
+              : $kabal->GetID()) 
+            .'['.
+            (($kabal->GetID() == 9 || $kabal->GetID() == 10) 
+              ? $commindex++ 
+              : $plebindex++)
+            .'] = new person('.$pleb->GetID().', \''
+            .str_replace("'", "\\'", shorten_string($pleb->GetName(), 40))
+            ."');\n";
+            
+        }
+        
+        echo implode('', $div_peeps);
+        
+        unset($div_peeps);
+        
+	    }
+      
 		}
+    
+	?>
+
+	function swap_kabal(frm, id) {
+		var kabal_list = eval("frm.kabal" + id);
+		var person_list = eval("frm.person" + id);
+		var kabal = kabal_list.options[kabal_list.options.selectedIndex].value;
+		if (kabal > 0) {
+			var kabal_array = eval("roster" + kabal);
+			var new_length = kabal_array.length;
+			person_list.options.length = new_length;
+			for (i = 0; i < new_length; i++) {
+				person_list.options[i] = new Option(kabal_array[i].name, kabal_array[i].id, false, false);
+			}
+		}
+		else {
+			person_list.options.length = 1;
+			person_list.options[0] = new Option("N/A", -1, false, false);
+		}
+	}
+
+	// -->
+	</script>
+	<noscript>
+	This page requires JavaScript to function properly.
+	</noscript>
+	<?
+  
+	}	else {
+    
+		$division = $pleb->GetDivision();
+    
+		$plebs = $division->GetMembers('name');
+    
+		foreach ($plebs as $pleb) {
+      
+			$plebs[$pleb->GetName()] = '<option value="'.$pleb->GetID().'">'
+        .$pleb->GetName()."</option>\n";
+        
+		}
+    
+		ksort($plebs);
+    
+	}
+	?>
+	<form name="award" method="post" action="<?=$PHP_SELF?>">
+	<input type="hidden" name="module" value="<?=$module?>">
+	<input type="hidden" name="page" value="<?=$page?>">
+	Reason: <input type="text" name="reason" size=25>
+	<?php
+	if ($pos->GetID() == 11) {
+	?>
+	<br>Dates: <input type="text" name="startdate" size=10>&nbsp;to&nbsp;<input type="text" name="enddate" size=10>
+	<br><br>Hunters Involved: <select name="active[]" size=5 multiple><? echo implode("", $plebs); ?></select><br>(Hold Control to select more than one Hunter.)<br><br>
+	<?php
+	}
+  
+	$table = new Table('', true);
+  
+	$table->StartRow();
+	if ($pos->GetID() != 11) {
+		$table->AddHeader('Kabal');
+	}
+	$table->AddHeader('Person');
+	$table->AddHeader('Credits');
+	$table->EndRow();
+  
+	for ($i = 0; $i < $fields; $i++) {
+    
+    $table->StartRow();
+    
+		if ($pos->GetID() != 11) {
+      
+			$table->AddCell("<select name=\"kabal$i\" "
+        ."onChange=\"swap_kabal(this.form, $i)\">"
+        ."<option value=\"-1\">N/A</option>$kabals</select>");
+      
     }
-    else {
-        $form = new Form($page);
-        $form->StartSelect('Hunter:', 'person');
-        hunter_dropdown($form);
-        $form->EndSelect();
-        $form->AddSubmitButton('submit', 'Insert Blank Sheet');
-        $form->EndForm();
-    }
+    
+		$cell = "<select name=\"person$i\">";
+    
+		if ($pos->GetID() != 11) {
+      
+			$cell .= "<option value=\"-1\">N/A</option>";
+      
+		} else {
+      
+			$cell .= "<option value=\"-1\" selected>N/A</option>\n" 
+        .implode("", $plebs);
+        
+		}
+    
+		$cell .= "</select>";
+    
+		$table->AddCell($cell);
+    
+		$table->AddCell("<input type=\"text\" name=\"credits$i\" value=\"0\" "
+      ."size=7 onFocus=\"if (this.value == '0') this.value = ''\" "
+      ."onBlur=\"if (this.value == '') this.value = '0'\">");
+    
+		$table->EndRow();
+	}
+  
+	$table->EndTable();
+  
+	?>
+	<input type="submit" value="Submit Credit Award" class="button" name="submit">&nbsp;<input type="reset" class="button">
+	</form>
+	<?php
 
     admin_footer($auth_data);
 }
