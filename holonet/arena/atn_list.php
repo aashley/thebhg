@@ -23,7 +23,7 @@ function output() {
     
     arena_header();
 
-    $current = $arena->Search(array('table'=>'ams_list', 'search'=>array('list'=>$_REQUEST['id'], 'date_deleted'=>'0')));
+    $current = $arena->Search(array('table'=>'ams_lists', 'search'=>array('list'=>$_REQUEST['id'], 'date_deleted'=>'0')));
 			
 	if (count($current)){
 		$table = new Table('', true);
