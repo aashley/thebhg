@@ -16,7 +16,7 @@ function output() {
 
     arena_header();
 
-    $ladder = new Ladder();
+    $ladder = new Starfield();
     
     if (isset($_REQUEST['submit'])) {
 		if ($ladder->NewSkipper($_REQUEST['bhg_id'])) {
