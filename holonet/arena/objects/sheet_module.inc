@@ -24,6 +24,71 @@
 	    return new Character($info['bhg_id']);
     }
     
+    function GetSheetMod($field){
+	    $sql = "SELECT * FROM `cs_mods` WHERE `name` = '$field' AND `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $info = mysql_fetch_array($query);
+		    return $info['id'];
+	    } else {
+		    return 0;
+	    }
+    }
+    
+    function ModFields($id){
+	    $sql = "SELECT * FROM `cs_mods` WHERE `id` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $info = mysql_fetch_array($query);
+		    return unserialize($info['fields']);
+	    } else {
+		    return array();
+	    }
+    }
+    
+    function AddSheetMod($name, $description, $fields){
+	    $sql = "INSERT INTO `cs_mods` (`name`, `description`, `fields`) VALUES ('$name', '".addslashes($description)."', '".serialize($fields)."')";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function UpdateSheetMod($id, $name, $description, $fields){
+	    $sql = "UPDATE `cs_mods` SET `fields` = '".serialize($fields)."', `name` = '$name', `description` = '".addslashes($description)."' WHERE `id` = '$id'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return ($query ? true : false);
+    }
+    
+    function SetSheetMod($project, $type, $value, $lock){
+	    /* Type 1: Statribute
+	       Type 2: Skill
+	     */
+	    $sql = "SELECT * FROM `cs_mod` WHERE `type` = '$type' AND `value` = '$value' AND `project` = '$project' AND `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    if (mysql_num_rows($query)){
+		    $info = mysql_fetch_array($query);
+		    $this->UpdatePermit($info['id'], $type, $value, $lock);
+	    } else {
+		    $sql = "INSERT INTO `cs_mod` (`type`, `project`, `value`, `lock`) VALUES ('$type', '$project', '$value', '$lock')";
+		    mysql_query($sql, $this->connect);
+	    }
+    }
+    
+    function UpdatePermit($id, $type, $value, $lock){
+	    $sql = "UPDATE `cs_mod` SET `lock` = '$lock', `type` = '$type', `value` = '$value' WHERE `id` = '$id'";
+	    mysql_query($sql, $this->connect);
+    }
+    
+    function Permit($type, $value, $project){
+	    $sql = "SELECT * FROM `cs_mod` WHERE `type` = '$type' AND `value` = '$value' AND `project` = '$project' AND `date_deleted` = 0";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    return mysql_num_rows($query);
+    }
+    
     function GetShares(){
 		$sql = "SELECT * FROM `cs_shares`";
 		$query = mysql_query($sql, $this->connect);

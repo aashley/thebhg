@@ -1202,32 +1202,23 @@
 	    	$table->AddRow('Division', '<a href="'.internal_link('division', array('id'=>$division->GetID()), 'roster').'">'.$division->GetName().'</a>');
 	    	$table->AddRow('Position', '<a href="'.internal_link('position', array('id'=>$position->GetID()), 'roster').'">'.$position->GetName().'</a>');
     	}
+    	$project = $this->GetSheetMod('base');
+    	
     	if ($this->HasValue($look, $col, $id)){
-	    	for ($i = 1; $i <= 6; $i++){
-		    	$field = new Field($i);
+	    	foreach ($this->ModFields($project) as $id){
+	    		$field = new Field($id);
 		    	$table->StartRow();
 				$table->AddHeader($field->GetName(), 2);
 				$table->EndRow();
-		    	foreach($this->GetStats($i) as $stat){
-			    	$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look, $id, $col));
+		    	foreach($this->GetStats($id) as $stat){
+			    	if ($this->Permit(1, $stat->GetID(), $project)){
+			    		$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look, $id, $col));
+		    		}
 		    	}
-	    	}
-	    	for ($i = 7; $i <= 9; $i++){
-		    	$field = new Field($i);
-		    	$table->StartRow();
-				$table->AddHeader($field->GetName(), 2);
-				$table->EndRow();
-		    	foreach($this->GetSkills($i) as $skill){
-			    	$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look, 'SHEET', $id, $col));
-		    	}
-	    	}
-			for ($i = 10; $i <= 11; $i++){
-		    	$field = new Field($i);
-		    	$table->StartRow();
-				$table->AddHeader($field->GetName(), 2);
-				$table->EndRow();
-		    	foreach($this->GetStats($i) as $stat){
-			    	$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look, $id, $col));
+		    	foreach($this->GetSkills($id) as $skill){
+			    	if ($this->Permit(2, $skill->GetID(), $project)){
+			    		$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look, 'SHEET', $id, $col));
+		    		}
 		    	}
 	    	}
     	} else {

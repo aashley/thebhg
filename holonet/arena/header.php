@@ -413,6 +413,11 @@ function admin_footer($auth_data) {
 	    }
     }
     
+    if ($auth_data['coder']){
+	    echo '<br /><b>Coder&nbsp;Resources</b><br />';
+	    echo '&nbsp;<a href="' . internal_link('coder_mod') . '">Generate&nbsp;CS&nbsp;Modifcation</a><br />';
+    }
+    
 	if ($auth_data['aa']){
 		echo '<br /><b>Arena&nbsp;System&nbsp;Management</b><br />';   
         echo '<br />General&nbsp;Management<br />';
