@@ -513,7 +513,7 @@
 	    mysql_query($sql, $this->connect);
 	    
 	    $sql = "DELETE FROM `character_sheets` WHERE `bhg_id` = '".$this->GetID()."'";
-	    echo $this->GetID();
+
 		if (mysql_query($sql, $this->connect)){
 			return 'Character Killed.';
 		} else {
