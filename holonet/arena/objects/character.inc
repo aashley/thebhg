@@ -1,0 +1,642 @@
+<?
+
+ Class Character extends Sheet {
+
+    var $cs_bhg_id;
+    var $cs_last_change;
+    var $cs_approved;
+    var $cs_person;
+    var $cs_pending;
+
+    function Character($id) {
+        Sheet::Sheet();
+        
+        $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '$id'";
+        $query = mysql_query($sql, $this->connect);
+
+        $this->cs_person = new Person($id);
+        
+        if ($result = @mysql_fetch_array($query)) {
+
+            foreach ($result as $key => $value) {
+                $key = 'cs_'.$key;
+                $this->$key = stripslashes($value);
+            }
+
+        }
+
+    }
+    
+    function GetID(){
+	    return $this->cs_person->GetID();
+    }
+    
+    function GetName(){
+	    
+	    $stat = $this->Point(33);
+	    
+	    if (empty($stat)){
+		    $name = $this->cs_person->GetName();
+	    } else {
+		    $name = $stat;
+	    }
+	    
+	    return $name;
+    }
+    
+    function LastEdit(){
+	    $date = getdate($this->cs_last_change);
+	    return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
+    }
+    
+    function Status($output){
+	    $status = array(1=>'Approved', 2=>'Not Created', 3=>'Edit in Progress', 4=>'Pending Approval');
+	    if ($this->cs_bhg_id){
+		    if ($this->cs_last_change){
+			    if ($this->cs_approved){
+				    $return = 1;
+			    } else {
+				    if ($this->cs_pending){
+					    $return = 3;
+				    } else {
+				    	$return = 4;
+			    	}
+			    }
+		    }
+	    } else {
+		    $return = 2;
+	    }
+	    
+	    if ($output == 'HUMAN'){
+		    return $status[$return];
+	    } elseif ($output == 'SYSTEM'){
+		    return $return;
+	    }
+    }	    
+    
+    function Editable(){
+	    if ($this->Status('SYSTEM') == 4){
+		    return false;
+	    } else {
+		    return true;
+	    }
+    }
+    
+    function IsNew(){
+	    if ($this->Status('SYSTEM') == 2){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
+    function InProgress(){
+	    if ($this->Status('SYSTEM') == 3){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
+    function PendingApproval(){
+	    if ($this->Status('SYSTEM') == 4){
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    
+    function GetSheetValues($value = 'values'){
+	    $table = '`character_sheet_'.$value.'`';
+	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$this->GetID()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+
+	    while ($info = mysql_fetch_array($query)){
+		    $return[$info['statribute']] = $info['value'];
+	    }
+	    
+	    return $return;
+    }
+    
+    function Point($stat, $output = 'SHEET', $look = 'values'){
+	    $table = '`character_sheet_'.$look.'`';
+	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$this->GetID()."' AND `statribute` = '$stat'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+        $stat = new Statribute($stat);
+        
+        if ($output == 'SHEET'){
+	        if ($stat->IsInt()){
+		        $return = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $info['value']);
+		        $return .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', 10-$info['value']);
+	        	return $return;
+	    	} else {
+		    	return nl2br(stripslashes($info['value']));
+	    	}
+    	} elseif ($output == 'SYSTEM'){
+	    	return $info['value'];
+    	}
+    }
+    
+    function GetValue($skill, $look = 'values'){
+	    $sql = "SELECT * FROM `cs_skill_equ` WHERE `skill` = '$skill'";
+        $query = mysql_query($sql, $this->connect);
+        
+        $output = 0;
+        
+        while($info = mysql_fetch_array($query)){
+	        $output += $this->Point($info['statribute'], 'SYSTEM', $look)*$info['modifier'];
+        }
+        
+        $sql = "SELECT SUM(`modifier`) as denominator FROM `cs_skill_equ` WHERE `skill` = '$skill'";
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+        
+        $denominator = $info['denominator'];
+        
+        $value = round($output/$denominator);
+        
+        $return = str_repeat('<img src="arena/images/bonus.png" alt="*" height=20 width=20>', $value);
+        $return .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', 10-$value);
+    	return $return;
+    }
+	        
+    function BonusPoints($disp = false){
+	    $points = 0;
+	    
+	    $array = array();
+	    
+	    $positions = array();
+	    $rewards = array();
+	    
+	    $history = $this->cs_person->GetHistory();
+	    
+	    $history->Load(0, 0, array(2, 3));
+	    
+	    //Build what we're looking for.
+	    $positions[2] = array(1, 11, 10, 12);
+	    $positions[3] = array(10, 9);
+	    $rewards[21] = 5;
+	    $rewards[211] = 2;
+	    $rewards[210] = 2;
+	    $rewards[212] = 1;
+	    $rewards[310] = 4;
+	    $rewards[39] = 2;
+	    $awards = array();
+	    
+	    for ($i = 1; $i <= $history->Count(); $i++){
+		    $hist = $history->GetItem();
+		    $index1 = $hist->GetType().$hist->GetItem(1);
+		    $index2 = $hist->GetType().$hist->GetItem(2);
+		    if (array_key_exists($index1, $rewards)){
+			    $awards[] = $rewards[$index1];
+		    }
+		    if (array_key_exists($index2, $rewards)){
+			    $awards[] = $rewards[$index2];
+		    }
+		    $history->Next();		    
+	    }
+	    
+		$awards = array_unique($awards);
+		arsort($awards);
+		$points += array_shift($awards);
+    	
+    	$array['Position'] = $points;
+    	
+    	//Get Rank Points
+    	$rank = $this->cs_person->GetRank();
+    	
+    	if ($rank->GetWeight() <= 3){
+	    	$points += 5;
+    	} elseif ($rank->GetWeight() <= 7){
+	    	$points += 4;
+    	} elseif ($rank->GetWeight() <= 9){
+	    	$points += 3;
+    	} elseif ($rank->GetWeight() <= 11){
+	    	$points += 2;
+    	} elseif ($rank->GetWeight() <= 14){
+	    	$points += 1;
+    	} 
+    	
+    	$array['Rank'] = $points-$array['Position'];
+    	
+    	//Get Timein Points
+    	$join = $this->cs_person->GetJoinDate();
+    	$seconds = time()-$join;
+    	$days = floor($seconds / 86400);
+		$years = floor($days / 365);
+		$days %= 365;
+		$weeks = floor($days / 7);
+		$days %= 7;
+		
+		if ($years){
+			$points += $years;
+			$points++;
+		} else {
+			if ($weeks >= 26){
+				$points++;
+			}
+		}
+		
+		$array['Timein'] = $points-$array['Rank']-$array['Position'];
+		
+		//Get Medal Points
+		$medals = $this->cs_person->GetMedals();
+		$build = array();
+		$medal_array = array(1, 4, 7, 8);
+		
+		foreach ($medals as $value){
+			$medal = $value->GetMedal();
+			$build[] = $medal->GetID();
+		}
+		
+		$medals = array_unique($build);
+		
+		$hme = false;
+		
+		foreach ($medals as $medal){
+			if (in_array($medal, $medal_array)){
+				$points++;
+			}
+			
+			if ($medal == 2 || $medal == 3){
+				if ($hme == false){
+					$points++;
+					$hme = true;
+				}
+			}
+		}
+		
+		$array['Medals'] = $points-$array['Rank']-$array['Position']-$array['Timein'];
+	
+		$points += $this->GetBonusPoints();
+		
+		$array['Bonus_Points'] = $points-$array['Rank']-$array['Position']-$array['Timein']-$array['Medals'];
+		
+		if ($disp){
+			return $array;
+		} else {
+			return $points;
+		}
+    }
+    
+    function GetBonusPoints(){
+	    $sql = "SELECT * FROM `cs_bonus_points` WHERE `bhg_id` = '".$this->GetID()."'";
+		$query = mysql_query($sql, $this->connect);
+		
+		$demsql = "SELECT * FROM `cs_demerit_points` WHERE `bhg_id` = '".$this->GetID()."'";
+		$demquery = mysql_query($demsql, $this->connect);
+		
+		return mysql_num_rows($query)-mysql_num_rows($demquery);
+	}
+	
+	function GetExperiencePoints(){
+	    $sql = "SELECT SUM(`points`) as points FROM `cs_experience` WHERE `bhg_id` = '".$this->GetID()."'";
+		$query = mysql_query($sql, $this->connect);
+		$return = mysql_fetch_array($query);
+		
+		return $return['points'];
+	}
+    
+    function TotalPoints(){
+	    return $this->ExpertisePoints()+$this->BonusPoints();
+    }
+	
+    function SaveSheet($statributes, $expertises, $personalinfo){
+		$errors = array();
+		$compile = array(1=>$statributes, 2=>$expertises, 3=>$personalinfo);
+		//Error Checking
+		
+	    if (array_sum($statributes) > $this->StatributePoints()){
+		    $errors[] = 'You have used more Statribute Points than you are allowed. ('.array_sum($statributes).'/'.$this->StatributePoints().')'; 
+	    }
+	    
+	    if (array_sum($expertises) > $this->TotalPoints()){
+			$errors[] = 'You have used more Expertise Points than you are allowed. ('.array_sum($expertises).'/'.$this->TotalPoints().')'; 
+	    }
+	    
+	    foreach($statributes as $stat=>$value){
+		    if ($value == 0){
+			    $statribute = new Statribute($stat);
+			    $errors[] = 'You must allocate at least 1 point to your '.$statribute->GetName().'.';
+		    }
+		    if ($value > 10){
+			    $statribute = new Statribute($stat);
+			    $errors[] = 'You have allocate more than 10 points to your '.$statribute->GetName().'.';
+		    }
+	    }
+	    
+	    foreach($expertises as $stat=>$value){
+		    if ($value > 10){
+			    $statribute = new Statribute($stat);
+			    $errors[] = 'You have allocate more than 10 points to your '.$statribute->GetName().' expertise.';
+		    }
+	    }
+	    
+	    foreach($personalinfo as $stat=>$value){
+		    if (is_numeric($value)){
+			    if ($value > 10){
+				    $statribute = new Statribute($stat);
+				    $errors[] = 'You have allocate more than 10 points to your '.$statribute->GetName().'.';
+			    }
+		    }
+	    }
+	    
+	    if (count($errors)){
+		    return implode('<br />', $errors);
+	    }
+	    
+	    $errors = array();
+	    
+	    //No errors, write the document to Pending Sheets
+	    
+	    for ($i = 1; $i <= 3; $i++){
+		    foreach($compile[$i] as $key=>$value){
+			    if (is_numeric($value)){
+					$value = floor($value);
+				} else {
+					$value = addslashes($value);
+				}
+				
+			    $sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."' AND `statribute` = '$key'";
+			    mysql_query($sql, $this->connect);
+			    
+			    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '$key', '$value')";
+			    if (!mysql_query($sql, $this->connect)){
+				    $errors[] = 'Error Generated During Publish: '.mysql_error($this->connect);
+			    }
+		    }
+	    }
+	    
+	    if (count($errors)){
+		    $sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+			mysql_query($sql, $this->connect);
+			$errors[] = '<b>Problem publishing sheet. Changes not published, report this error ASAP</b>';
+		    return implode('<br />', $errors);
+	    }
+	    
+	    //No errors, update status
+	    
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 1, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+		if (mysql_query($sql, $this->connect)){
+			return 'Your character sheet has been saved. You may submit it at any time for approval. Your sheet can not be approved until you submit it.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	    
+    }
+    
+    function SubmitSheet(){
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 0 WHERE `bhg_id` = '".$this->GetID()."'";
+		if (mysql_query($sql, $this->connect)){
+			return 'Your character sheet has been submitted for approval. It is now pending review by the Overseer or Adjunct.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	   
+	}
+	
+	function XPEvent($points, $reason){
+		$sql = "INSERT INTO `cs_experience` VALUES ('".$this->GetID()."', '$points', '".time()."', '".addslashes($reason)."')";
+		if (mysql_query($sql, $this->connect)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	function WriteXPEvents(){
+		$sql = "SELECT * FROM `cs_experience` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		
+		$table = new Table('', true);
+		
+		$table->StartRow();
+		$table->AddHeader('Arena Experience', 3);
+		$table->EndRow();
+		$table->AddRow('Date', 'Points', 'Reason');
+		
+		while ($info = mysql_fetch_array($query)){
+			$date = getdate($info['date']);
+			$table->AddRow($date['mon'].'/'.$date['mday'].'/'.$date['year'], $info['points'], stripslashes($info['reason']));
+		}
+		
+		$table->EndRow();
+		$table->EndTable();
+	}
+	
+	function BuyPoint(){
+		if ($this->XPEvent(-350, 'Bonus Point Purchase')){
+			if ($this->AddPoint('Bonus Point Purchase', 1)){
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
+	function AddPoint($reason, $purchase = 0){
+		$sql = "INSERT INTO `cs_bonus_points` VALUES ('".$this->GetID()."', '".time()."', '$purchase', '".addslashes($reason)."')";
+		if (mysql_query($sql, $this->connect)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	function RemovePoint($reason){
+		$sql = "INSERT INTO `cs_demerit_points` VALUES ('".$this->GetID()."', '".time()."', '".addslashes($reason)."')";
+		if (mysql_query($sql, $this->connect)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	function WritePointEvents(){
+		$table = new Table('', true);
+		
+		$table->StartRow();
+		$table->AddHeader('Arena Points', 3);
+		$table->EndRow();
+		$table->AddRow('Date', 'Points', 'Reason');
+		
+		$sql = "SELECT * FROM `cs_bonus_points` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		
+		while ($info = mysql_fetch_array($query)){
+			$date = getdate($info['date']);
+			$table->AddRow($date['mon'].'/'.$date['mday'].'/'.$date['year'], 'Bonus Point', stripslashes($info['reason']));
+		}
+		
+		$sql = "SELECT * FROM `cs_demerit_points` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$query = mysql_query($sql, $this->connect);
+		
+		while ($info = mysql_fetch_array($query)){
+			$date = getdate($info['date']);
+			$table->AddRow($date['mon'].'/'.$date['mday'].'/'.$date['year'], 'Demerit Point', stripslashes($info['reason']));
+		}
+		
+		$table->EndRow();
+		$table->EndTable();
+	}
+	
+	function Approve(){
+	    $sql = "SELECT * FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    
+	    if (mysql_num_rows($query)){
+		    $delsql = "DELETE FROM `character_sheet_values` WHERE `bhg_id` = '".$this->GetID()."'";
+		    mysql_query($delsql, $this->connect);
+	    }
+	    
+	    while($info = mysql_fetch_array($query)){
+		    $sql = "INSERT INTO `character_sheet_values` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".$info['value']."')";
+		    mysql_query($sql, $this->connect);
+	    }
+	    
+	    $sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";
+		if (mysql_query($sql, $this->connect)){
+			return 'Sheet approved.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	   
+	}
+	
+	function Kill(){
+		$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		mysql_query($sql, $this->connect);
+		
+	    $sql = "DELETE FROM `character_sheet_values` WHERE `bhg_id` = '".$this->GetID()."'";
+	    mysql_query($sql, $this->connect);
+	    
+	    $sql = "DELETE FROM `character_sheets` WHERE `bhg_id` = '".$this->GetID()."'";
+	    echo $this->GetID();
+		if (mysql_query($sql, $this->connect)){
+			return 'Character Killed.';
+		} else {
+			return 'Error in update: '.mysql_error($this->connect);
+		}	   
+	}
+	
+	function NewSheet(){
+	    $sql = "INSERT INTO `character_sheets` VALUES ('".$this->GetID()."', '".time()."', 1, 0)";
+		if (mysql_query($sql, $this->connect)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+    
+	function HasValue($look = 'values'){
+		$table = '`character_sheet_'.$look.'`';
+	    $sql = "SELECT * FROM $table WHERE `bhg_id` = '".$this->GetID()."'";
+        $query = mysql_query($sql, $this->connect);
+        
+        return (mysql_num_rows($query));
+    }
+	
+	function ParseSheet($look = 'values'){
+		$bio = $this->cs_person->GetBioData();
+		$division = $this->cs_person->GetDivision();
+		$position = $this->cs_person->GetPosition();
+		$rank = $this->cs_person->GetRank();
+    	$url = $bio->GetImageURL();
+		$unk = 'Unknown';
+		$age = $unk;
+		$height = $unk;
+		$homeworld = $unk;
+		$sex = $unk;
+		$species = $unk;
+		if (!$url){ $url = 'arena/images/helmet.png'; } 
+		if ($bio->GetAge()){ $age = $bio->GetAge(); }
+		if ($bio->GetHeight()){ $height = $bio->GetHeight(); }		
+		if ($bio->GetHomeworld()){ $homeworld = $bio->GetHomeworld(); }
+		if ($bio->GetSex()){ $sex = $bio->GetSex(); }
+		if ($bio->GetSpecies()){ $species = $bio->GetSpecies(); }
+		
+		echo '<table border=0 width="100%"><tr valign="top"><td>';
+		
+		$table = new Table();
+				$table->StartRow();
+		$table->AddHeader('Personal History', 2);
+		$table->EndRow();
+		$table->AddRow('Bonus Points ', $this->GetBonusPoints());
+		$points = $this->GetExperiencePoints();
+		if (!$points){ $points = '0'; }
+		$table->AddRow('Experience Points ', $points);
+		$table->AddRow('Dossier Status', 'Currently listed as: <b>'.$this->Status('HUMAN').'</b>');
+		$table->EndTable();
+		
+		echo '</td><td align="center">';
+		
+		$table = new Table();
+    	
+    	$table->StartRow();
+    	$table->AddHeader('Key', 2);
+    	$table->EndRow();
+    	
+    	$table->AddRow('Hunter Placed Point', '<img src="arena/images/X.png">');
+    	$table->AddRow('System Generated Point', '<img src="arena/images/bonus.png">');
+    	
+    	$table->EndTable();
+		
+    	echo '</td></tr></table>';
+    	
+		hr();
+		
+		$table = new Table();
+		
+		$table->StartRow();
+		$table->AddHeader('Dossier file for '.$rank->GetName().' '.$this->GetName(), 2);
+		$table->EndRow();
+		$table->AddRow('Visual Identification', '<img src='.$url.'>');
+    	$table->AddRow('Age', $age);
+    	$table->AddRow('Height', $height);
+    	$table->AddRow('Homeworld', $homeworld);
+    	$table->AddRow('Sex', $sex);
+    	$table->AddRow('Species', $species);
+    	$table->AddRow('Division', '<a href="'.internal_link('division', array('id'=>$division->GetID()), 'roster').'">'.$division->GetName().'</a>');
+    	$table->AddRow('Position', '<a href="'.internal_link('position', array('id'=>$position->GetID()), 'roster').'">'.$position->GetName().'</a>');
+    	if ($this->HasValue($look)){
+	    	for ($i = 1; $i <= 6; $i++){
+		    	$field = new Field($i);
+		    	$table->StartRow();
+				$table->AddHeader($field->GetName(), 2);
+				$table->EndRow();
+		    	foreach($this->GetStats($i) as $stat){
+			    	$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look));
+		    	}
+	    	}
+	    	for ($i = 7; $i <= 9; $i++){
+		    	$field = new Field($i);
+		    	$table->StartRow();
+				$table->AddHeader($field->GetName(), 2);
+				$table->EndRow();
+		    	foreach($this->GetSkills($i) as $skill){
+			    	$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look));
+		    	}
+	    	}
+			for ($i = 10; $i <= 11; $i++){
+		    	$field = new Field($i);
+		    	$table->StartRow();
+				$table->AddHeader($field->GetName(), 2);
+				$table->EndRow();
+		    	foreach($this->GetStats($i) as $stat){
+			    	$table->AddRow($stat->GetName(), $this->Point($stat->GetID(), 'SHEET', $look));
+		    	}
+	    	}
+    	} else {
+	    	$table->StartRow();
+	    	$table->AddCell('This sheet has not yet been created', 2);
+	    	$table->EndRow();
+    	}    	
+    	
+    	$table->EndTable();
+
+	}
+    	
+ }					
+
+?>
