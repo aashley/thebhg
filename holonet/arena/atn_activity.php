@@ -44,7 +44,7 @@ function output() {
 		    $fst = 'id` < \''.$grtrt.'\' AND `';
 	    } 
 	    
-	    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('type'=>$activity->Get(id), 'accepted'=>1, 'started` > 0 AND `completed` > 0 AND `date_deleted'=>0), 'order'=>array('id'=>'desc'), 'limit'=>20));
+	    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('type'=>$activity->Get(id), 'accepted'=>1, 'started` > 0 AND `completed` > 0 AND `date_deleted'=>0), 'limit'=>20));
 	    $pendings = array();
 	    
 	    foreach ($pending as $obj){
