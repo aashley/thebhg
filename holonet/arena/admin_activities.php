@@ -36,12 +36,12 @@ function output(){
 			$show = false;
 			break;
 			
-			case 'de:
+			case 'de':
 			$obj->Edit(array('date_deleted'=>time()));
 			$show = false;
 			break;
 			
-			case 'ed:
+			case 'ed':
 			if ($_REQUEST['stage'] == 2){
 				$obj->Edit(array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]));
 			} else {
