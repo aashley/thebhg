@@ -17,11 +17,20 @@ function output() {
     arena_header();
     
     if (isset($_REQUEST['submit'])) {
-	    
+	    $character = new Character($_REQUEST['bhg_id']);
+		if ($character->IsNew()){
+			if (!$character->NewSheet()){
+				NEC(158);
+				admin_footer($auth_data);
+				return;
+			} else {
+				echo 'Sheet created.';
+			}
+		} else {
+			echo 'Character has a sheet.';
+		}
     }
     else {
-        $form = new Form($page);
-        $form->AddSectionTitle('Make Blank Sheet');
         $kabals_result = $roster->GetDivisions();
 	    
 			$kabals = array();
@@ -119,20 +128,22 @@ function output() {
 		This page requires JavaScript to function properly.
 		</noscript>
 	<?
-	        $form->table->StartRow();
-	        $form->table->AddCell("<select name=\"kabal\" "
-	        ."onChange=\"swap_kabal(this.form)\">"
-	        ."<option value=\"-1\">N/A</option>$kabals</select>");
+		$form = new Form($page);
+    	$form->AddSectionTitle('Make Blank Sheet');
+        $form->table->StartRow();
+        $form->table->AddCell("<select name=\"kabal\" "
+        ."onChange=\"swap_kabal(this.form)\">"
+        ."<option value=\"-1\">N/A</option>$kabals</select>");
 	
 	    $cell = "<select name=\"bhg_id\">";
 	    
-				$cell .= "<option value=\"-1\" selected>N/A</option>\n";
-	    
-			$cell .= "</select>";
-	    
-			$form->table->AddCell($cell);
-	
-			$form->table->EndRow();
+		$cell .= "<option value=\"-1\" selected>N/A</option>\n";
+
+		$cell .= "</select>";
+    
+		$form->table->AddCell($cell);
+
+		$form->table->EndRow();
         $form->AddSubmitButton('submit', 'Insert Blank into AMS');
         $form->EndForm();
     }
