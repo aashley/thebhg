@@ -49,8 +49,9 @@ function output(){
 		}
 	}
 	
-	//'Add New' Block	
-	$form = new Form($page, 'Add New');
+	//'Add New' Block
+	$form = new Form($page);
+	$form->AddSectionTitle('Add New');
 	$form->AddHidden('data[table]', 'ams_activities');
 	$form->AddTextBox('Name', 'data[name]');
 	$form->AddTextArea('Description', 'data[desc]');
