@@ -36,8 +36,14 @@
         $sql = "INSERT INTO `arena_solo_request` (`type`, `bhg_id`) VALUES ('$type', '$bhg_id')";
 
         if (mysql_query($sql, $this->connect)) {
-
-           return true;
+	        
+	        $sql = "DELETE FROM `arena_solo_request` WHERE `type` = '$type' AND `bhg_id` = '$bhg_id'";
+        
+        	if (mysql_query($sql, $this->connect)) {
+           		return true;
+       		} else {
+	       		return false;
+       		}
 
         } else {
 
