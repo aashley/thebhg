@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Solo Mission :: Assign a New Commissioner';
+    return 'Administration :: Solo Mission :: Commissioner of the Bounty Office';
 }
 
 function auth($person) {
@@ -36,6 +36,7 @@ function output() {
     }
     else {
         $form = new Form($page);
+        $form->AddSectionTitle('Declare New Commissioner');
         $form->StartSelect('Hunter:', 'bhg_id');
         hunter_dropdown($form);
         $form->EndSelect();
@@ -45,7 +46,10 @@ function output() {
         hr();
         
         $form = new Form($page);
-        $form->AddSubmitButton('<input type="submit" name="end" value="End Current Term">');
+        $form->AddSectionTitle('Downsize Current Commissioner');
+        $form->table->StartRow();
+        $form->table->AddCell('<input type="submit" name="end" value="End Term">');
+        $form->table->EndRow();
         $form->EndForm(); 
     }
 

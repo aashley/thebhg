@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Dojo of Shadows :: Assign a New Master';
+    return 'Administration :: Dojo of Shadows :: Dojo Master';
 }
 
 function auth($person) {
@@ -35,7 +35,9 @@ function output() {
         }
     }
     else {
+	    
         $form = new Form($page);
+        $form->AddSectionTitle('Declare New Master');
         $form->StartSelect('Hunter:', 'bhg_id');
         hunter_dropdown($form);
         $form->EndSelect();
@@ -45,7 +47,10 @@ function output() {
         hr();
         
         $form = new Form($page);
-        $form->AddSubmitButton('<input type="submit" name="end" value="End Current Term">');
+        $form->AddSectionTitle('Downsize Current Dojo Master');
+        $form->table->StartRow();
+        $form->table->AddCell('<input type="submit" name="end" value="End Term">', 2);
+        $form->table->EndRow();
         $form->EndForm(); 
     }
 
