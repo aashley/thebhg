@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Run-Ons :: Run-On Poster';
+    return 'Administration :: Solo Mission :: Contract Poster';
 }
 
 function auth($person) {
@@ -8,7 +8,7 @@ function auth($person) {
 
     $auth_data = get_auth_data($person);
     $hunter = $roster->GetPerson($person->GetID());
-    return $auth_data['ro'];
+    return $auth_data['solo'];
 }
 
 function output() {
