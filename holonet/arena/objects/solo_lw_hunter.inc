@@ -45,6 +45,20 @@
         return mysql_num_rows(mysql_query("SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` = '".$this->bhg_id."' AND `completed` > 0", $this->connect));
     }
 
+    function DCOPenalty(){
+	    $time = time()-(60*60*24*10);
+	    
+	    $sql = "SELECT * FROM `arena_lw_dco` WHERE `bhg_id` = '".$this->bhg_id."' AND `date` >= '$time' ORDER BY `date` DESC LIMIT 1";
+	    $query = mysql_query($sql, $this->connect);
+	    $info = mysql_fetch_array($query);
+	    
+	    if (mysql_num_rows($query)){
+		    return $info['date']+(60*60*24*10);
+	    } else {
+		    return false;
+	    }
+    }
+    
     function ReadContracts(){
         $sql = "SELECT * FROM `arena_lw_contracts` WHERE `bhg_id` = '".$this->bhg_id."' AND `completed` > 0";
         $query = mysql_query($sql, $this->connect);

@@ -14,13 +14,12 @@ function auth($person) {
 }
 
 function output() {
-    global $arena, $hunter, $roster, $page, $auth_data, $sheet;
+    global $arena, $hunter, $roster, $page, $auth_data, $sheet, $at, $iat;
 
     arena_header();
 
     $ladder = new Ladder();
     $starfield = new Starfield();
-	$ttg = new TTG();
     
     $sheet = new Sheet();
 	
@@ -30,6 +29,18 @@ function output() {
     
 	    hr();
 	    
+	    if ($at->ValidSignup()){
+			echo '<b>A<u>rena Tournamen</u>t</b><br />';
+		    echo '<a href="' . internal_link('acn_tournament_signup') . '">Signup&nbsp;For&nbsp;Tournament</a>';
+		    hr();
+		}
+		
+		if ($iat->ValidSignup()){
+			echo '<b>I<u>RC Arena Tournamen</u>t</b><br />';
+		    echo '<a href="' . internal_link('acn_irc_tournament_signup') . '">Signup&nbsp;For&nbsp;Tournament</a>';
+		    hr();
+		}
+	    
 	    echo '<b>T<u>he Aren</u>a</b>';
 	    
 	    echo '<br /><a href="'.internal_link('acn_arena_challenge').'">Make Arena Challenge</a>';
@@ -37,7 +48,7 @@ function output() {
 	    $challenges = $ladder->Pending($hunter->GetID());
 	
 	    if (count($challenges)) {
-		    echo '<br />';
+		    echo '<p>';
 	        $table = new Table('Pending Challenges', true);
 	        $table->StartRow();
 	        $table->AddHeader('Challenger');
@@ -78,7 +89,7 @@ function output() {
 	    $challenges = $starfield->Pending($hunter->GetID());
 	
 	    if (count($challenges)) {
-		    echo '<br />';
+		    echo '<p>';
 	        $table = new Table('Pending Challenges', true);
 	        $table->StartRow();
 	        $table->AddHeader('Challenger');
@@ -121,14 +132,20 @@ function output() {
 	    hr();
 	    
 	    echo '<b>S<u>olo Mission</u>s</b>';
-	    
-	    echo '<br /><a href="'.internal_link('acn_solo_contract').'">Request a New Contract</a>';
-	    echo '<br /><a href="'.internal_link('acn_solo_dco').'">Request a Dead Contract</a>';
-	    
 	    $hunter = new Hunter($hunter->GetID());
+	    $dco = $hunter->DCOPenalty();
+	    
+	    if ($dco){
+		    $date = getdate($dco);
+	    	echo 'You are currently under the Dead Contract penalty. You cannot request contracts until this ban expires.<br />'
+	    		.'This ban will end on: '.$date['month']." ".$date['mday'].", ".$date['year'];
+    	} else {
+		    echo '<br /><a href="'.internal_link('acn_solo_contract').'">Request a New Contract</a>';
+		    echo '<br /><a href="'.internal_link('acn_solo_dco').'">Request a Dead Contract</a>';
+	    }
 	    
 	    if (count($hunter->Contracts())){
-		    echo '<br />';
+		    echo '<p>';
 		    $table = new Table('', true);
 		    $table->StartRow();
 		    $table->AddHeader('Pending Contracts', 3);
@@ -154,7 +171,7 @@ function output() {
 		    $hunter = new LW_Hunter($hunter->GetID());
 		    
 		    if (count($hunter->Contracts())){
-			    echo '<br />';
+			    echo '<p>';
 			    $table = new Table('', true);
 			    $table->StartRow();
 			    $table->AddHeader('Pending Contracts', 3);
@@ -168,6 +185,10 @@ function output() {
 		        $table->EndTable();
 	        }
         }
+        
+        hr();
+        echo '<b>I<u>RC Aren</u>a</b>';
+        echo '<br /><a href="' . internal_link('acn_irca_submit') . '">Submit&nbsp;Match</a><br />';
 	    
 	} else {	    
 	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
