@@ -298,7 +298,7 @@
         $table->EndRow();
         
         $table->StartRow();
-        $table->AddCell('<small>' . $person1->GetName(), 2);
+        $table->AddCell('<small><a href="' . internal_link('atn_general', array('id'=>$person1->GetID())) . '">' . $person1->GetName() . '</a>', 2);
         $table->EndRow();
         
         $table->StartRow();
@@ -315,7 +315,7 @@
         $table->EndRow();
         
         $table->StartRow();
-        $table->AddCell('<small>' . $person2->GetName(), 2);
+        $table->AddCell('<small><a href="' . internal_link('atn_general', array('id'=>$person2->GetID())) . '">' . $person2->GetName() . '</a>', 2);
         $table->EndRow();
 
     }
@@ -341,7 +341,7 @@
 	        $table->EndRow();
 	        
 	        $table->StartRow();
-	        $table->AddCell('<small>'.$person->GetName(), 2);
+	        $table->AddCell('<small><a href="' . internal_link('atn_general', array('id'=>$person->GetID())) . '">' . $person->GetName() . '</a>', 2);
 	        $table->EndRow();
 		}
     }
@@ -352,7 +352,7 @@
 	        $table->EndRow();
 	        
 	        $table->StartRow();
-	        $table->AddCell('<small>' . $person->GetName(), 2);
+	        $table->AddCell('<small><a href="' . internal_link('atn_general', array('id'=>$person->GetID())) . '">' . $person->GetName() . '</a>', 2);
 	        $table->EndRow();
     }
 
