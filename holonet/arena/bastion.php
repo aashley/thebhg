@@ -31,18 +31,19 @@ function output() {
 	    	$table = new Table('', true);
 	    	$table->StartRow();
 	    	$table->AddHeader('Season');
-	    	$table->AddHeader('Points');
 	    	$table->AddHeader('Kabal');
+	    	$table->AddHeader('Points');
 	    	$table->EndRow();
 	    	
 	    	foreach ($bast as $season=>$data){
 		    	$table->AddRow('<a target="bastion" href="http://overseer.thebhg.org/index.php?area=challenge&page=season&season='.$season.'">'.$season.'</a>', 
-		    		number_format($data['total']), '<a target="bastion" href="http://overseer.thebhg.org/index.php?area=challenge&page=kabal&season='.$season.'&kabal='.$data['kabal']->GetID().'">'.$data['kabal']->GetName().'</a>');
+		    		'<a target="bastion" href="http://overseer.thebhg.org/index.php?area=challenge&page=kabal&season='.$season.'&kabal='.$data['kabal']->GetID().'">'.$data['kabal']->GetName().'</a>',
+		    		number_format($data['total']));
 		    	$total += $data['total'];
 	    	}
 	    	$table->StartRow();
 	    	$table->AddCell('<div align="right">Total Points </div>', 2);
-	    	$table->AddCell($total);
+	    	$table->AddCell('<div align="right">'.$total.'</div>');
 	    	$table->EndRow();
 	    	
 	    	$table->EndTable();	
