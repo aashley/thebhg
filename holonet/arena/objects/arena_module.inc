@@ -181,7 +181,7 @@
 			$return = ($aa ? $output[$aa] : $ouput[key(end($output))]);
 			$use = ($aa ? $aa : key(end($output)));
 		
-			$sql = "UPDATE `".$positions[$use]."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aa[$use]->GetID()."'";
+			$sql = "UPDATE `".$positions[$use]."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aas[$use]->GetID()."'";
 		
 			if (mysql_query($sql, $this->connect)){
 				return $return.': ';
