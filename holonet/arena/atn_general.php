@@ -40,8 +40,7 @@ function output() {
 	    $table->EndTable();
 	    
 	    echo '</td><td align="center"><div style="text-align: left">';
-		$search = $arena->Search(array('table'=>'ams_activities', 'search'=>array('ladder` > 1 AND `date_deleted'=>'0')));
-		print_r($search);
+		$search = $arena->Search(array('table'=>'ams_activities', 'search'=>array('ladder` > 0 AND `date_deleted'=>'0')));
 		$lrs = array();
 		foreach ($search as $obj){
 			$ladr = $arena->Ladder($obj->Get(id), $hunter->GetID());
