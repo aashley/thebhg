@@ -520,7 +520,7 @@
 					$new = "INSERT INTO `character_sheet_core` VALUES ('', '".$this->GetID()."', 0, '".time()."', '')";
 				    $store = mysql_query($new, $this->connect);
 				    $id = mysql_insert_id($this->connect);
-				    $errors = 0;
+				    $errors = array();
 			    }
 				
 			    $sql = "INSERT INTO `character_sheet_cores` VALUES ('".$id."', '$key', '$value')";
@@ -1094,16 +1094,18 @@
 		$table = new Table();
 		
 		$table->StartRow();
-		$table->AddHeader('Dossier file for '.$rank->GetName().' '.$this->GetName($look, $id, $col), 2);
+		$table->AddHeader(($namez ? 'Dossier file for '.$rank->GetName().' ' : '').$this->GetName($look, $id, $col), 2);
 		$table->EndRow();
-		$table->AddRow('Visual Identification', '<img src='.$url.'>');
-    	$table->AddRow('Age', $age);
-    	$table->AddRow('Height', $height);
-    	$table->AddRow('Homeworld', $homeworld);
-    	$table->AddRow('Sex', $sex);
-    	$table->AddRow('Species', $species);
-    	$table->AddRow('Division', '<a href="'.internal_link('division', array('id'=>$division->GetID()), 'roster').'">'.$division->GetName().'</a>');
-    	$table->AddRow('Position', '<a href="'.internal_link('position', array('id'=>$position->GetID()), 'roster').'">'.$position->GetName().'</a>');
+		if ($look != 'cores'){
+			$table->AddRow('Visual Identification', '<img src='.$url.'>');
+	    	$table->AddRow('Age', $age);
+	    	$table->AddRow('Height', $height);
+	    	$table->AddRow('Homeworld', $homeworld);
+	    	$table->AddRow('Sex', $sex);
+	    	$table->AddRow('Species', $species);
+	    	$table->AddRow('Division', '<a href="'.internal_link('division', array('id'=>$division->GetID()), 'roster').'">'.$division->GetName().'</a>');
+	    	$table->AddRow('Position', '<a href="'.internal_link('position', array('id'=>$position->GetID()), 'roster').'">'.$position->GetName().'</a>');
+    	}
     	if ($this->HasValue($look, $col, $id)){
 	    	for ($i = 1; $i <= 6; $i++){
 		    	$field = new Field($i);
