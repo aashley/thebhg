@@ -47,7 +47,7 @@
         return mysql_num_rows($query);
     }
 
-    function Edit($name, $description) {
+    function Edit($name, $description, $points) {
         $sql = "UPDATE `arena_solo_types` SET ";
         $add = array();
         $return = "";
@@ -60,6 +60,11 @@
         if ($description != $this->arena_solo_description){
             array_push($add, "`description` = '".addslashes($description)."'");
             $return .= "Description Edited.<br />";
+        }
+        
+        if ($points != $this->arena_solo_points){
+            array_push($add, "`points` = '$points'");
+            $return .= "Max CS Points Edited.<br />";
         }
 
         $sql .= implode(', ', $add);
