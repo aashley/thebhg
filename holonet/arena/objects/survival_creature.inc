@@ -87,11 +87,8 @@
 	    
 	    foreach ($this->npc_stats as $name=>$stat){
 		    $point = round($stat*$this->type->GetPoints());
-		    $value = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', ($check ? $stat : round($point)));
-		    if ($check){ $value .= str_repeat('<img src="arena/images/bonus.png" alt="*" height=20 width=20>', round($point-$stat)); }
-		    $value .= str_repeat('<img src="arena/images/0.png" alt="0" height=20 width=20>', round($highest-$point));
 
-		    $text .= '<br />'.$name.$value;
+		    $text .= '<br />'.$name.$points;
 	    }
 
 	    $text .= '<br /><br />Description: '.nl2br(stripslashes($this->npc_string));
