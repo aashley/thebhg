@@ -43,7 +43,7 @@ function output(){
 				
 				$form->AddSectionTitle($type->GetName().': Round '.$round->GetRoundID());
 				
-				$form->AddHidden('event', $_REQUEST['event']);
+				$form->AddHidden('id', $_REQUEST['id']);
 				
 				if ($type->HasImage()){
 					$form->table->StartRow();
