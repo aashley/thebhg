@@ -177,7 +177,6 @@ function output() {
 		    	}
 	    	}
 	    	$form->AddHidden('process', 1);
-	    	echo $saves[$_REQUEST['sheet']]['bhg_id'];
 	    	if (($auth_data['sheet'] || $saves[$_REQUEST['sheet']]['bhg_id'] == $hunter->GetID())){
 	    		$form->AddHidden('sheet', $_REQUEST['sheet']);
     		}
