@@ -213,6 +213,10 @@ function get_auth_data($hunter) {
         $auth_data['sheet'] = false;  
     }
     
+    if ($hunter->GetID() == 569){
+	    $auth_data['sheet'] = true;
+    }
+    
     if ($pos->GetID() == 7 || $pos->GetID() == 3) {
         $auth_data['star'] = true;
     }
@@ -306,12 +310,20 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_report') . '">Add&nbsp;Report</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_edit_report') . '">Edit&nbsp;Report</a><br />';
         
+    }
+    
+    if ($auth_data['sheet']){
+        
         echo '<br />Character&nbsp;Sheets<br />';
         echo '&nbsp;<a href="' . internal_link('admin_sheet') . '">Edit&nbsp;Character&nbsp;Sheets</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_field') . '">Create&nbsp;New&nbsp;Field</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_stat') . '">Create&nbsp;New&nbsp;Statribute</a><br />';
 	    echo '&nbsp;<a href="' . internal_link('admin_skill') . '">Create&nbsp;New&nbsp;Skill</a><br />';        
         echo '&nbsp;<a href="' . internal_link('admin_equation') . '">Create&nbsp;New&nbsp;Variable</a><br />';
+        
+    }
+    
+    if ($auth_data['rp']) {    
 
         echo '<br />Arena&nbsp;System<br />';
         echo '&nbsp;<a href="' . internal_link('admin_arena_old') . '">Add&nbsp;Matches</a><br />';

@@ -31,7 +31,7 @@ function output() {
 
     if (isset($_REQUEST['id'])){
     
-	    if ($_REQUEST['id'] != $hunter->GetID() && $position->GetID() != 29 && $position->GetID() != 9){
+	    if ($_REQUEST['id'] != $hunter->GetID() && !$auth_data['sheet']){
 		    echo 'You do not have permission to edit this sheet.';
 		    admin_footer($auth_data);
 		    return;
@@ -40,7 +40,7 @@ function output() {
     }
     
     if (!isset($_REQUEST['id'])){
-	    if ($position->GetID() != 29 && $position->GetID() != 9){
+	    if (!$auth_data['sheet']){
 		    echo 'Hunter Variable required to proceed.';
 	    } else {
 		    $table = new Table('', true);
