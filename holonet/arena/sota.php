@@ -10,6 +10,7 @@ function nf ($input){
 function output() {
     global $arena;
 
+    arena_header();
     echo 'The State of the Arena Report is an automatically generate stat printout of the current status of the Arena, valid up to the second which this page is viewed.';
     
     hr();
@@ -44,8 +45,7 @@ function output() {
     $table->EndTable();
     
     hr();
-    
-    arena_header();
+
 	$arena->LatestReport($arena->ArenaPositions());
     arena_footer();
 }
