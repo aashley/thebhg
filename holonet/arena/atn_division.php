@@ -39,7 +39,7 @@ function output() {
 		$finish = $start+10;
 		    
 		$hunters = $div->GetMembers();
-		print_r($hunters);
+		print_r($hunters[0]);
 	    if ($div->GetMemberCount()) {
 		    for ($i = $start; $i < $finish; $i++) {
 			    $hunter = $hunters[$i];
