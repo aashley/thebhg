@@ -154,7 +154,9 @@ function output() {
 	$form = new Form($page);
 	
 	if (count($arena->CanBe($hunter))){
-		$form->AddSectionTitle('Award As: ');
+		$form->table->StartRow();
+		$form->table->AddHeader('Award As: ', 3);
+		$form->table->EndRow();
 		$i = 0;
 		
 		foreach ($arena->CanBe($hunter) as $call=>$value){
