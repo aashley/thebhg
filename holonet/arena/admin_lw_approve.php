@@ -44,7 +44,7 @@ function output() {
     else {
 	    if (count($solo->NeedApproval())){
 	        $form = new Form($page);
-	        $form->AddSectionHeader('Approve Requested Contracts');
+	        $form->AddSectionTitle('Approve Requested Contracts');
 	        $form->table->AddRow('Requester', 'Difficulty', 'Approve', 'Deny');
 	        $i = 1;
 	        foreach ($solo->NeedApproval() as $value) {
