@@ -2,6 +2,11 @@
 
  Class Solo extends Arena {
 
+	var $xp;
+	var $creds;
+	var $dxp;
+	var $dcreds;
+	 
     function Solo(){
         Arena::Arena();
     }
@@ -44,6 +49,44 @@
         $subject = "New Contract Request";
 
         $person->SendEmail($from, $subject, $text);
+    }
+    
+    function Build(){
+	   $sql = "SELECT SUM(xp) as xp, "
+                ."SUM(creds) as credits "
+                ."FROM `arena_solo_contracts` WHERE `comissioner` = '".$this->comish_id."'";
+
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        $this->creds = $info['credits'];
+        $this->xp = $info['xp'];
+        
+        $sql = "SELECT SUM(xp) as xp, "
+                ."SUM(creds) as credits "
+                ."FROM `arena_lw_contracts` WHERE `comissioner` = '".$this->comish_id."'";
+
+        $query = mysql_query($sql, $this->connect);
+        $info = mysql_fetch_array($query);
+
+        $this->dcreds = $info['credits'];
+        $this->dxp = $info['xp'];
+    }
+    
+    function GetXP(){
+	    return $this->xp;
+    }
+    
+    function GetCreds(){
+	    return $this->creds;
+    }
+    
+    function GetDXP(){
+	    return $this->dxp;
+    }
+    
+    function GetDCreds(){
+	    return $this->dcreds;
     }
     
     function NewComissioner($bhg_id){
