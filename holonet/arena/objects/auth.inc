@@ -92,6 +92,7 @@
     }
     
     function LW(){
+	    print_r($this->Populate('lw_members'));
 	    return (in_array($this->id, $this->Populate('lw_members')));
     }
     
