@@ -81,6 +81,7 @@ foreach ($ca->GetMembers() as $guy) {
 	}
 }
 $rank = $tactician->GetRank();
+$pos = $tactician->GetPosition();
 
 function page_header($title = '', $bclass = '') {
 	echo <<<EOH
