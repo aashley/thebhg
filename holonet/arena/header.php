@@ -190,9 +190,7 @@ function get_auth_data($hunter) {
 	}
 	
 	if ($pos->GetID() == 11 || $pos->GetID() == 10 || $pos->GetID() == 12){
-		$auth_data['coder'] = true;
     	$auth_data['ch'] = true;
-    	$auth_data['sheet'] = true;
 	}
     
 	$list = false;
@@ -232,6 +230,7 @@ function get_auth_data($hunter) {
         $auth_data['aide'] = true;
         $auth_data['list'] = true;
         $auth_data['sheet'] = true;
+        $auth_data['coder'] = true;
         $activities = $arena->Search(array('table'=>'ams_activities', 'search'=>array('date_deleted'=>'0')));
 		$lists = $arena->Search(array('table'=>'ams_list_types', 'search'=>array('date_deleted'=>'0')));
     } else {
