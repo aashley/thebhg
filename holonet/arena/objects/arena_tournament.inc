@@ -674,8 +674,24 @@
         for ($i = 1; $i <= $this->RoundBrackets(); $i++){
             $this->AdminBracket($this->CurrentRound(), $i, $form);
         }
+        $this->AdminBuyCheck($form);
     }
 
+    function AdminBuyCheck($form){
+        $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '99' AND `round` = '$round' AND `season` = '".$this->season."'";
+        $query = mysql_query($sql, $this->connect);
+		$info = mysql_fetch_array($query);
+        
+        $person1 = new Person($info['bhg_id']);
+        
+        $form->table->StartRow();
+        $form->table->AddHeader('Bye Bracket', 2);
+        $form->table->EndRow();
+        
+        $form->AddRadioButton($person1->GetName(), 'bracket['.$bracket.']', $person1->GetID());
+
+    }
+    
     function AdminBracket($round, $bracket, $form){
         $sql = "SELECT * FROM `arena_tournament_data` WHERE `bracket` = '$bracket' AND `round` = '$round' AND `season` = '".$this->season."'";
         $query = mysql_query($sql, $this->connect);
