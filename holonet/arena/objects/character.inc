@@ -3,17 +3,19 @@
  Class Character extends Sheet {
 
     var $cs_bhg_id;
+    var $cs_id;
     var $cs_last_change;
     var $cs_approved;
     var $cs_person;
     var $cs_pending;
     var $cs_ban;
+    var $cs_date_deleted;
     var $LastID;
 
     function Character($id) {
         Sheet::Sheet();
         
-        $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '$id'";
+        $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '$id' AND `date_deleted` = 0";
         $query = mysql_query($sql, $this->connect);
 
         $this->cs_person = new Person($id);
@@ -47,6 +49,10 @@
 	    return $this->cs_person->GetID();
     }
     
+    function GetSheetID(){
+	    return $this->cs_id;
+    }
+    
     function GetName($look = 'values', $id = 0, $col = 'bhg_id'){
 	    
 	    $stat = $this->Point(33, 'SHEET', $look, $id, $col);
@@ -59,6 +65,19 @@
 	    
 	    return $name;
     }
+    
+    function GetDeleted(){
+	    return ($this->cs_date_deleted > 0);
+    }
+    
+    function DateDeleted(){
+	    if ($this->GetDeleted()){
+		    $date = getdate($this->cs_date_deleted);
+		    return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
+    	} else {
+	    	return 'Not Deleted';
+    	}
+	}	
     
     function LastEdit(){
 	    $date = getdate($this->cs_last_change);
@@ -162,7 +181,7 @@
 	    }
     }
     
-    function GetSheetValues($value = 'values', $id = 0, $col = 'bhg_id'){
+    function GetSheetValues($value = 'values', $id = 0, $col = 'id'){
 	    if ($id){
 		    $id = $id;
 	    } else {
@@ -180,7 +199,7 @@
 	    return $return;
     }
     
-    function Point($stat, $output = 'SHEET', $look = 'values', $id = 0, $col = 'bhg_id'){
+    function Point($stat, $output = 'SHEET', $look = 'values', $id = 0, $col = 'id'){
 	    if ($id){
 		    $id = $id;
 	    } else {
@@ -428,11 +447,11 @@
 				} else {
 					$value = addslashes($value);
 				}
-				
-			    $sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."' AND `statribute` = '$key'";
-			    mysql_query($sql, $this->connect);
 			    
-			    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetID()."', '$key', '$value')";
+				$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."' AND `statribute` = '$key'";
+			    mysql_query($sql, $this->connect);
+				
+			    $sql = "INSERT INTO `character_sheet_pending` VALUES ('".$this->GetSheetID()."', '$key', '$value')";
 			    if (!mysql_query($sql, $this->connect)){
 				    $errors[] = 'Error Generated During Publish: '.mysql_error($this->connect);
 			    }
@@ -440,7 +459,7 @@
 	    }
 	    
 	    if (count($errors)){
-		    $sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    $sql = "DELETE FROM `character_sheet_pending` WHERE `id` = '".$this->GetSheetID()."'";
 			mysql_query($sql, $this->connect);
 			$errors[] = '<b>Problem publishing sheet. Changes not published, report this error ASAP</b>';
 		    return implode('<br />', $errors);
@@ -650,7 +669,7 @@
 			mysql_query($sql, $this->connect);
 			$id = $coreid;
 		} else {
-			$new = "INSERT INTO `character_sheet_core` VALUES ('', '".$this->GetID()."', 0, '".time()."', '')";
+			$new = "INSERT INTO `character_sheet_core` VALUES ('', '".$this->GetID()."', 0, '".time()."', '', '')";
 		    $store = mysql_query($new, $this->connect);
 		    $id = mysql_insert_id($this->connect);
 		    $this->LastID = $id;
@@ -692,7 +711,7 @@
             
             $text = "A new CORE sheet has been submitted for approval.";
 
-            $from = "Office of Character Development <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "Character Pending Approval";
 
             $adjunct->SendEmail($from, $subject, $text);
@@ -703,11 +722,8 @@
 		}	   
 	}
     
-	function DeleteCore($coreid){
-		$sql = "DELETE FROM `character_sheet_cores` WHERE `id` = '$coreid'";
-		mysql_query($sql, $this->connect);
-		
-	    $sql = "DELETE FROM `character_sheet_core` WHERE `id` = '$coreid'";		
+	function DeleteCore($coreid){		
+	    $sql = "UPDATE `character_sheet_core` SET `date_deleted` = 0 WHERE `id` = '$coreid'";		
 		if (mysql_query($sql, $this->connect)){
 			return 'Your CORE sheet has been deleted.';
 		} else {
@@ -724,7 +740,7 @@
             
             $text = $hunter->GetName().", one of your CORE sheet has been approved by the RP staff.";
 
-            $from = "Office of Character Development <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "CORE Character Approved";
 
             $adjunct->SendEmail($from, $subject, $text);
@@ -749,7 +765,7 @@
 	            $text .= "\r\n\r\nReason: ".$reason;
             }
 
-            $from = "Office of Character Development <overseer@thebhg.org>";
+            $from = "overseer@thebhg.org";
             $subject = "CORE Character Denied";
 
             $adjunct->SendEmail($from, $subject, $text);
@@ -762,7 +778,7 @@
 	}
 	
 	function GetBackups(){
-		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0 ORDER BY `date` DESC";
 		$query = mysql_query($sql, $this->connect);
 		$return = array();
 		
@@ -771,11 +787,11 @@
 			$return[$info['id']] = array('id'=>$info['id'], 'bhg_id'=>$info['bhg_id'], 'date'=>$date['mon'].'/'.$date['mday'].'/'.$date['year'], 'name'=>stripslashes($info['save_name']), 'share'=>0);
 		}
 		
-		$sql = "SELECT * FROM `cs_shares` WHERE `bhg_id` = '".$this->GetID()."'";
+		$sql = "SELECT * FROM `cs_shares` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0";
 		$query = mysql_query($sql, $this->connect);
 		
 		while ($mofo = mysql_fetch_array($query)){
-			$sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '".$mofo['sheet']."'";
+			$sql = "SELECT * FROM `character_sheet_backup` WHERE `id` = '".$mofo['sheet']."' AND `date_deleted` = 0";
 			$querya = mysql_query($sql, $this->connect);
 			$info = mysql_fetch_array($querya);
 			$date = getdate($info['date']);
@@ -786,7 +802,7 @@
 	}
 	
 	function GetCores(){
-		$sql = "SELECT * FROM `character_sheet_core` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$sql = "SELECT * FROM `character_sheet_core` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0 ORDER BY `date` DESC";
 		$query = mysql_query($sql, $this->connect);
 		$return = array();
 		
@@ -799,10 +815,10 @@
 	}
 	
 	function Backup($save_name, $from = 'values'){
-	    $sql = "SELECT * FROM `character_sheet_$from` WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "SELECT * FROM `character_sheet_$from` WHERE `id` = '".$this->GetSheetID()."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
-	    $new = "INSERT INTO `character_sheet_backup` VALUES ('', '".$this->GetID()."', '".addslashes($save_name)."', '".time()."')";
+	    $new = "INSERT INTO `character_sheet_backup` VALUES ('', '".$this->GetID()."', '".addslashes($save_name)."', '".time()."', '')";
 	    $store = mysql_query($new, $this->connect);
 	    $id = mysql_insert_id($this->connect);
 	    $errors = 0;
@@ -850,12 +866,12 @@
 	}
 	
 	function MyShares(){
-		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' ORDER BY `date` DESC";
+		$sql = "SELECT * FROM `character_sheet_backup` WHERE `bhg_id` = '".$this->GetID()."' AND `date_deleted` = 0 ORDER BY `date` DESC";
 		$query = mysql_query($sql, $this->connect);
 		$return = array();
 		
 		while ($info = mysql_fetch_array($query)){
-			$sqla = "SELECT * FROM `cs_shares` WHERE `sheet` = '".$info['id']."'";
+			$sqla = "SELECT * FROM `cs_shares` WHERE `sheet` = '".$info['id']."' AND `date_deleted` = 0";
 			$querya = mysql_query($sqla, $this->connect);
 			$infer = mysql_fetch_array($querya);
 			if (mysql_num_rows($querya)){
@@ -867,7 +883,7 @@
 	}		
 	
 	function Share($bhg_id, $sheet){
-		$sql = "INSERT INTO `cs_shares` VALUES ('$bhg_id', '$sheet')";
+		$sql = "INSERT INTO `cs_shares` VALUES ('$bhg_id', '$sheet', '')";
 		if (mysql_query($sql, $this->connect)){
 			return 'Sheet shared successfully';
 		} else {
@@ -876,7 +892,7 @@
 	}
 	
 	function RemoveShare($bhg_id, $sheet){
-		$sql = "DELETE FROM `cs_shares` WHERE `bhg_id` = '$bhg_id' AND `sheet` = '$sheet'";
+		$sql = "UPDATE `cs_shares` SET `date_deleted` = '".time()."' WHERE `bhg_id` = '$bhg_id' AND `sheet` = '$sheet'";
 		if (mysql_query($sql, $this->connect)){
 			return 'Sheet deshare successful';
 		} else {
@@ -885,22 +901,19 @@
 	}
 	
 	function DeleteBackup($id){
-		$delsql = "DELETE FROM `character_sheet_backup` WHERE `id` = '".$id."'";
+		$delsql = "UPDATE `character_sheet_backup` SET `date_deleted` = '".time()."' WHERE `id` = '".$id."'";
 		mysql_query($delsql, $this->connect);
-
-	    $delsql = "DELETE FROM `character_sheet_backups` WHERE `id` = '".$id."'";
-	    mysql_query($delsql, $this->connect);
 	    
-	    $delsql = "DELETE FROM `cs_shares` WHERE `sheet` = '".$id."'";
+	    $delsql = "UPDATE `cs_shares` SET `date_deleted` = '".time()."' WHERE `sheet` = '".$id."'";
 	    mysql_query($delsql, $this->connect);
 	}
 	
 	function LoadBackup($id){
-		$sql = "SELECT * FROM `character_sheet_backups` WHERE `id` = '".$id."'";
+		$sql = "SELECT * FROM `character_sheet_backups` WHERE `id` = '".$id."' AND `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    if (mysql_num_rows($query)){
-		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `id` = '".$this->GetSheetID()."'";
 		    mysql_query($delsql, $this->connect);
 	    }
 	    
@@ -923,11 +936,11 @@
 	}
 	
 	function LoadCore($id){
-		$sql = "SELECT * FROM `character_sheet_cores` WHERE `id` = '".$id."'";
+		$sql = "SELECT * FROM `character_sheet_cores` WHERE `id` = '".$id."' AND `date_deleted` = 0";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    if (mysql_num_rows($query)){
-		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    $delsql = "DELETE FROM `character_sheet_pending` WHERE `id` = '".$this->GetSheetID()."'";
 		    mysql_query($delsql, $this->connect);
 	    }
 	    
@@ -950,18 +963,18 @@
 	}
 	
 	function Approve(){
-	    $sql = "SELECT * FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "SELECT * FROM `character_sheet_pending` WHERE `id` = '".$this->GetSheetID()."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    if (mysql_num_rows($query)){
-		    $delsql = "DELETE FROM `character_sheet_values` WHERE `bhg_id` = '".$this->GetID()."'";
+		    $delsql = "DELETE FROM `character_sheet_values` WHERE `id` = '".$this->GetSheetID()."'";
 		    mysql_query($delsql, $this->connect);
-		    $delsql2 = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
+		    $delsql2 = "DELETE FROM `character_sheet_pending` WHERE `id` = '".$this->GetSheetID()."'";
 		    mysql_query($delsql2, $this->connect);
 	    }
 	    
 	    while($info = mysql_fetch_array($query)){
-		    $sql = "INSERT INTO `character_sheet_values` VALUES ('".$this->GetID()."', '".$info['statribute']."', '".$info['value']."')";
+		    $sql = "INSERT INTO `character_sheet_values` VALUES ('".$this->GetSheetID()."', '".$info['statribute']."', '".$info['value']."')";
 		    mysql_query($sql, $this->connect);
 	    }
 	    
@@ -985,9 +998,6 @@
 	}
 	
 	function Deny($reason = ''){
-		$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
-		mysql_query($sql, $this->connect);
-
 		$sql = "UPDATE `character_sheets` SET `last_change` = '".time()."', `pending` = 0, `approved` = 1 WHERE `bhg_id` = '".$this->GetID()."'";		
 		if (mysql_query($sql, $this->connect)){
 			$sheet = new Sheet();
@@ -1012,13 +1022,8 @@
 	}
 	
 	function Kill($reason = ''){
-		$sql = "DELETE FROM `character_sheet_pending` WHERE `bhg_id` = '".$this->GetID()."'";
-		mysql_query($sql, $this->connect);
-		
-	    $sql = "DELETE FROM `character_sheet_values` WHERE `bhg_id` = '".$this->GetID()."'";
-	    mysql_query($sql, $this->connect);
 	    
-	    $sql = "DELETE FROM `character_sheets` WHERE `bhg_id` = '".$this->GetID()."'";
+	    $sql = "UPDATE `character_sheets` SET `date_deleted` = '".time()."' WHERE `id` = '".$this->GetSheetID()."'";
 
 		if (mysql_query($sql, $this->connect)){
 			$sheet = new Sheet();
@@ -1044,7 +1049,7 @@
 	}
 	
 	function NewSheet(){
-	    $sql = "INSERT INTO `character_sheets` VALUES ('".$this->GetID()."', '".time()."', 1, 0, 0)";
+	    $sql = "INSERT INTO `character_sheets` VALUES ('', '".$this->GetID()."', '".time()."', 1, 0, 0, '')";
 		if (mysql_query($sql, $this->connect)){
 			return true;
 		} else {
@@ -1052,7 +1057,7 @@
 		}
 	}
     
-	function HasValue($look = 'values', $col = 'bhg_id', $id = 0){
+	function HasValue($look = 'values', $col = 'id', $id = 0){
 		if ($id){
 			$id = $id;
 		} else {
@@ -1065,7 +1070,7 @@
         return (mysql_num_rows($query));
     }
 	
-	function ParseSheet($look = 'values', $id = 0, $col = 'bhg_id', $show_anyway = false){
+	function ParseSheet($look = 'values', $id = 0, $col = 'id', $show_anyway = false){
 		$this->UpdateCache();
 		$bio = $this->cs_person->GetBioData();
 		$division = $this->cs_person->GetDivision();

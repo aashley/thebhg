@@ -26,12 +26,6 @@ function output() {
     global $auth_data, $hunter, $page, $roster, $sheet;
     
     arena_header();
-
-    echo 'CS System is being revised. Thank you for your understanding.';
-    
-    arena_footer($auth_data);
-    
-    return;
     
     $character = new Character($hunter->GetID());
     

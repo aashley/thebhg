@@ -3,17 +3,19 @@
 Class Chara extends Sheet {
 
     var $cs_bhg_id;
+    var $cs_id;
     var $cs_last_change;
     var $cs_approved;
     var $cs_person;
     var $cs_pending;
     var $cs_ban;
+    var $cs_date_deleted;
     var $LastID;
 
     function Chara($id) {
         Sheet::Sheet();
         
-        $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '$id'";
+        $sql = "SELECT * FROM `character_sheets` WHERE `bhg_id` = '$id' AND `date_deleted` = 0";
         $query = mysql_query($sql, $this->connect);
 
         $this->cs_person = new Person($id);
@@ -33,9 +35,26 @@ Class Chara extends Sheet {
 	    return $this->cs_person->GetID();
     }
     
+    function GetSheetID(){
+	    return $this->cs_id;
+    }
+    
     function GetName(){
 	    return $this->cs_person->GetName();
     }
+    
+    function GetDeleted(){
+	    return ($this->cs_date_deleted > 0);
+    }
+    
+    function DateDeleted(){
+	    if ($this->GetDeleted()){
+		    $date = getdate($this->cs_date_deleted);
+		    return $date['month'] . ' ' . $date['mday'] . ', ' . $date['year'];
+    	} else {
+	    	return 'Not Deleted';
+    	}
+	}	
     
     function LastEdit(){
 	    $date = getdate($this->cs_last_change);
@@ -56,7 +75,7 @@ Class Chara extends Sheet {
     }
     
     function HasValue(){
-	    $sql = "SELECT * FROM `character_sheet_values` WHERE `bhg_id` = '".$this->GetID()."' LIMIT 1";
+	    $sql = "SELECT * FROM `character_sheet_values` WHERE `id` = '".$this->GetSheetID()."' LIMIT 1";
         $query = mysql_query($sql, $this->connect);
         
         return (mysql_num_rows($query));
