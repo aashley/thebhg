@@ -328,16 +328,7 @@
         
         while($info = mysql_fetch_array($query)){
 	        if ($this->Permit(1, $info['statribute'], $this->project)){
-		        $point = 0;
-		        foreach ($build as $ref){
-		        	foreach ($ref as $call=>$ar){
-			        	if ($call == 'stat'){
-				        	$point += $ar[$info['statribute']];
-			        	}
-		        	}
-	        	}
-	        	$point += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col);
-	        	$output += $point*$info['modifier'];
+	        	$output += $this->Point($info['statribute'], 'SYSTEM', $look, $id, $col)*$info['modifier'];
 	        	$denominator += $info['modifier'];
         	}
         }
@@ -348,8 +339,6 @@
 	    	return 0;
     	}
     	
-    	echo $value.'|';
-    	
     	foreach ($build as $ref){
         	foreach ($ref as $call=>$ar){
 	        	if ($call == 'skill'){
@@ -357,8 +346,6 @@
 	        	}
         	}
     	}
-    	
-    	echo $value;
     	
     	if ($value > 10){ $value = 10; }
     	
