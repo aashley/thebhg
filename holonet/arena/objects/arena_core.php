@@ -76,7 +76,7 @@
 	    $sql = "SELECT $sel FROM `".$data['table']."`".(count($implode) ? " WHERE ".implode(' AND ', $implode) : '').($data['group'] ? 'GROUP BY `'.$data['group'].'`' : '').(count($order) ? ' ORDER BY '.implode(', ', $order) : '');
 		$query = mysql_query($sql, $this->$res);
 		
-		echo mysql_error($this->con);
+		echo mysql_error($this->$res);
 		
 		while ($info = mysql_fetch_assoc($query)){
 			if ($obj){
