@@ -46,25 +46,29 @@ function output() {
 		    if (!count($pendings)){
 			    $first = $oba->Get(id);
 		    }
-		    
-		    $pendings[] = new Obj('ams_match', $oba->Get(match), 'holonet');
+		    $obja = new Obj('ams_match', $oba->Get(match), 'holonet');
+		    $pendings[$obja->Get(type)][] = $obja;
 		    $last = $oba->Get(id);
 	    }
 	    
-	    foreach ($pendings as $ja=>$match){
-		    $data = unserialize($match->Get(specifics));
-		    $table->StartRow();
-		    $table->AddCell(($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
-		    $type = new Obj('ams_activities', $match->Get(type), 'holonet');
-		    $table->AddCell($type->Get(name));
-		    $table->AddCell('<a href="'.internal_link(atn_stats, array('id'=>$match->Get(id))).'">'.($match->Get(name) ? $match->Get(name) : 'No Name').'</a>');
-		    $table->EndRow();
+	    ksort($pendings);
+	    
+	    foreach ($pendings as $ja=>$jas){
+		    foreach ($jas as $match){
+			    $data = unserialize($match->Get(specifics));
+			    $table->StartRow();
+			    $table->AddCell(($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
+			    $type = new Obj('ams_activities', $match->Get(type), 'holonet');
+			    $table->AddCell($type->Get(name));
+			    $table->AddCell('<a href="'.internal_link(atn_stats, array('id'=>$match->Get(id))).'">'.($match->Get(name) ? $match->Get(name) : 'No Name').'</a>');
+			    $table->EndRow();
+		    }
 	    }
 	    
 	    $table->EndTable();
 	    
-	    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` > \''.$last.'\' AND `started` > 0 AND `type'=>$activity->Get(id), 'date_deleted'=>0), 'limit'=>20), 0, 1);
-	    $denbo = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` < \''.$first.'\' AND `started` > 0 AND `type'=>$activity->Get(id), 'date_deleted'=>0), 'limit'=>20), 0, 1);
+	    $pending = $arena->Search(array('table'=>'ams_records', 'search'=>array('id` > \''.$last.'\' AND `outcome` > 0 AND `bhg_id'=>$_REQUEST['id'], 'date_deleted'=>0), 'limit'=>20), 0, 1);
+	    $denbo = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` < \''.$first.'\' AND `outcome` > 0 AND `bhg_id'=>$_REQUEST['id'], 'date_deleted'=>0), 'limit'=>20), 0, 1);
 	    
 	    $table->EndTable();
 	    if ($pending || $denbo){
