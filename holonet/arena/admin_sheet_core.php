@@ -50,7 +50,7 @@ function output() {
 		    $table->EndTable();
 	    }
 	    
-	    $sheets = $sheet->GetCores('WHERE `date_deleted` = 0', array('`approved`'));
+	    $sheets = $sheet->GetCores('WHERE `date_deleted` = 0', array('`approved`', '`pending`'));
 	    
 	    if ($auth_data['sheet']){
 		    if (count($saves) && count($sheets)){

@@ -46,9 +46,8 @@
 		return $return;
 	}	
 	
-	function GetCores($extra = '', $order = array()){
-	    $sql = "SELECT * FROM `character_sheet_core` $extra ORDER BY `pending`".implode(', ', $order)." DESC";
-	    echo $sql;
+	function GetCores($extra = '', $order = array('`pending`')){
+	    $sql = "SELECT * FROM `character_sheet_core` $extra ORDER BY ".implode(', ', $order)." DESC";
 	    $query = mysql_query($sql, $this->connect);
 	    $return = array();
 	    
