@@ -641,11 +641,11 @@
 		}	   
 	}
 	
-	function ValidLoad($id, $delete = 0){
+	function ValidLoad($id, $manage = 0){
 		$backups = $this->GetBackups();
 		$backup = $backups[$id];
 		
-		if ($delete){
+		if ($manage){
 			if ($backup['share']){
 				$other = false;
 			} else {
@@ -658,11 +658,30 @@
 		if ($backup && $other){
 			return true;
 		} else {
-			if ($delete){
+			if ($manage){
 				if ($backup){
-					echo 'You cannot delete sheets which others have shared with you.';
+					echo 'You cannot manage sheets which others have shared with you.';
+					hr();
 				}
 			}
+			return false;
+		}
+	}
+	
+	function Share($bhg_id, $sheet){
+		$sql = "INSERT INTO `cs_shares` VALUES ('$bhg_id', '$sheet')";
+		if (mysql_query($sql, $this->connect)){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	function RemoveShare($bhg_id, $sheet){
+		$sql = "DELETE FROM `cs_shares` WHERE `bhg_id` = '$bhg_id' AND `sheet` = '$sheet'";
+		if (mysql_query($sql, $this->connect)){
+			return true;
+		} else {
 			return false;
 		}
 	}
