@@ -416,6 +416,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_solo_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_type') . '">Edit&nbsp;Types</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_grade') . '">Edit&nbsp;Grades</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_solo_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
         
         echo '<br />Lone&nbsp;Wolf&nbsp;Contracts<br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_members') . '">Edit&nbsp;Lone&nbsp;Wolves</a><br />';
@@ -424,6 +425,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_lw_dco') . '">Declare&nbsp;Dead&nbsp;Contract</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_editor') . '">Edit&nbsp;Contracts</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_lw_post') . '">Post&nbsp;New&nbsp;Contract</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_lw_dco_post') . '">Post&nbsp;Requested&nbsp;Dead&nbsp;Contract</a><br />';
         
     }
     
