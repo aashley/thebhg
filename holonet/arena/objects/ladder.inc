@@ -57,7 +57,7 @@
 	    
 	    if (mysql_num_rows($query)){
 		    $info = mysql_fetch_array($query);
-		    $sql = "UPDATE `arena_dojo_masters` SET `start_date` = '".time()."', `end_date` = 0";
+		    $sql = "UPDATE `arena_dojo_masters` SET `start_date` = '".time()."', `end_date` = 0 WHERE `bhg_id` = '$bhg_id'";
 	    } else {
 	    	$sql = "INSERT INTO `arena_dojo_masters` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
     	}
@@ -86,7 +86,7 @@
 	    
 	    if (mysql_num_rows($query)){
 		    $info = mysql_fetch_array($query);
-		    $sql = "UPDATE `arena_stewards` SET `start_date` = '".time()."', `end_date` = 0";
+		    $sql = "UPDATE `arena_stewards` SET `start_date` = '".time()."', `end_date` = 0 WHERE `bhg_id` = '$bhg_id'";
 	    } else {
 	    	$sql = "INSERT INTO `arena_stewards` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
     	}

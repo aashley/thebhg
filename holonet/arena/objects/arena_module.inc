@@ -251,7 +251,7 @@
 	    
 	    if (mysql_num_rows($query)){
 		    $info = mysql_fetch_array($query);
-		    $sql = "UPDATE `arena_overseer` SET `start_date` = '".time()."', `end_date` = 0";
+		    $sql = "UPDATE `arena_overseer` SET `start_date` = '".time()."', `end_date` = 0 WHERE `bhg_id` = '$bhg_id'";
 	    } else {
 	    	$sql = "INSERT INTO `arena_overseer` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
     	}
@@ -280,7 +280,7 @@
 	    
 	    if (mysql_num_rows($query)){
 		    $info = mysql_fetch_array($query);
-		    $sql = "UPDATE `arena_adjunct` SET `start_date` = '".time()."', `end_date` = 0";
+		    $sql = "UPDATE `arena_adjunct` SET `start_date` = '".time()."', `end_date` = 0 WHERE `bhg_id` = '$bhg_id'";
 	    } else {
 	    	$sql = "INSERT INTO `arena_adjunct` (`bhg_id`, `start_date`) VALUES ('$bhg_id', '".time()."')";
     	}
