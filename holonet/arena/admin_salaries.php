@@ -47,6 +47,7 @@ function output() {
 				    echo $i.'b|';
 			    } else {
 				    if ($pay['start_date'] < $startut){
+					    echo $pay['end_date'];
 					    $time = $pay['end_date'] - $starut;
 					    echo $i.'c|';
 				    } else {
