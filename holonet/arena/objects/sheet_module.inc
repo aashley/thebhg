@@ -211,7 +211,7 @@
 	    $return = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
-		    $new = new Character($info['bhg_id']);
+		    $new = new Chara($info['bhg_id']);
 		    if ($exclude == 1){
 			    $go = true;
 		    } else {

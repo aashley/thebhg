@@ -82,6 +82,7 @@ include_once 'skill.inc';
 include_once 'field.inc';
 include_once 'statribute.inc';
 include_once 'character.inc';
+include_once 'char.inc';
 
 include_once 'article.inc';
 
