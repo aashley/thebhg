@@ -33,40 +33,23 @@ function output() {
 		}
 	    $aides = array();
 	    
-	    print_r($bitches);
-	    
-	    $i = 1;
-	    
 	    $pp = $endut - $startut;
-	    
-	    echo $pp;
 	    
 	    foreach ($bitches as $bitch){
 		    foreach ($bitch as $pay){
 			    if ($pay['end_date'] == 0 && $pay['start_date'] > $startut){
 				    $time = $endut - $pay['start_date'];
-				    echo $i.'a|';
 			    } elseif ($pay['end_date'] == 0 && $pay['start_date'] < $startut) {
 				    $time = $endut - $startut;
-				    echo $i.'b|';
 			    } else {
 				    if ($pay['start_date'] < $startut){
-					    echo $pay['end_date'];
-					    echo '|'.$startut;
-					    $time = $pay['end_date'] - $starut;
-					    echo $i.'c|';
-					    echo $time;
-					    echo '('.$time/$pp.')';
+					    $time = $pay['end_date'] - $startut;
 				    } else {
 				    	$time = $pay['end_date'] - $pay['start_date'];
-				    	echo $i.'d|';
 			    	}
 		    	}
-		    	$i++;
 		    	
 		    	$time = $time / $pp;
-		    	
-		    	echo $time.'|';
 		    	
 		    	$creds = round($time * 350000);
 		    	
@@ -84,7 +67,7 @@ function output() {
 				$hunter = $roster->GetPerson($rid);
 				$form->AddTextBox($hunter->GetName(), "aides[$rid]", $credits);
 			}
-		//$form->AddSubmitButton('submit', 'Pay Salaries');
+		$form->AddSubmitButton('submit', 'Pay Salaries');
 		$form->EndForm();
 	}
 	else {
