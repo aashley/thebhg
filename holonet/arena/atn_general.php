@@ -45,7 +45,7 @@ function output() {
 		foreach ($search as $obj){
 			$ladr = $arena->Ladder($obj->Get(id), $hunter->GetID());
 			if ($ladr){
-				$lrs[$obj->Get(name)] = $ladr;
+				$lrs[$obj->Get(name)][$obj->Get(id)] = $ladr;
 			}
 		}
 		
@@ -58,8 +58,10 @@ function output() {
 			
 			$table->AddRow('Event', 'Place');
 			
-			foreach ($lrs as $name=>$place){
-				$table->AddRow($name, $place);
+			foreach ($lrs as $name=>$array){
+				foreach ($place as $id=>$place){
+					$table->AddRow('<a href="'.internal_link('atn_activity', array('id'=>$id)).'">'.$name.'</a>', $place);
+				}
 			}
 			
 			$table->EndTable();

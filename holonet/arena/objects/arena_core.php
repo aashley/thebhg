@@ -28,7 +28,7 @@
 	    mysql_query($sql, $this->holonet);
     }		    
     
-    function Ladder($activity, $bhg_id = 0){
+    function Ladder($activity, $bhg_id = 0, $limit = 0){
 	    $sql = "SELECT `ams_records`.`bhg_id` as `bhg_id`, `ams_records`.`xp` as `xp`, `ams_records`.`outcome` as `outcome`, `ams_records`.`creds` as `creds`, `ams_records`.`medal` as `medal`"
 	    	." FROM `ams_records`, `ams_match` WHERE `ams_records`.`match` = `ams_match`.`id` AND `ams_match`.`type` = '$activity' AND `ams_match`.`date_deleted` = 0 AND"
 	    	." `ams_records`.`date_deleted` = 0 AND `ams_records`.`outcome` > 0";
@@ -56,7 +56,7 @@
 		    $i++;
 	    }
 	    
-	    return ($bhg_id ? $return[$bhg_id] : $return);
+	    return ($bhg_id ? $return[$bhg_id] : ($limit : ? array_slice($return, 0, $limit) : $return));
     }	    
     
     function GetPayData($start, $end){
