@@ -25,24 +25,33 @@ function output() {
 	    $table = new Table('', true);
 	
 	    $table->StartRow();
+	    $table->AddHeader('Position');
+	    $table->AddHeader('Rank');
 	    $table->AddHeader('Name');
 	    $table->EndRow();
 	
-	    if ($_REQUEST['start']){
-		    $start = $_REQUEST['start'];
-	    } else {
-		    $start = 0;
-	    }
+	    $hunters = array();
+		$plebsheet = array();
+		
+		foreach ($sheet->SheetHolders() as $char) {
+		     $hunters[$char->GetName()] = new Person($char->GetID());
+    	}
+    	
+    	ksort($hunters);
+    	
+    	foreach ($hunters as $name=>$person){
+	    	$kabal = $person->GetDivision();
+	    	$plebsheet[$kabal->GetID()][] = $person;
+    	}
 	    
-		$finish = $start+10;
-		    
-		//$hunters = $div->GetMembers();
-
 	    if ($div->GetMemberCount()) {
-		    for ($i = $start; $i < $finish; $i++) {
-			    $hunter = $hunters[$i];
+	        foreach ($plebsheet[$div->GetID()] as $hunter) {
+	            $posi = $hunter->GetPosition();
+	            $rank = $hunter->GetRank();
 	
 	            $table->StartRow();
+	            $table->AddCell($posi->GetName());
+	            $table->AddCell($rank->GetName());
 	            $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$hunter->GetID())) . '">' . html_escape($hunter->GetName()) . '</a>');
 	            $table->EndRow();
 	        }
