@@ -175,8 +175,11 @@ function atn_nav(){
 	echo '&nbsp;<a href="' . internal_link('atn_teta') . '">Teta\'s&nbsp;Knives&nbsp;Holders</a><br />';
 
 	echo '<br />Reports<br />';
-    echo '&nbsp;<a href="'.internal_link('reports').'">View Latest Reports</a><br />';
-    echo '&nbsp;<a href="'.internal_link('view_reports').'">View All Reports</a><br />';
+    echo '&nbsp;<a href="'.internal_link('reports').'">View&nbsp;Latest&nbsp;Reports</a><br />';
+    echo '&nbsp;<a href="'.internal_link('view_reports').'">View&nbsp;All&nbsp;Reports</a><br />';
+    
+    echo '<br />Polling Centre<br />';
+    echo '&nbsp;<a href="'.internal_link('atn_polling').'">View&nbsp;Arena&nbsp;Polls</a><br />';
 	
     /*Removing the Elite RP stuff
     echo '<br />Twilight Gauntlet<br />';

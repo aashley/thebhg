@@ -187,7 +187,7 @@
 
     }
     
-    function DidVote($bhg_id){
+    function DidVote($hunter){
 	    $votes = 0;
 	    foreach ($this->GetOptions() as $option){
 	    	$sql = "SELECT * FROM `arena_poll_votes` WHERE `bhg_id` = '".$hunter->GetID()."' AND `date_deleted` = '0' AND `option` = '".$option->GetID()."'";
@@ -197,18 +197,19 @@
 	    return $votes;
     }
 	    
-    function CanSubmit($hunter, $aas){
+    function CanSubmit($hunter){
 	    $div = $hunter->GetDivision();
 	    $pos = $hunter->GetPosition();
 	    
 	    $open = $this->GetOpen();
-	    $aas = array_keys($aas);
+	    $arena = new Arena();
+	    $aas = array_keys($arena->CanBe($hunter));
 	    
 	    $sql = "SELECT * FROM `arena_poll_bans` WHERE `bhg_id` = '".$hunter->GetID()."' AND `date` >= '".time()."'";
 	    $query = mysql_query($sql, $this->connect);
 	    
 	    if (count($open)){	    
-		    if (!$this->DidVote()){
+		    if (!$this->DidVote($hunter)){
 			    if (!mysql_num_rows($query)){	    
 				    if (in_array($div->GetID(), $open['divisions'])){
 					    return true;

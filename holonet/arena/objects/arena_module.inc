@@ -67,6 +67,36 @@
 	    }
     }
     
+    function ReadPolls($hunter){
+	    $sql = "SELECT * FROM `arena_poll` WHERE `date_deleted` = 0 AND `starts` <= '".time()."' AND `ends` <= '".time()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $poll = new Poll($info['id']);
+		    if ($poll->CanSubmit($hunter) || $poll->DidVote($hunter)){
+			    $return[] = $poll;
+		    }
+	    }
+	    
+	    return $return;
+    }
+    
+    function OpenPolls($hunter){
+	    $sql = "SELECT * FROM `arena_poll` WHERE `date_deleted` = 0 AND `starts` <= '".time()."' AND `ends` >= '".time()."'";
+	    $query = mysql_query($sql, $this->connect);
+	    $return = array();
+	    
+	    while ($info = mysql_fetch_array($query)){
+		    $poll = new Poll($info['id']);
+		    if ($poll->CanSubmit($hunter)){
+			    $return[] = $poll;
+		    }
+	    }
+	    
+	    return $return;
+    }
+    
     function GetPolls($rpa = array(), $edits = 1){
 	    $rp = '';
 	    $rps = array();
