@@ -74,7 +74,7 @@
 		
 		while ($info = mysql_fetch_assoc($query)){
 			if ($obj){
-				$new = new Obj($table, $info['id']);
+				$new = new Obj($data['table'], $info['id']);
 			} else {
 				$new = $info;
 			}
