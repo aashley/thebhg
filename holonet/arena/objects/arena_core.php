@@ -30,7 +30,7 @@
 	    	$res = 'holonet';
     	}
 	    
-	    $sql = "INSERT INTO `".$data['table']."` (`".implode('`, `', $data['fields'])."`) VALUES ('".implode('', '', $data['values'])."')";
+	    $sql = "INSERT INTO `".$data['table']."` (`".implode('`, `', $data['fields'])."`) VALUES ('".implode("', '", $data['values'])."')";
 	    $query = mysql_query($sql, $res);
 	    
 	    return ($query ? true : false);
