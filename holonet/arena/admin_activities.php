@@ -30,7 +30,7 @@ function output(){
 			$table->AddRow($obj->Get(name), $obj->Get(desc, true), ($obj->Get(date_deleted) ? 'Deleted' : ''));
 		}
 		
-		$table-EndTable();
+		$table->EndTable();
 		
 		hr();
 	}
