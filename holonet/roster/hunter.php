@@ -1,7 +1,10 @@
 <?php
 // Include the Calypso classes. We're not doing this in header.php because no
 // other pages need them, and it would just increase execution time.
-@include_once('/home/virtual/site4/fst/home/blogs/Objects/Calypso.class.php');
+if (file_exists('/home/virtual/thebhg.org/home/blogs/Objects/Calypso.class.php')) {
+	include_once('/home/virtual/thebhg.org/home/blogs/Objects/Calypso.class.php');
+	$calypso = new Calypso();
+}
 
 // Also include the Citadel classes, since this is one of only two pages where
 // they are used.
@@ -28,6 +31,7 @@ function output() {
 
 	// Check for reports.
 	$report_result = mysql_query('SELECT * FROM hn_reports WHERE author=' . $pleb->GetID() . ' ORDER BY time DESC', $roster->roster_db);
+	$reports = array();
 	if ($report_result && mysql_num_rows($report_result)) {
 		while ($report = mysql_fetch_array($report_result)) {
 			$reports[] = $report;
@@ -164,7 +168,7 @@ function output() {
 	$medals = $pleb->GetMedals();
 	if ($medals && count($medals)) {
 		$row = 0;
-		usort($medals, recent_medals);
+		usort($medals, 'recent_medals');
 		foreach ($medals as $am) {
 			if (++$row > 5) {
 				break;
@@ -195,8 +199,8 @@ function output() {
 	$table->StartRow();
 	$table->AddHeader('Recent Courses', 2);
 	$table->EndRow();
-	if (count($results)) {
-		usort($results, citadel_recent_sort);
+	if (is_array($results)) {
+		usort($results, 'citadel_recent_sort');
 		foreach (array_slice($results, 0, 5) as $cex) {
 			$exam = $cex->GetExam();
 			$table->AddRow(date('j F Y', $cex->GetDateTaken()), 'Passed ' . html_escape($exam->GetName()) . ' exam with a score of ' . number_format($cex->GetScore(), 0) . '%.');
@@ -259,8 +263,7 @@ function output() {
 	
 	$links['sep2'] = '';
 	
-	if (class_exists('calypso')) {
-		$calypso = new Calypso();
+	if (isset($calypso)) {
 		if ($calypso->AccountExists($pleb->GetID())) {
 			$blog = new Blog($pleb->GetID());
 			$links['http://blogs.thebhg.org/' . $blog->GetLinkTitle() . '/'] = 'View Blog';
