@@ -73,7 +73,7 @@
 	    	$res = 'holonet';
     	}
     	
-	    $sql = "SELECT $sel FROM `".$data['table']."` WHERE ".implode(' AND ', $implode).($data['group'] ? 'GROUP BY `'.$data['group'].'`' : '').(count($order) ? ' ORDER BY '.implode(', ', $order) : '');
+	    $sql = "SELECT $sel FROM `".$data['table']."`".(count($implode) ? " WHERE ".implode(' AND ', $implode) : '').($data['group'] ? 'GROUP BY `'.$data['group'].'`' : '').(count($order) ? ' ORDER BY '.implode(', ', $order) : '');
 		$query = mysql_query($sql, $this->$res);
 		
 		while ($info = mysql_fetch_assoc($query)){
