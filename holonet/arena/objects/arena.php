@@ -1,6 +1,6 @@
 <?
 
-$include = array('arena_core', 'tournament', 'character', 'field', 'npc_utilities', 'object', 'parse_npc', 'sheet_module', 'skill', 'statribute');
+$include = array('arena_core', 'tournament', 'sheet_module', 'character', 'field', 'npc_utilities', 'object', 'parse_npc', 'skill', 'statribute');
 
 foreach ($include as $page){
 	$page = $page.'.php';
