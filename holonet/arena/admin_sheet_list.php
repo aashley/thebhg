@@ -55,7 +55,7 @@ function output() {
 			    $status = $character->Status('HUMAN');
 		    }
 		    
-		    $table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
+		    $form->table->AddRow('<a href="' . internal_link('atn_general', array('id'=>$character->GetID())) . '">' . $character->GetName() . '</a>', 
 		    $character->LastEdit(), $status, $character->GetBan('HUMAN'), '<input type="radio" name="id" value="'.$character->GetID().'">', 
 		    '<input type="radio" name="view" value="'.$character->GetID().'">', '<a href="'
 		    .internal_link('admin_kill', array('id'=>$character->GetID())).'">Kill Sheet</a>');
