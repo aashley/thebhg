@@ -43,8 +43,6 @@ Class Obj extends Arena {
 	    $return = array();
         $sql = "UPDATE `".$this->table."` SET ";
         
-        print_r($input);
-        
         foreach ($input as $key=>$value){
 	        if ($value != $this->Get($key)){
 		        $add[] = "`".$key."` = '".addslashes($value)."'";
