@@ -45,7 +45,7 @@ function output() {
     	} else {
 	    	$name = $character->GetName();
     	}
-    	if ($_REQUEST['kabal'] == 'all' || $_REQUEST['kabal'] = $kabal->GetID()){
+    	if ($_REQUEST['kabal'] == 'all' || $_REQUEST['kabal'] == $kabal->GetID()){
 	    	$sheets[$name] = $character;
     	}
     }
