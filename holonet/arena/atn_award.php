@@ -20,7 +20,7 @@ function output() {
 
     arena_header();
 
-    echo '<a href="'.internal_link('atn_general', array('id'=>$hunter->GetID())).'">'.$hunter->GetName().'</a>';
+    echo '<a href="'.internal_link('atn_general', array('id'=>$hunter->GetID())).'">Back to '.$hunter->GetName().'\'s General Tracking</a>';
     
     hr();
     
