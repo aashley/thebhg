@@ -764,7 +764,7 @@
 				$table->AddHeader($field->GetName(), 2);
 				$table->EndRow();
 		    	foreach($this->GetSkills($i) as $skill){
-			    	$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look));
+			    	$table->AddRow($skill->GetName(), $this->GetValue($skill->GetID(), $look, 'SHEET'));
 		    	}
 	    	}
 			for ($i = 10; $i <= 11; $i++){
