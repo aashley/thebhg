@@ -123,16 +123,18 @@ foreach ($themes as $name => $ss) {
 </head>
 <body>
 <?php
+$savedReq = '?lastpage='.urlencode($_SERVER['REQUEST_URI']);
+
 $items = array('news.php' => 'News', 'sections.php'=>'Sections', 'calendar.php'=>'Calendar', 'about.php'=>'About', 'search.php'=>'Search');
 if (isset($my_user)) {
 	$items['prefs.php'] = 'Preferences';
-	$items['logout.php'] = 'Logout';
+	$items['logout.php'.$savedReq] = 'Logout';
 	if (lookup_auth_level($my_user) > 0) {
 		$items['administration/index.php'] = 'Admin';
 	}
 }
 else {
-	$items['login.php'] = 'Login';
+	$items['login.php'.$savedReq] = 'Login';
 }
 ?>
 <div id="header">

@@ -31,7 +31,12 @@ if ($_POST['submit']) {
 			setcookie('mybhg_key', $key, time() + (365 * 86400));
 		}
 
-		header('Location: /news.php');
+		if (isset($_POST['lastpage']))
+			$lastPage = $_POST['lastpage'];
+		else
+			$lastPage = '/news.php';
+
+		header('Location: '.$lastPage);
 		echo 'Thank you. You are now logged in, and may return to the index by clicking <a href="index.php">here</a>. Alternately, you could <a href="prefs.php">change your preferences</a>.';
 	}
 	else {
@@ -42,6 +47,7 @@ else {
 	echo 'Please enter your BHG Roster ID and password to log in.<br />';
 
 	$form = new Form($_SERVER['PHP_SELF'], 'post');
+	$form->AddHidden('lastpage', $_GET['lastpage']);
 	$form->AddTextBox('Roster ID:', 'rid', '', 5);
 	$form->AddPasswordBox('Password:', 'password', '', 15);
 	$form->AddSubmitButton('submit', 'Log In');
