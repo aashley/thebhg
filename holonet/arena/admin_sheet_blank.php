@@ -48,15 +48,6 @@ function output() {
 	    	}
 	    
 			$kabals = implode('', $kabals);
-
-			$plebsheet = array();
-	    	
-	    	foreach ($kabals_result as $div){
-		    	foreach ($div->GetMembers() as $person){
-			    	$kabal = $person->GetDivision();
-			    	$plebsheet[$kabal->GetID()][] = $person;
-		    	}
-	    	}
 	
 		?>
 		<script language="JavaScript1.1" type="text/javascript">
@@ -67,7 +58,7 @@ function output() {
 		}
 	
 		<?php
-	  
+  
 			reset($kabals_result);
 	    
 		  $commindex = 0;
@@ -82,7 +73,7 @@ function output() {
 	      
 				echo 'roster' . $kabal->GetID() . " = new Array();\n";
 	      
-				$plebs = $plebsheet[$kabal->GetID()];
+				$plebs = $kabal->GetMembers('name');
 	      
 		    if (is_array($plebs)) {
 	        
