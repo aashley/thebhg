@@ -76,7 +76,7 @@
 	    $return = array();
 	    
 	    while ($info = mysql_fetch_array($query)){
-		    $return = array('id'=>$info['id'], 'plot'=>nl2br(stripslashes($info['plot'])), 'title'=>stripslashes($info['title']), 'cadre'=>new Cadre($info['cadre']), 'person'=>new Person($info['person']));
+		    $return[$info['id']] = array('id'=>$info['id'], 'plot'=>nl2br(stripslashes($info['plot'])), 'title'=>stripslashes($info['title']), 'cadre'=>new Cadre($info['cadre']), 'person'=>new Person($info['person']));
 	    }
 	    
 	    return $return;

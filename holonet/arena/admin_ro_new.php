@@ -1,7 +1,7 @@
 <?php
 
 function title() {
-    return 'Administration :: Run-Ons :: Add New Match';
+    return 'Administration :: Run-Ons :: Create RO';
 }
 
 function auth($person) {

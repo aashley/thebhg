@@ -553,6 +553,7 @@ function admin_footer($auth_data) {
         echo '&nbsp;<a href="' . internal_link('admin_ro_edit') . '">Edit&nbsp;a&nbsp;Run-On</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ro_post') . '">Post&nbsp;a&nbsp;Run-On</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_ro_complete') . '">Complete&nbsp;Run-On</a><br />';
+        echo '&nbsp;<a href="' . internal_link('admin_ro_cadre') . '">Cadre&nbsp;Run-Ons</a><br />';
     }
     
     if ($auth_data['dojo']){	    
