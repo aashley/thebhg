@@ -741,8 +741,9 @@
 		}
 		$table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."'";
-	    echo $sql;
         $query = mysql_query($sql, $this->connect);
+        
+        echo mysql_num_rows($query);
         
         return (mysql_num_rows($query));
     }
