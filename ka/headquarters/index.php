@@ -3,8 +3,8 @@
 				<h2>Welcome to the Kabal Authority</h2>
 				<p>Bounty Hunter; I must welcome you to the Kabal Authority Headquarters.
 				  This is the very heart of the Bounty Hunter's Guild, which as you know is
-				  a subsiduary of the Emperor's Hammer. My name is <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id=<?=$judicator->GetID()?>" title="View the roster profile for Judicator <?=$judicator->GetName()?>"><?=$judicator->GetName()?></a> and together
-				  with my assistant, <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id=<?=$proctor->GetID()?>" title="View the roster profile for Proctor <?=$proctor->GetName()?>"><?=$proctor->GetName()?></a>,
+				  a subsiduary of the Emperor's Hammer. My name is <a href="http://holonet.thebhg.org/index.php?module=roster&page=hunter&id=<?=$judicator->GetID()?>" title="View the roster profile for Judicator <?=$judicator->GetName()?>"><?=$judicator->GetName()?></a> and together
+				  with my assistant, <a href="http://holonet.thebhg.org/index.php?module=roster&page=hunter&id=<?=$proctor->GetID()?>" title="View the roster profile for Proctor <?=$proctor->GetName()?>"><?=$proctor->GetName()?></a>,
 				  we run the Kabal Authority; with some help from each kabal's chief. Not only
 				  does the Kabal Authority provide a source of entertainment and activity for
 				  each hunter, but it also houses the best bounty hunter's in the known galaxy
