@@ -92,13 +92,11 @@ function arena_footer($show_list = true) {
 
     echo '</td><td style="border-left: solid 1px black">';
 
-    echo '<u>AMS Challenge Netowrk</u><small><br />';
+    echo '<small><u>Challenge Netowrk</u><br />';
 
     echo '&nbsp;Offline';
-
-    echo '</small>';
     
-    echo '<br /><u>AMS Tracking Network</u><small><br />';
+    echo '<br /><u>Tracking Network</u><br />';
 
     atn_nav();
     
