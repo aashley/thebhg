@@ -44,8 +44,12 @@ function output() {
 		    $open_to['aa'] = 1;
 	    }
 	    
-	    if ($arena->NewPoll($hunter->GetID(), $_REQUEST['rpa'], $_REQUEST['question'], $_REQUEST['multiple'], $open_to, $_REQUEST['start'], $_REQUEST['end'])){
-		    echo 'New poll added successfully';
+	    $poll = $arena->NewPoll($hunter->GetID(), $_REQUEST['rpa'], $_REQUEST['question'], $_REQUEST['multiple'], $open_to, $_REQUEST['start'], $_REQUEST['end']);
+	    
+	    if ($poll){
+		    $poll = new Poll($poll);
+		    echo 'New poll added successfully<br />';
+		    $poll->SetOptions($_REQUEST['option']);
 	    } else {
 		    NEC(208);
 	    }
