@@ -465,7 +465,7 @@
             		."Good luck in your last match, and once again, congratulations!\n\n";
 
             $from = "Twilight Gauntlet <overseer@thebhg.org>";
-            $subject = "Your have completed the Gauntlet Run!";
+            $subject = "You have completed the Gauntlet Run!";
 
             $person->SendEmail($from, $subject, $text);
 	        

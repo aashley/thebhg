@@ -83,7 +83,7 @@
                     ."\n\n-The Overseer";
 
             $from = "Arena <overseer@thebhg.org>";
-            $subject = "Your have been challenged!";
+            $subject = "You have been challenged!";
 
             $person1->SendEmail($from, $subject, $text);
             $person2->SendEmail($from, $subject, $text);
