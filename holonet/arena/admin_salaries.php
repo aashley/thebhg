@@ -40,9 +40,9 @@ function output() {
 			    $time = $endut - $startut;
 		    } else {
 			    if ($pay['start_date'] > $startut){
-				    $time = $pay['end_date'] - $starut;
+				    $time = $pay['end_date'] - $pay['start_date'];
 			    } else {
-			    	$time = $pay['end_date'] - $pay['start_date'];
+			    	$time = $pay['end_date'] - $starut;
 		    	}
 	    	}
 	    	
