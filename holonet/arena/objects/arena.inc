@@ -2,8 +2,6 @@
 
 include_once 'arena_module.inc';
 
-include_once 'coder.inc';
-
 include_once 'arena_tournament.inc';
 include_once 'irca_tournament.inc';
 

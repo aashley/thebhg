@@ -62,7 +62,30 @@ Class Shell extends Core {
 	
 	function eMail ($send_to = array(), $letter = 0) {
 		
+		$data = $this->BuildShell($letter, 'arena_settings', 'system');
+			
+		$read = $this->Read($data->GetValue('text'));
+		
+		foreach ($send_to as $person){
+			if (is_object($person)){
+				$mail = $person;
+			} elseif (is_int($person)) {
+				$mail = new Person($person);
+			} else {
+				continue;
+			}
+			
+			$mail->SendMail($read['from'], $read['subject'], $read['text']);
+		}
 	}
+	
+	function Store($data){
+	    return serialize($data);
+    }
+    
+    function Read($data){
+	    return unserialize($data);
+    }
 	
 	function ShellDump ($shell) {
 		return $this->$shell;
