@@ -183,7 +183,6 @@
 	    $table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."' AND `statribute` = '$stat'";
         $query = mysql_query($sql, $this->connect);
-        echo $sql;
         $info = mysql_fetch_array($query);
         $stat = new Statribute($stat);
         
@@ -800,7 +799,7 @@
 		$table = new Table();
 		
 		$table->StartRow();
-		$table->AddHeader('Dossier file for '.$rank->GetName().' '.$this->GetName($look, $id), 2);
+		$table->AddHeader('Dossier file for '.$rank->GetName().' '.$this->GetName($look, $id, $col), 2);
 		$table->EndRow();
 		$table->AddRow('Visual Identification', '<img src='.$url.'>');
     	$table->AddRow('Age', $age);
