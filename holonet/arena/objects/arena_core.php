@@ -48,7 +48,7 @@
 	    }
 	    
 	    arsort($work);
-	    $i = 0;
+	    $i = 1;
 	    $return = array();
 	    
 	    foreach ($work as $id=>$points){

@@ -48,6 +48,7 @@ function output(){
 				$id = $obj->Get(id);
 				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
 				$type = $type->Get(id);
+				$show = $type->Get(ladder);
 			}
 			break;
 		}
@@ -76,13 +77,14 @@ function output(){
 			$table->AddHeader('Activty');
 			$table->AddHeader('Description');
 			$table->AddHeader('Type');
+			$table->AddHeader('Ladder Display on General Page');
 			$table->AddHeader('&nbsp;');
 			$table->AddHeader('&nbsp;');
 			$table->EndRow();
 			
 			foreach ($current as $obj){
 				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
-				$table->AddRow($obj->Get(name), $obj->Get(desc, true), $type->Get(name), ($obj->Get(date_deleted) ? 
+				$table->AddRow($obj->Get(name), $obj->Get(desc, true), $type->Get(name), ($obj->Get(ladder) ? 'Yes' : 'No'), ($obj->Get(date_deleted) ? 
 				'<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get(id))).'">Undelete</a>' : 
 				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Delete</a>'), 
 				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get(id))).'">Edit</a>');
@@ -115,6 +117,12 @@ function output(){
 		}
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'type');
+		
+		$form->StartSelect('Display Ladder on General Page', 'data[values][]', $show);
+		$form->AddOption(0, 'No');
+		$form->AddOption(1, 'Yes');
+		$form->EndSelect();
+		$form->AddHidden('data[fields][]', 'ladder');
 		
 		$form->AddSubmitButton('submit', 'Process');
 		$form->EndForm();

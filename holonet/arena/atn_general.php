@@ -40,7 +40,35 @@ function output() {
 	    $table->EndTable();
 	    
 	    echo '</td><td align="center"><div style="text-align: left">';
-		$aux = new Saves($hunter->GetID());
+		$search = $arena->Search(array('table'=>'ams_activities', 'search'=>array('ladder` > 1 AND `date_deleted'=>'0')));
+		$lrs = array();
+		foreach ($search as $obj){
+			$ladr = $arena->Ladder($obj->Get(id), $hunter->GetID());
+			if ($ladr){
+				$lrs[$obj->Get(name)] = $ladr;
+			}
+		}
+		
+		if (count($lrs)){
+			$table = new Table();
+			
+			$table->StartRow();
+			$table->AddHeader('Ladder Rankings', 2);
+			$table->EndRow();
+			
+			$table->AddRow('Event', 'Place');
+			
+			foreach ($lrs as $name=>$place){
+				$table->AddRow($name, $place);
+			}
+			
+			$table->EndRow();
+		}
+	    echo '</div></td></tr></table>';
+	    
+	    hr();
+	    
+	    $aux = new Saves($hunter->GetID());
 	    $saves = $aux->GetBackups(5);  
 	    
 	    if (count($saves)){
@@ -59,7 +87,6 @@ function output() {
 		    
 		    $table->EndTable();
 	    }
-	    echo '</div></td></tr></table>';
 	    
 	    hr();
 	    
