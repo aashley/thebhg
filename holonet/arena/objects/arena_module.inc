@@ -182,6 +182,12 @@
         return $return;
     }
     
+    function ArenaPosition($key){
+	    $posi = $this->ArenaPositions();
+	    
+	    return $posi[$key']['desc'];
+    }
+    
     function ArenaPositions(){
 	    $positions = array();
 		

@@ -50,7 +50,7 @@ function output() {
 		$form->EndForm();
 	}
 	else {
-		$result = mysql_query('SELECT * FROM hn_reports WHERE author=' . $hunter->GetID() . ' ORDER BY time DESC', $roster->roster_db);
+		$result = mysql_query('SELECT * FROM arena_reports WHERE author=' . $hunter->GetID() . ' ORDER BY time DESC', $arena->connect);
 		if ($result && mysql_num_rows($result)) {
 			$table = new Table('', true);
 			$table->StartRow();
@@ -59,12 +59,7 @@ function output() {
 			$table->AddHeader('Position');
 			$table->EndRow();
 			while ($row = mysql_fetch_array($result)) {
-				$pos = $roster->GetPosition($row['position']);
-				$pos_text = $pos->GetName();
-				if ($row['position'] >= 10) {
-					$div = $roster->GetDivision($row['division']);
-					$pos_text = $div->GetName() . ' ' . $pos_text;
-				}
+				$pos_text = $arena->ArenaPosition($row['admin']);
 				$table->AddRow('<a href="' . internal_link($page, array('id'=>$row['id'])) . '">Edit</a>', date('j F Y', $row['time']), $pos_text);
 			}
 			$table->EndTable();
