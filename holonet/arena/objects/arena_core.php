@@ -9,8 +9,8 @@
 	var $mb;
 
     function Arena(){
-	    $connects('connect'=>array('name'='holonet', 'pass'='w0rdy'), 'lyarna'=>array('name'='lyarna', 'pass'='lyarnasys55'), 
-	    			'lyarna'=>array('name'='overseer', 'pass'='01c81257'));
+	    $connects = array('connect'=>array('name'=>'holonet', 'pass'=>'w0rdy'), 'lyarna'=>array('name'=>'lyarna', 'pass'=>'lyarnasys55'), 
+	    			'bastion'=>array('name'=>'overseer', 'pass'=>'01c81257'));
 	    
 	    foreach ($connects as $name=>$data){
 		    $this->$name = $this->Connect($data);
