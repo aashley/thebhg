@@ -75,6 +75,11 @@ if ($_REQUEST['submit']){
 			$retrn = new Statribute($value);
 		}
 	    
+		//$sheet->HasValue(|BHG ID of Hunter|, |The output of the DropdownField box, as determined by this loop|, |Same as before, but with txt_|);
+		//Will out put true if the Hunter has the value given by txt_ in the field named by DropdownField. Easiest way to DB link it is store
+		//A serialized array, using $_REQUEST[$name] as the key, and $_REQUEST['txt_'.$name] as the value for each, then running it through a 
+		//Foreach when purchasing.
+		
 	    if ($sheet->HasValue($hunter->GetID(), $_REQUEST[$name], $_REQUEST['txt_'.$name])){			    
 		    echo 'You have at least a  '.$_REQUEST['txt_'.$name].' in '.$retrn->GetName().'.';
 	    } else {
