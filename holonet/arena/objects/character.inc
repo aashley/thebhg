@@ -1083,6 +1083,7 @@
 		$homeworld = $unk;
 		$sex = $unk;
 		$species = $unk;
+		if ($look == 'cores'){ $names = false; } else { $namez = true; }
 		if (!$url){ $url = 'arena/images/helmet.png'; } 
 		if ($bio->GetAge()){ $age = $bio->GetAge(); }
 		if ($bio->GetHeight()){ $height = $bio->GetHeight(); }		
