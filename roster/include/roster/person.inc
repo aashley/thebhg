@@ -1841,7 +1841,7 @@ class Person extends BHGObject {
       // do it
 
       if (   is_object($cadre)
-          && ($cadre instanceof Cadre) {
+          && ($cadre instanceof Cadre)) {
 
         $cadreid = $cadre->GetID();
 
