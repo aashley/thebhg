@@ -11,7 +11,7 @@ $mb = new MedalBoard('fight-51-me');
 
 $exp = explode('_', $page);
 
-if ($exp[0] == 'admin' || $page == 'admin' || $exp[0] == 'coder'){
+if ($page == 'admin'){
 	include_once 'nav_admin.php';
 } elseif ($exp[0] == 'admin' || $exp[0] == 'coder'){
 	function admin_footer($auth){
