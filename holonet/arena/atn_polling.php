@@ -39,6 +39,19 @@ function output() {
 
     arena_header();
 
+    if ($_REQUEST['vote']){
+	    if (is_array($_REQUEST['votes'])){
+		    foreach ($_REQUEST['votes'] as $vote){
+			    $vote = new Option($vote);
+			    echo $vote->Vote($hunter->GetID()).'<br />';
+		    }
+	    } else {
+		    $vote = new Option($_REQUEST['votes']);
+			echo $vote->Vote($hunter->GetID());
+		}
+		hr();
+	}
+    
     if (is_object($poll)){
 	    if (rp_staff($hunter) || (!$poll->IsDeleted() && ($poll->CanSubmit($hunter) || $poll->DidVote($hunter)))){
 		    if ($poll->CanSubmit($hunter)){
