@@ -129,6 +129,7 @@ function atn_nav(){
 		    if ($id){
 			    $app[$axs->Get(name)] = internal_link('atn_activity', array('id'=>$axs->Get(id)));
 	    	} else {
+		    	echo 'here';
 		    	$app[$axs->Get(name)] = internal_link('atn_list', array('id'=>$axs->Get(id)));
 	    	}
 	    }
