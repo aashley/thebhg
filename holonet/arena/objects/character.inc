@@ -669,12 +669,10 @@
 	
 	function DeleteBackup($id){
 		$delsql = "DELETE FROM `character_sheet_backup` WHERE `id` = '".$id."'";
-		    mysql_query($delsql, $this->connect);
-	    
-	    if (mysql_num_rows($query)){
-		    $delsql = "DELETE FROM `character_sheet_backups` WHERE `id` = '".$id."'";
-		    mysql_query($delsql, $this->connect);
-	    }
+		mysql_query($delsql, $this->connect);
+
+	    $delsql = "DELETE FROM `character_sheet_backups` WHERE `id` = '".$id."'";
+	    mysql_query($delsql, $this->connect);
 	}
 	
 	function LoadBackup($id){
