@@ -539,7 +539,7 @@
         $this->CurrentSeason($season);
         
         if ($this->CurrentRound()){ 
-	        echo '<table border=0 width="100%"><tr valign="top" align="center"><td width=100%><small><u>Arena Tournament Brackets<u></td></tr><tr valign="top"></table>';
+	        echo '<table border=0 width="100%"><tr valign="top" align="center"><td width=100%><small><u>Tournament Brackets<u></td></tr><tr valign="top"></table>';
         	echo '<table border=0 cellpadding=3 cellspacing=3><tr valign="top"><td valign="top">';   	        
             for ($i = 1; $i <= $this->CurrentRound(); $i++){
 	            $table = new Table('', true);
