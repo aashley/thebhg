@@ -30,9 +30,26 @@ function output() {
 	    $table->AddHeader('Name');
 	    $table->EndRow();
 	
+	    if ($_REQUEST['start']){
+		    $start = $_REQUEST['start'];
+	    } else {
+		    $start = 0;
+	    }
+	    
+		$finish = $start+10;
+		    
+		$hunters = $div->GetMembers();
+		
 	    if ($div->GetMemberCount()) {
-	        echo $div->GetMemberCount();
-	        print_r($div->GetMembers());
+		    for ($i = $start; $i < $finish; $i++) {
+			    $hunter = $hunters[$i];
+	
+	            $table->StartRow();
+	            $table->AddCell($posi->GetName());
+	            $table->AddCell($rank->GetName());
+	            $table->AddCell('<a href="' . internal_link('atn_general', array('id'=>$hunter->GetID())) . '">' . html_escape($hunter->GetName()) . '</a>');
+	            $table->EndRow();
+	        }
 	    }
 	
 	    $table->EndTable();
