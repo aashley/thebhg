@@ -162,7 +162,7 @@ function al($page, $name){
 	echo '<a href="' . internal_link('admin_'.$page) . '">'.str_replace(' ', '&nbsp;', $name).'</a><br>';
 }
 
-$links = array(1=>array('System Admin'=>array('activities'=>'Manage Activities', 'types'=>'Manage Activity Types')));
+$links = array(1=>array('System Admin'=>array('activities'=>'Activities', 'types'=>'Activity Types', 'aides'=>'Aide Positions')));
 
 function links($id){
 	global $links;

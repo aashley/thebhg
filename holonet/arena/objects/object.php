@@ -23,7 +23,7 @@ Class Obj extends Arena {
         }
     }
     
-    function Get($name, $nl = 0, $date = 0){
+    function Get($name, $nl = 0, $date = 0, $number = 0){
 	    $ret = stripslashes($this->data[$name]);
 	    
 	    if ($date){
@@ -32,6 +32,10 @@ Class Obj extends Arena {
 	    
 	    if ($nl){
 		    $ret = nl2br($ret);
+	    }
+	    
+	    if ($number){
+		    $ret = number_format($ret);
 	    }
 	    
 	    return $ret;
