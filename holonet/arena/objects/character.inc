@@ -298,9 +298,10 @@
 		    $table->StartRow();
 		    $table->AddHeader('Character Attributes', 2);
 		    $table->EndRow();
-		    print_r($return);
+		    
 		    foreach ($return as $id){
 			    $ca = $this->GetCA($id);
+			    print_r($ca);
 			    $stats = $this->GetCAValues($id);
 			    $stat = '';			    
 			    if (count($stats)){
