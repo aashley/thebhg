@@ -19,14 +19,14 @@ function output() {
     
     $show = true;
     
+    $poll = new Poll($_REQUEST['poll']);
+    
     if (isset($_REQUEST['submit'])){
 	    
 	    $arenap = $_REQUEST['arenaposi'];
 	    $posi = $_REQUEST['posi'];
 	    $divi = $_REQUEST['divi'];
 	    $open = $_REQUEST['open'];
-	    
-	    $poll = new Poll($_REQUEST['poll']);
 	    
 	    $open_to = array();
 	    
@@ -71,6 +71,10 @@ function output() {
 	    }
 	    
 	    hr();
+	} elseif ($_REQUEST['delete']){
+		
+	} elseif ($_REQUEST['undelete']){
+		
     } elseif ($_REQUEST['next']){
 	    $form = new Form($page);
 	    $form->AddSectionTitle('Add Options');
@@ -146,6 +150,24 @@ function output() {
 	    
 	    $form->EndForm();
 	    $show = false;
+	    
+	    hr();
+	    
+	    $form = new Form($page);
+	    $form->AddSectionTitle('Create new Poll');
+	    
+	    $poll = new Poll($_REQUEST['poll']);
+	    
+	    $form->AddHidden('poll', $_REQUEST['poll']);
+	    
+	    if ($poll->IsDeleted()){
+		    $operator = '<input type="submit" name="undelete" value="Undelete this Poll">';
+	    } else {
+		    $operator = '<input type="submit" name="delete" value="Delete this Poll">';
+	    }
+	    
+	    $form->table->AddRow('Manage Poll', $operator);
+	    $form->EndForm();
     }
     
     if ($show){
