@@ -30,12 +30,10 @@ function output() {
     $character = new Character($hunter->GetID());
     
     $values = array();
-   	print_r($_REQUEST);
-    if ($_REQEUST['process']){
+
+    if (isset($_REQEUST['process'])){
 	    echo $character->Backup($_REQEUST['save'], $_REQUEST['sheet']);
 	    hr();		     
-    } else {
-	    echo "WHAT THE FUCK!";
     }
     
     if ($_REQUEST['view']){
