@@ -30,6 +30,7 @@ function output() {
 	    $form->AddTextBox('Table', 'table');
 	    $form->AddSubmitButton('submit', 'Submit');
 	    $form->EndForm();
+	    print_r($coder->tables);
     }
 
     admin_footer($auth_data);
