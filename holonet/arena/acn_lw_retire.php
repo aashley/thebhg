@@ -45,7 +45,7 @@ function output() {
 	    else {
 		    if (count($hunter->Contracts())){
 		        $form = new Form($page);
-		        $form->StartSelect('Contract:', 'contract_id');
+		        $form->StartSelect('Contract:', 'contract_id', $_REQUEST['contract']);
 		        foreach ($hunter->Contracts() as $value) {
 		            $type = $value->GetType();
 		            $form->AddOption($value->GetID(), "Difficulty: ".$type->GetName()." | Contract ".$value->GetContractID());

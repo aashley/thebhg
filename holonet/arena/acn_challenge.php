@@ -30,9 +30,9 @@ function output() {
     
 	    hr();
 	    
-	    echo '<b>The Arena</b>';
+	    echo '<b>T<u>he Aren</u>a</b>';
 	    
-	    echo '<br /><a href="'.internal_link('acn_arena_challenge').'">Make New Challenge</a>';
+	    echo '<br /><a href="'.internal_link('acn_arena_challenge').'">Make Arena Challenge</a>';
 	
 	    $challenges = $ladder->Pending($hunter->GetID());
 	
@@ -67,15 +67,16 @@ function output() {
 	        $table->EndTable();
 	    }
 	    else {
-	        echo 'You have no challenges pending.';
+	        echo '<br />You have no challenges pending.';
 	    }
 	
 	    /*
 	    Commented Out until the SA is fixed
 	    hr();
 	
-	    echo '<h5>Starfield Arena</h5>';
-	
+	    echo '<b>S<u>tarfield Aren</u>a</b>';
+		echo '<br /><a href="'.internal_link('acn_starfield_challenge').'">Make Starfield Challenge</a><br />';
+		
 	    $challenges = $starfield->Pending($hunter->GetID());
 	
 	    if (count($challenges)) {
@@ -120,6 +121,31 @@ function output() {
 	        echo 'You have no challenges pending.';
 	    }
 	    */
+	    
+	    hr();
+	    
+	    echo '<b>S<u>olo Mission</u>s</b>';
+	    
+	    echo '<br /><a href="'.internal_link('acn_solo_contract').'">Request a New Contract</a>';
+	    echo '<br /><a href="'.internal_link('acn_solo_dco').'">Request a Dead Contract</a>';
+	    
+	    $hunter = new Hunter($hunter->GetID());
+	    
+	    if (count($hunter->Contracts())){
+		    $table = new Table('', true);
+		    $table->StartRow();
+		    $table->AddHeader('Pending Contracts');
+		    $table->EndRow();
+		    $table->AddRow('Difficulty', 'Contract ID', '&nbsp');
+		    
+	        foreach ($hunter->Contracts() as $value) {
+		        $table->AddRow($type->GetName(), $value->GetContractID(), '<a href="'.internal_link('acn_solo_retire', array('contract'=>$value->GetID())).'">Retire Contract</a>'
+	        }
+	        
+	        $table->EndTable();
+        } else {
+	        echo "You have no pending contracts.";
+        }
 	    
 	} else {	    
 	    echo 'You need a Character Sheet to challenge anyone. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
