@@ -37,8 +37,9 @@ if ($_REQUEST['match']){
 				$bild = new NPC_Utilities();
 				echo '<br />[b]Target[/b]';
 				$deal = ($obj->Get(data) ? $obj->Get(data) : stripslashes($_REQUEST['npc']));
+				$deal = unserialize($deal);
 				foreach ($deal as $npc){
-					echo $bild->Construct($npc);
+					echo $bild->Construct(serialize($npc));
 				}
 			} elseif ($type->Get(creature)){
 				echo $creature->WriteSheet();
