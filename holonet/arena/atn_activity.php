@@ -71,7 +71,7 @@ function output() {
 	    
 	    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` > \''.$last.'\' AND `started` > 0 AND `type'=>$activity->Get(id), 'date_deleted'=>0), 'limit'=>20), 0, 1);
 	    $denbo = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` < \''.$first.'\' AND `started` > 0 AND `type'=>$activity->Get(id), 'date_deleted'=>0), 'limit'=>20), 0, 1);
-	    
+	    echo $pending;
 	    $table->EndTable();
 	    if ($pending || $denbo){
 		    hr();
