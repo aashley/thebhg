@@ -229,30 +229,30 @@ function output() {
 		    $form->AddHidden('data[fields][]', 'specifics');
 		    $form->AddSubmitButton('submit', 'Transmit to Holonet Servers');
 		    $form->EndForm();
-	    }
-	    
-	    hr();
-	    $table = new Table();
-	    $table->AddRow('Name', 'Rules', 'Description');
-	    foreach ($builds as $build){
-		    $work = array();
-		    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
-			    if ($obj->Get(rules) || $obj->Get(description)){
-				    $work[] = array('name'=>$obj->Get(name), 'desc'=>$obj->Get(description, 1), 'rules'=>$obj->Get(rules, 1));
-			    }
-		    }
 		    
-		    if (count($work)){
-			    $table->StartRow();
-			    $table->AddHeader($build->Get(name), 2);
-			    $table->EndRow();
+		    hr();
+		    $table = new Table();
+		    $table->AddRow('Name', 'Rules', 'Description');
+		    foreach ($builds as $build){
+			    $work = array();
+			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
+				    if ($obj->Get(rules) || $obj->Get(description)){
+					    $work[] = array('name'=>$obj->Get(name), 'desc'=>$obj->Get(description, 1), 'rules'=>$obj->Get(rules, 1));
+				    }
+			    }
 			    
-			    foreach ($work as $bld){
-				    $table->AddRow($bld['name'], $bld['desc'], $bld['rules']);
+			    if (count($work)){
+				    $table->StartRow();
+				    $table->AddHeader($build->Get(name), 2);
+				    $table->EndRow();
+				    
+				    foreach ($work as $bld){
+					    $table->AddRow($bld['name'], $bld['desc'], $bld['rules']);
+				    }
 			    }
 		    }
+		    $table->EndTable();
 	    }
-	    $table->EndTable();
 
 	} else {	    
 	    echo 'You need a Character Sheet to use this module. <a href="'.internal_link('admin_sheet', array('id'=>$hunter->GetID())).'"><b>Make one now!</b></a>';
