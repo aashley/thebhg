@@ -47,7 +47,7 @@ function output() {
 	    $ro->ProcessCadreRO($_REQUEST['ro']);
 	    $ro = $ros[$_REQUEST['ro']];
 	    
-	    print_r($ro);
+	    print_r($ros);
 	    
 	    $text = $ro['person']->GetName().", the Mission Master has denied your Cadre Run-On.";
 
