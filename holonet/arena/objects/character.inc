@@ -187,8 +187,6 @@
         $info = mysql_fetch_array($query);
         $stat = new Statribute($stat);
         
-        echo $info['value'];
-        
         if ($output == 'SHEET'){
 	        if ($stat->IsInt()){
 		        $return = str_repeat('<img src="arena/images/X.png" alt="X" height=20 width=20>', $info['value']);
