@@ -486,6 +486,21 @@
         }
 
     }
+    
+    function AddContender($id) {
+        $sql = "INSERT INTO `arena_starfield_records` (`bhg_id`, `match_id`) VALUES ('$id', '".$this->arena_id."')";
+
+        if (mysql_query($sql, $this->connect)) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
 
     function GetFighters() {
         $sql = "SELECT * FROM `arena_starfield_records` WHERE `match_id` = '".$this->arena_starfield_id."'";

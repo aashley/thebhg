@@ -64,6 +64,7 @@ function output() {
 	    
 	    if ($at->IsGladius($hunter->GetID())){
 		    $table->AddRow('Achieved Gladius Prime:', pluralise('Time', $at->IsGladius($hunter->GetID())));
+		    $rewards['Achieved Gladius Prime '.pluralise('Time', $at->IsGladius($hunter->GetID()))] = 'gladius';
 	    }
 	    
 	    $table->EndTable();
@@ -138,18 +139,16 @@ function output() {
 			
 		}
 		
-		/*
-		Finish this later, when I get, really, really bored.
 		$rewards = array();
 		
 		if (in_array($hunter->GetID(), $arena->GetApproved())){
 			$rewards['Graduate of the Dojo of Shadows'] = 'dojo';
 		}
 		if ($djm){
-			$rewards['Master of the Dojo of Shadows'] = 'dojoofshadows';
+			$rewards[$djm.'Master of the Dojo of Shadows'] = 'dojoofshadows';
 		}
 		if ($boc){
-			$rewards['Commissioner of the Bounty Office'] = 'bountyoffice';
+			$rewards[$boc.' of the Bounty Office'] = 'bountyoffice';
 		}
 		
 		if (count($rewards)){
@@ -160,8 +159,6 @@ function output() {
 			$table->StartRow();
 			$table->AddHeader('Arena Distinctions', count($rewards));
 			$table->EndRow();
-			
-			$int_counter = 1;
 			
 			$setups = array();
 			
@@ -177,7 +174,6 @@ function output() {
 
 			$table->EndTable();
 		}
-		*/
 	    
 	    echo '</div></td></tr></table>';
 	
