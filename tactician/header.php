@@ -109,7 +109,7 @@ function roster_link($id, $name = '') {
 		$id = $roster->GetPerson($id);
 	}
 
-	return '<A HREF="http://holonet.thebhg.org/index.php?module=roster&amp;page=hunter&amp;id=' . $id->GetID() . '" TITLE="' . htmlspecialchars($id->GetName()) . '" TARGET="_top">' . htmlspecialchars($name == '' ? $id->GetName() : $name) . '</A>';
+	return '<A HREF="hunter.php?id=' . $id->GetID() . '" TITLE="' . htmlspecialchars($id->GetName()) . '" TARGET="_top">' . htmlspecialchars($name == '' ? $id->GetName() : $name) . '</A>';
 }
 
 function hunter_dropdown($exclude = array(0, 16), $select = false) {
