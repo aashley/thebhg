@@ -26,10 +26,6 @@ function output() {
         $type = $match->GetType();
         $location = $match->GetLocation();
         $weapon = $match->GetWeaponType();
-
-        if ($match->IsTTG()){
-	        echo "<b>Post as a Twilight Gauntlet Match</b><br /><br />";
-        }	        
         
         echo "<b>Subject Line</b>: ".$match->GetName()."<br /><br />";
 

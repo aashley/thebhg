@@ -38,7 +38,7 @@ function output() {
 	    	foreach ($bast as $season=>$data){
 		    	$table->AddRow('<a target="bastion" href="http://overseer.thebhg.org/index.php?area=challenge&page=season&season='.$season.'">'.$season.'</a>', 
 		    		'<a target="bastion" href="http://overseer.thebhg.org/index.php?area=challenge&page=kabal&season='.$season.'&kabal='.$data['kabal']->GetID().'">'.$data['kabal']->GetName().'</a>',
-		    		number_format($data['total']));
+		    		'<div align="right">'.number_format($data['total']).'</div>');
 		    	$total += $data['total'];
 	    	}
 	    	$table->StartRow();

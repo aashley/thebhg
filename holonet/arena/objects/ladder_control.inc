@@ -17,7 +17,7 @@
         $person1 = new Person($challenger);
         $person2 = new Person($challengee);
 
-        if ($name == 0){
+        if ($name == ''){
         	$name = $person1->GetName()." vs. ".$person2->GetName();
     	}
 
