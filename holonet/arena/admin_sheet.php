@@ -263,7 +263,6 @@ function output() {
 		    	echo ' This character is pending approval.';
 	    	}
     	}
-		}
 	}
 	
 	admin_footer($auth_data);
