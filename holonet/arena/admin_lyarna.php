@@ -108,7 +108,7 @@ function output() {
 
 			$form->table->AddCell("<select name=\"position$i\">"
 	        ."<option value=\"-1\">N/A</option>$positions</select>");
-			$form->table->AddCell('<select name="person'.$i.'">'.hunter_dropdown($form).'</select>');
+			$form->table->AddCell('<input type="text" name="person'.$i.'" size="5">');
 			$form->table->EndRow();
 			$i++;
         }
