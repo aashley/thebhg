@@ -286,6 +286,9 @@ function admin_footer($auth_data) {
 	echo '</td><td style="border-left: solid 1px black">';
 	
 	echo '<small>';
+	echo '<br /><b>External Links</b><br />';
+	echo '&nbsp;<a href="' . internal_link('atn_general', array('id'=>$person->GetID())) . '">View&nbsp;My&nbsp;Profile</a><br />';
+	echo '&nbsp;<a href="' . internal_link('acn_challenge', array('id'=>$person->GetID())) . '">Network&nbsp;Control</a><br />';
 	echo '<br /><b>Personal Details</b><br />';
 	echo '&nbsp;<a href="' . internal_link('admin_sheet', array('id'=>$person->GetID())) . '">Edit&nbsp;My&nbsp;Sheet</a><br />';
 	echo '&nbsp;<a href="' . internal_link('admin_sheet_backup', array('id'=>$person->GetID())) . '">Sheet&nbsp;Backups</a><br />';
