@@ -183,6 +183,7 @@
 	    }
 	    $table = '`character_sheet_'.$look.'`';
 	    $sql = "SELECT * FROM $table WHERE `$col` = '".$id."' AND `statribute` = '$stat'";
+	    echo $sql;
         $query = mysql_query($sql, $this->connect);
         $info = mysql_fetch_array($query);
         $stat = new Statribute($stat);
@@ -819,9 +820,6 @@
 		if ($bio->GetSpecies()){ $species = $bio->GetSpecies(); }
 		
 		echo '<table border=0 width="100%"><tr valign="top"><td>';
-		
-		echo $id;
-		echo $col;
 		
 		$table = new Table();
 				$table->StartRow();
