@@ -301,6 +301,7 @@ function admin_footer($auth_data) {
         echo '<br />RP&nbsp;Aides<br />';
         echo '&nbsp;<a href="' . internal_link('admin_solo_commish') . '">Edit&nbsp;Solo&nbsp;Comissioner</a><br />';
         echo '&nbsp;<a href="' . internal_link('admin_dojo_master') . '">Edit&nbsp;Dojo&nbsp;Master</a><br />';
+        //echo '&nbsp;<a href="' . internal_link('admin_salaries') . '">Pay&nbsp;Aides</a><br />';
 
         echo '<br />Reports<br />';
         echo '&nbsp;<a href="' . internal_link('admin_report') . '">Add&nbsp;Report</a><br />';

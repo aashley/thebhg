@@ -28,6 +28,10 @@ function output() {
 			$awarded->AddCredits($_REQUEST[$credits], $_REQUEST['reason']);
 			
 		}
+		
+		echo 'Credits Awarded.';
+		
+		hr();
 	    
     }
     
@@ -129,7 +133,10 @@ function output() {
 	</noscript>
 	<?php
 	$form = new Form($page);
-	$form->AddTextBox('Reason', 'reason');
+	$form->table->StartRow();
+	$form->table->AddCell('Reason');
+	$form->table->AddCell('<input type="text" name="reason" size="50">', 2);
+	$form->table->EndRow();
   
 	$form->table->StartRow();
 	$form->table->AddHeader('Kabal');
@@ -160,10 +167,10 @@ function output() {
 		$form->table->EndRow();
 	}
   
+	$form->table->StartRow();
+	$form->table->AddCell('<input type="submit" name="submit" value="Submit Credit Awards" size="50">', 3);
+	$form->table->EndRow();
 	$form->EndForm();
-  
-	$form->AddSubmitButton('submit', 'Submit Credit Award');
-    $form->EndForm();
 
     admin_footer($auth_data);
 }

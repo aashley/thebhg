@@ -32,35 +32,35 @@ function output() {
 	    $end = new Date();
 	    $end->setDate($endut, DATE_FORMAT_UNIXTIME);
 	
-	    $cobo = $arena->GetPayData($start, $end, 'solo_comissioners');
-	    $dm = $arena->GetPayData($start, $end, 'dojo_masters');
+	    $cobo = $arena->GetPayData($startut, $endut, 'solo_comissioners');
+	    $dm = $arena->GetPayData($startut, $endut, 'dojo_masters');
 	    $bitches = $cobo+$dm;
 	    $aides = array();
 	    
-	    foreach ($bitches as $aid){
-		    foreach ($aid as $pay){
-			    if ($pay['end_date'] == 0){
-				    $time = $endut - $startut;
+	    foreach ($bitches as $pay){
+		    if ($pay['end_date'] == 0 && $pay['start_date'] < $startut){
+			    $time = $endut - $startut;
+		    } elseif ($pay['end_date'] == 0 && $pay['start_date'] > $startut) {
+			    $time = $pay['start_date'] - $endut;
+		    } else {
+			    if ($pay['start_date'] > $startut){
+				    $time = $pay['end_date'] - $pay['start_date'];
 			    } else {
-				    if ($pay['start_date'] > $start){
-					    $time = $pay['end_date'] - $pay['start_date'];
-				    } else {
-				    	$time = $pay['end_date'] - $starut;
-			    	}
+			    	$time = $pay['end_date'] - $starut;
 		    	}
-		    	
-		    	$creds = round(($time / ($endut - $startut)) * 500000);
-		
-		      	if (isset($hunters[$hunter->GetID()])) {
-		        	$aides[$pay['bhg_id']] += $creds;
-		      	} else {
-		        	$aides[$pay['bhg_id']] = $creds;
-		      	}
-		    	
-			}
+	    	}
+	    	
+	    	$creds = round(($time / ($endut - $startut)) * 350000);
+	
+	      	if (isset($hunters[$hunter->GetID()])) {
+	        	$aides[$pay['bhg_id']] += $creds;
+	      	} else {
+	        	$aides[$pay['bhg_id']] = $creds;
+	      	}
 		}
 
 		$form = new Form($page);
+		$form->AddSectionTitle('Arena Aide Salaries');
 			foreach ($aides as $rid=>$credits) {
 				$hunter = $roster->GetPerson($rid);
 				$form->AddTextBox($hunter->GetName(), "aides[$rid]", $credits);

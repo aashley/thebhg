@@ -4,7 +4,7 @@
 
     var $npc_string;
 	 
-    function Parse_NPC4($difficulty){
+    function Parse_NPC($difficulty){
         $this->difficulty = $difficulty;
 
         if ($difficulty == 1){
@@ -20,12 +20,7 @@
     }
 
     function Roll($high){
-	    if (isset($high)){
-		    $value = $high;
-	    } else {
-		    $value = $this->maxv;
-	    }
-        return mt_rand(1, $value);
+        return mt_rand(1, $high);
     }
 
     function RollName(){
@@ -33,11 +28,17 @@
     }
     
     function Generate(){
+	    $sheet = new Sheet();
 	    for ($i = 1; $i <= 11; $i++){
 	    	$field = new Field($i);
 	    	foreach($sheet->GetStats($i) as $stat){
-		    	if ($stat->IsInt()){
-		    		$this->npc_string .= '/'.$this->Roll();
+		    	if ($stat->isint()){
+		    		$this->npc_string .= '/'.$this->Roll($this->maxv);
+	    		}
+	    	}
+	    	foreach($sheet->GetSkills($i) as $skills){
+		    	if ($stat->isint()){
+		    		$this->npc_string .= '/'.$this->Roll($this->maxv);
 	    		}
 	    	}
     	}
@@ -179,63 +180,65 @@ function generate_word($min_syllables = 1, $max_syllables = 3, $letters = "abcde
     function Species(){
         $roll = $this->Roll(6);
         if ($roll > 2){
-            $this->species = "Human";
+            $species = "Human";
         } else {
 
         $specie = $this->Roll(25);
 
         if ($specie == 1){
-            $this->species = "Advozsec";
+            $species = "Advozsec";
         } elseif ($specie == 2){
-            $this->species = "Aleena";
+            $species = "Aleena";
         } elseif ($specie == 3){
-            $this->species = "Anx";
+            $species = "Anx";
         } elseif ($specie == 4){
-            $this->species = "Anzat";
+            $species = "Anzat";
         } elseif ($specie == 5){
-            $this->species = "Aqualish";
+            $species = "Aqualish";
         } elseif ($specie == 6){
-            $this->species = "Arcona";
+            $species = "Arcona";
         } elseif ($specie == 7){
-            $this->species = "Bith";
+            $species = "Bith";
         } elseif ($specie == 8){
-            $this->species = "Bothan";
+            $species = "Bothan";
         } elseif ($specie == 9){
-            $this->species = "Cerean";
+            $species = "Cerean";
         } elseif ($specie == 10){
-            $this->species = "Chadra-Fan";
+            $species = "Chadra-Fan";
         } elseif ($specie == 11){
-            $this->species = "Chagrian";
+            $species = "Chagrian";
         } elseif ($specie == 12){
-            $this->species = "Chiss";
+            $species = "Chiss";
         } elseif ($specie == 13){
-            $this->species = "Cthon";
+            $species = "Cthon";
         } elseif ($specie == 14){
-            $this->species = "Dashade";
+            $species = "Dashade";
         } elseif ($specie == 15){
-            $this->species = "Devaronian";
+            $species = "Devaronian";
         } elseif ($specie == 16){
-            $this->species = "Dug";
+            $species = "Dug";
         } elseif ($specie == 17){
-            $this->species = "Duro";
+            $species = "Duro";
         } elseif ($specie == 18){
-            $this->species = "Elom";
+            $species = "Elom";
         } elseif ($specie == 19){
-            $this->species = "Gamorrean";
+            $species = "Gamorrean";
         } elseif ($specie == 20){
-            $this->species = "Geonosian";
+            $species = "Geonosian";
         } elseif ($specie == 21){
-            $this->species = "Glymphid";
+            $species = "Glymphid";
         } elseif ($specie == 22){
-            $this->species = "Gossam";
+            $species = "Gossam";
         } elseif ($specie == 23){
-            $this->species = "Gotal";
+            $species = "Gotal";
         } elseif ($specie == 24){
-            $this->species = "Gran";
+            $species = "Gran";
         } elseif ($specie == 25){
-            $this->species = "Gungan";
+            $species = "Gungan";
         }
     }
+    
+    return $species;
 
     }
 

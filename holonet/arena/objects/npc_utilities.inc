@@ -47,13 +47,16 @@
     function Construct($string){
 	    $npc = explode("/", $string);
 	    
-	    $sheet = 'Name: '.mb_convert_case($npc[0], MB_CASE_TITLE, "UTF-8").' '.mb_convert_case($npc[1], MB_CASE_TITLE, "UTF-8")
-	    		.'<br />Language: Galactic Basic<br />Species: '.$npc[3].'<br />Gender: '.$npc[2];
+	    $sheets = 'Name: '.mb_convert_case($npc[0], MB_CASE_TITLE, "UTF-8").' '.mb_convert_case($npc[1], MB_CASE_TITLE, "UTF-8")
+	    		.'<br />Language: Galactic Basic<br />Species: '.$npc[3].'<br />Gender: '.$npc[2].'<br />';
 	    $ref = 4;
 	    
 	    for ($i = 1; $i <= 11; $i++){
+		    $sheet = new Sheet();
 	    	$field = new Field($i);
-		    $sheet .= '<br /><br />';
+	    	if ($i <= 7){
+		    	$sheets .= '<br />';
+	    	}
 	    	foreach($sheet->GetStats($i) as $stat){
 		    	if ($stat->IsInt()){
 			    	if (isset($npc[$ref])){
@@ -61,13 +64,13 @@
 			    	} else {
 				    	$value = 0;
 			    	}
-		    		$sheet .= $stat->GetName().': '.$value.'<br />';
+		    		$sheets .= $stat->GetName().': '.$value.'<br />';
 		    		$ref++;
 	    		}
 	    	}
     	}
 	    
-    	return $sheet;
+    	return $sheets;
     }
 
  }
