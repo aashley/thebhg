@@ -176,6 +176,8 @@
 			$use = ($aa ? $aa : key(end($output)));
 
 			$sql = "UPDATE `".$positions[$use]['desc']."` SET `".$column."` = ".$column."+$value WHERE `id` = '".$aas[$use]->GetID()."'";
+		
+			echo $sql;
 			
 			if (mysql_query($sql, $this->connect)){
 				return $return.': ';
