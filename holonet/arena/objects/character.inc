@@ -46,9 +46,9 @@
 	    return $this->cs_person->GetID();
     }
     
-    function GetName(){
+    function GetName($id = 0){
 	    
-	    $stat = $this->Point(33);
+	    $stat = $this->Point(33, '', '', $id);
 	    
 	    if (empty($stat)){
 		    $name = $this->cs_person->GetName();
@@ -174,7 +174,7 @@
 	    return $return;
     }
     
-    function Point($stat, $output = 'SHEET', $look = 'values', $id){
+    function Point($stat, $output = 'SHEET', $look = 'values', $id = 0){
 	    if ($id){
 		    $id = $id;
 	    } else {
@@ -794,7 +794,7 @@
 		$table = new Table();
 		
 		$table->StartRow();
-		$table->AddHeader('Dossier file for '.$rank->GetName().' '.$this->GetName(), 2);
+		$table->AddHeader('Dossier file for '.$rank->GetName().' '.$this->GetName($id), 2);
 		$table->EndRow();
 		$table->AddRow('Visual Identification', '<img src='.$url.'>');
     	$table->AddRow('Age', $age);
