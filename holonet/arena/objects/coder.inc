@@ -9,15 +9,13 @@
     }
     
     function Fileds($table){   
-	    if ($table){
-		    $sql = "SELECT * FROM `$table` LIMIT 1";
-		    $query = mysql_query($sql, $this->connect);
-		    $array = mysql_fetch_array($query, MYSQL_ASSOC);
-		    
-		    foreach ($array as $field=>$value){
-			    $this->fields[] = $field;
-		    }
-	    }
+	    $sql = "SHOW COLUMNS FROM `$table`";
+	    $result = mysql_query($sql, $connect);
+		if (mysql_num_rows($result) > 0) {
+		   while ($row = mysql_fetch_assoc($result)) {
+		       $fields[] = array('name'=>$row[Field], 'type'=>$row[Type]);
+		   }
+		}
     }   
     
     function Add(){
