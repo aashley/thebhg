@@ -39,7 +39,7 @@ function output(){
 			$table->EndRow();
 			
 			foreach ($current as $obj){
-				$type = new Obj('ams_types', $obj->Get(type), 'holonet);
+				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
 				$table->AddRow($obj->Get(name), $obj->Get(desc, true), $type->Get(name), ($obj->Get(date_deleted) ? 'Deleted' : ''));
 			}
 			
