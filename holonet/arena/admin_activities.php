@@ -45,9 +45,10 @@ function output(){
 			break;
 		}
 		
-		if (!$show)
-		echo '<p><a href="'.internal_link($page).'">View All</a>';
-		hr();
+		if (!$show){
+			echo '<p><a href="'.internal_link($page).'">View All</a>';
+			hr();
+		}
 	} elseif ($_REQUEST['submit']){
 		if ($arena->NewRow($_REQUEST['data'])){
 			echo 'Addition performed.';
