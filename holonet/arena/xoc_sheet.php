@@ -24,6 +24,7 @@ function output() {
 		    } else {
 			    echo 'You do not have a '.$_REQUEST['txt_'.$name].' in the selected field.';
 		    }
+		    echo '<br />';
 	    }
 	    
 	} elseif ($_REQUEST['next']){
@@ -34,6 +35,7 @@ function output() {
 	    }
 	    
 	    $form->AddSubmitButton('submit', 'Make final checks.');
+	    $form->EndForm();
     } else {
 	    $form = new Form($page);
 	    $form->AddTextBox('Number of Fields:', 'fields');
