@@ -171,7 +171,7 @@
     }
     
     function RetireRequests(){
-	    $sql = "SELECT * FROM `arena_solo_contracts` WHERE `requested` = 1 AND `bhg_id` = 0";
+	    $sql = "SELECT * FROM `arena_solo_retire` WHERE `requested` = 1 AND `bhg_id` = 0";
         $query = mysql_query($sql, $this->connect);
         $return = array();
 

@@ -182,11 +182,11 @@
 
     }
     
-    function Retire($bhg_id) {	    
+    function Retire() {	    
 	    $sql = "INSERT INTO `arena_lw_retire` VALUES ('".$this->contract_id."', '".$this->contract_bhg_id."', '".time()."')";
 	    mysql_query($sql, $this->connect);
 	    
-        $sql = "UPDATE `arena_lw_contracts` SET `bhg_id` = '$0' WHERE `id` = '".$this->contract_id."'";
+        $sql = "UPDATE `arena_lw_contracts` SET `bhg_id` = '0' WHERE `id` = '".$this->contract_id."'";
 
         if (mysql_query($sql, $this->connect)) {
 

@@ -31,7 +31,7 @@ function output() {
 	
 	        $contract = new Contract($_REQUEST['contract_id']);
 	
-	        if ($contract->Retire(0)) {
+	        if ($contract->Retire()) {
 	            echo 'Contract Retired.';
 	            
 	            $solo->NotifyComissioner(3, $contract->GetMBID(), $hunter->GetName());
