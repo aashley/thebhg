@@ -36,7 +36,7 @@ function output() {
 		    $table->AddHeader('Overseer of the Guild', 3);
 		    $table->EndRow();
 		    $table->StartRow();
-		    $table->AddCell('image here', 1, 4);
+		    $table->AddCell('image here', 0, 4);
 		    $table->EndRow();
 		    $table->AddRow('Credits Awarded:', number_format($overse->GetCreds()).' Imperial Credits');
 		    $table->AddRow('Experience Points Awarded:', number_format($overse->GetXP()));
