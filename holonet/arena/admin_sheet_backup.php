@@ -363,7 +363,7 @@ function output() {
 			    $table->EndTable();
 		    }
 		    
-		    $cores = $sheet->GetCores('WHERE `approved` = 1');
+		    $cores = $sheet->GetCores('WHERE `approved` = 1 AND `date_deleted` = 0');
 		    
 		    if (count($cores)){
 			    hr();
