@@ -74,7 +74,7 @@
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $poll = new Poll($info['id']);
-		    if ($poll->CanSubmit($hunter) || $poll->DidVote($hunter)){
+		    if ($poll->CanView($hunter)){
 			    $return[] = $poll;
 		    }
 	    }
@@ -89,7 +89,7 @@
 	    
 	    while ($info = mysql_fetch_array($query)){
 		    $poll = new Poll($info['id']);
-		    if ($poll->CanSubmit($hunter)){
+		    if ($poll->CanSubmit($hunter, 1)){
 			    $return[] = $poll;
 		    }
 	    }
