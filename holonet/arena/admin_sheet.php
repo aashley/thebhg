@@ -202,7 +202,7 @@ function output() {
 				    	}
 				    	if ($i <= 2){
 					    	$prefix = 'stat';
-				    	} elseif ($i <= 6){ {
+				    	} elseif ($i <= 6){
 					    	$prefix = 'expr';
 				    	} else {
 					    	$prefix = 'pers';
