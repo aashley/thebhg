@@ -147,7 +147,7 @@ function get_auth_data($hunter) {
 	    $auth_data['tempy_sub'] = true;
 	    $auth_data['elite'] = true;
     }
-    
+    */
     
     if (in_array($hunter->GetID(), $lw->Members())){
 	    $auth_data['lw'] = true;
@@ -161,7 +161,7 @@ function get_auth_data($hunter) {
     if ($hunter->GetID() == $irca->CurrentHC()){
 	    $auth_data['irc'] = true;
 	    $auth_data['aa'] = true;
-    }/*
+    }*/
     
     return $auth_data;
 }
