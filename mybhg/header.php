@@ -40,11 +40,11 @@ $my_posts = (int) $postConfig->GetValue();
 
 // Check if the user is logged in, and if so, load some arrays up.
 $my_weather = 'http://weather.interceptvector.com/weather.xml?id=QVNYWDAyMzQ%3D%%1';
-if ($_COOKIE['rid']) {
-	$mu_result = mysql_query('SELECT * FROM prefs WHERE id=' . $_COOKIE['rid'], $db);
+if ($_COOKIE['mybhg_rid']) {
+	$mu_result = mysql_query('SELECT * FROM prefs WHERE id=' . $_COOKIE['mybhg_rid'], $db);
 	$mu_row = mysql_fetch_array($mu_result);
-	if ($_COOKIE['key'] == $mu_row['key']) {
-		$my_user = $roster->GetPerson($_COOKIE['rid']);
+	if ($_COOKIE['mybhg_key'] == $mu_row['key']) {
+		$my_user = $roster->GetPerson($_COOKIE['mybhg_rid']);
 		if ($mu_row['timezone']) {
 			$my_tz = stripslashes($mu_row['timezone']);
 		}
@@ -75,8 +75,8 @@ if ($_COOKIE['rid']) {
 		}
 	}
 	else {
-		setcookie('key');
-		setcookie('rid');
+		setcookie('mybhg_key');
+		setcookie('mybhg_rid');
 	}
 }
 

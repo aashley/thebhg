@@ -6,10 +6,10 @@ if ($_POST['submit']) {
 	$rid = (int) $_POST['rid'];
 	$login = new Login($rid, $_POST['password']);
 	if ($login->IsValid()) {
-		setcookie('rid', $rid, time() + (365 * 86400));
+		setcookie('mybhg_rid', $rid, time() + (365 * 86400));
 		$result = mysql_query('SELECT `key` FROM prefs WHERE id=' . $rid, $db);
 		if ($result && mysql_num_rows($result)) {
-			setcookie('key', mysql_result($result, 0, 'key'), time() + (365 * 86400));
+			setcookie('mybhg_key', mysql_result($result, 0, 'key'), time() + (365 * 86400));
 		}
 		else {
 			$key = time() . '-' . mt_rand();
@@ -28,7 +28,7 @@ if ($_POST['submit']) {
 			}
 			
 			mysql_query('INSERT INTO prefs (id, `key`, blocks, sections, theme, posts) VALUES (' . $rid . ', "' . $key . '", "' . implode(',', $blocks) . '", "' . implode(',', $sections) . '", "default", ' . $my_posts . ')', $db);
-			setcookie('key', $key, time() + (365 * 86400));
+			setcookie('mybhg_key', $key, time() + (365 * 86400));
 		}
 
 		echo 'Thank you. You are now logged in, and may return to the index by clicking <a href="index.php">here</a>. Alternately, you could <a href="prefs.php">change your preferences</a>.';

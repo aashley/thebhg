@@ -2,9 +2,9 @@
 $title = 'Log Out';
 include('header.php');
 
-if ($_COOKIE['rid']) {
-	setcookie('rid');
-	setcookie('key');
+if ($_COOKIE['mybhg_rid']) {
+	setcookie('mybhg_rid');
+	setcookie('mybhg_key');
 }
 
 echo 'You are now logged out.';
