@@ -242,6 +242,7 @@ function output() {
     }
     
     if ($_REQUEST['view']){
+	    hr();
 	    $character = $sheet->GetBackup($_REQUEST['sheet']);
 		$saves = $character->GetBackups();
 	    $character->ParseSheet('backups', $_REQUEST['sheet'], 'id');
