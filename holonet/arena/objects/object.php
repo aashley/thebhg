@@ -51,8 +51,8 @@ Class Obj extends Arena {
         }
         
         if (count($add)){
-	        $sql .= implode(', ', $add)." WHERE `id` = '".$this->id."'";
-	        echo $sql;
+	        $sql .= implode(', ', $add)." WHERE `id` = '".$this->Get(id)."'";
+
 	        if (mysql_query($sql, $this->con)){
 	            return implode(' Edited.<br />', $return).' Edited.<br />';	
 	        } else {
