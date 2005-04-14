@@ -107,7 +107,7 @@ function admin_footer($auth_data) {
 	addMenu('Personal Details',
 			array('Edit My Details' => internal_link('admin_my_details', array()),
 				'Change My Password' => internal_link('admin_change_password', array()),
-				'Edit My IPKC' => internal_link('admin_my_ipkc', array())));,
+				'Edit My IPKC' => internal_link('admin_my_ipkc', array())));
 	
 	if ($auth_data['underlord']) {
 		addMenu('Underlord Features',
