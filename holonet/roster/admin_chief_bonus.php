@@ -273,7 +273,7 @@ function output() {
                                    + ( $data['chiefother'] * 3 )
                                    + ( $data['craother'] * 3 ) )
                                 / 9) 
-                             * 80000);
+                             * 160000);
 
             $form->AddTextBox($chief->GetName(),
                               'div['.$kabal->getID().']['.$chief->GetID().']',
@@ -299,7 +299,7 @@ function output() {
                                    + ( $data['chiefother'] * 3 )
                                    + ( $data['craother'] * 3 ) )
                                 / 9) 
-                             * 80000 * 0.25);
+                             * 160000 * 0.15);
 
             $form->AddTextBox($cra->GetName(),
                               'div['.$kabal->getID().']['.$cra->GetID().']',
@@ -335,7 +335,7 @@ function output() {
                                    + ( $data['wardenother'] * 3 )
                                    + ( $data['graduates'] * 3 ) )
                                 / 9) 
-                             * 80000);
+                             * 160000);
 
             $form->AddTextBox($warden->GetName(),
                               'div['.$wing->getID().']['.$warden->GetID().']',
