@@ -58,21 +58,22 @@ function output() {
 	    }
 	    
 	    foreach ($arena->Search(array('table'=>'ams_restrict', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id)))) as $obj){
-		    if ($obj->Get(course)){
+		    if ($obj->Get(course) > 0){
 				if (!in_array($obj->Get(course), $exams)){
 					echo 'You do not possess the necessary Citadel Courses to use this activity.<br />';
 					$err = 1;
 				}
+				$bar_slut[] = $obj->Get(course);
 			}
-			$bar_slut[] = $obj->Get(course);
 			
-			if ($obj->Get('list')){
+			if ($obj->Get('list') > 0){
 				if (!in_array($obj->Get('list'), $lists)){
 					echo 'You are not a member of the necessary Elite lists to use this activity.<br />';
 					$err = 1;
 				}
+				$bar_whore[] = $obj->Get('list');
 			}
-			$bar_whore[] = $obj->Get('list');
+			
 		}
 		
 		if ($err){
