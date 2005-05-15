@@ -362,7 +362,7 @@ function admin_footer($auth_data) {
 			foreach ($lists as $obj){
 				$app[$obj->Get(name)] = internal_link('admin_list', array('id'=>$obj->Get(id)));
 			}
-			addMenu('member Lists', $app);
+			addMenu('Member Lists', $app);
 		}
 	}
 
