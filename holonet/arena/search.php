@@ -27,6 +27,8 @@
 			$run = $sheet->SheetHolders();
 		}
 		
+		print_r($sheet->SheetHolder());
+		
     	foreach ($run as $person){
 	    	$person = new Person($person);
 	    	$kabal = $person->GetDivision();
@@ -45,14 +47,12 @@
     	}
     	
     	foreach ($kabals_result as $kabal) {
-      			echo $kabal;
 		      if ($kabal->GetID() != 9 && $kabal->GetID() != 16 && count($plebsheet[$kabal->GetID()])) {
 		        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
 		          .$kabal->GetName()."</option>\n";
 		      }
       
     	}
-    	print_r($kabals);
     
 		$kabals = implode('', $kabals);
 		print_r($kabals);
