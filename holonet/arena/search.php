@@ -5,7 +5,7 @@
 		$plebsheet = array();
 		$sheet = new Sheet();
 		$run = array();
-	    	
+	    	print_r($bar_whore);
 		if (is_array($bar_whore) && count($bar_whore)){
 			$lists = array();
 			$i = 0;
