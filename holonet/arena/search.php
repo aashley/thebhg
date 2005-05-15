@@ -5,11 +5,9 @@
 		$plebsheet = array();
 		$sheet = new Sheet();
 		$run = array();
-	    	print_r($bar_whore);
 		if (is_array($bar_whore) && count($bar_whore)){
 			$lists = array();
 			$i = 0;
-			print_r($bar_whore);
 			foreach ($bar_whore as $list){
 				foreach ($arena->Search(array('table'=>'ams_lists', 'search'=>array('date_deleted'=>'0', 'list'=>$list))) as $search){
 					$lists[$i][] = $search->Get(bhg_id);
@@ -17,7 +15,6 @@
 				$i++;
 			}
 			$reduce = $lists[0];
-			print_r($lists);
 			if (count($lists) > 1){
 				for ($i = 1; $i < count($lists); $i++){
 					$reduce = array_intersect($reduce, $lists[$i]);
@@ -27,6 +24,8 @@
 		} else {
 			$run = $sheet->SheetHolders();
 		}
+		
+		print_r($run);
 		
     	foreach ($run as $person){
 	    	$person = new Person($person);
