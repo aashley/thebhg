@@ -1,6 +1,7 @@
 <?
+echo 'Superior Powers!';
 		$kabals_result = $roster->GetDivisions();
-    
+    	print_r($kabals_result);
 		$kabals = array();		
 		$plebsheet = array();
 		$sheet = new Sheet();
