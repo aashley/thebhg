@@ -29,6 +29,7 @@
 	    	$person = new Person($person);
 	    	$kabal = $person->GetDivision();
 	    	$go = true;
+	    	print_r($bar_slut);
 			if (is_array($bar_slut) && count($bar_slut)){
 				foreach ($bar_slut as $course){
 					$sql = "SELECT * FROM `ntc_exam_completed` WHERE `bhg_id` = '".$person->GetID()."' AND `has_passed` = 1 AND `exam` = '$course'";
