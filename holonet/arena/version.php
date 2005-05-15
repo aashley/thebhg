@@ -24,7 +24,7 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
     
-    echo "Version Comments: Fixed a bug in reading the restrictions. Sentience decided it would be fun to count 0 as a course, only because I told him not to.";
+    echo "Version Comments: Fixed a bug in reading the restrictions. Sentience decided it would be fun to count 0 as a course, only because I told him not to. Also uppercased the 'M' in 'member lists'.";
     
     hr();
     
