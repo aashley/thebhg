@@ -27,7 +27,7 @@
 			$run = $sheet->SheetHolders();
 		}
 		
-		print_r($sheet->SheetHolder());
+		print_r($sheet->SheetHolders());
 		
     	foreach ($run as $person){
 	    	$person = new Person($person);
