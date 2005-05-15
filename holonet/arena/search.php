@@ -25,8 +25,6 @@
 			$run = $sheet->SheetHolders();
 		}
 		
-		print_r($run);
-		
     	foreach ($run as $person){
 	    	$person = new Person($person);
 	    	$kabal = $person->GetDivision();
@@ -43,6 +41,8 @@
 	    		$plebsheet[$kabal->GetID()][] = $person;
     		}
     	}
+    	
+    	print_r($plebsheet);
     	
     	foreach ($kabals_result as $kabal) {
       
