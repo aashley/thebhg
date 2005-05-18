@@ -17,6 +17,8 @@ if [[ $# -eq 0 ]]; then
 	echo " mall            Mall"
 	echo " mybhg           MyBHG - Main Website"
 	echo " mybhg-devel     MyBHG - Testing"
+	echo " scum            Scum - Main site"
+	echo " scum-devel      Scum - Testing"
 	echo " tactician       Tactician Website"
 fi
 
@@ -115,9 +117,9 @@ for site in $*; do
 
 		mybhg)
 		  echo Updating MyBHG...
-			pushd /home/virtual/thebhg.org/var/www/html > /dev/null
+			pushd /home/virtual/mybhg.org/var/www/html > /dev/null
 			$SVN update
-			chown -R admin5:admin5 .
+			chown -R admin6:admin6 .
 			popd > /dev/null
 			;;
 
@@ -126,6 +128,22 @@ for site in $*; do
 			pushd /home/virtual/thebhg.org/home/my/public_html > /dev/null
 			$SVN update
 			chown -R 22129:admin5 .
+			popd > /dev/null
+			;;
+
+		scum)
+		  echo Updating Scum...
+			pushd /home/virtual/thebhg.org/var/www/html > /dev/null
+			$SVN update
+			chown -R admin5:admin5 .
+			popd > /dev/null
+			;;
+
+		scum-devel)
+			echo Updating Scum Development...
+			pushd /home/virtual/thebhg.org/home/scum/public_html > /dev/null
+			$SVN update
+			chown -R 22152:admin5 .
 			popd > /dev/null
 			;;
 
