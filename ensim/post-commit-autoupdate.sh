@@ -39,5 +39,6 @@ LogMsg "New Commit: $REV"
 checkUpdate projects/trunk/holonet holonet-devel
 checkUpdate projects/trunk/mybhg mybhg-devel
 checkUpdate projects/trunk/ka ka-devel
+checkUpdate projects/trunk/scum scum-devel
 
 LogMsg "Revision $REV complete"
