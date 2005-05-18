@@ -1301,19 +1301,19 @@ class Roster extends BHGObject {
           $message = ParseEmailTemplate($message, $replace);
 
           $person->SendEmail("roster@thebhg.org",
-                             "[Roster] Welcome to the Bounty Hunters Guild "
+                             "[Roster] Welcome to the Bounty Hunter's Guild, "
                              .$person->GetName(),
                              $message);
 
           $warden->SendEmail("roster@thebhg.org",
-                             "[Roster] Welcome to the Bounty Hunters Guild "
+                             "[Roster] Welcome to the Bounty Hunter's Guild, "
                              .$person->GetName(),
                              $message);
 
           if ($this->GetSetting('newmemberemailexecutor') == 1) {
 
             $executor->SendEmail("roster@thebhg.org",
-                                 "[Roster] Welcome to the Bounty Hunters Guild "
+                                 "[Roster] Welcome to the Bounty Hunter's Guild, "
                                  .$person->GetName(),
                                  $message);
 
