@@ -85,6 +85,7 @@ for site in $*; do
 			pushd /home/virtual/thebhg.org/home/ka/public_html > /dev/null
 			$SVN update
 			chown -R 22130:admin5 .
+			chmod -R go+r .
 			popd > /dev/null
 			;;
 
