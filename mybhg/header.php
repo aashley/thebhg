@@ -1,5 +1,5 @@
 <?php
-define('VERSION', '1.1.4');
+define('VERSION', '1.1.4.1');
 
 ob_start();
 header('Content-Type: text/html; charset=ISO-8859-1');
@@ -132,7 +132,7 @@ else {
 <?php
 $savedReq = '?lastpage='.urlencode($_SERVER['REQUEST_URI']);
 
-$items = array('news.php' => 'News', 'sections.php'=>'Sections', 'calendar.php'=>'Calendar', 'about.php'=>'About', 'search.php'=>'Search');
+$items = array('index.php' => 'News', 'sections.php'=>'Sections', 'calendar.php'=>'Calendar', 'about.php'=>'About', 'search.php'=>'Search');
 if (isset($my_user)) {
 	$items['prefs.php'] = 'Preferences';
 	$items['logout.php'.$savedReq] = 'Logout';
