@@ -34,7 +34,7 @@ if ($_POST['submit']) {
 		if (isset($_POST['lastpage']))
 			$lastPage = $_POST['lastpage'];
 		else
-			$lastPage = '/news.php';
+			$lastPage = '/index.php';
 
 		header('Location: '.$lastPage);
 		echo 'Thank you. You are now logged in, and may return to the index by clicking <a href="index.php">here</a>. Alternately, you could <a href="prefs.php">change your preferences</a>.';

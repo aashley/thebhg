@@ -10,7 +10,7 @@ if ($_COOKIE['mybhg_rid']) {
 if (isset($_GET['lastpage']))
 	$lastPage = $_GET['lastpage'];
 else
-	$lastPage = '/news.php';
+	$lastPage = '/index.php';
 
 header('Location: '.$lastPage);
 echo 'You are now logged out.';

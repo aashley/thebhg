@@ -14,7 +14,7 @@ class SandboxForm extends Form {
 	function AddPageSelector($label, $name) {
 		$this->StartSelect($label, $name);
 		$this->AddOption('/calendar.php', 'Calendar');
-		$this->AddOption('/news.php', 'News');
+		$this->AddOption('/index.php', 'News');
 		$this->AddOption('/prefs.php', 'Preferences');
 		$this->AddOption('/search.php', 'Search');
 		$this->AddOption('/sections.php', 'Sections');
