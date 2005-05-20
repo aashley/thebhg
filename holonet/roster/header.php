@@ -122,6 +122,9 @@ function admin_footer($auth_data) {
 					'Empty Unassigned Pool' => internal_link('admin_empty_uap', array()),
 					'Flush Wings' => internal_link('admin_flush_wings', array()),
 					'Assign New Hunters' => internal_link('admin_assign_newbs', array()),
+					'Directly Award Credits' => internal_link('admin_direct_credits', array()),
+					'Directly Award Medals' => internal_link('admin_direct_medals', array()),
+					'Add Meeting Credits' => internal_link('admin_meeting', array()),
 					'Add Salaries' => internal_link('admin_salaries', array()),
 					'Add Chief Bonuses' => internal_link('admin_chief_bonus', array())));
 	}
