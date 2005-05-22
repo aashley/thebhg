@@ -35,7 +35,7 @@ function output() {
           
 					$pleb = $roster->GetPerson($_REQUEST['id'][$cid]);
           
-					$pleb->AddCredits($_REQUEST['credits'][$cid]);
+					$pleb->AddCredits($_REQUEST['credits'][$cid], $_REQUEST['reason'][$cid]);
           
 				} elseif ($approval == "hold") {
           
@@ -196,6 +196,7 @@ function output() {
 					$awardee = $roster->GetPerson($credit['person']);
           
 					$form->AddHidden("id[$credit_id]", $credit['person']);
+					$form->AddHidden("reason[$credit_id]", $reason['reason']);
 					$form->table->StartRow();
 					$form->table->AddCell($awardee->GetName());
 					$form->table->AddCell("<select name=\"action[$credit_id]\">"
