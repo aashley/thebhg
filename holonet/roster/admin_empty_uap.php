@@ -35,7 +35,14 @@ function output() {
 		if (count($hunters)) {
 			$form = new Form($page);
 			foreach ($hunters as $hunter) {
-				$form->StartSelect($hunter->GetName(), 'hunters[' . $hunter->GetID() . ']', $hunter->GetRankCredits() > 1000000 ? 'retire' : 'disavow');
+				// Figure out when the hunter was transferred
+				// to the UAP.
+				$history = new PersonHistory($hunter->GetID());
+				$history->Load(0, 0, array(3), 'DESC');
+				$item = $history->GetItem();
+
+				$label = $hunter->GetName().' (AWOLed '.date('j/n/Y', $item->GetDate()).')';
+				$form->StartSelect($label, 'hunters[' . $hunter->GetID() . ']', $hunter->GetRankCredits() > 1000000 ? 'retire' : 'disavow');
 				$form->AddOption('disavow', 'Transfer to Disavowed');
 				$form->AddOption('retire', 'Transfer to Retirees');
 				$form->AddOption('leave', 'Leave in UAP');
