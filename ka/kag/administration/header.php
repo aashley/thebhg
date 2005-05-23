@@ -33,7 +33,7 @@ if ($level == 3) {
 		'<b>Submit Testing</b>'=>'',
 		'Submit for Timed Events'=>'kag/administration/submit.php'
 	);
-	if ($login->GetID() == 2650){
+	if ($user->GetID() == 2650){
 		$subarray['<b>Grav\'s CH Corner</b>'] = '';
 		$subarray['Edit Signups'] = 'kag/administration/edit_signups.php';
 		$subarray['View Signups'] = 'kag/administration/view_signups.php';
