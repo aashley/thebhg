@@ -75,6 +75,7 @@ function output() {
 
 	if ($_REQUEST['submit']) {
 		for ($i = 0; $i < $fields; $i++) {
+			$byperson = "byperson$i";
 			$person = "person$i";
 			$medal = "medal$i";
 			$reason = "reason$i";
@@ -82,10 +83,15 @@ function output() {
 				continue;
 			}
 
+			if ($_REQUEST[$byperson] == -1)
+				$awarder = $pleb;
+			else
+				$awarder = $roster->GetPerson($_REQUEST[$byperson]);
+
 			$awardee = $roster->GetPerson($_REQUEST[$person]);
 			$next = next_medal($awardee, $_REQUEST[$medal]);
-			if ($mb->AwardMedal($awardee, $pleb, $next, $_REQUEST[$reason]))
-				printf('%s awarded to %s.<br />', $next->GetName(), htmlspecialchars($awardee->GetName()));
+			if ($mb->AwardMedal($awardee, $awarder, $next, $_REQUEST[$reason]))
+				printf('%s awarded to %s by %s.<br />', $next->GetName(), htmlspecialchars($awardee->GetName()), htmlspecialchars($awarder->GetName()));
 			else
 				printf('Error awarding %s to %s.<br />', $next->GetName(), htmlspecialchars($awardee->GetName()));
 		}
@@ -136,9 +142,9 @@ function output() {
 	}
 	?>
 
-	function swap_kabal(frm, id) {
-		var kabal_list = eval("frm.kabal" + id);
-		var person_list = eval("frm.person" + id);
+	function swap_kabal(frm, kabal, person, id) {
+		var kabal_list = eval("frm." + kabal + id);
+		var person_list = eval("frm." + person + id);
 		var kabal = kabal_list.options[kabal_list.options.selectedIndex].value;
 		if (kabal > 0) {
 			var kabal_array = eval("roster" + kabal);
@@ -166,13 +172,28 @@ function output() {
 	$table = new Table('', true);
 	for ($i = 0; $i < $fields; $i++) {
 		$table->StartRow();
-		$table->AddCell("<select name=\"kabal$i\" onChange=\"swap_kabal(this.form, $i)\"><option value=\"-1\">N/A</option>$kabals</select>");
+		$table->AddCell('&nbsp;');
+		$table->AddCell("<select name=\"kabal$i\" onChange=\"swap_kabal(this.form, 'kabal', 'person', $i)\"><option value=\"-1\">N/A</option>$kabals</select>");
 		$cell = "<select name=\"person$i\">";
 		$cell .= "<option value=\"-1\">N/A</option>";
 		$cell .= '</select>';
 		$table->AddCell($cell);
 		$table->AddCell("<select name=\"medal$i\" size=1>" . implode("\n", $medals) . "</select>");
 		$table->AddCell("for <input name=\"reason$i\" type=\"text\" size=20>");
+		$table->EndRow();
+
+		$table->StartRow();
+		$table->AddCell('Awarded By:');
+		$table->AddCell("<select name=\"bykabal$i\" onChange=\"swap_kabal(this.form, 'bykabal', 'byperson', $i)\"><option value=\"-1\">N/A</option>$kabals</select>");
+		$cell = "<select name=\"byperson$i\">";
+		$cell .= "<option value=\"-1\">N/A</option>";
+		$cell .= '</select>';
+		$table->AddCell($cell);
+		$table->AddCell("&nbsp;", 2);
+		$table->EndRow();
+
+		$table->StartRow();
+		$table->AddCell('&nbsp;', 5);
 		$table->EndRow();
 	}
 	$table->EndTable();
