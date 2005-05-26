@@ -7,7 +7,7 @@
  */
 
 // Some other parameters.
-$blank_name = 'bhgblank.png';
+$blank_name = 'ipkc.png';
 
 include('roster.inc');
 $roster = new Roster();
