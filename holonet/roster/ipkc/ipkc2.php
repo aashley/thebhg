@@ -39,19 +39,19 @@ $red = imagecolorexact($img, 255, 0, 0);
 if (!$red) {
 	$red = imagecolorallocate($img, 255, 0, 0);
 }
-$black = imagecolorexact($img, 0, 0, 0);
-if (!$black) {
-	$black = imagecolorallocate($img, 0, 0, 0);
+$white = imagecolorexact($img, 255, 255, 255);
+if (!$white) {
+	$white = imagecolorallocate($img, 255, 255, 255);
 }
-imagestring($img, 2, 170, 78, $name, $black);
-imagestring($img, 2, 206, 93, $homeworld, $black);
-imagestring($img, 2, 155, 109, $age, $black);
-imagestring($img, 2, 177, 125, $species, $black);
-imagestring($img, 2, 169, 140, $height, $black);
-imagestring($img, 2, 151, 156, $sex, $black);
-imagestring($img, 2, 206, 171, "BHG-$serial-" . $pleb->GetID(), $black);
-//imagestring($img, 2, 125, 187, $name, $black);
-imagefttext($img, 20, 0, 125, 202, $black, realpath('./rage.ttf'), $name, array());
+imagestring($img, 2, 170, 78, $name, $white);
+imagestring($img, 2, 206, 93, $homeworld, $white);
+imagestring($img, 2, 155, 109, $age, $white);
+imagestring($img, 2, 177, 125, $species, $white);
+imagestring($img, 2, 169, 140, $height, $white);
+imagestring($img, 2, 151, 156, $sex, $white);
+imagestring($img, 2, 206, 171, "BHG-$serial-" . $pleb->GetID(), $white);
+//imagestring($img, 2, 125, 187, $name, $white);
+imagefttext($img, 20, 0, 125, 202, $white, realpath('./rage.ttf'), $name, array());
 if ($division->GetID() == 0 || $division->GetID() == 11) {
 	imagefttext ($img, 80, 45, 80, 325, $red, realpath('./impact.ttf'), 'REVOKED', array());
 }
