@@ -17,7 +17,7 @@ function output() {
 
 	foreach ($shelf->GetBooks() as $book) {
 
-		print '<p><a href="'.internal_link('book', array('id'=>$book->GetID())).'">'.$book->GetTitle().'</a><small><br>'.$book->GetDescription().'</p>';
+		print '<p><a href="'.internal_link('book', array('id'=>$book->GetID())).'">'.$book->GetTitle().'</a><small><br>'.$book->GetDescription().'</small></p>';
 
 	}
 	
