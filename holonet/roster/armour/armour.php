@@ -1,6 +1,8 @@
 <?php
 // Change this for special occasions.
 $show_aotw = false;
+if (isset($_GET['aotw']))
+	$show_aotw = true;
 
 ob_start();
 
