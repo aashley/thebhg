@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 include('header.php');
 
 page_header();
