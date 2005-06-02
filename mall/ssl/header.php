@@ -8,6 +8,8 @@ $roster = new Roster('ssl-2.5-sail');
 
 // Execute this when you're ready to start the page.
 function page_header() {
+	global $str_name;
+
 	if (defined('DEBUG') && DEBUG) {
 		define('START', array_sum(explode(' ', microtime())));
 	}
