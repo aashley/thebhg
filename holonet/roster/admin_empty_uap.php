@@ -26,6 +26,14 @@ function output() {
 			elseif ($action == 'disavow') {
 				$hunter->Delete();
 			}
+			elseif ($action == 'return') {
+				// Find out from whence they came and kick them
+				// back there.
+				$history = new PersonHistory($hunter->GetID());
+				$history->Load(0, 0, array(3), 'DESC');
+				$item = $history->GetItem();
+				$hunter->SetDivision($item->GetItem(1));
+			}
 		}
 		echo 'Unassigned Pool emptied.';
 	}
@@ -40,11 +48,27 @@ function output() {
 				$history = new PersonHistory($hunter->GetID());
 				$history->Load(0, 0, array(3), 'DESC');
 				$item = $history->GetItem();
+				$kabal = $roster->GetDivision($item->GetItem(1));
+
+				/* Work out a default action. For hunters
+				 * transferred into the UAP within the last two
+				 * weeks, the default is to leave them be. For
+				 * hunters transferred before that, they go to
+				 * retirees (if they have more than 1 million
+				 * credits) or to disavowed (less than a mil).
+				 */
+				if ((time() - $item->GetDate()) < 1209600)
+					$default = 'leave';
+				elseif ($hunter->GetRankCredits() > 1000000)
+					$default = 'retire';
+				else
+					$default = 'disavow';
 
 				$label = $hunter->GetName().' (AWOLed '.date('j/n/Y', $item->GetDate()).')';
-				$form->StartSelect($label, 'hunters[' . $hunter->GetID() . ']', $hunter->GetRankCredits() > 1000000 ? 'retire' : 'disavow');
+				$form->StartSelect($label, 'hunters[' . $hunter->GetID() . ']', $default);
 				$form->AddOption('disavow', 'Transfer to Disavowed');
 				$form->AddOption('retire', 'Transfer to Retirees');
+				$form->AddOption('return', 'Return to '.$kabal->GetName());
 				$form->AddOption('leave', 'Leave in UAP');
 				$form->EndSelect();
 			}
