@@ -28,6 +28,9 @@ else {
 	if ($_REQUEST['kag'] === '0') {
 		$kag = $ka->GetKAG(0);
 	}
+	elseif (intval($_REQUEST['kag'])) {
+		$kag = $ka->GetKAG((int) $_REQUEST['kag']);
+	}
 	elseif (empty($_REQUEST['kag']) || $_REQUEST['kag'] === '') {
 		$kags = $ka->GetKAGs();
 		$kag = end($kags);
