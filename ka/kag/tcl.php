@@ -114,11 +114,13 @@ else {
 			}
 		}
 
-		foreach ($plebs as $pleb) {
-			$div = $pleb->GetDivision();
-			$result = mysql_query('SELECT person FROM kag_signups WHERE person=' . $pleb->GetID(), $db);
-			if ($result && mysql_num_rows($result) && $div->GetID() != 16 && $div->GetID() != 0) {
-				$new_plebs[] = $pleb;
+		if (is_array($plebs) && count($plebs) > 0) {
+			foreach ($plebs as $pleb) {
+				$div = $pleb->GetDivision();
+				$result = mysql_query('SELECT person FROM kag_signups WHERE person=' . $pleb->GetID(), $db);
+				if ($result && mysql_num_rows($result) && $div->GetID() != 16 && $div->GetID() != 0) {
+					$new_plebs[] = $pleb;
+				}
 			}
 		}
 
