@@ -7,7 +7,7 @@ if (isset($_REQUEST['event'])) {
 	$cg = end($cgs);
 
 	if ((time() < $cg->GetSignupStart()) || (time() > $cg->GetEnd())) {
-		echo "<begin>\nNo CG is running at present.\n<end>";
+		echo "<begin>\nNo CG is running at present.\n<end>\n";
 	}
 	else {
 		$result = mysql_query('SELECT id FROM cg_events WHERE name LIKE "%' . addslashes($_REQUEST['event']) . '%" AND cg=' . $cg->GetID(), $db);
@@ -17,10 +17,10 @@ if (isset($_REQUEST['event'])) {
 			if ((time() < $event->GetEnd()) && (time() >= $event->GetStart())) {
 				echo ' Time remaining: ' . format_time($event->GetEnd() - time(), FT_SECOND) . '.';
 			}
-			echo "\n<end>";
+			echo "\n<end>\n";
 		}
 		else {
-			echo "<begin>\nNo such event found.\n<end>";
+			echo "<begin>\nNo such event found.\n<end>\n";
 		}
 	}
 }
