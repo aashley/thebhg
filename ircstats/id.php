@@ -87,11 +87,11 @@ function output_function($pleb){
 	switch($_REQUEST['flag']){
 		case 1:
 			$idline = $pleb->IDLine();
-			if ($oxx) { $idline = preg_replace('"^[A-Z]+/"', 'LORD/', $idline) . "\n"; }
-			return "\002BHG ID #" . $pleb->GetID() . "\002: " . $idline . "\n";
+			if ($oxx) { $idline = preg_replace('"^[A-Z]+/"', 'LORD/', $idline); }
+			return "\002BHG ID #" . $pleb->GetID() . "\002: " . $idline;
 		break;
 		case 2:
-			return 'E-mail address for ' . $STATOUT . $pleb->GetEMail() . "\n";
+			return 'E-mail address for ' . $STATOUT . $pleb->GetEMail();
 		break;
 		case 3:
 			if ($rank->IsUnlimitedCredits()) {
@@ -99,59 +99,57 @@ function output_function($pleb){
 			} else {
 				$CREDS = 'Rank Credits: ' . number_format($pleb->GetRankCredits()) . "; Account Balance: " . number_format($pleb->GetAccountBalance());
 			}
-			return 'Credits for ' . $STATOUT . $CREDS . ".\n";
+			return 'Credits for ' . $STATOUT . $CREDS . '.';
 		break;
 		case 4:
 			$TIMEIN = format_time(time() - $pleb->GetJoinDate(), FT_DAY);
-			return 'Time in the BHG for ' . $STATOUT . $TIMEIN . ".\n";
+			return 'Time in the BHG for ' . $STATOUT . $TIMEIN . '.';
 		break; 
 		case 5:
-			return 'Unused XP for ' . $STATOUT . number_format($arena->GetXP($pleb->GetID())) . ".\n";
+			return 'Unused XP for ' . $STATOUT . number_format($arena->GetXP($pleb->GetID())) . '.';
 		break;
 		case 6:
-			return 'Arena Ladder Rank for ' . $STATOUT . $arena->Ladder('arena', $pleb->GetID()) . ".\n";
+			return 'Arena Ladder Rank for ' . $STATOUT . $arena->Ladder('arena', $pleb->GetID()) . '.';
 		break;
 		case 7:
-			return 'IRC Arena Ladder Rank for ' . $STATOUT . $arena->Ladder('irca', $pleb->GetID()) . ".\n";
+			return 'IRC Arena Ladder Rank for ' . $STATOUT . $arena->Ladder('irca', $pleb->GetID()) . '.';
 		break;
 		case 8:
-			return 'Starfield Arena Ladder Rank for ' . $STATOUT . $arena->Ladder('sa', $pleb->GetID()) . ".\n";
+			return 'Starfield Arena Ladder Rank for ' . $STATOUT . $arena->Ladder('sa', $pleb->GetID()) . '.';
 		break;
 		case 9:
-			return 'Solo Mission Ladder Rank for ' . $STATOUT . $arena->Ladder('solo', $pleb->GetID()) . ".\n";
+			return 'Solo Mission Ladder Rank for ' . $STATOUT . $arena->Ladder('solo', $pleb->GetID()) . '.';
 		break;
 		case 10:
-			return 'Lone Wolf Mission Ladder Rank for ' . $STATOUT . $arena->Ladder('lw', $pleb->GetID()) . ".\n";
+			return 'Lone Wolf Mission Ladder Rank for ' . $STATOUT . $arena->Ladder('lw', $pleb->GetID()) . '.';
 		break;
 		case 11:
-			return 'Character Sheet for ' . $STATOUT . 'http://holonet.thebhg.org/index.php?module=arena&page=atn_general&id=' . $pleb->GetID() . "\n";
+			return 'Character Sheet for ' . $STATOUT . 'http://holonet.thebhg.org/index.php?module=arena&page=atn_general&id=' . $pleb->GetID();
 		break;
 		case 12:
-			return 'Roster Information for ' . $STATOUT . 'http://holonet.thebhg.org/index.php?module=roster&page=hunter&id=' . $pleb->GetID() . "\n";
+			return 'Roster Information for ' . $STATOUT . 'http://holonet.thebhg.org/index.php?module=roster&page=hunter&id=' . $pleb->GetID();
 		break;
 	}
 }
 
-echo "<begin>\n";
-
 if (empty($plebs) || count($plebs) == 0) {
-	echo "No matches have been found.\n";
+	echo "No matches have been found.";
 }
 elseif (count($plebs) > 10) {
-	echo count($plebs) . " matches have been found. Please refine your search to see any meaningful output.\n";
+	echo count($plebs) . " matches have been found. Please refine your search to see any meaningful output.";
 }
 elseif (count($plebs) > 3) {
 	$names = array();
 	foreach ($plebs as $pleb) {
 		$names[] = $pleb->GetName() . ' (ID #' . $pleb->GetID() . ')';
 	}
-	echo count($plebs) . " matches have been found. These matches are: " . implode(', ', $names) . ". Please use a specific ID to see more information.\n";
+	echo count($plebs) . " matches have been found. These matches are: " . implode(', ', $names) . ". Please use a specific ID to see more information.";
 }
 else {
+	$output = array();
 	foreach ($plebs as $pleb) {
-		echo output_function($pleb);
+		$output[] = output_function($pleb);
 	}
+	echo implode("\n", $output);
 }
-
-echo "<end>\n";
 ?>
