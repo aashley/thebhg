@@ -25,12 +25,12 @@ if (isset($_REQUEST['event'])) {
 	}
 }
 else {
-	if (empty($_REQUEST['kag']) || $_REQUEST['kag'] === '') {
+	if ($_REQUEST['kag'] === '0') {
+		$kag = $ka->GetKAG(0);
+	}
+	elseif (empty($_REQUEST['kag']) || $_REQUEST['kag'] === '') {
 		$kags = $ka->GetKAGs();
 		$kag = end($kags);
-	}
-	elseif (intval($_REQUEST['kag']) || $_REQUEST['kag'] === '0') {
-		$kag = $ka->GetKAG($_REQUEST['kag']);
 	}
 	elseif (($roman = Numbers_Roman::toNumber($_REQUEST['kag'])) && ($roman > 1 || $_REQUEST['kag'] == 'i')) {
 		$kag = $ka->GetKAG($roman);
