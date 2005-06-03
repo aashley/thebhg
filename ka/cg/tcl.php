@@ -7,7 +7,7 @@ if (isset($_REQUEST['event'])) {
 	$cg = end($cgs);
 
 	if ((time() < $cg->GetSignupStart()) || (time() > $cg->GetEnd())) {
-		echo "<begin>\nNo CG is running at present.\n<end>\n";
+		echo "<begin>\nNo CG or KAG is running at present.\n<end>\n";
 	}
 	else {
 		$result = mysql_query('SELECT id FROM cg_events WHERE name LIKE "%' . addslashes($_REQUEST['event']) . '%" AND cg=' . $cg->GetID(), $db);
