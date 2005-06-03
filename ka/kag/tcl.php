@@ -19,22 +19,6 @@ if (isset($_REQUEST['event'])) {
 			}
 			echo "\n<end>";
 		}
-
-		$result = mysql_query('SELECT id, name FROM kag_types WHERE name LIKE "%' . addslashes($_REQUEST['event']) . '%" ', $db);
-
-		if (strlen($_REQUEST['event']) >= 3 && $result && mysql_num_rows($result)) {
-			$info = mysql_fetch_assoc($result);
-			$name = $info['name'];
-			$result = mysql_query('select id from kag_events WHERE type = '.$info['id'].' AND kag=' . $kag->GetID(), $db);
-			if (strlen($_REQUEST['event']) >= 3 && $result && mysql_num_rows($result)) {
-				$event = $ka->GetEvent(mysql_result($result, 0, 'id'));
-				echo "<begin>\nKAG " . roman($kag->GetID()) . ' ' . $name . ': Runs from ' . date('j F Y', $event->GetStart()) . ' to ' . date('j F Y', $event->GetEnd()) . '.';
-				if ((time() < $event->GetEnd()) && (time() >= $event->GetStart())) {
-					echo ' Time remaining: ' . format_time($event->GetEnd() - time(), FT_SECOND) . '.';
-				}
-				echo "\n<end>";
-			}
-		}
 		else {
 			echo "<begin>\nNo such event found.\n<end>";
 		}
