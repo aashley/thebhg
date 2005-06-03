@@ -7,20 +7,20 @@ if (isset($_REQUEST['event'])) {
 	$cg = end($cgs);
 
 	if ((time() < $cg->GetSignupStart()) || (time() > $cg->GetEnd())) {
-		echo "<begin>\nNo CG or KAG is running with that event at present.\n<end>\n";
+		echo 'OUT: No CG or KAG is running with that event at present.';
 	}
 	else {
 		$result = mysql_query('SELECT id FROM cg_events WHERE name LIKE "%' . addslashes($_REQUEST['event']) . '%" AND cg=' . $cg->GetID(), $db);
 		if (strlen($_REQUEST['event']) >= 3 && $result && mysql_num_rows($result)) {
 			$event = $ka->GetEvent(mysql_result($result, 0, 'id'));
-			echo "<begin>\nCG " . roman($cg->GetID()) . ' ' . $event->GetName() . ': Runs from ' . date('j F Y', $event->GetStart()) . ' to ' . date('j F Y', $event->GetEnd()) . '.';
+			echo 'OUT: CG ' . roman($cg->GetID()) . ' ' . $event->GetName() . ': Runs from ' . date('j F Y', $event->GetStart()) . ' to ' . date('j F Y', $event->GetEnd()) . '.';
 			if ((time() < $event->GetEnd()) && (time() >= $event->GetStart())) {
 				echo ' Time remaining: ' . format_time($event->GetEnd() - time(), FT_SECOND) . '.';
 			}
-			echo "\n<end>\n";
+			echo "\n";
 		}
 		else {
-			echo "<begin>\nNo such event found.\n<end>\n";
+			echo 'OUT: No such event found.';
 		}
 	}
 }
@@ -52,7 +52,7 @@ else {
 		$result = mysql_query("SELECT COUNT(DISTINCT event) AS events FROM cg_signups WHERE cg=$cgid AND state IN (1, 4)", $db);
 		$events = count($cg->GetEvents());
 		$marked = mysql_result($result, 0, 'events');
-		echo "<begin>\nResults for CG " . roman($cgid) . ' ' . (($marked == $events) ? '(complete)' : "with $marked of $events events graded") . ': ' . implode(', ', $names) . ".\n<end>\n";
+		echo 'OUT: Results for CG ' . roman($cgid) . ' ' . (($marked == $events) ? '(complete)' : "with $marked of $events events graded") . ': ' . implode(', ', $names) . '.';
 	}
 	else {
 		// Look up hunter information.
@@ -111,10 +111,10 @@ else {
 		$plebs = $new_plebs;
 		
 		if (count($plebs) > 3) {
-			echo "<begin>\nMore than three hunters match the name given.\n<end>\n";
+			echo 'OUT: More than three hunters match the name given.';
 		}
 		elseif (count($plebs) == 0) {
-			echo "<begin>\nNo hunters match the criteria given.\n<end>\n";
+			echo 'OUT: No hunters match the criteria given.';
 		}
 		else {
 			$info = array();
@@ -128,7 +128,7 @@ else {
 				asort($cadres);
 				$result = mysql_query('SELECT MIN(cg) AS first, MAX(cg) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM cg_signups WHERE person=' . $pleb->GetID(), $db);
 				$row = mysql_fetch_array($result);
-				$hinfo = 'CG History for ' . $pleb->GetName() . ' (' . implode(', ', $cadres) . '): ';
+				$hinfo = 'OUT: CG History for ' . $pleb->GetName() . ' (' . implode(', ', $cadres) . '): ';
 				if ($row['first'] == $row['last']) {
 					$hinfo .= 'CG ' . roman($row['first']);
 				}
@@ -138,7 +138,7 @@ else {
 				$hinfo .= '; ' . number_format($row['points']) . ' points; ' . number_format($row['events']) . ' events; ' . number_format($row['points'] / $row['events'], 1) . ' points per event.';
 				$info[] = $hinfo;
 			}
-			echo "<begin>\n" . implode("\n", $info) . "\n<end>\n";
+			echo implode("\n", $info);
 		}
 	}
 }

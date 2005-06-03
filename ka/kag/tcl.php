@@ -7,20 +7,20 @@ if (isset($_REQUEST['event'])) {
 	$kag = end($kags);
 
 	if ((time() < $kag->GetSignupStart()) || (time() > $kag->GetEnd())) {
-		echo "<begin>\nNo KAG is running at present.\n<end>";
+		echo 'OUT: No KAG is running at present.';
 	}
 	else {
 		$result = mysql_query('SELECT id FROM kag_events WHERE name LIKE "%' . addslashes($_REQUEST['event']) . '%" AND kag=' . $kag->GetID(), $db);
 		if (strlen($_REQUEST['event']) >= 3 && $result && mysql_num_rows($result)) {
 			$event = $ka->GetEvent(mysql_result($result, 0, 'id'));
-			echo "<begin>\nKAG " . roman($kag->GetID()) . ' ' . $event->GetName() . ': Runs from ' . date('j F Y', $event->GetStart()) . ' to ' . date('j F Y', $event->GetEnd()) . '.';
+			echo 'OUT: KAG ' . roman($kag->GetID()) . ' ' . $event->GetName() . ': Runs from ' . date('j F Y', $event->GetStart()) . ' to ' . date('j F Y', $event->GetEnd()) . '.';
 			if ((time() < $event->GetEnd()) && (time() >= $event->GetStart())) {
 				echo ' Time remaining: ' . format_time($event->GetEnd() - time(), FT_SECOND) . '.';
 			}
-			echo "\n<end>";
+			echo "\n";
 		}
 		else {
-			echo "<begin>\nNo such event found.\n<end>";
+			echo 'OUT: No such event found.';
 		}
 	}
 }
@@ -55,7 +55,7 @@ else {
 		$result = mysql_query("SELECT COUNT(DISTINCT event) AS events FROM kag_signups WHERE kag=$kagid AND state IN (1, 4)", $db);
 		$events = count($kag->GetEvents());
 		$marked = mysql_result($result, 0, 'events');
-		echo "<begin>\nResults for KAG " . roman($kagid) . ' ' . (($marked == $events) ? '(complete)' : "with $marked of $events events graded") . ': ' . implode(', ', $names) . ".\n<end>\n";
+		echo 'OUT: Results for KAG ' . roman($kagid) . ' ' . (($marked == $events) ? '(complete)' : "with $marked of $events events graded") . ': ' . implode(', ', $names) . '.';
 	}
 	else {
 		// Look up hunter information.
@@ -114,10 +114,10 @@ else {
 		$plebs = $new_plebs;
 		
 		if (count($plebs) > 3) {
-			echo "<begin>\nMore than three hunters match the name given.\n<end>\n";
+			echo 'OUT: More than three hunters match the name given.';
 		}
 		elseif (count($plebs) == 0) {
-			echo "<begin>\nNo hunters match the criteria given.\n<end>\n";
+			echo 'OUT: No hunters match the criteria given.';
 		}
 		else {
 			$info = array();
@@ -131,7 +131,7 @@ else {
 				asort($kabals);
 				$result = mysql_query('SELECT MIN(kag) AS first, MAX(kag) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE person=' . $pleb->GetID(), $db);
 				$row = mysql_fetch_array($result);
-				$hinfo = 'KAG History for ' . $pleb->GetName() . ' (' . implode(', ', $kabals) . '): ';
+				$hinfo = 'OUT: KAG History for ' . $pleb->GetName() . ' (' . implode(', ', $kabals) . '): ';
 				if ($row['first'] == $row['last']) {
 					$hinfo .= 'KAG ' . roman($row['first']);
 				}
@@ -147,7 +147,7 @@ else {
 				$hinfo .= number_format($row['points'] / $row['events'], 1) . ' points per event.';
 				$info[] = $hinfo;
 			}
-			echo "<begin>\n" . implode("\n", $info) . "\n<end>\n";
+			echo implode("\n", $info);
 		}
 	}
 }
