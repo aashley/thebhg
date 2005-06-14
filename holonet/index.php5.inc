@@ -11,7 +11,7 @@
 			$name = $mod->getElementsByTagName('name')->item(0);
 			if ($dir->textContent == $module) {
 				$found = true;
-				$GLOBALS['modtext'] = '<a href="' . $url->textContent . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
+				$GLOBALS['modtext'] = '<a href="' . internal_link('index') . '">' . str_replace(' ', '&nbsp;', htmlspecialchars($name->textContent)) . '</a>';
 			}
 			else {
 				if (!$found) {
