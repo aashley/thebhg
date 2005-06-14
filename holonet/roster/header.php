@@ -161,6 +161,7 @@ function admin_footer($auth_data) {
     if ($auth_data['cadre-leader']) {
 
 			$items['Edit Cadre Details'] = internal_link('admin_cadre_edit', array());
+			$items['E-mail Cadre Members'] = internal_link('admin_cadre_email', array());
       $items['Manage Membership'] = internal_link('admin_cadre_buy_members', array());
       $items['Close Cadre'] = internal_link('admin_cadre_close', array());
 
