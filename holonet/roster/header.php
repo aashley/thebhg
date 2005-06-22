@@ -110,23 +110,32 @@ function admin_footer($auth_data) {
 				'Edit My IPKC' => internal_link('admin_my_ipkc', array())));
 	
 	if ($auth_data['underlord']) {
-		addMenu('Underlord Features',
-				array('Approve Credit Awards' => internal_link('admin_pending', array()),
-					'Approve Medal Awards' => internal_link('admin_pending_medal', array()),
-					'New Members' => internal_link('admin_new_member', array()),
-					'Transfer Members' => internal_link('admin_transfer_members', array()),
-					'Change Positions' => internal_link('admin_change_position', array()),
-					'Change Ranks' => internal_link('admin_change_rank', array()),
-					'Declare AWOLs' => internal_link('admin_declare_awols', array()),
-					'Approve AWOLs' => internal_link('admin_approve_awols', array()),
-					'Empty Unassigned Pool' => internal_link('admin_empty_uap', array()),
-					'Flush Wings' => internal_link('admin_flush_wings', array()),
-					'Assign New Hunters' => internal_link('admin_assign_newbs', array()),
-					'Directly Award Credits' => internal_link('admin_direct_credits', array()),
-					'Directly Award Medals' => internal_link('admin_direct_medals', array()),
-					'Add Meeting Credits' => internal_link('admin_meeting', array()),
-					'Add Salaries' => internal_link('admin_salaries', array()),
-					'Add Chief Bonuses' => internal_link('admin_chief_bonus', array())));
+		addMenu('Underlord: Awards',
+			array('Approve Credit Awards' => internal_link('admin_pending', array()),
+			      'Approve Medal Awards' => internal_link('admin_pending_medal', array()),
+			      'Directly Award Credits' => internal_link('admin_direct_credits', array()),
+			      'Directly Award Medals' => internal_link('admin_direct_medals', array()),
+			      'Add Meeting Credits' => internal_link('admin_meeting', array()),
+			      'Add Salaries' => internal_link('admin_salaries', array()),
+			      'Add Chief Bonuses' => internal_link('admin_chief_bonus', array())));
+
+		addMenu('Underlord: AWOLs/UAP',
+			array('Declare AWOLs' => internal_link('admin_declare_awols', array()),
+			      'Approve AWOLs' => internal_link('admin_approve_awols', array()),
+			      'Empty Unassigned Pool' => internal_link('admin_empty_uap', array())));
+
+		addMenu('Underlord: Citadel',
+			array('New Members' => internal_link('admin_new_member', array()),
+			      'Flush Wings' => internal_link('admin_flush_wings', array()),
+			      'Assign New Hunters' => internal_link('admin_assign_newbs', array())));
+		
+		addMenu('Underlord: Moves',
+			array('Transfer Members' => internal_link('admin_transfer_members', array()),
+			      'Change Positions' => internal_link('admin_change_position', array()),
+			      'Change Ranks' => internal_link('admin_change_rank', array())));
+		
+		addMenu('Underlord: Miscellaneous',
+			array('Edit Hunter Details' => internal_link('admin_their_details', array())));
 	}
 
 	if ($auth_data['commission']) {
