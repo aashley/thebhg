@@ -4,10 +4,14 @@ include_once('library.inc');
 $library = new Library('holo-is-queer');
 
 // Include the Timeline stuff.
-include_once('timeline/timeline.php');
-include_once('timeline/category.php');
-include_once('timeline/event.php');
-$timeline = new Timeline();
+include_once 'hc/history.php';
+include_once 'hc/category.php';
+include_once 'hc/event.php';
+$timeline = new History();
+
+include_once 'roster.inc';
+$roster = new Roster();
+include_once 'hc/positions.php';
 
 function timeline_admin_footer() {
 	addMenu('Timeline Admin',

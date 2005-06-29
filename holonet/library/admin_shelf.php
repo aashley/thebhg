@@ -48,7 +48,7 @@ function output() {
   	print '<hr><img src="library/images/section.png">'
       .'<a href="'.internal_link('admin_book_delete', array('id'=>$book->GetID())).'"><img src="library/images/delete.png" border="0"></a>'
       .'<a href="'.internal_link('admin_book_edit', array('id'=>$book->GetID())).'"><img src="library/images/edit.png" border="0"></a>'
-      .'<p><a href="'.internal_link('admin_book', array('id'=>$book->GetID())).'">'.$book->GetTitle().'</a><small><br>'.$book->GetDescription().'</p>';
+      .'<p><a href="'.internal_link('admin_book', array('id'=>$book->GetID())).'">'.$book->GetTitle().'</a><small><br>'.$book->GetDescription().'</small></p>';
 
   }
 
