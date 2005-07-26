@@ -263,7 +263,7 @@
 	    
 	    $text = "You have been awarded a character attribute. This attribute modifies your stats, so you may want to go re-arrange things.";
 
-        $from = "overseer@thebhg.org";
+        $from = "arena@thebhg.org";
         $subject = "Character Attribute Awarded";
 
         $this->cs_person->SendEmail($from, $subject, $text);
@@ -277,7 +277,7 @@
 	    
 	    $text = "The Registrar has removed a character attribute from your character.";
 
-        $from = "overseer@thebhg.org";
+        $from = "arena@thebhg.org";
         $subject = "Character Attribute Removed";
         
         $this->cs_person->SendEmail($from, $subject, $text);
@@ -619,7 +619,7 @@
             
             $text = "A new sheet has been submitted by ".$this->cs_person->GetName().". Please go and review it at your earliest convenience.";
 
-            $from = "overseer@thebhg.org";
+            $from = "arena@thebhg.org";
             $subject = "Character Pending Approval";
             
             foreach ($this->Search(array('table'=>'ams_cs', 'search'=>array('date_deleted'=>'0'))) as $info){
@@ -781,7 +781,7 @@
             
             $text = $hunter->GetName().", your sheet has been approved by the RP staff.";
 
-            $from = "overseer@thebhg.org";
+            $from = "arena@thebhg.org";
             $subject = "Character Approved";
 
             $hunter->SendEmail($from, $subject, $text);
@@ -803,7 +803,7 @@
 	            $text .= " Reason: ".$reason;
             }
 
-            $from = "overseer@thebhg.org";
+            $from = "arena@thebhg.org";
             $subject = "Character Denied";
 
             $hunter->SendEmail($from, $subject, $text);
@@ -827,7 +827,7 @@
 	            $text .= " Reason: ".$reason;
             }
 
-            $from = "overseer@thebhg.org";
+            $from = "arena@thebhg.org";
             $subject = "Notice of Character Wipe";
 
             $hunter->SendEmail($from, $subject, $text);

@@ -39,7 +39,7 @@ function linky($id){
 }
 
 function from(){
-	return 'overseer@thebhg.org';
+	return 'arena@thebhg.org';
 }
 
 function next_medal($person, $group) {
