@@ -355,14 +355,22 @@ class bhg_core_base {
 
 			$fieldnames[] = $field;
 			
-			if (preg_match('/^[a-zA-Z_]*\(.*\)$/', $value)) {
-
-				$fieldvalues[] = $value;
-
+			if (is_array($value) && isset($value[1]) && $value[1] == true) {
+				
+				$fieldvalues[] = $value[0];
+				
 			} else {
-
-				$fieldvalues[] = $this->db->quote($value);
-
+				
+				if (preg_match('/^[a-zA-Z_]*\(.*\)$/', $value)) {
+					
+					$fieldvalues[] = $value;
+					
+				} else {
+					
+					$fieldvalues[] = $this->db->quote($value);
+					
+				}
+				
 			}
 
 		}
@@ -393,7 +401,7 @@ class bhg_core_base {
 
 			try {
 				
-				$object = &$GLOBALS['gen3']->loadObject($classname, $id);
+				$object = bhg::loadObject($classname, $id);
 
 				return $object;
 
@@ -433,6 +441,9 @@ class bhg_core_base {
 			$fields = array('id' => $this->data['id']);
 
 		}
+
+		if (sizeof($fields) == 0)
+			throw new bhg_fatal_exception('No fields specified.  Will not delete entire table.');
 
 		$sql = 'UPDATE `'.$table.'` '
 					.'SET date_deleted = NOW() '
@@ -559,14 +570,22 @@ class bhg_core_base {
 
 		foreach ($fields as $field => $value) {
 
-			if (preg_match('/^[a-zA-Z_]*\(.*\)$/', $value)) {
-
-				$f[] = '`'.$field.'` = '.$value;
-
+			if (is_array($value) && isset($value[1]) && $value[1] == true) {
+				
+				$f[] = '"'.$field.'" = '.$value[0];
+				
 			} else {
 				
-				$f[] = '`'.$field.'` = '.$this->db->quote($value);
-
+				if (preg_match('/^[a-zA-Z_]*\(.*\)$/', $value)) {
+					
+					$f[] = '"'.$field.'" = '.$value;
+					
+				} else {
+					
+					$f[] = '"'.$field.'" = '.$this->db->quote($value);
+					
+				}
+				
 			}
 
 		}
@@ -591,6 +610,12 @@ class bhg_core_base {
 
 		} else {
 
+			/* Why only update the local version?
+
+				 We know the table and the reference number so just force loadObject
+				 to reload the object from the database, this will get us instant 
+				 object changes to any related object we modify
+				 
 			// If the record we've just updated is the one represented by this
 			// object update its local storage of values.
 			if (	 $this->table == $table
@@ -611,7 +636,9 @@ class bhg_core_base {
 
 				}
 
-			}
+			}*/
+
+			$o = bhg::loadObject('bhg_'.$table, $iref);
 
 			return true;
 
