@@ -34,6 +34,7 @@ ALTER TABLE roster_division_categories RENAME roster_division_category;
 ALTER TABLE roster_division_category ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE roster_division_category ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE roster_division_category ADD COLUMN datedeleted DATETIME;
+ALTER TABLE roster_division_category CHANGE haskabals kabals INT(1);
 UPDATE roster_division_category SET datecreated = NOW(), dateupdated = NOW();
 
 -- Roster Divisions
@@ -46,15 +47,15 @@ UPDATE roster_division SET datedeleted = NOW() WHERE deleted = 1;
 ALTER TABLE roster_division CHANGE home_page_url homepageurl VARCHAR(200);
 
 -- Roster History
-ALTER TABLE roster_history RENAME roster_history_event;
-ALTER TABLE roster_history_event ADD COLUMN datecreated DATETIME NOT NULL;
-UPDATE roster_history_event SET datecreated = FROM_UNIXTIME(`date`);
-ALTER TABLE roster_history_event DROP COLUMN `date`;
+ALTER TABLE history RENAME roster_history_event;
+ALTER TABLE history_event ADD COLUMN datecreated DATETIME NOT NULL;
+UPDATE history_event SET datecreated = FROM_UNIXTIME(`date`);
+ALTER TABLE history_event DROP COLUMN `date`;
 
 -- Roster New Member
-ALTER TABLE roster_new_members RENAME roster_new_member;
-ALTER TABLE roster_new_member ADD COLUMN datecreated DATETIME NOT NULL;
-UPDATE roster_new_member SET datecreated = NOW();
+ALTER TABLE roster_new_members RENAME roster_new_person;
+ALTER TABLE roster_new_person ADD COLUMN datecreated DATETIME NOT NULL;
+UPDATE roster_new_person SET datecreated = NOW();
 
 -- Roster Position
 ALTER TABLE roster_position ADD COLUMN datecreated DATETIME NOT NULL;
@@ -90,3 +91,26 @@ ALTER TABLE roster_person CHANGE previous_division previousdivision INT(4);
 ALTER TABLE roster_person CHANGE completed_ntc_exam completedcoreexam INT(1) NOT NULL;
 ALTER TABLE roster_person CHANGE redo_ranks redoranks INT(1) NOT NULL;
 ALTER TABLE roster_person CHANGE hasship ship INT(1) NOT NULL;
+
+
+-- MedalBoard Awarded Medals
+ALTER TABLE mb_awarded_medals RENAME medalboard_award;
+ALTER TABLE medalboard_award CHANGE recipientid recipient INT(11) NOT NULL;
+ALTER TABLE medalboard_award CHANGE awarderid awarder INT(11) NOT NULL;
+
+-- MedalBoard Medal Categories
+ALTER TABLE mb_medal_categories RENAME medalboard_category;
+ALTER TABLE medalboard_category CHANGE `order` weight INT(4) NOT NULL;
+
+-- MedalBoard Medal Groups
+ALTER TABLE mb_medal_groups RENAME medalboard_group;
+ALTER TABLE medalboard_group CHANGE `order` weight INT(4) NOT NULL;
+ALTER TABLE medalboard_group ADD COLUMN html LONGTEXT;
+UPDATE medalboard_group,mb_medal_descriptions SET medalboard_group.html = mb_medal_description.html WHERE medalboard_group.id = mb_medal_descriptions.group;
+DROP TABLE mb_medal_descriptions;
+
+-- MedalBoard Medal Names
+ALTER TABLE mb_medal_names RENAME medalboard_medal;
+ALTER TABLE medalboard_medal CHANGE `order` weight INT(4) NOT NULL;
+
+-- Meda

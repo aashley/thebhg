@@ -19,11 +19,65 @@
  */
 class bhg_roster extends bhg_entry {
 
+	// {{{ getCadre()
+
+	static public function getCadre($id) {
+
+		return bhg::loadObject('bhg_roster_cadre', $id);
+
+	}
+
+	// }}}
+	// {{{ getDivision()
+
+	static public function getDivision($id) {
+
+		return bhg::loadObject('bhg_roster_division', $id);
+
+	}
+	
+	// }}}
+	// {{{ getDivisionCategory()
+
+	static public function getDivisionCategory($id) {
+
+		return bhg::loadObject('bhg_roster_division_category', $id);
+
+	}
+
+	// }}}
+	// {{{ getNewPerson()
+
+	static public function getNewPersion($id) {
+
+		return bhg::loadObject('bhg_roster_new_person', $id);
+
+	}
+
+	// }}}
 	// {{{ getPerson()
 
-	public function getPerson($id) {
+	static public function getPerson($id) {
 
-		return $GLOBALS['bhg']->loadObject('bhg_roster_person', $id);
+		return bhg::loadObject('bhg_roster_person', $id);
+
+	}
+
+	// }}}
+	// {{{ getPosition()
+
+	static public function getPosition($id) {
+
+		return bhg::loadObject('bhg_roster_position', $id);
+
+	}
+
+	// }}}
+	// {{{ getRank()
+
+	static public function getRank($id) {
+
+		return bhg::loadObject('bhg_roster_rank', $id);
 
 	}
 
