@@ -25,7 +25,6 @@ function output() {
       case 'chapter_up':
         $chapter->MoveUp();
         break;
-        
 
       case 'chapter_down':
         $chapter->MoveDown();
