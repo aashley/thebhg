@@ -155,7 +155,7 @@ ALTER TABLE library_section ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE library_section ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE library_section ADD COLUMN datedeleted DATETIME;
 ALTER TABLE library_section CHANGE sort_order sortorder INT(11) NOT NULL;
-ALTER TABLE library_section CHANGE useHTML usehtml INT(1) NOT NULL;
+ALTER TABLE library_section CHANGE useHTML html INT(1) NOT NULL;
 
 -- Library Shelves
 ALTER TABLE library_shelves RENAME library_shelf;
@@ -220,6 +220,7 @@ ALTER TABLE college_submission CHANGE has_passed passed INT(1) NOT NULL;
 ALTER TABLE ntc_exam_answers RENAME college_submission_answer;
 ALTER TABLE college_submission_answer ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE college_submission_answer ADD COLUMN dateupdated DATETIME NOT NULL;
+ALTER TABLE college_submission_answer CHANGE result submission INT(11) NOT NULL;
 
 -- Start Chart System
 CREATE TABLE `starchart_system` (

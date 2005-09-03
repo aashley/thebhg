@@ -1,0 +1,76 @@
+Jan 01 22:09:54 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 01 22:09:54 bhg [debug] Returning object
+Jan 01 22:09:54 bhg [debug] Creating instance of bhg_roster_rank with #16
+Jan 01 22:09:54 bhg [debug] Returning object
+Jan 01 22:09:54 bhg [debug] Creating instance of bhg_roster_division with #10
+Jan 01 22:09:54 bhg [debug] Returning object
+Jan 01 22:10:37 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 01 22:10:37 bhg [debug] Returning object
+Jan 01 22:10:37 bhg [debug] Creating instance of bhg_roster_rank with #16
+Jan 01 22:10:37 bhg [debug] Returning object
+Jan 01 22:10:37 bhg [debug] Creating instance of bhg_roster_division with #10
+Jan 01 22:10:37 bhg [debug] Returning object
+Jan 01 22:12:28 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 01 22:12:28 bhg [debug] Returning object
+Jan 01 22:12:28 bhg [debug] Return failure - could not find class
+Jan 01 22:12:28 bhg [debug] Creating instance of bhg_roster_rank with #16
+Jan 01 22:12:28 bhg [debug] Returning object
+Jan 01 22:12:28 bhg [debug] Creating instance of bhg_roster_division with #10
+Jan 01 22:12:28 bhg [debug] Returning object
+Jan 01 22:12:28 bhg [debug] Return failure - could not find class
+Jan 01 22:13:02 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 01 22:13:02 bhg [debug] Returning object
+Jan 01 22:13:02 bhg [debug] Return failure - could not find class
+Jan 01 22:13:02 bhg [debug] Creating instance of bhg_roster_rank with #16
+Jan 01 22:13:02 bhg [debug] Returning object
+Jan 01 22:13:02 bhg [debug] Creating instance of bhg_roster_division with #10
+Jan 01 22:13:02 bhg [debug] Returning object
+Jan 01 22:13:02 bhg [debug] Return failure - could not find class
+Jan 01 22:14:14 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 01 22:14:14 bhg [debug] Returning object
+Jan 01 22:14:14 bhg [debug] Creating instance of bhg_roster_position with #2
+Jan 01 22:14:14 bhg [debug] Returning object
+Jan 01 22:14:14 bhg [debug] Creating instance of bhg_roster_rank with #16
+Jan 01 22:14:14 bhg [debug] Returning object
+Jan 01 22:14:14 bhg [debug] Creating instance of bhg_roster_division with #10
+Jan 01 22:14:14 bhg [debug] Returning object
+Jan 01 22:14:14 bhg [debug] Returning object
+Jan 01 22:14:27 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 01 22:14:27 bhg [debug] Returning object
+Jan 01 22:14:27 bhg [debug] Creating instance of bhg_roster_rank with #16
+Jan 01 22:14:27 bhg [debug] Returning object
+Jan 01 22:14:27 bhg [debug] Creating instance of bhg_roster_division with #10
+Jan 01 22:14:27 bhg [debug] Returning object
+Jan 01 22:14:27 bhg [debug] Creating instance of bhg_roster_position with #2
+Jan 01 22:14:27 bhg [debug] Returning object
+Jan 10 02:54:23 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 10 02:54:23 bhg [debug] Returning object
+Jan 10 02:55:46 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 10 02:55:46 bhg [debug] Returning object
+Jan 10 02:55:57 bhg [debug] Creating instance of bhg_roster_person with #94
+Jan 10 02:55:57 bhg [debug] Returning object
+Jan 10 02:55:57 bhg [debug] Creating instance of bhg_roster_rank with #16
+Jan 10 02:55:57 bhg [debug] Returning object
+Jan 10 02:55:57 bhg [debug] Creating instance of bhg_roster_division with #10
+Jan 10 02:55:57 bhg [debug] Returning object
+Jan 10 02:55:57 bhg [debug] Creating instance of bhg_roster_position with #2
+Jan 10 02:55:57 bhg [debug] Returning object
+Jan 10 02:55:57 bhg [debug] Returning object
+Feb 19 20:19:52 bhg [debug] Creating instance of bhg_roster_person with #94
+Feb 19 20:19:53 bhg [debug] Returning object
+Feb 19 20:19:53 bhg [debug] Creating instance of bhg_roster_rank with #16
+Feb 19 20:19:53 bhg [debug] Returning object
+Feb 19 20:19:53 bhg [debug] Creating instance of bhg_roster_division with #10
+Feb 19 20:19:53 bhg [debug] Returning object
+Feb 19 20:19:53 bhg [debug] Creating instance of bhg_roster_position with #2
+Feb 19 20:19:53 bhg [debug] Returning object
+Feb 19 20:19:53 bhg [debug] Returning object
+Feb 19 20:21:12 bhg [debug] Creating instance of bhg_roster_person with #94
+Feb 19 20:21:12 bhg [debug] Returning object
+Feb 19 20:21:12 bhg [debug] Creating instance of bhg_roster_rank with #16
+Feb 19 20:21:12 bhg [debug] Returning object
+Feb 19 20:21:12 bhg [debug] Creating instance of bhg_roster_division with #10
+Feb 19 20:21:12 bhg [debug] Returning object
+Feb 19 20:21:12 bhg [debug] Creating instance of bhg_roster_position with #2
+Feb 19 20:21:12 bhg [debug] Returning object
+Feb 19 20:21:12 bhg [debug] Returning object

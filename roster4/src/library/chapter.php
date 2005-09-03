@@ -1,13 +1,13 @@
 <?php
 
-class bhg_history_item extends bhg_core_base {
+class bhg_library_chapter extends bhg_core_base {
 
 	// {{{ __construct()
 
 	public function __construct($id) {
-		parent::__construct('roster_item', $id);
+		parent::__construct('bhg_library_chapter', $id);
 		$this->__addFieldMap(array(
-					'person' => 'bhg_roster_person'
+					'book' => 'bhg_library_book',
 					));
 		$this->__addDefaultCodePermissions('set', 'god');
 	}
