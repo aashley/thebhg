@@ -7,7 +7,7 @@ class bhg_roster_person extends bhg_core_base {
 	public function __construct($id) {
 		parent::__construct('roster_person', $id);
 		$this->__blackListVar('get', array('md5password', 'passwd', 'redoranks'));
-		$this->__blackListVar('set', array('md5password', 'passwd', 'redoranks'));
+		$this->__blackListVar('set', array('md5password', 'passwd', 'redoranks', 'rankcredits', 'accountbalance'));
 		$this->__addBooleanFields(array('ship', 'completedcoreexam'));
 		$this->__addFieldMap(array(
 					'rank' => 'bhg_roster_rank',
@@ -21,6 +21,31 @@ class bhg_roster_person extends bhg_core_base {
 
 	// }}}
 
+	// {{{ checkPassword()
+
+	/**
+	 * Does the supplied password match this user
+	 *
+	 * @param string Password to check
+	 * @return boolean
+	 */
+	public function checkPassword($password) {
+
+		if (is_null($this->data['md5Password'])) {
+
+			$hash = $this->db->getOne('SELECT PASSWORD(?)', array($password));
+
+			return (strtolower($hash) == strtolower($this->data['passwd']));
+
+		} else {
+
+			return (strtolower(md5($password)) == strtolower($this->data['md5Password']));
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getIDLine()
 
 	/**
@@ -39,6 +64,89 @@ class bhg_roster_person extends bhg_core_base {
 			.$this->getPosition()->getAbbrev();
 
 		return $idline;
+
+	}
+
+	// }}}
+	// {{{ getMedals()
+
+	/**
+	 * Retrieve All Medals awarded to this person
+	 *
+	 * @return bhg_core_list
+	 */
+	public function getMedals() {
+
+		return $GLOBALS['bhg']->medalboard->getMedals(
+				array(
+					'recipient' => $this,
+					));
+
+	}
+
+	// }}}
+
+	// {{{ awardCredits()
+
+	/**
+	 * Add credits to this person's rank account
+	 *
+	 * @param integer Credits to award
+	 * @return boolean
+	 */
+	public function awardCredits($credits) {
+
+		return $this->__saveValue(array(
+					'rankcredits' => array("(rankcredits + $credits)", true),
+					'accountbalance' => array("(accountbalance + $credits)", true),
+					));
+
+	}
+
+	// }}}
+	// {{{ removeCredits()
+
+	/**
+	 * Remove credits from this person's rank account
+	 *
+	 * @param integer Credits to remove
+	 * @return boolean
+	 */
+	public function removeCredits($credits) {
+
+		return $this->awardCredits(-$credits);
+
+	}
+
+	// }}}
+	// {{{ withdrawAccount()
+
+	/**
+	 * Withdraw credits from account balance
+	 *
+	 * @param integer Cost of purchase
+	 * @return boolean
+	 */
+	public function withdrawAccount($credits) {
+
+		return $this->__saveValue(array(
+					'accountbalance' => array("(accountbalance - $credits)", true),
+					));
+
+	}
+
+	// }}}
+	// {{{ depositAccount()
+
+	/**
+	 * Make a deposit into the account
+	 *
+	 * @param integer amount of deposit
+	 * @return boolean
+	 */
+	public function depositAccount($credits) {
+
+		return $this->withdrawAccount(-$credits);
 
 	}
 

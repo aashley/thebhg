@@ -446,14 +446,14 @@ class bhg_core_base {
 			throw new bhg_fatal_exception('No fields specified.  Will not delete entire table.');
 
 		$sql = 'UPDATE `'.$table.'` '
-					.'SET date_deleted = NOW() '
-					.'WHERE date_deleted IS NULL ';
+					.'SET `date_deleted` = NOW() '
+					.'WHERE `date_deleted` IS NULL ';
 
 		foreach ($fields as $field => $value) {
 
 			if (preg_match('/^[a-zA-Z_]*\(.*\)$/', $value)) {
 
-				$sql .= 'AND '.$field.' = '.$value.' ';
+				$sql .= 'AND `'.$field.'` = '.$value.' ';
 
 			} else {
 
@@ -461,13 +461,13 @@ class bhg_core_base {
 
 					if (sizeof($value) > 0) {
 
-						$sql .= 'AND '.$field." IN (".implode(',', $value).') ';
+						$sql .= 'AND `'.$field."` IN (".implode(',', $value).') ';
 
 					}
 
 				} else {
 
-					$sql .= 'AND '.$field.' = '.$this->db->quote($value).' ';
+					$sql .= 'AND `'.$field.'` = '.$this->db->quote($value).' ';
 
 				}
 
@@ -572,17 +572,17 @@ class bhg_core_base {
 
 			if (is_array($value) && isset($value[1]) && $value[1] == true) {
 				
-				$f[] = '"'.$field.'" = '.$value[0];
+				$f[] = '`'.$field.'` = '.$value[0];
 				
 			} else {
 				
 				if (preg_match('/^[a-zA-Z_]*\(.*\)$/', $value)) {
 					
-					$f[] = '"'.$field.'" = '.$value;
+					$f[] = '`'.$field.'` = '.$value;
 					
 				} else {
 					
-					$f[] = '"'.$field.'" = '.$this->db->quote($value);
+					$f[] = '`'.$field.'` = '.$this->db->quote($value);
 					
 				}
 				
@@ -593,14 +593,14 @@ class bhg_core_base {
 
 		if (!in_array($table, $GLOBALS['bhg']->database['no_updated'])) {
 
-			$f[] = 'date_updated = NOW()';
+			$f[] = '`date_updated` = NOW()';
 
 		}
 
-		$sql = 'UPDATE "'.$table.'" '
+		$sql = 'UPDATE `'.$table.'` '
 					.'SET '
 					.implode(', ', $f).' '
-					.'WHERE "'.$iref_field.'" = '.$id;
+					.'WHERE `'.$iref_field.'` = '.$id;
 
 		$result = $this->db->query($sql);
 

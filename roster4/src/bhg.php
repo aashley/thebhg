@@ -305,6 +305,14 @@ class bhg_db_exception extends bhg_fatal_exception {
 
 }
 
+class bhg_list_exception extends bhg_fatal_exception {}
+
+class bhg_list_exception_badobject extends bhg_fatal_exception {}
+
+class bhg_list_exception_badparameter extends bhg_fatal_exception {}
+
+class bhg_list_exception_notfound extends bhg_fatal_exception {}
+
 // {{{ __autoload()
 
 /**
