@@ -28,6 +28,42 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getCadres()
+
+	/**
+	 * Get all cadres in the system
+	 *
+	 * @param array Filters to select which cadres to load
+	 * @return bhg_core_list
+	 */
+	public function getCadres($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM bhg_roster_cadre ';
+
+		$sqlfilters = array();
+
+		if (isset($filter['deleted']) && $filter['deleted'] == true)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of cadres.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_cadre', $results);
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getDivision()
 
 	static public function getDivision($id) {
@@ -36,6 +72,78 @@ class bhg_roster extends bhg_entry {
 
 	}
 	
+	// }}}
+	// {{{ getDivisions()
+
+	/**
+	 * Get all divisions in the system
+	 *
+	 * @param array Filters to select which divisions to load
+	 * @return bhg_core_list
+	 */
+	public function getDivisions($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM bhg_roster_division ';
+
+		$sqlfilters = array();
+
+		if (isset($filter['deleted']) && $filter['deleted'] == true)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of divisions.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_division', $results);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ getDivisionCategories()
+
+	/**
+	 * Get all division categories in the system
+	 *
+	 * @param array Filters to select which division categories to load
+	 * @return bhg_core_list
+	 */
+	public function getDivisionCategories($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM bhg_roster_division_category ';
+
+		$sqlfilters = array();
+
+		if (isset($filter['deleted']) && $filter['deleted'] == true)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of division categories.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_division_category', $results);
+
+		}
+
+	}
+
 	// }}}
 	// {{{ getDivisionCategory()
 
@@ -73,11 +181,83 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getPositions()
+
+	/**
+	 * Get all positions in the system
+	 *
+	 * @param array Filters to select which positions to load
+	 * @return bhg_core_list
+	 */
+	public function getPositions($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM bhg_roster_position ';
+
+		$sqlfilters = array();
+
+		if (isset($filter['deleted']) && $filter['deleted'] == true)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of positions.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_position', $results);
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getRank()
 
 	static public function getRank($id) {
 
 		return bhg::loadObject('bhg_roster_rank', $id);
+
+	}
+
+	// }}}
+	// {{{ getRanks()
+
+	/**
+	 * Get all ranks in the system
+	 *
+	 * @param array Filters to select which ranks to load
+	 * @return bhg_core_list
+	 */
+	public function getRanks($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM bhg_roster_rank ';
+
+		$sqlfilters = array();
+
+		if (isset($filter['deleted']) && $filter['deleted'] == true)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of ranks.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_rank', $results);
+
+		}
 
 	}
 

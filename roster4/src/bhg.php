@@ -275,7 +275,7 @@ class bhg {
  * @subpackage Core
  * @version $Rev:$ $Date:$
  */
-class bhg_entry {}
+class bhg_entry {} extends bhg_core_base {}
 
 class bhg_fatal_exception extends Exception {}
 
@@ -283,20 +283,16 @@ class bhg_db_exception extends bhg_fatal_exception {
 
 	// {{{ __construct()
 
-	public function __construct($msg = null, $dberror = null, $sql = null) {
+	public function __construct($msg = null, $dberror = null) {
 
 		if (!is_null($dberror)) {
 
 			$msg .= "\n Database Error: ".$dberror->getMessage();
 
-		}
-
-		if (!is_null($sql)) {
-
-			$msg .= "\n SQL: ".$sql;
-
-		}
+			$msg .= "\n SQL: ".$dberror->getUserInfo();
 		
+		}
+
 		parent::__construct($msg);
 
 	}
