@@ -111,7 +111,7 @@ if (PHP5) {
 	<div id="pagefooter">
 <?php
 $jer = $roster->GetPerson(666);
-echo '<p>Site code &copy; 2001-05 <a href="mailto:' . $jer->GetEmail() . '">' . 'Adam Harvey</a>, and licensed for use by the Emperor\'s Hammer.<br>Page coded by ';
+echo '<p>Site code &copy; 2001-05 <a href="mailto:' . $jer->GetEmail() . '">' . 'Adam Harvey</a>, and licensed for use by the Bounty Hunters Guild.<br>Page coded by ';
 if (function_exists('coders')) {
 	$coders = coders();
 }
