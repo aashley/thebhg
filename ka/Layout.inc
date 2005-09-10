@@ -139,8 +139,8 @@
 			</li>
 			<li>Legal
 				<ol>
-					<li class="first"><a href="http://www.emperorshammer.org/disclaim.htm" title="Copyright &amp; Disclaimers">Copyright &amp; Disclaimers</a></li>
-					<li class="last"><a href="http://www.emperorshammer.org/privacy.htm" title="Privacy Policy">Privacy Policy</a></li>
+					<li class="first"><a href="http://www.thebhg.org/disclaimer" title="Copyright &amp; Disclaimers">Copyright &amp; Disclaimers</a></li>
+					<li class="last"><a href="http://www.thebhg.org/privacy" title="Privacy Policy">Privacy Policy</a></li>
 				</ol>
 			</li>
 		</ol>
