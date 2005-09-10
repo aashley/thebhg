@@ -1,3 +1,6 @@
+-- version 1.1.4.2 (10/9/2005) --
+1. Un-EHified MyBHG.
+
 -- version 1.1.4.1 (20/5/2005) --
 1. Fixed up incorrect News link.
 
