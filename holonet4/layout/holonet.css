@@ -4,8 +4,8 @@ html, body {
 }
 
 body {
-	font-size: 75%;
-	background-image: url(holonet-4-bg-1.jpeg);
+	font-size: 10pt;
+	background-image: url(holonet-4-bg-2.jpeg);
 	background-position: top right;
 	background-repeat: no-repeat;
 }
@@ -42,23 +42,16 @@ margin: 0;
 padding: 0;
 	float: right;
 	clear: right;
-	height: 10px;
+	height: 20px;
 }
 
-#logo01 { width: 110px; }
-#logo02 { width: 110px; }
-#logo03 { width: 105px; }
-#logo04 { width: 105px; }
-#logo05 { width: 102px; }
-#logo06 { width: 102px; }
-#logo07 { width:  95px; }
-#logo08 { width:  95px; }
-#logo09 { width:  90px; }
-#logo10 { width:  90px; }
-#logo11 { width:  80px; }
-#logo12 { width:  80px; }
-#logo13 { width:  70px; }
-#logo14 { width:  70px; }
+#logo01 { width: 112px; }
+#logo03 { width: 130px; }
+#logo05 { width: 135px; }
+#logo07 { width: 136px; }
+#logo09 { width: 132px; }
+#logo11 { width: 120px; }
+#logo13 { width: 100px; }
 
 #sidemenu {
 	float: right;
