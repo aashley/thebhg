@@ -1,0 +1,106 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 75%;
+	background-image: url(holonet-4-bg-1.jpeg);
+	background-position: top right;
+	background-repeat: no-repeat;
+}
+
+#mainmenu {
+	margin: 0;
+	padding: 0;
+	text-align: right;
+	list-style: none;
+}
+
+#mainmenu li {
+margin-top: 0.25em;
+margin-bottom: 0.25em;
+}
+
+#modulemenu {
+	position: absolute;
+	top: 0.5em;
+	right: 17em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #dddddd;
+}
+
+#modulemenu li {
+float: left;
+margin: 0.5em 1em;
+}
+
+#logo div {
+margin: 0;
+padding: 0;
+	float: right;
+	clear: right;
+	height: 10px;
+}
+
+#logo01 { width: 110px; }
+#logo02 { width: 110px; }
+#logo03 { width: 105px; }
+#logo04 { width: 105px; }
+#logo05 { width: 102px; }
+#logo06 { width: 102px; }
+#logo07 { width:  95px; }
+#logo08 { width:  95px; }
+#logo09 { width:  90px; }
+#logo10 { width:  90px; }
+#logo11 { width:  80px; }
+#logo12 { width:  80px; }
+#logo13 { width:  70px; }
+#logo14 { width:  70px; }
+
+#sidemenu {
+	float: right;
+	clear: right;
+	width: 10em;
+	padding: 1em;
+	border-left: 1px solid #dddddd;
+}
+
+#sidemenu h3 {
+	font-size: 100%;
+	margin-bottom: 0;
+	margin-left: 0.5em;
+}
+
+#sidemenu ul {
+margin: 0 0 0 1em; /*1.5em;*/
+padding: 0;
+list-style: circle;
+color: #cccccc;
+}
+
+#sidemenu li {
+padding: 0.1em;
+}
+
+#content {
+	margin: -3em 13em 1em 1em;
+}
+
+#content h1 {
+	padding-left: 1em;
+	font-size: 170%;
+	border-bottom: 1px solid #dddddd;
+}
+
+#footer {
+color: #cccccc;
+text-align: center;
+padding: 1em;
+clear: both;
+margin: 2em 1em 1em 1em;
+border-top: 1px solid #dddddd;
+font-size: 85%;
+}
