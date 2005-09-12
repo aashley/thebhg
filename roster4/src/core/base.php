@@ -80,6 +80,16 @@ class bhg_core_base {
 	 */
 	private $codeMap = array();
 
+
+	/**
+	 * History Map
+	 *
+	 * Map specific fields that when changes should create a history event
+	 *
+	 * @var array
+	 */
+	private $historyMap = array();
+
 	/**
 	 * Boolean Fields
 	 *
@@ -231,6 +241,8 @@ class bhg_core_base {
 
 		} elseif (substr($lfunc, 0, 3) == 'set') {
 
+			$doHistory = (sizeof($this->historyMap) > 0);
+
 			$varname = substr($lfunc, 3);
 
 			if (	 !in_array($varname, $this->blacklist['set'])
@@ -250,7 +262,11 @@ class bhg_core_base {
 
 					if ($params[0] instanceof $this->fieldmap[$varname]) {
 
-						return $this->__saveValue($table, array($varname => $params[0]->getID()));
+						$oldvalue = $this->data[$varname];
+						$result = $this->__saveValue($table, array($varname => $params[0]->getID()));
+						if ($doHistory)
+							$this->__call_history($varname, $oldvalue);
+						return $result;
 
 					} else {
 
@@ -274,7 +290,11 @@ class bhg_core_base {
 
 					} else {
 						
-						return $this->__saveValue($table, array($varname => $params[0]));
+						$oldvalue = $this->data[$varname];
+						$result = $this->__saveValue($table, array($varname => $params[0]));
+						if ($doHistory)
+							$this->__call_history($varname, $oldvalue);
+						return $result;
 
 					}
 
@@ -610,12 +630,6 @@ class bhg_core_base {
 
 		} else {
 
-			/* Why only update the local version?
-
-				 We know the table and the reference number so just force loadObject
-				 to reload the object from the database, this will get us instant 
-				 object changes to any related object we modify
-				 
 			// If the record we've just updated is the one represented by this
 			// object update its local storage of values.
 			if (	 $this->table == $table
@@ -636,9 +650,7 @@ class bhg_core_base {
 
 				}
 
-			}*/
-
-			$o = bhg::loadObject('bhg_'.$table, $iref);
+			}
 
 			return true;
 
@@ -745,10 +757,9 @@ class bhg_core_base {
 	}
 
 	// }}}
+	// {{{ __recordHistoryEvent() [protected]
 
-	// {{{ __recordHistoryEvent()
-
-	protected function __recordHistoryEvent($type, $object, $item1 = null, $item2 = null, $item3 = null) {
+	protected function __recordHistoryEvent($type, $object, $item1 = null, $item2 = null, $item3 = null, $item4 = null) {
 
 		if (!$object instanceof bhg_core_base)
 			throw new bhg_validation_exception();
@@ -759,7 +770,60 @@ class bhg_core_base {
 							'type' => $type,
 							'item1' => $item1,
 							'item2' => $item2,
-							'item3' => $item3));
+							'item3' => $item3,
+							'item4' => $item4));
+
+	}
+
+	// }}}
+	// {{{ __addHistoryMap() [protected]
+
+	/**
+	 * Add mappings for fields that should create history events thru __call
+	 *
+	 * @param array
+	 * @return boolean
+	 */
+	protected function __addHistoryMap($newmaps) {
+
+		$this->historyMap = array_merge($this->historyMap, $newmaps);
+
+		return true;
+
+	}
+
+	// }}}
+
+	// {{{ __call_history() [private]
+
+	/**
+	 * Handle the creation of history events related to __call()
+	 *
+	 * @return boolean
+	 */
+	private function __call_history($field, $oldvalue) {
+
+		if (isset($this->historyMap[$field])) {
+
+			switch ($this->historyMap[$field]) {
+
+				case BHG_HISTORY_RANK:
+				case BHG_HISTORY_POSITION:
+				case BHG_HISTORY_DIVISION:
+				case BHG_HISTORY_NAME:
+				case BHG_HISTORY_EMAIL:
+					return $this->__recordHistoryEvent($this->historyMap[$field], $this, $oldvalue, $this->data[$field]);
+
+				default:
+					return true;
+
+			}
+
+		} else {
+
+			return true;
+
+		}
 
 	}
 

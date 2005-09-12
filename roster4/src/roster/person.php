@@ -17,6 +17,13 @@ class bhg_roster_person extends bhg_core_base {
 					'previousdivision' => 'bhg_roster_division',
 					));
 		$this->__addDefaultCodePermissions('set', 'god');
+		$this->__addHistoryMap(array(
+					'rank' => BHG_HISTORY_RANK,
+					'position' => BHG_HISTORY_POSITION,
+					'division' => BHG_HISTORY_DIVISION,
+					'name' => BHG_HISTORY_NAME,
+					'email' => BHG_HISTORY_EMAIL,
+					));
 	}
 
 	// }}}
