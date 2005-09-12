@@ -746,6 +746,50 @@ class bhg_core_base {
 
 	// }}}
 
+	// {{{ __recordHistoryEvent()
+
+	protected function __recordHistoryEvent($type, $object, $item1 = null, $item2 = null, $item3 = null) {
+
+		if (!$object instanceof bhg_core_base)
+			throw new bhg_validation_exception();
+
+		return $this->__createRecord('history_event',
+				null,
+				array('person' => $object->getID(),
+							'type' => $type,
+							'item1' => $item1,
+							'item2' => $item2,
+							'item3' => $item3));
+
+	}
+
+	// }}}
+
 }
+
+/** History Event Type: Rank Change */
+define('BHG_HISTORY_RANK', 1);
+/** History Event Type: Position Change */
+define('BHG_HISTORY_POSITION', 2);
+/** History Event Type: Division Change */
+define('BHG_HISTORY_DIVISION', 3);
+/** History Event Type: Name Change */
+define('BHG_HISTORY_NAME', 4);
+/** History Event Type: Email Change */
+define('BHG_HISTORY_EMAIL', 5);
+/** History Event Type: Credit Award */
+define('BHG_HISTORY_CREDIT', 6);
+/** History Event Type: Account Transaction */
+define('BHG_HISTORY_ACCOUNT', 7);
+/** History Event Type: Medal Award */
+define('BHG_HISTORY_MEDAL', 8);
+/** History Event Type: Joined The BHG */
+define('BHG_HISTORY_JOIN', 9);
+/** History Event Type: Deleted */
+define('BHG_HISTORY_DELETE', 10);
+/** History Event Type: Joined Cadre */
+define('BHG_HISTORY_JOIN_CADRE', 11);
+/** History Event Type: Left Cadre */
+define('BHG_HISTORY_LEFT_CADRE', 12);
 
 ?>

@@ -279,6 +279,8 @@ class bhg_entry {} extends bhg_core_base {}
 
 class bhg_fatal_exception extends Exception {}
 
+class bhg_validation_exception extends bhg_fatal_exception {}
+
 class bhg_db_exception extends bhg_fatal_exception {
 
 	// {{{ __construct()
