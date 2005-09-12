@@ -101,12 +101,16 @@ class bhg_roster_person extends bhg_core_base {
 	 * @param integer Credits to award
 	 * @return boolean
 	 */
-	public function awardCredits($credits) {
+	public function awardCredits($credits, bhg_roster_person $awarder, $reason = '') {
 
-		return $this->__saveValue(array(
+		$result = $this->__saveValue(array(
 					'rankcredits' => array("(rankcredits + $credits)", true),
 					'accountbalance' => array("(accountbalance + $credits)", true),
 					));
+
+		$this->__recordHistoryEvent(BHG_HISTORY_CREDIT, $this, $awarder->getID(), $credits, $this->getRankCredits(), $reason);
+
+		return $result;
 
 	}
 
@@ -119,9 +123,9 @@ class bhg_roster_person extends bhg_core_base {
 	 * @param integer Credits to remove
 	 * @return boolean
 	 */
-	public function removeCredits($credits) {
+	public function removeCredits($credits, bhg_roster_person $awarder, $reason = '') {
 
-		return $this->awardCredits(-$credits);
+		return $this->awardCredits(-$credits, $awarder, $reason);
 
 	}
 
@@ -134,11 +138,15 @@ class bhg_roster_person extends bhg_core_base {
 	 * @param integer Cost of purchase
 	 * @return boolean
 	 */
-	public function withdrawAccount($credits) {
+	public function withdrawAccount($credits, $from, $for = '') {
 
-		return $this->__saveValue(array(
+		$result = $this->__saveValue(array(
 					'accountbalance' => array("(accountbalance - $credits)", true),
 					));
+
+		$this->__recordHistoryEvent(BHG_HISTORY_ACCOUNT, $this, $from, $for, $credits);
+
+		return $result;
 
 	}
 
@@ -151,9 +159,9 @@ class bhg_roster_person extends bhg_core_base {
 	 * @param integer amount of deposit
 	 * @return boolean
 	 */
-	public function depositAccount($credits) {
+	public function depositAccount($credits, $from, $for = '') {
 
-		return $this->withdrawAccount(-$credits);
+		return $this->withdrawAccount(-$credits, $from, $for);
 
 	}
 
