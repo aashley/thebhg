@@ -43,11 +43,13 @@ class bhg_roster extends bhg_entry {
 
 		$sqlfilters = array();
 
-		if (isset($filter['deleted']) && $filter['deleted'] == true)
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (sizeof($sqlfilters) > 0)
-			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY name ASC';
 
 		$results = $this->db->getCol($sql);
 
@@ -83,16 +85,21 @@ class bhg_roster extends bhg_entry {
 	 */
 	public function getDivisions($filter = array()) {
 
-		$sql = 'SELECT id '
-					.'FROM bhg_roster_division ';
+		$sql = 'SELECT bhg_roster_division.id '
+					.'FROM bhg_roster_division, '
+							 .'bhg_roster_division_category '
+					.'WHERE bhg_roster_division.category = bhg_roster_division_category.id ';
 
 		$sqlfilters = array();
 
-		if (isset($filter['deleted']) && $filter['deleted'] == true)
-			$sqlfilters[] = 'datedeleted IS NULL ';
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'bhg_roster_division.datedeleted IS NULL ';
 
 		if (sizeof($sqlfilters) > 0)
-			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+			$sql .= 'AND '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY bhg_roster_division_category.sortorder ASC, '
+										.'bhg_roster_division.name ASC ';
 
 		$results = $this->db->getCol($sql);
 
@@ -124,11 +131,13 @@ class bhg_roster extends bhg_entry {
 
 		$sqlfilters = array();
 
-		if (isset($filter['deleted']) && $filter['deleted'] == true)
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (sizeof($sqlfilters) > 0)
-			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY sortorder ASC ';
 
 		$results = $this->db->getCol($sql);
 
@@ -196,11 +205,13 @@ class bhg_roster extends bhg_entry {
 
 		$sqlfilters = array();
 
-		if (isset($filter['deleted']) && $filter['deleted'] == true)
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (sizeof($sqlfilters) > 0)
-			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY sortorder ASC';
 
 		$results = $this->db->getCol($sql);
 
@@ -241,11 +252,22 @@ class bhg_roster extends bhg_entry {
 
 		$sqlfilters = array();
 
-		if (isset($filter['deleted']) && $filter['deleted'] == true)
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
+		if (isset($filter['alwaysavailable']))
+			$sqlfilters[] = 'alwaysavailable = '.($filter['alwaysavailable'] ? '1' : '0');
+
+		if (isset($filter['unlimitedcredits']))
+			$sqlfilters[] = 'unlimitedcredits = '.($filter['unlimitedcredits'] ? '1' : '0');
+
+		if (isset($filter['manuallyset']))
+			$sqlfilters[] = 'manuallyset = '.($filter['manuallyset'] ? '1' : '0');
+
 		if (sizeof($sqlfilters) > 0)
-			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY sortorder ASC';
 
 		$results = $this->db->getCol($sql);
 

@@ -41,6 +41,7 @@ ALTER TABLE roster_division_category ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE roster_division_category ADD COLUMN datedeleted DATETIME;
 ALTER TABLE roster_division_category CHANGE haskabals kabals INT(1);
 UPDATE roster_division_category SET datecreated = NOW(), dateupdated = NOW();
+ALTER TABLE roster_division_category CHANGE `order` sortorder INT(4) NOT NULL;
 
 -- Roster Divisions
 ALTER TABLE roster_divisions RENAME roster_division;
@@ -71,6 +72,7 @@ UPDATE roster_position SET datecreated = NOW(), dateupdated = NOW();
 ALTER TABLE roster_position CHANGE special_division specialdivision TEXT NOT NULL;
 ALTER TABLE roster_position CHANGE is_email_alias emailalias INT(1) NOT NULL;
 ALTER TABLE roster_position CHANGE istrainee trainee INT(1) NOT NULL;
+ALTER TABLE roster_position CHANGE `order` sortorder INT(4) NOT NULL;
 
 -- Roster Rank
 ALTER TABLE roster_rank ADD COLUMN datecreated DATETIME NOT NULL;
@@ -81,6 +83,7 @@ ALTER TABLE roster_rank CHANGE credits_needed requiredcredits INT(11) NOT NULL;
 ALTER TABLE roster_rank CHANGE always_available alwaysavailable INT(1) NOT NULL;
 ALTER TABLE roster_rank CHANGE unlimited_credits unlimitedcredits INT(1) NOT NULL;
 ALTER TABLE roster_rank CHANGE manual_set manuallyset INT(1) NOT NULL;
+ALTER TABLE roster_rank CHANGE `order` sortorder INT(4) NOT NULL;
 
 -- Roster Person
 ALTER TABLE roster_roster RENAME roster_person;
@@ -128,7 +131,7 @@ ALTER TABLE mb_medal_names RENAME medalboard_medal;
 ALTER TABLE medalboard_medal ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE medalboard_medal ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE medalboard_medal ADD COLUMN datedeleted DATETIME;
-ALTER TABLE medalboard_medal CHANGE `order` weight INT(4) NOT NULL;
+ALTER TABLE medalboard_medal CHANGE `order` sortorder INT(4) NOT NULL;
 
 -- Library Books
 ALTER TABLE library_books RENAME library_book;

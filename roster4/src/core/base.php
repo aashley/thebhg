@@ -140,6 +140,55 @@ class bhg_core_base {
 	}
 
 	// }}}
+
+  // {{{ isDeleted()
+
+  /**
+   * Is this object Deleted?
+   *
+   * @access public
+   * @return boolean
+   */
+  public function isDeleted() {
+
+    return (!is_null($this->data['datedeleted']));
+
+  }
+
+  // }}}
+	// {{{ isEqualTo()
+
+	/**
+	 * Checks if the IREF is equal to the other object.
+	 *
+	 * @param object Gen3_Base
+	 * @return boolean
+	 */
+
+	public function isEqualTo(Gen3_Base $other) {
+
+		return (get_class($this) == get_class($other)
+				 && $other->getID() == $this->getID());
+
+	}
+	
+	// }}}
+	
+	// {{{ delete()
+
+	/**
+	 * Delete whatever this is from the database
+	 *
+	 * @return boolean
+	 */
+	public function delete() {
+
+		return $this->__deleteRecord();
+
+	}
+
+	// }}}
+
 	// {{{ __call()
 
 	public function __call($function, $params) {

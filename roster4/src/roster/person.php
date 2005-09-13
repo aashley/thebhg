@@ -93,6 +93,96 @@ class bhg_roster_person extends bhg_core_base {
 
 	// }}}
 
+	// {{{ isActive()
+
+	/**
+	 * Is this person considered active?
+	 *
+	 * @return boolean
+	 */
+	public function isActive() {
+
+		if ($this->isDeleted())
+			return false;
+
+		return !($this->data['division'] == 11 || $this->data['division'] == 12);
+
+	}
+
+	// }}}
+	// {{{ inCadre()
+
+	/**
+	 * Is this person in a cadre?
+	 *
+	 * @param bhg_roster_cadre
+	 * @return boolean
+	 */
+	public function inCadre($cadre = null) {
+
+		if (is_null($cadre)) {
+
+			return $this->data['cadre'] == 0;
+
+		} else {
+
+			if ($this->data['cadre'] == 0)
+				return false;
+
+			return $cadre->isEqualTo($this->getCadre());
+
+		}
+
+	}
+
+	// }}}
+	// {{{ isCadreLeader()
+
+	/**
+	 * Is this person the Leader of the Cadre they are in?
+	 *
+	 * @return boolean
+	 */
+	public function isCadreLeader() {
+
+		if ($this->data['cadre'] == 0)
+			return false;
+
+		return $this->isEqualTo($this->getCadre()->getLeader());
+
+	}
+
+	// }}}
+	// {{{ isDivision()
+
+	/**
+	 * Is this person in a specific division?
+	 *
+	 * @param bhg_roster_division
+	 * @return boolean
+	 */
+	public function inDivision(bhg_roster_division $division) {
+
+		return $division->isEqualTo($this->getDivision());
+
+	}
+
+	// }}}
+	// {{{ isHunter()
+
+	/**
+	 * Is this person a Hunter?
+	 *
+	 * @return boolean
+	 */
+	public function isHunter() {
+
+		return !$this->getPosition()->IsTrainee();
+
+	}
+
+	// }}}
+
 	// {{{ awardCredits()
 
 	/**
@@ -162,6 +252,123 @@ class bhg_roster_person extends bhg_core_base {
 	public function depositAccount($credits, $from, $for = '') {
 
 		return $this->withdrawAccount(-$credits, $from, $for);
+
+	}
+
+	// }}}
+
+	// {{{ setPassword()
+
+	/**
+	 * Set this users password
+	 *
+	 * @param string New Password
+	 * @return boolean
+	 */
+	public function setPassword($password) {
+
+		if (strlen($password) < 4)
+			throw new bhg_validation_exception('Password to short');
+
+		return $this->__saveValue(array('md5Password' => strtolower(md5($password))));
+
+	}
+
+	// }}}
+
+	// {{{ delete()
+
+	/**
+	 * Delete this person
+	 *
+	 * @return boolean
+	 */
+	public function delete() {
+
+		parent::delete();
+
+		$this->__recordHistoryEvent(BHG_HISTORY_DELETE, $this);
+
+		return true;
+
+	}
+
+	// }}}
+
+	// {{{ handleRank()
+
+	/**
+	 * Utility function to handle Rank/Position changes
+	 *
+	 * @return boolean
+	 */
+	public function handleRank() {
+
+		if ($this->getPosition()->isTrainee()) {
+
+			if ($this->hasShip() && $this->hasCompletedCoreExam()) {
+
+				$this->setPosition(bhg_roster::getPosition(14));
+
+			}
+
+		}
+
+		if ($this->getPosition()->isEqualTo(bhg_roster::getPosition(14))) {
+
+			if ($this->hasMedal(bhg_medalboard::getMedal(68))) {
+
+				$this->setPosition(bhg_roster::getPosition(28));
+
+			} elseif ($this->hasMedal(bhg_medalboard::getMedal(4))) {
+
+				$this->setPosition(bhg_roster::getPosition(13));
+
+			}
+
+		}
+
+		if ($this->getRank()->isManuallySet()) {
+
+			if ($this->getPosition()->isTrainee()) {
+
+				$ranks = $GLOBALS['gen3']->getRanks(array(
+							'alwaysavailable' => true,
+							'manuallyset' => false,
+							));
+
+			} else {
+
+				$ranks = $GLOBALS['gen3']->getRanks(array(
+							'manuallyset' => false,
+							));
+
+			}
+
+			$newrank = null;
+			
+			foreach ($ranks as $rank) {
+
+				if ($rank->getRequiredCredits() <= $this->getRankCredits()) {
+
+					$newrank = $rank;
+
+					break;
+
+				}
+
+			}
+
+			if (!is_null($newrank)
+					&& !$rank->isEqualTo($this->getRank())) {
+
+				$this->setRank($rank);
+
+			}
+
+		}
+
+		return true;
 
 	}
 
