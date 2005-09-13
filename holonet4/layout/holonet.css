@@ -4,17 +4,38 @@ html, body {
 }
 
 body {
+	font-family: "Bitstream Vera Sans", "Tahoma", Verdana, Helvetica, sans-serif;
 	font-size: 10pt;
-	background-image: url(holonet-4-bg-2.jpeg);
+	background-image: url(holonet-4-bg-3-2.jpeg);
 	background-position: top right;
 	background-repeat: no-repeat;
+  color                 : #454545;
+}
+
+a:link
+{
+	color                 : #666;
+}
+a:visited
+{
+	color                 : #666;
+}
+a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+a:active
+{
+	color                 : #003366;
 }
 
 #mainmenu {
-	margin: 0;
+	margin: 0 !important;
 	padding: 0;
 	text-align: right;
 	list-style: none;
+	margin-right: 140px;
 }
 
 #mainmenu li {
@@ -29,29 +50,39 @@ margin-bottom: 0.25em;
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	border-bottom: 1px solid #dddddd;
+	border-bottom: 1px solid white;
 }
 
 #modulemenu li {
 float: left;
 margin: 0.5em 1em;
+				vertical-align: top;
 }
 
 #logo div {
-margin: 0;
-padding: 0;
+	margin: 0;
+	padding: 0;
 	float: right;
 	clear: right;
-	height: 20px;
+	height: 9px;
+	display: block !important;
+	display: none;
 }
 
-#logo01 { width: 112px; }
+#logo01 { width: 114px; }
+#logo02 { width: 114px; }
 #logo03 { width: 130px; }
+#logo04 { width: 130px; }
 #logo05 { width: 135px; }
-#logo07 { width: 136px; }
-#logo09 { width: 132px; }
-#logo11 { width: 120px; }
-#logo13 { width: 100px; }
+#logo06 { width: 135px; }
+#logo07 { width: 137px; }
+#logo08 { width: 140px; }
+#logo09 { width: 134px; }
+#logo10 { width: 132px; }
+#logo11 { width: 126px; }
+#logo12 { width: 120px; }
+#logo13 { width: 113px; }
+#logo14 { width: 100px; }
 
 #sidemenu {
 	float: right;
@@ -59,6 +90,7 @@ padding: 0;
 	width: 10em;
 	padding: 1em;
 	border-left: 1px solid #dddddd;
+	margin-top: 1em;
 }
 
 #sidemenu h3 {
@@ -86,6 +118,10 @@ padding: 0.1em;
 	padding-left: 1em;
 	font-size: 170%;
 	border-bottom: 1px solid #dddddd;
+}
+
+#content p {
+	text-align: justify;
 }
 
 #footer {
