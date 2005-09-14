@@ -9,6 +9,11 @@
  * @Version $Rev:$ $Date:$
  */
 
+/* First of fix up include path. */
+$include = ini_get('include_path');
+$bhg_dir = dirname(__FILE__);
+ini_set('include_path', $bhg_dir.':'.$include);
+
 /** Include PEAR::Log */
 include_once 'Log.php';
 
