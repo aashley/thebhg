@@ -1,0 +1,29 @@
+<menu>
+	<title>Holonet</title>
+	<items>
+		<item>
+			<text>Holonet</text>
+			<link>/holonet/</link>
+		</item>
+		<item>
+			<text>Roster</text>
+			<link>/roster/</link>
+		</item>
+		<item>
+			<text>Medal Board</text>
+			<link>/medalboard/</link>
+		</item>
+		<item>
+			<text>Library</text>
+			<link>/library/</link>
+		</item>
+		<item>
+			<text>Star Chart</text>
+			<link>/starchart/</link>
+		</item>
+		<item>
+			<text>Arena</text>
+			<link>/arena/</link>
+		</item>
+	</items>
+</menu>

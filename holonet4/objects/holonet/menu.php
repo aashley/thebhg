@@ -1,9 +1,13 @@
 <?php
 
+include_once 'objects/holonet/menu/item.php';
+
 class holonet_menu {
 
 	public $showTitle = true;
 	public $title = null;
+	public $class = null;
+	public $id = null;
 
 	private $items = array();
 
@@ -21,18 +25,21 @@ class holonet_menu {
 	}
 
 	public function loadFromXML($filename) {
+		
+		if (!file_exists($filename))
+			throw bhg_fatal_exception('Menu XML file does not exist');
 
 		$xml = simplexml_load_file($filename);
 
-		$this->title = $xml->title;
+		$this->title = (string)$xml->title;
 
-		foreach ($xml->item as $i) {
+		foreach ($xml->items->item as $i) {
 
 			$item = new holonet_menu_item();
-			$item->text = $i->text;
+			$item->text = (string)$i->text;
 			if (isset($i->link)) {
 				$item->hasLink = true;
-				$item->link = $i->link;
+				$item->link = (string)$i->link;
 			} else {
 				$item->hasLink = false;
 			}
@@ -46,11 +53,17 @@ class holonet_menu {
 	public function toHtml() {
 
 		$output = '';
+		
+		if ($this->showTitle) {
 
-		if ($this->showTitle && !is_null($this->title))
-			$output .= '<h3>'.$this->title."</h3>\n";
+			$output .= '<div'.(is_null($this->class) ? '' : ' class="'.$this->class.'"').">\n";
+			
+			if (!is_null($this->title))
+				$output .= '<h3>'.$this->title."</h3>\n";
 
-		$output .= "<ul>\n";
+		}
+
+		$output .= "<ul".(is_null($this->id) ? '' : ' id="'.$this->id.'"').">\n";
 
 		foreach ($this->items as $item) {
 
@@ -59,6 +72,9 @@ class holonet_menu {
 		}
 
 		$output .= "</ul>\n";
+
+		if ($this->showTitle)
+			$output .= "</div>\n";
 
 		return $output;
 

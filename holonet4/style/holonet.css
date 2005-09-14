@@ -1,0 +1,140 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	height:  98%;
+	font-family: "Bitstream Vera Sans", "Tahoma", Verdana, Helvetica, sans-serif;
+	font-size: 10pt;
+	background-image: url(/images/holonet-4-bg-3-2.jpeg);
+	background-position: top right;
+	background-repeat: no-repeat;
+  color                 : #454545;
+}
+
+a:link
+{
+	color                 : #666;
+}
+a:visited
+{
+	color                 : #666;
+}
+a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+a:active
+{
+	color                 : #003366;
+}
+
+#mainmenu {
+	margin: 0 !important;
+	padding: 0;
+	text-align: right;
+	list-style: none;
+	margin-right: 140px;
+}
+
+#mainmenu li {
+margin-top: 0.25em;
+margin-bottom: 0.25em;
+}
+
+#modulemenu {
+	position: absolute;
+	top: 0.5em;
+	right: 17em;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid white;
+}
+
+#modulemenu li {
+float: left;
+margin: 0.5em 1em;
+				vertical-align: top;
+}
+
+#logo div {
+	margin: 0;
+	padding: 0;
+	float: right;
+	clear: right;
+	height: 9px;
+	display: block !important;
+	display: none;
+}
+
+#logo01 { width: 114px; }
+#logo02 { width: 114px; }
+#logo03 { width: 130px; }
+#logo04 { width: 130px; }
+#logo05 { width: 135px; }
+#logo06 { width: 135px; }
+#logo07 { width: 137px; }
+#logo08 { width: 140px; }
+#logo09 { width: 134px; }
+#logo10 { width: 132px; }
+#logo11 { width: 126px; }
+#logo12 { width: 120px; }
+#logo13 { width: 113px; }
+#logo14 { width: 100px; }
+
+#sidemenu {
+	float: right;
+	clear: right;
+	width: 10em;
+	padding: 1em;
+	border-left: 1px solid #dddddd;
+	margin-top: 1em;
+}
+
+#sidemenu h3 {
+	font-size: 100%;
+	margin-bottom: 0;
+	margin-left: 0.5em;
+}
+
+#sidemenu ul {
+margin: 0 0 0 1em; /*1.5em;*/
+padding: 0;
+list-style: circle;
+color: #cccccc;
+}
+
+#sidemenu li {
+padding: 0.1em;
+}
+
+#content {
+	margin: -3em 13em 1em 1em;
+}
+
+#content h1 {
+	padding-left: 1em;
+	font-size: 170%;
+	border-bottom: 1px solid #dddddd;
+}
+
+#content p {
+	text-align: justify;
+}
+
+#footer {
+color: #cccccc;
+text-align: center;
+padding: 1em;
+clear: both;
+margin: 2em 1em 1em 1em;
+border-top: 1px solid #dddddd;
+font-size: 85%;
+}

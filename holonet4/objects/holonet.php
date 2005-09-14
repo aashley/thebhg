@@ -1,15 +1,56 @@
 <?php
 
+include_once 'objects/holonet/menu.php';
+include_once 'objects/holonet/module.php';
+include_once 'objects/holonet/page.php';
+
 class holonet {
 
 	private $entry = array();
 
 	private $mainmenu = null;
 
+	public $current = null;
+
 	public function __construct() {
 
-		$this->mainmenu = new Holonet_Menu('mainmenu.xml');
+		$this->mainmenu = new holonet_menu('mainmenu.xml');
+		$this->mainmenu->showTitle = false;
+		$this->mainmenu->id = 'mainmenu';
 
+		$parts = explode('/', $_SERVER['PATH_INFO']);
+
+		$url = '';
+
+		for ($i = 0; $i < sizeof($parts); $i++) {
+
+			if (strlen($parts[$i]) > 0) {
+
+				$this->current = $this->$parts[$i];
+
+				$url = implode('/', array_slice($parts, $i + 1));
+
+				break;
+
+			}
+
+		}
+
+		if (is_null($this->current))
+			$this->current = $this->holonet;
+
+	}
+
+	public function execute() {
+
+		$page = $this->current->getPage($url);
+
+		$page->display();
+
+	}
+
+	public function getMenu() {
+		return $this->mainmenu;
 	}
 
 	public function __get($e) {
@@ -22,6 +63,13 @@ class holonet {
 			return $this->entry[$e];
 
 		} else {
+
+			$filename = $e.'/module.php';
+
+			if (!file_exists($filename))
+				throw new bhg_fatal_exception('Can not location holonet module.');
+
+			include_once $filename;
 
 			$classname = 'holonet_module_'.$e;
 
@@ -44,5 +92,7 @@ class holonet {
 	}
 
 }
+
+$GLOBALS['holonet'] = new holonet();
 
 ?>

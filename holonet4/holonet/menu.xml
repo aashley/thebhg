@@ -1,0 +1,9 @@
+<menu>
+	<title>Holonet</title>
+	<items>
+		<item>
+			<text>News</text>
+			<link>/holonet/</link>
+		</item>
+	</items>
+</menu>
