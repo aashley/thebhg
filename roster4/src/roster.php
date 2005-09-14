@@ -93,7 +93,7 @@ class bhg_roster extends bhg_entry {
 		$sqlfilters = array();
 
 		if (!isset($filter['deleted']) || $filter['deleted'] == false)
-			$sqlfilters[] = 'bhg_roster_division.datedeleted IS NULL ';
+			$sqlfilters[] = 'roster_division.datedeleted IS NULL ';
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'AND '.implode(' AND ', $sqlfilters).' ';
