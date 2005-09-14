@@ -12,11 +12,12 @@
 .tabbar a {
 	border: solid 1px #ccc;
 	border-bottom: none;
-	padding: 0.5em 1em 0 1em;
+	padding: 0.1em 1em 0 1em;
 	text-decoration: none;
 }
 
 .tabbar a.selected {
 	background: #fafafb;
 	font-weight: bold;
+	padding-top: 0.3em;
 }
