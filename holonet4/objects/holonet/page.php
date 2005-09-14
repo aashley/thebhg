@@ -31,6 +31,7 @@ class holonet_page extends HTML_Page2 {
 			$this->disableXmlProlog();
 
 		$this->addStyleSheet('/style/holonet.css', 'text/css', 'screen');
+		$this->addStyleSheet('/style/tab.css', 'text/css', 'screen');
 		$this->addStyleSheet('/style/table.css', 'text/css', 'screen');
 
 		$this->buildPage();

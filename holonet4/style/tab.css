@@ -1,0 +1,22 @@
+.tab {
+	border: solid 1px #ccc;
+	padding: 1em;
+	margin: 0;
+}
+
+.tabbar {
+	display: none;
+	margin: 0;
+}
+
+.tabbar a {
+	border: solid 1px #ccc;
+	border-bottom: none;
+	padding: 0.5em 1em 0 1em;
+	text-decoration: none;
+}
+
+.tabbar a.selected {
+	background: #fafafb;
+	font-weight: bold;
+}
