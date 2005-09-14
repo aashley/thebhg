@@ -39,7 +39,7 @@ class bhg_roster extends bhg_entry {
 	public function getCadres($filter = array()) {
 
 		$sql = 'SELECT id '
-					.'FROM bhg_roster_cadre ';
+					.'FROM roster_cadre ';
 
 		$sqlfilters = array();
 
@@ -85,10 +85,10 @@ class bhg_roster extends bhg_entry {
 	 */
 	public function getDivisions($filter = array()) {
 
-		$sql = 'SELECT bhg_roster_division.id '
-					.'FROM bhg_roster_division, '
-							 .'bhg_roster_division_category '
-					.'WHERE bhg_roster_division.category = bhg_roster_division_category.id ';
+		$sql = 'SELECT roster_division.id '
+					.'FROM roster_division, '
+							 .'roster_division_category '
+					.'WHERE roster_division.category = roster_division_category.id ';
 
 		$sqlfilters = array();
 
@@ -98,8 +98,8 @@ class bhg_roster extends bhg_entry {
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'AND '.implode(' AND ', $sqlfilters).' ';
 
-		$sql .= 'ORDER BY bhg_roster_division_category.sortorder ASC, '
-										.'bhg_roster_division.name ASC ';
+		$sql .= 'ORDER BY roster_division_category.sortorder ASC, '
+										.'roster_division.name ASC ';
 
 		$results = $this->db->getCol($sql);
 
@@ -127,7 +127,7 @@ class bhg_roster extends bhg_entry {
 	public function getDivisionCategories($filter = array()) {
 
 		$sql = 'SELECT id '
-					.'FROM bhg_roster_division_category ';
+					.'FROM roster_division_category ';
 
 		$sqlfilters = array();
 
@@ -201,7 +201,7 @@ class bhg_roster extends bhg_entry {
 	public function getPositions($filter = array()) {
 
 		$sql = 'SELECT id '
-					.'FROM bhg_roster_position ';
+					.'FROM roster_position ';
 
 		$sqlfilters = array();
 
@@ -248,7 +248,7 @@ class bhg_roster extends bhg_entry {
 	public function getRanks($filter = array()) {
 
 		$sql = 'SELECT id '
-					.'FROM bhg_roster_rank ';
+					.'FROM roster_rank ';
 
 		$sqlfilters = array();
 
