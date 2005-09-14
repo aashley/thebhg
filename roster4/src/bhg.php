@@ -275,7 +275,7 @@ class bhg {
  * @subpackage Core
  * @version $Rev:$ $Date:$
  */
-class bhg_entry {} extends bhg_core_base {}
+class bhg_entry extends bhg_core_base {}
 
 class bhg_fatal_exception extends Exception {}
 
