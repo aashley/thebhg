@@ -89,7 +89,7 @@ ALTER TABLE roster_rank CHANGE `order` sortorder INT(4) NOT NULL;
 ALTER TABLE roster_roster RENAME roster_person;
 ALTER TABLE roster_person ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE roster_person ADD COLUMN datedeleted DATETIME;
-UPDATE roster_person SET dateupdated = TIMESTAMP(last_updated);
+UPDATE roster_person SET dateupdated = FROM_UNIXTIME(last_updated);
 UPDATE roster_person SET datedeleted = dateupdated WHERE division = 16;
 ALTER TABLE roster_person DROP COLUMN last_updated;
 ALTER TABLE roster_person ADD COLUMN datecreated DATETIME NOT NULL;
@@ -173,8 +173,8 @@ ALTER TABLE newsboard RENAME news_item;
 ALTER TABLE news_item ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE news_item ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE news_item ADD COLUMN datedeleted DATETIME;
-UPDATE newsboard SET datecreated = FROM_UNIXTIME(`timestamp`);
-ALTER TABLE news_item DROP COLUMN `timestamp`
+UPDATE news_item SET datecreated = FROM_UNIXTIME(`timestamp`);
+ALTER TABLE news_item DROP COLUMN `timestamp`;
 
 CREATE TABLE `college_reward` (
 		`id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
