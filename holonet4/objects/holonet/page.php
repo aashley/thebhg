@@ -6,8 +6,10 @@ include_once 'Net/UserAgent/Detect.php';
 class holonet_page extends HTML_Page2 {
 
 	private $menus = array();
+	
+	private $trail = array();
 
-	public function __construct() {
+	public function __construct($trail) {
 
 		parent::__construct(array(
 					'lineend'		=> 'unix',
@@ -15,6 +17,8 @@ class holonet_page extends HTML_Page2 {
 					'cache'			=> false,
 					'charset'		=> 'utf-8'
 					));
+
+		$this->trail = $trail;
 		
 		if ( strpos($_SERVER['HTTP_ACCEPT'], 'application/xhtml+xml') ) {
 			$this->setDoctype('XHTML 1.0 Strict');
@@ -47,6 +51,12 @@ class holonet_page extends HTML_Page2 {
 	public function buildPage() {
 
 		$this->addBodyContent('<p>You should override buildPage() and actually add some content.</p>');
+
+	}
+
+	public function getTrailingElements() {
+
+		return $this->trail;
 
 	}
 

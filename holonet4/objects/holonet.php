@@ -43,6 +43,14 @@ class holonet {
 
 	public function execute() {
 
+		$url = trim($_SERVER['PATH_INFO'], '/');
+		$slash = strpos($url, '/');
+		if ($slash !== false) {
+
+			$url = substr($url, $slash + 1);
+			
+		}
+
 		$page = $this->current->getPage($url);
 
 		$page->display();

@@ -54,11 +54,11 @@ class holonet_module_roster extends holonet_module {
 
 	}
 
-	public function getDefaultPage() {
+	public function getDefaultPage($trail) {
 
 		include_once 'roster/default.php';
 
-		return new page_roster_default();
+		return new page_roster_default($trail);
 
 	}
 

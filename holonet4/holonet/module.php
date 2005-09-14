@@ -10,11 +10,11 @@ class holonet_module_holonet extends holonet_module {
 
 	}
 
-	public function getDefaultPage() {
+	public function getDefaultPage($trail) {
 
 		include_once 'holonet/default.php';
 
-		return new page_holonet_default();
+		return new page_holonet_default($trail);
 
 	}
 

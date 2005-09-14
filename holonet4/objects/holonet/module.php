@@ -31,6 +31,9 @@ class holonet_module {
 
 	public function getPage($url) {
 
+		// Trailing path elements.
+		$trail = array();
+
 		do {
 
 			$filename = $this->name.'/'.$url.'.php';
@@ -38,11 +41,11 @@ class holonet_module {
 
 			if (file_exists($filename)) {
 
-				include_once $filename;
+				include_once realpath($filename);
 
 				if (class_exists($classname)) {
 
-					$page = new $classname();
+					$page = new $classname(array_reverse($trail));
 
 					if ($page instanceof holonet_page) {
 
@@ -62,25 +65,27 @@ class holonet_module {
 
 			if ($pos === false) {
 
+				$trail[] = $url;
 				$url = '';
 
 			} else {
 
+				$trail[] = substr($url, $pos + 1);
 				$url = substr_replace($url, '', $pos);
 
 			}
 
 		} while (strlen($url) > 0);
 
-		return $this->getDefaultPage();
+		return $this->getDefaultPage(array_reverse($trail));
 
 	}
 
-	public function getDefaultPage() {
+	public function getDefaultPage($trail) {
 
 		include_once 'holonet/notfound.php';
 
-		return new page_holonet_notfound();
+		return new page_holonet_notfound($trail);
 
 	}
 
