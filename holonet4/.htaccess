@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteRule ^images - [L]
+RewriteRule ^layout - [L]
+RewriteRule ^style - [L]
+RewriteRule ^index.php - [L]
+RewriteRule ^(.*)$ /index.php/$1 [PT]

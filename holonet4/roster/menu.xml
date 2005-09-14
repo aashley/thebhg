@@ -1,0 +1,17 @@
+<menu>
+	<title>Roster</title>
+	<items>
+		<item>
+			<text>Home</text>
+			<link>/roster</link>
+		</item>
+		<item>
+			<text>Reports</text>
+			<link>/roster/reports</link>
+		</item>
+		<item>
+			<text>Administration</text>
+			<link>/roster/administration</link>
+		</item>
+	</items>
+</menu>
