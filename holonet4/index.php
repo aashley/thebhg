@@ -24,6 +24,7 @@ if (!extension_loaded('tidy')) {
 
 }
 
+include_once '/usr/share/bhg/bhg.php';
 include_once 'objects/holonet.php';
 
 $GLOBALS['holonet']->execute();
