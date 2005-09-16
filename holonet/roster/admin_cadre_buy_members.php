@@ -110,7 +110,6 @@ function output() {
 
     $table->StartRow();
     $table->AddHeader('Name');
-    $table->AddHeader('Cost');
     $table->AddHeader('In Cadre?');
     $table->AddHeader('Can Join This Cadre?');
     $table->AddHeader('');
@@ -123,7 +122,6 @@ function output() {
       $table->AddRow(
           '<a href="'.internal_link('hunter', array('id'=>$m->GetID())).'">'
             .$m->GetName().'</a>',
-          $cadre->GetCostToJoin($m),
           ($m->InCadre() ? 'Yes' : 'No'),
           ($cadre->CanJoin($m) ? 'Yes' : 'No'),
           ($cadre->CanJoin($m) 
