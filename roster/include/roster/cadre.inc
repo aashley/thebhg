@@ -360,90 +360,6 @@ class Cadre extends BHGObject {
   }
 
   // }}}
-  // {{{ GetMemberPoints()
-
-  /**
-   * Return the number of points spent to get the current membership
-   *
-   * @access public
-   * @return mixed An integer of the number of points used on success. False
-   *               on failure.
-   * @uses GetMembers()
-   * @uses Person
-   * @uses Person::GetRank()
-   * @uses Rank
-   * @uses Rank::GetID()
-   */
-  function GetMemberPoints() {
-    
-    if (isset($this->cadre_date_deleted)
-        && $this->cadre_date_deleted > 0) {
-
-      $this->roster_error = 'This Cadre has been closed and as such does not '
-        .'have a current membership to calculate point usage from.';
-
-      return false;
-
-    }
-
-    $members = $this->GetMembers();
-
-    if ($members === false) {
-
-      $this->roster_error = 'Could not load list of members to calculate '
-        .'costs from.';
-
-      return false;
-
-    }
-
-    $points = 0;
-
-    foreach ($members as $member) {
-
-      $rank = $member->GetRank();
-
-      if (array_key_exists($rank->GetID(), $this->cadre_costs)) {
-
-        $points += $this->cadre_costs[$rank->GetID()];
-
-      }
-
-    }
-
-    return $points;
-
-  }
-
-  // }}}
-  // {{{ GetAvailableMemberPoints()
-
-  /**
-   * Get the number of points we have left to spend on members
-   *
-   * @access public
-   * @return mixed An integer containing the number of available points or false
-   *               on failure.
-   * @uses GetMemberPoints
-   * @uses BHGObject::GetSetting()
-   */
-  function GetAvailableMemberPoints() {
-
-    $points = $this->GetMemberPoints();
-
-    if ($points === false) {
-
-      return false;
-
-    } else {
-
-      return $this->GetSetting('cadre_points') - $points;
-
-    }
-
-  }
-
-  // }}}
   // {{{ GetHomePage()
 
   /**
@@ -552,40 +468,46 @@ class Cadre extends BHGObject {
 
     }
 
+    // Check if the cadre has its one over-rank member already.
     $leader = $this->GetLeader();
-
     $lrank = $leader->GetRank();
 
-    if ($rank->GreaterThanOrEqual($lrank)) {
-
+    if ($this->HasHighRank()
+     && $rank->GreaterThan($lrank))
       return false;
 
-    }
+    return true;
+    
+  }
 
-    if (array_key_exists($rank->GetID(), $this->cadre_costs)) {
+  // }}}
+  // {{{ HasHighRank()
+  
+  /**
+   * Checks if the cadre has a member of higher rank than the leader.
+   *
+   * @return boolean
+   */
+  function HasHighRank() {
 
-      if ($this->cadre_costs[$rank->GetID()] 
-          > $this->GetAvailableMemberPoints()) {
+    $leader = $this->GetLeader();
+    $members = $this->GetMembers();
 
-        $this->roster_error = 'This Cadre does not have enough points for '
-          .'this member to join it\'s ranks.';
+    if (is_array($members))
+      foreach ($members as $member) {
 
-        return false;
+        if ($member->GetID() == $leader->GetID())
+          continue;
 
-      } else {
-
-        return true;
+        if ($member->GetRank()->GreaterThan($leader->GetRank()))
+          return true;
 
       }
 
-    } else {
-
-      return true;
-
-    }
-
+    return false;
+    
   }
-
+  
   // }}}
   // {{{ IsActive()
 
@@ -605,73 +527,6 @@ class Cadre extends BHGObject {
     } else {
 
       return true;
-
-    }
-
-  }
-
-  // }}}
-  // {{{ GetCostToJoin()
-
-  /**
-   * Return the amount it will cost in points for this person to join
-   * 
-   * @access public
-   * @return integer
-   * @uses Person
-   * @uses Person::GetRank()
-   * @uses Rank
-   * @uses Rank::GetID()
-   */
-  function GetCostToJoin($person) {
-    
-    if (isset($this->cadre_date_deleted)
-        && $this->cadre_date_deleted > 0) {
-
-      $this->roster_error = 'This Cadre has been closed and as such no one '
-        .'can join it.';
-
-      return false;
-
-    }
-
-    // Check the cadre has enough available points
-
-    if (is_object($person)) {
-
-      if ($person instanceof Person) {
-
-        $rank = $person->GetRank();
-
-      } else {
-
-        $this->roster_error = 'Invalid object passed to Cadre::CanJoin().';
-
-        return false;
-
-      }
-
-    } elseif (is_numeric($person)) {
-
-      $person = new Person($person, $this->roster_coder);
-
-      $rank = $person->GetRank();
-
-    } else {
-
-      $this->roster_error = 'Invalid parameter passed to Cadre::CanJoin().';
-
-      return false;
-
-    }
-
-    if (array_key_exists($rank->GetID(), $this->cadre_costs)) {
-
-      return $this->cadre_costs[$rank->GetID()];
-
-    } else {
-
-      return 0;
 
     }
 
