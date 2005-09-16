@@ -94,7 +94,9 @@ function get_auth_data($pleb) {
     $auth_data['cadre'] = false;
   }
 
-  if ($rank->GreaterThanOrEqual($baron)) {
+  if ($rank->GreaterThanOrEqual($baron)
+   && $pleb->HasEstate()
+   && (time() - $pleb->GetJoinDate()) >= 94608000) {
     $auth_data['cadre-create'] = true;
   } else {
     $auth_data['cadre-create'] = false;
