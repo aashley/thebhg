@@ -473,7 +473,8 @@ class Cadre extends BHGObject {
     $lrank = $leader->GetRank();
 
     if ($this->HasHighRank()
-     && $rank->GreaterThan($lrank))
+     && (   $rank->GreaterThan($lrank)
+         || $person->GetRankCredits() >= $leader->GetRankCredits()))
       return false;
 
     return true;
@@ -499,7 +500,8 @@ class Cadre extends BHGObject {
         if ($member->GetID() == $leader->GetID())
           continue;
 
-        if ($member->GetRank()->GreaterThan($leader->GetRank()))
+        if ($member->GetRank()->GreaterThan($leader->GetRank())
+         || $member->GetRankCredits() >= $leader->GetRankCredits())
           return true;
 
       }
