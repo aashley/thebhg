@@ -19,7 +19,7 @@ function output() {
 	$table->AddHeader('Title');
 	$table->AddHeader('Description');
 	$table->EndRow();
-	$table->AddRow('<a href="' . internal_link('cadres') . '">Cadre Statistics</a>', 'Displays all current cadres, along with a few statistics on each one\'s membership and points used.');
+	$table->AddRow('<a href="' . internal_link('cadres') . '">Cadre Statistics</a>', 'Displays all current cadres, along with a few statistics on each one\'s membership.');
 	$table->AddRow('<a href="' . internal_link('dewinged') . '">Citadel Transfers</a>', 'Displays a list of people who have transferred out of the Citadel into a kabal, as well as wing-by-wing statistics.');
 	$table->AddRow('<a href="' . internal_link('current-staff') . '">Current Staff</a>', 'Displays the current Commission members and KA staff of the BHG.');
 	$table->AddRow('<a href="' . internal_link('xp_stats') . '">Experience Points</a>', 'Displays a list of all hunters who have earned XP, along with the amount of XP they have earned in total and the amount they have available now.');

@@ -26,8 +26,6 @@ function output() {
 	if ($cadre->GetSlogan()) {
 		echo 'Slogan: <i>' . html_escape($cadre->GetSlogan()) . '</i><br>';
 	}
-	echo 'Points Used: ' . number_format($cadre->GetMemberPoints()) . '<br>';
-	echo 'Points Available: ' . number_format($cadre->GetAvailableMemberPoints()) . '<br>';
 
 	hr();
 
