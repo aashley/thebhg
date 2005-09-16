@@ -993,6 +993,32 @@ class Person extends BHGObject {
 
 
   // }}}
+	// {{{ HasEstate()
+
+	/**
+	 * Checks if the hunter has an estate.
+	 *
+	 * @return boolean
+	 */
+	function HasEstate() {
+		$sql = 'SELECT COUNT(*) AS estates '
+					.'FROM thebhg_lyarna.estate '
+					.'WHERE bhg_id = "'.intval($this->person_id).'" ';
+
+		$result = mysql_query($sql, $this->roster_db);
+
+		if ($result
+		 && mysql_num_rows($result) > 0) {
+
+			return (mysql_result($result, 0, 'estates') > 0);
+
+		}
+
+		return false;
+
+	}
+	
+	// }}}
   // {{{ HasShip()
 
   /**
