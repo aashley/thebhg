@@ -17,7 +17,7 @@ function output() {
 	
 	$sql = 'SELECT * '
 	      .'FROM hn_com_poll '
-	      .'WHERE ends <= UNIX_TIMESTAMP() ';
+	      .'WHERE ends >= UNIX_TIMESTAMP() ';
 
 	$result = mysql_query($sql, $roster->roster_db);
 
@@ -37,15 +37,16 @@ function output() {
 			
 			$sql = 'SELECT vote '
 			      .'FROM hn_com_vote '
-			      .'WHERE person = '.intval($pleb->GetID())
+			      .'WHERE person = '.intval($pleb->GetID()).' '
 			        .'AND poll = '.$row['id'];
 
 			$voteResult = mysql_query($sql, $roster->roster_db);
 			if ($voteResult
-			 && mysql_num_rows($voteResult) > 0)
-				$option = $options[mysql_result($voteResult, 0, 'vote')];
+			 && mysql_num_rows($voteResult) > 0
+			 && ($vote = mysql_result($voteResult, 0, 'vote')) != -1)
+				$option = $options[$vote];
 			else
-				$option = 'No Vote';
+				$option = 'No Vote/Abstain';
 
 			$table->AddRow(stripslashes($row['title']),
 				       date('j F Y \a\t G:i:s T', $row['ends']),

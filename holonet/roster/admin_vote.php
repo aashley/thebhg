@@ -4,7 +4,7 @@ function title() {
 
 	$sql = 'SELECT * '
 	      .'FROM hn_com_poll '
-	      .'WHERE id = '.intval($poll);
+	      .'WHERE id = '.intval($_REQUEST['id']);
 
 	$result = mysql_query($sql, $roster->roster_db);
 
@@ -41,7 +41,7 @@ function output() {
 		$result = mysql_query($sql, $roster->roster_db);
 		if ($result) {
 			echo 'Vote saved successfully.'; 
-			header('Location: '.internal_link('admin_votes'));
+			header('Location: '.str_replace('&amp;', '&', internal_link('admin_votes')));
 		}
 		else
 			echo 'Error saving vote.';
@@ -60,9 +60,11 @@ function output() {
 			$default = false;
 	
 		$form = new Form($page);
+		$form->AddHidden('id', $poll['id']);
 		$form->StartSelect('Vote:', 'vote', $default);
 		foreach ($options as $id => $option)
 			$form->AddOption($id, $option);
+		$form->AddOption(-1, 'Abstain');
 		$form->EndSelect();
 		$form->AddSubmitButton('submit', 'Save Vote');
 		$form->EndForm();
