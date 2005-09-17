@@ -41,6 +41,7 @@ function output() {
 			$sql = 'SELECT vote, '
 				     .'COUNT(*) AS votes '
 			      .'FROM hn_com_vote '
+			      .'WHERE poll = '.$row['id'].' '
 			      .'GROUP BY vote ';
 
 			$votes = array_combine(array_keys($options), array_fill(0, count($options), 0));

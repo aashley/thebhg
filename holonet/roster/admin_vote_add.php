@@ -21,7 +21,7 @@ function output() {
 		$sql = 'INSERT INTO hn_com_poll '
 		      .'(title, ends, options) '
 		      .'VALUES ("'.addslashes($_POST['title']).'", '
-			      .'"'.$ends.'" '
+			      .'"'.$ends.'", '
 			      .'"'.addslashes(serialize(explode(',', $_POST['options']))).'"'
 			     .')';
 		
