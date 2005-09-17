@@ -38,7 +38,7 @@ function output() {
 		while ($row = mysql_fetch_array($result)) {
 			$options = unserialize(stripslashes($row['options']));
 			
-			$sql = 'SELECT vote '
+			$sql = 'SELECT vote, '
 				     .'COUNT(*) AS votes '
 			      .'FROM hn_com_vote '
 			      .'GROUP BY vote ';
