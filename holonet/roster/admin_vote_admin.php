@@ -44,7 +44,6 @@ function output() {
 			      .'GROUP BY vote ';
 
 			$votes = array_combine(array_keys($options), array_fill(0, count($options), 0));
-			$votes[-1];
 			$voteResult = mysql_query($sql, $roster->roster_db);
 			if ($voteResult
 			 && mysql_num_rows($voteResult) > 0)
