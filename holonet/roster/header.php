@@ -137,7 +137,8 @@ function admin_footer($auth_data) {
 			      'Change Ranks' => internal_link('admin_change_rank', array())));
 		
 		addMenu('Underlord: Miscellaneous',
-			array('Edit Hunter Details' => internal_link('admin_their_details', array())));
+			array('Edit Hunter Details' => internal_link('admin_their_details', array()),
+			      'Vote Administration' => internal_link('admin_vote_admin', array())));
 	}
 
 	if ($auth_data['commission']) {
@@ -146,7 +147,8 @@ function admin_footer($auth_data) {
 					'Award Medal' => internal_link('admin_award_medal', array()),
 					'E-Mail Members' => internal_link('admin_email_members', array()),
 					'Add Report' => internal_link('admin_add_report', array()),
-					'Edit Report' => internal_link('admin_edit_report', array())));
+					'Edit Report' => internal_link('admin_edit_report', array()),
+					'Votes' => internal_link('admin_votes', array())));
 	}
 	
 	if ($auth_data['judicator']) {
