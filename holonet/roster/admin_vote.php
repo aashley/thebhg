@@ -46,6 +46,9 @@ function output() {
 		else
 			echo 'Error saving vote.';
 	}
+	elseif ($poll['ends'] < time()) {
+		echo 'The voting period for that poll has ended.';
+	}
 	else {
 		$sql = 'SELECT vote '
 		      .'FROM hn_com_vote '
