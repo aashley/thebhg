@@ -61,7 +61,7 @@ function output() {
 			$table->AddRow(stripslashes($row['title']),
 				       date('j F Y \a\t G:i:s T', $row['ends']),
 				       implode('<br />', $summary),
-				       '<a href="'.internal_link('admin_vote_close').'">Close Poll</a>');
+				       '<a href="'.internal_link('admin_vote_close', array('id' => $poll['id'])).'">Close Poll</a>');
 		}
 	}
 	else
