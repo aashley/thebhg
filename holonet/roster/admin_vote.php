@@ -57,20 +57,20 @@ function output() {
 
 		$voteResult = mysql_query($sql, $roster->roster_db);
 		if ($voteResult
-		 && mysql_num_rows($voteResult) > 0)
-			$default = mysql_result($voteResult, 0, 'vote');
-		else
-			$default = false;
-	
-		$form = new Form($page);
-		$form->AddHidden('id', $poll['id']);
-		$form->StartSelect('Vote:', 'vote', $default);
-		foreach ($options as $id => $option)
-			$form->AddOption($id, $option);
-		$form->AddOption(-1, 'Abstain');
-		$form->EndSelect();
-		$form->AddSubmitButton('submit', 'Save Vote');
-		$form->EndForm();
+		 && mysql_num_rows($voteResult) > 0) {
+			echo 'You have already voted in this poll.';
+		}
+		else {
+			$form = new Form($page);
+			$form->AddHidden('id', $poll['id']);
+			$form->StartSelect('Vote:', 'vote');
+			foreach ($options as $id => $option)
+				$form->AddOption($id, $option);
+			$form->AddOption(-1, 'Abstain');
+			$form->EndSelect();
+			$form->AddSubmitButton('submit', 'Save Vote');
+			$form->EndForm();
+		}
 	}
 
 	admin_footer($auth_data);

@@ -42,16 +42,22 @@ function output() {
 
 			$voteResult = mysql_query($sql, $roster->roster_db);
 			if ($voteResult
-			 && mysql_num_rows($voteResult) > 0
-			 && ($vote = mysql_result($voteResult, 0, 'vote')) != -1)
-				$option = $options[$vote];
-			else
-				$option = 'No Vote/Abstain';
+			 && mysql_num_rows($voteResult) > 0) {
+				if (($vote = mysql_result($voteResult, 0, 'vote')) != -1)
+					$option = $options[$vote];
+				else
+					$option = 'Abstain';
+				$voted = true;
+			}
+			else {
+				$option = 'No Vote';
+				$voted = false;
+			}
 
 			$table->AddRow(stripslashes($row['title']),
 				       date('j F Y \a\t G:i:s T', $row['ends']),
 				       $option,
-				       '<a href="'.internal_link('admin_vote', array('id' => $row['id'])).'">Update Vote</a>');
+				       ($voted ? '' : '<a href="'.internal_link('admin_vote', array('id' => $row['id'])).'">Update Vote</a>'));
 		}
 	}
 	else
