@@ -37,6 +37,7 @@ function output() {
 		
 		while ($row = mysql_fetch_array($result)) {
 			$options = unserialize(stripslashes($row['options']));
+			$options[-1] = 'Abstain';
 			
 			$sql = 'SELECT vote, '
 				     .'COUNT(*) AS votes '
