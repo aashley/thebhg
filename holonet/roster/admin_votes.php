@@ -57,7 +57,7 @@ function output() {
 			$table->AddRow(stripslashes($row['title']),
 				       date('j F Y \a\t G:i:s T', $row['ends']),
 				       $option,
-				       ($voted ? '' : '<a href="'.internal_link('admin_vote', array('id' => $row['id'])).'">Update Vote</a>'));
+				       ($voted ? 'Vote Lodged' : '<a href="'.internal_link('admin_vote', array('id' => $row['id'])).'">Lodge Vote</a>'));
 		}
 	}
 	else
