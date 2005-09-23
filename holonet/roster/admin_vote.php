@@ -53,7 +53,7 @@ function output() {
 		$sql = 'SELECT vote '
 		      .'FROM hn_com_vote '
 		      .'WHERE person = '.intval($pleb->GetID())
-			.'AND poll = '.$row['id'];
+			.'AND poll = '.$poll['id'];
 
 		$voteResult = mysql_query($sql, $roster->roster_db);
 		if ($voteResult
