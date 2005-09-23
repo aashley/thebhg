@@ -28,7 +28,6 @@ function output() {
 	global $auth_data, $pleb, $roster, $page, $poll;
 
 	roster_header();
-	$options = unserialize(stripslashes($poll['options']));
 
 	$sql = 'UPDATE hn_com_poll '
 	      .'SET ends = '.time().' '
@@ -36,11 +35,13 @@ function output() {
 	
 	$result = mysql_query($sql, $roster->roster_db);
 	if ($result) {
-		echo 'Vote closed successfully.'; 
+		echo 'Poll closed successfully.'; 
 		header('Location: '.str_replace('&amp;', '&', internal_link('admin_vote_admin')));
 	}
-	else
-		echo 'Error closing poll.';
+	else {
+		echo '<p>Error closing poll: '.mysql_error($roster->roster_db).'</p>';
+		echo '<p>SQL: '.$sql.'</p>';
+	}
 
 	admin_footer($auth_data);
 }
