@@ -33,6 +33,7 @@ function output() {
 		$table->AddHeader('Vote');
 		$table->AddHeader('Ends/Ended At');
 		$table->AddHeader('Summary');
+		$table->AddHeader('');
 		$table->EndRow();
 		
 		while ($row = mysql_fetch_array($result)) {
@@ -59,7 +60,8 @@ function output() {
 
 			$table->AddRow(stripslashes($row['title']),
 				       date('j F Y \a\t G:i:s T', $row['ends']),
-				       implode('<br />', $summary));
+				       implode('<br />', $summary),
+				       '<a href="'.internal_link('admin_vote_close').'">Close Poll</a>');
 		}
 	}
 	else

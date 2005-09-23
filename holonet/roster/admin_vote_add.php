@@ -26,8 +26,10 @@ function output() {
 			     .')';
 		
 		$result = mysql_query($sql, $roster->roster_db);
-		if ($result)
+		if ($result) {
 			echo 'Vote added.';
+			header('Location: '.str_replace('&amp;', '&', internal_link('admin_vote_admin')));
+		}
 		else
 			echo 'Error adding vote.';
 	}
