@@ -83,7 +83,7 @@ class KAGBase {
 	}
 
 	function GetHunterSignups($hunter, $kabal = false) {
-		if (get_class($hunter) == 'person') {
+		if (get_class($hunter) == 'Person') {
 			$hunter = $hunter->GetID();
 		}
 		if (is_a($kabal, 'division')) {

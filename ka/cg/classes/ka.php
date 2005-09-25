@@ -51,7 +51,7 @@ class CGBase {
 	}
 
 	function GetHunterSignups($hunter, $cadre = false) {
-		if (get_class($hunter) == 'person') {
+		if (get_class($hunter) == 'Person') {
 			$hunter = $hunter->GetID();
 		}
 		if (is_a($cadre, 'cadre')) {

@@ -598,6 +598,10 @@ class KAG {
 	 * @return boolean True on success, false otherwise.
 	 */
 	function AddEvent($name, $start, $end, $marked = false, $content, $type) {
+		if($type != '0') {
+			$tclass = new KAGType($type,$this->db);
+			$name = $tclass->GetName();
+		}
 		if (mysql_query('INSERT INTO kag_events (kag, name, start, end, content, type) VALUES (' . $this->id . ', "' . addslashes($name) . '", ' . ((int) $start) . ', ' . ((int) $end) . ', "' . $content . '", ' . $type . ')', $this->db)) {
 			return new KAGEvent(mysql_insert_id($this->db), $this->db);
 		}

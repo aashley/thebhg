@@ -9,8 +9,8 @@ if (!function_exists('constructlayout')) {
 	include_once('../Layout.inc');
 }
 
-$db = mysql_connect('localhost', 'thebhg_ka', 'bhgkapass');
-mysql_select_db('thebhg_ka', $db);
+$db = mysql_connect('localhost', 'ka', 'habecrimes');
+mysql_select_db('ka', $db);
 
 $ka = new KA_1('kac-34-fear');
 $roster = new Roster('kac-34-fear');

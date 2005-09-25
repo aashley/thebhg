@@ -1,4 +1,7 @@
 <?php
+
+$site = $_GET[site];
+
 require_once '../Layout.inc';
 if($site == "")
 {

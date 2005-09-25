@@ -21,8 +21,8 @@ if (!function_exists('constructlayout')) {
 ini_set('include_path', ini_get('include_path') . ':/var/www/html/include');
 include_once('roster.inc');
 
-$db = mysql_connect('localhost', 'thebhg_ka', 'bhgkapass');
-mysql_select_db('thebhg_ka', $db);
+$db = mysql_connect('localhost', 'ka', 'habecrimes');
+mysql_select_db('ka', $db);
 
 $global_ka = $ka;
 $ka = new CGBase($db);
