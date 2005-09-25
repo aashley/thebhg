@@ -1,8 +1,8 @@
 <?php
 import_request_variables('gp');
 
-$db = mysql_connect('localhost', 'thebhg_tactician', 'tacdba70');
-mysql_select_db('thebhg_tactician', $db);
+$db = mysql_connect('localhost', 'tactician', 'thidrithow');
+mysql_select_db('tactician', $db);
 
 include('roster.inc');
 include('table.php');
