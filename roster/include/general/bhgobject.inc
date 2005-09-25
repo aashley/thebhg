@@ -95,7 +95,7 @@ class BHGObject {
     $this->roster_dbname = 'thebhg_roster';  // Set the name of the database everything in
 
     // Connect to the db and set the default db
-    $this->roster_db = mysql_connect("localhost", "thebhg", "monkey69");
+    $this->roster_db = mysql_connect("localhost", "roster", "traiprarea");
     mysql_select_db($this->roster_dbname,$this->roster_db);
 
   }
