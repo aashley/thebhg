@@ -7,8 +7,9 @@
 	var $bastion;
 
     function Arena(){
-	    $connects = array('holonet'=>array('name'=>'holonet', 'pass'=>'w0rdy'), 'lyarna'=>array('name'=>'lyarna', 'pass'=>'lyarnasys55'), 
-	    			'bastion'=>array('name'=>'overseer', 'pass'=>'01c81257'));
+	    $connects = array(	'holonet'=>array('db'=>'thebhg_holonet', 'pass'=>'monkey69', 'name'=>'thebhg'), 
+	    					'lyarna'=>array('db'=>'thebhg_lyarna', 'pass'=>'monkey69', 'name'=>'thebhg'), 
+	    					'bastion'=>array('db'=>'overseer', 'pass'=>'pecesicruf', 'name'=>'overseer'));
 	    
 	    foreach ($connects as $name=>$data){
 		    $this->$name = $this->Connect($data);
@@ -17,8 +18,8 @@
     }
     
     function Connect($info){
-	    $connect = mysql_connect("localhost", "thebhg_".$info['name'], $info['pass']);
-        mysql_select_db("thebhg_".$info['name'], $connect);
+	    $connect = mysql_connect("localhost", $info['name'], $info['pass']);
+        mysql_select_db($info['db'], $connect);
         
         return $connect;
     }
