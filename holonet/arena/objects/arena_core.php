@@ -224,8 +224,8 @@
         foreach ($locations as $location){ 
         
         	$sql = "SELECT * FROM `$location` WHERE `arena` = 1";
-
-        	$query = mysql_query($sql, $this->lyarna);
+			mysql_select_db('thebhg_lyarna', $this->holonet);
+        	$query = mysql_query($sql, $this->holonet);
 
 	        while ($info = mysql_fetch_array($query)){
 		        $planet = mysql_fetch_array(mysql_query("SELECT * FROM `planets` WHERE `id` = '".$info['planet']."'", $this->lyarna));
@@ -236,7 +236,7 @@
 	            $return[$new] = $exp[0] . ' - ' . $info['name'];
             }
         }
-        
+        mysql_select_db('thebhg_holonet', $this->holonet);
         asort($return);
 
         return $return;
