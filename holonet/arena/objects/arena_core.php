@@ -228,7 +228,7 @@
         	$query = mysql_query($sql, $this->holonet);
 
 	        while ($info = mysql_fetch_array($query)){
-		        $planet = mysql_fetch_array(mysql_query("SELECT * FROM `planets` WHERE `id` = '".$info['planet']."'", $this->lyarna));
+		        $planet = mysql_fetch_array(mysql_query("SELECT * FROM `planets` WHERE `id` = '".$info['planet']."'", $this->holonet));
 		        $new = serialize(array($info['planet']=>$info['id']));
 				
 		        $exp = explode(',', $planet['name']);
