@@ -1,5 +1,6 @@
 RewriteEngine On
 RewriteBase /
 
+RewriteRule ^stats - [L]
 RewriteRule ^index.php - [L]
 RewriteRule ^(.*) index.php/$1 [PT]
