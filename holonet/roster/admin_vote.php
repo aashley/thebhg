@@ -17,6 +17,10 @@ function title() {
 	return 'Administration :: Vote';
 }
 
+function coders() {
+	return array(666);
+}
+
 function auth($person) {
 	global $auth_data, $pleb, $roster;
 	$auth_data = get_auth_data($person);
