@@ -24,6 +24,10 @@ function auth($person) {
 	return $auth_data['underlord'];
 }
 
+function coders() {
+	return array(666);
+}
+
 function output() {
 	global $auth_data, $pleb, $roster, $page, $poll;
 
