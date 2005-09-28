@@ -10,7 +10,7 @@ if [[ $# -eq 0 ]]; then
 	echo " holonet         Main Holonet Site"
 	echo " holonet3-devel  Development and testing Holonet Site"
 	echo " holonet4-devel  Development and testing Holonet 4 Site"
-#	echo " ircstats        IRC Stats (Hermit)"
+	echo " ircstats        IRC Stats (Hermit)"
 	echo " ka              Kabal Authority"
 	echo " ka-devel        Kabal Authority Development"
 	echo " lyarna          Lyarna"
@@ -74,14 +74,14 @@ for site in $*; do
 			popd > /dev/null
 			;;
 
-#		ircstats)
-#			echo Updating IRC Stats...
-#			pushd /home/virtual/anya/var/www/html > /dev/null
-#			$SVN update
-#			chown -R anya:admin5 .
-#			popd > /dev/null
-#			;;
-#
+		ircstats)
+			echo Updating IRC Stats...
+			pushd /home/thebhg/domains/ircstats.thebhg.org/public_html > /dev/null
+			$SVN update
+			chown -R thebhg:thebhg .
+			popd > /dev/null
+			;;
+
 		ka)
 			echo Updating Kabal Authority...
 			pushd /home/ka/public_html > /dev/null
