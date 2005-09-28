@@ -13,6 +13,29 @@ class bhg_medalboard_group extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getMedals()
+
+	public function getMedals() {
+
+		$sql = 'SELECT id '
+					.'FROM medalboard_medal '
+					.'ORDER BY sortorder ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of medal board medals.', $result);
+
+		} else {
+
+			return new bhg_core_list('bhg_medalboard_medal', $results);
+
+		}
+
+	}
+
+	// }}}
 
 }
 

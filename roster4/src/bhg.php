@@ -224,10 +224,24 @@ class bhg {
 	public function setCodeID($code) {
 
 		try {
-			
-			$this->code = new bhg_core_code(strtolower(md5($code)));
 
-			return true;
+			$hash = strtolower(md5($code));
+
+			$sql = 'SELECT id FROM core_code WHERE hash = '.$hash;
+
+			$result = $this->db->getOne($sql);
+
+			if (DB::isError($result)) {
+
+				throw new bhg_db_exception('Could not load coder details.', $result);
+
+			} else {
+				
+				$this->code = new bhg_core_code($result);
+
+				return true;
+
+			}
 
 		} catch (bhg_fatal_exception $e) {
 
@@ -236,6 +250,15 @@ class bhg {
 			return false;
 
 		}
+
+	}
+
+	// }}}
+	// {{{ getCoder()
+
+	public function getCoder() {
+
+		return $this->code;
 
 	}
 

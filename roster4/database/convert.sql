@@ -2,10 +2,9 @@ BEGIN;
 
 -- Code IDs
 ALTER TABLE coders RENAME core_code;
-ALTER TABLE core_code DROP COLUMN id;
-ALTER TABLE core_code CHANGE md5 id CHAR(32) NOT NULL;
-UPDATE core_code SET id = LOWER(id);
-ALTER TABLE core_code ADD PRIMARY KEY (id);
+ALTER TABLE core_code CHANGE md5 hash CHAR(32) NOT NULL;
+UPDATE core_code SET hash = LOWER(hash);
+ALTER TABLE core_code ADD UNIQUE KEY(hash);
 
 -- Drop old CS code
 DROP TABLE `cs_bonus_points`, `cs_classes`, `cs_field_options`, `cs_fields`, `cs_pending_fields`, `cs_sheet_fields`, `cs_sheets`, `cs_unused_xp`, `cs_used_xp`, `new_members`;
