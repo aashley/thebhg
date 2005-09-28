@@ -165,10 +165,18 @@
 	    	$res = 'holonet';
     	}
     	
+    	if ($res == 'lyarna'){
+	    	mysql_select_db('thebhg_lyarna', $this->holonet);
+    	}
+    	
 	    $sql = "SELECT $sel FROM `".$data['table']."`".(count($implode) ? " WHERE ".implode(' AND ', $implode) : '').($data['group'] ? 'GROUP BY `'.$data['group'].'`' : '').(count($order) ? ' ORDER BY '.implode(', ', $order) : '').($data['limit'] ? ' LIMIT '.$data['limit'] : '');
 		$query = mysql_query($sql, $this->$res);
 		
 		echo (mysql_error($this->$res) ? mysql_error($this->$res).'<br />' : '');
+		
+		if ($res == 'lyarna'){
+	    	mysql_select_db('thebhg_holonet', $this->holonet);
+    	}
 		
 		if ($count){
 			return mysql_num_rows($query);
