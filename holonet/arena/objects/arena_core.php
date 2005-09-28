@@ -7,21 +7,14 @@
 	var $bastion;
 
     function Arena(){
-	    $connects = array(	'holonet'=>array('db'=>'thebhg_holonet', 'pass'=>'monkey69', 'name'=>'thebhg'), 
-	    					'lyarna'=>array('db'=>'thebhg_lyarna', 'pass'=>'monkey69', 'name'=>'thebhg'), 
-	    					'bastion'=>array('db'=>'overseer', 'pass'=>'pecesicruf', 'name'=>'overseer'));
-	    
-	    foreach ($connects as $name=>$data){
-		    $this->$name = $this->Connect($data);
-	    }
-
-    }
-    
-    function Connect($info){
-	    $connect = mysql_connect("localhost", $info['name'], $info['pass']);
-        mysql_select_db($info['db'], $connect);
+	    $this->holonet = mysql_connect("localhost", 'thebhg', 'monkey69');
+        mysql_select_db('thebhg_holonet', $this->holonet);
         
-        return $connect;
+        $this->lyarna = mysql_connect("localhost", 'thebhg', 'monkey69');
+        mysql_select_db('thebhg_lyarna', $this->lyarna);
+        
+        $this->bastion = mysql_connect("localhost", 'overseer', 'pecesicruf');
+        mysql_select_db('overseer', $this->basion);
     }
     
     function StorePendingXP($bhg_id, $reason, $xp, $by){
