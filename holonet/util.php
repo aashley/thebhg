@@ -20,9 +20,14 @@ define('FT_HOUR', 3);
 define('FT_MINUTE', 4);
 define('FT_SECOND', 5);
 function format_time($seconds, $precision = FT_SECOND) {
-	$days = floor($seconds / 86400);
-	$years = floor($days / 365);
-	$days %= 365;
+	$then = time() - $seconds;
+	$years = date('Y') - date('Y', $then);
+	$days = date('z') - date('z', $then);
+	if ($days < 0) {
+		$years--;
+		$days += (date('L', $then) ? 366 : 365);
+	}
+
 	$weeks = floor($days / 7);
 	$days %= 7;
 
