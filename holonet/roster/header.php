@@ -4,8 +4,7 @@ include_once('sheet.php');
 $roster = new Roster('roster-69god');
 $mb = new MedalBoard('roster-69god');
 
-function roster_header() {
-}
+function roster_header() {}
 
 function roster_footer($show_list = true, $more_items = false) {
 	global $roster;
