@@ -3,20 +3,20 @@
 SVN="/usr/bin/svn"
 
 if [[ $# -eq 0 ]]; then
-  echo "You must specify at least one of the following sites to update:"
-  echo " roster          Roster Objects and Utilities"
-	echo " bugs            Bug Tracker"
-  echo " calypso         BHG Blogs"
+	echo "You must specify at least one of the following sites to update:"
+	echo " roster          Roster Objects and Utilities"
+	echo " calypso         BHG Blogs"
 	echo " citadel         Citadel"
-  echo " holonet         Main Holonet Site"
-  echo " holonet-devel   Development and testing Holonet Site"
-	echo " ircstats        IRC Stats (Hermit)"
+	echo " holonet         Main Holonet Site"
+	echo " holonet3-devel  Development and testing Holonet Site"
+	echo " holonet4-devel  Development and testing Holonet 4 Site"
+#	echo " ircstats        IRC Stats (Hermit)"
 	echo " ka              Kabal Authority"
-  echo " ka-devel        Kabal Authority Development"
+	echo " ka-devel        Kabal Authority Development"
 	echo " lyarna          Lyarna"
-	echo " mall            Mall"
 	echo " mybhg           MyBHG - Main Website"
 	echo " mybhg-devel     MyBHG - Testing"
+	echo " roster4         Roster 4 Objects and Utilities"
 	echo " scum            Scum - Main site"
 	echo " scum-devel      Scum - Testing"
 	echo " tactician       Tactician Website"
@@ -26,132 +26,131 @@ for site in $*; do
 	case $site in
 		roster)
 			echo Updating Roster...
-			pushd /home/virtual/thebhg.org/usr/share/roster3/include > /dev/null
+			pushd /usr/share/roster > /dev/null
 			$SVN update
 			popd > /dev/null
-			pushd /var/www/html/util > /dev/null
+			pushd /root/util > /dev/null
 			$SVN update
-			popd > /dev/null
-			;;
-
-		bugs)
-			echo Updating Bug Tracker...
-			pushd /home/virtual/thebhg.org/home/bugs/public_html > /dev/null
-			$SVN update
-			chown -R 22096:admin5 .
 			popd > /dev/null
 			;;
 
 		calypso)
 			echo Updating Calypso...
-			pushd /home/virtual/thebhg.org/home/blogs/public_html > /dev/null
+			pushd /home/thebhg/domains/blogs.thebhg.org/public_html > /dev/null
 			$SVN update
-			chown -R 22120:admin5 .
+			chown -R thebhg:thebhg .
 			popd > /dev/null
 			;;
 
 		citadel)
 			echo Updating Citadel...
-			pushd /home/virtual/thebhg.org/home/citadel/public_html > /dev/null
+			pushd /home/thebhg/domains/citadel.thebhg.org/public_html > /dev/null
 			$SVN update
-			chown -R 22117:admin5 .
+			chown -R thebhg:thebhg .
 			popd > /dev/null
 			;;
 
 		holonet)
 			echo Updating Holonet...
-			pushd /home/virtual/thebhg.org/home/holonet/public_html > /dev/null
+			pushd /home/thebhg/domains/holonet.thebhg.org/public_html > /dev/null
 			$SVN update
-			chown -R 22110:admin5 .
+			chown -R thebhg:thebhg .
 			popd > /dev/null
 			;;
 
-		holonet-devel)
+		holonet3-devel)
 			echo Updating Holonet Devel Site...
-			pushd /home/virtual/thebhg.org/var/www/holonet-devel > /dev/null
+			pushd /home/bhgdevel/domains/holonet3.devel.thebhg.org/public_html > /dev/null
 			$SVN update
-			chown -R admin5:admin5 .
+			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
 			;;
 
-		ircstats)
-			echo Updating IRC Stats...
-			pushd /home/virtual/anya/var/www/html > /dev/null
+		holonet4-devel)
+			echo Updating Holonet Devel Site...
+			pushd /home/bhgdevel/domains/holonet.devel.thebhg.org/public_html > /dev/null
 			$SVN update
-			chown -R anya:admin5 .
+			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
 			;;
 
+#		ircstats)
+#			echo Updating IRC Stats...
+#			pushd /home/virtual/anya/var/www/html > /dev/null
+#			$SVN update
+#			chown -R anya:admin5 .
+#			popd > /dev/null
+#			;;
+#
 		ka)
 			echo Updating Kabal Authority...
-			pushd /home/virtual/thebhg.org/home/ka/public_html > /dev/null
+			pushd /home/ka/public_html > /dev/null
 			$SVN update
-			chown -R 22130:admin5 .
+			chown -R ka:ka .
 			chmod -R go+r .
 			popd > /dev/null
 			;;
 
 		ka-devel)
 			echo Updating Kabal Authority Development...
-			pushd /home/virtual/thebhg.org/home/katest/public_html > /dev/null
+			pushd /home/bhgdevel/domains/ka.devel.thebhg.org/public_html > /dev/null
 			$SVN update
-			chown -R 22135:admin5 .
+			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
 			;;
 
 		lyarna)
 			echo Updating Lyarna...
-			pushd /home/virtual/thebhg.org/home/lyarna/public_html > /dev/null
+			pushd /home/thebhg/domains/lyarna.thebhg.org/public_html > /dev/null
 			$SVN update
-			chown -R 22133:admin5 .
-			popd > /dev/null
-			;;
-
-		mall)
-			echo Updating Mall...
-			pushd /home/virtual/thebhg.org/home/mall/public_html > /dev/null
-			$SVN update
-			chown -R 22136:admin5 .
+			chown -R thebhg:thebhg .
 			popd > /dev/null
 			;;
 
 		mybhg)
-		  echo Updating MyBHG...
-			pushd /home/virtual/mybhg.org/var/www/html > /dev/null
+			echo Updating MyBHG...
+			pushd /home/thebhg/domains/www.mybhg.org/public_html > /dev/null
 			$SVN update
-			chown -R admin6:admin6 .
+			chown -R thebhg:thebhg .
 			popd > /dev/null
 			;;
 
 		mybhg-devel)
 			echo Updating MyBHG Development...
-			pushd /home/virtual/thebhg.org/home/my/public_html > /dev/null
+			pushd /home/bhgdevel/domains/mybhg.devel.thebhg.org/public_html > /dev/null
 			$SVN update
-			chown -R 22129:admin5 .
+			chown -R bhgdevel:bhgdevel .
+			popd > /dev/null
+			;;
+
+		roster4)
+			echo Updating Roster 4...
+			pushd /usr/share/bhg > /dev/null
+			$SVN update
 			popd > /dev/null
 			;;
 
 		scum)
 		  echo Updating Scum...
-			pushd /home/virtual/thebhg.org/var/www/html > /dev/null
+			pushd /home/thebhg/public_html > /dev/null
 			$SVN update
-			chown -R admin5:admin5 .
+			chown -R thebhg:thebhg .
 			popd > /dev/null
 			;;
 
 		scum-devel)
 			echo Updating Scum Development...
-			pushd /home/virtual/thebhg.org/home/scum/public_html > /dev/null
+			pushd /home/bhgdevel/public_html > /dev/null
 			$SVN update
-			chown -R 22152:admin5 .
+			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
 			;;
 
 		tactician)
 			echo Updating Tactician Website...
-			pushd /home/virtual/thebhg.org/home/tactician/public_html > /dev/null
+			pushd /home/tactician/public_html > /dev/null
 			$SVN update
-			chown -R 22109:admin5 .
+			chown -R tactician:tactician .
 			popd > /dev/null
 			;;
 
