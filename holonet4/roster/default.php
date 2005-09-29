@@ -21,8 +21,11 @@ class page_roster_default extends holonet_page {
 
 	public function buildWelcome() {
 
-		// XXX Must be replaced with appropriate search call.
-		$underlord = $GLOBALS['bhg']->roster->getPerson(666);
+		$underlords = $GLOBALS['bhg']->roster->getPeople(array('position' => bhg_roster::getPosition(2)));
+		if ($underlords->count() == 0)
+			$underlord = bhg_roster::getPerson(666);
+		else
+			$underlord = $underlords->getItem(0);
 
 		$tab = new holonet_tab('welcome', 'Welcome');
 
