@@ -1,5 +1,4 @@
 <?php 
-include_once 'Date/Calc.php';
 
 function pluralise($s, $n) {
 	$str = number_format($n) . ' ' . $s;
@@ -16,12 +15,21 @@ define('FT_HOUR', 3);
 define('FT_MINUTE', 4);
 define('FT_SECOND', 5);
 function format_time($seconds, $precision = FT_SECOND) {
-	$then = time() - $seconds;
-	$years = date('Y') - date('Y', $then);
+	$anniv = mktime(0, 0, 0, date('m', $then), date('d', $then), date('Y'));
+	if ($anniv > time()) {
+		$years = date('Y') - date('Y', $then) - 1;
+	}
+	else {
+		$years = date('Y') - date('Y', $then);
+	}
+	
 	$days = date('z') - date('z', $then);
+	if (date('L', $then) == 1
+	 && date('L') == 0
+	 && date('z') > 60)
+		$days++;
 	if ($days < 0) {
-		$years--;
-		$days += (date('L', $then) ? 366 : 365);
+		$days += (date('L', mktime(0, 0, 0, date('m'), date('d'), date('Y') - 1)) ? 366 : 365);
 	}
 
 	$weeks = floor($days / 7);
