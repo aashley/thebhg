@@ -9,6 +9,16 @@ ALTER TABLE core_code ADD UNIQUE KEY(hash);
 
 -- Drop old CS code
 DROP TABLE `cs_bonus_points`, `cs_classes`, `cs_field_options`, `cs_fields`, `cs_pending_fields`, `cs_sheet_fields`, `cs_sheets`, `cs_unused_xp`, `cs_used_xp`, `new_members`;
+-- Drop old Holonet Crap that shouldnt be here
+DROP TABLE `hn_cadre_applications` ,
+		 `hn_com_poll` ,
+		 `hn_com_vote` ,
+		 `hn_pending_awols` ,
+		 `hn_pending_credits` ,
+		 `hn_pending_medals` ,
+		 `hn_pending_reasons` ,
+		 `hn_reports` ,
+		 `http_logins` ;
 
 -- Roster Bio Data
 ALTER TABLE `roster_biographical_data` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
