@@ -12,6 +12,10 @@ function output() {
 	$result = mysql_query('SELECT COUNT(*) AS num FROM roster_roster WHERE division NOT IN (0,16)', $roster->roster_db);
 	$tmc = mysql_result($result, 0, 'num');
 	$table->AddRow('Total Member Count:', $tmc);
+
+	$result = mysql_query('SELECT COUNT(*) AS num FROM roster_roster WHERE division NOT IN (0,12,16)', $roster->roster_db);
+	$amc = mysql_result($result, 0, 'num');
+	$table->AddRow('Active Member Count:', $amc);
 	$table->EndTable();
 
 	hr();
