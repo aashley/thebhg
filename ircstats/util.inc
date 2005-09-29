@@ -15,6 +15,8 @@ define('FT_HOUR', 3);
 define('FT_MINUTE', 4);
 define('FT_SECOND', 5);
 function format_time($seconds, $precision = FT_SECOND) {
+	$then = time() - $seconds;
+
 	$anniv = mktime(0, 0, 0, date('m', $then), date('d', $then), date('Y'));
 	if ($anniv > time()) {
 		$years = date('Y') - date('Y', $then) - 1;
