@@ -181,6 +181,72 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getPeople()
+
+	/**
+	 * Returns a set of people within the system.
+	 *
+	 * @param array Filters to select which people to load. Filters available
+	 * include name, email, division, position, rank, ircnicks, and deleted.
+	 * @return bhg_core_list
+	 */
+	public function getPeople($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM roster_person ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['name']))
+			$sqlfilters[] = 'name LIKE "%'
+										 .$this->db->escapeSimple($filter['name'])
+										 .'%"';
+
+		if (isset($filter['email']))
+			$sqlfilters[] = 'email LIKE "%'
+										 .$this->db->escapeSimple($filter['email'])
+										 .'%"';
+
+		if (isset($filter['ircnicks']))
+			$sqlfilters[] = 'ircnicks LIKE "%'
+										 .$this->db->escapeSimple($filter['ircnicks'])
+										 .'%"';
+
+		if (isset($filter['division'])
+		 && $filter['division'] instanceof bhg_roster_division)
+			$sqlfilters[] = 'division = '.$this->db->quoteSmart($filter['division']->getID());
+
+		if (isset($filter['position'])
+		 && $filter['position'] instanceof bhg_roster_position)
+			$sqlfilters[] = 'position = '.$this->db->quoteSmart($filter['position']->getID());
+
+		if (isset($filter['rank'])
+		 && $filter['rank'] instanceof bhg_roster_rank)
+			$sqlfilters[] = 'rank = '.$this->db->quoteSmart($filter['rank']->getID());
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY name ASC';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of people.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_person', $results);
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getPosition()
 
 	static public function getPosition($id) {
