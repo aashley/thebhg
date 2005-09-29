@@ -58,9 +58,10 @@ class bhg_roster_person extends bhg_core_base {
 	/**
 	 * Get the ID Line of this person
 	 *
+	 * @param boolean True for the full ID line, false for the short version.
 	 * @return string
 	 */
-	public function getIDLine() {
+	public function getIDLine($showFull = false) {
 
 		$idline = $this->getRank()->getAbbrev()
 			.'/'
