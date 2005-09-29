@@ -24,10 +24,17 @@ if (!extension_loaded('tidy')) {
 
 }
 
-include_once '/usr/share/bhg/bhg.php';
-include_once 'objects/holonet.php';
+try {
+	include_once '/usr/share/bhg/bhg.php';
+	include_once 'objects/holonet.php';
 
-$GLOBALS['holonet']->execute();
+	$GLOBALS['holonet']->execute();
+
+} catch (Exception $e) {
+
+	print $e->__toString();
+
+}
 
 ob_end_flush();
 
