@@ -456,6 +456,54 @@ class bhg_core_list implements IteratorAggregate {
 	}
 
 	// }}}
+	// {{{ multisort()
+
+	/**
+	 * Sorts the entries in the list by multiple methods.
+	 *
+	 * @param array The methods to sort by. If a sub-array is given, each element
+	 * of such will be called as a chained method.
+	 * @param array An array of orderings for each method, either 'asc' or
+	 * 'desc'.
+	 * @return boolean
+	 * @throws bhg_list_exception_badparameter Thrown if the method name
+	 * given is invalid.
+	 */
+	public function multisort($by, $order = null) {
+
+		if (is_null($order))
+			$order = 'asc';
+
+		if (!is_array($order))
+			$order = array_fill(0, count($by), $order);
+
+		// If the web interface asks us to sort without a comparison method, just
+		// say we did it and continue.
+		if (is_null($by)) return true;
+
+		if (is_string($by)) {
+			
+			$this->sort($by, array_unshift($order));
+			return;
+
+		}
+
+		// Similarly, empty lists don't need to be sorted.
+		if (sizeof($this->items) == 0) return true;
+
+		$GLOBALS['__bhg_sort'] = array('object' => $this->object,
+				'by' => $by,
+				'order' => $order);
+
+		$result = usort($this->items, array('bhg_core_list', 'compareObjectsMulti'));
+
+		unset($GLOBALS['__bhg_sort']);
+
+		return $result;
+
+	}
+
+	// }}}
 	// {{{ remove()
 
 	/**
@@ -560,7 +608,7 @@ class bhg_core_list implements IteratorAggregate {
 				'by' => $by,
 				'order' => $order);
 
-		$result = usort($this->items, array('bhg_core_list', 'compareObjects'));
+		$result = usort($this->items, array('bhg_core_list', 'compareObjectsSingle'));
 
 		unset($GLOBALS['__bhg_sort']);
 
@@ -571,14 +619,95 @@ class bhg_core_list implements IteratorAggregate {
 	// }}}
 
 	// Helper function for sorting.
-	// {{{ compareObjects() [static]
+	// {{{ compareObjects() [static, private]
+
+	private static function compareObjects($obja, $objb, $order) {
+
+		if ($obja instanceof Date)
+			$stringa = $obja->getDate();
+		if ($objb instanceof Date)
+			$stringb = $objb->getDate();
+
+		if (!isset($stringa))
+			$stringa = strtolower($obja);
+		if (!isset($stringb))
+			$stringb = strtolower($objb);
+
+		if ($stringa == $stringb) return 0;
+		if ($order == 'desc')
+			return ($stringa > $stringb) ? -1 : +1;
+		else
+			return ($stringa > $stringb) ? +1 : -1;
+		
+	}
+
+	// }}}
+	// {{{ compareObjectsMulti() [static]
+
+	/**
+	 * Static compare function used by bhg_core_list::multisort()
+	 *
+	 * @return integer
+	 */
+	static public function compareObjectsMulti($a, $b) {
+
+		$options = $GLOBALS['__bhg_sort'];
+
+		if (substr($options['object'], 0, 5) == 'bhg_') {
+
+			$obja = bhg::loadObject($options['object'], $a);
+			$objb = bhg::loadObject($options['object'], $b);
+
+		} else {
+			
+			$obja = new $options['object']($a);
+			$objb = new $options['object']($b);
+
+		}
+
+		$i = -1;
+		$comp = 0;
+		
+		while (++$i < count($options['by'])
+		    && $comp == 0) {
+
+			$order = $options['order'][$i];
+			$by = $options['by'][$i];
+
+			$inA = clone $obja;
+			$inB = clone $objb;
+			
+			if (is_array($by))
+				foreach ($by as $method) {
+
+					$inA = $inA->$method();
+					$inB = $inB->$method();
+					
+				}
+			else {
+
+				$inA = $inA->$by();
+				$inB = $inB->$by();
+
+			}
+
+			$comp = self::compareObjects($inA, $inB, $order);
+
+		}
+
+		return $comp;
+
+	}
+
+	// }}}
+	// {{{ compareObjectsSingle() [static]
 
 	/**
 	 * Static compare function used by bhg_core_list::sort()
 	 *
 	 * @return integer
 	 */
-	static public function compareObjects($a, $b) {
+	static public function compareObjectsSingle($a, $b) {
 
 		$options = $GLOBALS['__bhg_sort'];
 
@@ -611,43 +740,14 @@ class bhg_core_list implements IteratorAggregate {
 			}
 
 		} else {
-			
+
 			$obja = call_user_func(array($obja, $options['by']));
 			$objb = call_user_func(array($objb, $options['by']));
 
 		}
 
-/*		if ($obja instanceof Date && $objb instanceof Date) {
-			$return = Date::compare($obja, $objb);
-			if ($options['order'] == 'desc')
-				return $return * -1;
-			else
-				return $return;
-		} else {
-			$stringa = strtolower($obja);
-			$stringb = strtolower($objb);
-			if ($stringa == $stringb) return 0;
-			if ($options['order'] == 'desc')
-				return ($stringa > $stringb) ? -1 : +1;
-			else
-				return ($stringa > $stringb) ? +1 : -1;
-		}*/
-
-		if ($obja instanceof Date)
-			$stringa = $obja->getDate();
-		if ($objb instanceof Date)
-			$stringb = $objb->getDate();
-
-		if (!isset($stringa))
-			$stringa = strtolower($obja);
-		if (!isset($stringb))
-			$stringb = strtolower($objb);
-
-		if ($stringa == $stringb) return 0;
-		if ($options['order'] == 'desc')
-			return ($stringa > $stringb) ? -1 : +1;
-		else
-			return ($stringa > $stringb) ? +1 : -1;
+		return self::compareObjects($obja, $objb, $options['order']);
+		
 	}
 
 	// }}}
