@@ -24,9 +24,9 @@ class bhg_roster_division extends bhg_core_base {
 	public function getPeople($filter = array()) {
 
 		$sql = 'SELECT id '
-					.'FROM bhg_roster_person ';
+					.'FROM roster_person ';
 
-		$sqlfilters = array();
+		$sqlfilters = array('division = ?');
 
 		if (isset($filter['deleted']) && $filter['deleted'] == true)
 			$sqlfilters[] = 'datedeleted IS NULL ';
@@ -34,7 +34,7 @@ class bhg_roster_division extends bhg_core_base {
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
 
-		$results = $this->db->getCol($sql);
+		$results = $this->db->getCol($sql, 0, array($this->getID()));
 
 		if (DB::isError($results)) {
 
