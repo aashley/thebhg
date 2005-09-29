@@ -122,7 +122,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		if (is_null($cadre)) {
 
-			return $this->data['cadre'] == 0;
+			return $this->data['cadre'] != 0;
 
 		} else {
 
