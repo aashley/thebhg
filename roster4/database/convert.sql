@@ -89,7 +89,7 @@ ALTER TABLE roster_roster RENAME roster_person;
 ALTER TABLE roster_person ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE roster_person ADD COLUMN datedeleted DATETIME;
 UPDATE roster_person SET dateupdated = FROM_UNIXTIME(last_updated);
-UPDATE roster_person SET datedeleted = dateupdated WHERE division = 16;
+UPDATE roster_person SET datedeleted = dateupdated WHERE division IN (0, 16);
 ALTER TABLE roster_person DROP COLUMN last_updated;
 ALTER TABLE roster_person ADD COLUMN datecreated DATETIME NOT NULL;
 UPDATE roster_person SET datecreated = date_joined;
