@@ -201,36 +201,36 @@ class bhg_roster extends bhg_entry {
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['name']))
-			$sqlfilters[] = 'name LIKE "%'
+			$sqlfilters[] = '`name` LIKE "%'
 										 .$this->db->escapeSimple($filter['name'])
 										 .'%"';
 
 		if (isset($filter['email']))
-			$sqlfilters[] = 'email LIKE "%'
+			$sqlfilters[] = '`email` LIKE "%'
 										 .$this->db->escapeSimple($filter['email'])
 										 .'%"';
 
 		if (isset($filter['ircnicks']))
-			$sqlfilters[] = 'ircnicks LIKE "%'
+			$sqlfilters[] = '`ircnicks` LIKE "%'
 										 .$this->db->escapeSimple($filter['ircnicks'])
 										 .'%"';
 
 		if (isset($filter['division'])
 		 && $filter['division'] instanceof bhg_roster_division)
-			$sqlfilters[] = 'division = '.$this->db->quoteSmart($filter['division']->getID());
+			$sqlfilters[] = '`division` = '.$this->db->quoteSmart($filter['division']->getID());
 
 		if (isset($filter['position'])
 		 && $filter['position'] instanceof bhg_roster_position)
-			$sqlfilters[] = 'position = '.$this->db->quoteSmart($filter['position']->getID());
+			$sqlfilters[] = '`position` = '.$this->db->quoteSmart($filter['position']->getID());
 
 		if (isset($filter['rank'])
 		 && $filter['rank'] instanceof bhg_roster_rank)
-			$sqlfilters[] = 'rank = '.$this->db->quoteSmart($filter['rank']->getID());
+			$sqlfilters[] = '`rank` = '.$this->db->quoteSmart($filter['rank']->getID());
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
-		$sql .= 'ORDER BY name ASC';
+		$sql .= 'ORDER BY `name` ASC';
 
 		$results = $this->db->getCol($sql);
 
