@@ -25,7 +25,7 @@ include_once 'Log.php';
  * @subpackage Core
  * @Version $Rev:$ $Date:$
  */
-class bhg {
+class bhg extends bhg_core_base {
 
 	// {{{ properties
 
@@ -68,7 +68,9 @@ class bhg {
 
 	public function __construct() {
 
-		$this->log = &Log::singleton('file', 'out.log', 'bhg');
+		parent::__construct();
+
+		$this->log = &Log::singleton('file', '/tmp/roster4.log', 'bhg');
 
 	}
 
@@ -227,9 +229,9 @@ class bhg {
 
 			$hash = strtolower(md5($code));
 
-			$sql = 'SELECT id FROM core_code WHERE hash = '.$hash;
+			$sql = 'SELECT id FROM core_code WHERE `hash` = ?';
 
-			$result = $this->db->getOne($sql);
+			$result = $this->db->getOne($sql, array($hash));
 
 			if (DB::isError($result)) {
 
