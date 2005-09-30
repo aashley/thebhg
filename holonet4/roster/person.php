@@ -14,6 +14,9 @@ class page_roster_person extends holonet_page {
 		$bar = new holonet_tab_bar;
 
 		$bar->addTab($this->buildPersonal($person));
+		$bar->addTab($this->buildMedals($person));
+		$bar->addTab($this->buildCollege($person));
+		//$bar->addTab($this->buildArmour($person));
 
 		$this->addBodyContent($bar);
 
@@ -21,9 +24,73 @@ class page_roster_person extends holonet_page {
 
 	}
 
+	private function buildArmour(bhg_roster_person $person) {
+		
+		$tab = new holonet_tab('armour', 'Armour');
+
+		$tab->addContent('<img src="http://holonet.thebhg.org/roster/armour/armour.php?id='
+				.$person->getID()
+				.'" alt="Armour for '
+				.htmlspecialchars($person->getName())
+				.'" />');
+		
+		return $tab;
+		
+	}
+
+	private function buildCollege(bhg_roster_person $person) {
+
+		$tab = new holonet_tab('college', 'College');
+		$table = new HTML_Table;
+		$submissions = $GLOBALS['bhg']->college->getSubmissions(array('submitter' => $person));
+		$submissions->sort('getDateCreated', 'desc');
+
+		$table->addRow(array('Date', 'Course', 'Status', 'Score'), array(), 'TH');
+		foreach ($submissions as $submission)
+			$table->addRow(array(htmlspecialchars($submission->getDateCreated()->format('%B %e, %Y')),
+					     htmlspecialchars($submission->getExam()->getName()),
+					     $submission->getStatus(),
+					     $submission->isGraded() ? number_format($submission->getScore()) : 'N/A'));
+
+		$tab->addContent($table);
+		return $tab;
+		
+	}
+
+	private function buildMedals(bhg_roster_person $person) {
+
+		$tab = new holonet_tab('medals', 'Medals');
+		$table = new HTML_Table;
+		$medals = $person->getMedals();
+		$medals->sort('getDateCreated', 'desc');
+		
+		$table->addRow(array('Date', 'Awarded By', 'Medal'), array(), 'TH');
+		foreach ($medals as $award) {
+			$reason = '<a href="/medalboard/group/'
+				 .$award->getMedal()->getGroup()->getID()
+				 .'">'
+				 .htmlspecialchars($award->getMedal()->getName())
+				 .'</a>';
+
+			if (strlen($why = $award->getWhy()) > 0) {
+				$reason .= ' for '.htmlspecialchars($award->getWhy());
+				if (substr($reason, -1) != '.')
+					$reason .= '.';
+			}
+			
+			$table->addRow(array(htmlspecialchars($award->getDateCreated()->format('%B %e, %Y')),
+					     $GLOBALS['holonet']->roster->output($award->getAwarder()),
+					     $reason));
+		}
+
+		$tab->addContent($table);
+		return $tab;
+		
+	}
+
 	private function buildPersonal(bhg_roster_person $person) {
 
-		$tab = new holonet_tab('personal', 'Basic Information');
+		$tab = new holonet_tab('personal', 'Dossier');
 		$table = new HTML_Table;
 
 		$table->addRow(array('ID Number:', $person->getID()));
