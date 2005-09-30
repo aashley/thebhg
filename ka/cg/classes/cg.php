@@ -298,7 +298,7 @@ class CG {
 		if ($result && mysql_num_rows($result)) {
 			$signups = array();
 			while ($row = mysql_fetch_array($result)) {
-				$signups[$row['event']] =& new CGSignup($row['id'], $this->db);
+				$signups[] =& new CGSignup($row['id'], $this->db);
 			}
 			return $signups;
 		}
