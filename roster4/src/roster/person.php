@@ -92,11 +92,16 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function getIDLine($showFull = false) {
 
+		$div = $this->getDivision()->getName();
+
+		if (strlen($special = $this->getPosition()->getSpecialDivision()) > 0)
+			$div = $special;
+
 		$idline = $this->getRank()->getAbbrev()
 			.'/'
 			.$this->getName()
 			.'/'
-			.$this->getDivision()->getName()
+			.$div
 			.'/BHG -'
 			.$this->getPosition()->getAbbrev();
 
