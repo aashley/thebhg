@@ -28,6 +28,7 @@ try {
 	include_once '/usr/share/bhg/bhg.php';
 	include_once 'objects/holonet.php';
 
+	$GLOBALS['bhg']->setCodeID('roster-69god');
 	$GLOBALS['holonet']->execute();
 
 } catch (Exception $e) {
