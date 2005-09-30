@@ -249,11 +249,15 @@ ALTER TABLE college_exam_marker ADD COLUMN datedeleted DATETIME;
 -- NTC Exam Completed
 ALTER TABLE ntc_exam_completed RENAME college_submission;
 ALTER TABLE `college_submission` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE college_submission CHANGE date_taken datecreated DATETIME NOT NULL;
+ALTER TABLE college_submission ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE college_submission ADD COLUMN dateupdated DATETIME NOT NULL;
+ALTER TABLE college_submission ADD COLUMN datedeleted DATETIME;
 ALTER TABLE college_submission CHANGE bhg_id submitter INT(11) NOT NULL;
 ALTER TABLE college_submission CHANGE is_graded graded INT(1) NOT NULL;
 ALTER TABLE college_submission CHANGE has_passed passed INT(1) NOT NULL;
+UPDATE college_submission SET datecreated = FROM_UNIXTIME(date_taken), dateupdated = FROM_UNIXTIME(date_taken);
+ALTER TABLE college_submission DROP COLUMN date_taken;
+UPDATE college_submission SET datedeleted = NOW() WHERE exam IN (SELECT id FROM college_exam WHERE datedeleted IS NOT NULL);
 
 -- NTC Exam Answers
 ALTER TABLE ntc_exam_answers RENAME college_submission_answer;
