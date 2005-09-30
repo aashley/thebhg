@@ -58,10 +58,10 @@ class bhg_medalboard extends bhg_entry {
 
 		if (isset($filter['date']) && is_array($filter['date']) && count($filter['date']) == 2) {
 			if ($filter['date'][0] instanceof Date)
-				$sqlfilters[] = '`date` >= '.$this->db->quoteSmart($filter['date'][0]->getDate(DATE_FORMAT_UNIXTIME));
+				$sqlfilters[] = '`datecreated` >= '.$this->db->quoteSmart($filter['date'][0]->getDate(DATE_FORMAT_UNIXTIME));
 			
 			if ($filter['date'][1] instanceof Date)
-				$sqlfilters[] = '`date` <= '.$this->db->quoteSmart($filter['date'][1]->getDate(DATE_FORMAT_UNIXTIME));
+				$sqlfilters[] = '`datecreated` <= '.$this->db->quoteSmart($filter['date'][1]->getDate(DATE_FORMAT_UNIXTIME));
 		}
 
 		if (isset($filter['group']) && $filter['group'] instanceof bhg_medalboard_group) {
@@ -80,7 +80,7 @@ class bhg_medalboard extends bhg_entry {
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
-		$sql .= 'ORDER BY `date` ASC';
+		$sql .= 'ORDER BY `datecreated` ASC';
 
 		$results = $this->db->getCol($sql);
 

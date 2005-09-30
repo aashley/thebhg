@@ -128,6 +128,8 @@ ALTER TABLE medalboard_award ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE medalboard_award ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE medalboard_award CHANGE recipientid recipient INT(11) NOT NULL;
 ALTER TABLE medalboard_award CHANGE awarderid awarder INT(11) NOT NULL;
+UPDATE medalboard_award SET datecreated = FROM_UNIXTIME(`date`), dateupdated = FROM_UNIXTIME(`date`);
+ALTER TABLE medalboard_award DROP COLUMN `date`;
 
 -- MedalBoard Medal Categories
 ALTER TABLE mb_medal_categories RENAME medalboard_category;
