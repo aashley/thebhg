@@ -1,6 +1,6 @@
 <?php
 
-class bhg_cored_code extends bhg_core_base {
+class bhg_core_code extends bhg_core_base {
 
 	// {{{ __construct()
 
