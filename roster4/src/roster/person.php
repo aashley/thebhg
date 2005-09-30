@@ -53,6 +53,35 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getCollegeIDLine()
+
+	/**
+	 * Generates the College part of the ID line.
+	 *
+	 * @return string
+	 */
+	public function getCollegeIDLine() {
+
+		$submissions = $GLOBALS['bhg']->college->getSubmissions(array('passed'    => true,
+																																	'submitter' => $this));
+
+		if ($submissions->count() > 0) {
+			
+			$submissions->sort(array('getExam', 'getAbbr'));
+			$abbrs = array();
+			
+			foreach ($submissions as $sub)
+				$abbrs[] = $sub->getExam()->getAbbr();
+
+			return '{'.implode('-', $abbrs).'}';
+
+		}
+
+		return '';
+
+	}
+	
+	// }}}
 	// {{{ getIDLine()
 
 	/**
@@ -71,21 +100,115 @@ class bhg_roster_person extends bhg_core_base {
 			.'/BHG -'
 			.$this->getPosition()->getAbbrev();
 
+		if ($showFull) {
+			$medal = $this->getMedalIDLine();
+			$citadel = $this->getCollegeIDLine();
+
+			if (strlen($medal) > 0)
+				$idline .= " $medal";
+
+			if (strlen($citadel) > 0)
+				$idline .= " $citadel";
+		}
+
 		return $idline;
 
 	}
 
 	// }}}
+	// {{{ getMedalIDLine()
+
+	/**
+	 * Returns the medal portion of the person's ID line.
+	 *
+	 * @return string
+	 */
+
+	public function getMedalIDLine() {
+
+		$out = array();
+
+		foreach ($GLOBALS['bhg']->medalboard->getCategories() as $category)
+			foreach ($category->getGroups() as $group) {
+				if ($group->getDisplayType() == 0) {
+
+					// Traditional BHG medals.
+
+					$last = 0;
+					foreach ($group->getMedals() as $medal) {
+						
+						$awards = $GLOBALS['bhg']->medalboard->getAwards(array('medal'     => $medal,
+																																	 'recipient' => $this));
+
+						if ($awards->count() < $last) {
+							$last = $awards->count();
+							$out[] = $group->getStartBracket()
+											.$medal->getAbbrev()
+											.$group->getEndBracket();
+						}
+						elseif ($awards->count() > $last) {
+							$diff = $awards->count() - $last;
+							$last = $awards->count();
+							for ($i = 0; $i < $diff; $i++)
+								$out[] = $group->getStartBracket()
+												.$medal->getAbbrev()
+												.$group->getEndBracket();
+						}
+
+					}
+					
+				} elseif ($group->getDisplayType() == 1) {
+
+					// Medals of the form ABBRxN.
+					
+					$awards = $GLOBALS['bhg']->medalboard->getAwards(array('group'     => $group,
+																																 'recipient' => $this));
+
+					if ($awards->count() > 0) {
+						$medalOut = $group->getAbbrev();
+						if ($awards->count() != 1)
+							$medalOut .= 'x'.$awards->count();
+						$out[] = $group->getStartBracket()
+										.$medalOut
+										.$group->getEndBracket();
+					}
+					
+				} elseif ($group->getDisplayType() == 2) {
+
+					// Medals of the form CoXxN.
+					
+					foreach ($group->getMedals() as $medal) {
+						$medalAwards = $GLOBALS['bhg']->medalboard->getAwards(array('medal'     => $medal,
+																																				'recipient' => $this));
+
+						if ($medalAwards->count() > 0) {
+							$medalOut = $medal->getAbbrev();
+							if ($medalAwards->count() != 1)
+								$medalOut .= 'x'.$medalAwards->count();
+							$out[] = $group->getStartBracket()
+											.$medalOut
+											.$group->getEndBracket();
+						}
+					}
+					
+				}
+			}
+
+		return implode(' ', $out);
+
+	}
+	
+	// }}}
 	// {{{ getMedals()
 
 	/**
-	 * Retrieve All Medals awarded to this person
+	 * Retrieves all medal awards made to this person.
 	 *
-	 * @return bhg_core_list
+	 * @return bhg_core_list A list of bhg_medalboard_award objects.
 	 */
 	public function getMedals() {
 
-		return $GLOBALS['bhg']->medalboard->getMedals(
+		return $GLOBALS['bhg']->medalboard->getAwards(
 				array(
 					'recipient' => $this,
 					));
