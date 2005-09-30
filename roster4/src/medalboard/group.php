@@ -5,7 +5,7 @@ class bhg_medalboard_group extends bhg_core_base {
 	// {{{ __construct()
 
 	public function __construct($id) {
-		parent::__construct('medalboard_medal', $id);
+		parent::__construct('medalboard_group', $id);
 		$this->__addFieldMap(array(
 					'category' => 'bhg_medalboard_category',
 					));
@@ -19,9 +19,10 @@ class bhg_medalboard_group extends bhg_core_base {
 
 		$sql = 'SELECT id '
 					.'FROM medalboard_medal '
-					.'ORDER BY sortorder ASC ';
+					.'WHERE `group` = ? '
+					.'ORDER BY sortorder DESC ';
 
-		$results = $this->db->getCol($sql);
+		$results = $this->db->getCol($sql, 0, array($this->getID()));
 
 		if (DB::isError($results)) {
 
