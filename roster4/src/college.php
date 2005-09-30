@@ -27,6 +27,7 @@ class bhg_college extends bhg_entry {
 	 * @param array Filters for the submission list.
 	 * Valid filters include:
 	 * <ul>
+	 * <li><i>deleted</i>: includes deleted submissions.</li>
 	 * <li><i>exam</i>: takes a bhg_college_exam object.</li>
 	 * <li><i>failed</i>: true to restrict the list to failed submissions.</li>
 	 * <li><i>graded</i>: true to restrict the list to graded submissions.</li>
@@ -43,6 +44,9 @@ class bhg_college extends bhg_entry {
 					.'FROM college_submission ';
 
 		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL';
 
 		if (isset($filter['exam']) && $filter['exam'] instanceof bhg_college_exam)
 			$sqlfilters[] = 'exam = '.$this->db->quoteSmart($filter['exam']->getID());

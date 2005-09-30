@@ -17,6 +17,27 @@ class bhg_college_submission extends bhg_core_base {
 
 	// }}}
 
+	// {{{ getStatus()
+
+	/**
+	 * Returns the submission status as a human-readable string.
+	 *
+	 * @return string
+	 */
+	public function getStatus() {
+
+		if ($this->isGraded())
+			if ($this->isPassed())
+				return 'Pass';
+			else
+				return 'Fail';
+		else
+			return 'Ungraded';
+		
+	}
+
+	// }}}
+
 }
 
 ?>
