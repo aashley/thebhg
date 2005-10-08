@@ -15,7 +15,7 @@ foreach ($divisions as $division) {
 	if ($list == 'none@thebhg.org')
 		continue;
 
-	if (!is_array($lists[$list]))
+	if (!isset($lists[$list]) || !is_array($lists[$list]))
 		$lists[$list] = array();
 
 	foreach ($division->getMembers() as $person) {
@@ -27,6 +27,9 @@ foreach ($divisions as $division) {
 }
 
 foreach ($lists as $name => $addresses) {
+
+	if (is_numeric($name))
+		continue;
 
 	$name = str_replace('@thebhg.org', '', $name);
 
