@@ -186,7 +186,8 @@ function AdminMain($crumbTrail, &$login) {
 
   }
 
-	if ($loginpos->getID() == 5) {
+	if (   $loginpos->GetID() == 2
+			|| $loginpos->GetID() == 10) {
 
 		$exams = &$citadel->getExams();
 
