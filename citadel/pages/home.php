@@ -31,10 +31,10 @@ function Home($crumbTrail) {
       '',
       $crumbTrail);
 
-  $executor = $roster->SearchPosition('X');
+  $executor = $roster->SearchPosition('WARD');
 
   print '<p>Scum,</p>'
-    .'<p>I am <a href="mailto:'.$executor[0]->GetEmail().'">Executor '
+    .'<p>I am <a href="mailto:'.$executor[0]->GetEmail().'">Warden '
     .$executor[0]->GetName().'</a>, '
     .'and this is the Citadel. It is here, high above the landscape of '
     .'<a href="http://lyarna.thebhg.org/#2" target="_blank">Sol\'rahl</a>, '
