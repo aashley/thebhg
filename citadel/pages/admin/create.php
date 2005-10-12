@@ -35,7 +35,8 @@ function Admin_Create($crumbTrail, $path, &$login) {
 
   $loginpos = $login->GetPosition();
 
-  if (   $loginpos->GetID() == 5
+  if (   $loginpos->GetID() == 2
+			|| $loginpos->GetID() == 10
       || $login->GetID() == 94) {
   
     $form = new Citadel_HTML_QuickForm();

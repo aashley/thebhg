@@ -33,7 +33,8 @@ function Admin_Questions($crumbTrail, $path, &$login) {
     $loginpos = $login->GetPosition();
 
     if (in_array($login->GetID(), $exam->GetMarkers(true))
-				|| $loginpos->GetID() == 5) {
+				|| $loginpos->GetID() == 2
+				|| $loginpos->GetID() == 10) {
 
       if (   isset($path[2])
           && $path[2] > '') {

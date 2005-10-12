@@ -41,7 +41,8 @@ function Admin($crumbTrail, $path) {
 
     $loginpos = $login->GetPosition();
 
-    if (   $loginpos->GetID() == 5
+    if (   $loginpos->GetID() == 2
+				|| $loginpos->GetID() == 10
         || in_array($login->GetID(), $citadel->GetAllMarkers(true))) {
 
       $path = explode('/', $path);
