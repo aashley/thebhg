@@ -682,7 +682,7 @@ class bhg_core_base {
 			// If the record we've just updated is the one represented by this
 			// object update its local storage of values.
 			if (	 $this->table == $table
-					&& $iref == $this->data[$iref_field]
+					&& $id == $this->data[$iref_field]
 					&& count($fields) > 0) {
 
 				// Get the values from database so we get the evaluated value of
