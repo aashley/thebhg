@@ -36,7 +36,7 @@ if ($cfiles > 5) echo "<A HREF=\"oldmonth-menu.php\" TARGET=\"menu\">Older Month
 <hr>
 <b>Meetings</b><br>
 <?php
-$dir = opendir('/home/anya/eggdrop/logs/meetings');
+$dir = opendir('/home/thebhg/domains/ircstats.thebhg.org/irc/meetings');
 if ($dir) {
 	$row = 0;
 	while ($file = readdir($dir)) {

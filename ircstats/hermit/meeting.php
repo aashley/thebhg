@@ -7,7 +7,7 @@ $title = 'Meeting Log :: ' . date('j F Y', $date);
 include('header.php');
 
 echo '<table cellspacing=0 cellpadding=2>';
-$meeting = file("/home/anya/eggdrop/logs/meetings/meeting.log.$log");
+$meeting = file("/home/thebhg/domains/ircstats.thebhg.org/irc/meetings/meeting.log.$log");
 $odd = true;
 foreach ($meeting as $line) {
 	if (preg_match('/^\[.....\] -/', $line)) continue;

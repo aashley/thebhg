@@ -8,7 +8,7 @@ include('header.php');
 <a href="searchtime.php">Search</a><br>
 <hr>
 <?php
-$dir = opendir('/home/anya/eggdrop/logs/bhg');
+$dir = opendir('/home/thebhg/domains/ircstats.thebhg.org/irc/bhg');
 if ($dir) {
 	while ($file = readdir($dir)) {
 		if (substr($file, 0, 8) == 'bhg.log.') {

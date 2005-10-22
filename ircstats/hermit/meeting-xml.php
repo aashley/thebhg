@@ -6,7 +6,7 @@
 <description>Meeting Logs</description>
 <language>en-au</language>
 <?php
-$dir = opendir('/home/anya/eggdrop/logs/meetings');
+$dir = opendir('/home/thebhg/domains/ircstats.thebhg.org/irc/meetings');
 if ($dir) {
 	$row = 0;
 	while ($file = readdir($dir)) {
