@@ -51,13 +51,18 @@ foreach ($positions as $position) {
 		    && isset($person[0])
 		    && $person[0] instanceof Person) {
 
-			print strtolower(str_replace(' ', '', $position->getName())).": ".$person[0]->getEmail()."\n";
+			$alias = strtolower(str_replace(' ', '', $position->getName()));
+			$target = $person[0]->getEmail();
 
 		} else {
 
-			print strtolower(str_replace(' ', '', $position->getName())).": darkprince@thebhg.org\n";
+			$alias = strtolower(str_replace(' ', '', $position->getName()));
+			$target = "darkprince@thebhg.org";
 
 		}
+		
+		print "$alias: $target\n";
+		updateAlias($alias, $target);
 
 	}
 
@@ -69,38 +74,53 @@ foreach ($kabals as $kabal) {
 
 	$chief = $kabal->getChief();
 
+	$alias = "ch-".strtolower(str_replace(' ', '', $kabal->getName()));
+	
 	if ($chief instanceof Person) {
 
 		if (strlen($chief->getEmail()) > 0) {
-			
-			print "ch-".strtolower(str_replace(' ', '', $kabal->getName())).": "
-				.$chief->getEmail()."\n";
+	
+			$target = $chief->getEmail();
 
 		} else {
 
-			print "ch-".strtolower(str_replace(' ', '', $kabal->getName())).": "
-				."judicator@thebhg.org\n";
+			$target = 'judicator@thebhg.org';
 
 		}
 
+	} else {
+
+		$target = 'judicator@thebhg.org';
+
 	}
+
+	print "$alias: $target\n";
+	updateAlias($alias, $target);
 
 	$cra = $kabal->getCRA();
 
+	$alias = 'cra-'.strtolower(str_replace(' ', '', $kabal->getName()));
+	
 	if ($cra instanceof Person) {
 
 		if (strlen($cra->getEmail()) > 0) {
 
-			print 'cra-'.strtolower(str_replace(' ', '', $kabal->getName())).": "
-				.$cra->getEmail()."\n";
+			$target = $cra->getEmail();
 
 		} else {
 
-			print "cra-".strtolower(str_replace(' ', '', $kabal->getName())).": "
-				."ch-".strtolower(str_replace(' ', '', $kabal->getName()))."@thebhg.org\n";
+			$target = "ch-".strtolower(str_replace(' ', '', $kabal->getName()))."@thebhg.org";
+
 		}
 
+	} else {
+
+		$target = "ch-".strtolower(str_replace(' ', '', $kabal->getName()))."@thebhg.org";
+
 	}
+
+	print "$alias: $target\n";
+	updateAlias($alias, $target);
 
 }
 
