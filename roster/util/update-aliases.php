@@ -63,7 +63,7 @@ foreach ($positions as $position) {
 
 }
 
-$kabals = $roster->getKabels();
+$kabals = $roster->getKabals();
 
 foreach ($kabals as $kabal) {
 
