@@ -49,11 +49,11 @@ foreach ($positions as $position) {
 		    && isset($person[0])
 		    && $person[0] instanceof Person) {
 
-			print strtolower(str_replace(' ', '', $position->getName())).": ".$person[0]->getEmail()."\n");
+			print strtolower(str_replace(' ', '', $position->getName())).": ".$person[0]->getEmail()."\n";
 
 		} else {
 
-			print strtolower(str_replace(' ', '', $position->getName())).": darkprince@thebhg.org\n");
+			print strtolower(str_replace(' ', '', $position->getName())).": darkprince@thebhg.org\n";
 
 		}
 
