@@ -82,7 +82,7 @@ $body = $mime->get();
 $hdrs = $mime->headers($hdrs);
 
 $mail =& Mail::factory('mail');
-$mail->send('underlord@thebhg.org, xo@emperorshammer.org', $hdrs, $body);
+$mail->send('aashley@adamashley.name', $hdrs, $body);
 
 flush();
 print 'Mail Successfully Sent.<BR>'
