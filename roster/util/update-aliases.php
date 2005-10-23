@@ -37,6 +37,8 @@ function updateAlias($alias_name, $target) {
 	
 }
 
+$roster = new Roster();
+
 $positions = $roster->getPositions();
 
 foreach ($positions as $position) {
