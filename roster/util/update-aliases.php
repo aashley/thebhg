@@ -70,6 +70,9 @@ foreach ($positions as $position) {
 
 $kabals = $roster->getKabals();
 
+$chiefs = array();
+$cras = array();
+
 foreach ($kabals as $kabal) {
 
 	$chief = $kabal->getChief();
@@ -96,6 +99,7 @@ foreach ($kabals as $kabal) {
 
 	print "$alias: $target\n";
 	updateAlias($alias, $target);
+	$chiefs[] = $alias.'@thebhg.org';
 
 	$cra = $kabal->getCRA();
 
@@ -121,7 +125,11 @@ foreach ($kabals as $kabal) {
 
 	print "$alias: $target\n";
 	updateAlias($alias, $target);
+	$cras[] = $alias.'@thebhg.org';
 
 }
+
+updateAlias('chiefs', implode(',', $chiefs));
+updateAlias('cras', implode(',', $cras));
 
 ?>
