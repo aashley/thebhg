@@ -41,6 +41,65 @@ $positions = $roster->getPositions();
 
 foreach ($positions as $position) {
 
+	if ($position->isEmailAlias()) {
 
+		$person = $roster->searchPosition($position->getID());
+
+		if (   is_array($person)
+		    && isset($person[0])
+		    && $person[0] instanceof Person) {
+
+			print strtolower(str_replace(' ', '', $position->getName())).": ".$person[0]->getEmail()."\n");
+
+		} else {
+
+			print strtolower(str_replace(' ', '', $position->getName())).": darkprince@thebhg.org\n");
+
+		}
+
+	}
+
+}
+
+$kabals = $roster->getKabels();
+
+foreach ($kabals as $kabal) {
+
+	$chief = $kabal->getChief();
+
+	if ($chief instanceof Person) {
+
+		if (strlen($chief->getEmail()) > 0) {
+			
+			print "ch-".strtolower(str_replace(' ', '', $kabal->getName())).": "
+				.$chief->getEmail()."\n";
+
+		} else {
+
+			print "ch-".strtolower(str_replace(' ', '', $kabal->getName())).": "
+				."judicator@thebhg.org\n";
+
+		}
+
+	}
+
+	$cra = $kabal->getCRA();
+
+	if ($cra instanceof Person) {
+
+		if (strlen($cra->getEmail()) > 0) {
+
+			print 'cra-'.strtolower(str_replace(' ', '', $kabal->getName())).": "
+				.$cra->getEmail()."\n";
+
+		} else {
+
+			print "cra-".strtolower(str_replace(' ', '', $kabal->getName())).": "
+				."ch-".strtolower(str_replace(' ', '', $kabal->getName()))."@thebhg.org\n";
+		}
+
+	}
+
+}
 
 ?>
