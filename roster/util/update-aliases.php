@@ -129,7 +129,7 @@ foreach ($kabals as $kabal) {
 
 }
 
-updateAlias('chiefs', implode(',', $chiefs));
-updateAlias('cras', implode(',', $cras));
+updateAlias('chiefs', implode(', ', $chiefs));
+updateAlias('cras', implode(', ', $cras));
 
 ?>
