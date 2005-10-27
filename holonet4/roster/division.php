@@ -29,7 +29,7 @@ class page_roster_division extends holonet_page {
 
 		$tab = new holonet_tab('info', 'Information');
 
-		$table = new HTML_Table;
+		$table = new HTML_Table(null, null, true);
 
 		$body = $table->getBody();
 
