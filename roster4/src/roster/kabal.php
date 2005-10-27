@@ -5,7 +5,7 @@ class bhg_roster_kabal extends bhg_roster_division {
 	// {{{ __construct()
 
 	public function __construct($id) {
-		parent::__construct('roster_division', $id);
+		parent::__construct($id);
 		$this->__addFieldMap(array(
 					'category' => 'bhg_roster_division_category',
 					));
