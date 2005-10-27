@@ -46,7 +46,7 @@ class bhg_history extends bhg_entry {
 
 		if (isset($filter['person'])
 				&& $filter['person'] instanceof bhg_roster_person)
-			$sqlfilters[] = '`person` = '.$filter->person->getID().' ';
+			$sqlfilters[] = '`person` = '.$filter['person']->getID().' ';
 
 		if (isset($filter['type']))
 			$sqlfilters[] = '`type` = '.$filter['type'].' ';
