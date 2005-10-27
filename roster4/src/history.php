@@ -82,11 +82,11 @@ class bhg_history extends bhg_entry {
 
 		if (DB::isError($results)) {
 
-			throw new bhg_db_exception('Could not load list of people.', $results);
+			throw new bhg_db_exception('Could not load list of history events.', $results);
 
 		} else {
 
-			return new bhg_core_list('bhg_roster_person', $results);
+			return new bhg_core_list('bhg_history_event', $results);
 
 		}
 
