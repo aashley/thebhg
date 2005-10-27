@@ -39,6 +39,9 @@ class bhg_roster_division extends bhg_core_base {
 	 */
 	public function isKabal() {
 
+		if ($this instanceof bhg_roster_kabal)
+			return true;
+
 		return $this->getCategory()->hasKabals();
 
 	}
