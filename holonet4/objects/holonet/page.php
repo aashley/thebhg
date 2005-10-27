@@ -42,9 +42,18 @@ class holonet_page extends HTML_Page2 {
 
 	}
 
-	public function addSideMenu(holonet_menu $menu) {
+	public function addSideMenu($menus) {
 
-		$this->menus[] = $menu;
+		if (!is_array($menus))
+			$menus = array($menus);
+
+		foreach ($menus as $menu) {
+			if ($menu instanceof holonet_menu) {
+				$this->menus[] = $menu;
+			} else {
+				throw bhg_validation_exception('Invalid menu added.');
+			}
+		}
 
 	}
 
