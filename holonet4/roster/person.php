@@ -41,11 +41,12 @@ class page_roster_person extends holonet_page {
 	private function buildCollege(bhg_roster_person $person) {
 
 		$tab = new holonet_tab('college', 'College');
-		$table = new HTML_Table;
+		$table = new HTML_Table(null, null, true);
 		$submissions = $GLOBALS['bhg']->college->getSubmissions(array('submitter' => $person));
 		$submissions->sort('getDateCreated', 'desc');
 
-		$table->addRow(array('Date', 'Course', 'Status', 'Score'), array(), 'TH');
+		$head = $table->getHeader();
+		$head->addRow(array('Date', 'Course', 'Status', 'Score'), array(), 'TH');
 		foreach ($submissions as $submission)
 			$table->addRow(array(htmlspecialchars($submission->getDateCreated()->format('%B %e, %Y')),
 					     htmlspecialchars($submission->getExam()->getName()),
@@ -60,11 +61,12 @@ class page_roster_person extends holonet_page {
 	private function buildMedals(bhg_roster_person $person) {
 
 		$tab = new holonet_tab('medals', 'Medals');
-		$table = new HTML_Table;
+		$table = new HTML_Table(null, null, true);
 		$medals = $person->getMedals();
 		$medals->sort('getDateCreated', 'desc');
 		
-		$table->addRow(array('Date', 'Awarded By', 'Medal'), array(), 'TH');
+		$head = $table->getHeader();
+		$head->addRow(array('Date', 'Awarded By', 'Medal'), array(), 'TH');
 		foreach ($medals as $award) {
 			$reason = '<a href="/medalboard/group/'
 				 .$award->getMedal()->getGroup()->getID()
@@ -91,7 +93,7 @@ class page_roster_person extends holonet_page {
 	private function buildPersonal(bhg_roster_person $person) {
 
 		$tab = new holonet_tab('personal', 'Dossier');
-		$table = new HTML_Table;
+		$table = new HTML_Table(null, null, true);
 
 		$table->addRow(array('ID Number:', $person->getID()));
 		$table->addRow(array('Name:', htmlspecialchars($person->getName())));
