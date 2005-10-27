@@ -96,15 +96,13 @@ class bhg_roster extends bhg_entry {
 			$sqlfilters[] = 'roster_division.datedeleted IS NULL ';
 
 		if (isset($filter['category']) && $filter['category'] instanceof bhg_roster_division_category)
-			$sqlfileters[] = 'roster_division.category = '.$filter['category']->getID().' ';
+			$sqlfilters[] = 'roster_division.category = '.$filter['category']->getID().' ';
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'AND '.implode(' AND ', $sqlfilters).' ';
 
 		$sql .= 'ORDER BY roster_division_category.sortorder ASC, '
 										.'roster_division.name ASC ';
-
-		print $sql;
 
 		$results = $this->db->getCol($sql);
 
