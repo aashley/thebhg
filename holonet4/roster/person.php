@@ -100,9 +100,6 @@ class page_roster_person extends holonet_page {
 		$head = $table->getHeader();
 		$head->addRow(array('Date', 'Type', 'Field 1', 'Field 2', 'Field 3', 'Field 4'), array(), 'TH');
 		foreach ($events as $event) {
-			print '<pre>';
-			print_r($event);
-			print '</pre>';
 			$table->addRow(array(
 						htmlspecialchars($event->getDateCreated()->getDate()),
 						$event->getType(),
