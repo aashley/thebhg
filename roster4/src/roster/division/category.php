@@ -28,6 +28,28 @@ class bhg_roster_division_category extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getKabals()
+
+	/**
+	 * Get all the divisions within this division category
+	 *
+	 * @param array Filters to select which divisions to load
+	 * @return bhg_core_list
+	 */
+	public function getKabals($filter = array()) {
+
+		if (!$this->hasKabals())
+			return new bhg_core_list('bhg_roster_kabal', array());
+
+		$filter['category'] = $this;
+
+		$divisions = $GLOBALS['bhg']->roster->getDivisions($filter);
+
+		return new bhg_core_list('bhg_roster_kabal', $divisions->items);
+
+	}
+
+	// }}}
 
 }
 

@@ -30,6 +30,20 @@ class bhg_roster_division extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ isKabal()
+	
+	/**
+	 * Is this division a Kabal?
+	 *
+	 * @return boolean
+	 */
+	public function isKabal() {
+
+		return $this->getCategory()->hasKabals();
+
+	}
+
+	// }}}
 
 }
 
