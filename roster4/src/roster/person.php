@@ -53,6 +53,20 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// getDisplayName()
+	
+	/**
+	 * Get the regular display name for a person
+	 *
+	 * @return string
+	 */
+	public function getDisplayName() {
+
+		return $this->getRank()->getAbbrev().' '.$this->getName();
+
+	}
+
+	// }}}
 	// {{{ getCollegeIDLine()
 
 	/**
