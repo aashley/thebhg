@@ -104,6 +104,8 @@ class bhg_roster extends bhg_entry {
 		$sql .= 'ORDER BY roster_division_category.sortorder ASC, '
 										.'roster_division.name ASC ';
 
+		print $sql;
+
 		$results = $this->db->getCol($sql);
 
 		if (DB::isError($results)) {
