@@ -149,13 +149,21 @@ class holonet_module_roster extends holonet_module {
 
 	public function getDivisionMenu() {
 
-		$menu = new holonet_menu;
-		$menu->title = 'Divisions';
+		$menus = array();
 
-		foreach ($GLOBALS['bhg']->roster->getDivisions() as $div)
-			$menu->addItem(new holonet_menu_item($div->getName(), '/roster/division/'.$div->getID()));
+		foreach ($GLOBALS['bhg']->roster->getDivisionCategories() as $category) {
+			
+			$menu = new holonet_menu;
+			$menu->title = $category->getName();
+			
+			foreach ($category->getDivisions() as $div)
+				$menu->addItem(new holonet_menu_item($div->getName(), '/roster/division/'.$div->getID()));
 
-		return $menu;
+			$menus[] = $menu;
+
+		}
+
+		return $menus;
 
 	}
 
