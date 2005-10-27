@@ -23,8 +23,8 @@ class bhg_roster_kabal extends bhg_roster_division {
 	public function getChief() {
 
 		$filter = array(
-				'division' = $this,
-				'position' = bhg_roster::getPosition(11),
+				'division' => $this,
+				'position' => bhg_roster::getPosition(11),
 				);
 
 		$p = $GLOBALS['bhg']->roster->getPeople($filter);
@@ -44,8 +44,8 @@ class bhg_roster_kabal extends bhg_roster_division {
 	public function getCRA() {
 
 		$filter = array(
-				'division' = $this,
-				'position' = bhg_roster::getPosition(12),
+				'division' => $this,
+				'position' => bhg_roster::getPosition(12),
 				);
 
 		$p = $GLOBALS['bhg']->roster->getPeople($filter);
