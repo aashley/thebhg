@@ -23,10 +23,13 @@ class holonet_module_roster extends holonet_module {
 											'Rank Credits',
 											'Account Balance');
 
+		$head = $table->getHeader();
+		$body = $table->getBody();
+
 		if ($showDivisions)
 			array_unshift($headings, 'Division');
 
-		$table->addRow($headings, array(), 'TH');
+		$head->addRow($headings, array(), 'TH');
 
 		foreach ($members as $member) {
 
@@ -39,7 +42,7 @@ class holonet_module_roster extends holonet_module {
 			if ($showDivisions)
 				array_unshift($row, $this->output($member->getDivision()));
 
-			$table->addRow($row);
+			$body->addRow($row);
 
 		}
 
