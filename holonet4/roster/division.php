@@ -64,7 +64,7 @@ class page_roster_division extends holonet_page {
 
 			try {
 
-				$cra = $div->getChief();
+				$cra = $div->getCRA();
 
 				$body->addRow(array(
 							'CRA:',
