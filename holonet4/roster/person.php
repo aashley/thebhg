@@ -95,7 +95,7 @@ class page_roster_person extends holonet_page {
 
 		$tab = new holonet_tab('history', 'Recent History');
 		$table = new HTML_Table(null, null, true);
-		$events = $person->getHistory();
+		$events = $person->getHistory(array('limit' => 30));
 
 		$head = $table->getHeader();
 		$head->addRow(array('Date', 'Type', 'Field 1', 'Field 2', 'Field 3', 'Field 4'), array(), 'TH');
