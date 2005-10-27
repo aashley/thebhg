@@ -166,6 +166,15 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getKabal()
+
+	static public function getKabal($id) {
+
+		return bhg::loadObject('bhg_roster_kabal', $id);
+
+	}
+	
+	// }}}
 	// {{{ getNewPerson()
 
 	static public function getNewPersion($id) {
