@@ -17,6 +17,7 @@ class page_roster_person extends holonet_page {
 		$bar->addTab($this->buildMedals($person));
 		$bar->addTab($this->buildCollege($person));
 		//$bar->addTab($this->buildArmour($person));
+		$bar->addTab($this->buildHistory($person));
 
 		$this->addBodyContent($bar);
 
@@ -88,6 +89,30 @@ class page_roster_person extends holonet_page {
 		$tab->addContent($table);
 		return $tab;
 		
+	}
+
+	private function buildHistory(bhg_roster_person $person) {
+
+		$tab = new holonet_tab('history', 'Recent History');
+		$table = new HTML_Table(null, null, true);
+		$events = $person->getHistory();
+
+		$head = $table->getHeader();
+		$head->addRow(array('Date', 'Type', 'Field 1', 'Field 2', 'Field 3', 'Field 4'), array(), 'TH');
+		foreach ($events as $event) {
+			$table->addRow(array(
+						htmlspecialchars($event->getDateCreated()->getDate()),
+						$event->getType(),
+						$event->getItem1(),
+						$event->getItem2(),
+						$event->getItem3(),
+						$event->getItem4()
+						));
+		}
+
+		$tab->addContent($table);
+		return $tab;
+
 	}
 
 	private function buildPersonal(bhg_roster_person $person) {

@@ -79,6 +79,16 @@ class page_roster_division extends holonet_page {
 
 			}
 
+			$body->addRow(array(
+						'Home Page:',
+						'<a href="'.$div->getHomePageURL().'">'.$div->getHomePageURL().'</a>',
+						));
+
+			$body->addRow(array(
+						'Slogan:',
+						$div->getSlogan(),
+						));
+
 		}
 
 		$tab->addContent($table);
