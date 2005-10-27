@@ -43,7 +43,7 @@ class page_roster_division extends holonet_page {
 												.htmlspecialchars($div->getMailingList())
 												.' at thebhg.org</a>'));
 
-//		if ($div->isKabal()) {
+		if ($div->isKabal()) {
 			
 			try {
 
@@ -79,7 +79,7 @@ class page_roster_division extends holonet_page {
 
 			}
 
-//		}
+		}
 
 		$tab->addContent($table);
 
