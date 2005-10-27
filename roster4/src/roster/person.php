@@ -53,7 +53,7 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
-	// getDisplayName()
+	// {{{ getDisplayName()
 	
 	/**
 	 * Get the regular display name for a person
@@ -95,6 +95,22 @@ class bhg_roster_person extends bhg_core_base {
 
 	}
 	
+	// }}}
+	// {{{ getHistory()
+
+	/**
+	 * Retrieves all history events related to this person.
+	 *
+	 * @return bhg_core_list A list of bhg_history_event objects.
+	 */
+	public function getHistory($filter = array()) {
+
+		$filter['person'] = $this;
+
+		return $GLOBALS['bhg']->history->getEvents($filter);
+
+	}
+
 	// }}}
 	// {{{ getIDLine()
 
