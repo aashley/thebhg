@@ -31,8 +31,10 @@ class page_roster_division extends holonet_page {
 
 		$table = new HTML_Table;
 
-		$table->addRow(array('Mailing List:',
-												 '<a href="mailto:'
+		$body = $table->getBody();
+
+		$body->addRow(array('Mailing List:',
+												'<a href="mailto:'
 												.urlencode($div->getMailingList())
 												.'@thebhg.org">'
 												.htmlspecialchars($div->getMailingList())
