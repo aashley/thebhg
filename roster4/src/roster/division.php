@@ -23,28 +23,9 @@ class bhg_roster_division extends bhg_core_base {
 	 */
 	public function getPeople($filter = array()) {
 
-		$sql = 'SELECT id '
-					.'FROM roster_person ';
+		$filter['division'] = $this;
 
-		$sqlfilters = array('division = ?');
-
-		if (isset($filter['deleted']) && $filter['deleted'] == true)
-			$sqlfilters[] = 'datedeleted IS NULL ';
-
-		if (sizeof($sqlfilters) > 0)
-			$sql .= 'WHERE '.implode(' AND ', $sqlfilters);
-
-		$results = $this->db->getCol($sql, 0, array($this->getID()));
-
-		if (DB::isError($results)) {
-
-			throw new bhg_db_exception('Could not load list of people.', $results);
-
-		} else {
-
-			return new bhg_core_list('bhg_roster_person', $results);
-
-		}
+		return $GLOBALS['bhg']->roster->getPeople($filter);
 
 	}
 

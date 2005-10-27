@@ -95,6 +95,9 @@ class bhg_roster extends bhg_entry {
 		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'roster_division.datedeleted IS NULL ';
 
+		if (isset($filter['category']) && $filter['category'] instanceof bhg_division_category)
+			$sqlfileters[] = 'roster_division.category = '.$filter['category']->getID();
+
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'AND '.implode(' AND ', $sqlfilters).' ';
 
