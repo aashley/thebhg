@@ -71,10 +71,6 @@ foreach ($peeps as $guy) {
 		$tactician = $guy;
 		break;
 	}
-}
-$ca = $roster->GetDivision(9);
-foreach ($ca->GetMembers() as $guy) {
-	$pos = $guy->GetPosition();
 	if ($pos->GetID() == 7) {
 		$marshal = $guy;
 		break;
