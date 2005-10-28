@@ -98,11 +98,11 @@ class page_roster_person extends holonet_page {
 		foreach ($events as $event) {
 			$table->addRow(array(
 						htmlspecialchars($event->getDateCreated()->getDate()),
-						$event->getType(),
-						$event->getItem1(),
-						$event->getItem2(),
-						$event->getItem3(),
-						$event->getItem4()
+						htmlspecialchars($event->getType()),
+						htmlspecialchars($event->getItem1()),
+						htmlspecialchars($event->getItem2()),
+						htmlspecialchars($event->getItem3()),
+						htmlspecialchars($event->getItem4())
 						));
 		}
 
