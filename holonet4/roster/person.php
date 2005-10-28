@@ -69,11 +69,7 @@ class page_roster_person extends holonet_page {
 		$head = $table->getHeader();
 		$head->addRow(array('Date', 'Awarded By', 'Medal'), array(), 'TH');
 		foreach ($medals as $award) {
-			$reason = '<a href="/medalboard/group/'
-				 .$award->getMedal()->getGroup()->getID()
-				 .'">'
-				 .htmlspecialchars($award->getMedal()->getName())
-				 .'</a>';
+			$reason = holonet::output($award->getMedal());
 
 			if (strlen($why = $award->getWhy()) > 0) {
 				$reason .= ' for '.htmlspecialchars($award->getWhy());
@@ -82,7 +78,7 @@ class page_roster_person extends holonet_page {
 			}
 			
 			$table->addRow(array(htmlspecialchars($award->getDateCreated()->format('%B %e, %Y')),
-					     $GLOBALS['holonet']->roster->output($award->getAwarder()),
+					     holonet::output($award->getAwarder()),
 					     $reason));
 		}
 
@@ -122,12 +118,12 @@ class page_roster_person extends holonet_page {
 
 		$table->addRow(array('ID Number:', $person->getID()));
 		$table->addRow(array('Name:', htmlspecialchars($person->getName())));
-		$table->addRow(array('Rank:', $GLOBALS['holonet']->roster->output($person->getRank())));
-		$table->addRow(array('Position:', $GLOBALS['holonet']->roster->output($person->getPosition())));
-		$table->addRow(array('Division:', $GLOBALS['holonet']->roster->output($person->getDivision())));
+		$table->addRow(array('Rank:', holonet::output($person->getRank())));
+		$table->addRow(array('Position:', holonet::output($person->getPosition())));
+		$table->addRow(array('Division:', holonet::output($person->getDivision())));
 		
 		if ($person->inCadre())
-			$table->addRow(array('Cadre:', $GLOBALS['holonet']->roster->output($person->getCadre())));
+			$table->addRow(array('Cadre:', holonet::output($person->getCadre())));
 
 		if (strlen($quote = $person->getQuote()) > 0)
 			$table->addRow(array('Quote:', '<i>'.htmlspecialchars($quote).'</i>'));
@@ -141,12 +137,12 @@ class page_roster_person extends holonet_page {
 		if (strlen($nicks = $person->getIRCNicks()) > 0)
 			$table->addRow(array('IRC Nicks:', htmlspecialchars($nicks)));
 
-		$table->addRow(array('Rank Credits:', $GLOBALS['holonet']->roster->formatCredits($person->getRankCredits())));
-		$table->addRow(array('Account Balance:', $GLOBALS['holonet']->roster->formatCredits($person->getAccountBalance())));
+		$table->addRow(array('Rank Credits:', holonet::formatCredits($person->getRankCredits())));
+		$table->addRow(array('Account Balance:', holonet::formatCredits($person->getAccountBalance())));
 
 		$joined = $person->getDateCreated();
 		$timein = time() - $joined->getDate(DATE_FORMAT_UNIXTIME);
-		$table->addRow(array('Time in the BHG:', $GLOBALS['holonet']->roster->formatDuration($timein)));
+		$table->addRow(array('Time in the BHG:', holonet::formatDuration($timein)));
 		$table->addRow(array('Join Date:', $joined->format('%A, %B %e, %Y')));
 
 		// XXX Implement last promotion code here, once we have object support.

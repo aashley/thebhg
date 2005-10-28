@@ -1,0 +1,21 @@
+<menu>
+	<title>Library</title>
+	<items>
+		<item>
+			<text>Bookshelf</text>
+			<link>/library/</link>
+		</item>
+		<item>
+			<text>Quote Archive</text>
+			<link>/library/quotes</link>
+		</item>
+		<item>
+			<text>Timeline</text>
+			<link>/library/timeline</link>
+		</item>
+		<item>
+			<text>Administration</text>
+			<link>/library/administration</link>
+		</item>
+	</items>
+</menu>

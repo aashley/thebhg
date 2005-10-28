@@ -51,7 +51,7 @@ class page_roster_division extends holonet_page {
 	
 				$body->addRow(array(
 							'Chief:',
-							$GLOBALS['holonet']->roster->output($chief).'</a>',
+							holonet::output($chief).'</a>',
 							));
 
 			} catch (bhg_list_exception_notfound $e) {
@@ -68,7 +68,7 @@ class page_roster_division extends holonet_page {
 
 				$body->addRow(array(
 							'CRA:',
-							$GLOBALS['holonet']->roster->output($cra).'</a>',
+							holonet::output($cra).'</a>',
 							));
 
 			} catch (bhg_list_exception_notfound $e) {
