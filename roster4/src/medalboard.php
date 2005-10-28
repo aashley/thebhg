@@ -6,7 +6,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage MedalBoard
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 
 /**
@@ -15,7 +15,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage MedalBoard
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 class bhg_medalboard extends bhg_entry {
 
@@ -191,7 +191,7 @@ class bhg_medalboard extends bhg_entry {
 		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
-		if (isset($filter['group']) && $filter['group'] instanceof bhg_medalboard_category)
+		if (isset($filter['group']) && $filter['group'] instanceof bhg_medalboard_group)
 			$sqlfilters[] = 'group = '.$this->db->quoteSmart($filter['group']->getID());
 
 		$sql .= 'ORDER BY sortorder ASC ';
