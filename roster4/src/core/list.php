@@ -5,7 +5,7 @@
  *
  * @author Adam Ashley <aashley@optimiser.com>
  * @package Framework
- * @version $Rev: 4944 $ $Date: 2005-09-01 16:41:07 +0800 (Thu, 01 Sep 2005) $   
+ * @version $Rev$ $Date$   
  */
 
 /**
@@ -17,7 +17,7 @@
  *
  * @author Adam Ashley <aashley@optimiser.com>
  * @package Framework
- * @version $Rev: 4944 $ $Date: 2005-09-01 16:41:07 +0800 (Thu, 01 Sep 2005) $   
+ * @version $Rev$ $Date$   
  */
 class bhg_core_list implements IteratorAggregate {
 
@@ -830,7 +830,7 @@ class bhg_core_list implements IteratorAggregate {
  *
  * @author Adam Ashley <aashley@optimiser.com>
  * @package Framework
- * @version $Rev: 4944 $ $Date: 2005-09-01 16:41:07 +0800 (Thu, 01 Sep 2005) $   
+ * @version $Rev$ $Date$   
  */
 
 class bhg_core_list_iterator implements Iterator {
