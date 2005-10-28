@@ -1,5 +1,5 @@
 <?php
-import_request_variables('gp');
+@import_request_variables('gp');
 
 $db = mysql_connect('localhost', 'tactician', 'thidrithow');
 mysql_select_db('tactician', $db);
