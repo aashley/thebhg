@@ -87,7 +87,7 @@ function page_header($title = '') {
 <HEAD>
 	<TITLE>Tactician's Office</TITLE>
 	<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<LINK rel="stylesheet" href="main.css" type="text/css">
+	<LINK rel="stylesheet" href="tactician.css" type="text/css">
 </HEAD>
 <BODY>
 <MAP id="bannermap" name="bannermap">
