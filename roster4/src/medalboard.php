@@ -108,11 +108,15 @@ class bhg_medalboard extends bhg_entry {
 	// }}}
 	// {{{ getCategories()
 
-	public function getCategories() {
+	public function getCategories($filter = array()) {
 
 		$sql = 'SELECT id '
-					.'FROM medalboard_category '
-					.'ORDER BY sortorder ASC ';
+					.'FROM medalboard_category ';
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		$sql .= 'ORDER BY sortorder ASC ';
 
 		$results = $this->db->getCol($sql);
 
@@ -138,11 +142,71 @@ class bhg_medalboard extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getGroups()
+
+	public function getGroups($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM medalboard_group ';
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['category']) && $filter['category'] instanceof bhg_medalboard_category)
+			$sqlfilters[] = 'category = '.$this->db->quoteSmart($filter['category']->getID());
+
+		$sql .= 'ORDER BY sortorder ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of medal board groups.', $result);
+
+		} else {
+
+			return new bhg_core_list('bhg_medalboard_group', $results);
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getMedal()
 
 	static public function getMedal($id) {
 
 		return bhg::loadObject('bhg_medalboard_medal', $id);
+
+	}
+
+	// }}}
+	// {{{ getMedals()
+
+	public function getMedals($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM medalboard_medal ';
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['group']) && $filter['group'] instanceof bhg_medalboard_category)
+			$sqlfilters[] = 'group = '.$this->db->quoteSmart($filter['group']->getID());
+
+		$sql .= 'ORDER BY sortorder ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of medal board medals.', $result);
+
+		} else {
+
+			return new bhg_core_list('bhg_medalboard_medal', $results);
+
+		}
 
 	}
 

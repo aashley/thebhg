@@ -15,24 +15,11 @@ class bhg_medalboard_group extends bhg_core_base {
 	// }}}
 	// {{{ getMedals()
 
-	public function getMedals() {
+	public function getMedals($filter = array()) {
 
-		$sql = 'SELECT id '
-					.'FROM medalboard_medal '
-					.'WHERE `group` = ? '
-					.'ORDER BY sortorder DESC ';
+		$filter['group'] = $this;
 
-		$results = $this->db->getCol($sql, 0, array($this->getID()));
-
-		if (DB::isError($results)) {
-
-			throw new bhg_db_exception('Could not load list of medal board medals.', $result);
-
-		} else {
-
-			return new bhg_core_list('bhg_medalboard_medal', $results);
-
-		}
+		return $GLOBALS['bhg']->medalboard->getMedals($filter);
 
 	}
 
