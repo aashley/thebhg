@@ -6,7 +6,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Library
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 
 /**
@@ -15,7 +15,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Library
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 class bhg_library extends bhg_entry {
 
@@ -107,6 +107,48 @@ class bhg_library extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getChapters()
+	
+	/**
+	 * Load a list of chapters
+	 *
+	 * @return bhg_core_list
+	 */
+	public function getChapters($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM library_chapter ';
+
+		if (isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['book'])
+				&& $filter['book'] instanceof bhg_library_book)
+			$sqlfilters[] = '`book` = '.$this->db->quoteSmart($filter['book']->getID()).' ';
+
+		if (isset($filter['name']))
+			$sqlfilters[] = '`name` LIKE "%'.$this->db->escapeSimple($filter['name']).'%" ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY `sortorder` ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of chapters.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_library_chapter', $results);
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getSection()
 	
 	/**
@@ -121,6 +163,48 @@ class bhg_library extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getSections()
+	
+	/**
+	 * Load a list of sections
+	 *
+	 * @return bhg_core_list
+	 */
+	public function getSections($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM library_section ';
+
+		if (isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['chapter'])
+				&& $filter['chapter'] instanceof bhg_library_chapter)
+			$sqlfilters[] = '`chapter` = '.$this->db->quoteSmart($filter['chapter']->getID()).' ';
+
+		if (isset($filter['name']))
+			$sqlfilters[] = '`name` LIKE "%'.$this->db->escapeSimple($filter['name']).'%" ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY `sortorder` ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of sections.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_library_section', $results);
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getShelf()
 	
 	/**
@@ -131,6 +215,47 @@ class bhg_library extends bhg_entry {
 	static public function getShelf($id) {
 
 		return bhg::loadObject('bhg_library_shelf', $id);
+
+	}
+
+	// }}}
+	// {{{ getShelves()
+	
+	/**
+	 * Load a list of shelves
+	 *
+	 * @return bhg_core_list
+	 */
+	public function getShelves($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM library_shelf ';
+
+		if (isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['name']))
+			$sqlfilters[] = '`name` LIKE "%'.$this->db->escapeSimple($filter['name']).'%" ';
+
+		if (isset($filter['description']))
+			$sqlfilters[] = '`description` LIKE "%'.$this->db->escapeSimple($filter['description']).'%" ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY `sortorder` ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of shelves.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_library_shelf', $results);
+
+		}
 
 	}
 

@@ -13,6 +13,22 @@ class bhg_library_chapter extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getSections()
+	
+	/**
+	 * Get all sections within this chapter
+	 *
+	 * @return bhg_core_list
+	 */
+	public function getSections($filter = array()) {
+
+		$filter['chapter'] = $this;
+
+		return $GLOBALS['bhg']->library->getSections($filter);
+
+	}
+
+	// }}}
 
 }
 

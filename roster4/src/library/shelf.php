@@ -10,6 +10,22 @@ class bhg_library_shelf extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getBooks()
+	
+	/**
+	 * Get all the books on this shelf
+	 *
+	 * @return bhg_core_list
+	 */
+	public function getBooks($filter = array()) {
+
+		$filter['shelf'] = $this;
+
+		return $GLOBALS['bhg']->library->getBooks($filter);
+
+	}
+
+	// }}}
 
 }
 
