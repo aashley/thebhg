@@ -79,31 +79,42 @@ foreach ($peeps as $guy) {
 $rank = $tactician->GetRank();
 $pos = $tactician->GetPosition();
 
-function page_header($title = '', $bclass = '') {
+function page_header($title = '') {
 	echo <<<EOH
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
 <HTML>
 <HEAD>
-<BASE TARGET="main">
-<LINK REL="stylesheet" TYPE="text/css" HREF="tactician.css">
+	<TITLE>Tactician's Office</TITLE>
+	<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<LINK rel="stylesheet" href="main.css" type="text/css">
 </HEAD>
+<BODY>
+<MAP id="bannermap" name="bannermap">
+	<AREA shape="rect" coords="340,5,375,47" href="http://www.thebhg.org/" target="_blank" alt="Bounty Hunters Guild">
+	<AREA shape="rect" coords="394,5,430,46" href="http://holonet.thebhg.org/" target="_blank" alt="Holonet">
+	<AREA shape="rect" coords="446,9,487,43" href="http://mall.thebhg.org/" target="_blank" alt="Xerokine Outlet Center">
+</MAP>
+<DIV id="top"></DIV>
+<IMG id="banner" src="img/banner.jpg" usemap="#bannermap">
+<DIV id="nav"><a href="index.php">News</a> - <a href="mlist.php?complete=0">Current Missions</a> - <a href="mlist.php?complete=1">Archived Missions</a> - <a href="submit.php">Submit Mission</a> - <a href="stats/index.php">Statistics</a> - <a href="faq.php">FAQ</a> - <a href="contact.php">Contact Us</a> - <a href="admin.php">Administration</a></DIV>
+<DIV id="main">
 EOH;
-	if ($bclass != '') {
-		echo '<BODY CLASS="' . $bclass . '">';
-	}
-	else {
-		echo '<BODY>';
-	}
-
 	if ($title != '') {
-		echo '<H1>' . $title . '</H1><HR NOSHADE>';
+		echo '<H1>' . $title . '</H1>';
 	}
 }
 
 function page_footer() {
 	echo <<<EOF
+<HR>
+<P class="disclaimer">Site Graphics © 2005 Baron Kal-Ket, and licensed for use by the Bounty Hunters Guild.</P>
+<P class="disclaimer">All rights reserved 1995-2005; original contents are protected by the United States (US) Copyright Act
+<BR>in accordance with the Bounty Hunters Guild <A href="http://www.thebhg.org/disclaimer/">Disclaimers and Copyrights</A> detailed herein.
+<BR>This site abides by the Bounty Hunters Guild <A href="http://www.thebhg.org/privacy/">Privacy Policy</A>.</P>
+</DIV>
 </BODY>
 </HTML>
-
 EOF;
 	exit;
 }
