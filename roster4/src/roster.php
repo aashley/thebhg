@@ -239,6 +239,10 @@ class bhg_roster extends bhg_entry {
 		 && $filter['rank'] instanceof bhg_roster_rank)
 			$sqlfilters[] = '`rank` = '.$this->db->quoteSmart($filter['rank']->getID());
 
+		if (isset($filter['cadre'])
+				&& $filter['cadre'] instanceof bhg_roster_cadre)
+			$sqlfilters[] = '`cadre` = '.$this->db->quoteSmart($filter['cadre']->getID());
+
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
