@@ -198,7 +198,7 @@ class bhg_medalboard extends bhg_entry {
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['group']) && $filter['group'] instanceof bhg_medalboard_group)
-			$sqlfilters[] = 'group = '.$this->db->quoteSmart($filter['group']->getID());
+			$sqlfilters[] = '`group` = '.$this->db->quoteSmart($filter['group']->getID());
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
