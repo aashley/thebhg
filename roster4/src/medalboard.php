@@ -153,7 +153,7 @@ class bhg_medalboard extends bhg_entry {
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['category']) && $filter['category'] instanceof bhg_medalboard_category)
-			$sqlfilters[] = 'category = '.$this->db->quoteSmart($filter['category']->getID());
+			$sqlfilters[] = 'category = '.$this->db->quoteSmart($filter['category']->getID()).' ';
 
 		$sql .= 'ORDER BY sortorder ASC ';
 

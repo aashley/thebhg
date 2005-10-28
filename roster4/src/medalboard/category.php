@@ -12,7 +12,7 @@ class bhg_medalboard_category extends bhg_core_base {
 	// }}}
 	// {{{ getGroups()
 
-	public function getGroups($filters = array()) {
+	public function getGroups($filter = array()) {
 
 		$filter['category'] = $this;
 
