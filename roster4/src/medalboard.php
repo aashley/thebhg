@@ -116,6 +116,9 @@ class bhg_medalboard extends bhg_entry {
 		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
 		$sql .= 'ORDER BY sortorder ASC ';
 
 		$results = $this->db->getCol($sql);
@@ -157,6 +160,9 @@ class bhg_medalboard extends bhg_entry {
 		if (isset($filter['category']) && $filter['category'] instanceof bhg_medalboard_category)
 			$sqlfilters[] = 'category = '.$this->db->quoteSmart($filter['category']->getID()).' ';
 
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
 		$sql .= 'ORDER BY sortorder ASC ';
 
 		print $sql;
@@ -197,6 +203,9 @@ class bhg_medalboard extends bhg_entry {
 
 		if (isset($filter['group']) && $filter['group'] instanceof bhg_medalboard_group)
 			$sqlfilters[] = 'group = '.$this->db->quoteSmart($filter['group']->getID());
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
 		$sql .= 'ORDER BY sortorder ASC ';
 
