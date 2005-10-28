@@ -157,6 +157,8 @@ class bhg_medalboard extends bhg_entry {
 
 		$sql .= 'ORDER BY sortorder ASC ';
 
+		print $sql;
+
 		$results = $this->db->getCol($sql);
 
 		if (DB::isError($results)) {
