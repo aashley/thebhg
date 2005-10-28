@@ -146,6 +146,8 @@ class bhg_medalboard extends bhg_entry {
 
 	public function getGroups($filter = array()) {
 
+		print_r($filter);
+
 		$sql = 'SELECT id '
 					.'FROM medalboard_group ';
 
