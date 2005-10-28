@@ -149,8 +149,6 @@ class bhg_medalboard extends bhg_entry {
 
 	public function getGroups($filter = array()) {
 
-		print_r($filter);
-
 		$sql = 'SELECT id '
 					.'FROM medalboard_group ';
 
@@ -164,8 +162,6 @@ class bhg_medalboard extends bhg_entry {
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
 		$sql .= 'ORDER BY sortorder ASC ';
-
-		print $sql;
 
 		$results = $this->db->getCol($sql);
 
