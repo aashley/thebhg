@@ -34,6 +34,7 @@ if ($missions_result && mysql_num_rows($missions_result)) {
 		$author = $roster->GetPerson($mission['author']);
 		echo '<LI><A HREF="mission.php?id=' . $mission['id'] . ($hidden ? '&amp;hidden=1' : '') . '">' . stripslashes($mission['title']) . '</A> by ' . roster_link($author) . "\n";
 	}
+	echo "</UL>";
 }
 else {
 	echo 'No missions found.';
