@@ -108,7 +108,7 @@ EOH;
 function page_footer() {
 	echo <<<EOF
 <HR>
-<P class="disclaimer">Site Graphics © 2005 Baron Kal-Ket, and licensed for use by the Bounty Hunters Guild.</P>
+<P class="disclaimer">Site Graphics &copy; 2005 Baron Kal-Ket, and licensed for use by the Bounty Hunters Guild.</P>
 <P class="disclaimer">All rights reserved 1995-2005; original contents are protected by the United States (US) Copyright Act
 <BR>in accordance with the Bounty Hunters Guild <A href="http://www.thebhg.org/disclaimer/">Disclaimers and Copyrights</A> detailed herein.
 <BR>This site abides by the Bounty Hunters Guild <A href="http://www.thebhg.org/privacy/">Privacy Policy</A>.</P>

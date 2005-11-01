@@ -3,7 +3,7 @@ include('header.php');
 include('auth.php');
 
 $pos = $login->GetPosition();
-if ($login->GetID() == 666 || $pos->GetID() == 3 || $pos->GetID() == 7) {
+if ($login->GetID() == 666 || $login->GetID() == 85 || $pos->GetID() == 3 || $pos->GetID() == 7) {
 	switch ($op) {
 		case 'add':
 			add();
