@@ -14,6 +14,7 @@ if [[ $# -eq 0 ]]; then
 	echo " ka              Kabal Authority"
 	echo " ka-devel        Kabal Authority Development"
 	echo " lyarna          Lyarna"
+	echo " lyarna-devel    Lyarna Development"
 	echo " mybhg           MyBHG - Main Website"
 	echo " mybhg-devel     MyBHG - Testing"
 	echo " roster4         Roster 4 Objects and Utilities"
@@ -105,6 +106,14 @@ for site in $*; do
 			pushd /home/thebhg/domains/lyarna.thebhg.org/public_html > /dev/null
 			$SVN update
 			chown -R thebhg:thebhg .
+			popd > /dev/null
+			;;
+
+		lyarna-devel)
+			echo Updating Lyarna Development...
+			pushd /home/bhgdevel/domains/lyarna.devel.thebhg.org/public_html > /dev/null
+			$SVN update
+			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
 			;;
 
