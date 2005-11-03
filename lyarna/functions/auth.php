@@ -18,7 +18,7 @@
     $position = $position_obj->GetID();
     $division_obj = $hunter->GetDivision();
     $division = $division_obj->getID();
-    if (($hunter->IsValid()) && (($id == 484) || ($id == 2650) || (($position == 6) && ($division == 10)) || ($id == 2649))) {
+    if (($hunter->IsValid()) && (($id == 484) || ($division == 10))) {
       return True;
     } else {
       return False;
