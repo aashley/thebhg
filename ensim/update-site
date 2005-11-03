@@ -20,6 +20,7 @@ if [[ $# -eq 0 ]]; then
 	echo " scum            Scum - Main site"
 	echo " scum-devel      Scum - Testing"
 	echo " tactician       Tactician Website"
+	echo " tactician-devel Tactician Development Website"
 fi
 
 for site in $*; do
@@ -151,6 +152,14 @@ for site in $*; do
 			pushd /home/tactician/public_html > /dev/null
 			$SVN update
 			chown -R tactician:tactician .
+			popd > /dev/null
+			;;
+
+		tactician-devel)
+			echo Updating Tactician Development...
+			pushd /home/bhgdevel/domains/tactician.devel.thebhg.org/public_html > /dev/null
+			$SVN update
+			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
 			;;
 

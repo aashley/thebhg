@@ -36,11 +36,13 @@ cd /tmp
 
 LogMsg "New Commit: $REV"
 
+#checkUpdate users/gravant/trunk/workspace gravant-workspace
 checkUpdate projects/trunk/holonet holonet3-devel
 checkUpdate projects/trunk/holonet4 holonet4-devel
 checkUpdate projects/trunk/mybhg mybhg-devel
 checkUpdate projects/trunk/ka ka-devel
 checkUpdate projects/trunk/roster4 roster4
 checkUpdate projects/trunk/scum scum-devel
+checkUpdate projects/trunk/tactician tactician-devel
 
 LogMsg "Revision $REV complete"
