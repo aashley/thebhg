@@ -25,12 +25,12 @@
     }
   }
 
-  if (!isset($PHP_AUTH_USER)) { // Unauthorised
+  if (!isset($_SERVER['PHP_AUTH_USER'])) { // Unauthorised
 
     auth_error();
     exit;
 
-  } elseif (authenticate($PHP_AUTH_USER, $PHP_AUTH_PW)) { // Authorised
+  } elseif (authenticate($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) { // Authorised
 
     $is_authorised = TRUE;
 
