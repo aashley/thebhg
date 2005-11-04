@@ -1278,9 +1278,6 @@ class Roster extends BHGObject {
 
           $div = $person->GetDivision();
 
-          $wing = new Wing($div->GetID(), $this->roster_coder);
-          $warden = $wing->GetWarden();
-
           $search = $this->SearchPosition('U');
 
           $underlord = $search[0];
@@ -1288,6 +1285,10 @@ class Roster extends BHGObject {
           $search = $this->SearchPosition('X');
 
           $executor = $search[0];
+
+					$search = $this->SearchPosition('WARD');
+
+					$warden = $search[0];
 
           $replace = array();
 
