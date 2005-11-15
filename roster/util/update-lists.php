@@ -26,6 +26,21 @@ foreach ($divisions as $division) {
 
 }
 
+// Special case list: reports@thebhg.org.
+$lists['reports'] = array();
+
+$reportees = array_merge($roster->searchPosition('DP'),
+												 $roster->searchPosition('U'),
+												 $roster->searchPosition('JUD'));
+
+foreach ($reportees as $person) {
+
+	// Commission only.
+	if ($person->getDivision()->getID() == 10)
+		$lists['reports'][] = $person->getEmail();
+	
+}
+
 foreach ($lists as $name => $addresses) {
 
 	if (is_numeric($name))
