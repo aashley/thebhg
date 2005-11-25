@@ -12,7 +12,9 @@ foreach ($divisions as $division) {
 
 	$list = $division->getMailingList();
 
-	if ($list == 'none@thebhg.org')
+	if ($list == 'none@thebhg.org'
+			|| $list === false
+			|| strlen($list) == 0)
 		continue;
 
 	if (!isset($lists[$list]) || !is_array($lists[$list]))
@@ -34,7 +36,7 @@ foreach ($divisions as $division) {
 
 	} else {
 
-		print "no recipients to add.";
+		print "no recipients to add.\n";
 
 	}
 
