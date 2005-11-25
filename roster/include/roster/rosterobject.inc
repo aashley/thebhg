@@ -1292,7 +1292,7 @@ class Roster extends BHGObject {
 
           $replace = array();
 
-          $replace['%new_division_name%'] = $wing->GetName();
+          $replace['%new_division_name%'] = $division->GetName();
           $replace['%new_division_chief_name%'] = $warden->GetName();
           $replace['%new_division_chief_email%'] = $warden->GetEmail();
           $replace['%new_member_email%'] = $person->GetEmail();
@@ -1320,7 +1320,7 @@ class Roster extends BHGObject {
 
           }
 
-          unset($underlord, $search, $warden, $wing, $div, $replace);
+          unset($underlord, $search, $warden, $div, $replace);
 
         }
 
