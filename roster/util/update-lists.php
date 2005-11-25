@@ -18,10 +18,23 @@ foreach ($divisions as $division) {
 	if (!isset($lists[$list]) || !is_array($lists[$list]))
 		$lists[$list] = array();
 
-	print "Processing ".$division->getName()."...\n";
-	foreach ($division->getMembers() as $person) {
+	print "Processing ".$division->getName()."... ";
+	
+	$members = $division->getMembers();
+
+	if (is_array($members)) {
 		
-		$lists[$list][] = $person->getEmail();
+		foreach ($division->getMembers() as $person) {
+			
+			$lists[$list][] = $person->getEmail();
+		
+		}
+
+		print "$list now contains ".count($lists[$list])." recipients.\n";
+
+	} else {
+
+		print "no recipients to add.";
 
 	}
 
