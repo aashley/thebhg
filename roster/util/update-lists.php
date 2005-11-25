@@ -18,6 +18,7 @@ foreach ($divisions as $division) {
 	if (!isset($lists[$list]) || !is_array($lists[$list]))
 		$lists[$list] = array();
 
+	print "Processing ".$division->getName()."...\n";
 	foreach ($division->getMembers() as $person) {
 		
 		$lists[$list][] = $person->getEmail();
