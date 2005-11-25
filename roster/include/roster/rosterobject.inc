@@ -1292,7 +1292,7 @@ class Roster extends BHGObject {
 
           $replace = array();
 
-          $replace['%new_division_name%'] = $division->GetName();
+          $replace['%new_division_name%'] = $div->GetName();
           $replace['%new_division_chief_name%'] = $warden->GetName();
           $replace['%new_division_chief_email%'] = $warden->GetEmail();
           $replace['%new_member_email%'] = $person->GetEmail();
