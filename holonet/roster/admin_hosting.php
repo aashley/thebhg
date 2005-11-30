@@ -58,8 +58,6 @@ function get_primary_accounts($pleb) {
 					 .'OR (division IS NULL AND position = '.$pleb->getPosition()->getID().') '
 					 .'OR (division = '.$pleb->getDivision()->getID().' AND position = '.$pleb->getPosition()->getID().') ';
 
-	print $sql;
-
 	$result = mysql_query($sql, $roster->roster_db);
 
 	if ($result
@@ -70,8 +68,6 @@ function get_primary_accounts($pleb) {
 		while ($row = mysql_fetch_row($result)) {
 			$ids[] = $row[0];
 		}
-
-		print_r($ids);
 
 		$sql = 'SELECT * '
 					.'FROM hosting_account '
@@ -84,6 +80,8 @@ function get_primary_accounts($pleb) {
 		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			$accounts[] = $row;
 		}
+
+		return $accounts;
 
 	} else {
 
