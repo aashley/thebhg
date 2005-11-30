@@ -65,6 +65,8 @@ function output() {
 	
 	$table->EndTable();
 
+	print '<p/>';
+
 	if ($has['FTP']) {
 
 		print <<<EOFTP
