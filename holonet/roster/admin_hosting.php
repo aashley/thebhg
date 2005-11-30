@@ -18,6 +18,10 @@ function output() {
 	global $auth_data, $pleb, $roster, $page;
 
 	roster_header();
+
+	$has['FTP'] = false;
+	$has['MySQL'] = false;
+	$has['Email'] = false;
 	
 	$accounts = get_primary_accounts($pleb);
 
@@ -32,18 +36,119 @@ function output() {
 		$table->EndRow();
 		
 		foreach ($accounts as $account) {
+
+			$has[$account['type']] = true;
 			
 			$table->AddRow($account['type'],
 				       $account['target'],
 				       $account['username'],
 				       $account['password']);
+
+			$secondaries = get_secondary_accounts($account);
+
+			foreach ($secondaries as $secondary) {
+
+				$has[$secondary['type']] = true;
+
+				$table->addRow($secondary['type'],
+						$secondary['target'],
+						$account['username'],
+						$account['password']);
+
+			}
+
 		}
+
 	}
 	else
 		$table->AddRow('You have access to no accounts on Loki.');
 	
 	$table->EndTable();
 
+	if ($has['FTP']) {
+
+		print <<<EOFTP
+<h3>FTP Details</h3>
+<table>
+	<tr>
+		<th>Website Address:</th>
+		<td>http://&lt;target&gt;/</td>
+	</tr>
+	<tr>
+		<th>Server:</th>
+		<td>ftp.thebhg.org</td>
+	</tr>
+	<tr>
+		<th>Username:</th>
+		<td>&lt;username&gt;</td>
+	</tr>
+	<tr>
+		<th>Password:</th>
+		<td>&lt;password&gt;</td>
+	</tr>
+</table>
+EOFTP;
+
+	}
+
+	if ($has['MySQL']) {
+
+		print <<<EOFTP
+<h3>MySQL Details</h3>
+<table>
+	<tr>
+		<th>Server:</th>
+		<td>localhost</td>
+	</tr>
+	<tr>
+		<th>Database Name:</th>
+		<td>&lt;target&gt;</td>
+	</tr>
+	<tr>
+		<th>Username:</th>
+		<td>&lt;username&gt;</td>
+	</tr>
+	<tr>
+		<th>Password:</th>
+		<td>&lt;password&gt;</td>
+	</tr>
+</table>
+EOFTP;
+
+	}
+
+	if ($has['Email']) {
+
+		print <<<EOFTP
+<h3>Email Details</h3>
+<table>
+	<tr>
+		<th>Email Address:</th>
+		<td>&lt;target&gt;</td>
+	</tr>
+	<tr>
+		<th>Server:</th>
+		<td>mail.thebhg.org</td>
+	</tr>
+	<tr>
+		<th>Username:</th>
+		<td>&lt;username&gt;</td>
+	</tr>
+	<tr>
+		<th>Password:</th>
+		<td>&lt;password&gt;</td>
+	</tr>
+	<tr>
+		<th>Connection Info:</th>
+		<td>All mail connection use SSL</td>
+	</tr>
+</table>
+EOFTP;
+
+	}
+
+	admin_footer($auth_data);
+	admin_footer($auth_data);
 	admin_footer($auth_data);
 }
 
@@ -91,4 +196,22 @@ function get_primary_accounts($pleb) {
 
 }
 
+function get_secondary_accounts($account) {
+	global $roster;
+
+	$sql = 'SELECT * '
+				.'FROM hosting_account '
+				."WHERE parent = ".$account['id'];
+
+	$result = mysql_query($sql, $roster->roster_db);
+
+	$accounts = array();
+
+	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$accounts[] = $row;
+	}
+
+	return $accounts;
+
+}
 ?>
