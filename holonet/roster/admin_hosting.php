@@ -49,6 +49,7 @@ function output() {
 
 
 function get_primary_accounts($pleb) {
+	global $roster;
 
 	$sql = 'SELECT UNIQUE(account) '
 				.'FROM hosting_rule '
