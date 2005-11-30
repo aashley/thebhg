@@ -23,7 +23,7 @@ function output() {
 
 	$table = new Table();
 	
-	if (is_array($accounts) && sizeof($accounts) > 0)) {{
+	if (is_array($accounts) && sizeof($accounts) > 0) {
 		$table->StartRow();
 		$table->AddHeader('Type');
 		$table->AddHeader('Target');
