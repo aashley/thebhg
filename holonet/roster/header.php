@@ -147,7 +147,8 @@ function admin_footer($auth_data) {
 					'E-Mail Members' => internal_link('admin_email_members', array()),
 					'Add Report' => internal_link('admin_add_report', array()),
 					'Edit Report' => internal_link('admin_edit_report', array()),
-					'Votes' => internal_link('admin_votes', array())));
+					'Votes' => internal_link('admin_votes', array()),
+					'Hosting' => internal_link('admin_hosting', array())));
 	}
 	
 	if ($auth_data['judicator']) {
@@ -211,7 +212,8 @@ function admin_footer($auth_data) {
 					'E-Mail Members' => internal_link('admin_email_members', array()),
 					'Add Report' => internal_link('admin_add_report', array()),
 					'Edit Report' => internal_link('admin_edit_report', array()),
-					'Chief Manual' => internal_link('book', array('id' => 16), 'library')));
+					'Chief Manual' => internal_link('book', array('id' => 16), 'library'),
+					'Hosting' => internal_link('admin_hosting', array())));
 	}
 	if ($auth_data['warden']) {
 		addMenu('Warden Features',
