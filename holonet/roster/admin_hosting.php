@@ -51,7 +51,7 @@ function output() {
 function get_primary_accounts($pleb) {
 	global $roster;
 
-	$sql = 'SELECT UNIQUE(account) '
+	$sql = 'SELECT DISTINCT(account) '
 				.'FROM hosting_rule '
 				.'WHERE person = '.$pleb->getID().' '
 					 .'OR (division = '.$pleb->getDivision()->getID().' AND position IS NULL) '
