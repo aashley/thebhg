@@ -68,8 +68,9 @@ function output() {
 	if ($has['FTP']) {
 
 		print <<<EOFTP
+<div>
 <h3>FTP Details</h3>
-<table>
+<table border=0 cellspacing=1 cellpadding=2 style="background: black">
 	<tr>
 		<th>Website Address:</th>
 		<td>http://&lt;target&gt;/</td>
@@ -87,6 +88,7 @@ function output() {
 		<td>&lt;password&gt;</td>
 	</tr>
 </table>
+</div>
 EOFTP;
 
 	}
@@ -94,8 +96,9 @@ EOFTP;
 	if ($has['MySQL']) {
 
 		print <<<EOFTP
+<div>
 <h3>MySQL Details</h3>
-<table>
+<table border=0 cellspacing=1 cellpadding=2 style="background: black">
 	<tr>
 		<th>Server:</th>
 		<td>localhost</td>
@@ -113,6 +116,7 @@ EOFTP;
 		<td>&lt;password&gt;</td>
 	</tr>
 </table>
+</div>
 EOFTP;
 
 	}
@@ -120,8 +124,9 @@ EOFTP;
 	if ($has['Email']) {
 
 		print <<<EOFTP
+<div>
 <h3>Email Details</h3>
-<table>
+<table border=0 cellspacing=1 cellpadding=2 style="background: black">
 	<tr>
 		<th>Email Address:</th>
 		<td>&lt;target&gt;</td>
@@ -143,6 +148,7 @@ EOFTP;
 		<td>All mail connection use SSL</td>
 	</tr>
 </table>
+</div>
 EOFTP;
 
 	}
