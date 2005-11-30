@@ -73,21 +73,22 @@ function output() {
 <table border=0 cellspacing=1 cellpadding=2 style="background: black">
 	<tr>
 		<th>Website Address:</th>
-		<td>http://&lt;target&gt;/</td>
+		<td style="background: white">http://&lt;target&gt;/</td>
 	</tr>
 	<tr>
 		<th>Server:</th>
-		<td>ftp.thebhg.org</td>
+		<td style="background: white">ftp.thebhg.org</td>
 	</tr>
 	<tr>
 		<th>Username:</th>
-		<td>&lt;username&gt;</td>
+		<td style="background: white">&lt;username&gt;</td>
 	</tr>
 	<tr>
 		<th>Password:</th>
-		<td>&lt;password&gt;</td>
+		<td style="background: white">&lt;password&gt;</td>
 	</tr>
 </table>
+<p/>
 </div>
 EOFTP;
 
@@ -101,21 +102,22 @@ EOFTP;
 <table border=0 cellspacing=1 cellpadding=2 style="background: black">
 	<tr>
 		<th>Server:</th>
-		<td>localhost</td>
+		<td style="background: white">localhost</td>
 	</tr>
 	<tr>
 		<th>Database Name:</th>
-		<td>&lt;target&gt;</td>
+		<td style="background: white">&lt;target&gt;</td>
 	</tr>
 	<tr>
 		<th>Username:</th>
-		<td>&lt;username&gt;</td>
+		<td style="background: white">&lt;username&gt;</td>
 	</tr>
 	<tr>
 		<th>Password:</th>
-		<td>&lt;password&gt;</td>
+		<td style="background: white">&lt;password&gt;</td>
 	</tr>
 </table>
+<p/>
 </div>
 EOFTP;
 
@@ -129,25 +131,26 @@ EOFTP;
 <table border=0 cellspacing=1 cellpadding=2 style="background: black">
 	<tr>
 		<th>Email Address:</th>
-		<td>&lt;target&gt;</td>
+		<td style="background: white">&lt;target&gt;</td>
 	</tr>
 	<tr>
 		<th>Server:</th>
-		<td>mail.thebhg.org</td>
+		<td style="background: white">mail.thebhg.org</td>
 	</tr>
 	<tr>
 		<th>Username:</th>
-		<td>&lt;username&gt;</td>
+		<td style="background: white">&lt;username&gt;</td>
 	</tr>
 	<tr>
 		<th>Password:</th>
-		<td>&lt;password&gt;</td>
+		<td style="background: white">&lt;password&gt;</td>
 	</tr>
 	<tr>
 		<th>Connection Info:</th>
-		<td>All mail connection use SSL</td>
+		<td style="background: white">All mail connection use SSL</td>
 	</tr>
 </table>
+<p/>
 </div>
 EOFTP;
 
