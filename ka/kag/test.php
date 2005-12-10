@@ -51,13 +51,7 @@ if ($signups) {
 				$ktotal[$kabal->getID()] += reformat($signup->GetPoints());
 			}
 		}
-	}
-	if (is_array($signups[0])){
-		foreach ($signups[0] as $signup){
-			printer($signup, $table);
-		}
-	}
-		
+	}		
 }
 
 arsort($ktotal);
