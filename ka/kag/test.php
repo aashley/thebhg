@@ -9,7 +9,7 @@ function reformat($score){
 	$new = $score - 20;
 	
 	if ($new <= 0)
-		$new = 1;
+		$new = 0;
 		
 	return $new;
 	
