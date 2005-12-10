@@ -37,26 +37,18 @@ $table->AddHeader('Points');
 $table->AddHeader('Credits');
 $table->EndRow();
 
-function printer($signup, $table){
-	
-	$ktotal[$kabal->getID()] += reformat($signup->GetPoints());
-}
-
-foreach ($ktotal as $id => $points){
-	
-	$kabal = new Division($id);
-	echo $kabal->getName() . ': ' . $points;
-	
-}
-
 $signups =& $event->GetRankSignups();
 ksort($signups);
 if ($signups) {
 	$sups = array();
 	foreach ($signups as $data) {
 		foreach ($data as $signup){
+			$kabal =& $signup->GetKabal();
+			if (!isset($ktotal[$kabal->getID()]))
+				$ktotal[$kabal->getID()] = 0;
+				
 			if ($signup->GetRank()){
-				printer($signup, $table);
+				$ktotal[$kabal->getID()] += reformat($signup->GetPoints());
 			}
 		}
 	}
@@ -66,6 +58,15 @@ if ($signups) {
 		}
 	}
 		
+}
+
+arsort($ktotal);
+
+foreach ($ktotal as $id => $points){
+	
+	$kabal = new Division($id);
+	echo $kabal->getName() . ': ' . $points . '<br />';
+	
 }
 
 $table->EndTable();
