@@ -8,7 +8,7 @@ function reformat($score){
 	
 	$new = $score - 20;
 	
-	if ($new < 0)
+	if ($new <= 0)
 		$new = 1;
 		
 	return $new;
@@ -38,17 +38,15 @@ $table->AddHeader('Credits');
 $table->EndRow();
 
 function printer($signup, $table){
-	global $kag;
-	$person =& $signup->GetPerson();
-	$kabal =& $signup->GetKabal();
+	
+	$ktotal[$kabal->getID()] += reformat($signup->GetPoints());
+}
 
-	$table->StartRow();
-	$table->AddCell($signup->GetRank());
-	$table->AddCell('<a href="hunter.php?kag=' . $kag->GetID() . '&amp;id=' . $person->GetID() . '">' . $person->GetName() . '</a>');
-	$table->AddCell('<a href="kabal.php?kag=' . $kag->GetID() . '&amp;kabal=' . $kabal->GetID() . '">' . $kabal->GetName() . '</a>');
-	$table->AddCell('<div style="text-align: right">' . number_format(reformat($signup->GetPoints())) . '</div>');
-	$table->AddCell('<div style="text-align: right">' . number_format($signup->GetCredits()) . '</div>');
-	$table->EndRow();
+foreach ($ktotal as $id => $points){
+	
+	$kabal = new Division($id);
+	echo $kabal->getName() . ': ' . $points;
+	
 }
 
 $signups =& $event->GetRankSignups();
