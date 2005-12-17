@@ -37,7 +37,7 @@ sort($sites);
 
 foreach ($sites as $site) {
 
-	print "				<li><a href=\"$site\">$site</a></li>\n";
+	print "				<li><a href=\"http://$site/\">$site</a></li>\n";
 
 }
 
