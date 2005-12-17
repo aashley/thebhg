@@ -1,0 +1,42 @@
+#sidebar {
+	float: right;
+	font-size: 80%;
+	border: 1px solid black;
+	padding: 0;
+}
+
+#sidebar h3 {
+	color: white;
+	background: black;
+	margin: 0;
+	padding: 2px;
+	text-align: center;
+}
+
+#sidebar ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+#sidebar ul li {
+	padding: 2px;
+	border-top: 1px dashed black;
+}
+
+#sidebar ul li a {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 2px;
+	color: black;
+	text-decoration: none;
+}
+
+#sidebar ul li:first-child {
+	border-top: none;
+}
+
+#sidebar ul li:hover {
+	background: #dedede;
+}
