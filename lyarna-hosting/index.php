@@ -1,5 +1,5 @@
 <?php
-$dir = new DirectoryInterator('/etc/httpd/vhost.d/');
+$dir = new DirectoryIterator('/etc/httpd/vhost.d/');
 
 $sites = array();
 
