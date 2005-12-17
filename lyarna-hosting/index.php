@@ -7,7 +7,7 @@ foreach ($dir as $file) {
 
 	if ($file->isFile()) {
 
-		if (preg_match('/^(www\.[a-z]*\.lyarna\.net)\.conf/', $file->getFileName(), $matches))) {
+		if (preg_match('/^(www\.[a-z]*\.lyarna\.net)\.conf/', $file->getFileName(), $matches)) {
 
 			$sites[] = $matches[1];
 
