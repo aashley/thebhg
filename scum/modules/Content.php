@@ -9,12 +9,21 @@ class Module_Content extends Module_Base {
 	public function __construct($path) {
 		parent::__construct($path);
 
-		$this->page = $GLOBALS['content']->getPage($path);
-		if ($this->page === false)
-			$this->notFound();
+		if ($path == 'sitemap.xml') {
 
-		if ($this->page->getType() == 'text/html')
-			$this->updateTitle();
+			$this->createGoogleSitemap();
+
+		} else {
+
+			$this->page = $GLOBALS['content']->getPage($path);
+			if ($this->page === false)
+				$this->notFound();
+
+			if ($this->page->getType() == 'text/html')
+				$this->updateTitle();
+
+		}
+
 	}
 
 	private function notFound() {
@@ -64,5 +73,53 @@ class Module_Content extends Module_Base {
 		else
 			$this->title = '';
 	}
+
+	private function createGoogleSitemap() {
+		$GLOBALS['module'] = $this;
+		$this->header('text/xml');
+
+		$lastMod = 0;
+
+		print "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+			."<urlset xmlns=\"http://www.google.com/schemas/sitemap/0.84\">\n";
+
+		$default = $GLOBALS['content']->getPage('default');
+
+		if ($default !== false) {
+
+			if ($default->getLastUpdate() > $lastMod)
+				$lastMod = $default->getLastUpdate();
+
+			print "	<url>\n"
+				."		<loc>http://".$_SERVER['HTTP_HOST']."/</loc>\n"
+				."		<lastmod>".date('c', $default->getLastUpdate())."</lastmod>\n"
+				."	</url>\n";
+
+		}
+
+		$pages = $GLOBALS['content']->getPages();
+
+		foreach ($pages as $page) {
+
+			if ($page->getName() != 'default') {
+
+				if ($page->getLastUpdate() > $lastMod)
+					$lastMod = $page->getLastUpdate();
+
+				print "	<url>\n"
+					."		<loc>http://".$_SERVER['HTTP_HOST']."/".$page->getName()."</loc>\n"
+					."		<lastmod>".date('c', $page->getLastUpdate())."</lastmod>\n"
+					."	</url>\n";
+
+			}
+
+		}
+
+		print "</urlset>\n";
+
+		$this->footer();
+
+	}
+
 }
 ?>
