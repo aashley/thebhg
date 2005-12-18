@@ -58,6 +58,14 @@ class Module_Administration extends Module_Base {
 		return $this->title;
 	}
 
+	private function pingGoogle() {
+		global $enableGoogleSitemap;
+
+		if ($enableGoogleSitemap)
+			$f = file_get_contents("http://www.google.com/webmasters/sitemaps/ping?sitemap=".urlencode("http://".$_SERVER['HTTP_HOST']."/sitemap.xml"));
+
+	}
+
 	private function index() {
 		$this->header();
 ?>
@@ -275,8 +283,10 @@ class Module_Administration extends Module_Base {
 				$content = $values['html'];
 				$type = 'text/html';
 			}
-			if ($this->content->addPage($values['name'], $content, $type))
+			if ($this->content->addPage($values['name'], $content, $type)) {
+				$this->pingGoogle();
 				header('Location: /administration/content');
+			}
 		}
 		else
 			$form->display();
@@ -308,8 +318,10 @@ class Module_Administration extends Module_Base {
 			elseif (isset($values['html']))
 				$status = $status && $page->setContent($values['html']);
 			
-			if ($status)
+			if ($status) {
+				$this->pingGoogle();
 				header('Location: /administration/content');
+			}
 		}
 		else
 			$form->display();
@@ -323,8 +335,10 @@ class Module_Administration extends Module_Base {
 		echo '<h1>Delete Content Page</h1>';
 		
 		if (isset($_GET['confirm'])) {
-			if ($page->delete())
+			if ($page->delete()) {
+				$this->pingGoogle();
 				header('Location: /administration/content');
+			}
 		}
 		else {
 ?>

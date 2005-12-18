@@ -33,4 +33,6 @@ $sections = array(28, // Adjunct's Office
 // Users with administrative access.
 $users = array('position' => array(1, 2, 5),
 	       'uid'      => array(85, 666));
+
+$enableGoogleSitemap = true;
 ?>
