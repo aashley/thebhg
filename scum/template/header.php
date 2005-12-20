@@ -8,7 +8,7 @@
 
 <table class="main">
 <tr><td id="top" colspan="3"><a href="/"><img src="/static/top.jpg"/></a></td></tr>
-<tr><td id="side" valign="top" rowspan="2"><img src="/static/side.jpg"/></td>
+<tr><td id="side" valign="top" rowspan="3"><img src="/static/side.jpg"/></td>
 <td class="main" valign="top"><table class="navbar"><tr>
 
 <?php

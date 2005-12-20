@@ -1,6 +1,6 @@
 </td></tr></table></td></tr>
-<tr><td id="top" colspan="3"></td></tr>
-<tr><td></td><td id="google"><script type="text/javascript"><!--
+<tr><td id="bottom" colspan="2"></td></tr>
+<tr><td class="main"></td><td id="google"><script type="text/javascript"><!--
 google_ad_client = "pub-4673636750726986";
 google_ad_width = 728;
 google_ad_height = 90;
