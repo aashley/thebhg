@@ -18,5 +18,5 @@ foreach ($menu->getItems() as $item)
 ?>
 
 </tr></table></td></tr>
-<tr><td><table class="body">
+<tr><td class="main"><table class="body">
 <tr><td id="body" valign="top">
