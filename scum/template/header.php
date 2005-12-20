@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<title>Bounty Hunter's Guild: Scum of the Universe - <?php echo $GLOBALS['module']->title(); ?></title>
-	<link rel="stylesheet" href="/static/main.css" type="text/css">
+	<link rel="stylesheet" href="/static/main.css" type="text/css" />
 </head>
 <body>
 
@@ -17,5 +17,5 @@ foreach ($menu->getItems() as $item)
 	echo '<td class="nav"><a href="'.htmlspecialchars($item->getLink()).'">'.htmlspecialchars($item->getName()).'</a></td>';
 ?>
 
-</tr><table class="body"></td>
+</tr></table></td><td><table class="body">
 <tr><td id="body" valign="top">
