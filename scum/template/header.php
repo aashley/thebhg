@@ -17,5 +17,6 @@ foreach ($menu->getItems() as $item)
 	echo '<td class="nav"><a href="'.htmlspecialchars($item->getLink()).'">'.htmlspecialchars($item->getName()).'</a></td>';
 ?>
 
-</tr></table></td><td><table class="body">
+</tr></table></td></tr>
+<tr><td><table class="body">
 <tr><td id="body" valign="top">
