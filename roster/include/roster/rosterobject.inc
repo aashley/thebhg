@@ -1180,7 +1180,7 @@ class Roster extends BHGObject {
         
       } else {
         
-        $this->roster_error = "Error Creating Division";
+        $this->roster_error = "Error Creating Division. ".mysql_error($this->roster_db);
         
         return false;
         
