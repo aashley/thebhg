@@ -1,0 +1,24 @@
+#!/bin/bash
+
+BACKUPDIR=$1
+
+DATABASES=`psql -U postgres -l -t | grep \| | grep -v template0 | sed -r "s/^ ([a-zA-Z0-9]+).*/\1/"`
+
+for db in $DATABASES; do
+	echo Backing up $db...
+	DIR=$BACKUPDIR/`date +%Y%m%d`
+	mkdir -p $DIR
+	/usr/bin/pg_dump -F c -b -c -C -o --disable-triggers -U postgres -f $DIR/$db.dump $db
+	bzip2 -f $DIR/$db.dump
+done
+
+COUNT=0
+
+for dir in `ls -1r --color=none $BACKUPDIR/`; do
+	COUNT=$(($COUNT + 1))
+	
+	if [ $COUNT -gt 29 ]; then
+		rm -rf $BACKUPDIR/$dir
+	fi
+
+done

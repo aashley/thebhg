@@ -1,0 +1,25 @@
+#!/bin/bash
+
+BACKUPDIR=$1
+TRAC_REPOS=$2
+
+for repos in `ls -1 --color=none $TRAC_REPOS/`
+do
+	DIR=$BACKUPDIR/${repos}-`date +%Y%m%d`
+
+	trac-admin $TRAC_REPOS/${repos} hotcopy $DIR
+
+	COUNT=0
+                                                                                
+	for dir in `ls -1r --color=none $BACKUPDIR/${repos}-*`
+	do
+	  COUNT=$(($COUNT + 1))
+                                                                                
+		if [ $COUNT -gt 14 ]
+	  then
+		  rm -rf $BACKUPDIR/$dir
+	  fi
+                                                                                
+	done
+done
+

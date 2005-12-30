@@ -43,6 +43,7 @@ checkUpdate projects/trunk/ka ka-devel
 checkUpdate projects/trunk/lyarna lyarna-devel
 checkUpdate projects/trunk/mybhg mybhg-devel
 checkUpdate projects/trunk/roster4 roster4
+checkUpdate projects/trunk/roster roster-devel
 checkUpdate projects/trunk/scum scum-devel
 checkUpdate projects/trunk/tactician tactician-devel
 

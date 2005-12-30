@@ -1,0 +1,20 @@
+#!/bin/bash
+
+ROOT_DN=$2
+BACKUPDIR=$1
+
+/usr/sbin/slapcat -f /etc/openldap/slapd.conf -b $ROOT_DN | bzip2 > $BACKUPDIR/$ROOT_DN-`date +%Y%m%d`.ldif.bz2
+
+COUNT=0
+
+for file in `ls -1r --color=none $BACKUPDIR/`
+do
+	COUNT=$(($COUNT + 1))
+	
+	if [ $COUNT -gt 30 ]
+	then
+		rm -rf $BACKUPDIR/$file
+	fi
+done
+
+						

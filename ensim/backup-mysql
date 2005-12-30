@@ -1,0 +1,30 @@
+#!/bin/bash
+                                                                                
+USERNAME="root"
+PASSWORD="g00n3r"
+DATADIR="/var/lib/mysql/"
+BACKUPDIR=$1
+
+DATABASES=`find $DATADIR/* -type d -printf "%f "`
+                                                                                
+for db in $DATABASES
+do
+  echo Backing up $db...
+  DBDIR=$BACKUPDIR/`date +%Y%m%d`
+  mkdir -p $DBDIR
+  /usr/bin/mysqldump --user=$USERNAME --password=$PASSWORD -a -q -c -e --opt --allow-keywords --quote-names --force --databases $db | bzip2 -z -c > $DBDIR/$db.sql.bz2
+done
+                                                                                
+COUNT=0
+                                                                                
+for dir in `ls -1r --color=none $BACKUPDIR/`
+do
+  COUNT=$(($COUNT + 1))
+                                                                                
+  if [ $COUNT -gt 29 ]
+  then
+    rm -rf $BACKUPDIR/$dir
+  fi
+                                                                                
+done
+

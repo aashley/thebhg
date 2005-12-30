@@ -1,0 +1,60 @@
+#!/bin/bash
+
+BACKUPDIR="/var/backup"
+LDAP_ROOT_DN="dc=perth,dc=optimiser,dc=com,dc=au"
+SVN_REPOS="/home/svn/svn"
+TRAC_REPOS="/home/svn/trac"
+
+for arg in "$@"
+do
+	case "$arg" in
+		mysql)
+			echo
+			echo Backing Up MySQL Databases...
+			mkdir -p $BACKUPDIR/database
+			chmod o-rwx $BACKUPDIR/database
+			/usr/local/bin/backup-mysql $BACKUPDIR/database
+			;;
+
+		postgres|postgresql)
+			echo
+			echo Backing Up PostgreSQL Databases...
+			mkdir -p $BACKUPDIR/database
+			chmod o-rwx $BACKUPDIR/database
+			/usr/local/bin/backup-postgresql $BACKUPDIR/database
+			;;
+
+		ldap)
+			echo
+			echo Backing Up LDAP Server...
+			mkdir -p $BACKUPDIR/ldap
+			chmod o-rwx $BACKUPDIR/ldap
+			/usr/local/bin/backup-ldap $BACKUPDIR/ldap $LDAP_ROOT_DN
+			;;
+
+		subversion|svn)
+			echo
+			echo Backing Up Subversion Repository...
+			mkdir -p $BACKUPDIR/subversion
+			chmod o-rwx $BACKUPDIR/subversion
+			for repos in `ls -1 --color=none $SVN_REPOS`
+			do
+				/usr/local/bin/backup-subversion $SVN_REPOS/$repos $BACKUPDIR/subversion
+			done
+			;;
+
+		trac)
+			echo
+			echo Backing Up Trac Data Store...
+			mkdir -p $BACKUPDIR/trac
+			chmod o-rwx $BACKUPDIR/trac
+			/usr/local/bin/backup-trac $BACKUPDIR/trac $TRAC_REPOS
+			;;
+
+		*)
+			echo
+			echo "Got unknown parameter: $arg"
+			;;
+	esac
+done
+
