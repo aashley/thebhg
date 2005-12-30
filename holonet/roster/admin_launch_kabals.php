@@ -32,32 +32,32 @@ function output() {
 		$newdata = array(
 				'Lightning' => array(
 					'chief'			=> 2650,
-					'username'	=> 'ligntning',
-					'password'	=> '**password**',
+					'username'	=> 'lightning',
+					'password'	=> 'JO1bOXulkpLYGA5',
 					'coder'			=> 'light-39-goal',
 					),
 				'Titan' => array(
 					'chief'			=> 2250,
 					'username'	=> 'titan',
-					'password'	=> '**password**',
+					'password'	=> 'MkdjrIb824EN6wg',
 					'coder'			=> 'tiny-73-foot',
 					),
 				'Daedalus' => array(
 					'chief'			=> 1281,
 					'username'	=> 'daedalus',
-					'password'	=> '**password**',
+					'password'	=> 'bKqM55NVxC0YYh5',
 					'coder'			=> 'dead-29-load',
 					),
 				'Loki' => array(
 					'chief'			=> 1762,
 					'username'	=> 'loki',
-					'password'	=> '**password**',
+					'password'	=> 'TdfB1SWQehmDbHB',
 					'coder'			=> 'laugh-75-spoon',
 					),
 				'Mithras' => array(
 					'chief'			=> 1594,
 					'username'	=> 'mithras',
-					'password'	=> '**password**',
+					'password'	=> 'NRDb3JhMatIDaHL',
 					'coder'			=> 'mith-82-rail',
 					),
 				);
