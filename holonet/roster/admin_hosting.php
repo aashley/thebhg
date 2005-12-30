@@ -22,6 +22,7 @@ function output() {
 	$has['FTP'] = false;
 	$has['MySQL'] = false;
 	$has['Email'] = false;
+	$has['CoderID'] = false;
 	
 	$accounts = get_primary_accounts($pleb);
 
@@ -50,10 +51,21 @@ function output() {
 
 				$has[$secondary['type']] = true;
 
-				$table->addRow($secondary['type'],
-						$secondary['target'],
-						$account['username'],
-						$account['password']);
+				if ($secondary['type'] == 'CoderID') {
+					
+					$table->addRow($secondary['type'],
+							$secondary['target'],
+							$secondary['username'],
+							'');
+
+				} else {
+					
+					$table->addRow($secondary['type'],
+							$secondary['target'],
+							$account['username'],
+							$account['password']);
+
+				}
 
 			}
 
@@ -155,6 +167,18 @@ EOFTP;
 <p/>
 </div>
 EOFTP;
+
+		if ($has['CoderID']) {
+
+			print <<<EOFTP
+<div>
+<h3>Coder ID<h3>
+<p>The Coder ID allows code on this site special access to features of the
+BHG Roster system.</p>
+</div>
+EOFTP;
+
+		}
 
 	}
 
