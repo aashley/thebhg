@@ -204,10 +204,20 @@ function output() {
 
 			if (!mysql_query($sql, $roster->roster_db)) {
 
-				print 'Failed. Could not create mysql hosting account record.<br/>'.$sql.'</p>';
+				print 'Failed. Could not create mysql hosting account record.<br/>'.$sql.'<br/>';
 			flush();
 
-				continue;
+			}
+
+			$accounts[] = mysql_insert_id($roster->roster_db);
+
+			$sql = 'INSERT INTO hosting_account (`type`, `parent`, `target`, `username`, `password`) '
+				.'VALUES ("CoderID", '.$accounts[0].', "'.$data['username'].'.thebhg.org", "'.$data['coder'].'", "");';
+
+			if (!mysql_query($sql, $roster->roster_db)) {
+
+				print 'Failed. Could not create coderid hosting account record.<br/>'.$sql.'<br/>';
+			flush();
 
 			}
 
@@ -218,11 +228,9 @@ function output() {
 
 			if (!mysql_query($sql, $roster->roster_db)) {
 				
-				print 'Failed. Could not create mysql hosting account record.<br/>'.$sql.'</p>';
+				print 'Failed. Could not create mysql hosting account record.<br/>'.$sql.'<br/>';
 			flush();
 
-				continue;
-										
 			} else {
 
 				print 'Success.';
