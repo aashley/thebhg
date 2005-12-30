@@ -21,7 +21,7 @@ function output() {
 
 	if (isset($_REQUEST['process']) && $_REQUEST['process'] == 'yes') {
 
-		$category = $roster->getCategory(2);
+		$category = $roster->getDivisionCategory(2);
 
 		$uap = $roster->getDivision(11);
 
