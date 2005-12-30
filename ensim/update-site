@@ -5,6 +5,7 @@ SVN="/usr/bin/svn"
 if [[ $# -eq 0 ]]; then
 	echo "You must specify at least one of the following sites to update:"
 	echo " roster          Roster Objects and Utilities"
+	echo " roster-devel    Roster Devel Objects and Utilities"
 	echo " calypso         BHG Blogs"
 	echo " citadel         Citadel"
 	echo " holonet         Main Holonet Site"
@@ -33,6 +34,14 @@ for site in $*; do
 			popd > /dev/null
 			pushd /root/util > /dev/null
 			$SVN update
+			popd > /dev/null
+			;;
+
+		roster-devel)
+			echo Updating Roster Devel...
+			pushd /home/bhgdevel/usr/share/roster > /dev/null
+			$SVN update
+			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
 			;;
 
