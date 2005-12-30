@@ -37,6 +37,7 @@ cd /tmp
 LogMsg "New Commit: $REV"
 
 #checkUpdate users/gravant/trunk/workspace gravant-workspace
+checkUpdate users/adamh/trunk/sdboard-2 boards-devel
 checkUpdate projects/trunk/holonet holonet3-devel
 checkUpdate projects/trunk/holonet4 holonet4-devel
 checkUpdate projects/trunk/ka ka-devel

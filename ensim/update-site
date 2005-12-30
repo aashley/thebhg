@@ -6,6 +6,7 @@ if [[ $# -eq 0 ]]; then
 	echo "You must specify at least one of the following sites to update:"
 	echo " roster          Roster Objects and Utilities"
 	echo " roster-devel    Roster Devel Objects and Utilities"
+	echo " boards-devel    Message Boards Development Site"
 	echo " calypso         BHG Blogs"
 	echo " citadel         Citadel"
 	echo " holonet         Main Holonet Site"
@@ -40,6 +41,14 @@ for site in $*; do
 		roster-devel)
 			echo Updating Roster Devel...
 			pushd /home/bhgdevel/usr/share/roster > /dev/null
+			$SVN update
+			chown -R bhgdevel:bhgdevel .
+			popd > /dev/null
+			;;
+
+		boards-devel)
+			echo Updating Boards Devel...
+			pushd /home/bhgdevel/domains/boards.devel.thebhg.org/public_html > /dev/null
 			$SVN update
 			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
