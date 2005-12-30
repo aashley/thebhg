@@ -226,7 +226,7 @@ function output() {
 	} else {
 
 		print '<p>Do you wish to launch the new kabals?</p>'
-			.'<a href="'.internal_link('admin_lanuch_kabals', array('process' => 'yes')).'">Yes</a>';
+			.'<a href="'.internal_link('admin_launch_kabals', array('process' => 'yes')).'">Yes</a>';
 
 	}
 
@@ -235,65 +235,4 @@ function output() {
 }
 
 
-function get_primary_accounts($pleb) {
-	global $roster;
-
-	$sql = 'SELECT DISTINCT(account) '
-				.'FROM hosting_rule '
-				.'WHERE person = '.$pleb->getID().' '
-					 .'OR (division = '.$pleb->getDivision()->getID().' AND position IS NULL) '
-					 .'OR (division IS NULL AND position = '.$pleb->getPosition()->getID().') '
-					 .'OR (division = '.$pleb->getDivision()->getID().' AND position = '.$pleb->getPosition()->getID().') ';
-
-	$result = mysql_query($sql, $roster->roster_db);
-
-	if ($result
-			&& mysql_num_rows($result) > 0) {
-
-		$ids = array();
-
-		while ($row = mysql_fetch_row($result)) {
-			$ids[] = $row[0];
-		}
-
-		$sql = 'SELECT * '
-					.'FROM hosting_account '
-					."WHERE id IN (".implode(',', $ids).')';
-
-		$result = mysql_query($sql, $roster->roster_db);
-
-		$accounts = array();
-
-		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-			$accounts[] = $row;
-		}
-
-		return $accounts;
-
-	} else {
-
-		return array();
-
-	}
-
-}
-
-function get_secondary_accounts($account) {
-	global $roster;
-
-	$sql = 'SELECT * '
-				.'FROM hosting_account '
-				."WHERE parent = ".$account['id'];
-
-	$result = mysql_query($sql, $roster->roster_db);
-
-	$accounts = array();
-
-	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
-		$accounts[] = $row;
-	}
-
-	return $accounts;
-
-}
 ?>
