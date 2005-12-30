@@ -226,8 +226,13 @@ function output() {
 				if (!$member->setDivision($uap)) {
 
 					print 'Failed to transfer '.$member->getName().'. '.$member->error().'<br/>';
-			flush();
+					flush();
 
+				}
+
+				if (!$member->setPosition(14)) {
+
+					print 'Failed to set '.$member->getName().' back to hunter status. '.$member->error().'<br/>';
 
 				}
 
