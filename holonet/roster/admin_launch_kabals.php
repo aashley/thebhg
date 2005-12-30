@@ -21,6 +21,8 @@ function output() {
 
 	if (isset($_REQUEST['process']) && $_REQUEST['process'] == 'yes') {
 
+		ob_end_flush();
+
 		$category = $roster->getDivisionCategory(2);
 
 		$uap = $roster->getDivision(11);
@@ -75,6 +77,8 @@ function output() {
 
 			}
 
+			flush();
+
 			print 'Loading New Chief... ';
 
 			$chief = $roster->getPerson($data['chief']);
@@ -91,6 +95,8 @@ function output() {
 				
 			}
 
+			flush();
+
 			print 'Transfering chief to new kabal... ';
 
 			if ($chief->setDivision($kabal)) {
@@ -104,6 +110,8 @@ function output() {
 				continue;
 
 			}
+
+			flush();
 
 			print 'Transfering chief to Chief position... ';
 
@@ -119,6 +127,8 @@ function output() {
 
 			}
 
+			flush();
+
 			print 'Setting Kabal Home Page... ';
 
 			if ($kabal->setURL('http://'.$data['username'].'.thebhg.org/')) {
@@ -132,6 +142,8 @@ function output() {
 				continue;
 
 			}
+
+			flush();
 
 		  print 'Setting Mailing List... ';
 
@@ -147,6 +159,8 @@ function output() {
 
 			}
 
+			flush();
+
 			print 'Creating Hosting records... ';
 
 			$accounts = array();
@@ -157,6 +171,8 @@ function output() {
 			if (!mysql_query($roster->roster_db, $sql)) {
 
 				print 'Failed. Could not create ftp hosting account record.<br/>'.$sql.'</p>';
+			flush();
+
 				continue;
 
 			}
@@ -169,6 +185,8 @@ function output() {
 			if (!mysql_query($roster->roster_db, $sql)) {
 
 				print 'Failed. Could not create mysql hosting account record.<br/>'.$sql.'</p>';
+			flush();
+
 				continue;
 
 			}
@@ -181,6 +199,8 @@ function output() {
 			if (!mysql_query($roster->roster_db, $sql)) {
 				
 				print 'Failed. Could not create mysql hosting account record.<br/>'.$sql.'</p>';
+			flush();
+
 				continue;
 										
 			} else {
@@ -193,6 +213,8 @@ function output() {
 
 		}
 
+			flush();
+
 		foreach ($oldkabals as $kabal) {
 
 			print '<p>Closing '.$kabal->getName().' Kabal...';
@@ -204,6 +226,8 @@ function output() {
 				if (!$member->setDivision($uap)) {
 
 					print 'Failed to transfer '.$member->getName().'. '.$member->error().'<br/>';
+			flush();
+
 
 				}
 
@@ -220,6 +244,8 @@ function output() {
 			}
 
 			print '</p>';
+			flush();
+
 
 		}
 
