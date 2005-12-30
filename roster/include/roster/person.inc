@@ -3089,7 +3089,6 @@ class Person extends BHGObject {
    * @return boolean whether the email was sent
    */
   function SendEmail($from, $subject, $message) {
-		return true;
 
 //    if ($this->Allowed('email')) {
 
