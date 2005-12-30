@@ -48,10 +48,10 @@ function output() {
 					'password'	=> 'bKqM55NVxC0YYh5',
 					'coder'			=> 'dead-29-load',
 					),
-				'Loki' => array(
+				'Perdition' => array(
 					'chief'			=> 1762,
-					'username'	=> 'loki',
-					'password'	=> 'TdfB1SWQehmDbHB',
+					'username'	=> 'perdition',
+					'password'	=> 'VC95DcxrmcNP3oL',
 					'coder'			=> 'laugh-75-spoon',
 					),
 				'Mithras' => array(
