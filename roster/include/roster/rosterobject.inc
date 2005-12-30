@@ -1169,7 +1169,7 @@ class Roster extends BHGObject {
       
 
       $sql = "INSERT INTO roster_divisions (`name`, `category`) "
-            ."VALUES ('".addslashes($name)."', $category)";
+            ."VALUES ('".addslashes($name)."', $cat)";
       
       if (mysql_query($sql, $this->roster_db)) {
         
