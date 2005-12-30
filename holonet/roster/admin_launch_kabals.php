@@ -32,30 +32,35 @@ function output() {
 		$newdata = array(
 				'Lightning' => array(
 					'chief'			=> 2650,
+					'cra'				=> 1625,
 					'username'	=> 'lightning',
 					'password'	=> 'JO1bOXulkpLYGA5',
 					'coder'			=> 'light-39-goal',
 					),
 				'Titan' => array(
 					'chief'			=> 2250,
+					'cra'				=> null,
 					'username'	=> 'titan',
 					'password'	=> 'MkdjrIb824EN6wg',
 					'coder'			=> 'tiny-73-foot',
 					),
 				'Daedalus' => array(
 					'chief'			=> 1281,
+					'cra'				=> 2661,
 					'username'	=> 'daedalus',
 					'password'	=> 'bKqM55NVxC0YYh5',
 					'coder'			=> 'dead-29-load',
 					),
 				'Perdition' => array(
 					'chief'			=> 1762,
+					'cra'				=> 1356,
 					'username'	=> 'perdition',
 					'password'	=> 'VC95DcxrmcNP3oL',
 					'coder'			=> 'laugh-75-spoon',
 					),
 				'Mithras' => array(
 					'chief'			=> 1594,
+					'cra'				=> 2968,
 					'username'	=> 'mithras',
 					'password'	=> 'NRDb3JhMatIDaHL',
 					'coder'			=> 'mith-82-rail',
@@ -133,6 +138,59 @@ function output() {
 			}
 
 			flush();
+
+			if (!is_null($data['cra'])) {
+				print 'Loading New CRA... ';
+	
+				$cra = $roster->getPerson($data['cra']);
+	
+				if ($cra === false) {
+	
+					print 'Failed. '.$roster->error().'</p>';
+	
+					continue;
+	
+				} else {
+	
+					print 'Success. '.$cra->getName().'<br/>';
+					
+				}
+	
+				flush();
+	
+				print 'Transfering cra to new kabal... ';
+	
+				if ($cra->setDivision($kabal)) {
+	
+					print 'Success.<br/>';
+	
+				} else {
+	
+					print 'Failed. '.$cra->error().'</p>';
+	
+					continue;
+	
+				}
+	
+				flush();
+	
+				print 'Transfering cra to CRA position... ';
+	
+				if ($cra->setPosition(11)) {
+	
+					print 'Success.<br/>';
+	
+				} else {
+	
+					print 'Failed. '.$cra->error().'</p>';
+	
+					continue;
+	
+				}
+	
+				flush();
+
+			}
 
 			print 'Setting Kabal Home Page... ';
 
