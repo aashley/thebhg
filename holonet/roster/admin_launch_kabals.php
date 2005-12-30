@@ -168,7 +168,7 @@ function output() {
 			$sql = 'INSERT INTO hosting_account (`type`, `parent`, `target`, `username`, `password`) '
 				.'VALUES ("FTP", 0, "'.$data['username'].'.thebhg.org", "'.$data['username'].'", "'.$data['password'].'");';
 
-			if (!mysql_query($roster->roster_db, $sql)) {
+			if (!mysql_query($sql, $roster->roster_db)) {
 
 				print 'Failed. Could not create ftp hosting account record.<br/>'.$sql.'</p>';
 			flush();
@@ -182,7 +182,7 @@ function output() {
 			$sql = 'INSERT INTO hosting_account (`type`, `parent`, `target`, `username`, `password`) '
 				.'VALUES ("MySQL", '.$accounts[0].', "'.$data['username'].'", "", "");';
 
-			if (!mysql_query($roster->roster_db, $sql)) {
+			if (!mysql_query($sql, $roster->roster_db)) {
 
 				print 'Failed. Could not create mysql hosting account record.<br/>'.$sql.'</p>';
 			flush();
@@ -196,7 +196,7 @@ function output() {
 			$sql = 'INSERT INTO hosting_rule (`account`, `division`, `person`, `position`) '
 				.'VALUES ('.$accounts[0].', '.$kabal->getID().', NULL, 11);';
 
-			if (!mysql_query($roster->roster_db, $sql)) {
+			if (!mysql_query($sql, $roster->roster_db)) {
 				
 				print 'Failed. Could not create mysql hosting account record.<br/>'.$sql.'</p>';
 			flush();
