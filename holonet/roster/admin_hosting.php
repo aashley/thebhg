@@ -159,8 +159,6 @@ EOFTP;
 	}
 
 	admin_footer($auth_data);
-	admin_footer($auth_data);
-	admin_footer($auth_data);
 }
 
 
