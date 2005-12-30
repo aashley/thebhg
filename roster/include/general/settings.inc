@@ -92,7 +92,11 @@ class Settings extends BHGObject {
    */
   function GetRealSetting($name) {
 
-    return $this->roster_settings[$name];
+		if (isset($this->roster_settings[$name])) {
+			return $this->roster_settings[$name];
+		} else {
+			return '';
+		}
 
   }
 

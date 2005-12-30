@@ -666,7 +666,7 @@ class Person extends BHGObject {
    * @uses Division
    */
   function GetPreviousDivision() {
-    return new Division($this->person_previousdivision, $this->coder);
+    return new Division($this->person_previousdivision, $this->roster_coder);
   }
 
 
@@ -1518,7 +1518,7 @@ class Person extends BHGObject {
 
       }
 
-      if ($positionid == $this->roster_position) {
+      if ($positionid == $this->person_position) {
 
         return true;
 
@@ -1545,7 +1545,7 @@ class Person extends BHGObject {
 
         $this->person_position = $positionid;
 
-        if ($GLOBALS['caller'] != 'update') {
+        if (!isset($GLOBALS['caller']) || $GLOBALS['caller'] != 'update') {
           $this->UpdateRank();
         }
 
