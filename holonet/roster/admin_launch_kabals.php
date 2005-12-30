@@ -31,29 +31,34 @@ function output() {
 
 		$newdata = array(
 				'Lightning' => array(
-					'chief' => 2650,
-					'username' => 'ligntning',
-					'password' => '**password**',
+					'chief'			=> 2650,
+					'username'	=> 'ligntning',
+					'password'	=> '**password**',
+					'coder'			=> 'light-39-goal',
 					),
 				'Titan' => array(
-					'chief' => 2250,
-					'username' => 'titan',
-					'password' => '**password**',
+					'chief'			=> 2250,
+					'username'	=> 'titan',
+					'password'	=> '**password**',
+					'coder'			=> 'tiny-73-foot',
 					),
 				'Daedalus' => array(
-					'chief' => 1281,
-					'username' => 'daedalus',
-					'password' => '**password**',
+					'chief'			=> 1281,
+					'username'	=> 'daedalus',
+					'password'	=> '**password**',
+					'coder'			=> 'dead-29-load',
 					),
 				'Loki' => array(
-					'chief' => 1762,
-					'username' => 'loki',
-					'password' => '**password**',
+					'chief'			=> 1762,
+					'username'	=> 'loki',
+					'password'	=> '**password**',
+					'coder'			=> 'laugh-75-spoon',
 					),
 				'Mithras' => array(
-					'chief' => 1594,
-					'username' => 'mithras',
-					'password' => '**password**',
+					'chief'			=> 1594,
+					'username'	=> 'mithras',
+					'password'	=> '**password**',
+					'coder'			=> 'mith-82-rail',
 					),
 				);
 
@@ -160,6 +165,21 @@ function output() {
 			}
 
 			flush();
+
+			print 'Creating Coder-ID... ';
+
+			$sql = 'INSERT INTO coders (`name`, `md5`, `news`, `hunts`) '
+				.'VALUES("'.$name.' Kabal", "'.strtoupper(md5($data['coder'])).'", 1, 1);';
+
+			if (mysql_query($sql, $roster->roster_db)) {
+
+				print 'Success.<br/>';
+
+			} else {
+
+				print 'Failed. '.mysql_error($roster->roster_db).'<br/>'.$sql.'<br/>';
+
+			}
 
 			print 'Creating Hosting records... ';
 
