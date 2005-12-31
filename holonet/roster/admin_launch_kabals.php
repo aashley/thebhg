@@ -30,11 +30,11 @@ function output() {
 		$oldkabals = $roster->getKabals();
 
 		$newdata = array(
-				'Lightning' => array(
+				'Veritas' => array(
 					'chief'			=> 2650,
 					'cra'				=> 1625,
-					'username'	=> 'lightning',
-					'password'	=> 'JO1bOXulkpLYGA5',
+					'username'	=> 'veritas',
+					'password'	=> '06l4WV6fGi9htPS',
 					'coder'			=> 'light-39-goal',
 					),
 				'Titan' => array(
