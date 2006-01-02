@@ -217,6 +217,7 @@ CREATE TABLE `college_reward` (
 		`rewardtype` ENUM( 'credit', 'medal' ) NOT NULL ,
 		`requiredscore` DOUBLE NOT NULL ,
 		`award` INT NOT NULL ,
+		`description` STRING DEFAULT NULL ,
 		PRIMARY KEY ( `id` ) ,
 		INDEX ( `exam` )
 		) TYPE = MYISAM, COLLATE = utf8_general_ci ;

@@ -21,6 +21,12 @@ class bhg_medalboard extends bhg_entry {
 
 	// {{{ getAward()
 
+	/**
+	 * Load a specific Award
+	 *
+	 * @param integer
+	 * @return bhg_medalboard_award
+	 */
 	static public function getAward($id) {
 
 		return bhg::loadObject('bhg_medalboard_award', $id);
@@ -99,6 +105,12 @@ class bhg_medalboard extends bhg_entry {
 	// }}}
 	// {{{ getCategory()
 
+	/**
+	 * Load a specific Medal Category
+	 *
+	 * @param integer
+	 * @return bhg_medalboard_category
+	 */
 	static public function getCategory($id) {
 
 		return bhg::loadObject('bhg_medalboard_category', $id);
@@ -108,6 +120,12 @@ class bhg_medalboard extends bhg_entry {
 	// }}}
 	// {{{ getCategories()
 
+	/**
+	 * Load a list of Medal Categories
+	 *
+	 * @param array Filters to select which categories to return
+	 * @return bhg_core_list
+	 */
 	public function getCategories($filter = array()) {
 
 		$sql = 'SELECT id '
@@ -138,6 +156,12 @@ class bhg_medalboard extends bhg_entry {
 	// }}}
 	// {{{ getGroup()
 
+	/**
+	 * Load a specific Group
+	 * 
+	 * @param integer
+	 * @return bhg_medalboard_group
+	 */
 	static public function getGroup($id) {
 
 		return bhg::loadObject('bhg_medalboard_group', $id);
@@ -147,6 +171,12 @@ class bhg_medalboard extends bhg_entry {
 	// }}}
 	// {{{ getGroups()
 
+	/**
+	 * Load a list of Medal Groups
+	 *
+	 * @param array Filters to select which groups to load
+	 * @return bhg_core_list
+	 */
 	public function getGroups($filter = array()) {
 
 		$sql = 'SELECT id '
@@ -180,6 +210,12 @@ class bhg_medalboard extends bhg_entry {
 	// }}}
 	// {{{ getMedal()
 
+	/**
+	 * Load a specific Medal
+	 *
+	 * @param integer 
+	 * @return bhg_medalboard_medal
+	 */
 	static public function getMedal($id) {
 
 		return bhg::loadObject('bhg_medalboard_medal', $id);
@@ -189,6 +225,12 @@ class bhg_medalboard extends bhg_entry {
 	// }}}
 	// {{{ getMedals()
 
+	/**
+	 * Load a list of Medals
+	 *
+	 * @param array Filters to select which medals to return
+	 * @return bhg_core_list
+	 */
 	public function getMedals($filter = array()) {
 
 		$sql = 'SELECT id '

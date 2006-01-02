@@ -1,9 +1,32 @@
 <?php
 
+/**
+ * BHG Data Systems
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Rosteg
+ * @Version $Rev$ $Date$
+ */
+
+/**
+ * Roster Kabal Object
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Roster
+ * @Version $Rev$ $Date$
+ */
 class bhg_roster_kabal extends bhg_roster_division {
 
 	// {{{ __construct()
 
+	/**
+	 * Constructor
+	 *
+	 * @param integer
+	 * @return void
+	 */
 	public function __construct($id) {
 		parent::__construct($id);
 		$this->__addFieldMap(array(
@@ -18,7 +41,7 @@ class bhg_roster_kabal extends bhg_roster_division {
 	/**
 	 * Get the Chief of this Kabal
 	 *
-	 * @return bhg_roster_person
+	 * @return mixed bhg_roster_person if there is a Chief else false
 	 */
 	public function getChief() {
 
@@ -29,7 +52,15 @@ class bhg_roster_kabal extends bhg_roster_division {
 
 		$p = $GLOBALS['bhg']->roster->getPeople($filter);
 
-		return $p->getItem(0);
+		if ($p->count() >= 1) {
+			
+			return $p->getItem(0);
+
+		} else {
+
+			return false;
+
+		}
 
 	}
 
@@ -39,7 +70,7 @@ class bhg_roster_kabal extends bhg_roster_division {
 	/**
 	 * Get the CRA of this Kabal
 	 *
-	 * @return bhg_roster_person
+	 * @return mixed bhg_roster_person if there is a CRA else false
 	 */
 	public function getCRA() {
 
@@ -50,7 +81,15 @@ class bhg_roster_kabal extends bhg_roster_division {
 
 		$p = $GLOBALS['bhg']->roster->getPeople($filter);
 
-		return $p->getItem(0);
+		if ($p->count() >= 1) {
+			
+			return $p->getItem(0);
+
+		} else {
+
+			return false;
+
+		}
 
 	}
 

@@ -4,7 +4,9 @@
  * This file provides an Object List
  *
  * @author Adam Ashley <aashley@optimiser.com>
- * @package Framework
+ * @author Adam Harvey <aharvey@optimiser.com>
+ * @package BHG
+ * @subpackage Core
  * @version $Rev$ $Date$   
  */
 
@@ -16,7 +18,9 @@
  * the list can be accessed without creating all the objects at once.
  *
  * @author Adam Ashley <aashley@optimiser.com>
- * @package Framework
+ * @author Adam Harvey <aharvey@optimiser.com>
+ * @package BHG
+ * @subpackage Core
  * @version $Rev$ $Date$   
  */
 class bhg_core_list implements IteratorAggregate {

@@ -6,7 +6,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage News
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 
 /**
@@ -15,7 +15,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage News
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 class bhg_news extends bhg_entry {
 
@@ -34,7 +34,6 @@ class bhg_news extends bhg_entry {
 	}
 
 	// }}}
-
 	// {{{ getItems()
 
 	/**

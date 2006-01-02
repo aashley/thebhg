@@ -6,7 +6,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Roster
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 
 /**
@@ -15,12 +15,18 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Roster
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 class bhg_roster extends bhg_entry {
 
 	// {{{ getCadre()
 
+	/**
+	 * Load a specific Cadre
+	 *
+	 * @param integer
+	 * @return bhg_roster_cadres
+	 */
 	static public function getCadre($id) {
 
 		return bhg::loadObject('bhg_roster_cadre', $id);
@@ -68,6 +74,12 @@ class bhg_roster extends bhg_entry {
 	// }}}
 	// {{{ getDivision()
 
+	/**
+	 * Load a specific Division
+	 *
+	 * @param integer
+	 * @return bhg_roster_division
+	 */
 	static public function getDivision($id) {
 
 		return bhg::loadObject('bhg_roster_division', $id);
@@ -159,6 +171,12 @@ class bhg_roster extends bhg_entry {
 	// }}}
 	// {{{ getDivisionCategory()
 
+	/**
+	 * Load a specific Division Category
+	 *
+	 * @param integer
+	 * @return bhg_roster_division_category
+	 */
 	static public function getDivisionCategory($id) {
 
 		return bhg::loadObject('bhg_roster_division_category', $id);
@@ -168,6 +186,12 @@ class bhg_roster extends bhg_entry {
 	// }}}
 	// {{{ getKabal()
 
+	/**
+	 * Load a specific Kabal
+	 * 
+	 * @param integer
+	 * @return bhg_roster_kabal
+	 */
 	static public function getKabal($id) {
 
 		return bhg::loadObject('bhg_roster_kabal', $id);
@@ -177,6 +201,12 @@ class bhg_roster extends bhg_entry {
 	// }}}
 	// {{{ getNewPerson()
 
+	/**
+	 * Load a specific new member application
+	 *
+	 * @param integer
+	 * @return bhg_roster_new_person
+	 */
 	static public function getNewPersion($id) {
 
 		return bhg::loadObject('bhg_roster_new_person', $id);
@@ -186,6 +216,12 @@ class bhg_roster extends bhg_entry {
 	// }}}
 	// {{{ getPerson()
 
+	/**
+	 * Load a specific person
+	 *
+	 * @param integer
+	 * @return bhg_roster_person
+	 */
 	static public function getPerson($id) {
 
 		return bhg::loadObject('bhg_roster_person', $id);
@@ -265,6 +301,12 @@ class bhg_roster extends bhg_entry {
 	// }}}
 	// {{{ getPosition()
 
+	/**
+	 * Load a specific Position
+	 *
+	 * @param integer
+	 * @return bhg_roster_position
+	 */
 	static public function getPosition($id) {
 
 		return bhg::loadObject('bhg_roster_position', $id);
@@ -312,6 +354,12 @@ class bhg_roster extends bhg_entry {
 	// }}}
 	// {{{ getRank()
 
+	/**
+	 * Load a specific Rank
+	 *
+	 * @param integer
+	 * @return bhg_roster_rank
+	 */
 	static public function getRank($id) {
 
 		return bhg::loadObject('bhg_roster_rank', $id);

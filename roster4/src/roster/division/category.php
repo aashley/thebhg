@@ -1,9 +1,32 @@
 <?php
 
+/**
+ * BHG Data Systems
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Roster
+ * @Version $Rev$ $Date$
+ */
+
+/**
+ * Roster Division Object
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Roster
+ * @Version $Rev$ $Date$
+ */
 class bhg_roster_division_category extends bhg_core_base {
 
 	// {{{ __construct()
 
+	/**
+	 * Constructor
+	 *
+	 * @param integer
+	 * @return void
+	 */
 	public function __construct($id) {
 		parent::__construct('roster_division_category', $id);
 		$this->__addBooleanFields(array('kabals'));
@@ -31,7 +54,7 @@ class bhg_roster_division_category extends bhg_core_base {
 	// {{{ getKabals()
 
 	/**
-	 * Get all the divisions within this division category
+	 * Get all the kabals within this division category
 	 *
 	 * @param array Filters to select which divisions to load
 	 * @return bhg_core_list

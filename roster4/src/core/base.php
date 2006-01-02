@@ -6,7 +6,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Core
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 
 /** Include PEAR::DB */
@@ -20,7 +20,7 @@ include_once 'Date.php';
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Core
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 class bhg_core_base {
 
@@ -84,7 +84,7 @@ class bhg_core_base {
 	/**
 	 * History Map
 	 *
-	 * Map specific fields that when changes should create a history event
+	 * Map specific fields that when changed should create a history event
 	 *
 	 * @var array
 	 */
@@ -103,6 +103,15 @@ class bhg_core_base {
 
 	// {{{ __construct()
 
+	/**
+	 * Constructor
+	 *
+	 * @param string The name of the table to load data from
+	 * @param integer The ID number of the record to load
+	 * @return void
+	 * @throws bhg_db_exception When unable to connect to the database
+	 * @throws bhg_fatal_exception When unable to load the relevant data from the database
+	 */
 	public function __construct($table = null, $id = null) {
 
 		$this->db = DB::connect('mysql://thebhg_rosedit:657cbf05@localhost/thebhg_roster');
@@ -161,11 +170,11 @@ class bhg_core_base {
 	/**
 	 * Checks if the IREF is equal to the other object.
 	 *
-	 * @param object Gen3_Base
+	 * @param object bhg_core_base
 	 * @return boolean
 	 */
 
-	public function isEqualTo(Gen3_Base $other) {
+	public function isEqualTo(bhg_core_base $other) {
 
 		return (get_class($this) == get_class($other)
 				 && $other->getID() == $this->getID());
@@ -191,6 +200,39 @@ class bhg_core_base {
 
 	// {{{ __call()
 
+	/**
+	 * Handle Undefined function calls to this object
+	 *
+	 * This function implements a mapping of function name to database field. It
+	 * implements the following function types:
+	 * <ul>
+	 * <li><i>getFieldName()</i>: Retrieve the value of this field. If the field
+	 * name contains the string 'date' then the value is converted to a PEAR Date
+	 * object. If the field is marked as having an object mapping then the value
+	 * is used as the sole parameter to the constructor for that object and the
+	 * object is returned.</li>
+	 * <li><i>setFieldName($var)</i>: Set the value of this field to $var. If the 
+	 * field name contains the string 'date' then $var must be an instance of PEAR
+	 * Date. If the field is marked as having an object mapping then $var must be
+	 * an instance of the object listed in the object mapping. This object must
+	 * have the function getID() available and it is the value returned from this
+	 * function that is saved to the field.</li>
+	 * <li><i>isFieldName()</i>, <i>hasFieldName()</i>: If the field is marked as
+	 * boolean then these two forms of function are available, they map a 1 and 0
+	 * in the database to the PHP values true and false respectively. Either for
+	 * is available simply to allow for which ever term flows better</li>
+	 * </ul>
+	 *
+	 * @param string The name of the function that was called
+	 * @param array An array of parameters passed to the function
+	 * @return mixed
+	 * @throws bhg_coder_exception If the current coder ID does not have
+	 * permission to call the requested function.
+	 * @throws bhg_fatal_exception If the called function can not be mapped back 
+	 * to a field in the database.
+	 * @throws bhg_validation_exception If the supplied function parameters are not
+	 * appropriate for the called function.
+	 */
 	public function __call($function, $params) {
 
 		$allowed = false;
@@ -201,7 +243,7 @@ class bhg_core_base {
 
 			if (!$GLOBALS['bhg']->hasPerm($this->codeMap[$lfunc])) {
 
-				throw new bhg_fatal_exception('Insufficent code ID permissions.');
+				throw new bhg_coder_exception('Insufficent code ID permissions.');
 
 			} else {
 
@@ -222,7 +264,7 @@ class bhg_core_base {
 
 					if (!$GLOBALS['bhg']->hasPerm($this->codeMap['defaults']['get'])) {
 
-						throw new bhg_fatal_exception('Insufficent code ID permissions.');
+						throw new bhg_coder_exception('Insufficent code ID permissions.');
 
 					}
 
@@ -301,7 +343,7 @@ class bhg_core_base {
 
 					if (!$GLOBALS['bhg']->hasPerm($this->codeMap['defaults']['set'])) {
 
-						throw new bhg_fatal_exception('Insufficent code ID permissions.');
+						throw new bhg_coder_exception('Insufficent code ID permissions.');
 
 					}
 
@@ -319,7 +361,7 @@ class bhg_core_base {
 
 					} else {
 
-						throw new bhg_fatal_exception('Invalid object passed to '.$function.'. Only accepts '.$this->fieldmap[$varname].'.');
+						throw new bhg_validation_exception('Invalid object passed to '.$function.'. Only accepts '.$this->fieldmap[$varname].'.');
 
 					}
 
@@ -348,8 +390,16 @@ class bhg_core_base {
 					}
 
 				} else {
-					
-					return $this->__saveValue($table, array($varname => $params[0]->getDate(DATE_FORMAT_ISO)));
+
+					if ($params[0] instanceof Date) {
+						
+						return $this->__saveValue($table, array($varname => $params[0]->getDate(DATE_FORMAT_ISO)));
+
+					} else {
+
+						throw new bhg_validation_exception('Invalid object passed to '.$function.'. Only accepts Date.');
+
+					}
 
 				}
 
@@ -374,7 +424,13 @@ class bhg_core_base {
 	 * @return mixed If a matching class for this table can be located then the
 	 *							 object related to the new record is returned, else a boolean
 	 *							 detailing whether creating succeded of failed is returned.
-	 *							 On failure or an error condition a boolean False is returned.
+	 *							 On failure or an error condition an exception is thrown.
+	 * @throws bhg_validation_exception If a bad table name or empty list of fields
+	 * is passed.
+	 * @throws bhg_db_exception If there is a failure while creating the record
+	 * within the database.
+	 * @throws bhg_fatal_exception If there is a failure while attempting to load
+	 * the object that represents the table the record is created in.
 	 */
 	protected function &__createRecord($table,
 			$fields,
@@ -382,13 +438,13 @@ class bhg_core_base {
 
 		if (strlen($table) == 0) {
 
-			throw new bhg_fatal_exception('Invalid table name passed.');
+			throw new bhg_validation_exception('Invalid table name passed.');
 
 		}
 
 		if (sizeof($fields) == 0) {
 
-			throw new bhg_fatal_exception('At least one field must be set to create a record.');
+			throw new bhg_validation_exception('At least one field must be set to create a record.');
 
 		}
 
@@ -499,6 +555,9 @@ class bhg_core_base {
 	 * @param string The name of the Table to delete the record from
 	 * @param array	A named array of fields to select the record to delete from
 	 * @return boolean
+	 * @throws bhg_fatal_exception If a table is specified but no fields are. This
+	 * function will not empty an entire table.
+	 * @throws bhg_db_exception If the delete operation in the database fails.
 	 */
 	protected function __deleteRecord($table = null, $fields = null) {
 
@@ -808,6 +867,21 @@ class bhg_core_base {
 	// }}}
 	// {{{ __recordHistoryEvent() [protected]
 
+	/**
+	 * Record a history event
+	 *
+	 * This function will record an event into the roster history system
+	 *
+	 * @param string The type of event
+	 * @param bhg_core_base The object in the bhg system that the history event
+	 * is about.
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @return boolean
+	 * @throws bhg_validation_exception If an invalid object is passed
+	 */
 	protected function __recordHistoryEvent($type, $object, $item1 = null, $item2 = null, $item3 = null, $item4 = null) {
 
 		if (!$object instanceof bhg_core_base)

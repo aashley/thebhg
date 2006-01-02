@@ -1,9 +1,32 @@
 <?php
 
+/**
+ * BHG Data Systems
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Roster
+ * @Version $Rev$ $Date$
+ */
+
+/**
+ * Roster Person Object
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Roster
+ * @Version $Rev$ $Date$
+ */
 class bhg_roster_person extends bhg_core_base {
 
 	// {{{ __construct()
 
+	/**
+	 * Constructor
+	 *
+	 * @param integer
+	 * @return void
+	 */
 	public function __construct($id) {
 		parent::__construct('roster_person', $id);
 		$this->__blackListVar('get', array('md5password', 'passwd', 'redoranks'));
@@ -348,6 +371,8 @@ class bhg_roster_person extends bhg_core_base {
 	 * Add credits to this person's rank account
 	 *
 	 * @param integer Credits to award
+	 * @param bhg_roster_person The person awarding the credits
+	 * @param string The reason the credits are awarded
 	 * @return boolean
 	 */
 	public function awardCredits($credits, bhg_roster_person $awarder, $reason = '') {
@@ -370,6 +395,8 @@ class bhg_roster_person extends bhg_core_base {
 	 * Remove credits from this person's rank account
 	 *
 	 * @param integer Credits to remove
+	 * @param bhg_roster_person The person removing the credits
+	 * @param string the reason the credits are being removed
 	 * @return boolean
 	 */
 	public function removeCredits($credits, bhg_roster_person $awarder, $reason = '') {
@@ -385,6 +412,8 @@ class bhg_roster_person extends bhg_core_base {
 	 * Withdraw credits from account balance
 	 *
 	 * @param integer Cost of purchase
+	 * @param string The location that the withdrawl was done
+	 * @param string The reason for the withdrawl
 	 * @return boolean
 	 */
 	public function withdrawAccount($credits, $from, $for = '') {
@@ -406,6 +435,8 @@ class bhg_roster_person extends bhg_core_base {
 	 * Make a deposit into the account
 	 *
 	 * @param integer amount of deposit
+	 * @param string The location that the deposit was done
+	 * @param string The reason for the deposit
 	 * @return boolean
 	 */
 	public function depositAccount($credits, $from, $for = '') {
@@ -423,6 +454,8 @@ class bhg_roster_person extends bhg_core_base {
 	 *
 	 * @param string New Password
 	 * @return boolean
+	 * @throws bhg_validation_exception If the password does not meet BHG
+	 * password requirements.
 	 */
 	public function setPassword($password) {
 

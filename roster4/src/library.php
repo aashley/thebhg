@@ -24,6 +24,7 @@ class bhg_library extends bhg_entry {
 	/**
 	 * Load a specific book
 	 *
+	 * @param integer
 	 * @return bhg_library_book
 	 */
 	static public function getBook($id) {
@@ -38,11 +39,12 @@ class bhg_library extends bhg_entry {
 	/**
 	 * Load a list of books
 	 *
+	 * @param array Filters to select which books to load
 	 * @return bhg_core_list
 	 */
 	public function getBooks($filter = array()) {
 
-		if (isset($filter['deleted']) || $filter['deleted'] == false)
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['shelf'])
@@ -98,6 +100,7 @@ class bhg_library extends bhg_entry {
 	/**
 	 * Load a specific chapter
 	 *
+	 * @param integer
 	 * @return bhg_library_chapter
 	 */
 	static public function getChapter($id) {
@@ -112,6 +115,7 @@ class bhg_library extends bhg_entry {
 	/**
 	 * Load a list of chapters
 	 *
+	 * @param array Filters to select which Chapters to load
 	 * @return bhg_core_list
 	 */
 	public function getChapters($filter = array()) {
@@ -119,7 +123,7 @@ class bhg_library extends bhg_entry {
 		$sql = 'SELECT id '
 					.'FROM library_chapter ';
 
-		if (isset($filter['deleted']) || $filter['deleted'] == false)
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['book'])
@@ -154,6 +158,7 @@ class bhg_library extends bhg_entry {
 	/**
 	 * Load a specific section
 	 *
+	 * @param integer
 	 * @return bhg_library_section
 	 */
 	static public function getSection($id) {
@@ -168,6 +173,7 @@ class bhg_library extends bhg_entry {
 	/**
 	 * Load a list of sections
 	 *
+	 * @param array Filters to select which sections to load
 	 * @return bhg_core_list
 	 */
 	public function getSections($filter = array()) {
@@ -175,7 +181,7 @@ class bhg_library extends bhg_entry {
 		$sql = 'SELECT id '
 					.'FROM library_section ';
 
-		if (isset($filter['deleted']) || $filter['deleted'] == false)
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['chapter'])
@@ -210,6 +216,7 @@ class bhg_library extends bhg_entry {
 	/**
 	 * Load a specific shelf
 	 *
+	 * @param integer
 	 * @return bhg_library_shelf
 	 */
 	static public function getShelf($id) {
@@ -224,6 +231,7 @@ class bhg_library extends bhg_entry {
 	/**
 	 * Load a list of shelves
 	 *
+	 * @param array Filters to select which Shelves to load
 	 * @return bhg_core_list
 	 */
 	public function getShelves($filter = array()) {
@@ -231,7 +239,7 @@ class bhg_library extends bhg_entry {
 		$sql = 'SELECT id '
 					.'FROM library_shelf ';
 
-		if (isset($filter['deleted']) || $filter['deleted'] == false)
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['name']))

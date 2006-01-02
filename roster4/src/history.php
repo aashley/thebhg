@@ -6,7 +6,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage History
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 
 /**
@@ -15,12 +15,18 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage History
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 class bhg_history extends bhg_entry {
 
 	// {{{ getEvent()
 
+	/**
+	 * Load a specific History Event
+	 *
+	 * @param integer
+	 * @return bhg_history_event
+	 */
 	static public function getEvent($id) {
 
 		return bhg::loadObject('bhg_history_event', $id);

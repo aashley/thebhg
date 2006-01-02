@@ -6,7 +6,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Core
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 
 /* First of fix up include path. */
@@ -23,7 +23,7 @@ include_once 'Log.php';
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Core
- * @Version $Rev:$ $Date:$
+ * @Version $Rev$ $Date$
  */
 class bhg extends bhg_core_base {
 
@@ -66,6 +66,11 @@ class bhg extends bhg_core_base {
 
 	// {{{ __construct()
 
+	/**
+	 * Constructor
+	 * 
+	 * @return void
+	 */
 	public function __construct() {
 
 		parent::__construct();
@@ -83,6 +88,7 @@ class bhg extends bhg_core_base {
 	 * 
 	 * @param string Name of interface to access
 	 * @return object
+	 * @throws bhg_fatal_exception If an invalid entry point is requested
 	 */
 	public function __get($e) {
 
@@ -124,7 +130,7 @@ class bhg extends bhg_core_base {
 	/**
 	 * Set function
 	 *
-	 * return false
+	 * @throws bhg_fatal_exception This object can not have extra parts set
 	 */
 	public function __set($name, $val) {
 
@@ -303,14 +309,40 @@ class bhg extends bhg_core_base {
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Core
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_entry extends bhg_core_base {}
 
+/**
+ * BHG Fatal Exception
+ *
+ * All other exceptions extend from this one
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev:$ $Date:$
+ */
 class bhg_fatal_exception extends Exception {}
 
+/**
+ * BHG Validation Exception
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev:$ $Date:$
+ */
 class bhg_validation_exception extends bhg_fatal_exception {}
 
+/**
+ * BHG Database Exception
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev:$ $Date:$
+ */
 class bhg_db_exception extends bhg_fatal_exception {
 
 	// {{{ __construct()
@@ -333,12 +365,54 @@ class bhg_db_exception extends bhg_fatal_exception {
 
 }
 
+/**
+ * BHG Coder Exception
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev:$ $Date:$
+ */
+class bhg_coder_exception extends bhg_fatal_exception {}
+
+/**
+ * BHG List Exception
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev:$ $Date:$
+ */
 class bhg_list_exception extends bhg_fatal_exception {}
 
+/**
+ * BHG List Bad Object Exception
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev:$ $Date:$
+ */
 class bhg_list_exception_badobject extends bhg_fatal_exception {}
 
+/**
+ * BHG List Bad Parameter Exception
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev:$ $Date:$
+ */
 class bhg_list_exception_badparameter extends bhg_fatal_exception {}
 
+/**
+ * BHG List Not Found Exception
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev:$ $Date:$
+ */
 class bhg_list_exception_notfound extends bhg_fatal_exception {}
 
 // {{{ __autoload()
@@ -366,6 +440,11 @@ function __autoload($className) {
 
 // }}}
 
+/**
+ * The Global BHG Entry Point
+ *
+ * @global $bhg
+ */
 $GLOBALS['bhg'] = new bhg();
 
 ?>
