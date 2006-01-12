@@ -1,6 +1,6 @@
 <?php
 
-class page_holonet_default extends holonet_page {
+class page_holonet_noauth extends holonet_page {
 
 	public function buildPage() {
 
