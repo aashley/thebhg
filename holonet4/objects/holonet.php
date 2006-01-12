@@ -43,6 +43,10 @@ class holonet {
 
 	public function execute() {
 
+		session_name('Holonet4');
+
+		session_start();
+
 		$url = trim($_SERVER['PATH_INFO'], '/');
 		$slash = strpos($url, '/');
 		if ($slash !== false) {
@@ -53,7 +57,34 @@ class holonet {
 
 		$page = $this->current->getPage($url);
 
-		$page->display();
+		if ($page->isSecure()) {
+
+			if (isset($_SESSION['holonet']['active']) && $_SESSION['holonet']['active'] == true) {
+
+				if ($page->canAccessPage($_SESSION['holonet']['user'])) {
+
+					$page->display();
+
+				} else {
+
+					$page = $this->holonet->getPage('noauth');
+					$page->display();
+
+				}
+
+			} else {
+
+				$page = $this->holonet->getPage('login');
+				
+				$page->display();
+
+			}
+
+		} else {
+			
+			$page->display();
+
+		}
 
 	}
 

@@ -9,6 +9,8 @@ class holonet_page extends HTML_Page2 {
 	
 	private $trail = array();
 
+	protected $secure = false;
+
 	public function __construct($trail) {
 
 		parent::__construct(array(
@@ -63,9 +65,21 @@ class holonet_page extends HTML_Page2 {
 
 	}
 
+	public function canAccessPage(bhg_roster_person $user) {
+
+		return true;
+
+	}
+
 	public function getTrailingElements() {
 
 		return $this->trail;
+
+	}
+
+	public function isSecure() {
+
+		return $this->secure;
 
 	}
 
