@@ -143,6 +143,14 @@ class bhg_core_base {
 
 				}
 
+				if (is_null($this->data) || (is_array($this->data) && sizeof($this->data) == 0)) {
+
+					$GLOBALS['bhg']->log('Row not found in '.$table.' with id = '.$id, PEAR_LOG_ERR);
+
+					throw new bhg_not_found('Record not found.');
+
+				}
+
 			}
 
 		}

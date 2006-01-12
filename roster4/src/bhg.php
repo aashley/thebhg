@@ -321,9 +321,19 @@ class bhg_entry extends bhg_core_base {}
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Exceptions
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_fatal_exception extends Exception {}
+
+/**
+ * BHG Not Found Exception
+ *
+ * @author Adam Ashley <adam_ashley@softhome.net>
+ * @package BHG
+ * @subpackage Exceptions
+ * @version $Rev$ $Date$
+ */
+class bhg_not_found extends bhg_fatal_exception {}
 
 /**
  * BHG Validation Exception
@@ -331,7 +341,7 @@ class bhg_fatal_exception extends Exception {}
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Exceptions
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_validation_exception extends bhg_fatal_exception {}
 
@@ -341,7 +351,7 @@ class bhg_validation_exception extends bhg_fatal_exception {}
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Exceptions
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_db_exception extends bhg_fatal_exception {
 
@@ -371,7 +381,7 @@ class bhg_db_exception extends bhg_fatal_exception {
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Exceptions
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_coder_exception extends bhg_fatal_exception {}
 
@@ -381,7 +391,7 @@ class bhg_coder_exception extends bhg_fatal_exception {}
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Exceptions
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_list_exception extends bhg_fatal_exception {}
 
@@ -391,7 +401,7 @@ class bhg_list_exception extends bhg_fatal_exception {}
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Exceptions
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_list_exception_badobject extends bhg_fatal_exception {}
 
@@ -401,7 +411,7 @@ class bhg_list_exception_badobject extends bhg_fatal_exception {}
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Exceptions
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_list_exception_badparameter extends bhg_fatal_exception {}
 
@@ -411,7 +421,7 @@ class bhg_list_exception_badparameter extends bhg_fatal_exception {}
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Exceptions
- * @version $Rev:$ $Date:$
+ * @version $Rev$ $Date$
  */
 class bhg_list_exception_notfound extends bhg_fatal_exception {}
 
