@@ -20,7 +20,7 @@ function checkUpdate() {
   local UPDATE dir=$1 site=$2
 
   LogMsg "Checking Revision $REV in $REPOS for $dir update"
-  /usr/bin/svnlook changed "$REPOS" -r "$REV" | grep $dir > /dev/null
+  echo $REVLOG | grep $dir > /dev/null
   UPDATE=$?
 
   if [[ $UPDATE -eq 0 ]]; then
@@ -35,6 +35,8 @@ function checkUpdate() {
 cd /tmp
 
 LogMsg "New Commit: $REV"
+
+REVLOG=`/usr/bin/svnlook changed "$REPOS" -r "$REV"`
 
 #checkUpdate users/gravant/trunk/workspace gravant-workspace
 checkUpdate users/adamh/trunk/sdboard-2 boards-devel
