@@ -47,7 +47,7 @@ class page_holonet_login extends holonet_page {
 
 		} else {
 
-			$this->addContent($form);
+			$this->addBodyContent($form);
 
 		}
 
