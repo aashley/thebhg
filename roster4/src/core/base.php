@@ -118,7 +118,8 @@ class bhg_core_base {
 
 		if (DB::isError($this->db)) {
 
-			$GLOBALS['bhg']->log('Could not connect to database.', PEAR_LOG_ERR);
+			if (isset($GLOBALS['bhg']))
+				$GLOBALS['bhg']->log('Could not connect to database.', PEAR_LOG_ERR);
 
 			throw new bhg_db_exception('Could not connect to database.', $this->db);
 
