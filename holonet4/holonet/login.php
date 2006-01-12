@@ -45,7 +45,7 @@ class page_holonet_login extends holonet_page {
 
 			print '<pre>'.print_r($_SESSION).'</pre>';
 
-			header('Location: '.$_SERVER['PATH_INFO']);
+//			header('Location: '.$_SERVER['PATH_INFO']);
 
 		} else {
 
