@@ -47,6 +47,8 @@ class holonet {
 
 		session_start();
 
+		print '<pre>'.print_r($_SESSION).'</pre>';
+
 		$url = trim($_SERVER['PATH_INFO'], '/');
 		$slash = strpos($url, '/');
 		if ($slash !== false) {

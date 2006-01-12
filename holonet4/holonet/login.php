@@ -43,6 +43,8 @@ class page_holonet_login extends holonet_page {
 					'user'		=> $GLOBALS['bhg']->roster->getPerson($values['username']),
 					);
 
+			print '<pre>'.print_r($_SESSION).'</pre>';
+
 			header('Location: '.$_SERVER['REQUEST_URI']);
 
 		} else {
