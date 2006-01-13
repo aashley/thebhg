@@ -226,7 +226,7 @@ class holonet_module_roster extends holonet_module {
 
 		$user = $GLOBALS['bhg']->user;
 
-		$perms = $this->getAdministrationPermissions()
+		$perms = $this->getAdministrationPermissions();
 
 		$menus = array();
 
