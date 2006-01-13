@@ -25,5 +25,9 @@
 			<text>Arena</text>
 			<link>/arena/</link>
 		</item>
+		<item>
+			<text>Logout</text>
+			<link>/logout/</link>
+		</item>
 	</items>
 </menu>
