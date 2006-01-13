@@ -41,7 +41,7 @@ class page_roster_administration_my extends holonet_page {
 
 		$user = $GLOBALS['bhg']->user;
 
-		$tab = new holonet_tab('details', 'My Details');
+		$tab = new holonet_tab('details_tab', 'My Details');
 
 		$form = new holonet_form('my_details_'.$user->getID());
 
@@ -252,7 +252,7 @@ class page_roster_administration_my extends holonet_page {
 
 		$user = $GLOBALS['bhg']->user;
 
-		$tab = new holonet_tab('details', 'Change Password');
+		$tab = new holonet_tab('password_tab', 'Change Password');
 
 		$form = new holonet_form('my_password_'.$user->getID());
 
