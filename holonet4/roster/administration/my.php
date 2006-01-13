@@ -34,6 +34,8 @@ class page_roster_administration_my extends holonet_page {
 
 	}
 
+	// {{{ buildDetails()
+
 	public function buildDetails() {
 
 		$user = $GLOBALS['bhg']->user;
@@ -45,7 +47,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'name',
 				'Name:',
-				array('width' 		=> 30,
+				array('width' 		=> 40,
 							'maxlength'	=> 40,
 					)
 				);
@@ -53,7 +55,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'homepage',
 				'Home Page:',
-				array('width'			=> 30,
+				array('width'			=> 40,
 							'maxlength'	=> 200,
 					)
 				);
@@ -61,7 +63,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'email',
 				'E-Mail Address:',
-				array('width'			=> 30,
+				array('width'			=> 40,
 							'maxlength'	=> 150,
 					)
 				);
@@ -69,7 +71,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'aim',
 				'AIM Screen Name:',
-				array('width'			=> 30,
+				array('width'			=> 40,
 							'maxlength'	=> 250,
 					)
 				);
@@ -77,7 +79,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'icq',
 				'ICQ Number:',
-				array('width'			=> 30,
+				array('width'			=> 40,
 							'maxlength'	=> 15,
 					)
 				);
@@ -85,7 +87,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'irc',
 				'IRC Nicknames:',
-				array('width'			=> 30,
+				array('width'			=> 40,
 							'maxlength'	=> 5000,
 					)
 				);
@@ -93,7 +95,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'jabber',
 				'Jabber ID:',
-				array('width'			=> 30,
+				array('width'			=> 40,
 							'maxlength'	=> 250,
 					)
 				);
@@ -101,7 +103,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'msn',
 				'MSN Passport Name:',
-				array('width'			=> 30,
+				array('width'			=> 40,
 							'maxlength'	=> 250,
 					)
 				);
@@ -109,7 +111,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'yahoo',
 				'Yahoo Messager ID:',
-				array('width'			=> 30,
+				array('width'			=> 40,
 							'maxlength'	=> 250,
 					)
 				);
@@ -240,6 +242,8 @@ class page_roster_administration_my extends holonet_page {
 		return $tab;
 
 	}
+
+	// }}}
 
 }
 
