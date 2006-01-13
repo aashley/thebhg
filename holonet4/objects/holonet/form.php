@@ -4,6 +4,14 @@ include_once 'HTML/QuickForm.php';
 
 class holonet_form extends HTML_QuickForm {
 
+	public function __construct($formName='', $method='post', $action='', $target='', $attributes=null, $trackSubmit = false) {
+
+		parent::HTML_QuickForm($formName, $method, $action, $target, $attributes, $trackSubmit);
+
+		$this->removeAttribute('name');
+
+	}
+
 	public function addButtons($submitText = null) {
 
 		$elements = array();
