@@ -20,6 +20,8 @@ class page_logout_default extends holonet_page {
 		// Finally, destroy the session.
 		session_destroy();
 
+		$this->addBodyContent('<p>You are now logged out.</p>');
+
 	}
 
 }
