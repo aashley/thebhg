@@ -21,6 +21,7 @@ class page_roster_administration_my extends holonet_page {
 		$bar = new holonet_tab_bar();
 
 		$bar->addTab($this->buildDetails());
+		$bar->addTab($this->buildPassword());
 
 		$this->addBodyContent($bar);
 
@@ -245,6 +246,102 @@ class page_roster_administration_my extends holonet_page {
 	}
 
 	// }}}
+	// {{{ buildPassword()
+
+	public function buildPassword() {
+
+		$user = $GLOBALS['bhg']->user;
+
+		$tab = new holonet_tab('details', 'Change Password');
+
+		$form = new holonet_form('my_password_'.$user->getID());
+
+		$form->addElement('password',
+				'old_password',
+				'Old Password:',
+				array(
+					'maxlength' => 20,
+					)
+				);
+
+		$form->addElement('password',
+				'password1',
+				'New Password:',
+				array(
+					'maxlength' => 20,
+					)
+				);
+
+		$form->addElement('password',
+				'password2',
+				'Confirm Password:',
+				array(
+					'maxlength' => 20,
+					)
+				);
+
+		$form->addButtons('Change Password');
+
+		$form->addRule('old_password',
+				'You must enter your old password to validate your identity.',
+				'required');
+
+		$form->addRule('old_password',
+				'Incorrect password.',
+				'callback',
+				'_checkOldPassword');
+
+		$form->addRule('password1',
+				'You must enter a new password.',
+				'required');
+
+		$form->addRule('password2',
+				'You must confirm your new new password.',
+				'required');
+
+		$form->addRule(array('password1', 'password2'),
+				'The passwords do not match.',
+				'compare');
+
+		$form->addRule('password1',
+				'Password must be between include 6 and 20 characters long.',
+				'rangelength',
+				array(6,20));
+
+		if ($form->validate()) {
+
+			$values = $form->exportValues();
+
+			try {
+				
+				$tab->addContent('<p>Changing Password... ');
+				$user->savePassword($values['password1']);
+				$tab->addContent('Success.</p>');
+
+			} catch (bhg_fatal_exception $e) {
+
+				$tab->addContent('Failure.</p>');
+				$tab->addContent($e->__toString());
+
+			}
+
+		} else {
+
+			$tab->addContent($form);
+
+		}
+
+		return $tab;
+
+	}
+
+	// }}}
+
+}
+
+function _checkOldPassword($value, $limit = null) {
+
+	return $GLOBALS['bhg']->user->checkPassword($value);
 
 }
 
