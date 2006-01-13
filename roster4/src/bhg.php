@@ -16,6 +16,8 @@ ini_set('include_path', $bhg_dir.':'.$include);
 
 /** Include PEAR::Log */
 include_once 'Log.php';
+/** Include bhg_core_exception */
+include_once 'core/exception.php';
 
 /**
  * BHG Data Systems Entry point object
@@ -355,7 +357,7 @@ class bhg_entry extends bhg_core_base {}
  * @subpackage Exceptions
  * @version $Rev$ $Date$
  */
-class bhg_fatal_exception extends Exception {}
+class bhg_fatal_exception extends bhg_core_exception {}
 
 /**
  * BHG Not Found Exception
@@ -387,24 +389,76 @@ class bhg_validation_exception extends bhg_fatal_exception {}
  */
 class bhg_db_exception extends bhg_fatal_exception {
 
+	// {{{ properties
+
+	/**
+	 * The DB_Error
+	 *
+	 * @var object DB_Error
+	 */
+	protected $dbError = null;
+
+	// }}}
+	
 	// {{{ __construct()
 
-	public function __construct($msg = null, $dberror = null) {
+	public function __construct($msg = null, $dberror = null, $code = 0) {
 
-		if (!is_null($dberror)) {
+		parent::__construct($msg, $code);
 
-			$msg .= "\n Database Error: ".$dberror->getMessage();
-
-			$msg .= "\n SQL: ".$dberror->getUserInfo();
-		
-		}
-
-		parent::__construct($msg);
+		$this->dbError = $dbError;
 
 	}
 
 	// }}}
 
+	// {{{ __toString()
+
+	/**
+	 * Render this exception.
+	 *
+	 * return string
+	 */
+	public function __toString($nohtml = false) {
+
+		$output = '';
+
+		if (!is_null($this->dbError) && $this->dbError instanceof DB_Error) {
+
+			if (!$nohtml && $this->html_errors) $output .= '<b>';
+
+			$output .= 'Database Error: ';
+			
+			if (!$nohtml && $this->html_errors) $output .= '</b>';
+			
+			$output .= $this->dbError->getMessage();
+
+			if (!$nohtml && $this->html_errors) $output .= '<br/>';
+
+			$output .= "\n";
+
+			if (!$nohtml && $this->html_errors) $output .= '<b>';
+
+			$output .= 'SQL: ';
+			
+			if (!$nohtml && $this->html_errors) $output .= '</b>';
+			
+			$output .= $this->dbError->getUserInfo();
+
+			if (!$nohtml && $this->html_errors) $output .= '<br/>';
+
+			$output .= "\n";
+
+		}
+
+		$output = parent::__toString($nohtml, $output);
+
+		return $output;
+
+	}
+
+	// }}}
+	
 }
 
 /**
