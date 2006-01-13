@@ -17,7 +17,7 @@ class page_holonet_exception extends holonet_page {
 
 		if ($this->e instanceof Exception) {
 
-			$this->addBodyContent($e->__toString());
+			$this->addBodyContent($this->e->__toString());
 
 		}
 
