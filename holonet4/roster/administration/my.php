@@ -47,80 +47,81 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'name',
 				'Name:',
-				array('width' 		=> 40,
-							'maxlength'	=> 40,
+				array(
+					'maxlength'	=> 40,
 					)
 				);
 
 		$form->addElement('text',
 				'homepage',
 				'Home Page:',
-				array('width'			=> 40,
-							'maxlength'	=> 200,
+				array(
+					'maxlength'	=> 200,
 					)
 				);
 
 		$form->addElement('text',
 				'email',
 				'E-Mail Address:',
-				array('width'			=> 40,
-							'maxlength'	=> 150,
+				array(
+					'maxlength'	=> 150,
 					)
 				);
 
 		$form->addElement('text',
 				'aim',
 				'AIM Screen Name:',
-				array('width'			=> 40,
-							'maxlength'	=> 250,
+				array(
+					'maxlength'	=> 250,
 					)
 				);
 
 		$form->addElement('text',
 				'icq',
 				'ICQ Number:',
-				array('width'			=> 40,
-							'maxlength'	=> 15,
+				array(
+					'maxlength'	=> 15,
 					)
 				);
 
 		$form->addElement('text',
 				'irc',
 				'IRC Nicknames:',
-				array('width'			=> 40,
-							'maxlength'	=> 5000,
+				array(
+					'maxlength'	=> 5000,
 					)
 				);
 
 		$form->addElement('text',
 				'jabber',
 				'Jabber ID:',
-				array('width'			=> 40,
-							'maxlength'	=> 250,
+				array(
+					'maxlength'	=> 250,
 					)
 				);
 
 		$form->addElement('text',
 				'msn',
 				'MSN Passport Name:',
-				array('width'			=> 40,
-							'maxlength'	=> 250,
+				array(
+					'maxlength'	=> 250,
 					)
 				);
 
 		$form->addElement('text',
 				'yahoo',
 				'Yahoo Messager ID:',
-				array('width'			=> 40,
-							'maxlength'	=> 250,
+				array(
+					'maxlength'	=> 250,
 					)
 				);
 
 		$form->addElement('textarea',
 				'quote',
 				'Quote:',
-				array('rows'	=> 6,
-							'cols'	=> 40,
+				array(
+					'rows'	=> 6,
+					'cols'	=> 40,
 					)
 				);
 
