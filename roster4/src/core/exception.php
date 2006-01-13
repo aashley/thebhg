@@ -6,7 +6,7 @@
  * @author Adam Ashley <adam_ashley@softhome.net>
  * @package BHG
  * @subpackage Core
- * @version $Rev:$ $Date$
+ * @version $Rev$ $Date$
  */
 
 /**
@@ -15,7 +15,7 @@
  * @author Adam Ashley <aashley@optimiser.com>
  * @package BHG
  * @subpackage Core
- * @version $Rev:$ $Date$
+ * @version $Rev$ $Date$
  */
 abstract class bhg_core_exception extends Exception {
 
@@ -99,25 +99,29 @@ abstract class bhg_core_exception extends Exception {
 	 */
 	public function renderTrace($nohtml = false) {
 
-		if (!$nohtml && $this->html_errors) {
+		if (!$nohtml && $this->html_errors && class_exists('HTML_Table')) {
 
-			include_once 'HTML/FRMTable.php';
+			include_once 'HTML/Table.php';
 
 			$trace = $this->getTrace();
 
-			$table = new Framework_HTML_Table();
+			$table = new HTML_Table();
 
 			$table->setAttributes(array('class' => 'backtrace'));
 
 			$table->setCaption('Backtrace');
 
-			$table->addRow(
+			$head = $table->getHeader();
+			
+			$head->addRow(
 					array('&nbsp;',
 								'File',
 								'Line',
 								'Call'),
 					array(),
 					'TH');
+
+			$body = $table->getBody();
 
 			foreach ($trace as $step => $data) {
 
@@ -169,7 +173,7 @@ abstract class bhg_core_exception extends Exception {
 
 				$function .= ')';
 
-				$table->addRow(
+				$body->addRow(
 						array('#'.$step,
 									'<span onmouseover="return overlib(\''.$data['file'].'\');" onmouseout="return nd();">'.basename($data['file']).'</span>',
 									$data['line'],
