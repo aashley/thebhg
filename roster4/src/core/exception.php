@@ -145,7 +145,7 @@ abstract class bhg_core_exception extends Exception {
 							$argout = htmlspecialchars($argout);
 
 							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Array</span>';*/
-							$function .= '<span onmouseover="return overlib(\''.htmlspecialchars(print_r($arg, true)).'\');" onmouseout="return nd();">Array</span>';
+							$function .= '<span onmouseover="return overlib(\'Items: '.sizeof($arg).'\');" onmouseout="return nd();">Array</span>';
 
 						} elseif (is_object($arg)) {
 
