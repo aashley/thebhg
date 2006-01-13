@@ -45,7 +45,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'name',
 				'Name:',
-				array('width' 		=> 25,
+				array('width' 		=> 30,
 							'maxlength'	=> 40,
 					)
 				);
@@ -53,7 +53,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'homepage',
 				'Home Page:',
-				array('width'			=> 25,
+				array('width'			=> 30,
 							'maxlength'	=> 200,
 					)
 				);
@@ -61,7 +61,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'email',
 				'E-Mail Address:',
-				array('width'			=> 25,
+				array('width'			=> 30,
 							'maxlength'	=> 150,
 					)
 				);
@@ -69,7 +69,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'aim',
 				'AIM Screen Name:',
-				array('width'			=> 25,
+				array('width'			=> 30,
 							'maxlength'	=> 250,
 					)
 				);
@@ -77,7 +77,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'icq',
 				'ICQ Number:',
-				array('width'			=> 25,
+				array('width'			=> 30,
 							'maxlength'	=> 15,
 					)
 				);
@@ -85,7 +85,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'irc',
 				'IRC Nicknames:',
-				array('width'			=> 25,
+				array('width'			=> 30,
 							'maxlength'	=> 5000,
 					)
 				);
@@ -93,7 +93,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'jabber',
 				'Jabber ID:',
-				array('width'			=> 25,
+				array('width'			=> 30,
 							'maxlength'	=> 250,
 					)
 				);
@@ -101,7 +101,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'msn',
 				'MSN Passport Name:',
-				array('width'			=> 25,
+				array('width'			=> 30,
 							'maxlength'	=> 250,
 					)
 				);
@@ -109,7 +109,7 @@ class page_roster_administration_my extends holonet_page {
 		$form->addElement('text',
 				'yahoo',
 				'Yahoo Messager ID:',
-				array('width'			=> 25,
+				array('width'			=> 30,
 							'maxlength'	=> 250,
 					)
 				);
