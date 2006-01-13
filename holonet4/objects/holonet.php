@@ -49,7 +49,7 @@ class holonet {
 
 		if (isset($_SESSION['holonet']['user']) && is_numeric($_SESSION['holonet']['user'])) {
 
-			$GLOBAL['bhg']->user = $_SESSION['holonet']['user'];
+			$GLOBALS['bhg']->user = $_SESSION['holonet']['user'];
 
 		}
 
@@ -67,9 +67,9 @@ class holonet {
 
 			if (	 isset($_SESSION['holonet']['active']) 
 					&& $_SESSION['holonet']['active'] == true
-					&& $_GLOBALS['bhg']->user instanceof bhg_roster_person) {
+					&& $GLOBALS['bhg']->user instanceof bhg_roster_person) {
 
-				if ($page->canAccessPage($_GLOBALS['bhg']->user)) {
+				if ($page->canAccessPage($GLOBALS['bhg']->user)) {
 
 					$page->display();
 

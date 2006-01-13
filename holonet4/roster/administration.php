@@ -16,7 +16,8 @@ class page_roster_administration extends holonet_page {
 
 		$this->setTitle('Roster');
 
-		$this->addBodyContent('Hello '.$GLOBALS['bhg']->user->getDisplayName());
+		//$this->addBodyContent('Hello '.$GLOBALS['bhg']->user->getDisplayName());
+		$this->addBodyContent('Test');
 
 	}
 
