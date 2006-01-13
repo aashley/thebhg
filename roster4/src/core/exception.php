@@ -142,7 +142,7 @@ abstract class bhg_core_exception extends Exception {
 							$argout = nl2br($argout);
 							$argout = str_replace(array(' ', '"'), array('&nbsp;', ''), $argout);
 
-							$function .= '<span onmouseover="return overlib(\'<pre>'.$argout.'</pre>\');" onmouseout="return nd();">Array</span>';
+							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Array</span>';
 
 						} elseif (is_object($arg)) {
 
@@ -151,7 +151,7 @@ abstract class bhg_core_exception extends Exception {
 							$argout = nl2br($argout);
 							$argout = str_replace(' ', '&nbsp;', $argout);
 
-							$function .= '<span onmouseover="return overlib(\'<pre>'.$argout.'</pre>\');" onmouseout="return nd();">Object '.get_class($arg).'</span>';
+							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Object '.get_class($arg).'</span>';
 
 						} elseif (is_numeric($arg)) {
 
