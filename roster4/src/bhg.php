@@ -406,7 +406,7 @@ class bhg_db_exception extends bhg_fatal_exception {
 
 		parent::__construct($msg, $code);
 
-		$this->dbError = $dbError;
+		$this->dbError = $dberror;
 
 	}
 
