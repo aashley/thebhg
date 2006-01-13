@@ -121,7 +121,7 @@ abstract class bhg_core_exception extends Exception {
 
 			foreach ($trace as $step => $data) {
 
-				$function = (isset($data['class']) ? $data['class'].$data['type'] : '').$data['function'].'(';
+				$function = (isset($data['class']) ? htmlspecialchars($data['class'].$data['type']) : '').$data['function'].'(';
 
 				$first = true;
 
