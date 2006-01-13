@@ -42,7 +42,7 @@ class page_roster_administration_my extends holonet_page {
 
 		$tab = new holonet_tab('details', 'My Details');
 
-		$form = new holonet_form();
+		$form = new holonet_form('my_details_'.$user->getID());
 
 		$form->addElement('text',
 				'name',
