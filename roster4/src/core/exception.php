@@ -75,15 +75,11 @@ abstract class bhg_core_exception extends Exception {
 		
 		$output .= "\n";
 
-		if (DEBUG) {
+		$output .= $this->renderTrace($nohtml);
 
-			$output .= $this->renderTrace($nohtml);
+		if (!$nohtml && $this->html_errors) $output .= '<br/>';
 
-			if (!$nohtml && $this->html_errors) $output .= '<br/>';
-
-			$output .= "\n";
-
-		}
+		$output .= "\n";
 
 		return $output;
 
