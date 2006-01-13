@@ -142,6 +142,7 @@ abstract class bhg_core_exception extends Exception {
 							$argout = strip_tags($argout);
 							$argout = nl2br($argout);
 							$argout = str_replace(array(' ', '"'), array('&nbsp;', ''), $argout);
+							$argout = htmlspecialchars($argout);
 
 							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Array</span>';
 
@@ -152,6 +153,7 @@ abstract class bhg_core_exception extends Exception {
 							$argout = strip_tags($argout);
 							$argout = nl2br($argout);
 							$argout = str_replace(' ', '&nbsp;', $argout);
+							$argout = htmlspecialchars($argout);
 
 							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Object '.get_class($arg).'</span>';
 
