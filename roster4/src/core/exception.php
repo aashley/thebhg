@@ -138,6 +138,7 @@ abstract class bhg_core_exception extends Exception {
 						if (is_array($arg)) {
 
 							$argout = print_r($arg, true);
+							$argout = htmlspecialchars($argout);
 							$argout = strip_tags($argout);
 							$argout = nl2br($argout);
 							$argout = str_replace(array(' ', '"'), array('&nbsp;', ''), $argout);
@@ -147,6 +148,7 @@ abstract class bhg_core_exception extends Exception {
 						} elseif (is_object($arg)) {
 
 							$argout = print_r($arg, true);
+							$argout = htmlspecialchars($argout);
 							$argout = strip_tags($argout);
 							$argout = nl2br($argout);
 							$argout = str_replace(' ', '&nbsp;', $argout);
