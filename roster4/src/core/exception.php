@@ -137,14 +137,15 @@ abstract class bhg_core_exception extends Exception {
 
 						if (is_array($arg)) {
 
-							$argout = print_r($arg, true);
+/*							$argout = print_r($arg, true);
 							$argout = htmlspecialchars($argout);
 							$argout = strip_tags($argout);
 							$argout = nl2br($argout);
 							$argout = str_replace(array(' ', '"', '\''), array('&nbsp;', '', '\\\''), $argout);
 							$argout = htmlspecialchars($argout);
 
-							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Array</span>';
+							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Array</span>';*/
+							$function .= '<span onmouseover="return overlib(\''.htmlspecialchars(print_r($arg, true)).'\');" onmouseout="return nd();">Array</span>';
 
 						} elseif (is_object($arg)) {
 
