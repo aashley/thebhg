@@ -226,7 +226,7 @@ class page_roster_administration_my extends holonet_page {
 
 			} catch (bhg_fatal_exception $e) {
 
-				$tab->addContent('</p>';
+				$tab->addContent('</p>');
 				$tab->addContent($e->__toString());
 
 			}
