@@ -14,10 +14,12 @@ class page_roster_administration extends holonet_page {
 
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		$this->setTitle('Roster');
 
-		//$this->addBodyContent('Hello '.$GLOBALS['bhg']->user->getDisplayName());
-		$this->addBodyContent('Test');
+		$this->addBodyContent('Hello '.$GLOBALS['bhg']->user->getDisplayName());
+		//$this->addBodyContent('Test');
 
 	}
 

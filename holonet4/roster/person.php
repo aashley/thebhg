@@ -6,6 +6,8 @@ class page_roster_person extends holonet_page {
 
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		list($id) = $this->getTrailingElements();
 		$person = bhg_roster::getPerson($id);
 

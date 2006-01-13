@@ -6,6 +6,8 @@ class page_roster_division extends holonet_page {
 
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		list($id) = $this->getTrailingElements();
 		$div = bhg_roster::getDivision($id);
 

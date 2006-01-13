@@ -9,6 +9,8 @@ class holonet_page extends HTML_Page2 {
 	
 	private $trail = array();
 
+	protected $pageBuilt = false;
+
 	protected $secure = false;
 
 	public function __construct($trail) {
@@ -39,8 +41,6 @@ class holonet_page extends HTML_Page2 {
 		$this->addStyleSheet('/style/holonet.css', 'text/css', 'screen');
 		$this->addStyleSheet('/style/tab.css', 'text/css', 'screen');
 		$this->addStyleSheet('/style/table.css', 'text/css', 'screen');
-
-		$this->buildPage();
 
 	}
 
@@ -84,6 +84,9 @@ class holonet_page extends HTML_Page2 {
 	}
 
 	public function toHtml() {
+
+		if (!$this->pageBuilt)
+			$this->buildPage();
 
 		$content = array();
 

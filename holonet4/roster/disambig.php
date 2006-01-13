@@ -4,6 +4,8 @@ class page_roster_disambig extends holonet_page {
 	
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		$trail = $this->getTrailingElements();
 		$search = $trail[0];
 		$people = array_pop($trail);

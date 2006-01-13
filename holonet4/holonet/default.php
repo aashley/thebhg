@@ -4,6 +4,8 @@ class page_holonet_default extends holonet_page {
 
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		$this->setTitle('Holonet News');
 
 		$this->addBodyContent('<p>Hello World</p>');

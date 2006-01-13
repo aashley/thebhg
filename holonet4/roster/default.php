@@ -6,6 +6,8 @@ class page_roster_default extends holonet_page {
 
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		$this->setTitle('Roster');
 
 		$bar = new holonet_tab_bar;

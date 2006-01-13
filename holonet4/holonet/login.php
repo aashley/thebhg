@@ -4,6 +4,8 @@ class page_holonet_login extends holonet_page {
 
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		$this->setTitle('Holonet Authentication');
 
 		$form = new holonet_form();

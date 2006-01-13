@@ -4,6 +4,8 @@ class page_roster_notfound extends holonet_page {
 
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		$trail = $this->getTrailingElements();
 
 		$this->setTitle('Not Found');

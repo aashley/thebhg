@@ -6,6 +6,8 @@ class page_roster_search extends holonet_page {
 
 	public function buildPage() {
 
+		$this->pageBuilt = true;
+
 		$this->setTitle('Search');
 
 		$bar = new holonet_tab_bar;
