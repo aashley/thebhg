@@ -71,7 +71,8 @@ class holonet {
 						&& $_SESSION['holonet']['active'] == true
 						&& $GLOBALS['bhg']->user instanceof bhg_roster_person) {
 
-					if ($page->canAccessPage($GLOBALS['bhg']->user)) {
+					if (   $page->canAccessPage($GLOBALS['bhg']->user)
+							|| in_array($GLOBALS['bhg']->user->getID(), $GLOBALS['gods'])) {
 
 						$page->display();
 
