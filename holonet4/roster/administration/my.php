@@ -20,6 +20,8 @@ class page_roster_administration_my extends holonet_page {
 
 		$bar = new holonet_tab_bar();
 
+		$bar->addTab($this->buildDetails());
+
 		$this->addBodyContent($bar);
 
 		$this->addSideMenu($GLOBALS['holonet']->roster->getAdministrationMenu());
