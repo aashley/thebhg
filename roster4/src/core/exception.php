@@ -145,18 +145,18 @@ abstract class bhg_core_exception extends Exception {
 							$argout = htmlspecialchars($argout);
 
 							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Array</span>';*/
-							$function .= '<span onmouseover="return overlib(\'Items: '.sizeof($arg).'\');" onmouseout="return nd();">Array</span>';
+							$function .= 'Array('.sizeof($arg).')';
 
 						} elseif (is_object($arg)) {
 
-							$argout = print_r($arg, true);
+/*							$argout = print_r($arg, true);
 							$argout = htmlspecialchars($argout);
 							$argout = strip_tags($argout);
 							$argout = nl2br($argout);
 							$argout = str_replace(array(' ', '"', '\''), array('&nbsp;', '', '\\\''), $argout);
-							$argout = htmlspecialchars($argout);
+							$argout = htmlspecialchars($argout);*/
 
-							$function .= '<span onmouseover="return overlib(\'&lt;pre&gt;'.$argout.'&lt;/pre&gt;\');" onmouseout="return nd();">Object '.get_class($arg).'</span>';
+							$function .= 'Object '.get_class($arg);
 
 						} elseif (is_numeric($arg)) {
 
@@ -176,7 +176,7 @@ abstract class bhg_core_exception extends Exception {
 
 				$body->addRow(
 						array('#'.$step,
-									'<span onmouseover="return overlib(\''.$data['file'].'\');" onmouseout="return nd();">'.basename($data['file']).'</span>',
+									basename($data['file']),
 									$data['line'],
 									$function,
 							));
