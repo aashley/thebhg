@@ -170,6 +170,77 @@ class holonet_module_roster extends holonet_module {
 
 	}
 
+	public function getAdministrationPermissions($user) {
+
+		$parts = array(
+				'underlord' 		=> false,
+				'commission'		=> false,
+				'judicator'			=> false,
+				'chief'					=> false,
+				'warden'				=> false,
+				'cs'						=> false,
+				'sysadmin'			=> false,
+				);
+
+		if (	 $user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(2))
+				|| in_array($user->getID(), $GLOBALS['gods'])) {
+
+			foreach ($parts as $key => $value) {
+				$parts[$key] = true;
+			}
+
+		} else {
+
+			if ($user->getDivision()->isEqualTo($GLOBALS['bhg']->roster->getDivision(10))) {
+
+				$parts['commission'] = true;
+
+			}
+
+			if ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(6))) {
+
+				$parts['judicator'] = true;
+
+			} elseif (	 $user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(9))
+								|| $user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(29))) {
+
+				$parts['cs'] = true;
+
+			} elseif ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(11))) {
+
+				$parts['chief'] = true;
+
+			} elseif ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(10))) {
+
+				$parts['warden'] = true;
+
+			}
+
+		}
+
+		return $parts;
+
+	}
+
+	public function getAdministrationMenu() {
+
+		$user = $GLOBALS['bhg']->user;
+
+		$perms = $this->getAdministrationPermissions()
+
+		$menus = array();
+
+		$menu = new holonet_menu;
+		$menu->title = 'Personal Details';
+		$menu->addItem(new holonet_menu_item('Edit My Details', '/roster/administration/my/details'));
+		$menu->addItem(new holonet_menu_item('Change My Password', '/roster/administration/my/password'));
+		$menu->addItem(new holonet_menu_item('Edit My IPKC', '/roster/administration/my/ipkc'));
+		$menus[] = $menu;
+
+		return $menus;
+
+	}
+
 }
 
 ?>

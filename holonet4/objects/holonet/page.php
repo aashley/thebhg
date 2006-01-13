@@ -42,10 +42,6 @@ class holonet_page extends HTML_Page2 {
 		$this->addStyleSheet('/style/tab.css', 'text/css', 'screen');
 		$this->addStyleSheet('/style/table.css', 'text/css', 'screen');
 
-		$this->addScript('/js/overlib_mini.js');
-//		$this->addScript('/js/overlib.js');
-//		$this->addScript('/js/overlib_hideform.js');
-
 	}
 
 	public function addSideMenu($menus) {
@@ -93,8 +89,6 @@ class holonet_page extends HTML_Page2 {
 			$this->buildPage();
 
 		$content = array();
-
-		$content[] = '<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>';
 
 		$content[] = '<div id="header">';
 

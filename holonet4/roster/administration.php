@@ -18,14 +18,15 @@ class page_roster_administration extends holonet_page {
 
 		$this->setTitle('Roster');
 
-		$this->addBodyContent('Hello '.$GLOBALS['bhg']->user->getDisplayName());
-		//$this->addBodyContent('Test');
+		$this->addBodyContent('<p>Hello '.$GLOBALS['bhg']->user->getDisplayName().' welcome to the BHG Roster Administration Interface.</p>');
+
+		$this->addSideMenu($GLOBALS['holonet']->roster->getAdministrationMenu());
 
 	}
 
 	public function canAccessPage(bhg_roster_person $user) {
 
-		return ($user->getID() == 94);
+		return true;
 
 	}
 
