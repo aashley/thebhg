@@ -61,35 +61,47 @@ class holonet {
 			
 		}
 
-		$page = $this->current->getPage($url);
+		try {
+			
+			$page = $this->current->getPage($url);
 
-		if ($page->isSecure()) {
+			if ($page->isSecure()) {
 
-			if (	 isset($_SESSION['holonet']['active']) 
-					&& $_SESSION['holonet']['active'] == true
-					&& $GLOBALS['bhg']->user instanceof bhg_roster_person) {
+				if (	 isset($_SESSION['holonet']['active']) 
+						&& $_SESSION['holonet']['active'] == true
+						&& $GLOBALS['bhg']->user instanceof bhg_roster_person) {
 
-				if ($page->canAccessPage($GLOBALS['bhg']->user)) {
+					if ($page->canAccessPage($GLOBALS['bhg']->user)) {
 
-					$page->display();
+						$page->display();
+
+					} else {
+
+						$page = $this->holonet->getPage('noauth');
+						$page->display();
+
+					}
 
 				} else {
 
-					$page = $this->holonet->getPage('noauth');
+					$page = $this->holonet->getPage('login');
+				
 					$page->display();
 
 				}
 
 			} else {
-
-				$page = $this->holonet->getPage('login');
-				
+			
 				$page->display();
 
 			}
 
-		} else {
-			
+		} catch (Exception $e) {
+
+			$page = $this->holonet->getPage('exception');
+
+			$page->setException($e);
+
 			$page->display();
 
 		}
