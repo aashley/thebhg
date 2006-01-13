@@ -69,10 +69,10 @@ ALTER TABLE roster_division CHANGE home_page_url homepageurl VARCHAR(200);
 -- Roster History
 ALTER TABLE roster_history RENAME history_event;
 ALTER TABLE `history_event` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE history_event ADD COLUMN datecreated DATETIME NOT NULL;
+ALTER TABLE history_event ADD COLUMN datecreated DATETIME NOT NULL AFTER `type`;
 UPDATE history_event SET datecreated = FROM_UNIXTIME(`date`);
 ALTER TABLE history_event DROP COLUMN `date`;
-ALTER TABLE history_event ADD COLUMN item4 VARCHAR(250);
+ALTER TABLE history_event ADD COLUMN item4 VARCHAR(250) NOT NULL DEFAULT '' AFTER `item3`;
 
 -- Roster New Member
 ALTER TABLE roster_new_members RENAME roster_new_person;
