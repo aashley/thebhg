@@ -51,7 +51,7 @@ class page_roster_administration_my extends holonet_page {
 				);
 
 		$form->addElement('text',
-				'homePage',
+				'homepage',
 				'Home Page:',
 				array('width'			=> 25,
 							'maxlength'	=> 200,
@@ -59,7 +59,7 @@ class page_roster_administration_my extends holonet_page {
 				);
 
 		$form->addElement('text',
-				'emailAddress',
+				'email',
 				'E-Mail Address:',
 				array('width'			=> 25,
 							'maxlength'	=> 150,
