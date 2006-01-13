@@ -43,7 +43,7 @@ class holonet_page extends HTML_Page2 {
 		$this->addStyleSheet('/style/table.css', 'text/css', 'screen');
 
 		$this->addScript('/js/overlib_mini.js');
-		$this->addScript('/js/overlib_hideform_mini.js');
+//		$this->addScript('/js/overlib_hideform_mini.js');
 
 	}
 
