@@ -2,7 +2,7 @@
 
 include_once 'objects/holonet/tab/bar.php';
 
-class page_roster_administration extends holonet_page {
+class page_roster_administration_my extends holonet_page {
 
 	public function __construct($trail) {
 
