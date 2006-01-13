@@ -40,12 +40,10 @@ class page_holonet_login extends holonet_page {
 
 			$_SESSION['holonet'] = array(
 					'active'	=> true,
-					'user'		=> $GLOBALS['bhg']->roster->getPerson($values['username']),
+					'user'		=> $values['username'],
 					);
 
-			print '<pre>'.print_r($_SESSION).'</pre>';
-
-//			header('Location: '.$_SERVER['PATH_INFO']);
+			header('Location: '.$_SERVER['PATH_INFO']);
 
 		} else {
 

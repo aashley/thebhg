@@ -47,6 +47,12 @@ class holonet {
 
 		session_start();
 
+		if (isset($_SESSION['holonet']['user']) && is_numeric($_SESSION['holonet']['user'])) {
+
+			$GLOBAL['bhg']->user = $_SESSION['holonet']['user'];
+
+		}
+
 		$url = trim($_SERVER['PATH_INFO'], '/');
 		$slash = strpos($url, '/');
 		if ($slash !== false) {
@@ -59,9 +65,11 @@ class holonet {
 
 		if ($page->isSecure()) {
 
-			if (isset($_SESSION['holonet']['active']) && $_SESSION['holonet']['active'] == true) {
+			if (	 isset($_SESSION['holonet']['active']) 
+					&& $_SESSION['holonet']['active'] == true
+					&& $_GLOBALS['bhg']->user instanceof bhg_roster_person) {
 
-				if ($page->canAccessPage($_SESSION['holonet']['user'])) {
+				if ($page->canAccessPage($_GLOBALS['bhg']->user)) {
 
 					$page->display();
 
