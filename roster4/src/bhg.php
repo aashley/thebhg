@@ -49,6 +49,13 @@ class bhg extends bhg_core_base {
 			);
 
 	/**
+	 * Current User
+	 *
+	 * @var object bhg_roster_person
+	 */
+	private $current_user = null;
+
+	/**
 	 * PEAR::Log object
 	 *
 	 * @var object
@@ -97,6 +104,9 @@ class bhg extends bhg_core_base {
 		if ($e == 'database')
 			return $this->database;
 
+		if ($e == 'current_user' || $e == 'user')
+			return $this->current_user;
+
 		if (	 isset($this->entry[$e])
 				&& $this->entry[$e] instanceof bhg_entry) {
 
@@ -134,7 +144,29 @@ class bhg extends bhg_core_base {
 	 */
 	public function __set($name, $val) {
 
-		throw new bhg_fatal_exception('No parts of this object can be set');
+		if ($name == 'current_user' || $name == 'user') {
+
+			if ($val instanceof bhg_roster_person) {
+
+				$this->current_user = $val;
+
+			} elseif (is_numeric($val)) {
+
+				try {
+					
+					$this->current_user = $GLOBALS['bhg']->roster->getPerson($val);
+
+				} catch (bhg_not_found $e) {
+
+				}
+
+			}
+
+		} else {
+			
+			throw new bhg_fatal_exception('No parts of this object can be set');
+
+		}
 
 	}
 
