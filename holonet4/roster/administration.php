@@ -16,7 +16,7 @@ class page_roster_administration extends holonet_page {
 
 		$this->pageBuilt = true;
 
-		$this->setTitle('Roster');
+		$this->setTitle('Roster Administration');
 
 		$this->addBodyContent('<p>Hello '.$GLOBALS['bhg']->user->getDisplayName().' welcome to the BHG Roster Administration Interface.</p>');
 

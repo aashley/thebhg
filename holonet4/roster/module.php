@@ -232,9 +232,7 @@ class holonet_module_roster extends holonet_module {
 
 		$menu = new holonet_menu;
 		$menu->title = 'Personal Details';
-		$menu->addItem(new holonet_menu_item('Edit My Details', '/roster/administration/my/details'));
-		$menu->addItem(new holonet_menu_item('Change My Password', '/roster/administration/my/password'));
-		$menu->addItem(new holonet_menu_item('Edit My IPKC', '/roster/administration/my/ipkc'));
+		$menu->addItem(new holonet_menu_item('My Account', '/roster/administration/my'));
 		$menus[] = $menu;
 
 		return $menus;
