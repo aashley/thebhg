@@ -363,7 +363,7 @@ class bhg_core_base {
 					if ($params[0] instanceof $this->fieldmap[$varname]) {
 
 						$oldvalue = $this->data[$varname];
-						if ($oldvalue == $params[0]->getID())) {
+						if ($oldvalue == $params[0]->getID()) {
 							return true;
 						} else {
 							$result = $this->__saveValue(array($varname => $params[0]->getID()));
