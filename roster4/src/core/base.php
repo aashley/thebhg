@@ -464,21 +464,21 @@ class bhg_core_base {
 		// Add in our tracking fields as appropriate
 		if (!in_array($table, $GLOBALS['bhg']->database['no_created'])) {
 
-			$fieldnames[] = 'date_created';
+			$fieldnames[] = 'datecreated';
 			$fieldvalues[] = 'NOW()';
 
 		}
 
 		if (!in_array($table, $GLOBALS['bhg']->database['no_updated'])) {
 
-			$fieldnames[] = 'date_updated';
+			$fieldnames[] = 'dateupdated';
 			$fieldvalues[] = 'NOW()';
 
 		}
 
 		if (!in_array($table, $GLOBALS['bhg']->database['no_deleted'])) {
 
-			$fieldnames[] = 'date_deleted';
+			$fieldnames[] = 'datedeleted';
 			$fieldvalues[] = $this->db->quote(NULL);
 
 		}
@@ -730,7 +730,7 @@ class bhg_core_base {
 
 		if (!in_array($table, $GLOBALS['bhg']->database['no_updated'])) {
 
-			$f[] = '`date_updated` = NOW()';
+			$f[] = '`dateupdated` = NOW()';
 
 		}
 
