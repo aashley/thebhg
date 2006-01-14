@@ -517,7 +517,7 @@ class bhg_core_base {
 
 		if (DB::isError($result)) {
 
-			throw new bhg_db_exception("Could not create new record in {$table}.", $result, $sql);
+			throw new bhg_db_exception("Could not create new record in {$table}.", $result);
 
 		} else {
 
@@ -618,7 +618,7 @@ class bhg_core_base {
 
 			if (DB::isError($result)) {
 
-				throw new bhg_db_exception('Could not delete record.', $result, $sql);
+				throw new bhg_db_exception('Could not delete record.', $result);
 
 			} else {
 
@@ -670,7 +670,7 @@ class bhg_core_base {
 
 		if (DB::isError($result)) {
 
-			throw new bhg_db_exception("Could not purge record #{$iref}.", $result, $sql);
+			throw new bhg_db_exception("Could not purge record #{$iref}.", $result);
 
 		} else {
 
@@ -743,7 +743,7 @@ class bhg_core_base {
 
 		if (DB::isError($result)) {
 
-			throw new bhg_db_exception("Could not save changes to {$table}.", $result, $sql);
+			throw new bhg_db_exception("Could not save changes to {$table}.", $result);
 
 		} else {
 
@@ -894,7 +894,7 @@ class bhg_core_base {
 	protected function __recordHistoryEvent($type, $object, $item1 = null, $item2 = null, $item3 = null, $item4 = null) {
 
 		if (!$object instanceof bhg_core_base)
-			throw new bhg_validation_exception();
+			throw new bhg_validation_exception('Invalid object passed to record history about.');
 
 		return $this->__createRecord('history_event',
 				null,
