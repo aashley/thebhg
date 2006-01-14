@@ -112,7 +112,7 @@ class holonet_page extends HTML_Page2 {
 					document.write ("&ct0=" + escape(document.phpAds_ct0));
 					document.write ("'><" + "/script>");
 			//-->
-			</script><noscript><a href='http://banner.thebhg.org/adclick.php?n=a3da495a' target='_blank'><img src='http://banner.thebhg.org/adview.php?zoneid=20&n=a3da495a' border='0' alt=''></a></noscript></div>
+			</script><noscript><a href='http://banner.thebhg.org/adclick.php?n=a3da495a' target='_blank'><img src='http://banner.thebhg.org/adview.php?zoneid=20&n=a3da495a' border='0' alt=''/></a></noscript></div>
 EOSCRIPT;
 
 		$content[] = '<div id="logo"><div id="logo01"></div><div id="logo02"></div><div id="logo03"></div><div id="logo04"></div><div id="logo05"></div><div id="logo06"></div><div id="logo07"></div><div id="logo08"></div><div id="logo09"></div><div id="logo10"></div><div id="logo11"></div><div id="logo12"></div><div id="logo13"></div><div id="logo14"></div></div>';
