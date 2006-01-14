@@ -233,7 +233,54 @@ class holonet_module_roster extends holonet_module {
 		$menu = new holonet_menu;
 		$menu->title = 'Personal Details';
 		$menu->addItem(new holonet_menu_item('My Account', '/roster/administration/my'));
+		$menu->addItem(new holonet_menu_item('Request Transfer', '/roster/administration/my/transfer'));
 		$menus[] = $menu;
+
+		if (	 $perms['commission']
+				|| $perms['chief']
+				|| $perms['warden']) {
+
+			$menu = new holonet_menu;
+			$menu->title = 'Awards';
+			if ($perms['underlord'])
+				$menu->addItem(new holonet_menu_item('Approve Awards', '/roster/administration/award/approve'));
+			$menu->addItem(new holonet_menu_item('Award Credits', '/roster/administration/award/credits'));
+			$menu->addItem(new holonet_menu_item('Award Medals', '/roster/administration/award/medals'));
+
+			$menus[] = $menu;
+
+		}
+
+		if (	 $perms['underlord']
+				|| $perms['chief']
+				|| $perms['warden']) {
+
+			$menu = new holonet_menu;
+			$menu->title = 'Membership';
+			if ($perms['underlord']) {
+				$menu->addItem(new holonet_menu_item('Approve Transfers', '/roster/administration/members/transfers'));
+				$menu->addItem(new holonet_menu_item('Reassign Members', '/roster/administration/members/reassign'));
+				$menu->addItem(new holonet_menu_item('Manage AWOLs', '/roster/administration/members/manageawol'));
+				$menu->addItem(new holonet_menu_item('Edit Member', '/roster/administration/members/edit'));
+			}
+			$menu->addItem(new holonet_menu_item('Declare AWOLs', '/roster/administration/members/awol'));
+
+			$menus[] = $menu;
+
+		}
+
+		if ($perms['sysadmin']) {
+
+			$menu = new holonet_menu;
+			$menu->title = 'System Administration';
+			$menu->addItem(new holonet_menu_item('Manage Categories', '/roster/administration/system/category'));
+			$menu->addItem(new holonet_menu_item('Manage Divisions', '/roster/administration/system/division'));
+			$menu->addItem(new holonet_menu_item('Manage Positions', '/roster/administration/system/position'));
+			$menu->addItem(new holonet_menu_item('Manage Ranks', '/roster/administration/system/rank'));
+
+			$menus[] = $menu;
+
+		}
 
 		return $menus;
 
