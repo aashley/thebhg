@@ -94,7 +94,7 @@ class holonet_page extends HTML_Page2 {
 
 		$content[] = <<<EOSCRIPT
 	<div id='headerAdd'><script language='JavaScript' type='text/javascript'>
-	<![CDATA[
+	<!--
 	// Insert click tracking URL here
   document.phpAds_ct0 ='Insert_Clicktrack_URL_Here'
 
@@ -111,7 +111,7 @@ class holonet_page extends HTML_Page2 {
 	document.write ('&r=' + awrz_rnd);
 	document.write ("&ct0=" + escape(document.phpAds_ct0));
 	document.write ("'><" + "/script>");
-]]>
+//-->
 </script></div>
 EOSCRIPT;
 

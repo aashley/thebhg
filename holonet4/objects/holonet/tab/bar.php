@@ -17,7 +17,7 @@ class holonet_tab_bar extends HTML_Common2 {
 		$bar = '<div class="tabbar">';
 		$html = <<<EOH
 <script type="text/javascript">
-<![CDATA[
+<!--
 function enableTabs() {
 
 	var divs = document.getElementsByTagName('div');
@@ -71,7 +71,7 @@ function switchTab(id) {
 	}
 	
 }
-]]>
+//-->
 </script>
 EOH;
 		$tabHTML = '';
@@ -99,10 +99,10 @@ EOH;
 		$id = $this->tabs[0]->getID();
 		$html .= <<<EOH
 <script type="text/javascript">
-<![CDATA[
+<!--
 enableTabs();
 switchTab('$id');
-]]>
+//-->
 </script>
 EOH;
 
