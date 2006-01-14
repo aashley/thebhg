@@ -37,6 +37,10 @@ a:active
 
 #headerAdd {
 float: left;
+margin-left: 5px;
+margin-top: 2px;
+padding: 1px;
+border: 1px solid #dddddd;
 }
 
 #mainmenu {
@@ -56,6 +60,7 @@ margin-bottom: 0.25em;
 	position: absolute;
 	top: 0.5em;
 	right: 17em;
+	left: 506px;
 	list-style: none;
 	margin: 0;
 	padding: 0;
