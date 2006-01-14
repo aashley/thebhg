@@ -206,7 +206,7 @@ class page_roster_administration_my extends holonet_page {
 
 			try {
 				
-				$tab->addContent('<p>Saving Changes...<ul>');
+				$tab->addContent('<p>Saving Changes...</p><ul>');
 				$user->setName($values['name']);
 				$tab->addContent('<li>Name saved.</li>');
 				$user->setEmail($values['email']);
