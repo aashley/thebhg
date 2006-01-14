@@ -43,7 +43,7 @@ class bhg extends bhg_core_base {
 	 *
 	 * @var array
 	 */
-	private $database = array(
+	public $database = array(
 			'no_created' => array(),
 			'no_updated' => array(),
 			'no_deleted' => array(),

@@ -363,7 +363,7 @@ class bhg_core_base {
 					if ($params[0] instanceof $this->fieldmap[$varname]) {
 
 						$oldvalue = $this->data[$varname];
-						$result = $this->__saveValue($this->table, array($varname => $params[0]->getID()));
+						$result = $this->__saveValue(array($varname => $params[0]->getID()));
 						if ($doHistory)
 							$this->__call_history($varname, $oldvalue);
 						return $result;
@@ -380,18 +380,18 @@ class bhg_core_base {
 
 						if ($params[0] === true) {
 
-							return $this->__saveValue($this->table, array($varname => 1));
+							return $this->__saveValue(array($varname => 1));
 
 						} else {
 
-							return $this->__saveValue($this->table, array($varname => 0));
+							return $this->__saveValue(array($varname => 0));
 
 						}
 
 					} else {
 						
 						$oldvalue = $this->data[$varname];
-						$result = $this->__saveValue($this->table, array($varname => $params[0]));
+						$result = $this->__saveValue(array($varname => $params[0]));
 						if ($doHistory)
 							$this->__call_history($varname, $oldvalue);
 						return $result;
