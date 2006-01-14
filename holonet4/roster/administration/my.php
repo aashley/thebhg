@@ -22,6 +22,7 @@ class page_roster_administration_my extends holonet_page {
 
 		$bar->addTab($this->buildDetails());
 		$bar->addTab($this->buildPassword());
+		$bar->addTab($this->buildIPKC());
 
 		$this->addBodyContent($bar);
 
@@ -321,6 +322,92 @@ class page_roster_administration_my extends holonet_page {
 			} catch (bhg_fatal_exception $e) {
 
 				$tab->addContent('Failure.</p>');
+				$tab->addContent($e->__toString());
+
+			}
+
+		} else {
+
+			$tab->addContent($form);
+
+		}
+
+		return $tab;
+
+	}
+
+	// }}}
+	// {{{ buildIPKC()
+
+	public function buildIPKC() {
+
+		$user = $GLOBALS['bhg']->user;
+
+		$tab = new holonet_tab('ipkc_tab', 'My IPKC');
+
+		$form = new holonet_form('my_ipkc_'.$user->getID());
+
+		$form->addElement('text',
+				'homeworld',
+				'Homeworld:',
+				array(
+					'maxlength' => 250,
+					)
+				);
+
+		$form->addElement('text',
+				'age',
+				'Age:',
+				array(
+					'maxlength' => 250,
+					)
+				);
+
+		$form->addElement('text',
+				'species',
+				'Species:',
+				array(
+					'maxlength' => 250,
+					)
+				);
+
+		$form->addElement('text',
+				'height',
+				'Height:',
+				array(
+					'maxlength' => 250,
+					)
+				);
+
+		$from->addElement('text'
+				'sex',
+				'Sex:',
+				array(
+					'maxlength' => 250,
+					)
+				);
+
+		$form->addElement('text',
+				'imageurl',
+				'Image URL:',
+				array(
+					'maxlength' => 200,
+					)
+				);
+
+		$form->addButtons('Save Changes');
+
+		if ($form->validate()) {
+
+			$values = $form->exportValues();
+
+			try {
+				
+				$tab->addContent('<p>Bio Data Systems Unavailable</p>');
+
+			} catch (bhg_fatal_exception $e) {
+
+				$tab->addContent('<p>Failure.</p>');
 				$tab->addContent($e->__toString());
 
 			}
