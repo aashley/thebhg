@@ -379,7 +379,7 @@ class page_roster_administration_my extends holonet_page {
 					)
 				);
 
-		$from->addElement('text'
+		$from->addElement('text',
 				'sex',
 				'Sex:',
 				array(
