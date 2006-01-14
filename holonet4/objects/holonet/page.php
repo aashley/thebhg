@@ -92,6 +92,29 @@ class holonet_page extends HTML_Page2 {
 
 		$content[] = '<div id="header">';
 
+		$content[] = <<<EOSCRIPT
+			<div id='headerAdd'><script language='JavaScript' type='text/javascript'>
+			<!--
+			// Insert click tracking URL here
+			    document.phpAds_ct0 ='Insert_Clicktrack_URL_Here'
+
+					var awrz_rnd = Math.floor(Math.random()*99999999999);
+		      var awrz_protocol = location.protocol.indexOf('https')>-1?'https:':'http:';
+			    if (!document.phpAds_used) document.phpAds_used = ',';
+					document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+					document.write (awrz_protocol+"//banner.thebhg.org/adjs.php?n=a3da495a");
+					document.write ("&zoneid=20");
+					document.write ("&exclude=" + document.phpAds_used);
+					document.write ("&loc=" + escape(window.location));
+					if (document.referrer)
+					  document.write ("&referer=" + escape(document.referrer));
+					document.write ('&r=' + awrz_rnd);
+					document.write ("&ct0=" + escape(document.phpAds_ct0));
+					document.write ("'><" + "/script>");
+			//-->
+			</script><noscript><a href='http://banner.thebhg.org/adclick.php?n=a3da495a' target='_blank'><img src='http://banner.thebhg.org/adview.php?zoneid=20&n=a3da495a' border='0' alt=''></a></noscript></div>
+EOSCRIPT;
+
 		$content[] = '<div id="logo"><div id="logo01"></div><div id="logo02"></div><div id="logo03"></div><div id="logo04"></div><div id="logo05"></div><div id="logo06"></div><div id="logo07"></div><div id="logo08"></div><div id="logo09"></div><div id="logo10"></div><div id="logo11"></div><div id="logo12"></div><div id="logo13"></div><div id="logo14"></div></div>';
 
 		$content[] = $GLOBALS['holonet']->getMenu();

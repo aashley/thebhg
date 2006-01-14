@@ -35,6 +35,10 @@ a:active
 	color                 : #003366;
 }
 
+#headerad {
+float: left;
+}
+
 #mainmenu {
 	margin: 0 !important;
 	padding: 0;
