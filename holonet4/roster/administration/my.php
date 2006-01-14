@@ -206,32 +206,32 @@ class page_roster_administration_my extends holonet_page {
 
 			try {
 				
-				$tab->addContent('<p>Saving Changes...<br/>');
+				$tab->addContent('<p>Saving Changes...<ul>');
 				$user->setName($values['name']);
-				$tab->addContent('Name saved.<br/>');
+				$tab->addContent('<li>Name saved.</li>');
 				$user->setEmail($values['email']);
-				$tab->addContent('Email saved.<br/>');
+				$tab->addContent('<li>Email saved.</li>');
 				$user->setURL($values['homepage']);
-				$tab->addContent('Home Page saved.<br/>');
+				$tab->addContent('<li>Home Page saved.</li>');
 				$user->setQuote($values['quote']);
-				$tab->addContent('Quote saved.<br/>');
+				$tab->addContent('<li>Quote saved.</li>');
 				$user->setAIM($values['aim']);
-				$tab->addContent('AIM Screen Name saved.');
+				$tab->addContent('<li>AIM Screen Name saved.</li>');
 				$user->setICQ($values['icq']);
-				$tab->addContent('ICQ Number saved.');
+				$tab->addContent('<li>ICQ Number saved.</li>');
 				$user->setIRCNicks($values['irc']);
-				$tab->addContent('IRC Nicknames saved.<br/>');
+				$tab->addContent('<li>IRC Nicknames saved.</li>');
 				$user->setJabber($values['jabber']);
-				$tab->addContent('Jabber ID saved.<br/>');
+				$tab->addContent('<li>Jabber ID saved.</li>');
 				$user->setMSN($values['msn']);
-				$tab->addContent('MSN Passport Name saved.<br/>');
+				$tab->addContent('<li>MSN Passport Name saved.</li>');
 				$user->setYahoo($values['yahoo']);
-				$tab->addContent('Yahoo Messager ID saved.<br/>');
-				$tab->addContent('</p>');
+				$tab->addContent('<li>Yahoo Messager ID saved.</li>');
+				$tab->addContent('</ul>');
 
 			} catch (bhg_fatal_exception $e) {
 
-				$tab->addContent('</p>');
+				$tab->addContent('</ul>');
 				$tab->addContent($e->__toString());
 
 			}
