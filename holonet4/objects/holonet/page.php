@@ -24,7 +24,7 @@ class holonet_page extends HTML_Page2 {
 
 		$this->trail = $trail;
 		
-		if ( strpos($_SERVER['HTTP_ACCEPT'], 'application/xhtml+xml') ) {
+		if ( false ) { // strpos($_SERVER['HTTP_ACCEPT'], 'application/xhtml+xml') ) {
 			$this->setDoctype('XHTML 1.0 Strict');
 			$this->setMimeEncoding('application/xhtml+xml');
 		} else {
