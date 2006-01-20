@@ -1000,5 +1000,7 @@ define('BHG_HISTORY_DELETE', 10);
 define('BHG_HISTORY_JOIN_CADRE', 11);
 /** History Event Type: Left Cadre */
 define('BHG_HISTORY_LEFT_CADRE', 12);
+/** History Event Type: Role Playing XP */
+define('BHG_HISTORY_XP', 13);
 
 ?>
