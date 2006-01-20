@@ -135,6 +135,7 @@ ALTER TABLE roster_person CHANGE previous_division previousdivision INT(4);
 ALTER TABLE roster_person CHANGE completed_ntc_exam completedcoreexam INT(1) NOT NULL;
 ALTER TABLE roster_person CHANGE redo_ranks redoranks INT(1) NOT NULL;
 ALTER TABLE roster_person CHANGE hasship ship INT(1) NOT NULL;
+ALTER TABLE `roster_person` ADD `xp` INT NOT NULL DEFAULT '0';
 
 
 -- MedalBoard Awarded Medals
