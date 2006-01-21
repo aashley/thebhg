@@ -128,6 +128,28 @@ echo implode(', ', $cnames) . '.<br>Bugs should be reported at the <a href="http
 ?>
 		<p>All rights reserved 1995-2005; original contents are protected by the United States (US) Copyright Act in accordance with the Bounty Hunters Guild <a href="http://www.thebhg.org/disclaimer">Disclaimers and Copyrights</a> detailed herein. This site abides by the Bounty Hunters Guild <a href="http://www.thebhg.org/privacy">Privacy Policy</a>.</p>
 		<p>I hope he tells us to burn our pants.. these things are driving me nuts!</p>
+		<div id="footer_banner">
+		<script language='JavaScript' type='text/javascript'>
+		<!--
+		// Insert click tracking URL here
+    document.phpAds_ct0 ='Insert_Clicktrack_URL_Here'
+
+    var awrz_rnd = Math.floor(Math.random()*99999999999);
+    var awrz_protocol = location.protocol.indexOf('https')>-1?'https:':'http:';
+	  if (!document.phpAds_used) document.phpAds_used = ',';
+		document.write ("<" + "script language='JavaScript' type='text/javascript' src='");
+		document.write (awrz_protocol+"//banner.thebhg.org/adjs.php?n=a224b562");
+		document.write ("&zoneid=20");
+		document.write ("&exclude=" + document.phpAds_used);
+		document.write ("&loc=" + escape(window.location));
+		if (document.referrer)
+	    document.write ("&referer=" + escape(document.referrer));
+		document.write ('&r=' + awrz_rnd);
+		document.write ("&ct0=" + escape(document.phpAds_ct0));
+		document.write ("'><" + "/script>");
+		//-->
+		</script><noscript><a href='http://banner.thebhg.org/adclick.php?n=a224b562' target='_blank'><img src='http://banner.thebhg.org/adview.php?zoneid=20&n=a224b562' border='0' alt=''></a></noscript>
+		</div>
 	</div>
 </body>
 </html>
