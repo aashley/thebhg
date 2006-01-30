@@ -58,3 +58,11 @@ do
 	esac
 done
 
+echo Removing old backups...
+for OLD in `find $BACKUPDIR -mtime +30`;
+do
+	if [[ -e $OLD ]]; then
+		echo " - Removing $OLD"
+		rm -rf $OLD
+	fi
+done
