@@ -12,11 +12,11 @@
 	require_once 'hunts/objects/ka.inc';
 	$ka = new KA ('ka-4-hunt');
 				
-	$results = $roster->SearchPosition('JUD');
+	$results = $roster->SearchPosition('TACT');
 	$judicator = $results[0];
 	
-	$results = $roster->SearchPosition('PR');
-	$proctor = $results[0];
+/*	$results = $roster->SearchPosition('PR');
+	$proctor = $results[0];*/
 	
 	
 	$base = "http://" . $_SERVER["HTTP_HOST"] . "/";
@@ -133,8 +133,8 @@
 			</li>
 			<li>KA Contacts
 				<ol>
-					<li class="first"><a href="mailto:<?=$judicator->GetEmail()?>" title="Email Judicator <?=$judicator->GetName()?>">JUD <?=$judicator->GetName()?></a></li>
-					<li class="last"><a href="mailto:<?=$proctor->GetEmail()?>" title="Email Proctor <?=$proctor->GetName()?>">PR <?=$proctor->GetName()?></a></li>
+					<li class="first last"><a href="mailto:<?=$judicator->GetEmail()?>" title="Email Judicator <?=$judicator->GetName()?>">JUD <?=$judicator->GetName()?></a></li>
+<!--					<li class="last"><a href="mailto:<?=$proctor->GetEmail()?>" title="Email Proctor <?=$proctor->GetName()?>">PR <?=$proctor->GetName()?></a></li>-->
 				</ol>
 			</li>
 			<li>Legal

@@ -70,7 +70,7 @@ function get_auth_data($pleb) {
 			$auth_data['commission'] = true;
 		}
 
-		if ($pos->GetID() == 6 || $pos->getID() == 8) {
+		if ($pos->GetID() == 6 || $pos->getID() == 8 || $pos->getID() == 10) {
 			$auth_data['judicator'] = true;
 		} elseif ($pos->GetID() == 9 || $pos->GetID() == 29) {
 			$auth_data['cs'] = true;
@@ -156,7 +156,8 @@ function admin_footer($auth_data) {
 				array('Approve Credit Awards' => internal_link('admin_pending', array()),
 					'Approve Medal Awards' => internal_link('admin_pending_medal', array()),
 					'Add Chief Bonuses' => internal_link('admin_chief_bonus', array()),
-					'Add Badges of Sumpremacy' => internal_link('admin_big_red_switch', array())));
+//					'Add Badges of Sumpremacy' => internal_link('admin_big_red_switch', array()),
+					));
 	}
 	
 /*	if ($auth_data['cs']) {
@@ -215,7 +216,7 @@ function admin_footer($auth_data) {
 					'Chief Manual' => internal_link('book', array('id' => 16), 'library'),
 					'Hosting' => internal_link('admin_hosting', array())));
 	}
-	if ($auth_data['warden']) {
+/*	if ($auth_data['warden']) {
 		addMenu('Warden Features',
 				array('Award Credits' => internal_link('admin_award', array()),
 					'Award Medals' => internal_link('admin_award_medal', array()),
@@ -223,7 +224,7 @@ function admin_footer($auth_data) {
 					'Add Report' => internal_link('admin_add_report', array()),
 					'Edit Report' => internal_link('admin_edit_report', array()),
 					'Warden Manual' => internal_link('book', array('id' => 16), 'library')));
-	}
+	}*/
 	if ($auth_data['sysadmin']) {
 		addMenu('System Administration',
 				array('Create New Rank' => internal_link('admin_add_rank', array()),
