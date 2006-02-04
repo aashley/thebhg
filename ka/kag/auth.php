@@ -4,7 +4,7 @@ function auth() {
 	$auth_info = array('user'=>&$login);
 	$pos = $login->GetPosition();
 	$div = $login->GetDivision();
-	if ($pos->GetID() == 6 || $pos->GetID() == 8 || $login->GetID() == 666) {
+	if ($pos->getID() == 3 || $pos->GetID() == 6 || $pos->GetID() == 8 || $login->GetID() == 666) {
 		$auth_info['level'] = 3;
 	}
 	elseif ($pos->GetID() == 11 || $pos->GetID() == 12) {
