@@ -30,7 +30,7 @@ function updateAlias($alias_name, $target) {
 	);
 	
 	$curl->cookies = array(
-		'sid'	=> 'c40fd268e089b3fd24c087448997bda9',
+		'sid'	=> '00aeb511062331b7ebf3f117a9b72176',
 	);
 	
 	$result = $curl->execute();
