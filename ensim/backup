@@ -59,10 +59,23 @@ do
 done
 
 echo Removing old backups...
-for OLD in `find $BACKUPDIR -mtime +30`;
+for DIR in ${BACKUPDIR}/database ${BACKUPDIR}/subversion ${BACKUPDIR}/trac ${BACKUPDIR}/webmin;
 do
-	if [[ -e $OLD ]]; then
-		echo " - Removing $OLD"
-		rm -rf $OLD
-	fi
+	echo ${DIR}
+	COUNT=0
+	for FILE in `ls -r1 ${DIR}`;
+	do
+		COUNT=$((${COUNT} + 1))
+		if [[ ${COUNT} -gt 30 ]]; then
+			echo " - Removing ${DIR}/${FILE}"
+			rm -rf ${DIR}/${FILE}
+		fi
+	done
 done
+#for OLD in `find $BACKUPDIR -mtime +30 -type d`;
+#do
+#	if [[ -e $OLD ]]; then
+#		echo " - Removing $OLD"
+#		rm -rf $OLD
+#	fi
+#done
