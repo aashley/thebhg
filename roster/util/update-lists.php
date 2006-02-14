@@ -47,7 +47,7 @@ $lists['reports'] = array();
 
 $reportees = array_merge($roster->searchPosition('DP'),
 												 $roster->searchPosition('U'),
-												 $roster->searchPosition('JUD'));
+												 $roster->searchPosition('WARD'));
 
 foreach ($reportees as $person) {
 
