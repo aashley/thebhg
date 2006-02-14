@@ -19,7 +19,7 @@ function output() {
 	if ($_REQUEST['kabal']) {
 		mysql_query('UPDATE mb_awarded_medals SET medal=6 WHERE medal=5', $roster->roster_db);
 		$kabal = $roster->GetDivision($_REQUEST['kabal']);
-		$judicator = $roster->SearchPosition(6);
+		$judicator = $roster->SearchPosition(10);
 		if (count($judicator)) {
 			$awarder = $judicator[0];
 		}

@@ -45,7 +45,7 @@ function output() {
 			$email .= "\nBHG Roster";
 			echo 'AWOLs declared.';
 
-			$juds = $roster->SearchPosition(6);
+			$juds = $roster->SearchPosition(10);
 			if (count($juds)) {
 				foreach ($juds as $jud) {
 					$addresses[] = $jud->GetEmail();

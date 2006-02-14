@@ -97,7 +97,7 @@ function output() {
       
 			$email .= "\n\nBHG Roster";
       
-			$jud = $roster->SearchPosition(6);
+			$jud = $roster->SearchPosition(10);
       
 			if ($jud) {
 
@@ -107,7 +107,7 @@ function output() {
         
 			} else {
         
-        echo "There is no Judicator, so you might be in for something of a "
+        echo "There is no Warden, so you might be in for something of a "
           ."wait.<br>";
           
       }
@@ -116,7 +116,7 @@ function output() {
     
 		echo "Credits added to the pending list for the Underlord"
       .($approval_req
-        ? " and Judicator" 
+        ? " and Warden" 
         : "") 
       . " to approve.<br><br>\n";
       

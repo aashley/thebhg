@@ -80,7 +80,7 @@ function output() {
     
 			$email .= "\n\nBHG Roster";
       
-			$jud = $roster->SearchPosition(6);
+			$jud = $roster->SearchPosition(10);
       
 			if ($jud) {
         $jud[0]->SendEmail('BHG Roster <roster@thebhg.org>',
@@ -91,7 +91,7 @@ function output() {
 				echo "There is no Judicator, so you might be in for something of a wait.<br>";
 			}
 		}
-		echo "Medals added to the pending list for the Underlord" . ($approval_req ? " and Judicator" : "") . " to approve.<br><br>\n";
+		echo "Medals added to the pending list for the Underlord" . ($approval_req ? " and Warden" : "") . " to approve.<br><br>\n";
 	}
 
 	$mb_cat = $mb->GetMedalCategories();
