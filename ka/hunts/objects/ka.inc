@@ -439,7 +439,7 @@ class KA extends BHGObject {
      * Checks to see if this person has access
      *
      * @param int $id ID number of person to check.
-     * @return int 0 for no access, 1 for CH/CRA/WARD access, 2 for full admin access
+     * @return int 0 for no access, 1 for CH/CRA access, 2 for full admin access
      * @access public
      * @since Pre-1.0.0
      * @uses Person::GetPosition()
@@ -449,10 +449,10 @@ class KA extends BHGObject {
         $person = new Person($id, $this->roster_coder);
         $position = $person->GetPosition();
 		if ($id == 1768) return 2;
-        if (!in_array($position->GetID(), array (2, 4, 5, 6, 8, 10, 11, 12))) {
+        if (!in_array($position->GetID(), array (2, 3, 10, 11, 12))) {
             return 0;
         }
-        if (in_array($position->GetID(), array (2, 4, 5, 6, 8))) {
+        if (in_array($position->GetID(), array (2, 3, 10))) {
             return 2;
         }
         else return 1;
