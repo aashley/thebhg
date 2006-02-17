@@ -105,17 +105,12 @@ function output() {
 					if ($aux){
 						$aj = Adjunct();
 						$ov = Overseer();
-						if ($aj->GetID()){
-							$aide = '-'.$aj->GetID();
-							$pers = new Person($aj->GetID());
+						if ($ov->GetID()){
+							$aide = '-'.$ov->GetID();
+							$pers = new Person($ov->GetID());
 						} else {
-							if ($ov->GetID()){
-								$aide = '-'.$ov->GetID();
-								$pers = new Person($ov->GetID());
-							} else {
-								$aide = '-2650';
-								$pers = new Person(2650);
-							}
+							$aide = '-2650';
+							$pers = new Person(2650);
 						}
 					}
 					$pers->SendEmail(from(), 'New '.$activity->Get(name).' Match', "A new ".$activity->Get(name).' Match'." has been requested. Go to the Holonet to process it.");
