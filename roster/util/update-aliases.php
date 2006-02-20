@@ -23,6 +23,8 @@ function login() {
 
 	$result = $curl->execute();
 
+	print_r($result);
+
 }
 
 function updateAlias($alias_name, $target) {
