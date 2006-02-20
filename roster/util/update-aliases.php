@@ -7,6 +7,8 @@ $server_url = 'https://loki.cernun.net:10000/';
 $curl = new Net_Curl($server_url.'/session_login.cgi');
 
 function login() {
+	global $server_url;
+
 	$curl->url = $server_url.'/session_login.cgi';
 	$curl->type = 'post';
 	$curl->verifyPeer = false;
@@ -24,8 +26,8 @@ function login() {
 }
 
 function updateAlias($alias_name, $target) {
+	global $server_url;
 
-	$server_url = 'https://loki.cernun.net:10000/';
 	$dom_id = '112757614416171';
 	
 	$curl->url = $server_url.'virtual-server/save_alias.cgi';
