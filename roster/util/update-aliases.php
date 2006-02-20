@@ -3,12 +3,32 @@
 include_once 'roster.inc';
 include_once 'Net/Curl.php';
 
+$server_url = 'https://loki.cernun.net:10000/';
+$curl = new Net_Curl($server_url.'/session_login.cgi');
+
+function login() {
+	$curl->url = $server_url.'/session_login.cgi';
+	$curl->type = 'post';
+	$curl->verifyPeer = false;
+	$curl->followLocation = false;
+
+	$curl->fields = array(
+			'user' => 'thebhg',
+			'pass' => 'monkey69',
+			'save' => 1,
+			'submit' => 'Login',
+			);
+
+	$result = $curl->execute();
+
+}
+
 function updateAlias($alias_name, $target) {
 
 	$server_url = 'https://loki.cernun.net:10000/';
 	$dom_id = '112757614416171';
 	
-	$curl = new Net_Curl($server_url.'virtual-server/save_alias.cgi');
+	$curl->url = $server_url.'virtual-server/save_alias.cgi';
 	$curl->type = 'post';
 	$curl->verifyPeer = false;
 	$curl->followLocation = false;
@@ -29,13 +49,15 @@ function updateAlias($alias_name, $target) {
 		'val_3'		=> '',
 	);
 	
-	$curl->cookies = array(
+/*	$curl->cookies = array(
 		'sid'	=> '00aeb511062331b7ebf3f117a9b72176',
-	);
+	);*/
 	
 	$result = $curl->execute();
 	
 }
+
+login();
 
 $roster = new Roster();
 
