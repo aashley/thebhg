@@ -15,9 +15,10 @@ function login() {
 	$curl->followLocation = true;
 
 	$curl->fields = array(
+			'page' => '/',
 			'user' => 'thebhg',
 			'pass' => 'monkey69',
-			'save' => 1,
+			'save' => '1',
 			'submit' => 'Login',
 			);
 
