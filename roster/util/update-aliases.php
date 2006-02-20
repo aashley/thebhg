@@ -12,7 +12,7 @@ function login() {
 	$curl->url = $server_url.'/session_login.cgi';
 	$curl->type = 'post';
 	$curl->verifyPeer = false;
-	$curl->followLocation = false;
+	$curl->followLocation = true;
 
 	$curl->fields = array(
 			'user' => 'thebhg',
