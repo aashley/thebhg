@@ -6,28 +6,6 @@ include_once 'Net/Curl.php';
 $server_url = 'https://loki.cernun.net:10000/';
 $curl = new Net_Curl($server_url.'/session_login.cgi');
 
-function login() {
-	global $server_url, $curl;
-
-	$curl->url = $server_url.'/session_login.cgi';
-	$curl->type = 'post';
-	$curl->verifyPeer = false;
-	$curl->followLocation = true;
-
-	$curl->fields = array(
-			'page' => '/',
-			'user' => 'thebhg',
-			'pass' => 'monkey69',
-			'save' => '1',
-			'submit' => 'Login',
-			);
-
-	$result = $curl->execute();
-
-	print_r($result);
-
-}
-
 function updateAlias($alias_name, $target) {
 	global $server_url, $curl;
 
@@ -37,6 +15,8 @@ function updateAlias($alias_name, $target) {
 	$curl->type = 'post';
 	$curl->verifyPeer = false;
 	$curl->followLocation = false;
+	$curl->username = "thebhg";
+	$curl->password = "monkey69";
 	
 	$curl->fields = array(
 		'new'		=> '',
@@ -54,15 +34,9 @@ function updateAlias($alias_name, $target) {
 		'val_3'		=> '',
 	);
 	
-/*	$curl->cookies = array(
-		'sid'	=> '00aeb511062331b7ebf3f117a9b72176',
-	);*/
-	
 	$result = $curl->execute();
 	
 }
-
-login();
 
 $roster = new Roster();
 
