@@ -1,0 +1,119 @@
+<B><U><FONT FACE="Verdana" SIZE=2 COLOR="#FFFFFF"><P ALIGN="CENTER">BHG Kabal Chief Manual V2.04</P>
+</B></U><P>Congratulation on becoming a CH in the BHG. As you already know, you have been chosen for this position due to you high level of skill. As a CH there are a number of responsibilities you are to adhere too. These will be listed below. Remember the CH is the pillar of a Kabal. The controlling force and the one who needs to set an example to all of its members. You must be an active member of the BHG and also encourage your members to be just as active. Help them gain in rank, by explaining the numerous ways to earn credits, and encouraging them to do so. Keeping in close contact with your Kabal is always a useful way to ensure this. Listed below are you abilities and tasks as a CH, please complete them with pride. Most of this will be familiar with yourself from sitting the CH course at the Citadel, however a reminder is always for the best.</P>
+<B><P>CH Abilities:</P>
+</B><P>As a CH there are a large number of duties you are capable of. You can run comps for your Kabal. You can award medals, and even request credits for hunters. Listed below are the details on each area. You also receive a monthly salary of 500,000 IC’s + Bonus and get to assign yourself an assistant. Your assistant is know as a CRA and has a monthly salary of 250,000 IC’s + Bonus.</P>
+<OL>
+
+<B><LI>Medals. </B>As a CH there are a number of medals you may award to you members. These medals are: Band of Honour (BoH), Gold Plate (GP), Silver Plate (SP), Lyarnan Crest (LC) or any of the relevant upgrades. The details of each medal can be found in the BHG’s manual. And remember a medal is something a Hunter should cherish so DO NOT just give them out for everything, use your discretion and remember the Underlord might disallow it if he feels the recipient is unworthy of the item. Also you can not award medals yourself in relation to the KAG’s for your hunters participation. Doing this devalues the KAG medals and IC’s awarded from it.</LI>
+<B><LI>Credits. </B>If you feel that one of you members deserves a credit reward for what they have done, instead of a medal, then it is possible. However, this is something you are unable to do yourself. When you wish to award any amount of IC's for anything you need to send them to the Judicator/Underlord with you reasons and the amount you wish to add.  This is done by filling in all the required information into the Awarding IC's section of the Holonet (you must log into admin to see it). If the JUD/U feel that it is a just cause then it will be awarded to the hunter. </LI>
+<B><LI>Kabal Competitions. </B>As a CH you are free to run whatever competitions you want for your members to take part in. All you need do is to set up the event and then run it. Ask the JUD before hand about the credit rewards if it is to be a new type of hunt otherwise stick to the standard IC awards of 1<SUP>St</SUP> place 40K, other correct 25K, incorrect 10K and no effort, wrong ID 0IC’s. Once the event is over submit the results and IC awards using the Award Credits form as part of the Holonet to the Judicator and Underlord so the hunters can be awarded their IC’s.  You need to list each event independantly on the form.  Do not group together sets of activities and add the IC's together on the form.  For no reason is a CH/CRA allowed to have other hunters in the Kabal creating and running the hunts for them.</LI>
+<B><LI>IKC. </B>In between KAG seasons you can challenge other Kabals. This will be called an Inter Kabal Comp. It is to your discretion who you challenge, but sometimes you will be challenged yourself. During an IKC you are responsible to rally your members and to also run the event in conjunction with the other Kabals CH. Events will be run as if it was a KAG season. Which and how many event you run is up to you. This activity dose counts towards the internal Kabal events you are expected to run under your regular duties.  As many Kabals are now split into several teams you can also run a KAG like activity between them.  There are set rules for you to follow if you wish to run an IKC.  These rules are listed at <a href="http://www.thebhg.org/main/library/index.php?book_id=14">http://www.thebhg.org/main/library/index.php?book_id=14</A>.</LI>
+<B><LI>IRC Voice</B>: Chiefs receive X access of 99 (&amp; Autovoice). While on IRC you need to make sure that you and all other members in the channel follow the EH’s CoC. If not, you will need to report it to a commission member. The Codes of Conduct can be found here: <A HREF="http://www.emperorshammer.org/irc.htm">http://www.emperorshammer.org/irc.htm</A></LI></OL>
+
+<P>To get yourself logged onto X, follow these steps:</P>
+<OL>
+
+<LI>Go to the CService website and sign up for an account.  <A HREF="http://cservice.undernet.org/live/">http://cservice.undernet.org/live/</A></LI>
+<LI>Email the Underlord (<A HREF="mailto:underlord@thebhg.org">underlord@thebhg.org</A>) with your username and wait for confirmation.</LI>
+<LI>Join #bhg and use the following command to login to X (this should be added to your "perform" list for ease of use): /msg x@channels.undernet.org login &lt;username&gt; &lt;password&gt;</LI>
+<LI>Type "!get commands" in the channel and you will be DCCed a remote script (in mIRC format) that contains all of the X functions you should need. Place this file into "C:/Program Files/mIRC/Scripts/" then in mIRC open your remote scripts, select "Load Script" from the file menu and then choose said file. Once loaded, right click in the channel window and you will see your available commands. </LI></OL>
+
+<B><P>CH Duties:</P>
+</B><P>As said before there are numerous duties, which you are to complete as a CH. Some however can be passed on to you CRA.</P>
+<OL>
+
+<B><LI>Training</B>: Watching over, assisting and training members of his/her Kabal. Particular interest should be paid to your new members. Mail out welcoming letters to them when they arrive, give them information about the BHG or tell them where they can find the information. Give them a few ideas on what they can actually do as a member in the BHG. The more helpful and friendly you are to these people, the better chance they have of not going AWOL. </LI>
+<LI><B>Recruiting</B>: As a CH you are expected to always keep an eye out to recruit new members to the BHG.  You also need to recruit new members for your Kabal from the wings at the Citadel.  All you are allowed to do it talk to the members there and send them emails.  Anyone who is caught trying to bribe a -T into joining their Kabal will find themselves with no CH/CRA position and whatever other punishment dealt out by the JUD/U.</LI>
+<B><LI>Report</B>: Produce a weekly Email report. Send to your Kabal, JUD, PR, U and W (The commission can be reached with 1 email address, <A HREF="mailto:Reports@thebhg.org">reports@thebhg,org</A>). It should contain the latest news and events. Perhaps the latest promotions and/or awards within the Kabal, idea's for participation in the BHG, links to various websites or anything else you feel relevant to inform your Kabal about. This is one of the more important tasks. If not adhered to you run the risk of missing out on the monthly bonus.  If you find that your reports are getting a little long only write in a brief comment for each of the news items.  You can then post more detail on each into the news section of your Kabal site.  This then allows you to keep the site even more up to date and full of useful content.  A template for a weekly report can be found <A HREF="http://ka.thebhg.org/manuals/report.html" Target="new"><B>here</B></A>.  Once you have emailed your report out you need to also post it onto the Holonet.  Just log into the admin section and select ad report.  It's very important that you post your report here so that a perminant record is kept and also the CH bonus is awarded by the reports on the site, not by the reports that arive in the JUD's email.</LI>
+<B><LI>AWOL Check</B>: You need to perform an AWOL (absent without leave) check on the 1st of every month. More info on how to run an AWOL check is listed at the end of the manual.</LI>
+<B><LI>Kabal Website</B>: Create a website for your Kabal. HTML is extremely easy to learn (IWATS is a good course). A good website should contain the following: <BR>
+A news section <BR>
+A roster of the Kabal. <BR>
+A internal Kabal events page <BR>
+Information about your Kabal <BR>
+Links to the BHG/EH <BR>
+A join form (not necessary, but highly recommended) <BR>
+Items produced by your members such as fiction or graphics <BR>
+As well as anything extra you can think of. Update it regularly with various news (often this is news duplicated from your weekly reports). The Kabal website should be maintained on www.thebhg.org server and should be updated weekly. Remember that for all intents and purposes, your Kabal website is the portal between you and the outside world. People will judge you and your Kabal by the look of your page and their judgements may determine their interest in joining. It's for this reason that it is important to not simply have a page, but a page that you're proud of, is up-to-date and will catch the attention of prospective hunters. Each Kabal site will be graded each month by the Specialist.  The score he awards you will dirrectly effect your CH bonus.  The SP has created this following guidelines for your site.  It can be viewed <A HREF="http://ka.thebhg.org/manuals/kabal-website-manual.html" Target="new"><B>here</B></A>. </LI>
+<B><LI>Kabal Activities</B>: While the BHG provides many activities for members to participate in, often they are not enough to capture members interest over longer periods of time, that is where internal Kabal events come into play. Internal Kabal events are activities sponsored by the CH that are exclusive to that Kabal. Such activities are important because they give members something extra to work on and offer another way for Kabal members to earn credits. Some ideas for internal Kabal events are: <BR>
+Kabal Web hunts <BR>
+Online Mission <BR>
+Meeting (on IRC or other chat medium) <BR>
+Trivia <BR>
+Contests (Graphic/Fiction/Scenario Desc. Etc.) <BR>
+Training Programs <BR>
+Challenging another Kabal to a competition <BR>Kabal Run On Story<BR>
+Just about anything can be used as an internal Kabal event. As a CH you'd be highly recommended to have such events frequently to keep your members interested in both the BHG and your Kabal. If you do choose to have a Kabal Run On Story then you must follow the set rules outlines in the RO manual located <A HREF="http://ka.thebhg.org/manuals/kabal-rp-handbook.html" Target="new"><B>here</B></A>.  For no reason is a CH/CRA to have other Kabal members creating and running activities for them.</LI>
+<B><LI>KAG Registration</B>: As a CH you are responsible for your Kabals registration for the KAG events. Whenever the JUD declares there is to be a KAG, he will give you one month to rally your Kabal. You will need to inform them where to register for events and tell them how to do it. Registrations will end just 2 days before the KAG season starts. You will also have the ability to limit some hunter’s KAG registrations. This can be done on the KAG admin site, or by emailing the JUD/PR. Participate in as many KAG events as possible without achieving any DNP’s, as stated in the KAG Rules.</LI>
+<B><LI>Extras</B>: Take into consideration that these are only the required duties of a CH. Depending on your style you might take on other things that you want to be responsible for, but these listed above are the things you will be expected to do. These are what give you your paycheque and doing them well is what earns you your bonuses. Remember your bonus is made up from the activities you do throughout the month. All extras are included and also if you carry out your normal duties to a higher level than expected. To qualify for a bonus you must ensure that you do send out a weekly email report to your Kabal and the JUD/PR/U/X (you can mail all 3 with this email address: reports@thebhg.org) and post the report onto the Holonet.  Complete your monthly AWOL check, make sure there have been some updates to your Kabal website and run some Kabal activities.  If you fail to earn a bonus 3 months out of the last 5 then you will be removed from your position.</LI></OL>
+
+<B><P>Useful email addresses:</P>
+
+<UL>
+</B><LI><A HREF="mailto:commission@thebhg.org">commission@thebhg.org</A> is for the entire Commission (including Assistants). </LI>
+<LI><A HREF="mailto:Reports@thebhg.org">reports@thebhg,org</A> is for ensuring your Kabal report reaches the Commissioners needed. </LI>
+<LI><A HREF="mailto:kabal@thebhg.org">kabal@thebhg.org</A> where "Kabal"’ is a Kabal name, is used to Email everyone in said kabal. </LI>
+<LI><A HREF="mailto:wing@thebhg.org">wing@thebhg.org</A> where "Wing"’ is a Wing name, is used to Email everyone in said Wing. </LI>
+<LI><A HREF="mailto:ch-kabal@thebhg.org">ch-kabal@thebhg.org</A> is to email a particular chief, where "kabal"’ equals said kabal. </LI>
+<LI><A HREF="mailto:cra-kabal@thebhg.org">cra-kabal@thebhg.org</A> is to email a particular CRA, where "kabal"’ equals said kabal. </LI>
+<LI><A HREF="mailto:ward-wing@thebhg.org">ward-wing@thebhg.org</A> is to email a particular Warden, where "Wing"’ equals said Wing. </LI>
+<LI><A HREF="mailto:chiefsl@thebhg.org">chiefs@thebhg.org</A> is to email all chiefs.</LI>
+<LI><A HREF="mailto:cras@thebhg.org">cras@thebhg.org</A> is to email all CRAs. </LI>
+<LI><A HREF="mailto:position@thebhg.org">position@thebhg.org</A> is to email said position of the commission. If you are the Underlord, from now on you may also use <A HREF="mailto:underlord@thebhg.org">Underlord@thebhg.org</A> as one of your email addresses.</LI></UL>
+
+
+<P><B>AWOL Checks:</B></P>
+<P>
+This is a reminder about AWOL checks and how to perform them as it seems to be becoming a more common practice that a CH will AWOL people under their own given criteria which is not up to the CH to decide.
+</P><P>
+AWOL checks are to be performed on the first of EVERY month and end on the 15th. Failure for the CHIEF to perform it means you loose you monthly bonus and you get one step closer to loosing your
+position. CRAs job is to remind their CH to do it, not to do it themselves.
+</P><P>
+A person is deemed AWOL when you send out your initial check (and preferably a reminder once/week) and they fail to directly reply to you with their ID Line. If they reply without an ID as TRNs pretty much always do, they are obviously not AWOL, but they do need some guidance. Give it to them. As much as you'd like to delete them, you can't. If they repeat this a second month in a row and you've already told them how to do it, THEN you can get rid of them. The exact same goes for people who reply all to a mailing list when you've told them not to; however, if you sent the initial email out as a BCC then you can stop this right there and not have to listen to the bitching that often occurs afterwards.
+</P><P>
+If a member joined up sometime during the check and fails to reply when the reminders are sent. DO NOT AWOL THIS PERSON! This is most common when people take id lines and then at the end they just scan the roster for those that didn't reply. that's fine but make sure in scanning the
+roster after the fact that you aren't taking down names of the new recruits.
+</P><P>
+When your check is over you are to submit the results to the JUD/U by using the AWOL form which is part of the Holonet.  On the form you need to include your details, the dates you run the check and the names of the members to be removed. If you list by mistake the members in your Kabal that are NOT to be removed, they will not be sent back to you. The U will take great pleasure in transferring those members out and sitting back to laugh at the mayhem that follows. So just be careful when submitting.</P><P><B>Kabal Positions:</B></P><P>The only official positions in a Kabal are the CH and CRA.  Some Kabals have chosen to use Squad leaders, or something of the like. Even though the Squad leader positions are voluntary I am willing for them to be paid up to 50K a month.  They are not allowed to take over any of the normal CH duties for the Kabal, just like they are not allowed to run activities for their Squad.  Any other internal Kabal positions, like mentor, will be totally voluntary an no wage can be given to those hunters.</P><B><P>IC Award Guidelines:</P>
+</B><P>Just a few points to clarify the amount of IC's you should award for different things.</P>
+
+<OL>
+
+<LI><B>Hunts</B>: For web, url, hth hunts use 40K for 1st, 25K for others correct, 10K for incorrect and 0IC's for wrong ID or no effort submissions.</LI>
+<LI><B>Fiction</B>: When awarding for this type of work the amount will vary due to quality. The max award for the winner of the event is 75K.</LI>
+<LI><B>Graphic</B>: When awarding for this type of work the amount will vary due to quality. The max award for the winner of the event is 75K.</LI>
+<LI><B>Kabal Run-On Story</B>: When awarding for this type of work please follow the guidelines set out <A HREF="http://ka.thebhg.org/manuals/kabal-rp-handbook.html" Target="new"><B>here</B></A> in the RO manual.</LI>
+<LI><B>Trivia</B>: Trivia will be awarded at 3K per correct answer. Trivia is to be in sets of questions no greater than 10.</LI>
+<LI><B>Mini KAG</B>: If you are running a Mini KAG or something of the like. Just use the same IC awards for individual hunts and then add to it your main overall award. A medal or something of the like.</LI>
+</OL>
+
+<B><P>Do’s &amp; Don’ts:</P>
+</B><P>Just a few points to clarify anything that has not been covered. Some are just pointing out some rules which are though of as unspoken, and never really covered before.</P>
+<OL>
+
+<U><LI>Do</U> respect your Kabal members <BR>
+<U>Do not</U> let them lose their respect for you. </LI>
+<U><LI>Do</U> write clear reports on a regular/weekly basis to your Kabal <BR>
+<U>Do not</U> forget to BCC <A HREF="mailto:reports@thebhg.org">reports@thebhg.org</A> on all reports and the JUD on all other Kabal emails. </LI>
+<U><LI>Do</U> award medals for good/regular Kabal work. <BR>
+<U>Do not</U> award them too often, as they will lose their value to the hunters. </LI>
+<U><LI>Do</U> send the list of unresponsive hunters to the Underlord after the AWOL check. <BR>
+<U>Do not</U> send the list of active hunters, as they will be moved at your fault, causing confusion in your Kabal. </LI>
+<U><LI>Do</U> encourage your Kabal to take part in the KAGs with the promise of the standard event rewards <BR>
+<U>Do not</U> offer extra rewards in any relation to a KAG </LI>
+<U><LI>Do</U> run decent competitive events in your Kabal <BR>
+<U>Do not</U> make them easy just to help your hunters climb the ranks </LI>
+<U><LI>Do</U> update the Kabal website regularly and keep the JUD informed of any alterations other than new hunts or news posts.<BR>
+<U>Do not</U> create a new one every other month as you have left the other go stagnant. </LI>
+<U><LI>Do</U> make your CRA earn his wage. <BR>
+<U>Do not</U> make him do all your work. </LI>
+<U><LI>Do</U> keep in contact with your Kabal with additional emails as well as your reports <BR>
+<U>Do not</U> spam their inbox with too many emails. </LI>
+<U><LI>Do</U> send a recommendation to the JUD of your successor if you chose to step down. <BR>
+<U>Do not</U> appoint them yourself in your leaving email to the Kabal.</LI></OL>
+
+
+<P>Well, now you can see that being a CH is quite an involved job, but considering you are already reading this, and have been placed in the position of CH it shows that the Commission have faith in you. And we know that you can take on this task and really make something of your Kabal. So good luck to you and may your Kabal Prosper.</P>
+<P>CARD/Ehart Dak`wind/Kabal Authority/BHG -JUD<BR>
+(ODP)(HM)(GH)(BoH)(GP-SC)(SP-SC)(LC-GZ)(HP)(SCB)(KL)(AotW)[CoL]{CORE-CH-RPG-AT}</P>
+</FONT>

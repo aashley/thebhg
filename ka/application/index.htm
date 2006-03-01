@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>KA Application Form</title>
+</head>
+<body bgcolor=#000000 background="back3.jpg"text=#ffffff>
+<center>
+<h2>KA Application Form</h2><br>
+<B><i>Position Requirements</i>:</B>
+<br>
+<b>Proctor</b>: Must be willing to assist the JUD at all times;<br>
+From the manual:<br>
+&nbsp;&nbsp;<i>"The Proctor answers directly to the Judicator and will<br> 
+&nbsp;&nbsp;assist him with anything to do with the Kabal Authority.<br> 
+&nbsp;&nbsp;His duties are assigned to him at the discretion of the Judicator,<br>
+&nbsp;&nbsp;and can be as many or as few as the JUD sees fit."</i>
+<br><br>
+<b><i>Chief</i>:</B> Must be able to handle a large group of hunters(anywhere from 10-50);<br>
+Must be availiable at least 5 days a week, and to send out weekly reports;<br>
+Must be able to solve problems among hunters;<br>
+Must posess a good working knowledge of HTML.<br>
+<br><br>
+<form action="form.php" method="post">
+Position Applying For:
+<SELECT NAME="Position">
+<option selected value="choose">Choose One
+<Option VALUE="Proctor">Proctor
+<Option VALUE="Warden">Warden
+<Option VALUE="chcyc">Cyclone CH
+<Option VALUE="chdai">Daichi CH
+<Option VALUE="chdra">Dragon CH
+<Option VALUE="chome">Omega CH
+<Option VALUE="chpho">Phoenix CH
+<option value="chsky">Skylla CH
+<option value="chthu">Thunder CH
+</select>
+<br>
+Do you meet all of the above requirements?<br>
+<input type="radio" name="r_yesno" value="Yes">Yes |
+<input type="radio" name="r_yesno" value="No">No |
+<input type="radio" name="r_yesno" value="Some">Some, not all
+<br><br>
+<table>
+<tr><td>Name:</TD><TD><input type="text" name=name size=30></TD></TR>
+<tr><td>E-Mail:</TD><TD><input type="text" name=email size=30></TD></TR>
+<tr><td>IRC Nick(s):</TD><TD><input type="text" name=ircnick size=30></TD></TR>
+<tr><td>ID Line:</TD><TD><input type="text" name=idline size=30></TD></TR></TABLE>
+Other Subgroup IDlines:<br>
+<textarea name="sgid" rows="3" cols="60" wrap="physical">
+</textarea>
+<br><br>
+Have you taken the Chief Course at the Citadel? <input type="radio" name="chtest" value="Yes">Yes||
+<input type="radio" name="chtest" value="No">No<br>
+If yes, please enter your score: <input type="text" name=score value="00" size=2><br>
+<br>
+List any other Citadel or IWATS Courses below:<br>
+<textarea name="citadel" rows="3" cols="60" wrap="physical">
+BHG Core, RPG, IWATS Core, etc.
+</textarea>
+
+<br><br>
+List any experience you may have:<br>
+<textarea name="experience" rows="5" cols="60" wrap=physical>
+</textarea>
+<br><br>
+What Skills do you posess?<br>
+<textarea name="skills" rows="5" cols="60">
+HTML, PHP, Graphic design, etc.
+</textarea>
+<br><br>
+Why do you want this position?<br>
+<textarea name="whyposition" rows="5" cols="60" wrap=physical>
+</textarea>
+<br><br>
+<input type="submit" name="submit" value="Apply">
+<input type="reset" name="reset" value="Start Over">
+</center>
+</body>
+</html>
