@@ -1,5 +1,5 @@
 <? require_once '../Layout.inc'; ?>
-<?	$kabals = $roster->GetKabals(1);
+<?	$kabals = $roster->GetKabals();
 	foreach ($kabals as $kabal) {
 		$chief = $kabal->GetChief();
 		$cra = $kabal->GetCRA();

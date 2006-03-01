@@ -1,0 +1,13 @@
+<div><h2>Section XI: Communications</h2>
+<p>Communication is a key element within any organization, and the BHG definitely has no lack of it. Many channels are available through which you can correspond and chat with other Hunters, to include the <font color=#FF0000>Message Board [MB]</font> and <font color=#FF0000>Internet Relay Chat [IRC]</font>. A few other outlets of communication exist in the BHG, but we will just focus on these two for now.
+</p>
+<blockquote><b><u>Message Boards</u></b> - <a href="http://boards.thebhg.org/" target="_blank">http://boards.thebhg.org/</a>
+<br>Frequently checking the Message Boards is an important part of getting settled into the BHG. Not only will you be aware of current happenings, but you will be a part of the fun atmosphere that the BHG is known for. The best part is... you get paid for posting! Each word you post is worth a set number of credits. At the end of each month, the credits are totaled, and hunters are awarded for simply posting on the Message Board!
+<br>
+<br>If you noticed, there are quite a few different Message Boards available for you to post on. Right now you should concern yourself mainly with the <font color=#FF0000>Bounty Hunter’s Guild Message Board</font> (the main MB that all BHG members use) and the <font color=#FF0000>Citadel Message Board</font>. You are <u>highly encouraged</u> to use the Citadel MB to ask questions about the BHG as well as talk to other Trainees. The MBs are a great place to start forming friendships with your fellow hunters.
+</blockquote>
+<blockquote><b><u>Internet Relay Chat</u></b> - <a href="http://www.mirc.com/" target="_blank">http://www.mirc.com/</a>
+<br>IRC is a great place to chat with other members of the EH/BHG in real-time. By visiting the above site, you can download <font color=#FF0000>mIRC</font>, a program that allows you to chat on IRC. Once you have installed the program, you should connect to an Undernet server and join the channel <font color=#FF0000>#BHG</font>. (The # sign prefixes all channel names.) You can also join the EH channel: <font color=#FF0000>#Emperors_Hammer</font>. If you have any questions about using IRC, ask the Warden or any other member of the BHG. Most hunters should be willing to help.
+<br>
+<br>You can also view the statistics about #BHG by visiting the <a href="http://ircstats.thebhg.org/" target="_blank">IRC Stats website</a>. This page is also where you can view IC awards distributed for simply chatting in #BHG!
+</blockquote></div>

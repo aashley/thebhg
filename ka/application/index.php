@@ -2,6 +2,10 @@
 include('functions.inc');
 include('../Layout.inc');
 
+include_once 'citadel.inc';
+
+$citadel = new Citadel();
+
 if ($_REQUEST['submit']) {
 	$message = '';
 	append_mail($message, 'Position Applied For: ' . $_POST['position']);
@@ -25,8 +29,6 @@ else {
 			<div>
 				<h2>KA Application Form</h2>
 				<p><strong>Position Requirements</strong>:</p>
-				<p><strong>Proctor</strong>: Must be willing to assist the Judicator at all times. From the manual:</p>
-				<blockquote>The Proctor answers directly to the Judicator and will assist him with anything to do with the Kabal Authority. His duties are assigned to him at the discretion of the Judicator, and can be as many or as few as the Judicator sees fit.</blockquote>
 				<p><strong>Chief</strong>: Must be able to handle a large group of hunters (anywhere from 10-50), must be available at least five days a week, must be able to send out weekly reports, must be able to solve problems among hunters, and must possess a good working knowledge of HTML.</p>
 				<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 					<label for="position">Position being applied for:</label>

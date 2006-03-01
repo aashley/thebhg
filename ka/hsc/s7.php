@@ -1,0 +1,7 @@
+<div><h2>Section VII: The ID Line</h2>
+<p>You are now ready to create your <font color=#FF0000>ID Line</font>. The roster does automatically set it up for you on your personal data page; however, it is important that you know the different sections of the ID line and what they mean. If nothing else, you will be able to identify other Hunters in the BHG by simply looking at their ID line. Also, activities may require you to submit your ID line in order for you to get credits.
+</p>
+<blockquote><b>IMPORTANT NOTE:</b> Including your ID line in all BHG e-mails is <u>highly suggested</u>. It identifies you immediately, leaving no questions to the recipient as to who sent the e-mail. If possible, set up your e-mail program to automatically include your ID line at the end of each e-mail message. This way you won’t have to worry about it.
+</blockquote>
+<p>Included in the Hunter’s Manual is a complete description on the structure of the ID line. Instead of copying it here, I will direct you to the <a href="http://holonet.thebhg.org/index.php?module=library&page=chapter&id=3" target="_blank">Hunter's Manual, Chapter 4</a>. If you have any questions after reading through the section on ID Lines, then e-mail the Warden and he will be more than happy to assist you.
+</p></div>

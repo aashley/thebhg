@@ -3,10 +3,8 @@
 	require_once '../Layout.inc';	
 	
 	$items = get_news('kabals-4ever');
-	$items = array_merge($items, get_news('ka-4-hunt'));
-	$items = array_merge($items, get_news('kag-73-comp'));
-	$items = array_merge($items, get_news('kac-34-fear'));
-  $items = array_merge($items, get_news('cg-555-deer'));
+	$items = array_merge($items, get_news('citadel-38learn'));
+	
 	usort($items, sort_by_date);
 
 	if (count($items) < 10)
