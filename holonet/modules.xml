@@ -27,4 +27,8 @@
 		<directory>boloball</directory>
 		<name>Boloball</name>
 	</module>
+	<module>
+		<directory>propose</directory>
+		<name>Proposals</name>
+	</module>
 </modules>
