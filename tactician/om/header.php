@@ -4,9 +4,6 @@
 $db = mysql_connect('localhost', 'tactician', 'thidrithow');
 mysql_select_db('tactician', $db);
 
-$kadb = mysql_connect('localhost', 'ka', 'habecrimes');
-mysql_select_db('ka', $ka);
-
 include('roster.inc');
 include('table.php');
 include('form.php');
@@ -96,13 +93,13 @@ function format($text){
 }
 
 function format_missions($complete = 0, $hide = 0){
-	global $db, $roster, $login, $kadb;
+	global $db, $roster, $login, $db;
 	
 	$hidden = $hide;
 	
 	$sql = "SELECT `id` FROM `assistant` WHERE `person` = ".$login->getID()." AND `date_deleted` = 0 AND `om` = 1";
 	$pos = $login->getPosition();
-	if (!in_array($login->GetID(), array(666, 2650)) && $pos->GetID() != 3 && !mysql_num_rows(mysql_query($sql, $kadb)))
+	if (!in_array($login->GetID(), array(666, 2650)) && $pos->GetID() != 3 && !mysql_num_rows(mysql_query($sql, $db)))
 		$hidden = 0;
 
 	$missions_result = mysql_query("SELECT * FROM missions WHERE complete=$complete AND hidden " . ($hidden ? '!' : '') . "=0 ORDER BY mset DESC, title ASC", $db);

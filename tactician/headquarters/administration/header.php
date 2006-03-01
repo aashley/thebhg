@@ -10,8 +10,8 @@ if (!function_exists('constructlayout')) {
 ini_set('include_path', ini_get('include_path') . ':/var/www/html/include');
 include_once('roster.inc');
 
-$db = mysql_connect('localhost', 'ka', 'habecrimes');
-mysql_select_db('ka', $db);
+$db = mysql_connect('localhost', 'tactician', 'thidrithow');
+mysql_select_db('tactician', $db);
 
 $login = new Login_HTTP();
 

@@ -69,9 +69,9 @@ class KA extends BHGObject {
     function KA ($coder = '') {
         $this->BHGObject($coder); //Setting coder id
         $dbi["host"] = "localhost";   //MySQL host
-        $dbi["user"] = "ka";   //MySQL username
-        $dbi["pass"] = "habecrimes";   //MySQL password
-        $dbi["name"] = "ka";   //MySQL database name
+        $dbi["user"] = "tactician";   //MySQL username
+        $dbi["pass"] = "thidrithow";   //MySQL password
+        $dbi["name"] = "tactician";   //MySQL database name
         $this->ka_db = @mysql_connect ($dbi["host"], $dbi["user"], $dbi["pass"]) or $this->roster_error = "Can't connect to database. ".mysql_error($this->ka_db);
         @mysql_select_db ($dbi["name"]) or $this->roster_error = "Can't select database. ".mysql_error($this->ka_db);
     }

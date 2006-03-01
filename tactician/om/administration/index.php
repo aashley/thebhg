@@ -3,7 +3,7 @@ include('header.php');
 
 $pos = $login->GetPosition();
 $sql = "SELECT `id` FROM `assistant` WHERE `person` = ".$login->getID()." AND `date_deleted` = 0 AND `om` = 1";
-if ($login->GetID() == 666 || $login->GetID() == 2650 || $pos->GetID() == 3 || mysql_num_rows(mysql_query($sql, $kadb))) {
+if ($login->GetID() == 666 || $login->GetID() == 2650 || $pos->GetID() == 3 || mysql_num_rows(mysql_query($sql, $db))) {
 	switch ($op) {
 		case 'add':
 			add();

@@ -5,7 +5,7 @@ include_once('../../Layout.inc');
 
 $pos = $login->GetPosition();
 $sql = "SELECT `id` FROM `assistant` WHERE `person` = ".$login->getID()." AND `date_deleted` = 0 AND `om` = 1";
-if ($login->GetID() == 666 || $login->GetID() == 2650 || $pos->GetID() == 3 || mysql_num_rows(mysql_query($sql, $kadb))) {
+if ($login->GetID() == 666 || $login->GetID() == 2650 || $pos->GetID() == 3 || mysql_num_rows(mysql_query($sql, $db))) {
 	$subarray = array(
 		'New Mission'=>'om/administration/?op=add',
 		'Delete Mission'=>'om/administration/?op=del',

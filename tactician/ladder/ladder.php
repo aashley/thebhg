@@ -4,12 +4,12 @@ include_once 'header.php';
 
 /** Hunts **/
 $sql = "SELECT `hunt_id`, `hunt_first` FROM `hunts` WHERE `hunt_division` = -1 AND `hunt_end_timestamp` <= $last_month_end AND `hunt_end_timestamp` >= $last_month_start";
-$query = mysql_query($sql, $ka);
+$query = mysql_query($sql, $db);
 
 while ($info = mysql_fetch_assoc($query)){
 	
 	$grade = "SELECT `grades` FROM `hunt_grades` WHERE `hunt_id` = '" . $info['hunt_id'] . "'";
-	$send = mysql_query($grade, $ka);
+	$send = mysql_query($grade, $db);
 	
 	while ($data = mysql_fetch_assoc($send)){
 		
@@ -20,7 +20,7 @@ while ($info = mysql_fetch_assoc($query)){
 		foreach ($grades as $id => $datum){
 			if ($datum['status']){
 				$get = "SELECT `submission_person` FROM `hunt_submissions` WHERE `submission_id` = '" . $datum['id'] . "'";
-				$result = mysql_query($get, $ka);
+				$result = mysql_query($get, $db);
 				$person = mysql_result($result, 0, "submission_person");
 				
 				diagnose($person, 'KA Hunt: ' . $info['hunt_id'], 'Effort Answer');
@@ -86,9 +86,9 @@ if (!isset($_REQUEST['details'])){
 	
 	if (isset($_REQUEST['kabal'])){
 		if ($_REQUEST['kabal'] != -1){
-			$kabal = new Kabal($_REQUEST['kabal']);
+			$dbbal = new Kabal($_REQUEST['kabal']);
 			
-			echo ' for ' . $kabal->getName(). ' Kabal';
+			echo ' for ' . $dbbal->getName(). ' Kabal';
 		}
 	}
 		
@@ -100,8 +100,8 @@ if (!isset($_REQUEST['details'])){
 		$person = new Person($person);
 		$go = false;
 		
-		if (is_object($kabal)){
-			if ($person->getDivision()->getID() == $kabal->getID()){
+		if (is_object($dbbal)){
+			if ($person->getDivision()->getID() == $dbbal->getID()){
 				$go = true;
 			} else {
 				$go = false;
@@ -178,14 +178,14 @@ if (!isset($_REQUEST['details'])){
 		
 		display_data($person, $diagnose[$person->getID()]);
 	} elseif ($_REQUEST['kabal'] != -1){
-		$kabal = new Kabal($_REQUEST['kabal']);
+		$dbbal = new Kabal($_REQUEST['kabal']);
 		
-		echo ' for ' . $kabal->getName(). ' Kabal:</h2>';
+		echo ' for ' . $dbbal->getName(). ' Kabal:</h2>';
 		
 		if (isset($_REQUEST['bt']))
-			echo 'Tactician ' . (isset($_REQUEST['months']) ? 'Season ' : '') . 'Ladder (' . date('M \'y', $last_month_start) . (isset($_REQUEST['months']) ? ' - ' . date('M \'y', $last_month_end) : ''). ') Details for ' . $kabal->getName(). ' Kabal:<br />';
+			echo 'Tactician ' . (isset($_REQUEST['months']) ? 'Season ' : '') . 'Ladder (' . date('M \'y', $last_month_start) . (isset($_REQUEST['months']) ? ' - ' . date('M \'y', $last_month_end) : ''). ') Details for ' . $dbbal->getName(). ' Kabal:<br />';
 		
-		foreach ($kabal->GetMembers() as $member){
+		foreach ($dbbal->GetMembers() as $member){
 			if (in_array($member->getID(), array_keys($diagnose))){
 				display_data($member, $diagnose[$member->getID()]);
 			}

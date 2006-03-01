@@ -5,9 +5,6 @@ include('form.php');
 
 $roster = new Roster();
 
-$ka = mysql_connect('localhost', 'ka', 'habecrimes');
-mysql_select_db('ka', $ka);
-
 $om = mysql_connect('localhost', 'tactician', 'thidrithow');
 mysql_select_db('tactician', $om);
 
@@ -124,7 +121,7 @@ function page_header($ltitle) {
 }
 
 function page_footer() {
-	global $settitle, $ka, $global_ka;
+	global $settitle, $db, $global_ka;
 
 	$new_output = iconv('ISO-8859-1', 'UTF-8', ob_get_contents());
 	ob_clean();

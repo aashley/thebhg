@@ -78,12 +78,12 @@ if (!$GLOBALS['access']){
 		
 		/** Hunts **/
 		$sql = "SELECT `hunt_id`, `hunt_first` FROM `hunts` WHERE `hunt_division` = -1 AND `hunt_end_timestamp` <= $last_month_end AND `hunt_end_timestamp` >= $last_month_start";
-		$query = mysql_query($sql, $ka);
+		$query = mysql_query($sql, $db);
 		
 		while ($info = mysql_fetch_assoc($query)){
 			
 			$grade = "SELECT `grades` FROM `hunt_grades` WHERE `hunt_id` = '" . $info['hunt_id'] . "'";
-			$send = mysql_query($grade, $ka);
+			$send = mysql_query($grade, $db);
 			
 			while ($data = mysql_fetch_assoc($send)){
 				
@@ -94,7 +94,7 @@ if (!$GLOBALS['access']){
 				foreach ($grades as $id => $datum){
 					if ($datum['status']){
 						$get = "SELECT `submission_person` FROM `hunt_submissions` WHERE `submission_id` = '" . $datum['id'] . "'";
-						$result = mysql_query($get, $ka);
+						$result = mysql_query($get, $db);
 						$person = mysql_result($result, 0, "submission_person");
 						
 						diagnose($person, 'KA Hunt: ' . $info['hunt_id'], 'Effort Answer');

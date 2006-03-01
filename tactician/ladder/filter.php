@@ -11,9 +11,9 @@ page_header('Filter the Tactician Ladder');
 	$form->startSelect('Filter By Kabal', 'kabal');
 	$form->addOption('-1', 'All');
 	
-	foreach ($roster->getKabals() as $kabal) {
+	foreach ($roster->getKabals() as $dbbal) {
 	
-		$form->addOption($kabal->getID(), $kabal->getName());
+		$form->addOption($dbbal->getID(), $dbbal->getName());
 			
 	}
 	
