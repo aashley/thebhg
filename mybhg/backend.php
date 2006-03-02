@@ -10,7 +10,7 @@ foreach ($sections as $sec) {
 }
 $items = $news->GetNews(10, 'posts', $sid);
 
-echo '<?xml version="1.0">';
+echo '<?xml version="1.0"?>';
 ?>
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
 	<channel>
