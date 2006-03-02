@@ -31,6 +31,7 @@ foreach ($items as $item) {
 			<description><![CDATA[<?php echo $item->Render('%message%'); ?>]]></description>
 			<content:encoded><![CDATA[<?php echo $item->Render('%message%'); ?>]]></content:encoded>
 			<dc:creator><?php echo htmlspecialchars($item->GetPoster()->GetName()); ?></dc:creator>
+			<category><?php echo htmlspecialchars($item->GetSectionName()); ?></category>
 		</item>
 <?php
 }
