@@ -1,3 +1,6 @@
+-- version 1.1.5 (2/3/2006) --
+1. Made the RSS backend not suck.
+
 -- version 1.1.4.2 (10/9/2005) --
 1. Un-EHified MyBHG.
 
