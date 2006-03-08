@@ -1,7 +1,28 @@
 body {
 	padding: 0;
 	margin: 0;
+	font-family: "Bitstream Vera Sans", "Tahoma", Verdana, Helvetica, sans-serif;
+	font-size: 10pt;
 }
+
+a:link
+{
+	color                 : #666;
+}
+a:visited
+{
+	color                 : #666;
+}
+a:hover
+{
+	color                 : #003366;
+	text-decoration       : none;
+}
+a:active
+{
+	color                 : #003366;
+}
+
 
 #main_body {
 	margin: 25px;
