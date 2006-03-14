@@ -75,7 +75,7 @@ function output() {
     
 		$hold_ids = array();
     
-		if ($pos->GetID() != 6) {
+		if ($pos->GetID() != 10) {
       
 			foreach ($_REQUEST['action'] as $cid=>$approval) {
         
@@ -156,7 +156,7 @@ function output() {
 	$pending_reasons = 
     mysql_query("SELECT * "
                ."FROM {$prefix}pending_medals " 
-               .($pos->GetID() == 6 
+               .($pos->GetID() == 10 
                  ? "WHERE jud_pending=1 " 
                  : "WHERE jud_pending=0 "), 
                $roster->roster_db) 

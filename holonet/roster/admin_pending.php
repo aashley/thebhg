@@ -27,7 +27,7 @@ function output() {
     $reason_ids = $_REQUEST['reasons'];
 
     // If its not the Judicator
-		if ($pos->GetID() != 6) {
+		if ($pos->GetID() != 10) {
       
 			foreach ($_REQUEST['action'] as $cid=>$approval) {
         
@@ -144,7 +144,7 @@ function output() {
 	}
 
   $sql = "SELECT * FROM {$prefix}pending_reasons " 
-    . ($pos->GetID() == 6 
+    . ($pos->GetID() == 10
         ? "WHERE jud_pending=1 " 
         : "WHERE jud_pending=0 ") 
     . "ORDER BY reason ASC";
