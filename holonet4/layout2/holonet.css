@@ -28,14 +28,21 @@ a:active
 	margin: 25px;
 	padding: 0;
 	border: 1px solid #dddddd;
+	border-radius-topright:25px;
+	border-radius-topleft:15px;
+	border-radius-bottomright:15px;
 	-moz-border-radius-topright:25px;
 	-moz-border-radius-topleft:15px;
+	-moz-border-radius-bottomright:15px;
 }
 
 #header {
+	position: relative;
 	border-bottom: 1px solid #dddddd;
 	padding: 0;
 	margin: 0;
+	border-radius-topright:25px;
+	border-radius-topleft:15px;
 	-moz-border-radius-topright:25px;
 	-moz-border-radius-topleft:15px;
 }
@@ -51,11 +58,12 @@ a:active
 #mainmenu {
 	padding: 0;
 	margin: 0;
-	float: left;
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
 	margin-top: -1px;
 	margin-left: -1px;
-	width: 30%;
+	width: 12em;
 }
 
 #mainmenu ul {
@@ -71,6 +79,9 @@ a:active
 	border: 1px solid #dddddd;
 	margin: 0;
 	width: 100%;
+	background-color: white;
+	border-radius-topleft:15px;
+	border-radius-bottomright:15px;
 	-moz-border-radius-topleft:15px;
 	-moz-border-radius-bottomright:15px;
 }
@@ -88,6 +99,7 @@ a:active
 	padding: 0.2em 1em;
 	border: 1px solid #dddddd;
 	margin-top: -1px;
+	background-color: white;
 }
 
 #mainmenu:hover ul {
@@ -98,11 +110,16 @@ a:active
 	display: block;
 }
 
+#mainmenu ul li a:hover {
+  background            : #FFF url(tr_bck.gif) repeat;
+}
+
 #modulemenu {
 	clear: left;
 	list-item: none;
 	padding: 0;
 	margin: 0;
+	padding-top: 2em;
 }
 
 #modulemenu li {
