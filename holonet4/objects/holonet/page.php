@@ -145,7 +145,7 @@ EOSCRIPT;
 
 		$this->addBodyContent($content, HTML_PAGE2_PREPEND);
 
-		$this->addBodyContent('</div></div>
+		$this->addBodyContent('<br class="clear"/></div></div>
 				<div id="footer">
 					<p>All rights reserved 1995-2005; original contents are protected by the 
 					United States (US) Copyright Act in accordance with the Bounty Hunters 
