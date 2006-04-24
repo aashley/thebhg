@@ -23,7 +23,7 @@ class page_roster_administration_my_transfer extends holonet_page {
 		$targets = $GLOBALS['bhg']->roster->getDivisions(array('category' => bhg_roster::getDivisionCategory(2)));
 
 		// Add Retirees
-		$targets->items[] = 2;
+		$targets->append(12);
 
 		$options = array();
 
