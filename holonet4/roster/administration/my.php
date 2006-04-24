@@ -46,6 +46,8 @@ class page_roster_administration_my extends holonet_page {
 
 		$form = new holonet_form('my_details_'.$user->getID());
 
+		$form->addElement('hidden',	'tabBar', 'details_tab');
+
 		$form->addElement('text',
 				'name',
 				'Name:',
@@ -257,6 +259,8 @@ class page_roster_administration_my extends holonet_page {
 
 		$form = new holonet_form('my_password_'.$user->getID());
 
+		$form->addElement('hidden',	'tabBar', 'password_tab');
+
 		$form->addElement('password',
 				'old_password',
 				'Old Password:',
@@ -346,6 +350,8 @@ class page_roster_administration_my extends holonet_page {
 		$tab = new holonet_tab('ipkc_tab', 'My IPKC');
 
 		$form = new holonet_form('my_ipkc_'.$user->getID());
+
+		$form->addElement('hidden',	'tabBar', 'ipkc_tab');
 
 		$form->addElement('text',
 				'homeworld',
