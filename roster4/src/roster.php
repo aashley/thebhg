@@ -199,6 +199,31 @@ class bhg_roster extends bhg_entry {
 	}
 	
 	// }}}
+	// {{{ getKabals()
+
+	/**
+	 * Get all kabals in the system
+	 *
+	 * @param array Filters to select which kabals to load
+	 * @return bhg_core_list
+	 */
+	public function getKabals($filter = array()) {
+
+		try {
+
+			$filter['category'] = bhg_roster::getDivisionCategory(2);
+
+			return new bhg_core_list('bhg_roster_kabal', $this->getDivisions($filter)->items);
+
+		} catch (Exception $e) {
+
+			throw $e;
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getNewPerson()
 
 	/**
