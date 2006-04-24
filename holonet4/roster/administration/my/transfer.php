@@ -20,16 +20,36 @@ class page_roster_administration_my_transfer extends holonet_page {
 
 		$user = $GLOBALS['bhg']->user;
 
-		$targets = $GLOBALS['bhg']->roster->getDivisions(array('category' => bhg_roster::getDivisionCategory(2)));
-
-		// Add Retirees
-		$targets->append(12);
+		$retirees = bhg_roster::getDivision(12);
 
 		$options = array();
 
-		foreach ($targets as $target) {
+		if ($user->getPosition()->isEqualTo(bhg_roster::getPosition(11))) {
 
-			$options[$target->getID()] = $target->getName();
+			$options[$user->getDivision()->getID()] = $user->getDivision()->getName().' (Retire as Chief)';
+			$options[$user->getPreviousDivision()->getID()] = $user->getPreviousDivision()->getName();
+			$options[$retirees->getID()] = $retirees->getName();
+
+		}
+
+		$lastTransferDate = $user->getDateLastTransfer();
+			
+		$lastTransferDate->addSeconds(86400 * 30);
+
+		if (	 $lastTransferDate->isPast() 
+				|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(10))
+				|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(18))
+				|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(12))) {
+			
+			$targets = $GLOBALS['bhg']->roster->getDivisions(array('category' => bhg_roster::getDivisionCategory(2)));
+			$targets->append($retirees);
+			$options = array();
+
+			foreach ($targets as $target) {
+
+				$options[$target->getID()] = $target->getName();
+
+			}
 
 		}
 
