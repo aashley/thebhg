@@ -29,7 +29,7 @@ class page_roster_administration_my_transfer extends holonet_page {
 
 		foreach ($targets as $target) {
 
-			$options[$target->getID()] = $targets->getName();
+			$options[$target->getID()] = $target->getName();
 
 		}
 
