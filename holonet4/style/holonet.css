@@ -23,24 +23,24 @@ a:active
 	color                 : #003366;
 }
 
-#mainmenu {
+#mainmenu_block {
 	margin: 25px 125px 0 40px;
 }
 
-#mainmenu ul {
+#mainmenu_block ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-#mainmenu ul li {
+#mainmenu_block ul li {
 	float:left;
 	margin: 0;
 	padding: 5px 2px 0 2px;
 	border-bottom: 1px solid #dddddd;
 }
 
-#mainmenu ul li a {
+#mainmenu_block ul li a {
 	display: block;
 	padding: 0.2em 1em;
 	border: 1px solid #dddddd;
@@ -54,7 +54,7 @@ a:active
 	-moz-border-radius-topleft: 15px;
 }
 
-#mainmenu ul li a:hover {
+#mainmenu_block ul li a:hover {
 	background-color: #efefef;
 }
 

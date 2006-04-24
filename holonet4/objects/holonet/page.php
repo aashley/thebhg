@@ -94,6 +94,7 @@ class holonet_page extends HTML_Page2 {
 		$content[] = $GLOBALS['holonet']->getMenu();
 		$content[] = '<br class="clear-left"/>';
 		$content[] = '</div>';
+		$content[] = '<div id="main_body">';
 		$content[] = '<div id="header">';
 		$content[] = '<img id="logo" src="/images/logo.png" />';
 
