@@ -76,6 +76,35 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getDateLastTransfer()
+	
+	/**
+	 * Retrieve the Date of this person's last division transfer
+	 *
+	 * @return object Date
+	 */
+	public function getDateLastTransfer() {
+
+		$events = $GLOBALS['bhg']->history->getEvents(array(
+					'person'	=> $this,
+					'type'		=> BHG_HISTORY_DIVISION,
+					'limit'		=> 1,
+					)
+				);
+
+		if ($events->count() > 0) {
+
+			return $events->getItem()->getDateCreated();
+
+		} else {
+
+			throw bhg_not_found('This person has not yet been transfered.');
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getDisplayName()
 	
 	/**
