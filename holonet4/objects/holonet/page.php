@@ -90,7 +90,12 @@ class holonet_page extends HTML_Page2 {
 
 		$content = array();
 
+		$content[] = '<div id="mainmenu_block">';
+		$content[] = $GLOBALS['holonet']->getMenu();
+		$content[] = '<br class="clear-left"/>';
+		$content[] = '</div>';
 		$content[] = '<div id="header">';
+		$content[] = '<img id="logo" src="/images/logo.png" />';
 
 		$content[] = <<<EOSCRIPT
 	<div id='headerAdd'><script language='JavaScript' type='text/javascript'>
@@ -115,11 +120,11 @@ class holonet_page extends HTML_Page2 {
 </script></div>
 EOSCRIPT;
 
-		$content[] = '<div id="logo"><div id="logo01"></div><div id="logo02"></div><div id="logo03"></div><div id="logo04"></div><div id="logo05"></div><div id="logo06"></div><div id="logo07"></div><div id="logo08"></div><div id="logo09"></div><div id="logo10"></div><div id="logo11"></div><div id="logo12"></div><div id="logo13"></div><div id="logo14"></div></div>';
+		$content[] = '<div id="moduletitle"><h1 class="current_module">'.$GLOBALS['holonet']->current->title.'</h1></div>';
 
-		$content[] = $GLOBALS['holonet']->getMenu();
 		$content[] = $GLOBALS['holonet']->current->getMenu();
 
+		$content[] = '<br class="clear"/>';
 		$content[] = '</div>';
 
 		$content[] = '<div id="sidemenu">';
@@ -139,7 +144,7 @@ EOSCRIPT;
 
 		$this->addBodyContent($content, HTML_PAGE2_PREPEND);
 
-		$this->addBodyContent('</div>
+		$this->addBodyContent('</div></div>
 				<div id="footer">
 					<p>All rights reserved 1995-2005; original contents are protected by the 
 					United States (US) Copyright Act in accordance with the Bounty Hunters 
