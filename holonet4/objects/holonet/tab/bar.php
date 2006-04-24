@@ -97,6 +97,23 @@ EOH;
 						.$tabHTML;
 
 		$id = $this->tabs[0]->getID();
+
+		if (isset($_REQUEST['tabBar']) && strlen($_REQUEST['tabBar']) > 0) {
+
+			foreach ($this->tabs as $tab) {
+
+				if ($tab->getID() == $_REQUEST['tabBar']) {
+
+					$id = $_REQUEST['tabBar'];
+
+					break;
+
+				}
+
+			}
+
+		}
+
 		$html .= <<<EOH
 <script type="text/javascript">
 <!--
