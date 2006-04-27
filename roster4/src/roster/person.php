@@ -476,6 +476,33 @@ class bhg_roster_person extends bhg_core_base {
 
 	// }}}
 
+	// {{{ requestTransfer()
+	
+	/**
+	 * Request a transfer to a new division for this person
+	 *
+	 * @param object bhg_roster_division
+	 * @return boolean
+	 */
+	public function requestTransfer(bhg_roster_division $target) {
+
+		if ($GLOBALS['bhg']->hasPerm('god')) {
+
+			return $this->__createRecord('roster_pending_transfer',
+					array(
+						'person' => $this->getID(),
+						'target' => $target->getID(),
+						));
+
+		} else {
+
+			throw new bhg_coder_exception('Insufficent code ID permissions.');
+
+		}
+
+	}
+
+	// }}}
 	// {{{ setPassword()
 
 	/**
