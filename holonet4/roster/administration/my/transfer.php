@@ -24,7 +24,8 @@ class page_roster_administration_my_transfer extends holonet_page {
 
 		$options = array();
 
-		if ($user->getPosition()->isEqualTo(bhg_roster::getPosition(11))) {
+		if (	 $user->getPosition()->isEqualTo(bhg_roster::getPosition(11))
+				|| $user->getPosition()->isEqualTo(bhg_roster::getPosition(12))) {
 
 			$options[$user->getDivision()->getID()] = $user->getDivision()->getName().' (Retire as Chief)';
 			$options[$user->getPreviousDivision()->getID()] = $user->getPreviousDivision()->getName();
