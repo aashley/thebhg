@@ -419,7 +419,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		} else {
 
-			throw new bhg_coder_exception('Insufficent code ID permissions.');
+			throw new bhg_coder_exception();
 
 		}
 
@@ -467,7 +467,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		} else {
 
-			throw new bhg_coder_exception('Insufficent code ID permissions.');
+			throw new bhg_coder_exception();
 
 		}
 
@@ -512,7 +512,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		} else {
 
-			throw new bhg_coder_exception('Insufficent code ID permissions.');
+			throw new bhg_coder_exception();
 
 		}
 
@@ -540,7 +540,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		} else {
 
-			throw new bhg_coder_exception('Insufficent code ID permissions.');
+			throw new bhg_coder_exception();
 
 		}
 
@@ -567,7 +567,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		} else {
 
-			throw new bhg_coder_exception('Insufficent code ID permissions.');
+			throw new bhg_coder_exception();
 
 		}
 

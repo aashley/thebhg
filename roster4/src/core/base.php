@@ -252,7 +252,7 @@ class bhg_core_base {
 
 			if (!$GLOBALS['bhg']->hasPerm($this->codeMap[$lfunc])) {
 
-				throw new bhg_coder_exception('Insufficent code ID permissions.');
+				throw new bhg_coder_exception();
 
 			} else {
 
@@ -273,7 +273,7 @@ class bhg_core_base {
 
 					if (!$GLOBALS['bhg']->hasPerm($this->codeMap['defaults']['get'])) {
 
-						throw new bhg_coder_exception('Insufficent code ID permissions.');
+						throw new bhg_coder_exception();
 
 					}
 
@@ -352,7 +352,7 @@ class bhg_core_base {
 
 					if (!$GLOBALS['bhg']->hasPerm($this->codeMap['defaults']['set'])) {
 
-						throw new bhg_coder_exception('Insufficent code ID permissions.');
+						throw new bhg_coder_exception();
 
 					}
 
@@ -662,7 +662,16 @@ class bhg_core_base {
 	 * @param integer The IREF of the row to purge
 	 * @return boolean
 	 */
-	protected function __purgeRecord($table, $iref) {
+	protected function __purgeRecord($table = null, $iref = null) {
+
+		if (	 is_null($table)
+				&& is_null($iref)) {
+
+			$table = $this->table;
+
+			$fields = array($this->data['id']);
+
+		}
 
 		if (strlen($table) == 0) {
 

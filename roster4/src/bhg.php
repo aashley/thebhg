@@ -469,7 +469,19 @@ class bhg_db_exception extends bhg_fatal_exception {
  * @subpackage Exceptions
  * @version $Rev$ $Date$
  */
-class bhg_coder_exception extends bhg_fatal_exception {}
+class bhg_coder_exception extends bhg_fatal_exception {
+
+	// {{{ __construct()
+
+	public function __construct($msg = 'Insufficent code ID permissions.', $code = 0) {
+
+		parent::__construct($msg, $code);
+
+	}
+
+	// }}}
+
+}
 
 /**
  * BHG List Exception
