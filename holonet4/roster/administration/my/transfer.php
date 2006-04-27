@@ -1,10 +1,8 @@
 <?php
 
-include_once 'objects/holonet/tab/bar.php';
-
 class page_roster_administration_my_transfer extends holonet_page {
 
-	public function __contruct($trail) {
+	public function __construct($trail) {
 
 		parent::__construct($trail);
 
