@@ -406,14 +406,22 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function awardCredits($credits, bhg_roster_person $awarder, $reason = '') {
 
-		$result = $this->__saveValue(array(
-					'rankcredits' => array("(rankcredits + $credits)", true),
-					'accountbalance' => array("(accountbalance + $credits)", true),
-					));
+		if ($GLOBALS['bhg']->hasPerm('credits')) {
+			
+			$result = $this->__saveValue(array(
+						'rankcredits' => array("(rankcredits + $credits)", true),
+						'accountbalance' => array("(accountbalance + $credits)", true),
+						));
 
-		$this->__recordHistoryEvent(BHG_HISTORY_CREDIT, $this, $awarder->getID(), $credits, $this->getRankCredits(), $reason);
+			$this->__recordHistoryEvent(BHG_HISTORY_CREDIT, $this, $awarder->getID(), $credits, $this->getRankCredits(), $reason);
 
-		return $result;
+			return $result;
+
+		} else {
+
+			throw new bhg_coder_exception('Insufficent code ID permissions.');
+
+		}
 
 	}
 
@@ -447,13 +455,21 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function withdrawAccount($credits, $from, $for = '') {
 
-		$result = $this->__saveValue(array(
-					'accountbalance' => array("(accountbalance - $credits)", true),
-					));
+		if ($GLOBALS['bhg']->hasPerm('purchase')) {
+			
+			$result = $this->__saveValue(array(
+						'accountbalance' => array("(accountbalance - $credits)", true),
+						));
 
-		$this->__recordHistoryEvent(BHG_HISTORY_ACCOUNT, $this, $from, $for, $credits);
+			$this->__recordHistoryEvent(BHG_HISTORY_ACCOUNT, $this, $from, $for, $credits);
 
-		return $result;
+			return $result;
+
+		} else {
+
+			throw new bhg_coder_exception('Insufficent code ID permissions.');
+
+		}
 
 	}
 
@@ -515,10 +531,18 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function setPassword($password) {
 
-		if (strlen($password) < 4)
-			throw new bhg_validation_exception('Password to short');
+		if ($GLOBALS['bhg']->hasPerm('god')) {
 
-		return $this->__saveValue(array('md5Password' => strtolower(md5($password))));
+			if (strlen($password) < 4)
+				throw new bhg_validation_exception('Password to short');
+
+			return $this->__saveValue(array('md5Password' => strtolower(md5($password))));
+
+		} else {
+
+			throw new bhg_coder_exception('Insufficent code ID permissions.');
+
+		}
 
 	}
 
@@ -533,11 +557,19 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function delete() {
 
-		parent::delete();
+		if ($GLOBALS['bhg']->hasPerm('bhg')) {
 
-		$this->__recordHistoryEvent(BHG_HISTORY_DELETE, $this);
+			parent::delete();
 
-		return true;
+			$this->__recordHistoryEvent(BHG_HISTORY_DELETE, $this);
+
+			return true;
+
+		} else {
+
+			throw new bhg_coder_exception('Insufficent code ID permissions.');
+
+		}
 
 	}
 
