@@ -180,13 +180,25 @@ class bhg_core_base {
 	 * Checks if the IREF is equal to the other object.
 	 *
 	 * @param object bhg_core_base
+	 * @param boolean Count subclasses as being the same
 	 * @return boolean
 	 */
 
-	public function isEqualTo(bhg_core_base $other) {
+	public function isEqualTo(bhg_core_base $other, $subclass = false) {
 
-		return (get_class($this) == get_class($other)
-				 && $other->getID() == $this->getID());
+		if ($subclass) {
+
+			return (   (   get_class($this) == get_class($other)
+									|| is_subclass_of($this, get_class($other))
+									|| is_subclass_of($other, get_class($this)))
+							&& $other->getID() == $this->getID());
+
+		} else {
+
+			return (get_class($this) == get_class($other)
+					 && $other->getID() == $this->getID());
+
+		}
 
 	}
 	
