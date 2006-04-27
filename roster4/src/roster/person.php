@@ -560,7 +560,7 @@ class bhg_roster_person extends bhg_core_base {
 		if ($GLOBALS['bhg']->hasPerm('god')) {
 
 			if (	 (	 $this->getPosition()->isEqualTo(bhg_roster::getPosition(11))
-							|| $this->getPosition()->isEqualTo(bhg_roster::getPosition(12))
+							|| $this->getPosition()->isEqualTo(bhg_roster::getPosition(12)))
 					&& $this->getDivision()->isEqualTo($target, true)) {
 
 				return $this->setPosition(bhg_roster::getPosition(14));
