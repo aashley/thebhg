@@ -547,6 +547,37 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ transfer()
+	
+	/**
+	 * Action a transfer
+	 *
+	 * @param object bhg_roster_division
+	 * @return boolean
+	 */
+	public function transfer(bhg_roster_division $target) {
+
+		if ($GLOBALS['bhg']->hasPerm('god')) {
+
+			if (	 (	 $this->getPosition()->isEqualTo(bhg_roster::getPosition(11))
+							|| $this->getPosition()->isEqualTo(bhg_roster::getPosition(12))
+					&& $this->getDivision()->isEqualTo($target, true)) {
+
+				return $this->setPosition(bhg_roster::getPosition(14));
+
+			}
+
+			return $this->setDivision($target);
+
+		} else {
+
+			throw new bhg_coder_exception();
+
+		}
+
+	}
+
+	// }}}
 
 	// {{{ delete()
 
