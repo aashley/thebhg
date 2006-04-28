@@ -19,7 +19,7 @@
  */
 class bhg_starchart extends bhg_entry {
 
-	// {{{ getPlanet()
+	// {{{ getPlanet() [static]
 	
 	/**
 	 * Load a specific planet
@@ -78,7 +78,7 @@ class bhg_starchart extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getSite()
+	// {{{ getSite() [static]
 	
 	/**
 	 * Load a specific site
@@ -137,7 +137,7 @@ class bhg_starchart extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getSystem()
+	// {{{ getSystem() [static];
 	
 	/**
 	 * Load a specific system

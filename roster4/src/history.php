@@ -19,7 +19,7 @@
  */
 class bhg_history extends bhg_entry {
 
-	// {{{ getEvent()
+	// {{{ getEvent() [static]
 
 	/**
 	 * Load a specific History Event

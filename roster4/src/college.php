@@ -19,7 +19,7 @@
  */
 class bhg_college extends bhg_entry {
 	 
-	// {{{ getExam()
+	// {{{ getExam() [static]
 
 	/**
 	 * Retrieve a specific exam.
@@ -92,7 +92,7 @@ class bhg_college extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getExamQuestion()
+	// {{{ getExamQuestion() [static]
 
 	/**
 	 * Retrieve a specific exam question.
@@ -153,7 +153,7 @@ class bhg_college extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getExamReward()
+	// {{{ getExamReward() [static]
 
 	/**
 	 * Retrieve a specific exam reward.
@@ -226,7 +226,7 @@ class bhg_college extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getSubmission()
+	// {{{ getSubmission() [static]
 
 	/**
 	 * Retrieve a specific submission
@@ -308,7 +308,7 @@ class bhg_college extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getSubmissionAnswer()
+	// {{{ getSubmissionAnswer() [static]
 
 	/**
 	 * Retrieve a specific submission answer

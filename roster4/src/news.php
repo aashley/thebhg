@@ -19,7 +19,7 @@
  */
 class bhg_news extends bhg_entry {
 
-	// {{{ getItem()
+	// {{{ getItem() [static]
 
 	/**
 	 * Retrieve a specific News Item

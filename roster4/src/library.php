@@ -19,7 +19,7 @@
  */
 class bhg_library extends bhg_entry {
 
-	// {{{ getBook()
+	// {{{ getBook() [static]
 	
 	/**
 	 * Load a specific book
@@ -95,7 +95,7 @@ class bhg_library extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getChapter()
+	// {{{ getChapter() [static]
 	
 	/**
 	 * Load a specific chapter
@@ -153,7 +153,7 @@ class bhg_library extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getSection()
+	// {{{ getSection() [static]
 	
 	/**
 	 * Load a specific section
@@ -211,7 +211,7 @@ class bhg_library extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getShelf()
+	// {{{ getShelf() [static]
 	
 	/**
 	 * Load a specific shelf

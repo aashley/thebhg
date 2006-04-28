@@ -19,7 +19,7 @@
  */
 class bhg_roster extends bhg_entry {
 
-	// {{{ getCadre()
+	// {{{ getCadre() [static]
 
 	/**
 	 * Load a specific Cadre
@@ -72,7 +72,7 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getDivision()
+	// {{{ getDivision() [static]
 
 	/**
 	 * Load a specific Division
@@ -169,7 +169,7 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getDivisionCategory()
+	// {{{ getDivisionCategory() [static]
 
 	/**
 	 * Load a specific Division Category
@@ -184,7 +184,7 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getKabal()
+	// {{{ getKabal() [static]
 
 	/**
 	 * Load a specific Kabal
@@ -224,7 +224,7 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getNewPerson()
+	// {{{ getNewPerson() [static]
 
 	/**
 	 * Load a specific new member application
@@ -239,7 +239,7 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getPerson()
+	// {{{ getPerson() [static]
 
 	/**
 	 * Load a specific person
@@ -324,7 +324,7 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getPosition()
+	// {{{ getPosition() [static]
 
 	/**
 	 * Load a specific Position
@@ -377,7 +377,7 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getRank()
+	// {{{ getRank() [static]
 
 	/**
 	 * Load a specific Rank

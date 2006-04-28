@@ -19,7 +19,7 @@
  */
 class bhg_medalboard extends bhg_entry {
 
-	// {{{ getAward()
+	// {{{ getAward() [static]
 
 	/**
 	 * Load a specific Award
@@ -103,7 +103,7 @@ class bhg_medalboard extends bhg_entry {
 	}
 	
 	// }}}
-	// {{{ getCategory()
+	// {{{ getCategory() [static]
 
 	/**
 	 * Load a specific Medal Category
@@ -154,7 +154,7 @@ class bhg_medalboard extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getGroup()
+	// {{{ getGroup() [static]
 
 	/**
 	 * Load a specific Group
@@ -208,7 +208,7 @@ class bhg_medalboard extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getMedal()
+	// {{{ getMedal() [static]
 
 	/**
 	 * Load a specific Medal
