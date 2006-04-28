@@ -239,21 +239,6 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getPerson() [static]
-
-	/**
-	 * Load a specific person
-	 *
-	 * @param integer
-	 * @return bhg_roster_person
-	 */
-	static public function getPerson($id) {
-
-		return bhg::loadObject('bhg_roster_person', $id);
-
-	}
-
-	// }}}
 	// {{{ getPeople()
 
 	/**
@@ -320,6 +305,21 @@ class bhg_roster extends bhg_entry {
 			return new bhg_core_list('bhg_roster_person', $results);
 
 		}
+
+	}
+
+	// }}}
+	// {{{ getPerson() [static]
+
+	/**
+	 * Load a specific person
+	 *
+	 * @param integer
+	 * @return bhg_roster_person
+	 */
+	static public function getPerson($id) {
+
+		return bhg::loadObject('bhg_roster_person', $id);
 
 	}
 
