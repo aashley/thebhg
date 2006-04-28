@@ -165,6 +165,22 @@ CREATE TABLE `roster_pending_credit` (
 		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Pending Credit Awards';
 
 
+-- Roster Medal Award Request
+\! echo roster_pending_medal
+CREATE TABLE `roster_pending_medal` (
+		`id` INT( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+		`datecreated` DATETIME NOT NULL ,
+		`dateupdated` DATETIME NOT NULL ,
+		`datedeleted` DATETIME NOT NULL ,
+		`recipient` INT( 11 ) UNSIGNED NOT NULL ,
+		`awarder` INT( 11 ) NOT NULL ,
+		`medaltype` ENUM( 'group', 'medal' ) NOT NULL ,
+		`medal` INT( 11 ) UNSIGNED NOT NULL ,
+		`reason` TEXT NOT NULL ,
+		`approved` INT( 1 ) NOT NULL
+		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Pending Medal Awards';
+
+
 -- MedalBoard Awarded Medals
 \! echo medalboard_award
 ALTER TABLE mb_awarded_medals RENAME medalboard_award;
