@@ -239,6 +239,183 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getPendingCredit() [static]
+
+	/**
+	 * Load a specific pending credit
+	 *
+	 * @param integer
+	 * @return bhg_roster_pending_credit
+	 */
+	static public function getPendingCredit($id) {
+
+		return bhg::loadObject('bhg_roster_pending_credit', $id);
+
+	}
+
+	// }}}
+	// {{{ getPendingCredits()
+
+	/**
+	 * Get all pending_credits in the system
+	 *
+	 * @param array Filters to select which pending_credits to load
+	 * @return bhg_core_list
+	 */
+	public function getPendingCredits($filter = array()) {
+
+		$sql = 'SELECT roster_pending_credit.id '
+					.'FROM roster_pending_credit ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'roster_pending_credit.datedeleted IS NULL ';
+
+		if (isset($filter['recipient']) && $filter['recipient'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'roster_pending_credit.recipient = '.$filter['recipient']->getID().' ';
+
+		if (isset($filter['awarder']) && $filter['awarder'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'roster_pending_credit.awarder = '.$filter['awarder']->getID().' ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY roster_pending_credit_category.datecreated ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of pending credits.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_pending_credit', $results);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ getPendingMedal() [static]
+
+	/**
+	 * Load a specific pending medal
+	 *
+	 * @param integer
+	 * @return bhg_roster_pending_medal
+	 */
+	static public function getPendingMedal($id) {
+
+		return bhg::loadObject('bhg_roster_pending_medal', $id);
+
+	}
+
+	// }}}
+	// {{{ getPendingMedals()
+
+	/**
+	 * Get all pending_medals in the system
+	 *
+	 * @param array Filters to select which pending_medals to load
+	 * @return bhg_core_list
+	 */
+	public function getPendingMedals($filter = array()) {
+
+		$sql = 'SELECT roster_pending_medal.id '
+					.'FROM roster_pending_medal ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'roster_pending_medal.datedeleted IS NULL ';
+
+		if (isset($filter['recipient']) && $filter['recipient'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'roster_pending_medal.recipient = '.$filter['recipient']->getID().' ';
+
+		if (isset($filter['awarder']) && $filter['awarder'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'roster_pending_medal.awarder = '.$filter['awarder']->getID().' ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY roster_pending_medal_category.datecreated ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of pending medals.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_pending_medal', $results);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ getPendingTransfer() [static]
+
+	/**
+	 * Load a specific pending transfer
+	 *
+	 * @param integer
+	 * @return bhg_roster_pending_transfer
+	 */
+	static public function getPendingTransfer($id) {
+
+		return bhg::loadObject('bhg_roster_pending_transfer', $id);
+
+	}
+
+	// }}}
+	// {{{ getPendingTransfers()
+
+	/**
+	 * Get all pending_transfers in the system
+	 *
+	 * @param array Filters to select which pending_transfers to load
+	 * @return bhg_core_list
+	 */
+	public function getPendingTransfers($filter = array()) {
+
+		$sql = 'SELECT roster_pending_transfer.id '
+					.'FROM roster_pending_transfer ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'roster_pending_transfer.datedeleted IS NULL ';
+
+		if (isset($filter['recipient']) && $filter['recipient'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'roster_pending_transfer.recipient = '.$filter['recipient']->getID().' ';
+
+		if (isset($filter['awarder']) && $filter['awarder'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'roster_pending_transfer.awarder = '.$filter['awarder']->getID().' ';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY roster_pending_transfer_category.datecreated ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of pending transfers.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_pending_transfer', $results);
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getPeople()
 
 	/**
