@@ -138,6 +138,33 @@ ALTER TABLE roster_person CHANGE hasship ship INT(1) NOT NULL;
 ALTER TABLE `roster_person` ADD `xp` INT NOT NULL DEFAULT '0';
 
 
+-- Roster Transfer Request
+\! echo roster_pending_transfer
+CREATE TABLE `roster_pending_transfer` (
+		`id` INT( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+		`datecreated` DATETIME NOT NULL ,
+		`dateupdated` DATETIME NOT NULL ,
+		`datedeleted` DATETIME NOT NULL ,
+		`person` INT( 11 ) UNSIGNED NOT NULL ,
+		`target` INT( 11 ) UNSIGNED NOT NULL
+		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Pending Transfer Requests';
+
+
+-- Roster Credit Award Request
+\! echo roster_pending_credit
+CREATE TABLE `roster_pending_credit` (
+		`id` INT( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+		`datecreated` DATETIME NOT NULL ,
+		`dateupdated` DATETIME NOT NULL ,
+		`datedeleted` DATETIME NOT NULL ,
+		`recipient` INT( 11 ) UNSIGNED NOT NULL ,
+		`awarder` INT( 11 ) UNSIGNED NOT NULL ,
+		`amount` INT( 11 ) NOT NULL ,
+		`reason` TEXT NOT NULL ,
+		`approved` INT( 1 ) UNSIGNED NOT NULL DEFAULT '0'
+		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Pending Credit Awards';
+
+
 -- MedalBoard Awarded Medals
 \! echo medalboard_award
 ALTER TABLE mb_awarded_medals RENAME medalboard_award;
