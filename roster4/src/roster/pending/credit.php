@@ -33,6 +33,7 @@ class bhg_roster_pending_credit extends bhg_core_base {
 					'recipient'	=> 'bhg_roster_person',
 					'awarder'		=> 'bhg_roster_division',
 					));
+		$this->__addBooleanFields(array('approved'));
 		$this->__addDefaultCodePermissions('set', 'god');
 	}
 
