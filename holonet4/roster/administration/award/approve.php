@@ -33,6 +33,14 @@ class page_roster_administration_award_approve extends holonet_page {
 
 		$tab = new holonet_tab('credits_tab', 'Approve Credits');
 
+		$form = new holonet_form('approve_credits');
+
+		$form->addElement('hidden', 'tabBar', 'credits_tab');
+
+		$renderer =& $form->defaultRenderer();
+
+		$tab->addContent('<pre>'.print_r($renderer, true).'</pre>');
+
 		return $tab;
 
 	}
