@@ -28,7 +28,7 @@ class holonet_form extends HTML_QuickForm {
 				."<form{attributes}>\n"
 				."<div>\n"
 				."{hidden}"
-				."<table class=\"form\">\n"
+				."<table>\n"
 				."{content}\n"
 				."</table>\n"
 				."</div>\n"
