@@ -38,8 +38,8 @@ class page_roster_administration_award_approve extends holonet_page {
 
 		$form->addElement('hidden', 'tabBar', 'credits_tab');
 
-		$form->addElement('header',
-				null,
+		$form->addElement('static',
+				'credits_header',
 				array(
 					'&nbsp;',
 					'Recipient',
@@ -48,6 +48,17 @@ class page_roster_administration_award_approve extends holonet_page {
 					'Reason',
 					'Approve',
 					));
+
+		$renderer->setElementTemplate("\n"
+				."\t<tr>\n"
+				."\t\t<th class=\"label\">{label}</th>\n"
+				."\t\t<th class=\"label_2\">{label_2}</th>\n"
+				."\t\t<th class=\"label_3\">{label_3}</th>\n"
+				."\t\t<th class=\"label_4\">{label_4}</th>\n"
+				."\t\t<th class=\"label_5\">{label_5}</th>\n"
+				."\t\t<th class=\"label_6\">{label_6}</th>\n"
+				."\t</tr>",
+				'credits_header');
 
 		$form->addButtons('Approve Credits');
 
