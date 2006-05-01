@@ -29,7 +29,7 @@ class bhg_roster_pending_medal extends bhg_core_base {
 	 */
 	public function __construct($id) {
 		parent::__construct('roster_pending_medal', $id);
-		$this->addFieldMap(array(
+		$this->__addFieldMap(array(
 					'recipient'	=> 'bhg_roster_person',
 					'awarder'		=> 'bhg_roster_person',
 					));
