@@ -39,7 +39,7 @@ class page_roster_administration_award_approve extends holonet_page {
 
 		$renderer =& $form->defaultRenderer();
 
-		$tab->addContent('<pre>'.print_r($renderer, true).'</pre>');
+		$tab->addContent('<pre>'.htmlspecialchars(print_r($renderer, true)).'</pre>');
 
 		return $tab;
 
