@@ -281,7 +281,7 @@ class bhg_roster extends bhg_entry {
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
-		$sql .= 'ORDER BY roster_pending_credit_category.datecreated ASC ';
+		$sql .= 'ORDER BY roster_pending_credit.datecreated ASC ';
 
 		$results = $this->db->getCol($sql);
 
@@ -340,7 +340,7 @@ class bhg_roster extends bhg_entry {
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
-		$sql .= 'ORDER BY roster_pending_medal_category.datecreated ASC ';
+		$sql .= 'ORDER BY roster_pending_medal.datecreated ASC ';
 
 		$results = $this->db->getCol($sql);
 
@@ -399,7 +399,7 @@ class bhg_roster extends bhg_entry {
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
-		$sql .= 'ORDER BY roster_pending_transfer_category.datecreated ASC ';
+		$sql .= 'ORDER BY roster_pending_transfer.datecreated ASC ';
 
 		$results = $this->db->getCol($sql);
 
