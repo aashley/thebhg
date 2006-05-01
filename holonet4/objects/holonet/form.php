@@ -15,13 +15,13 @@ class holonet_form extends HTML_QuickForm {
 
 		$renderer->setHeaderTemplate("\n"
 				."\t<tr>\n"
-				."\t\t<th style=\"white-space: nowrap;\" colspan=\"2\">{header}</th>\n"
+				."\t\t<th colspan=\"2\">{header}</th>\n"
 				."\t</tr>\n");
 
 		$renderer->setElementTemplate("\n"
 				."\t<tr>\n"
-				."\t\t<td align=\"right\" valign=\"top\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
-				."\t\t<td valign=\"top\" align=\"left\"><!-- BEGIN error --><span style=\"color: #ff0000\">{error}</span><br /><!-- END error -->\t{element}</td>\n"
+				."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
+				."\t\t<td><!-- BEGIN error --><span style=\"color: #ff0000\">{error}</span><br /><!-- END error -->\t{element}</td>\n"
 				."\t</tr>");
 
 		$renderer->setFormTemplate("\n"
