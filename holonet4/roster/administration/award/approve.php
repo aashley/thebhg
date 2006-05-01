@@ -90,8 +90,24 @@ class page_roster_administration_award_approve extends holonet_page {
 						'maxlength'	=> 250,
 						));
 
+			$fields[] = $form->createElement('select',
+					'approve',
+					null,
+					array(
+						'approve' => 'Approve',
+						'hold'		=> 'Hold',
+						'deny'		=> 'Deny',
+						));
+
 			$form->addGroup($fields, 'pendingCredit['.$pendingCredit->getID().']', $pendingCredit->getID());
 
+			$renderer->setElementTemplate("\n"
+					."\t<tr>\n"
+					."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
+					."\t\t{element}\n"
+					."\t</tr>",
+					'pendingCredit['.$pendingCredit->getID().']');
+					
 			$renderer->setGroupTemplate('{content}', 'pendingCredit['.$pendingCredit->getID().']');
 			$renderer->setGroupElementTemplate('<td>{element}</td>', 'pendingCredit['.$pendingCredit->getID().']');
 
