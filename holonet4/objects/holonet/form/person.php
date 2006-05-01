@@ -4,7 +4,7 @@ require_once 'HTML/QuickForm/hierselect.php';
 
 class holonet_form_person extends HTML_QuickForm_hierselect {
 
-	public function __construct($elementName=null, $elementLabel=null, $attributes=null, $separator=null, $divisions=null) {
+	public function holonet_form_person($elementName=null, $elementLabel=null, $attributes=null, $separator=null, $divisions=null) {
 
 		parent::HTML_QuickForm_hierselect($elementName, $elementLabel, $attributes, $separator);
 
