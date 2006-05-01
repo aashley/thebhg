@@ -31,7 +31,7 @@ class bhg_roster_pending_credit extends bhg_core_base {
 		parent::__construct('roster_pending_credit', $id);
 		$this->addFieldMap(array(
 					'recipient'	=> 'bhg_roster_person',
-					'awarder'		=> 'bhg_roster_division',
+					'awarder'		=> 'bhg_roster_person',
 					));
 		$this->__addBooleanFields(array('approved'));
 		$this->__addDefaultCodePermissions('set', 'god');
