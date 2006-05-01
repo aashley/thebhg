@@ -113,9 +113,16 @@ class page_roster_administration_award_approve extends holonet_page {
 			$renderer->setGroupTemplate("\n{content}", 'pendingCredit['.$pendingCredit->getID().']');
 			$renderer->setGroupElementTemplate("\n<td>{element}</td>", 'pendingCredit['.$pendingCredit->getID().']');
 
+			$defaults['pendingCredit['.$pendingCredit->getID().'][recipient]'] = $pendingCredit->getRecipient();
+			$defaults['pendingCredit['.$pendingCredit->getID().'][amount]'] = $pendingCredit->getAmount();
+			$defaults['pendingCredit['.$pendingCredit->getID().'][reason]'] = $pendingCredit->getReason();
+			$defaults['pendingCredit['.$pendingCredit->getID().'][approve]'] = 'approve';
+
 		}
 
 		$form->addButtons('Approve Credits');
+
+		$form->setDefaults($defaults);
 
 		if ($form->validate()) {
 
