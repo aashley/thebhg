@@ -79,6 +79,25 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 
 	}
 
+	public function setValue($value) {
+
+		if ($value instanceof bhg_roster_person) {
+
+			$raw = array(
+					$value->getDivision(),
+					$value->getID(),
+					);
+
+			parent::setValue($raw);
+
+		} else {
+
+			parent::setValue($value);
+
+		}
+
+	}
+
 }
 
 ?>
