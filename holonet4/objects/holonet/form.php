@@ -9,7 +9,7 @@ class holonet_form extends HTML_QuickForm {
 		parent::HTML_QuickForm($formName, $method, $action, $target, $attributes, $trackSubmit);
 
 		$this->removeAttribute('name');
-		$this->registerElementType('person', 'objects/holonet/form/person.php', 'holonet_form_person');
+		$this->registerElementType('personselect', 'objects/holonet/form/person.php', 'holonet_form_person');
 
 	}
 
