@@ -73,6 +73,7 @@ class page_roster_administration_award_approve extends holonet_page {
 
 			$fields[] = $form->createElement('static',
 					null,
+					null,
 					$pendingCredit->getAwarder()->getName());
 
 			$fields[] = $form->createElement('text',
