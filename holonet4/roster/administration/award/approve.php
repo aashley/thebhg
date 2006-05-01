@@ -60,6 +60,43 @@ class page_roster_administration_award_approve extends holonet_page {
 				."\t</tr>",
 				'credits_header');
 
+		$pendingCredits = $GLOBALS['bhg']->roster->getPendingCredits();
+
+		$defaults = array();
+
+		foreach ($pendingCredits as $pendingCredit) {
+
+			$fields = array();
+
+			$fields[] = $form->createElement('personselect',
+					'recipient');
+
+			$fields[] = $form->createElement('static',
+					$pendingCredit->getAwarder()->getName());
+
+			$fields[] = $form->createElement('text',
+					'amount',
+					null,
+					array(
+						'size'		  => 10,
+						'maxlength' => 15,
+						));
+
+			$fields[] = $form->createElement('text',
+					'reason',
+					null,
+					array(
+						'size'			=> 30,
+						'maxlength'	=> 250,
+						));
+
+			$form->addGroup($fields, 'pendingCredit['.$pendingCredit->getID().']', $pendingCredit->getID());
+
+			$renderer->setGroupTemplate('{content}', 'pendingCredit['.$pendingCredit->getID().']');
+			$renderer->setGroupElementTemplate('<td>{element}</td>', 'pendingCredit['.$pendingCredit->getID().']');
+
+		}
+
 		$form->addButtons('Approve Credits');
 
 		if ($form->validate()) {
