@@ -108,8 +108,8 @@ class page_roster_administration_award_approve extends holonet_page {
 					."\t</tr>",
 					'pendingCredit['.$pendingCredit->getID().']');
 					
-			$renderer->setGroupTemplate('{content}', 'pendingCredit['.$pendingCredit->getID().']');
-			$renderer->setGroupElementTemplate('<td>{element}</td>', 'pendingCredit['.$pendingCredit->getID().']');
+			$renderer->setGroupTemplate("\n{content}", 'pendingCredit['.$pendingCredit->getID().']');
+			$renderer->setGroupElementTemplate("\n<td>{element}</td>", 'pendingCredit['.$pendingCredit->getID().']');
 
 		}
 
