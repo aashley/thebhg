@@ -1,0 +1,14 @@
+form div table th {
+	text-align: center;
+	font-weight: bold;
+}
+
+form div table td {
+	text-align: left;
+	vertical-align: top;
+}
+
+form div table td.label {
+	font-weight: bold;
+	text-align: right;
+}
