@@ -38,9 +38,15 @@ class page_roster_administration_award_approve extends holonet_page {
 
 		$form->addElement('hidden', 'tabBar', 'credits_tab');
 
-		$form->addElement('person', 'person[]', 'Person');
+		$form->addElement('personselect', 'person[]', 'Person');
 
-		$tab->addContent('<pre>'.htmlspecialchars(print_r($renderer, true)).'</pre>');
+		$form->addButtons('Approve Credits');
+
+		if ($form->validate()) {
+
+		}
+
+		$tab->addContent($form);
 
 		return $tab;
 
