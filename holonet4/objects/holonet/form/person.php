@@ -50,7 +50,7 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 
 		$a = $b = array();
 
-		foreach ($GLOBALS['bhg']->getDivisionCategories() as $category) {
+		foreach ($GLOBALS['bhg']->getCategories() as $category) {
 
 			foreach ($category->getDivisions() as $division) {
 
