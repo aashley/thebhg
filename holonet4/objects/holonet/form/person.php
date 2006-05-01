@@ -84,7 +84,7 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 		if ($value instanceof bhg_roster_person) {
 
 			$raw = array(
-					$value->getDivision(),
+					$value->getDivision()->getID(),
 					$value->getID(),
 					);
 
