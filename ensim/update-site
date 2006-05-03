@@ -29,6 +29,23 @@ fi
 
 for site in $*; do
 	case $site in
+		webmin)
+			echo "Select module to update:"
+			echo "citadel"
+			echo "holonet"
+			echo "holonet3-devel"
+			echo "holonet4-devel"
+			echo "ka"
+			echo "ka-devel"
+			echo "lyarna"
+			echo "lyarna-devel"
+			echo "scum"
+			echo "scum-devel"
+			echo "tactician"
+			echo "tactician-devel"
+			exit 0
+			;;
+
 		roster)
 			echo Updating Roster...
 			pushd /usr/share/roster > /dev/null
