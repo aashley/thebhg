@@ -30,7 +30,6 @@ fi
 for site in $*; do
 	case $site in
 		webmin)
-			echo "Select module to update:"
 			echo "citadel"
 			echo "holonet"
 			echo "holonet3-devel"
