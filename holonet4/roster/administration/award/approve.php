@@ -125,6 +125,8 @@ class page_roster_administration_award_approve extends holonet_page {
 
 		}
 
+		$form->addButtons('Approve Credits');
+
 		$renderer->setElementTemplate("\n"
 				."\t<tr>\n"
 				."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
@@ -132,11 +134,11 @@ class page_roster_administration_award_approve extends holonet_page {
 				."\t</tr>",
 				'__submit_group');
 
-		$form->addButtons('Approve Credits');
-
 		$form->setDefaults($defaults);
 
 		if ($form->validate()) {
+
+			$values = $form->exportValues();
 
 		}
 
