@@ -73,9 +73,14 @@ class bhg_roster_pending_medal extends bhg_core_base {
 
 		if ($GLOBALS['bhg']->hasPerm('god')) {
 
-			return $this->getRecipient()->awardMedal($this->getMedal(),
+			$return = $this->getRecipient()->awardMedal($this->getMedal(),
 					$this->getAwarder(),
 					$this->getReason());
+
+			if ($return)
+				$this->delete();
+
+			return $return;
 
 		} else {
 

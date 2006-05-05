@@ -49,7 +49,12 @@ class bhg_roster_pending_transfer extends bhg_core_base {
 
 		if ($GLOBALS['bhg']->hasPerm('god')) {
 
-			return $this->getPerson()->transfer($this->getTarget());
+			$return = $this->getPerson()->transfer($this->getTarget());
+
+			if ($return)
+				$this->delete();
+
+			return $return;
 
 		} else {
 

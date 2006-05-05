@@ -50,9 +50,14 @@ class bhg_roster_pending_credit extends bhg_core_base {
 
 		if ($GLOBALS['bhg']->hasPerm('god')) {
 
-			return $this->getRecipient()->awardCredits($this->getAmount(),
+			$return = $this->getRecipient()->awardCredits($this->getAmount(),
 					$this->getAwarder(),
 					$this->getReason());
+
+			if ($return)
+				$this->delete();
+
+			return $return;
 
 		} else {
 
