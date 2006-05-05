@@ -69,7 +69,12 @@ class page_roster_administration_award_approve extends holonet_page {
 			$fields = array();
 
 			$fields[] = $form->createElement('personselect',
-					'recipient');
+					'recipient',
+					null,
+					array(
+						'style' => 'width: 10em;',
+						),
+					'<br/>');
 
 			$fields[] = $form->createElement('static',
 					null,
@@ -84,12 +89,12 @@ class page_roster_administration_award_approve extends holonet_page {
 						'maxlength' => 15,
 						));
 
-			$fields[] = $form->createElement('text',
+			$fields[] = $form->createElement('textarea',
 					'reason',
 					null,
 					array(
-						'size'			=> 30,
-						'maxlength'	=> 250,
+						'rows'	=> 3,
+						'cols'	=> 40,
 						));
 
 			$fields[] = $form->createElement('select',
@@ -111,7 +116,7 @@ class page_roster_administration_award_approve extends holonet_page {
 					'pendingCredit['.$pendingCredit->getID().']');
 					
 			$renderer->setGroupTemplate("\n{content}", 'pendingCredit['.$pendingCredit->getID().']');
-			$renderer->setGroupElementTemplate("\n<td>{element}</td>", 'pendingCredit['.$pendingCredit->getID().']');
+			$renderer->setGroupElementTemplate("\n<td valign=\"top\">{element}</td>", 'pendingCredit['.$pendingCredit->getID().']');
 
 			$defaults['pendingCredit['.$pendingCredit->getID().'][recipient]'] = $pendingCredit->getRecipient();
 			$defaults['pendingCredit['.$pendingCredit->getID().'][amount]'] = $pendingCredit->getAmount();
