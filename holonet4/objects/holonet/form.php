@@ -47,17 +47,17 @@ class holonet_form extends HTML_QuickForm {
 		$elements = array();
 
 		$elements[] = HTML_QuickForm::createElement('submit',
-																								null,
-																								$submitText);
+				null,
+				$submitText);
 
 		$elements[] = HTML_QuickForm::createElement('reset',
-																								null,
-																								'Reset');
+				null,
+				'Reset');
 
 		return $this->addGroup($elements,
-													 null,
-													 null,
-													 ' ');
+				'__submit_group',
+				null,
+				' ');
 
 	}
 
