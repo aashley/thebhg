@@ -93,8 +93,8 @@ class page_roster_administration_award_approve extends holonet_page {
 					'reason',
 					null,
 					array(
-						'rows'	=> 3,
-						'cols'	=> 40,
+						'rows'	=> 2,
+						'cols'	=> 30,
 						));
 
 			$fields[] = $form->createElement('select',
