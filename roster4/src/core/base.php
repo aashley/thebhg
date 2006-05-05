@@ -931,7 +931,6 @@ class bhg_core_base {
 			throw new bhg_validation_exception('Invalid object passed to record history about.');
 
 		return $this->__createRecord('history_event',
-				null,
 				array('person' => $object->getID(),
 							'type' => $type,
 							'item1' => $item1,
