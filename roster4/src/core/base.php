@@ -608,8 +608,8 @@ class bhg_core_base {
 			throw new bhg_fatal_exception('No fields specified.  Will not delete entire table.');
 
 		$sql = 'UPDATE `'.$table.'` '
-					.'SET `date_deleted` = NOW() '
-					.'WHERE `date_deleted` IS NULL ';
+					.'SET `datedeleted` = NOW() '
+					.'WHERE `datedeleted` IS NULL ';
 
 		foreach ($fields as $field => $value) {
 
