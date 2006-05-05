@@ -68,13 +68,10 @@ class page_roster_administration_award_approve extends holonet_page {
 
 			$fields = array();
 
-			$fields[] = $form->createElement('personselect',
-					'recipient',
+			$fields[] = $form->createElement('static',
 					null,
-					array(
-						'style' => 'width: 10em;',
-						),
-					'<br/>');
+					null,
+					$pendingCredit->getRecipient()->getName());
 
 			$fields[] = $form->createElement('static',
 					null,
@@ -140,11 +137,41 @@ class page_roster_administration_award_approve extends holonet_page {
 
 			$values = $form->exportValues();
 
-			$tab->addContent('<pre>'.print_r($values, true).'</pre>');
+			$tab->addContent('<p>');
+
+			foreach ($values['pendingCredit'] as $id => $data) {
+
+				$pendingCredit = bhg_roster::getPendingCredit($id);
+
+				if ($data['approve'] == 'approve') {
+
+					$pendingCredit->setAmount($data['amount']);
+					$pendingCredit->setReason($data['reason']);
+
+					$tab->addContent('Approving pending credit award #'.$pendingCredit->getID().' of '
+							.number_format($pendingCredit->getAmount()).' to '
+							.$pendingCredit->getRecipient()->getName().'<br/>');
+
+					$pendingCredit->approve();
+
+				} elseif ($data['approve'] == 'deny') {
+
+					$tab->addContent('Deny pending credit award #'.$pendingCredit->getID().'<br/>');
+					$pendingCredit->deny();
+
+				} else {
+
+					$tab->addContent('Holding pending credit award #'.$pendingCredit->getID().'<br/>');
+
+				}
+
+			}
+
+		} else {
+			
+			$tab->addContent($form);
 
 		}
-
-		$tab->addContent($form);
 
 		return $tab;
 
