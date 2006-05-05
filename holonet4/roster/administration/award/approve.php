@@ -140,7 +140,7 @@ class page_roster_administration_award_approve extends holonet_page {
 
 			$values = $form->exportValues();
 
-			$tab->addContent(print_r($values, true));
+			$tab->addContent('<pre>'.print_r($values, true).'</pre>');
 
 		}
 
