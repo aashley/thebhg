@@ -45,8 +45,12 @@ class bhg extends bhg_core_base {
 	 */
 	public $database = array(
 			'no_created' => array(),
-			'no_updated' => array(),
-			'no_deleted' => array(),
+			'no_updated' => array(
+				'history_item',
+				),
+			'no_deleted' => array(
+				'history_item',
+				),
 			'no_object' => array(),
 			);
 
