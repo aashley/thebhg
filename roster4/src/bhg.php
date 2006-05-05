@@ -544,7 +544,7 @@ function __autoload($className) {
 
 		$filename = implode('/', $name).'.php';
 
-		@include_once $filename;
+		@include $filename;
 		
 	}
 
