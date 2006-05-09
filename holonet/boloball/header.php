@@ -58,7 +58,7 @@ function bb_get_sports($user) {
 	global $prefix, $db;
 
 	$pos = $user->GetPosition();
-	if ($user->GetID() == 666 || $user->GetID() == 94 || $pos->GetID() == 2 || $pos->GetID() == 5) {
+	if ($user->GetID() == 666 || $user->GetID() == 94 || $pos->GetID() == 2 || $pos->GetID() == 5 || $pos->GetID() == 4 | $user->getID() == 2650) {
 		$sports_result = mysql_query("SELECT * FROM {$prefix}sports", $db);
 		if ($sports_result && mysql_num_rows($sports_result)) {
 			while ($sport_row = mysql_fetch_array($sports_result)) {
