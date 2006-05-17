@@ -3,6 +3,10 @@ include('roster.inc');
 include('table.php');
 include('form.php');
 
+if (!function_exists('constructlayout')) {
+	include_once('../Layout.inc');
+}
+
 $roster = new Roster();
 
 $om = mysql_connect('localhost', 'tactician', 'thidrithow');
@@ -104,10 +108,6 @@ function diagnose($person, $event, $reason){
 	$ladder[$person]++;
 	
 	$diagnose[$person][$event][] = $reason;
-}
-
-if (!function_exists('constructlayout')) {
-	include_once('../Layout.inc');
 }
 
 function hr(){
