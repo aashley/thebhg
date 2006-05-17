@@ -50,7 +50,7 @@ class page_library_read extends holonet_page {
 
 	public function renderChapter(bhg_library_chapter $chapter) {
 
-		$this->setTitle($chapter->getName());
+		$this->setTitle($chapter->getBook()->getName().' :: '.$chapter->getName());
 
 		$sections = $chapter->getSections();
 
@@ -58,7 +58,20 @@ class page_library_read extends holonet_page {
 
 			foreach ($sections as $section) {
 
-				$this->addBodyContent('<p>'.holonet::output($section).'</p>');
+				$this->addBodyContent('<a name="'.$section->getID().'"></a>');
+
+				if (strlen($section->getName()) > 0)
+					$this->addBodyContent('<h2>'.$section->getName().'</h2>');
+
+				if ($section->isHtml()) {
+
+					$this->addBodyContent($section->getContent());
+
+				} else {
+					
+					$this->addBodyContent('<p>'.$section->getContent().'</p>');
+
+				}
 
 			}
 
