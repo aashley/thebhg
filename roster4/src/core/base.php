@@ -137,7 +137,7 @@ class bhg_core_base {
 
 				if (DB::isError($this->data)) {
 
-					$GLOBALS['bhg']->log('Could not load data from table '.$table.' with id = '.$id, PEAR_LOG_ERR);
+					$GLOBALS['bhg']->log('Could not load data from table '.$table.' with id = '.$id."\n$sql", PEAR_LOG_ERR);
 
 					throw new bhg_fatal_exception('Could not load data from table '.$table.' with id = '.$id);
 
