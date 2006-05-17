@@ -20,7 +20,7 @@ class page_library_default extends holonet_page {
 
 			foreach ($shelves as $shelf) {
 
-				$bar->addTab($GLOBALS['holonet']->library->buildShelfTab());
+				$bar->addTab($GLOBALS['holonet']->library->buildShelfTab($shelf));
 
 			}
 
