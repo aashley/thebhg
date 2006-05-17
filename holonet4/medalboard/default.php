@@ -8,7 +8,7 @@ class page_medalboard_default extends holonet_page {
 
 		$this->pageBuilt = true;
 
-		$this->setTitle('Library');
+		$this->setTitle('Medal Board');
 
 		$bar = new holonet_tab_bar();
 
