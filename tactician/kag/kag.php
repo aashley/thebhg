@@ -45,25 +45,53 @@ echo '<br />';
 
 $events = $kag->GetEvents();
 if ($events) {
-	$table = new Table('Events', true);
+	$table = new Table('Skill Events', true);
 	$table->StartRow();
 	$table->AddHeader('Name');
 	$table->AddHeader('Start');
 	$table->AddHeader('End');
 	$table->EndRow();
 	foreach ($events as $event) {
-		
-		if ($event->IsTimed()){
-			$type = $event->GetTypes();
-			$name = $type->GetName();
-		} else {
-			$name = $event->GetName();
-		}
+		if ($event->IsTimed())
+			continue;
+			
+		$name = $event->GetName();
 		
 		$table->StartRow();
 		$table->AddCell('<a href="event.php?id=' . $event->GetID() . '">' . $name . '</a>');
-		$table->AddCell(date('j F Y \a\t G:i:s T', $event->GetStart()));
-		$table->AddCell(date('j F Y \a\t G:i:s T', $event->GetEnd()));
+		$table->AddCell(date('j F Y \a\t G:i:s T', $event->getStart()));
+		$table->AddCell(date('j F Y \a\t G:i:s T', $event->getEnd()));
+		$table->EndRow();
+	}
+	$table->EndTable();
+	
+	$table = new Table('Timed Events', true);
+	$table->StartRow();
+	$table->AddHeader('Name');
+	if ($kag->getID() >= 24){
+		$table->addHeader('Window Start');
+		$table->addHeader('Window End');
+		$table->addHeader('Event End');
+	} else {
+		$table->AddHeader('Start');
+		$table->AddHeader('End');
+	}
+	$table->EndRow();
+	foreach ($events as $event) {
+		if (!$event->IsTimed())
+			continue;
+			
+		$type = $event->GetTypes();
+		$name = $type->GetName();
+		
+		$table->StartRow();
+		$table->AddCell('<a href="event.php?id=' . $event->GetID() . '">' . $name . '</a>');
+		if ($kag->getID() >= 24){
+			$table->AddCell(date('j F Y \a\t G:i:s T', $event->getWindowStart()));
+			$table->AddCell(date('j F Y \a\t G:i:s T', $event->getWindowEnd()));
+		} else
+			$table->AddCell(date('j F Y \a\t G:i:s T', $event->getStart()));
+			$table->AddCell(date('j F Y \a\t G:i:s T', $event->getEnd()));
 		$table->EndRow();
 	}
 	$table->EndTable();

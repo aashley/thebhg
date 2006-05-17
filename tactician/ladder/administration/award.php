@@ -12,7 +12,7 @@ if (!$GLOBALS['access']){
 
 	if ($_REQUEST['submit']){
 		
-		$disable_rewards = true;
+		$disable_rewards = false;
 		$disable_medals = true;
 		$disable_credits = false;
 		
@@ -32,7 +32,7 @@ if (!$GLOBALS['access']){
 					echo '<b>Credit rewards disabled.</b><br />';
 				
 				if ($disable_medals)
-					echo '<b>Medal rewards disabled.</b><br />';	
+					//echo '<b>Medal rewards disabled.</b><br />';	
 			}
 		
 		foreach ($_REQUEST['place'] as $pos => $reward){
@@ -47,9 +47,9 @@ if (!$GLOBALS['access']){
 				echo 'To ';
 			}
 			echo $pleb->IDline(0) . ' the sum of ' . number_format($reward) . ' ICs.<br />';
+			$buffer[] = $pos . '. ' . $pleb->getIDline(0);
 			
-			
-			if (in_array($pos, range(1,3))){
+			/*if (in_array($pos, range(1,3))){
 				
 				if (is_numeric($medals[$pos])){
 					$hasmed = true;
@@ -65,13 +65,14 @@ if (!$GLOBALS['access']){
 						echo 'Error adding medal to ' . $pleb->IDLine(0) . ': ' . $mb->Error() . '<BR>';
 					}
 				} else {
-					
 					echo $pleb->IDline(0) . ' would be awarded a ' . (!$hasmed ? 'Yet Unset Medal' : $med->getName()) . '.<br />';
 				}
-			}
+			} */
 			
 			echo '<br />';
 		}
+		
+		echo '<hr noshade />' . implode('<br />', $buffer);
 		
 		echo '</div>';
 		
@@ -149,7 +150,7 @@ if (!$GLOBALS['access']){
 		
 		$pos = 1;
 		
-		$default = array(1=>50000, 2=>35000, 3=>25000, 4=>15000, 5=>10000);
+		$default = array(1=>150000, 2=>125000, 3=>100000, 4=>75000, 5=>50000);
 		
 		arsort($ladder);
 		
@@ -170,7 +171,7 @@ if (!$GLOBALS['access']){
 		}
 
 		$form->addCheckbox('Award Credits?', 'docredits', 1);
-		$form->addCheckbox('Award Medals to Top 3?', 'domedals', 1);
+		//$form->addCheckbox('Award Medals to Top 3?', 'domedals', 1);
 		
 		$form->addSubmitButton('submit', 'Submit Awards');
 		$form->endForm();

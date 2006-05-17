@@ -20,7 +20,7 @@ if ($level == 3) {
 		
     	$kag =& $ka->GetKAG($_REQUEST['id']);
     		
-    	$event = $kag->AddEvent($_REQUEST['name'], parse_date_box('start'), parse_date_box('end'), false, $ka->ConditionContent($content), $type_id);
+    	$event = $kag->AddEvent($_REQUEST['name'], parse_date_box('start'), parse_date_box('end'), parse_date_box('wstart'), parse_date_box('wend'), false, $ka->ConditionContent($content), $type_id);
 
 		if ($event) {
 			if (is_object($type)){
@@ -92,6 +92,10 @@ if ($level == 3) {
 		if ($submit){
 			$form->AddDateBox('Start Date:', 'start', false, true);
 			$form->AddDateBox('End Date:', 'end', false, true);
+			if ($_REQUEST['timed']){
+				$form->AddDateBox('Window Start Date:', 'wstart', false, true);
+				$form->AddDateBox('Window End Date:', 'wend', false, true);
+			}
 			$form->AddSubmitButton('submit', 'Add Event');
 		}
 			$form->EndForm();
@@ -107,6 +111,9 @@ if ($level == 3) {
 		$form->AddSubmitButton('next', 'Make Event >>');
 		$form->EndForm();
 	}
+	hr();
+	echo '<div><h2>Critical</h2>As of KAG 24, all <b>TIMED</b> events require a "release window". This allows for the events to be released at a static time (You set when it will actually be released), but the system will display a window only of when it will be released. <b>PLEASE NOTE: <i>THE SYSTEM WILL NOT CHECK TO ENSURE YOUR RELEASE TIME IS ACTUALLY IN YOUR WINDOW</i></b>. You get paid a salary, so if you muck it all up, it\'s on your head, not the code. I just want that known.</div>';
+	
 }
 else {
 	echo 'You are not authorised to access this page.';

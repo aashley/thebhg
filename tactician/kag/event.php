@@ -98,7 +98,7 @@ if ($event->IsTimed() && time() >= $event->GetEnd()){
 	    }
 	}
 	$table->EndTable();
-	
+	$dnp = array();
 	$table = new Table('Hunter Results', true);
 	foreach ($signups as $sub){			
 		$hunter = $sub->GetPerson();
@@ -107,13 +107,33 @@ if ($event->IsTimed() && time() >= $event->GetEnd()){
 		
 		$total_answers = count($sub_answers);
 		
-		$table->startRow();
-		$table->addHeader($hunter->GetName().' for '.$kabal->GetName(), 2);
-		$table->endRow();
+		if ($sub->GetSubmitted() > 0){
 		
-		for ($i = 1; $i <= $total_answers; $i++) {
-	        $table->AddRow('Hunt Answers '.$i.'/'.$total_answers, stripslashes($sub_answers[$i]));
+			$table->startRow();
+			$table->addHeader($hunter->GetName().' for '.$kabal->GetName().' ['.date('l dS \of F Y h:i:s A', $sub->GetSubmitted()).']', 2);
+			$table->endRow();
+		
+			for ($i = 1; $i <= $total_answers; $i++) {
+		        $table->AddRow('Hunt Answers '.$i.'/'.$total_answers, stripslashes($sub_answers[$i]));
+	        }
+	        
+        } else {
+	        
+	        $dnp[] = $sub;
+	        
         }
+	}
+	
+	$table->EndTable();
+	
+	hr();
+	
+	$table->EndTable();
+	$table = new Table('DNP', true);
+	foreach ($dnp as $sub){			
+		$hunter = $sub->GetPerson();
+		$kabal = $sub->GetKabal();
+		$table->addRow($hunter->GetName().' for '.$kabal->GetName());
 	}
 	
 	$table->EndTable();

@@ -4,6 +4,8 @@ class KAGEvent {
 	var $kag;
 	var $name;
 	var $start;
+	var $wstart;
+	var $wend;
 	var $type;
 	var $content;
 	var $end;
@@ -16,7 +18,7 @@ class KAGEvent {
 	}
 
 	function UpdateCache() {
-		$result = mysql_query('SELECT kag, name, start, end, type, content FROM kag_events WHERE id=' . $this->id, $this->db);
+		$result = mysql_query('SELECT kag, name, start, end, wstart, wend, type, content FROM kag_events WHERE id=' . $this->id, $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$row = mysql_fetch_array($result);
 			foreach ($row as $field=>$val) {
@@ -56,6 +58,14 @@ class KAGEvent {
 
 	function GetEnd() {
 		return $this->end;
+	}
+	
+	function GetWindowStart() {
+		return $this->wstart;
+	}
+
+	function GetWindowEnd() {
+		return $this->wend;
 	}
 
 	function GetContent(){
@@ -120,6 +130,16 @@ class KAGEvent {
 		}
 	}
 
+	function SetWindow($start, $end) {
+		if (mysql_query('UPDATE kag_events SET wstart=' . ((int) $start) . ', wend=' . ((int) $end) . ' WHERE id=' . $this->id, $this->db)) {
+			$this->UpdateCache();
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	function DeleteEvent() {
 		$state = true;
 		if (mysql_query('DELETE FROM kag_events WHERE id=' . $this->id, $this->db)) {

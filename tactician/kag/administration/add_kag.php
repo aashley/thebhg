@@ -53,8 +53,9 @@ if ($level == 3) {
 		$form->AddDateBox('End of KAG:', 'end', 0, true);
 		$form->AddSubmitButton('submit', 'Next >>');
 		$form->EndForm();
-
+hr();
 		echo <<<EON
+<div><h2>Critical</h2>As of KAG 24, all <b>TIMED</b> events require a "release window". This allows for the events to be released at a static time (You set when it will actually be released), but the system will display a window only of when it will be released. <b>PLEASE NOTE: <i>THE SYSTEM WILL NOT CHECK TO ENSURE YOUR RELEASE TIME IS ACTUALLY IN YOUR WINDOW</i></b>. You get paid a salary, so if you muck it all up, it's on your head, not the code. I just want that known.</div>
 Notes:
 <ul>
 	<li><b>KAG Number</b>: At present, this must be a number and not Roman numerals.</li>

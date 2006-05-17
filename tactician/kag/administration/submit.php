@@ -75,7 +75,7 @@ if ($level <= 3) {
 				
 				if ($type->HasImage()){
 					$form->table->StartRow();
-					$form->table->AddCell('<center><img src="/kag/event_images/'.$type->GetAbbr(). '-'. $kag->GetID() . '-' 
+					$form->table->AddCell('<center><img src="/kag/hunt_images/'.$type->GetAbbr(). '-'. $kag->GetID() . '-' 
 								. $event->GetID() . '.jpg">', 2);
 					$form->table->EndRow();
 					for ($i = 1; $i <= $total_answers; $i++) {

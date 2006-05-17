@@ -32,9 +32,9 @@ $mb = new MedalBoard('kag-73-comp');
 
 if (empty($subarray)) {
 	$subarray = array(
-		'KG List'=>'kag/index.php',
-		'Latest KG'=>'kag/kag.php',
-		'KG Hall of Fame'=>'kag/hof/index.php',
+		'KAG List'=>'kag/index.php',
+		'Latest KAG'=>'kag/kag.php',
+		'KAG Hall of Fame'=>'kag/hof/index.php',
 		'Statistics'=>'kag/stats/index.php',
 		'Administration'=>'kag/administration/index.php'
 	);
