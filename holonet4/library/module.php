@@ -9,7 +9,7 @@ class holonet_module_library extends holonet_module {
 
 		parent::__construct('library', 'Library');
 
-		$this->setMenu(new holonet_menu('roster/menu.xml'));
+		$this->setMenu(new holonet_menu('library/menu.xml'));
 
 	}
 
