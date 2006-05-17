@@ -14,9 +14,15 @@ class page_library_default extends holonet_page {
 
 		$bar->addTab($this->buildWelcome());
 
-		foreach ($GLOBALS['bhg']->library->getShelves() as $shelf) {
+		$shelves = $GLOBALS['bhg']->library->getShelves();
 
-			$bar->addTab($GLOBALS['holodeck']->library->buildShelfTab());
+		if ($shelves->count() > 0) {
+
+			foreach ($shelves as $shelf) {
+
+				$bar->addTab($GLOBALS['holodeck']->library->buildShelfTab());
+
+			}
 
 		}
 
