@@ -889,7 +889,17 @@
 					$table->StartRow();
 			$table->AddHeader('Personal History', 2);
 			$table->EndRow();
-			$table->AddRow('Bonus Points ', $this->GetBonusPoints());
+			$table->AddRow('Purchased/Awarded Bonus Points ', $this->GetBonusPoints());
+			
+			$array = $this->BonusPoints(true);
+			
+			$table->AddRow('Rank Based Points ', $array['Rank']);
+			$table->AddRow('Position Based Points ', $array['Position']);
+			$table->AddRow('Tenure Based Points ', $array['Timein']);
+			$table->AddRow('Medal Based Points ', $array['Medals']);
+			
+			$table->addRow('<b>Total Bonus Points</b>', $this->BonusPoints());
+			
 			$points = $this->GetExperiencePoints();
 			if (!$points){ $points = '0'; }
 			$table->AddRow('Experience Points ', $points);
