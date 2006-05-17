@@ -18,8 +18,6 @@ class page_library_default extends holonet_page {
 
 		if ($shelves->count() > 0) {
 
-			print 'Found shelves';
-
 			foreach ($shelves as $shelf) {
 
 				$bar->addTab($GLOBALS['holodeck']->library->buildShelfTab());
