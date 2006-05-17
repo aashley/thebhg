@@ -28,7 +28,7 @@ class page_library_default extends holonet_page {
 
 		$this->addBodyContent($bar);
 
-		$this->addSideMenu($GLOBALS['holodeck']->library->getBookMenu());
+		$this->addSideMenu($GLOBALS['holonet']->library->getBookMenu());
 
 	}
 
