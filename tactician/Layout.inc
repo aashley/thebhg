@@ -1,6 +1,6 @@
 <?php
 	//Disable errors.
-	//ini_set ("display_errors", "0");
+	ini_set ("display_errors", "0");
 
 	// Define display constants.
 	define('KABALS', 1);
