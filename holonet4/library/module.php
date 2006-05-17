@@ -62,6 +62,8 @@ class holonet_module_library extends holonet_module {
 
 		}
 
+		return $tab;
+
 	}
 
 }
