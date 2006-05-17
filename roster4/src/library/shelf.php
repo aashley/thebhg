@@ -28,7 +28,7 @@ class bhg_library_shelf extends bhg_core_base {
 	 * @return void
 	 */
 	public function __construct($id) {
-		parent::__construct('bhg_library_shelf', $id);
+		parent::__construct('library_shelf', $id);
 		$this->__addDefaultCodePermissions('set', 'god');
 	}
 

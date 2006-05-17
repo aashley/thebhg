@@ -28,7 +28,7 @@ class bhg_library_book extends bhg_core_base {
 	 * @return void
 	 */
 	public function __construct($id) {
-		parent::__construct('bhg_library_book', $id);
+		parent::__construct('library_book', $id);
 		$this->__addFieldMap(array(
 					'shelf' => 'bhg_library_shelf',
 					));
