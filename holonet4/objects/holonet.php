@@ -273,7 +273,7 @@ class holonet {
 
 		} elseif ($obj instanceof bhg_library_book) {
 			
-			return '<a href="/library/book/'
+			return '<a href="/library/read/'
 				.$obj->getID()
 				.'">'
 				.htmlspecialchars($obj->getName())
@@ -281,9 +281,21 @@ class holonet {
 			
 		} elseif ($obj instanceof bhg_library_chapter) {
 			
-			return '<a href="/library/book/'
+			return '<a href="/library/read/'
 				.$obj->getBook()->getID()
 				.'/'
+				.$obj->getID()
+				.'">'
+				.htmlspecialchars($obj->getName())
+				.'</a>';
+			
+		} elseif ($obj instanceof bhg_library_section) {
+			
+			return '<a href="/library/read/'
+				.$obj->getChapter()->getBook()->getID()
+				.'/'
+				.$obj->getChapter()->getID()
+				.'#'
 				.$obj->getID()
 				.'">'
 				.htmlspecialchars($obj->getName())
