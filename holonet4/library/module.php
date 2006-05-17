@@ -15,8 +15,27 @@ class holonet_module_library extends holonet_module {
 
 	public function getDefaultPage($trail) {
 
-		include_once 'library/default.php';
-		return new page_library_default($trail);
+		if (	 count($trail) == 0
+				|| $trail[0] == 'library') {
+			
+			include_once 'library/default.php';
+			return new page_library_default($trail);
+
+		}
+
+		if (	 isset($trail[1])
+				&& is_numeric($trail[1])) {
+
+			include_once 'library/read.php';
+			return new page_library_read(array(bhg_library::getChapter($trail[1])));
+
+		} elseif (	 isset($trail[0])
+							&& is_numeric($trail[1])) {
+
+			include_once 'library/read.php';
+			return new page_library_read(array(bhg_library::getBook($trail[0])));
+
+		}
 
 	}
 
