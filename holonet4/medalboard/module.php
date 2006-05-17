@@ -20,7 +20,7 @@ class holonet_module_medalboard extends holonet_module {
 
 	}
 
-	public function getMenu() {
+	public function getSideMenu() {
 
 		$menus = array();
 

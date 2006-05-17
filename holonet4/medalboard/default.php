@@ -16,7 +16,7 @@ class page_medalboard_default extends holonet_page {
 
 		$this->addBodyContent($bar);
 
-		$this->addSideMenu($GLOBALS['holonet']->medalboard->getMenu());
+		$this->addSideMenu($GLOBALS['holonet']->medalboard->getSideMenu());
 
 	}
 
