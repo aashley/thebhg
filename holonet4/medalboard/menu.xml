@@ -1,0 +1,9 @@
+<menu>
+	<title>Medal Board</title>
+	<items>
+		<item>
+			<text>Home</text>
+			<link>/medalboard</link>
+		</item>
+	</items>
+</menu>
