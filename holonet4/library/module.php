@@ -24,6 +24,7 @@ class holonet_module_library extends holonet_module {
 
 		$menus = array();
 
+		print 'finding stuff';
 		foreach ($GLOBALS['bhg']->library->getShelves() as $shelf) {
 			
 			$menu = new holonet_menu;
