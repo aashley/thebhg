@@ -49,7 +49,7 @@ class holonet_module_library extends holonet_module {
 			$menu->title = $shelf->getName();
 			
 			foreach ($shelf->getBooks() as $book)
-				$menu->addItem(new holonet_menu_item($book->getName(), '/library/book/'.$book->getID()));
+				$menu->addItem(new holonet_menu_item($book->getName(), '/library/'.$book->getID()));
 
 			$menus[] = $menu;
 
