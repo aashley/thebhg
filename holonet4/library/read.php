@@ -8,11 +8,11 @@ class page_library_read extends holonet_page {
 
 		list($obj) = $this->getTrailingElements();
 
-		if ($obj instanceof bhg_roster_book) {
+		if ($obj instanceof bhg_library_book) {
 
 			$this->addBodyContent('<p>Render book.</p>');
 
-		} elseif ($obj instanceof bhg_roster_chapter) {
+		} elseif ($obj instanceof bhg_library_chapter) {
 
 			$this->addBodyContent('<p>Render chapter.</p>');
 
