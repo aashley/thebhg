@@ -40,6 +40,30 @@ class holonet_module_library extends holonet_module {
 
 	}
 
+	public function buildShelfTab(bhg_library_shelf $shelf) {
+
+		$tab = new holonet_tab('shelf_'.$shelf->getID(), $shelf->getName());
+
+		$tab->addContent('<p>'.$shelf->getDescription().'</p>');
+
+		$books = $shelf->getBooks();
+
+		if ($books->count() > 0) {
+			
+			$tab->addContent('<ul>');
+
+			foreach ($books as $book) {
+
+				$tab->addContent('<li>'.holonet::output($book).'</li>');
+
+			}
+
+			$tab->addContent('</ul>');
+
+		}
+
+	}
+
 }
 
 ?>

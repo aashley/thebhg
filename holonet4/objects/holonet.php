@@ -271,6 +271,24 @@ class holonet {
 						.htmlspecialchars($obj->getName())
 						.'</a>';
 
+		} elseif ($obj instanceof bhg_library_book) {
+			
+			return '<a href="/library/book/'
+				.$obj->getID()
+				.'">'
+				.htmlspecialchars($obj->getName())
+				.'</a>';
+			
+		} elseif ($obj instanceof bhg_library_chapter) {
+			
+			return '<a href="/library/book/'
+				.$obj->getBook()->getID()
+				.'/'
+				.$obj->getID()
+				.'">'
+				.htmlspecialchars($obj->getName())
+				.'</a>';
+			
 		} elseif (method_exists($obj, 'getName')) {
 
 			return htmlspecialchars($obj->getName());
