@@ -64,10 +64,10 @@ class page_medalboard_group extends holonet_page {
 						htmlspecialchars($award->getReason()),
 						),
 					array(
-						NULL,
-						NULL,
-						NULL,
-						NULL,
+						array(),
+						array(),
+						array(),
+						array(),
 						array('width' => '50%'),
 						)
 					);
