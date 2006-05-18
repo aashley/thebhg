@@ -30,7 +30,7 @@ class holonet_module_medalboard extends holonet_module {
 			$menu->title = $category->getName();
 			
 			foreach ($category->getGroups() as $group)
-				$menu->addItem(new holonet_menu_item($group->getName(), '/medalboard/view/'.$group->getID()));
+				$menu->addItem(new holonet_menu_item($group->getName(), '/medalboard/group/'.$group->getID()));
 
 			$menus[] = $menu;
 
