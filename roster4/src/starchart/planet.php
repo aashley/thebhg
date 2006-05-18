@@ -28,7 +28,7 @@ class bhg_starchart_planet extends bhg_core_base {
 	 * @return void
 	 */
 	public function __construct($id) {
-		parent::__construct('bhg_starchart_planet', $id);
+		parent::__construct('starchart_planet', $id);
 		$this->__addFieldMap(array(
 					'system' => 'bhg_starchart_system',
 					));
