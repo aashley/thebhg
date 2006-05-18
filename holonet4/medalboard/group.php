@@ -68,7 +68,7 @@ class page_medalboard_group extends holonet_page {
 						array(),
 						array(),
 						array(),
-						array('width' => '50%'),
+						array('width' => '40%'),
 						)
 					);
 
