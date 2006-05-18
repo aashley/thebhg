@@ -36,6 +36,22 @@ class bhg_medalboard_medal extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getAwards()
+	
+	/**
+	 * Get the awarded instances of this medal
+	 *
+	 * @return bhg_core_list List of bhg_medalboard_award objects.
+	 */
+	public function getAwards($filter = array()) {
+
+		$filter['medal'] = $this;
+
+		return $GLOBALS['bhg']->medalboard->getAwards($filter);
+
+	}
+
+	// }}}
 
 }
 
