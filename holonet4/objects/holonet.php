@@ -1,8 +1,11 @@
 <?php
 
-include_once 'objects/holonet/menu.php';
-include_once 'objects/holonet/module.php';
-include_once 'objects/holonet/page.php';
+include 'objects/holonet/menu.php';
+include 'objects/holonet/module.php';
+include 'objects/holonet/page.php';
+include 'objects/holonet/form.php';
+include 'objects/holonet/tab/bar.php';
+include 'HTML/Table.php';
 
 class holonet {
 

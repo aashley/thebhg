@@ -1,7 +1,5 @@
 <?php
 
-include_once 'objects/holonet/tab/bar.php';
-
 class page_medalboard_default extends holonet_page {
 
 	public function buildPage() {

@@ -1,8 +1,5 @@
 <?php
 
-include_once 'HTML/Table.php';
-include_once 'objects/holonet/form.php';
-
 class holonet_module_library extends holonet_module {
 
 	public function __construct() {
