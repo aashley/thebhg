@@ -300,6 +300,30 @@ class holonet {
 				.'">'
 				.htmlspecialchars($obj->getName())
 				.'</a>';
+
+		} elseif ($obj instanceof bhg_starchart_system) {
+
+			return '<a href="/starchart/system/'
+				.$obj->getID()
+				.'">'
+				.htmlspecialchars($obj->getName())
+				.'</a>';
+
+		} elseif ($obj instanceof bhg_starchart_planet) {
+
+			return '<a href="/starchart/planet/'
+				.$obj->getID()
+				.'">'
+				.htmlspecialchars($obj->getName())
+				.'</a>';
+
+		} elseif ($obj instanceof bhg_starchart_site) {
+
+			return '<a href="/starchart/site/'
+				.$obj->getID()
+				.'">'
+				.htmlspecialchars($obj->getName())
+				.'</a>';
 			
 		} elseif (method_exists($obj, 'getName')) {
 
