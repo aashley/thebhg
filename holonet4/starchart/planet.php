@@ -18,6 +18,8 @@ class page_starchart_planet extends holonet_page {
 		$bar->addTab($this->buildDescription($planet));
 		$bar->addTab($this->buildSites($planet));
 
+		$this->addBodyContent($bar);
+
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getPlanetMenu($planet));
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getSystemMenu($planet->getSystem()));
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getSideMenu());
