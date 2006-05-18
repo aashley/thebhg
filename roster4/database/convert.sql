@@ -210,8 +210,8 @@ ALTER TABLE medalboard_group ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE medalboard_group ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE medalboard_group ADD COLUMN datedeleted DATETIME;
 ALTER TABLE medalboard_group CHANGE `order` sortorder INT(4) NOT NULL;
-ALTER TABLE medalboard_group ADD COLUMN html LONGTEXT;
-UPDATE medalboard_group,mb_medal_descriptions SET medalboard_group.html = mb_medal_descriptions.html WHERE medalboard_group.id = mb_medal_descriptions.group;
+ALTER TABLE medalboard_group ADD COLUMN description LONGTEXT;
+UPDATE medalboard_group,mb_medal_descriptions SET medalboard_group.description = mb_medal_descriptions.html WHERE medalboard_group.id = mb_medal_descriptions.group;
 DROP TABLE mb_medal_descriptions;
 
 -- MedalBoard Medal Names
