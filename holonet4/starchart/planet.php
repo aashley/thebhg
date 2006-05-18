@@ -28,9 +28,9 @@ class page_starchart_planet extends holonet_page {
 
 		$tab = new holonet_tab('description', 'Description');
 
-		$this->addContent('<img src="http://lyarna.thebhg.org/planets/images/'.$planet->getPicture().'" alt="" style="float: left;" />');
+		$tab->addContent('<img src="http://lyarna.thebhg.org/planets/images/'.$planet->getPicture().'" alt="" style="float: left;" />');
 
-		$this->addContent('<p>'.$planet->getMisc().'</p>');
+		$tab->addContent('<p>'.$planet->getMisc().'</p>');
 
 		return $tab;
 
