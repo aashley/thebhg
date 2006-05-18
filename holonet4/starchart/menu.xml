@@ -1,0 +1,13 @@
+<menu>
+	<title>Medal Board</title>
+	<items>
+		<item>
+			<text>Home</text>
+			<link>/starchart</link>
+		</item>
+		<item>
+			<text>Administration</text>
+			<link>/starchart/administration</link>
+		</item>
+	</items>
+</menu>
