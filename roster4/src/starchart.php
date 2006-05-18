@@ -28,7 +28,7 @@ class bhg_starchart extends bhg_entry {
 	 */
 	static public function getPlanet($id) {
 
-		return bhg::loadObject('bhg_startchart_planet', $id);
+		return bhg::loadObject('bhg_starchart_planet', $id);
 
 	}
 
@@ -46,7 +46,7 @@ class bhg_starchart extends bhg_entry {
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['system'])
-				&& $filter['system'] instanceof bhg_startchart_system)
+				&& $filter['system'] instanceof bhg_starchart_system)
 			$sqlfilters[] = '`system` = '.$this->db->quoteSmart($filter['system']->getID()).' ';
 
 		if (isset($filter['name']))
@@ -56,7 +56,7 @@ class bhg_starchart extends bhg_entry {
 			$sqlfilters[] = '`description` LIKE "%'.$this->db->escapeSimple($filter['description']).'%" ';
 
 		$sql = 'SELECT id '
-					.'FROM startchart_planet ';
+					.'FROM starchart_planet ';
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
@@ -71,7 +71,7 @@ class bhg_starchart extends bhg_entry {
 
 		} else {
 
-			return new bhg_core_list('bhg_startchart_planet', $results);
+			return new bhg_core_list('bhg_starchart_planet', $results);
 
 		}
 
@@ -87,7 +87,7 @@ class bhg_starchart extends bhg_entry {
 	 */
 	static public function getSite($id) {
 
-		return bhg::loadObject('bhg_startchart_site', $id);
+		return bhg::loadObject('bhg_starchart_site', $id);
 
 	}
 
@@ -105,7 +105,7 @@ class bhg_starchart extends bhg_entry {
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (isset($filter['planet'])
-				&& $filter['planet'] instanceof bhg_startchart_planet)
+				&& $filter['planet'] instanceof bhg_starchart_planet)
 			$sqlfilters[] = '`planet` = '.$this->db->quoteSmart($filter['planet']->getID()).' ';
 
 		if (isset($filter['name']))
@@ -115,7 +115,7 @@ class bhg_starchart extends bhg_entry {
 			$sqlfilters[] = '`description` LIKE "%'.$this->db->escapeSimple($filter['description']).'%" ';
 
 		$sql = 'SELECT id '
-					.'FROM startchart_site ';
+					.'FROM starchart_site ';
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
@@ -130,7 +130,7 @@ class bhg_starchart extends bhg_entry {
 
 		} else {
 
-			return new bhg_core_list('bhg_startchart_site', $results);
+			return new bhg_core_list('bhg_starchart_site', $results);
 
 		}
 
@@ -146,7 +146,7 @@ class bhg_starchart extends bhg_entry {
 	 */
 	static public function getSystem($id) {
 
-		return bhg::loadObject('bhg_startchart_system', $id);
+		return bhg::loadObject('bhg_starchart_system', $id);
 
 	}
 
@@ -170,7 +170,7 @@ class bhg_starchart extends bhg_entry {
 			$sqlfilters[] = '`description` LIKE "%'.$this->db->escapeSimple($filter['description']).'%" ';
 
 		$sql = 'SELECT id '
-					.'FROM startchart_system ';
+					.'FROM starchart_system ';
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
@@ -185,7 +185,7 @@ class bhg_starchart extends bhg_entry {
 
 		} else {
 
-			return new bhg_core_list('bhg_startchart_system', $results);
+			return new bhg_core_list('bhg_starchart_system', $results);
 
 		}
 
