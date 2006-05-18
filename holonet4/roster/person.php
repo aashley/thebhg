@@ -71,8 +71,8 @@ class page_roster_person extends holonet_page {
 		foreach ($medals as $award) {
 			$reason = holonet::output($award->getMedal());
 
-			if (strlen($why = $award->getWhy()) > 0) {
-				$reason .= ' for '.htmlspecialchars($award->getWhy());
+			if (strlen($why = $award->getReason()) > 0) {
+				$reason .= ' for '.htmlspecialchars($award->getReason());
 				if (substr($reason, -1) != '.')
 					$reason .= '.';
 			}
