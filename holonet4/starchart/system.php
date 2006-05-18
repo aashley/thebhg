@@ -9,7 +9,7 @@ class page_starchart_system extends holonet_page {
 		$trail = $this->getTrailingElements();
 		$id = $trail[0];
 
-		$system = bhg_starchart::getGroup($id);
+		$system = bhg_starchart::getSystem($id);
 
 		$this->setTitle('System :: '.$system->getName());
 

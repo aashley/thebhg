@@ -9,7 +9,7 @@ class page_starchart_planet extends holonet_page {
 		$trail = $this->getTrailingElements();
 		$id = $trail[0];
 
-		$planet = bhg_starchart::getGroup($id);
+		$planet = bhg_starchart::getPlanet($id);
 
 		$this->setTitle('Planet :: '.$planet->getName());
 
