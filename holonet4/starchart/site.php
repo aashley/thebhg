@@ -13,7 +13,7 @@ class page_starchart_site extends holonet_page {
 
 		$this->setTitle('Site :: '.$site->getName());
 
-		$this->addBodyContent('<p>'.$site->getDescription().'</p>');
+		$this->addBodyContent('<p>'.$site->getMisc().'</p>');
 
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getPlanetMenu($planet));
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getSystemMenu($planet->getSystem()));
