@@ -35,11 +35,31 @@ class page_medalboard_group extends holonet_page {
 
 		foreach ($awards as $award) {
 
+			try {
+
+				$recipient = holonet::output($award->getRecipient());
+
+			} catch (bhg_not_found $e) {
+
+				$recipient = 'MIA';
+
+			}
+
+			try {
+
+				$awarder = holonet::output($award->getAwarder());
+
+			} catch (bhg_not_found $e) {
+
+				$awarder = 'MIA';
+
+			}
+
 			$body->addRow(
 					array(
 						$award->getDateCreated(),
-						holonet::output($award->getRecipient()),
-						holonet::output($award->getAwarder()),
+						$recipient,
+						$awarder,
 						holonet::output($award->getMedal()),
 						htmlspecialchars($award->getReason()),
 						)
