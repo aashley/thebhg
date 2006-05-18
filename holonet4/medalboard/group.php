@@ -57,11 +57,18 @@ class page_medalboard_group extends holonet_page {
 
 			$body->addRow(
 					array(
-						$award->getDateCreated(),
+						$award->getDateCreated()->format('%d&nbsp;%B&nbsp;%Y'),
 						$recipient,
 						$awarder,
 						holonet::output($award->getMedal()),
 						htmlspecialchars($award->getReason()),
+						),
+					array(
+						NULL,
+						NULL,
+						NULL,
+						NULL,
+						array('width' => '50%'),
 						)
 					);
 
