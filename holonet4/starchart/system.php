@@ -31,6 +31,7 @@ class page_starchart_system extends holonet_page {
 
 		}
 
+		$this->addSideMenu($GLOBALS['holonet']->starchart->getSystemMenu($system));
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getSideMenu());
 
 	}

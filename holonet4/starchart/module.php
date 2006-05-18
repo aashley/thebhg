@@ -7,7 +7,7 @@ class holonet_module_starchart extends holonet_module {
 
 	public function __construct() {
 
-		parent::__construct('starchart', 'Medal Board');
+		parent::__construct('starchart', 'Star Chart');
 
 		$this->setMenu(new holonet_menu('starchart/menu.xml'));
 
@@ -30,6 +30,44 @@ class holonet_module_starchart extends holonet_module {
 		foreach ($GLOBALS['bhg']->starchart->getSystems() as $system) {
 			
 			$menu->addItem(new holonet_menu_item($system->getName(), '/starchart/system/'.$system->getID()));
+
+		}
+
+		$menus[] = $menu;
+
+		return $menus;
+
+	}
+
+	public function getSystemMenu(bhg_starchart_system $system) {
+
+		$menus = array();
+
+		$menu = new holonet_menu;
+		$menu->title = $system->getName();
+
+		foreach ($system->getPlanets() as $planet) {
+
+			$menu->addItem(new holonet_menu_item($planet->getName(), '/starchart/planet/'.$planet->getID()));
+
+		}
+
+		$menus[] = $menu;
+
+		return $menus;
+
+	}
+
+	public function getPlanetMenu(bhg_starchart_planet $planet) {
+
+		$menus = array();
+
+		$menu = new holonet_menu;
+		$menu->title = $planet->getName();
+
+		foreach ($planet->getSites() as $site) {
+
+			$menu->addItem(new holonet_menu_item($site->getName(), '/starchart/site/'.$planet->getID()));
 
 		}
 

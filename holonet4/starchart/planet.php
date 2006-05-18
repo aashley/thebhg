@@ -13,25 +13,50 @@ class page_starchart_planet extends holonet_page {
 
 		$this->setTitle('Planet :: '.$planet->getName());
 
-		$this->addBodyContent('<p>'.$planet->getDescription().'</p>');
+		$bar = new holonet_tab_bar;
+
+		$bar->addTab($this->buildDescription($planet));
+		$bar->addTab($this->buildSites($planet));
+
+		$this->addSideMenu($GLOBALS['holonet']->starchart->getPlanetMenu($planet));
+		$this->addSideMenu($GLOBALS['holonet']->starchart->getSystemMenu($planet->getSystem()));
+		$this->addSideMenu($GLOBALS['holonet']->starchart->getSideMenu());
+
+	}
+
+	public function buildDescription($planet) {
+
+		$tab = new holonet_tab('description', 'Description');
+
+		$this->addContent('<img src="http://lyarna.thebhg.org/planets/images/'.$planet->getPicture().'" alt="" style="float: left;" />');
+
+		$this->addContent('<p>'.$planet->getMisc().'</p>');
+
+		return $tab;
+
+	}
+
+	public function buildSites($planet) {
+
+		$tab = new holonet_tab('sites', 'Sites');
 
 		$sites = $planet->getSites();
 
 		if ($sites->count() > 0) {
 
-			$this->addBodyContent('<ul>');
+			$tab->addContent('<ul>');
 
 			foreach ($sites as $site) {
 
-				$this->addBodyContent('<li>'.holonet::output($site).'</li>');
+				$tab->addContent('<li>'.holonet::output($site).'</li>');
 
 			}
 
-			$this->addBodyContent('</ul>');
+			$tab->addContent('</ul>');
 
 		}
 
-		$this->addSideMenu($GLOBALS['holonet']->starchart->getSideMenu());
+		return $tab;
 
 	}
 
