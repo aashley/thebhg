@@ -353,7 +353,7 @@ class holonet {
 
 	static public function buildList(bhg_core_list $obj, $ordered = false) {
 
-		if ($list->count() == 0)
+		if ($obj->count() == 0)
 			return '';
 
 		if ($ordered) {
