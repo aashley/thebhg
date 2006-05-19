@@ -75,7 +75,7 @@ class page_starchart_disambig extends holonet_page {
 
 			$tab = new holonet_tab('Systems', 'systems');
 
-			$tab->addContent(holonet::buildList($systems)));
+			$tab->addContent(holonet::buildList($systems));
 
 			$bar->addTab($tab);
 
@@ -85,7 +85,7 @@ class page_starchart_disambig extends holonet_page {
 
 			$tab = new holonet_tab('Planets', 'planets');
 
-			$tab->addContent(holonet::buildList($planets)));
+			$tab->addContent(holonet::buildList($planets));
 
 			$bar->addTab($tab);
 
@@ -95,7 +95,7 @@ class page_starchart_disambig extends holonet_page {
 
 			$tab = new holonet_tab('Sites', 'sites');
 
-			$tab->addContent(holonet::buildList($sites)));
+			$tab->addContent(holonet::buildList($sites));
 
 			$bar->addTab($tab);
 
