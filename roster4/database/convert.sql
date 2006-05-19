@@ -396,7 +396,7 @@ CREATE TABLE `starchart_site` (
 		`datecreated` DATETIME NOT NULL,
 		`dateupdated` DATETIME NOT NULL,
 		`datedeleted` DATETIME,
-		`type` ENUM('complex', 'estate', 'headquarters', 'other', 'personal') NOT NULL DEFAULT 'complex',
+		`sitetype` ENUM('complex', 'estate', 'headquarters', 'other', 'personal') NOT NULL DEFAULT 'complex',
 		`planet` int(11) NOT NULL default '0',
 		`name` text NOT NULL,
 		`misc` text NOT NULL,
