@@ -8,7 +8,7 @@
 	content: "."; 
 	display: block; 
 	height: 0; 
-	clear: both; 
+	clear: left; 
 	visibility: hidden;
 }
 
