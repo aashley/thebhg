@@ -35,8 +35,6 @@ class page_starchart_site extends holonet_page {
 
 		$tab->addContent('<p>'.$site->getDescription().'</p>');
 
-		$tab->addContent('<br class="clear"/>');
-
 		return $tab;
 
 	}
