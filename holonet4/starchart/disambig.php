@@ -103,8 +103,6 @@ class page_starchart_disambig extends holonet_page {
 
 		$this->addBodyContent($bar);
 
-		$this->addBodyContent($GLOBALS['holonet']->starchart->buildMemberTable($people, true));
-
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getDivisionMenu());
 
 	}
