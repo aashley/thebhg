@@ -224,7 +224,7 @@ if ($level == 3) {
 			} else {
 				$name = $event->GetName();
 			}
-			$form->AddOption($event->GetID(), $name);
+			$form->AddOption($event->GetID(), ($event->isGraded() ? 'Graded Event: ' : '') . $name);
 		}
 		$form->EndSelect();
 		$form->AddSubmitButton('', 'Next >>');

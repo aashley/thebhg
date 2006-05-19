@@ -36,6 +36,11 @@ class KAGEvent {
 		return $this->id;
 	}
 	
+	function isGraded(){
+		$sql = "SELECT `id` FROM `kag_signups` WHERE `rank` > 0 AND `event` = ".$this->id." LIMIT 1";
+		return (mysql_num_rows(mysql_query($sql, $this->db)) == 1);
+	}
+	
 	function GetTypes(){
 		return new KAGType($this->type, $this->db);
 	}
