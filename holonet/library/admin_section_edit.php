@@ -48,7 +48,7 @@ function output() {
     $form = new Form($page);
     $form->AddHidden('id', $_REQUEST['id']);
     $form->AddTextBox('Title:', 'title', $section->GetTitle());
-    $form->AddTextArea('Body:', 'body', $section->GetBody());
+    $form->AddTextArea('Body:', 'body', $section->GetBody(), 15, 80);
     $form->AddSubmitButton('submit', 'Save Changes');
     $form->EndForm();
 
