@@ -102,6 +102,8 @@ else {
 			
 			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID(), $db);
 			
+			echo 'test';
+			
 			echo mysql_error($db);
 			
 		} else {
