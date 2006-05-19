@@ -100,12 +100,12 @@ else {
 			
 			echo 'KAG ' . roman($kag->getID()) . ': ';
 			
-			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID(), $db);
+			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID() . ' ORDER BY end DESC', $db);
 			
 			while ($info = mysql_fetch_assoc($result)){
 				$event = $ka->getEvent($info['id']);
 				$remain = $event->GetEnd() - time();
-				echo '[' . $event->getName() . ' - ' . format_time($remain, ($remain < '3600' ? FT_HOUR : FT_SECOND)) . '] ';
+				echo '[' . $event->getName() . ' - ' . format_time($remain, ($remain > '3600' ? FT_HOUR : FT_SECOND)) . '] ';
 			}
 			
 			echo "\n";
