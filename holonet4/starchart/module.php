@@ -12,8 +12,59 @@ class holonet_module_starchart extends holonet_module {
 
 	public function getDefaultPage($trail) {
 
-		include_once 'starchart/default.php';
-		return new page_starchart_default($trail);
+		if (	 count($trail) == 0
+				|| $trail[0] == 'starchart') {
+
+			include_once 'starchart/default.php';
+			return new page_starchart_default($trail);
+
+		}
+
+		// This breaks the URL spec, as + only has meaning within a GET parameter,
+		// but it's (a) useful, and (b) somewhat expected.
+		$trail[0] = str_replace('+', ' ', $trail[0]);
+
+		$systems = $GLOBALS['bhg']->starchart->getSystems(array('name' => $trail[0]));
+		$planets = $GLOBALS['bhg']->starchart->getPlanets(array('name' => $trail[0]));
+		$sites = $GLOBALS['bhg']->starchart->getSites(array('name' => $trail[0]));
+
+		if (	 $systems->count() == 0
+				&& $planets->count() == 0
+				&& $sites->count() == 0) {
+
+			include_once 'starchart/notfound.php';
+			return new page_starchart_notfound($trail);
+
+		} elseif (	 $systems->count() == 1
+							&& $planets->count() == 0
+							&& $sites->count() == 0) {
+
+			include_once 'starchart/system.php';
+			return new page_starchart_system(array($systems->getItem(0)->getID()));
+
+		} elseif (	 $systems->count() == 0
+							&& $planets->count() == 1
+							&& $sites->count() == 0) {
+
+			include_once 'starchart/planet.php';
+			return new page_starchart_planet(array($planets->getItem(0)->getID()));
+
+		} elseif (	 $systems->count() == 0
+							&& $planets->count() == 0
+							&& $sites->count() == 1) {
+
+			include_once 'starchart/site.php';
+			return new page_starchart_site(array($sites->getItem(0)->getID()));
+
+		} else {
+
+			include_once 'starchart/disambig.php';
+			$trail[] = $systems;
+			$trail[] = $planets;
+			$trail[] = $sites;
+			return new page_startchart_disambig($trail);
+
+		}
 
 	}
 

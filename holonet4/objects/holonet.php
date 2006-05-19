@@ -350,6 +350,41 @@ class holonet {
 			return "$amount $name";
 
 	}
+
+	static public function buildList(bhg_core_list $list, $ordered = false) {
+
+		if ($list->count() == 0)
+			return '';
+
+		if ($ordered) {
+			
+			$list = "<ol>\n";
+
+		} else {
+
+			$list = "<ul>\n";
+
+		}
+
+		foreach ($list as $item) {
+
+			$list .= "\t<li>".holonet::output($item)."</li>\n";
+
+		}
+
+		if ($ordered) {
+
+			$list .= "</ol>\n";
+
+		} else {
+
+			$list .= "</ul>\n";
+
+		}
+
+		return $list;
+
+	}
 	
 }
 

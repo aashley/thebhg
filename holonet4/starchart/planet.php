@@ -73,21 +73,7 @@ class page_starchart_planet extends holonet_page {
 
 		$tab = new holonet_tab('sites', 'Sites');
 
-		$sites = $planet->getSites();
-
-		if ($sites->count() > 0) {
-
-			$tab->addContent('<ul>');
-
-			foreach ($sites as $site) {
-
-				$tab->addContent('<li>'.holonet::output($site).'</li>');
-
-			}
-
-			$tab->addContent('</ul>');
-
-		}
+		$tab->addContent(holonet::buildList($planet->getSites()));
 
 		return $tab;
 

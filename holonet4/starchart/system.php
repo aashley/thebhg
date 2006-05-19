@@ -15,21 +15,7 @@ class page_starchart_system extends holonet_page {
 
 		$this->addBodyContent('<p>'.$system->getDescription().'</p>');
 
-		$planets = $system->getPlanets();
-
-		if ($planets->count() > 0) {
-
-			$this->addBodyContent('<ul>');
-
-			foreach ($planets as $planet) {
-
-				$this->addBodyContent('<li>'.holonet::output($planet).'</li>');
-
-			}
-
-			$this->addBodyContent('</ul>');
-
-		}
+		$this->addBodyContent(holonet::buildList($system->getPlanets()));
 
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getSystemMenu($system));
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getSideMenu());
