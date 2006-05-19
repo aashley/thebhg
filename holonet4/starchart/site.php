@@ -50,8 +50,8 @@ class page_starchart_site extends holonet_page {
 		$body->addRow(array('Name:', holonet::output($site)));
 		$body->addRow(array('Owner:', holonet::output($site->getOwner())));
 		$body->addRow(array('Location Type:', ucfirst($site->getSiteType())));
-		$body->addRow(array('Location:', $site->getLocation())));
-		$body->addRow(array('Type:', $site->getType())));
+		$body->addRow(array('Location:', $site->getLocation()));
+		$body->addRow(array('Type:', $site->getType()));
 		$body->addRow(array('Arena Permitted:', ($site->isArena() ? 'Yes' : 'No')));
 
 		$tab->addContent($body);
