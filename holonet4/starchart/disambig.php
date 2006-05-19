@@ -28,17 +28,17 @@ class page_starchart_disambig extends holonet_page {
 
 		if ($systems->count() > 0)
 			$parts[] = number_format($systems->count())
-				.' System match'
+				.' system match'
 				.($systems->count() != 1 ? 'es' : '');
 
 		if ($planets->count() > 0)
 			$parts[] = number_format($planets->count())
-				.' Planet match'
+				.' planet match'
 				.($planets->count() != 1 ? 'es' : '');
 
 		if ($sites->count() > 0)
 			$parts[] = number_format($sites->count())
-				.' Site match'
+				.' site match'
 				.($sites->count() != 1 ? 'es' : '');
 
 		$string = '<p>Your search for "'
