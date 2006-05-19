@@ -104,7 +104,8 @@ else {
 			
 			while ($info = mysql_fetch_assoc($result)){
 				$event = $ka->getEvent($info['id']);
-				echo '[' . $event->getName() . ' - ' . format_time($event->GetEnd() - time(), FT_HOUR) . '] ';
+				$remain = $event->GetEnd() - time();
+				echo '[' . $event->getName() . ' - ' . format_time($remain, ($remain < '3600' ? FT_HOUR : FT_SECOND)) . '] ';
 			}
 			
 			echo "\n";
