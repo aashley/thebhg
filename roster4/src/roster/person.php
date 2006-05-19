@@ -257,8 +257,8 @@ class bhg_roster_person extends bhg_core_base {
 
 					}
 
-					$out = $out + $groupout;
-					
+					print '<pre>'.print_r($groupout).'</pre>';
+
 				} elseif ($group->getDisplayType() == 1) {
 
 					// Medals of the form ABBRxN.
