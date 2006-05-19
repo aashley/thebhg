@@ -39,21 +39,21 @@ class holonet_module_starchart extends holonet_module {
 							&& $planets->count() == 0
 							&& $sites->count() == 0) {
 
-			include_once 'starchart/system.php';
+			include_once './starchart/system.php';
 			return new page_starchart_system(array($systems->getItem(0)->getID()));
 
 		} elseif (	 $systems->count() == 0
 							&& $planets->count() == 1
 							&& $sites->count() == 0) {
 
-			include_once 'starchart/planet.php';
+			include_once './starchart/planet.php';
 			return new page_starchart_planet(array($planets->getItem(0)->getID()));
 
 		} elseif (	 $systems->count() == 0
 							&& $planets->count() == 0
 							&& $sites->count() == 1) {
 
-			include_once 'starchart/site.php';
+			include_once './starchart/site.php';
 			return new page_starchart_site(array($sites->getItem(0)->getID()));
 
 		} else {
