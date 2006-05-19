@@ -2,13 +2,14 @@
 	border: solid 1px #ccc;
 	padding: 1em;
 	margin: 0;
+float: left;
 }
 
 .tab:after {
 	content: "."; 
 	display: block; 
 	height: 0; 
-	clear: left; 
+	clear: both; 
 	visibility: hidden;
 }
 
