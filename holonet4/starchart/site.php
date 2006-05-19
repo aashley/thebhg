@@ -54,7 +54,7 @@ class page_starchart_site extends holonet_page {
 		$body->addRow(array('Type:', $site->getType()));
 		$body->addRow(array('Arena Permitted:', ($site->isArena() ? 'Yes' : 'No')));
 
-		$tab->addContent($body);
+		$tab->addContent($table);
 
 		return $tab;
 
