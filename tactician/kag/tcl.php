@@ -104,7 +104,7 @@ else {
 			
 			while ($info = mysql_fetch_assoc($result)){
 				$event = $ka->getEvent($info['id']);
-				print_r($event);
+				echo '[' . $event->getName() . ' - ' . format_time($event->GetEnd() - time(), FT_SECOND) . '] ';
 			}
 			
 			echo "\n";
