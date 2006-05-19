@@ -7,6 +7,7 @@ class page_starchart_disambig extends holonet_page {
 		$this->pageBuilt = true;
 
 		$trail = $this->getTrailingElements();
+		print '<pre>'.print_r($trail, true).'</pre>';
 		$search = $trail[0];
 		$systems = array_pop($trail);
 		$planets = array_pop($trail);
