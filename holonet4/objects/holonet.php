@@ -351,9 +351,7 @@ class holonet {
 
 	}
 
-	static public function buildList(bhg_core_list $list, $ordered = false) {
-
-		print '<pre>'.print_r($list, true).'</pre>';
+	static public function buildList(bhg_core_list $obj, $ordered = false) {
 
 		if ($list->count() == 0)
 			return '';
@@ -368,7 +366,7 @@ class holonet {
 
 		}
 
-		foreach ($list as $item) {
+		foreach ($obj as $item) {
 
 			$list .= "\t<li>".holonet::output($item)."</li>\n";
 
