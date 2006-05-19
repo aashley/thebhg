@@ -353,6 +353,8 @@ class holonet {
 
 	static public function buildList(bhg_core_list $list, $ordered = false) {
 
+		print '<pre>'.print_r($list, true).'</pre>';
+
 		if ($list->count() == 0)
 			return '';
 

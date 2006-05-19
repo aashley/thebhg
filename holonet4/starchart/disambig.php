@@ -73,7 +73,7 @@ class page_starchart_disambig extends holonet_page {
 
 		if ($systems->count() > 0) {
 
-			$tab = new holonet_tab('Systems', 'systems');
+			$tab = new holonet_tab('systems', 'Systems');
 
 			$tab->addContent(holonet::buildList($systems));
 
@@ -83,7 +83,7 @@ class page_starchart_disambig extends holonet_page {
 
 		if ($planets->count() > 0) {
 
-			$tab = new holonet_tab('Planets', 'planets');
+			$tab = new holonet_tab('planets', 'Planets');
 
 			$tab->addContent(holonet::buildList($planets));
 
@@ -93,7 +93,7 @@ class page_starchart_disambig extends holonet_page {
 
 		if ($sites->count() > 0) {
 
-			$tab = new holonet_tab('Sites', 'sites');
+			$tab = new holonet_tab('sites', 'Sites');
 
 			$tab->addContent(holonet::buildList($sites));
 
