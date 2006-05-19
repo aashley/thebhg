@@ -181,6 +181,11 @@ padding: 0.1em;
 	font-size: 140%;
 }
 
+#content img {
+	padding: 2px;
+	border: 1px solid #dddddd;
+}
+
 #footer {
 	font-size: 60%;
 	text-align: center;
@@ -197,4 +202,14 @@ clear: left;
 
 .clear-right {
 clear: right;
+}
+
+.float-left {
+	float: left;
+	margin-right: 10px;
+}
+
+.float-right {
+	float: right;
+	margin-left: 10px;
 }
