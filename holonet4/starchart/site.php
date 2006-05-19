@@ -31,7 +31,7 @@ class page_starchart_site extends holonet_page {
 		$tab = new holonet_tab('description', 'Description');
 
 		if (strlen($site->getPicture()) > 0)
-			$tab->addContent('<img src="'.$site->getPicture().'" alt="Site Picture" style="float: left;" />');
+			$tab->addContent('<img src="'.$site->getPicture().'" alt="Site Picture" class="float-left" />');
 
 		$tab->addContent('<p>'.$site->getDescription().'</p>');
 
