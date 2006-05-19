@@ -100,7 +100,9 @@ else {
 			
 			echo 'KAG ' . roman($kag->getID()) . ': ';
 			
+			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID(), $db);
 			
+			echo mysql_error($db);
 			
 		} else {
 			$plebs = $roster->SearchPosition($value);
