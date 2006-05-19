@@ -97,7 +97,7 @@ else {
 			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID(), $db);
 			
 			echo 'KAG ' . roman($kag->getID()) . ': ';
-			
+			echo mysql_error($result);
 			while ($info = mysql_fetch_assoc($result)){
 				$event = $ka->getEvent($info['id']);
 				echo '[' . $event->getName() . ' - ' . format_time($event->GetEnd() - time(), FT_SECOND) . '] ';
