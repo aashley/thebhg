@@ -216,7 +216,7 @@ class holonet {
 		return $str;
 	}
 
-	static public function output(bhg_core_base $obj) {
+	static public function output($obj) {
 
 		if ($obj instanceof bhg_roster_cadre) {
 
