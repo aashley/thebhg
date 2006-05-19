@@ -94,9 +94,8 @@ else {
 		}
 
 		if (strtolower($value) == 'status'){
-			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID(), $db);
 			
-			
+			echo 'KAG ' . roman($kag->getID()) . ': ';
 					
 		} else {
 			$plebs = $roster->SearchPosition($value);
