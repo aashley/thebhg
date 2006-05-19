@@ -257,7 +257,6 @@ class bhg_roster_person extends bhg_core_base {
 
 					}
 
-					print '<pre>'.print_r($groupout, true).'</pre>';
 					$out = array_merge($out, $groupout);
 
 				} elseif ($group->getDisplayType() == 1) {
