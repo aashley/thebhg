@@ -383,7 +383,7 @@ CREATE TABLE `starchart_planet` (
 		`technology` text NOT NULL,
 		`exports` text NOT NULL,
 		`imports` text NOT NULL,
-		`misc` text NOT NULL,
+		`description` text NOT NULL,
 		PRIMARY KEY  (`id`)
 		) TYPE=MyISAM, COLLATE = utf8_general_ci;
 
@@ -399,8 +399,8 @@ CREATE TABLE `starchart_site` (
 		`sitetype` ENUM('complex', 'estate', 'headquarters', 'other', 'personal') NOT NULL DEFAULT 'complex',
 		`planet` int(11) NOT NULL default '0',
 		`name` text NOT NULL,
-		`misc` text NOT NULL,
-		`pic` text NOT NULL,
+		`description` text NOT NULL,
+		`picture` text NOT NULL,
 		`owner` text NOT NULL,
 		`location` text NOT NULL,
 		`type` text NOT NULL,
