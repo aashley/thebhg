@@ -33,7 +33,7 @@ class page_starchart_planet extends holonet_page {
 
 		$tab->addContent('<img src="http://lyarna.thebhg.org/planets/images/'.$planet->getPicture().'" alt="" style="float: left;" />');
 
-		$tab->addContent('<p>'.$planet->getMisc().'</p>');
+		$tab->addContent('<p>'.$planet->getDescription().'</p>');
 
 		return $tab;
 
