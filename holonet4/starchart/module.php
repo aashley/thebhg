@@ -62,7 +62,7 @@ class holonet_module_starchart extends holonet_module {
 			$trail[] = $systems;
 			$trail[] = $planets;
 			$trail[] = $sites;
-			return new page_startchart_disambig($trail);
+			return new page_starchart_disambig($trail);
 
 		}
 
