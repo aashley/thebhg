@@ -9,9 +9,9 @@ class page_starchart_disambig extends holonet_page {
 		$trail = $this->getTrailingElements();
 		print '<pre>'.print_r($trail, true).'</pre>';
 		$search = $trail[0];
-		$systems = array_pop($trail);
-		$planets = array_pop($trail);
 		$sites = array_pop($trail);
+		$planets = array_pop($trail);
+		$systems = array_pop($trail);
 
 		if (	 !$systems instanceof bhg_core_list
 				|| !$planets instanceof bhg_core_list
