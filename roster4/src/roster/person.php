@@ -256,6 +256,8 @@ class bhg_roster_person extends bhg_core_base {
 						*/
 
 					}
+
+					$out = $out + $groupout;
 					
 				} elseif ($group->getDisplayType() == 1) {
 
