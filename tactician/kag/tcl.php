@@ -100,7 +100,7 @@ else {
 			
 			echo 'KAG ' . roman($kag->getID()) . ': ';
 			
-			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID() . ' ORDER BY end DESC', $db);
+			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID() . ' ORDER BY end ASC', $db);
 			
 			while ($info = mysql_fetch_assoc($result)){
 				$event = $ka->getEvent($info['id']);
