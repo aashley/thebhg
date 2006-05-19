@@ -115,7 +115,7 @@ class holonet_module_starchart extends holonet_module {
 
 		foreach ($planet->getSites() as $site) {
 
-			$menu->addItem(new holonet_menu_item($site->getName(), '/starchart/site/'.$planet->getID()));
+			$menu->addItem(new holonet_menu_item($site->getName(), '/starchart/site/'.$site->getID()));
 
 		}
 
