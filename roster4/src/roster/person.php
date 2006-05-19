@@ -257,7 +257,7 @@ class bhg_roster_person extends bhg_core_base {
 
 					}
 
-					print '<pre>'.print_r($groupout).'</pre>';
+					print '<pre>'.print_r($groupout, true).'</pre>';
 
 				} elseif ($group->getDisplayType() == 1) {
 
