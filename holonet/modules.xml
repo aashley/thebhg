@@ -27,8 +27,9 @@
 		<directory>boloball</directory>
 		<name>Boloball</name>
 	</module>
-	<module>
+	<modulea>
+		<note>Commented out until the proposal module is done.</note>
 		<directory>propose</directory>
 		<name>Proposals</name>
-	</module>
+	</modulea>
 </modules>
