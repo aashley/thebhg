@@ -222,11 +222,22 @@ class bhg_roster_person extends bhg_core_base {
 					// Traditional BHG medals.
 
 					$last = 0;
+					$groupout = array();
 					foreach ($group->getMedals() as $medal) {
 						
 						$awards = $GLOBALS['bhg']->medalboard->getAwards(array('medal'     => $medal,
 																																	 'recipient' => $this));
 
+						$pos = 0;
+						foreach ($awards as $award) {
+
+							$groupout[$pos++] = $group->getStartBracket()
+								.$medal->getAbbrev()
+								.$group->getEndBracket();
+
+						}
+
+						/* Trying new code
 						if ($awards->count() < $last) {
 							$last = $awards->count();
 							$out[] = $group->getStartBracket()
@@ -240,7 +251,9 @@ class bhg_roster_person extends bhg_core_base {
 								$out[] = $group->getStartBracket()
 												.$medal->getAbbrev()
 												.$group->getEndBracket();
+
 						}
+						*/
 
 					}
 					
@@ -258,6 +271,7 @@ class bhg_roster_person extends bhg_core_base {
 						$out[] = $group->getStartBracket()
 										.$medalOut
 										.$group->getEndBracket();
+
 					}
 					
 				} elseif ($group->getDisplayType() == 2) {
@@ -275,10 +289,13 @@ class bhg_roster_person extends bhg_core_base {
 							$out[] = $group->getStartBracket()
 											.$medalOut
 											.$group->getEndBracket();
+
 						}
+
 					}
 					
 				}
+
 			}
 
 		return implode(' ', $out);
