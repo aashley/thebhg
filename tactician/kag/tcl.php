@@ -104,12 +104,10 @@ else {
 			
 			while ($info = mysql_fetch_assoc($result)){
 				$event = $ka->getEvent($info['id']);
-				echo '[' . $event->getName() . ' - ' . format_time($event->GetEnd() - time(), FT_SECOND) . '] ';
+				echo '[' . $event->getName() . ' - ' . format_time($event->GetEnd() - time(), FT_HOUR) . '] ';
 			}
 			
 			echo "\n";
-			
-			echo mysql_error($db);
 			
 		} else {
 			$plebs = $roster->SearchPosition($value);
