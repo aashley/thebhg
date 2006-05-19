@@ -103,7 +103,7 @@ class page_starchart_disambig extends holonet_page {
 
 		$this->addBodyContent($bar);
 
-		$this->addSideMenu($GLOBALS['holonet']->starchart->getDivisionMenu());
+		$this->addSideMenu($GLOBALS['holonet']->starchart->getSideMenu());
 
 	}
 
