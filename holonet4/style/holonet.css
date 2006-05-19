@@ -70,6 +70,21 @@ a:active
 	-moz-border-radius-bottomright: 15px;
 }
 
+#main_body:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+#main_body {display: inline-table;}
+
+/* Hides from IE-mac \*/
+* html #main_body {height: 1%;}
+#main_body {display: block;}
+/* End hide from IE-mac */
+
 #header {
 	position: relative;
 	border-bottom: 1px solid #dddddd;
