@@ -93,8 +93,10 @@ EOH;
 		$bar .= '</div>';
 		$tabHTML .= '';
 
-		$html .= $bar
-						.$tabHTML;
+		$html .= '<div class="tabset">'
+						.$bar
+						.$tabHTML
+						.'</div>';
 
 		$id = $this->tabs[0]->getID();
 
