@@ -12,13 +12,6 @@
 	visibility: hidden;
 }
 
-.tab {display: inline-table;}
-
-/* Hides from IE-mac \*/
-* html .tab {height: 1%;}
-.tab {display: block;}
-/* End hide from IE-mac */
-
 .tabbar {
 	display: none;
 	margin: 0;
