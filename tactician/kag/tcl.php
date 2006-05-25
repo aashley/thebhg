@@ -178,7 +178,7 @@ else {
 						}
 					}
 					
-					$hinfo .= number_format($scaledTotal / $row['events'], 1) . ' scaled points per event.';
+					$hinfo .= number_format($scaledTotal / $scaledEvents, 1) . ' scaled points per event.';
 					$info[] = $hinfo;
 				}
 				echo implode("\n", $info);
