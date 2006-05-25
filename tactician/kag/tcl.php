@@ -166,7 +166,17 @@ else {
 						$dnps = mysql_result($dnp_result, 0, 'dnps');
 						$hinfo .= number_format($dnps) . ' DNP' . ($dnps != 1 ? 's' : '') . '; ';
 					}
-					$hinfo .= number_format($row['points'] / $row['events'], 1) . ' points per event.';
+
+					$scaledTotal = 0;
+					foreach (array_unique(GetKAGMaxima()) as $points) {
+						$kags = implode(', ', array_keys($maxima, $points));
+						$result = mysql_query("SELECT SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person=" . $hunter->GetID(), $db);
+						if ($result && mysql_num_rows($result)) {
+							$scaledTotal += ScalePointsWithMaximum($points, mysql_result($result, 0, 'points'), mysql_result($result, 0, 'events'));
+						}
+					}
+					
+					$hinfo .= number_format($scaledTotal / $row['events'], 1) . ' scaled points per event.';
 					$info[] = $hinfo;
 				}
 				echo implode("\n", $info);
