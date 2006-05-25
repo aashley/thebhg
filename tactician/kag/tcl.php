@@ -142,6 +142,7 @@ else {
 				echo 'No hunters match the criteria given.';
 			}
 			else {
+				$maxima = GetKAGMaxima();
 				$info = array();
 				foreach ($plebs as $pleb) {
 					$result = mysql_query('SELECT kabal FROM kag_signups WHERE person=' . $pleb->GetID() . ' GROUP BY kabal', $db);
@@ -168,9 +169,9 @@ else {
 					}
 
 					$scaledTotal = 0;
-					foreach (array_unique(GetKAGMaxima()) as $points) {
+					foreach (array_unique($maxima) as $points) {
 						$kags = implode(', ', array_keys($maxima, $points));
-						$result = mysql_query("SELECT SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person=" . $hunter->GetID(), $db);
+						$result = mysql_query("SELECT SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person=" . $pleb->GetID(), $db);
 						if ($result && mysql_num_rows($result)) {
 							$scaledTotal += ScalePointsWithMaximum($points, mysql_result($result, 0, 'points'), mysql_result($result, 0, 'events'));
 						}
