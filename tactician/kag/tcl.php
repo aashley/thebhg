@@ -174,6 +174,7 @@ else {
 						$result = mysql_query("SELECT SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person=" . $pleb->GetID(), $db);
 						if ($result && mysql_num_rows($result)) {
 							$scaledTotal += ScalePointsWithMaximum($points, mysql_result($result, 0, 'points'), mysql_result($result, 0, 'events'));
+							echo $kags.': '.ScalePointsWithMaximum($points, mysql_result($result, 0, 'points'), mysql_result($result, 0, 'events')).'; '.mysql_result($result, 0, 'points').' points; '.mysql_result($result, 0, 'events')."events\n";
 						}
 					}
 					
