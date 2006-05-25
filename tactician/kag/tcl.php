@@ -7,7 +7,7 @@ if (isset($_REQUEST['event'])) {
 	$kag = end($kags);
 
 	if ((time() < $kag->GetSignupStart()) || (time() > $kag->GetEnd())) {
-		echo 'No KG is running at present.';
+		echo 'No KAG is running at present.';
 	}
 	else {
 		$result = mysql_query('SELECT id FROM kag_events WHERE name LIKE "%' . addslashes($_REQUEST['event']) . '%" AND kag=' . $kag->GetID(), $db);
@@ -55,7 +55,7 @@ else {
 		$result = mysql_query("SELECT COUNT(DISTINCT event) AS events FROM kag_signups WHERE kag=$kagid AND state IN (1, 4)", $db);
 		$events = count($kag->GetEvents());
 		$marked = mysql_result($result, 0, 'events');
-		echo 'Results for KG ' . roman($kagid) . ' ' . (($marked == $events) ? '(complete)' : "with $marked of $events events graded") . ': ' . implode(', ', $names) . '.';
+		echo 'Results for KAG ' . roman($kagid) . ' ' . (($marked == $events) ? '(complete)' : "with $marked of $events events graded") . ': ' . implode(', ', $names) . '.';
 	}
 	else {
 		// Look up hunter information.
@@ -102,11 +102,15 @@ else {
 			
 			$result = mysql_query('SELECT id FROM kag_events WHERE end >= '.time().' AND start <= '.time().' AND kag=' . $kag->GetID() . ' ORDER BY end ASC', $db);
 			
-			while ($info = mysql_fetch_assoc($result)){
-				$event = $ka->getEvent($info['id']);
-				$remain = $event->GetEnd() - time();
-				echo '[' . $event->getName() . ' - ' . format_time($remain, ($remain > '3600' ? FT_HOUR : FT_SECOND)) . '] ';
+			if ($result && mysql_num_rows($result)) {
+				while ($info = mysql_fetch_assoc($result)){
+					$event = $ka->getEvent($info['id']);
+					$remain = $event->GetEnd() - time();
+					echo '[' . $event->getName() . ' - ' . format_time($remain, ($remain > '3600' ? FT_HOUR : FT_SECOND)) . '] ';
+				}
 			}
+			else
+				echo 'No events are open.';
 			
 			echo "\n";
 			
@@ -149,12 +153,12 @@ else {
 					asort($kabals);
 					$result = mysql_query('SELECT MIN(kag) AS first, MAX(kag) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE person=' . $pleb->GetID(), $db);
 					$row = mysql_fetch_array($result);
-					$hinfo = 'KG History for ' . $pleb->GetName() . ' (' . implode(', ', $kabals) . '): ';
+					$hinfo = 'KAG History for ' . $pleb->GetName() . ' (' . implode(', ', $kabals) . '): ';
 					if ($row['first'] == $row['last']) {
-						$hinfo .= 'KG ' . roman($row['first']);
+						$hinfo .= 'KAG ' . roman($row['first']);
 					}
 					else {
-						$hinfo .= 'KG ' . roman($row['first']) . ' - KG ' . roman($row['last']);
+						$hinfo .= 'KAG ' . roman($row['first']) . ' - KAG ' . roman($row['last']);
 					}
 					$hinfo .= '; ' . number_format($row['points']) . ' points; ' . number_format($row['events']) . ' events; ';
 					$dnp_result = mysql_query('SELECT COUNT(DISTINCT id) AS dnps FROM kag_signups WHERE state=2 AND person=' . $pleb->GetID(), $db);
