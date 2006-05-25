@@ -168,13 +168,13 @@ else {
 						$hinfo .= number_format($dnps) . ' DNP' . ($dnps != 1 ? 's' : '') . '; ';
 					}
 
-					$scaledTotal = 0;
+					list($scaledEvents, $scaledTotal) = array(0, 0);
 					foreach (array_unique($maxima) as $points) {
 						$kags = implode(', ', array_keys($maxima, $points));
 						$result = mysql_query("SELECT SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person=" . $pleb->GetID(), $db);
 						if ($result && mysql_num_rows($result)) {
+							$scaledEvents += mysql_result($result, 0, 'events');
 							$scaledTotal += ScalePointsWithMaximum($points, mysql_result($result, 0, 'points'), mysql_result($result, 0, 'events'));
-							echo $kags.': '.ScalePointsWithMaximum($points, mysql_result($result, 0, 'points'), mysql_result($result, 0, 'events')).'; '.mysql_result($result, 0, 'points').' points; '.mysql_result($result, 0, 'events')."events\n";
 						}
 					}
 					
