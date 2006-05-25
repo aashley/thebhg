@@ -345,6 +345,130 @@ ALTER TABLE college_submission_answer ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE college_submission_answer ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE college_submission_answer CHANGE result submission INT(11) NOT NULL;
 
+-- Star Chart Object
+\! echo starchart_object
+CREATE TABLE `starchart_object` (
+		`id` INT(11) NOT NULL auto_increment,
+		`datecreated` DATETIME NOT NULL,
+		`dateupdated` DATETIME NOT NULL,
+		`datedeleted` DATETIME,
+		`type` INT(11) NOT NULL,
+		`typeextended` VARCHAR(250),
+		`name` VARCHAR(200) NOT NULL,
+		`description` TEXT NOT NULL,
+		`picture` TEXT,
+		`parent` INT(11),
+		PRIMARY KEY(`id`)
+		) TYPE = MyISAM, COLLATE = utf8_general_ci ;
+
+-- Star Chart Attribute Type
+\! echo starchart_attribute_type
+CREATE TABLE `starchart_attribute_type` (
+		`id` INT(11) NOT NULL auto_increment,
+		`datecreated` DATETIME NOT NULL,
+		`dateupdated` DATETIME NOT NULL,
+		`datedeleted` DATETIME,
+		`name` VARCHAR(200) NOT NULL,
+		PRIMARY KEY(`id`)
+		) TYPE = MyISAM, COLLATE = utf8_general_ci ;
+
+-- Star Chart Object Type
+\! echo starchart_object_type
+CREATE TABLE `starchart_object_type` (
+		`id` INT(11) NOT NULL auto_increment,
+		`datecreated` DATETIME NOT NULL,
+		`dateupdated` DATETIME NOT NULL,
+		`datedeleted` DATETIME,
+		`name` VARCHAR(200) NOT NULL,
+		PRIMARY KEY(`id`)
+		) TYPE = MyISAM, COLLATE = utf8_general_ci ;
+
+-- Star Chart Object Attribute
+\! echo starchart_object_attribute
+CREATE TABLE `starchart_object_attribute` (
+		`id` INT(11) NOT NULL auto_increment,
+		`datecreated` DATETIME NOT NULL,
+		`dateupdated` DATETIME NOT NULL,
+		`datedeleted` DATETIME,
+		`object` INT(11) NOT NULL,
+		`type` INT(11) NOT NULL,
+		`value` TEXT NOT NULL,
+		PRIMARY KEY(`id`)
+		) TYPE = MyISAM, COLLATE = utf8_general_ci ;
+
+-- Star Chart Object Type Attribute
+\! echo starchart_object_type_attribute
+CREATE TABLE `starchart_object_type_attribute` (
+		`id` INT(11) NOT NULL auto_increment,
+		`datecreated` DATETIME NOT NULL,
+		`dateupdated` DATETIME NOT NULL,
+		`datedeleted` DATETIME,
+		`type` INT(11) NOT NULL,
+		`attribute` INT(11) NOT NULL,
+		PRIMARY KEY(`id`)
+		) TYPE = MyISAM, COLLATE = utf8_general_ci ;
+
+INSERT INTO `starchart_object_type` VALUES 
+  ( 1, NOW(), NOW(), NULL, 'Universe'),
+	( 2, NOW(), NOW(), NULL, 'Star System'),
+	( 3, NOW(), NOW(), NULL, 'Celestial Body'),
+	( 4, NOW(), NOW(), NULL, 'Building'),
+	( 5, NOW(), NOW(), NULL, 'Location'),
+	( 6, NOW(), NOW(), NULL, 'Landmark'),
+	( 7, NOW(), NOW(), NULL, 'Estate'),
+	( 8, NOW(), NOW(), NULL, 'Headquarters'),
+	( 9, NOW(), NOW(), NULL, 'Spaceship'),
+	(10, NOW(), NOW(), NULL, 'Space Station');
+
+INSERT INTO `starchart_attribute_type` VALUES
+	( 1, NOW(), NOW(), NULL, 'Temperature'),
+	( 2, NOW(), NOW(), NULL, 'Atmosphere'),
+	( 3, NOW(), NOW(), NULL, 'Hydrosphere'),
+	( 4, NOW(), NOW(), NULL, 'Gravity'),
+	( 5, NOW(), NOW(), NULL, 'Terrain'),
+	( 6, NOW(), NOW(), NULL, 'Day'),
+	( 7, NOW(), NOW(), NULL, 'Year'),
+	( 8, NOW(), NOW(), NULL, 'Species'),
+	( 9, NOW(), NOW(), NULL, 'Starport'),
+	(10, NOW(), NOW(), NULL, 'Population'),
+	(11, NOW(), NOW(), NULL, 'Technology'),
+	(12, NOW(), NOW(), NULL, 'Exports'),
+	(13, NOW(), NOW(), NULL, 'Imports'),
+	(14, NOW(), NOW(), NULL, 'Owner'),
+	(15, NOW(), NOW(), NULL, 'Owner (Division)'),
+	(16, NOW(), NOW(), NULL, 'Owner (Position)'),
+	(17, NOW(), NOW(), NULL, 'Owner (Individual)'),
+	(18, NOW(), NOW(), NULL, 'Orbit'),
+	(19, NOW(), NOW(), NULL, 'Orbit Position'),
+	(20, NOW(), NOW(), NULL, 'Location');
+
+INSERT INTO `starchart_object_type_attribute` VALUES
+	(NULL, NOW(), NOW(), NULL,  3,  1), (NULL, NOW(), NOW(), NULL,  3,  2), (NULL, NOW(), NOW(), NULL,  3,  3), (NULL, NOW(), NOW(), NULL,  3,  4),
+	(NULL, NOW(), NOW(), NULL,  3,  5), (NULL, NOW(), NOW(), NULL,  3,  6), (NULL, NOW(), NOW(), NULL,  3,  7), (NULL, NOW(), NOW(), NULL,  3,  8),
+	(NULL, NOW(), NOW(), NULL,  3,  9), (NULL, NOW(), NOW(), NULL,  3, 10), (NULL, NOW(), NOW(), NULL,  3, 11), (NULL, NOW(), NOW(), NULL,  3, 12),
+	(NULL, NOW(), NOW(), NULL,  3, 13), (NULL, NOW(), NOW(), NULL,  3, 18), (NULL, NOW(), NOW(), NULL,  3, 19),
+
+	(NULL, NOW(), NOW(), NULL,  4, 14), (NULL, NOW(), NOW(), NULL,  4, 15), (NULL, NOW(), NOW(), NULL,  4, 16), (NULL, NOW(), NOW(), NULL,  4, 17),
+	(NULL, NOW(), NOW(), NULL,  4, 20),
+
+	(NULL, NOW(), NOW(), NULL,  5, 14), (NULL, NOW(), NOW(), NULL,  5, 15), (NULL, NOW(), NOW(), NULL,  5, 16), (NULL, NOW(), NOW(), NULL,  5, 17),
+	(NULL, NOW(), NOW(), NULL,  5, 20),
+
+	(NULL, NOW(), NOW(), NULL,  6, 14), (NULL, NOW(), NOW(), NULL,  6, 15), (NULL, NOW(), NOW(), NULL,  6, 16), (NULL, NOW(), NOW(), NULL,  6, 17),
+	(NULL, NOW(), NOW(), NULL,  6, 20),
+
+	(NULL, NOW(), NOW(), NULL,  7, 14), (NULL, NOW(), NOW(), NULL,  7, 15), (NULL, NOW(), NOW(), NULL,  7, 16), (NULL, NOW(), NOW(), NULL,  7, 17),
+	(NULL, NOW(), NOW(), NULL,  7, 20),
+
+	(NULL, NOW(), NOW(), NULL,  8, 14), (NULL, NOW(), NOW(), NULL,  8, 15), (NULL, NOW(), NOW(), NULL,  8, 16), (NULL, NOW(), NOW(), NULL,  8, 17),
+	(NULL, NOW(), NOW(), NULL,  8, 20),
+
+	(NULL, NOW(), NOW(), NULL,  9, 14), (NULL, NOW(), NOW(), NULL,  9, 15), (NULL, NOW(), NOW(), NULL,  9, 16), (NULL, NOW(), NOW(), NULL,  9, 17),
+	(NULL, NOW(), NOW(), NULL,  9, 20), (NULL, NOW(), NOW(), NULL,  9, 18), (NULL, NOW(), NOW(), NULL,  9, 19),
+
+	(NULL, NOW(), NOW(), NULL, 10, 14), (NULL, NOW(), NOW(), NULL, 10, 15), (NULL, NOW(), NOW(), NULL, 10, 16), (NULL, NOW(), NOW(), NULL, 10, 17),
+	(NULL, NOW(), NOW(), NULL, 10, 20), (NULL, NOW(), NOW(), NULL, 10, 18), (NULL, NOW(), NOW(), NULL, 10, 19);
+
 -- Start Chart System
 \! echo starchart_system
 CREATE TABLE `starchart_system` (
