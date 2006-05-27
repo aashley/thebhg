@@ -14,6 +14,7 @@ foreach (array_unique($maxima) as $points) {
 				$hunters[$row['person']]['points'] += ScalePointsWithMaximum($points, $row['points'], $row['events']);
 				$hunters[$row['person']]['events'] += $row['events'];
 				$hunters[$row['person']]['kags'] += $row['kags'];
+				$total += $row['points'];
 			}
 			else {
 				$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']);
@@ -25,7 +26,31 @@ foreach (array_unique($maxima) as $points) {
 
 usort($hunters, 'SortPointsDesc');
 
-echo $total;
+$total /= 5;
+
+$kabal[1] = array();
+$kabal[2] = array();
+$kabal[3] = array();
+$kabal[4] = array();
+$kabal[5] = array();
+
+$i = 1;
+
+foreach ($hunters as $id => $array){
+	//if ((array_sum($kabal[$i]) < $total) && (array_sum($kabal[$i]) + $array['points'] < $total))
+		$kabal[$i][$array['person']] = $array['points'];
+
+	$i++;
+	
+	if ($i > 5)
+		$i = 1;
+}
+	
+for ($i = 1; $i <= 5; $i++){
+	echo '<div><h2>Kabal ' . $i . '</h2>Total Points: ' . number_format(array_sum($kabal[$i])) . '<br /><b>Members</b><br />';
+	foreach ($kabal[$i] as $person => $pts)
+		echo $roster->getPerson($person)->getName() . '<br />';
+}
 
 exit;
 
