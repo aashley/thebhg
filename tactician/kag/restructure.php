@@ -52,7 +52,7 @@ krsort($care);
 $total /= $pc;
 $total = round($total);
 
-echo 'cc:'$cc.'<br />';
+echo 'cc:'.$cc.'<br />';
 
 echo round($total/$cc);
 
