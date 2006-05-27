@@ -70,7 +70,7 @@ function place($array){
 function replace($array){
 	global $total, $i, $kabal, $fault;
 	
-	if ((array_sum($kabal[$i]) < $total) && ((array_sum($kabal[$i])+$array['points']) < $total)){
+	if ((array_sum($kabal[$i]) < 17000)){
 		$kabal[$i][$array['person']] = $array['points'];
 	} else {	
 		$GLOBALS['lamer'][] = $array;
