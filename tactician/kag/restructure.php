@@ -2,12 +2,20 @@
 include_once('header.php');
 page_header('Kabal Restructure Proposal');
 
+$active = array();
+
+foreach ($roster->getKabals() as $kabal)
+	foreach ($kabal->getMembers() as $person)
+		$active[] = $person->getID();
+		
+$active = implode(',', $active);
+
 $maxima = GetKAGMaxima();
 $hunters = array();
 $total = 0;
 foreach (array_unique($maxima) as $points) {
 	$kags = implode(', ', array_keys($maxima, $points));
-	$result = mysql_query("SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT kag) AS kags FROM kag_signups WHERE state > 0 AND kag IN ($kags) GROUP BY person ORDER BY person", $db);
+	$result = mysql_query("SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT kag) AS kags FROM kag_signups WHERE state > 0 AND kag IN ($kags) and person IN ($active) GROUP BY person ORDER BY person", $db);
 	if ($result && mysql_num_rows($result))
 		while ($row = mysql_fetch_array($result)) {
 			if (isset($hunters[$row['person']])) {
