@@ -23,13 +23,13 @@ foreach (array_unique($maxima) as $points) {
 	if ($result && mysql_num_rows($result))
 		while ($row = mysql_fetch_array($result)) {
 			if (isset($hunters[$row['person']])) {
-				$hunters[$row['person']]['points'] += ScalePointsWithMaximum($points, $row['points'], $row['events']);
+				$hunters[$row['person']]['points'] += ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events'];
 				$hunters[$row['person']]['events'] += $row['events'];
 				$hunters[$row['person']]['kags'] += $row['kags'];
 				$total += $row['points'];
 			}
 			else {
-				$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']);
+				$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events'];
 				$total += $row['points'];
 				$hunters[$row['person']] = $row;
 			}
@@ -91,12 +91,12 @@ foreach ($GLOBALS['unused'] as $array){
 	replace($array);
 }
 
-unset($kabal[3][2314]);
+/* unset($kabal[3][2314]);
 unset($kabal[3][3088]);
 unset($kabal[4][3088]);
 $kabal[5][2314] = 388;
 $kabal[5][3088] = 255;
-$kabal[3][2070] = 121;
+$kabal[3][2070] = 121; */
 for ($i = 1; $i <= 5; $i++){
 	echo '<div><h2>Kabal ' . $i . '</h2>Total Points: ' . number_format(array_sum($kabal[$i])) . '<br /><b>Members</b><br />';
 	foreach ($kabal[$i] as $person => $pts)
