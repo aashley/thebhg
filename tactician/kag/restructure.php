@@ -11,7 +11,8 @@ foreach ($roster->getDivisions() as $kabal){
 		$active[] = $person->getID();
 
 }
-		
+
+$pc = count($active);
 $active = implode(',', $active);
 
 $maxima = GetKAGMaxima();
@@ -26,11 +27,11 @@ foreach (array_unique($maxima) as $points) {
 				$hunters[$row['person']]['points'] += ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events'];
 				$hunters[$row['person']]['events'] += $row['events'];
 				$hunters[$row['person']]['kags'] += $row['kags'];
-				$total += $row['points'] / $row['events'];
+				$total += $row['points'];
 			}
 			else {
 				$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events'];
-				$total += $row['points'] / $row['events'];
+				$total += $row['points'];
 				$hunters[$row['person']] = $row;
 			}
 		}
@@ -39,6 +40,7 @@ foreach (array_unique($maxima) as $points) {
 usort($hunters, 'SortPointsDesc');
 
 $total /= 5;
+$total /= $pc;
 
 echo $total;
 
