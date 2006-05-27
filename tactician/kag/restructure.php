@@ -89,6 +89,8 @@ foreach ($hunters as $array){
 	place($array);
 }
 
+print_r($GLOBALS['unused']);
+
 foreach ($GLOBALS['unused'] as $array){
 	replace($array);
 }
