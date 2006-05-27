@@ -91,7 +91,7 @@ foreach ($GLOBALS['unused'] as $array){
 	replace($array);
 }
 
-unset($kabal[3][2314);
+unset($kabal[3][2314]);
 $kabal[5][2314] = 388;
 
 for ($i = 1; $i <= 5; $i++){
