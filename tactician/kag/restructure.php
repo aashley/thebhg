@@ -42,15 +42,11 @@ $total /= 5;
 
 $kabal = array();
 
-echo $total;
-print_r($hunters);
-exit;
-
-$kabal[1] = array();
-$kabal[2] = array();
-$kabal[3] = array();
-$kabal[4] = array();
-$kabal[5] = array();
+$kabal['1'] = array();
+$kabal['2'] = array();
+$kabal['3'] = array();
+$kabal['4'] = array();
+$kabal['5'] = array();
 
 $i = 1;
 
