@@ -63,6 +63,7 @@ for ($i = 1; $i <= 5; $i++){
 	echo '<div><h2>Kabal ' . $i . '</h2>Total Points: ' . number_format(array_sum($kabal[$i])) . '<br /><b>Members</b><br />';
 	foreach ($kabal[$i] as $person => $pts)
 		echo $roster->getPerson($person)->getName() . '<br />';
+	echo '</div>';
 }
 page_footer();
 exit;
