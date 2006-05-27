@@ -19,28 +19,31 @@ $maxima = GetKAGMaxima();
 $hunters = array();
 $total = 0;
 $core = 0;
+$care = array();
+
 foreach (array_unique($maxima) as $points) {
 	$kags = implode(', ', array_keys($maxima, $points));
 	$result = mysql_query("SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT kag) AS kags FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person IN ($active) GROUP BY person ORDER BY person", $db);
 	if ($result && mysql_num_rows($result))
 		while ($row = mysql_fetch_array($result)) {
 			if (isset($hunters[$row['person']])) {
-				$hunters[$row['person']]['points'] += round(ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events']);
+				$hunters[$row['person']]['points'] += ScalePointsWithMaximum($points, $row['points'], $row['events']);
 				$hunters[$row['person']]['events'] += $row['events'];
 				$hunters[$row['person']]['kags'] += $row['kags'];
 				$total += $row['points'];
-				$core += ScalePointsWithMaximum($points, $row['points'], $row['events']);
 			}
 			else {
-				$row['points'] = round(ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events']);
+				$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']);
 				$total += $row['points'];
 				$hunters[$row['person']] = $row;
-				$core += ScalePointsWithMaximum($points, $row['points'], $row['events']);
 			}
 		}
 }
 
-usort($hunters, 'SortPointsDesc');
+foreach ($hunters as $array)
+	$care[$array['person']] = round($array['points']/$array['events']);
+	
+krsort($care);
 
 $total /= $pc;
 $total = round($total);
@@ -62,14 +65,14 @@ $kabal['5'] = array();
 
 $i = 1;
 $fault = 0;
-function place($array){
+function place($id, $array){
 	global $total, $i, $kabal, $fault;
 	
-	if ((array_sum($kabal[$i]) > $total) || ((array_sum($kabal[$i])+$array['points']) > $total)){
+	if ((array_sum($kabal[$i]) > $total) || ((array_sum($kabal[$i])+$array) > $total)){
 		$no = 1;
 	} else {	
-		$kabal[$i][$array['person']] = $array['points'];
-		$used[] = $array['person'];
+		$kabal[$i][$id] = $array;
+		$used[] = $array;
 	}
 		
 	$i++;
@@ -78,8 +81,8 @@ function place($array){
 		$i = 1;
 }
 
-foreach ($hunters as $array){
-	place($array);
+foreach ($care as $id=>$array){
+	place($id, $array);
 }
 
 /* unset($kabal[3][2314]);
