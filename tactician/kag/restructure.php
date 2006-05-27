@@ -43,7 +43,10 @@ foreach (array_unique($maxima) as $points) {
 foreach ($hunters as $array)
 	$care[$array['person']] = round($array['points']/$array['events']);
 	
-echo array_sum($care);
+$cc = array_sum($care);
+$cc /= $pc;
+
+echo $cc;
 	
 krsort($care);
 
