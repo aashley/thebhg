@@ -43,15 +43,12 @@ foreach (array_unique($maxima) as $points) {
 foreach ($hunters as $array)
 	$care[$array['person']] = round($array['points']/$array['events']);
 	
+echo array_sum($care);
+	
 krsort($care);
 
 $total /= $pc;
 $total = round($total);
-
-$core /= $pc;
-$core = round($core);
-
-echo $core;
 
 echo 'Target Average Points Per Kabal: ' . $total.'<br />Total Hunters: ' . $pc . '<br /><br />';
 
