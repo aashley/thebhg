@@ -40,6 +40,8 @@ usort($hunters, 'SortPointsDesc');
 
 $total /= 5;
 
+echo $total;
+
 $kabal = array();
 
 $kabal['1'] = array();
