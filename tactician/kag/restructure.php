@@ -49,15 +49,8 @@ $kabal[5] = array();
 $i = 1;
 
 foreach ($hunters as $id => $array){
-	$kabal[$i][$array['person']] = $array['points'];
-
-	print_r($kabal[$i]);
+	echo $id; 
 	exit;
-	
-	$i++;
-	
-	if ($i > 5)
-		$i = 1;
 }
 	
 print_r($kabal[1]);
