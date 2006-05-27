@@ -48,7 +48,7 @@ $kabal[5] = array();
 
 $i = 1;
 
-foreach ($hunters as $id => $array){
+foreach ($hunters as $array){
 	print_r($array);
 	exit;
 }
