@@ -61,6 +61,9 @@ function place($array){
 		place($array);
 	}
 	
+	if ($fault > 5)
+		break;
+	
 	$kabal[$i][$array['person']] = $array['points'];
 	
 	$i++;
