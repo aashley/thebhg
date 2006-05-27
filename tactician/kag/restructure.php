@@ -49,9 +49,11 @@ $kabal[5] = array();
 $i = 1;
 
 foreach ($hunters as $id => $array){
-	//if ((array_sum($kabal[$i]) < $total) && (array_sum($kabal[$i]) + $array['points'] < $total))
-		$kabal[$i][$array['person']] = $array['points'];
+	$kabal[$i][$array['person']] = $array['points'];
 
+	print_r($kabal[$i]);
+	exit;
+	
 	$i++;
 	
 	if ($i > 5)
