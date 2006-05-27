@@ -71,28 +71,8 @@ function place($array){
 		$i = 1;
 }
 
-function replace($array){
-	global $total, $i, $kabal, $fault;
-	
-	if ((array_sum($kabal[$i]) < $total)){
-		$kabal[$i][$array['person']] = $array['points'];
-	} else {	
-		$i++;
-		replace($array);
-	}
-		
-	$i++;
-	
-	if ($i > 5)
-		$i = 1;
-}
-
 foreach ($hunters as $array){
 	place($array);
-}
-
-foreach ($GLOBALS['unused'] as $array){
-	replace($array);
 }
 
 /* unset($kabal[3][2314]);
