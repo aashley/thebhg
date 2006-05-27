@@ -13,7 +13,8 @@ foreach ($roster->getDivisions() as $kabal){
 }
 		
 $active = implode(',', $active);
-
+print_r($active);
+exit;
 $maxima = GetKAGMaxima();
 $hunters = array();
 $total = 0;
