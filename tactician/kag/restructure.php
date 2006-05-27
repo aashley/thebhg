@@ -53,9 +53,9 @@ $kabal['5'] = array();
 $i = 1;
 
 function place($array){
-	if (array_sum($kabal[$i]) > $total || array_sum($kabal[$i])+$array['points'] > $total){
+	if ((array_sum($kabal[$i]) > $total) || ((array_sum($kabal[$i])+$array['points']) > $total)){
 		$i++;
-		$place ($array);
+		place($array);
 	}
 	
 	$kabal[$i][$array['person']] = $array['points'];
