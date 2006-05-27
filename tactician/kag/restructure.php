@@ -18,6 +18,7 @@ $active = implode(',', $active);
 $maxima = GetKAGMaxima();
 $hunters = array();
 $total = 0;
+$core = 0;
 foreach (array_unique($maxima) as $points) {
 	$kags = implode(', ', array_keys($maxima, $points));
 	$result = mysql_query("SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT kag) AS kags FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person IN ($active) GROUP BY person ORDER BY person", $db);
@@ -28,26 +29,26 @@ foreach (array_unique($maxima) as $points) {
 				$hunters[$row['person']]['events'] += $row['events'];
 				$hunters[$row['person']]['kags'] += $row['kags'];
 				$total += $row['points'];
+				$core += ScalePointsWithMaximum($points, $row['points'], $row['events']);
 			}
 			else {
 				$row['points'] = round(ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events']);
 				$total += $row['points'];
 				$hunters[$row['person']] = $row;
+				$core += ScalePointsWithMaximum($points, $row['points'], $row['events']);
 			}
 		}
 }
 
 usort($hunters, 'SortPointsDesc');
 
-$main = $total;
-
 $total /= $pc;
-$total *= 10;
 $total = round($total);
 
-$main /= $pc;
+$core /= $pc;
+$core = round($core);
 
-echo $main;
+echo $core;
 
 echo 'Target Average Points Per Kabal: ' . $total.'<br />Total Hunters: ' . $pc . '<br /><br />';
 
