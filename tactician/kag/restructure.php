@@ -45,13 +45,14 @@ foreach ($hunters as $array)
 	
 $cc = array_sum($care);
 $cc /= $pc;
-
-echo $cc;
+$cc = round($cc);
 	
 krsort($care);
 
 $total /= $pc;
 $total = round($total);
+
+echo $total/$cc;
 
 echo 'Target Average Points Per Kabal: ' . $total.'<br />Total Hunters: ' . $pc . '<br /><br />';
 
