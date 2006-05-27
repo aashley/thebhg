@@ -73,7 +73,8 @@ function replace($array){
 	if ((array_sum($kabal[$i]) < 17000)){
 		$kabal[$i][$array['person']] = $array['points'];
 	} else {	
-		$GLOBALS['lamer'][] = $array;
+		$i++;
+		replace($array);
 	}
 		
 	$i++;
