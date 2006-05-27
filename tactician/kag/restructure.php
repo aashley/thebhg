@@ -52,11 +52,11 @@ krsort($care);
 $total /= $pc;
 $total = round($total);
 
-echo $cc;
+echo 'cc:'$cc.'<br />';
 
-echo $total/$cc;
+echo round($total/$cc);
 
-echo 'Target Average Points Per Kabal: ' . $total.'<br />Total Hunters: ' . $pc . '<br /><br />';
+echo '<br />Target Average Points Per Kabal: ' . $total.'<br />Total Hunters: ' . $pc . '<br /><br />';
 
 $kabal = array();
 
