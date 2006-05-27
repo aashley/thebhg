@@ -108,7 +108,7 @@ for ($i = 1; $i <= 5; $i++){
 	echo '</div>';
 }
 
-print_r($GLOBALS['lamer']);
+print_r($GLOBALS['unused']);
 
 page_footer();
 exit;
