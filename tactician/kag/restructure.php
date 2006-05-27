@@ -37,8 +37,7 @@ foreach (array_unique($maxima) as $points) {
 }
 
 usort($hunters, 'SortPointsDesc');
-print_r($hunters);
-exit;
+
 $total /= 5;
 
 $kabal[1] = array();
