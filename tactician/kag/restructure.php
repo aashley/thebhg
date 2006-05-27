@@ -39,10 +39,16 @@ foreach (array_unique($maxima) as $points) {
 
 usort($hunters, 'SortPointsDesc');
 
+$main = $total;
+
 $total /= 5;
 $total /= $pc;
 $total *= 10;
 $total = round($total);
+
+$main /= $total;
+
+echo $main;
 
 echo 'Target Average Points Per Kabal: ' . $total.'<br />Total Hunters: ' . $pc . '<br /><br />';
 
@@ -60,9 +66,10 @@ function place($array){
 	global $total, $i, $kabal, $fault;
 	
 	if ((array_sum($kabal[$i]) > $total) || ((array_sum($kabal[$i])+$array['points']) > $total)){
-		$GLOBALS['unused'][] = $array;
+		$no = 1;
 	} else {	
 		$kabal[$i][$array['person']] = $array['points'];
+		$used[] = $array['person'];
 	}
 		
 	$i++;
@@ -87,8 +94,6 @@ for ($i = 1; $i <= 5; $i++){
 		echo $roster->getPerson($person)->getName() . ' (' . $pts . ')<br />';
 	echo '</div>';
 }
-
-print_r($GLOBALS['unused']);
 
 page_footer();
 exit;
