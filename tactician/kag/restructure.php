@@ -4,11 +4,15 @@ page_header('Kabal Restructure Proposal');
 
 $active = array();
 
+print_r($roster->getDivisions());
+
+exit;
+
 foreach ($roster->getDivisions() as $kabal){
-	if ($kabal->isKabal()){
+
 		foreach ($kabal->getMembers() as $person)
 			$active[] = $person->getID();
-	}
+
 }
 		
 $active = implode(',', $active);
