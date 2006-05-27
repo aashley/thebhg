@@ -4,7 +4,7 @@ page_header('Kabal Restructure Proposal');
 
 $active = array();
 
-foreach ($roster->getDivision() as $kabal){
+foreach ($roster->getDivisions() as $kabal){
 	if ($kabal->isKabal()){
 		foreach ($kabal->getMembers() as $person)
 			$active[] = $person->getID();
