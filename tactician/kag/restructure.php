@@ -41,6 +41,7 @@ usort($hunters, 'SortPointsDesc');
 
 $total /= 5;
 $total /= $pc;
+$total *= 10;
 
 echo 'Target Average Points Per Kabal: ' . $total.'<br />Total Hunters: ' . $pc . '<br /><br />';
 
@@ -72,7 +73,7 @@ function place($array){
 function replace($array){
 	global $total, $i, $kabal, $fault;
 	
-	if ((array_sum($kabal[$i]) < 17000)){
+	if ((array_sum($kabal[$i]) < $total)){
 		$kabal[$i][$array['person']] = $array['points'];
 	} else {	
 		$i++;
@@ -88,8 +89,6 @@ function replace($array){
 foreach ($hunters as $array){
 	place($array);
 }
-
-print_r($GLOBALS['unused']);
 
 foreach ($GLOBALS['unused'] as $array){
 	replace($array);
