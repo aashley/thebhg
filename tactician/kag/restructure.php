@@ -58,6 +58,12 @@ foreach ($hunters as $id => $array){
 		$i = 1;
 }
 	
+print_r($kabal[1]);
+
+page_footer();
+
+exit;
+
 for ($i = 1; $i <= 5; $i++){
 	echo '<div><h2>Kabal ' . $i . '</h2>Total Points: ' . number_format(array_sum($kabal[$i])) . '<br /><b>Members</b><br />';
 	foreach ($kabal[$i] as $person => $pts)
@@ -80,5 +86,5 @@ for ($i = 0; $i < 10; $i++) {
 
 $table->EndTable();
 
-page_footer();
+
 ?>
