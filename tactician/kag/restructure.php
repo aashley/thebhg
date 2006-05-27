@@ -44,7 +44,7 @@ foreach ($hunters as $array)
 	$care[$array['person']] = round($array['points']/$array['events']);
 	
 $cc = array_sum($care);
-$cc /= $pc;
+$cc /= count($care);
 $cc = round($cc);
 	
 krsort($care);
