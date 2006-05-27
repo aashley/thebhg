@@ -44,11 +44,12 @@ foreach ($hunters as $array)
 	$care[$array['person']] = round($array['points']/$array['events']);
 	
 $cc = array_sum($care);
+$cc /= $pc;
 $cc = round($cc);
 	
 krsort($care);
 
-//$total /= $pc;
+$total /= $pc;
 $total = round($total);
 
 echo 'cc:'.$cc.'<br />';
