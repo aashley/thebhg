@@ -13,14 +13,13 @@ foreach ($roster->getDivisions() as $kabal){
 }
 		
 $active = implode(',', $active);
-print_r($active);
-exit;
+
 $maxima = GetKAGMaxima();
 $hunters = array();
 $total = 0;
 foreach (array_unique($maxima) as $points) {
 	$kags = implode(', ', array_keys($maxima, $points));
-	$result = mysql_query("SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT kag) AS kags FROM kag_signups WHERE state > 0 AND kag IN ($kags) and person IN ($active) GROUP BY person ORDER BY person", $db);
+	$result = mysql_query("SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT kag) AS kags FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person IN ($active) GROUP BY person ORDER BY person", $db);
 	if ($result && mysql_num_rows($result))
 		while ($row = mysql_fetch_array($result)) {
 			if (isset($hunters[$row['person']])) {
@@ -38,7 +37,8 @@ foreach (array_unique($maxima) as $points) {
 }
 
 usort($hunters, 'SortPointsDesc');
-
+print_r($hunters);
+exit;
 $total /= 5;
 
 $kabal[1] = array();
