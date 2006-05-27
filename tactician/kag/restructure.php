@@ -67,12 +67,27 @@ function place($array){
 		$i = 1;
 }
 
+function replace($array){
+	global $total, $i, $kabal, $fault;
+	
+	if ((array_sum($kabal[$i]) < $total) && ((array_sum($kabal[$i])+$array['points']) < $total)){
+		$kabal[$i][$array['person']] = $array['points'];
+	} else {	
+		$GLOBALS['lamer'][] = $array;
+	}
+		
+	$i++;
+	
+	if ($i > 5)
+		$i = 1;
+}
+
 foreach ($hunters as $array){
 	place($array);
 }
 
 foreach ($GLOBALS['unused'] as $array){
-	place($array);
+	replace($array);
 }
 
 for ($i = 1; $i <= 5; $i++){
@@ -82,7 +97,7 @@ for ($i = 1; $i <= 5; $i++){
 	echo '</div>';
 }
 
-print_r($GLOBALS['unused']);
+print_r($GLOBALS['lamer']);
 
 page_footer();
 exit;
