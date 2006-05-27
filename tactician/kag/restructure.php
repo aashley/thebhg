@@ -55,12 +55,14 @@ $recursive = 1;
 function place($array){
 	global $total, $i, $kabal, $recursive;
 	
-	if (((array_sum($kabal[$i]) > $total) || ((array_sum($kabal[$i])+$array['points']) > $total)) && $recursive < 5){
-		$i++;
-		$recursive++;
-		place($array);
-	} else
-		$recursive = 0;
+	if ($recursive < 5){
+		if ((array_sum($kabal[$i]) > $total) || ((array_sum($kabal[$i])+$array['points']) > $total)){
+			$i++;
+			$recursive++;
+			place($array);
+		} else
+			$recursive = 0;
+	}
 	
 	$kabal[$i][$array['person']] = $array['points'];
 	
