@@ -62,6 +62,9 @@ function place($array){
 			place($array);
 		} else
 			$recursive = 0;
+	} else {
+		echo 'ending';
+		exit;
 	}
 	
 	$kabal[$i][$array['person']] = $array['points'];
