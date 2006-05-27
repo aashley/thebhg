@@ -41,7 +41,6 @@ usort($hunters, 'SortPointsDesc');
 
 $main = $total;
 
-$total /= 5;
 $total /= $pc;
 $total *= 10;
 $total = round($total);
