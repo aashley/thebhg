@@ -24,13 +24,13 @@ foreach (array_unique($maxima) as $points) {
 	if ($result && mysql_num_rows($result))
 		while ($row = mysql_fetch_array($result)) {
 			if (isset($hunters[$row['person']])) {
-				$hunters[$row['person']]['points'] += ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events'];
+				$hunters[$row['person']]['points'] += round(ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events']);
 				$hunters[$row['person']]['events'] += $row['events'];
 				$hunters[$row['person']]['kags'] += $row['kags'];
 				$total += $row['points'];
 			}
 			else {
-				$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events'];
+				$row['points'] = round(ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events']);
 				$total += $row['points'];
 				$hunters[$row['person']] = $row;
 			}
@@ -42,6 +42,7 @@ usort($hunters, 'SortPointsDesc');
 $total /= 5;
 $total /= $pc;
 $total *= 10;
+$total = round($total);
 
 echo 'Target Average Points Per Kabal: ' . $total.'<br />Total Hunters: ' . $pc . '<br /><br />';
 
