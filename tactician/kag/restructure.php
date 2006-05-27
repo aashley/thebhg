@@ -26,11 +26,11 @@ foreach (array_unique($maxima) as $points) {
 				$hunters[$row['person']]['points'] += ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events'];
 				$hunters[$row['person']]['events'] += $row['events'];
 				$hunters[$row['person']]['kags'] += $row['kags'];
-				$total += $row['points'];
+				$total += $row['points'] / $row['events'];
 			}
 			else {
 				$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']) / $row['events'];
-				$total += $row['points'];
+				$total += $row['points'] / $row['events'];
 				$hunters[$row['person']] = $row;
 			}
 		}
