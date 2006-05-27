@@ -58,19 +58,13 @@ foreach ($hunters as $array){
 	if ($i > 5)
 		$i = 1;
 }
-	
-print_r($kabal[1]);
-
-page_footer();
-
-exit;
 
 for ($i = 1; $i <= 5; $i++){
 	echo '<div><h2>Kabal ' . $i . '</h2>Total Points: ' . number_format(array_sum($kabal[$i])) . '<br /><b>Members</b><br />';
 	foreach ($kabal[$i] as $person => $pts)
 		echo $roster->getPerson($person)->getName() . '<br />';
 }
-
+page_footer();
 exit;
 
 
