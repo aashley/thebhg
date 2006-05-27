@@ -52,13 +52,22 @@ $kabal['5'] = array();
 
 $i = 1;
 
-foreach ($hunters as $array){
+function place($array){
+	if (array_sum($kabal[$i]) > $total || array_sum($kabal[$i])+$array['points'] > $total){
+		$i++;
+		$place ($array);
+	}
+	
 	$kabal[$i][$array['person']] = $array['points'];
 	
 	$i++;
 	
 	if ($i > 5)
 		$i = 1;
+}
+
+foreach ($hunters as $array){
+	place($array);
 }
 
 for ($i = 1; $i <= 5; $i++){
