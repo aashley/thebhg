@@ -54,6 +54,8 @@ $i = 1;
 
 function place($array){
 	if ((array_sum($kabal[$i]) > $total) || ((array_sum($kabal[$i])+$array['points']) > $total)){
+		echo 'wha?';
+		exit;
 		$i++;
 		place($array);
 	}
