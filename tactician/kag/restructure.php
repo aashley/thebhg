@@ -48,10 +48,10 @@ $kabal[5] = array();
 
 $i = 1;
 
-foreach ($hunters as $array){
-	print_r($array);
+
+	print_r($hunters);
 	exit;
-}
+
 	
 print_r($kabal[1]);
 
