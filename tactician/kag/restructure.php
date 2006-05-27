@@ -56,16 +56,11 @@ function place($array){
 	global $total, $i, $kabal, $fault;
 	
 	if ((array_sum($kabal[$i]) > $total) || ((array_sum($kabal[$i])+$array['points']) > $total)){
-		$i++;
-		$fault++;
-		place($array);
+		$GLOBAL['unused'][] = $array;
+	} else {	
+		$kabal[$i][$array['person']] = $array['points'];
 	}
-	
-	if ($fault > 5)
-		break;
-	
-	$kabal[$i][$array['person']] = $array['points'];
-	
+		
 	$i++;
 	
 	if ($i > 5)
