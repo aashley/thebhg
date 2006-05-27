@@ -40,6 +40,8 @@ usort($hunters, 'SortPointsDesc');
 
 $total /= 5;
 
+$kabal = array();
+
 $kabal[1] = array();
 $kabal[2] = array();
 $kabal[3] = array();
@@ -48,10 +50,10 @@ $kabal[5] = array();
 
 $i = 1;
 
-
+foreach ($hunters as $array){
 	print_r($hunters);
 	exit;
-
+}
 	
 print_r($kabal[1]);
 
