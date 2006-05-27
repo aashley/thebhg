@@ -48,7 +48,7 @@ $cc = round($cc);
 	
 krsort($care);
 
-$total /= $pc;
+//$total /= $pc;
 $total = round($total);
 
 echo 'cc:'.$cc.'<br />';
