@@ -46,7 +46,7 @@ $total /= $pc;
 $total *= 10;
 $total = round($total);
 
-$main /= $total;
+$main /= $pc;
 
 echo $main;
 
