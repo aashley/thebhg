@@ -77,6 +77,9 @@ for ($i = 1; $i <= 5; $i++){
 		echo $roster->getPerson($person)->getName() . '<br />';
 	echo '</div>';
 }
+
+print_r($GLOBAL['unused']);
+
 page_footer();
 exit;
 
