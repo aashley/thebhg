@@ -19,18 +19,13 @@ if ($level == 3) {
 				$event->AddSignup($hunter);
 			}
 		}
-		if ($jud = $roster->SearchPosition(6)) {
-			$jud = $jud[0];
+		if ($tact = $roster->SearchPosition(3)) {
+			$tact = $tact[0];
 		}
 		else {
-			if ($jud = $roster->SearchPosition(8)) {
-				$jud = $jud[0];
-			}
-			else {
-				$jud = $roster->GetPerson(1000);
-			}
+			$tact = $roster->GetPerson(1000);
 		}
-		$kag->EmailSignups($hunter, $jud);
+		$kag->EmailSignups($hunter, $tact);
 		echo 'KAG signups altered.';
 	}
 	elseif ($_REQUEST['person']) {
