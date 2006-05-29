@@ -1,6 +1,6 @@
 </td></tr></table></td></tr>
 <tr><td id="bottom" colspan="2"></td></tr>
-<tr><td class="main"></td><td id="google"><script language='JavaScript' type='text/javascript'>
+<tr><td colspan="2" id="google" style="text-align: right"><script language='JavaScript' type='text/javascript'>
 <!--
 // Insert click tracking URL here
 document.phpAds_ct0 ='Insert_Clicktrack_URL_Here'
