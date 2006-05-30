@@ -145,12 +145,6 @@ else {
 				$maxima = GetKAGMaxima();
 				$info = array();
 				foreach ($plebs as $pleb) {
-					$result = mysql_query('SELECT kabal FROM kag_signups WHERE person=' . $pleb->GetID() . ' GROUP BY kabal', $db);
-					$kabals = array();
-					while ($row = mysql_fetch_array($result)) {
-						$kabal = $roster->GetKabal($row['kabal']);
-						$kabals[$kabal->GetID()] = $kabal->GetName();
-					}
 					asort($kabals);
 					$result = mysql_query('SELECT MIN(kag) AS first, MAX(kag) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE person=' . $pleb->GetID(), $db);
 					$row = mysql_fetch_array($result);
