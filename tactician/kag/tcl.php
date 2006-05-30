@@ -145,9 +145,6 @@ else {
 				$maxima = GetKAGMaxima();
 				$info = array();
 				foreach ($plebs as $pleb) {
-					if ($pleb->getID() == 2978){
-						$info[] = "KAG Hisgory for " . $pleb->getName() . " is irrelevant, because he's bad.";
-					} else {
 						$result = mysql_query('SELECT kabal FROM kag_signups WHERE person=' . $pleb->GetID() . ' GROUP BY kabal', $db);
 						$kabals = array();
 						while ($row = mysql_fetch_array($result)) {
@@ -172,7 +169,6 @@ else {
 						}
 						$hinfo .= number_format($row['points'] / $row['events'], 1) . ' points per event.';
 						$info[] = $hinfo;
-					}
 				}
 				echo implode("\n", $info);
 			}
