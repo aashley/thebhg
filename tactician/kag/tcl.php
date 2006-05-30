@@ -145,30 +145,42 @@ else {
 				$maxima = GetKAGMaxima();
 				$info = array();
 				foreach ($plebs as $pleb) {
+					
 						$result = mysql_query('SELECT kabal FROM kag_signups WHERE person=' . $pleb->GetID() . ' GROUP BY kabal', $db);
 						$kabals = array();
 						while ($row = mysql_fetch_array($result)) {
 							$kabal = $roster->GetKabal($row['kabal']);
 							$kabals[$kabal->GetID()] = $kabal->GetName();
 						}
-						asort($kabals);
-						$result = mysql_query('SELECT MIN(kag) AS first, MAX(kag) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE person=' . $pleb->GetID(), $db);
-						$row = mysql_fetch_array($result);
-						$hinfo = 'KAG History for ' . $pleb->GetName() . ' (' . implode(', ', $kabals) . '): ';
-						if ($row['first'] == $row['last']) {
-							$hinfo .= 'KAG ' . roman($row['first']);
+					asort($kabals);
+					$result = mysql_query('SELECT MIN(kag) AS first, MAX(kag) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE person=' . $pleb->GetID(), $db);
+					$row = mysql_fetch_array($result);
+					$hinfo = 'KAG History for ' . $pleb->GetName() . ' (' . implode(', ', $kabals) . '): ';
+					if ($row['first'] == $row['last']) {
+						$hinfo .= 'KAG ' . roman($row['first']);
+					}
+					else {
+						$hinfo .= 'KAG ' . roman($row['first']) . ' - KAG ' . roman($row['last']);
+					}
+					$hinfo .= '; ' . number_format($row['points']) . ' points; ' . number_format($row['events']) . ' events; ';
+					$dnp_result = mysql_query('SELECT COUNT(DISTINCT id) AS dnps FROM kag_signups WHERE state=2 AND person=' . $pleb->GetID(), $db);
+					if ($dnp_result && mysql_num_rows($dnp_result)) {
+						$dnps = mysql_result($dnp_result, 0, 'dnps');
+						$hinfo .= number_format($dnps) . ' DNP' . ($dnps != 1 ? 's' : '') . '; ';
+					}
+
+					list($scaledEvents, $scaledTotal) = array(0, 0);
+					foreach (array_unique($maxima) as $points) {
+						$kags = implode(', ', array_keys($maxima, $points));
+						$result = mysql_query("SELECT SUM(points) AS points, COUNT(DISTINCT id) AS events FROM kag_signups WHERE state > 0 AND kag IN ($kags) AND person=" . $pleb->GetID(), $db);
+						if ($result && mysql_num_rows($result)) {
+							$scaledEvents += mysql_result($result, 0, 'events');
+							$scaledTotal += ScalePointsWithMaximum($points, mysql_result($result, 0, 'points'), mysql_result($result, 0, 'events'));
 						}
-						else {
-							$hinfo .= 'KAG ' . roman($row['first']) . ' - KG ' . roman($row['last']);
-						}
-						$hinfo .= '; ' . number_format($row['points']) . ' points; ' . number_format($row['events']) . ' events; ';
-						$dnp_result = mysql_query('SELECT COUNT(DISTINCT id) AS dnps FROM kag_signups WHERE state=2 AND person=' . $pleb->GetID(), $db);
-						if ($dnp_result && mysql_num_rows($dnp_result)) {
-							$dnps = mysql_result($dnp_result, 0, 'dnps');
-							$hinfo .= number_format($dnps) . ' DNP' . ($dnps != 1 ? 's' : '') . '; ';
-						}
-						$hinfo .= number_format($row['points'] / $row['events'], 1) . ' points per event.';
-						$info[] = $hinfo;
+					}
+					
+					$hinfo .= number_format($scaledTotal / $scaledEvents, 1) . ' scaled points per event.';
+					$info[] = $hinfo;
 				}
 				echo implode("\n", $info);
 			}
