@@ -146,7 +146,7 @@ else {
 				$info = array();
 				foreach ($plebs as $pleb) {
 					if ($pleb->getID() == 2978){
-						$info[] = "KAG Hisgory for ' . $pleb->getName() . ' is irrelevant, because he's bad.";
+						$info[] = "KAG Hisgory for " . $pleb->getName() . " is irrelevant, because he's bad.";
 					} else {
 						$result = mysql_query('SELECT kabal FROM kag_signups WHERE person=' . $pleb->GetID() . ' GROUP BY kabal', $db);
 						$kabals = array();
