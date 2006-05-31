@@ -21,5 +21,11 @@ document.write ("'><" + "/script>");
 //-->
 </script><noscript><a href='http://banner.thebhg.org/adclick.php?n=a6ae4dab' target='_blank'><img src='http://banner.thebhg.org/adview.php?zoneid=3&n=a6ae4dab' border='0' alt=''></a></noscript></td></tr></table>
 
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-346775-2";
+urchinTracker();
+</script>
 </body>
 </html>
