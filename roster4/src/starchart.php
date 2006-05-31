@@ -19,35 +19,44 @@
  */
 class bhg_starchart extends bhg_entry {
 
-	// {{{ getPlanet() [static]
+	// {{{ getObject() [static]
 	
 	/**
-	 * Load a specific planet
+	 * Load a specific object
 	 *
-	 * @return bhg_starchart_planet
+	 * @return bhg_starchart_object
 	 */
-	static public function getPlanet($id) {
+	static public function getObject($id) {
 
-		return bhg::loadObject('bhg_starchart_planet', $id);
+		return bhg::loadObject('bhg_starchart_object', $id);
 
 	}
 
 	// }}}
-	// {{{ getPlanets()
+	// {{{ getObjects()
 	
 	/**
-	 * Load a list of planets
+	 * Load a list of objects
 	 *
 	 * @return bhg_core_list
 	 */
-	public function getPlanets($filter = array()) {
+	public function getObjects($filter = array()) {
 
 		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
-		if (isset($filter['system'])
-				&& $filter['system'] instanceof bhg_starchart_system)
-			$sqlfilters[] = '`system` = '.$this->db->quoteSmart($filter['system']->getID()).' ';
+		if (isset($filter['parent'])) {
+			
+			if ($filter['parent'] instanceof bhg_starchart_object)
+				$sqlfilters[] = '`parent` = '.$this->db->quoteSmart($filter['system']->getID()).' ';
+
+			if (is_null($filter['parent']))
+				$sqlfilters[] = '`parent` IS NULL ';
+
+		}
+
+		if (isset($filter['type']) && $filter['type'] instanceof bhg_starchart_object_type)
+			$sqlfilters[] = '`type` = '.$this->db->quoteSmart($filter['type']->getID()).' ';
 
 		if (isset($filter['name']))
 			$sqlfilters[] = '`name` LIKE "%'.$this->db->escapeSimple($filter['name']).'%" ';
@@ -55,8 +64,11 @@ class bhg_starchart extends bhg_entry {
 		if (isset($filter['description']))
 			$sqlfilters[] = '`description` LIKE "%'.$this->db->escapeSimple($filter['description']).'%" ';
 
+		if (isset($filter['extendedtype']))
+			$sqlfilters[] = '`typeextended` LIKE "%'.$this->db->escapeSimple($filter['extendedtype']).'%" ';
+
 		$sql = 'SELECT id '
-					.'FROM starchart_planet ';
+					.'FROM starchart_object ';
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
@@ -67,11 +79,11 @@ class bhg_starchart extends bhg_entry {
 
 		if (DB::isError($results)) {
 
-			throw new bhg_db_exception('Could not load list of planets.', $results);
+			throw new bhg_db_exception('Could not load list of objects.', $results);
 
 		} else {
 
-			return new bhg_core_list('bhg_starchart_planet', $results);
+			return new bhg_core_list('bhg_starchart_objects', $results);
 
 		}
 
