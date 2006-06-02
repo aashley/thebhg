@@ -21,7 +21,6 @@ class page_starchart_view extends holonet_page {
 
 		$this->addBodyContent($bar);
 
-		$this->addSideMenu($GLOBALS['holonet']->starchart->getObjectMenu($object));
 		$this->addSideMenu($GLOBALS['holonet']->starchart->getSideMenu());
 
 	}

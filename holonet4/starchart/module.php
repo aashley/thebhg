@@ -53,9 +53,28 @@ class holonet_module_starchart extends holonet_module {
 
 	}
 
-	public function getSideMenu() {
+	public function getSideMenu($object = NULL) {
 
 		$menus = array();
+
+		if (!is_null($object)) {
+
+			while (!is_null($object)) {
+
+				$menu = new holonet_menu;
+				$menu->title = $object->getName();
+
+				foreach ($object->getChildren() as $child) {
+
+					$menu->addItem(new holonet_menu_item($child->getName(), '/starchart/'.$object->getID()));
+
+				}
+
+				$menus[] = $menu;
+
+			}
+
+		}
 
 		$menu = new holonet_menu;
 		$menu->title = 'Global Items';
@@ -63,25 +82,6 @@ class holonet_module_starchart extends holonet_module {
 		foreach ($GLOBALS['bhg']->starchart->getObjects() as $object) {
 			
 			$menu->addItem(new holonet_menu_item($object->getName(), '/starchart/'.$object->getID()));
-
-		}
-
-		$menus[] = $menu;
-
-		return $menus;
-
-	}
-
-	public function getObjectMenu(bhg_starchart_object $object) {
-
-		$menus = array();
-
-		$menu = new holonet_menu;
-		$menu->title = $object->getName();
-
-		foreach ($object->getChildren() as $child) {
-
-			$menu->addItem(new holonet_menu_item($child->getName(), '/starchart/'.$child->getID()));
 
 		}
 
