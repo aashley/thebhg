@@ -363,7 +363,8 @@ class bhg_core_base {
 			$varname = substr($lfunc, 3);
 
 			if (	 !in_array($varname, $this->blacklist['set'])
-					&& isset($this->data[$varname])) {
+					&& (	 isset($this->data[$varname])
+							|| is_null($this->data[$varname]))) {
 
 				if ($allowed === false && isset($this->codeMap['defaults']['set'])) {
 
@@ -375,7 +376,19 @@ class bhg_core_base {
 
 				}
 
-				if (isset($this->fieldmap[$varname])) {
+				if (is_null($params[0]->getID())) {
+
+					$oldvalue = $this->data[$varname];
+					if ($oldvalue == $params[0]->getID()) {
+						return true;
+					} else {
+						$result = $this->__saveValue(array($varname => $params[0]));
+						if ($doHistory)
+							$this->__call_history($varname, $oldvalue);
+						return $result;
+					}
+
+				} elseif (isset($this->fieldmap[$varname])) {
 
 					if ($params[0] instanceof $this->fieldmap[$varname]) {
 
@@ -758,7 +771,7 @@ class bhg_core_base {
 					
 				} else {
 					
-					$f[] = '`'.$field.'` = '.$this->db->quote($value);
+					$f[] = '`'.$field.'` = '.$this->db->quoteSmart($value);
 					
 				}
 				
