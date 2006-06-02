@@ -279,7 +279,8 @@ class bhg_core_base {
 			$varname = substr($lfunc, 3);
 
 			if (   !in_array($varname, $this->blacklist['get'])
-					&& isset($this->data[$varname])) {
+					&& (	 isset($this->data[$varname])
+							|| is_null($this->data[$varname]))) {
 
 				if ($allowed === false && isset($this->codeMap['defaults']['get'])) {
 
@@ -291,7 +292,11 @@ class bhg_core_base {
 
 				}
 
-				if (isset($this->fieldmap[$varname])) {
+				if (is_null($this->data[$varname])) {
+					
+					return NULL;
+				
+				} elseif (isset($this->fieldmap[$varname])) {
 
 					return $GLOBALS['bhg']->loadObject($this->fieldmap[$varname], $this->data[$varname]);
 
