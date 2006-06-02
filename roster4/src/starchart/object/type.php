@@ -33,6 +33,40 @@ class bhg_starchart_object_type extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getAllowedAttributes()
+	
+	/**
+	 * Get the list of attributes that are allowed on this object type
+	 *
+	 * @param array Filters
+	 * @return bhg_core_list List of bhg_starchart_object_type_attributes
+	 */
+	public function getAllowedAttributes($filter = array()) {
+
+		$filter['type'] = $this;
+
+		return $GLOBALS['bhg']->starchart->getObjectTypeAttributes($filter);
+
+	}
+
+	// }}}
+	// {{{ getInstances()
+	
+	/**
+	 * Get all instances of this object type
+	 *
+	 * @param array Filters
+	 * @return bhg_core_list List of bhg_starchart_objects
+	 */
+	public function getInstances($filter = array()) {
+
+		$filter['type'] = $this;
+
+		return $GLOBALS['bhg']->starchart->getObjects($filter);
+
+	}
+
+	// }}}
 
 }
 

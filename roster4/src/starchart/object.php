@@ -37,6 +37,40 @@ class bhg_starchart_object extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getAttributes()
+	
+	/**
+	 * Get the Attributes of this object
+	 *
+	 * @param array Filters
+	 * @return bhg_core_list List of bhg_starchart_object_attributes
+	 */
+	public function getAttributes($filter = array()) {
+
+		$filter['object'] = $this;
+
+		return $GLOBALS['bhg']->starchart->getObjectAttributes($filter);
+
+	}
+
+	// }}}
+	// {{{ getChildren()
+	
+	/**
+	 * Get the child objects of this object
+	 *
+	 * @param array Filters
+	 * @return bhg_core_list list of bhg_starchart_objects
+	 */
+	public function getChildren($filter = array()) {
+
+		$filter['parent'] = $this;
+
+		return $GLOBALS['bhg']->starchart->getObjects($filter);
+
+	}
+
+	// }}}
 
 }
 
