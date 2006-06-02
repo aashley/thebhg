@@ -31,7 +31,7 @@ class bhg_starchart_object extends bhg_core_base {
 		parent::__construct('starchart_object', $id);
 		$this->__addFieldMap(array(
 					'parent'	=> 'bhg_starchart_object',
-					'type'		=> 'bhg_starchart_type',
+					'type'		=> 'bhg_starchart_object_type',
 					));
 		$this->__addDefaultCodePermissions('set', 'god');
 	}
