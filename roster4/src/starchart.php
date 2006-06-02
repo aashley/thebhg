@@ -173,7 +173,7 @@ class bhg_starchart extends bhg_entry {
 		if (isset($filter['parent'])) {
 			
 			if ($filter['parent'] instanceof bhg_starchart_object)
-				$sqlfilters[] = '`parent` = '.$this->db->quoteSmart($filter['system']->getID()).' ';
+				$sqlfilters[] = '`parent` = '.$this->db->quoteSmart($filter['parent']->getID()).' ';
 
 			if (is_null($filter['parent']))
 				$sqlfilters[] = '`parent` IS NULL ';
