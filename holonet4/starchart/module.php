@@ -72,6 +72,8 @@ class holonet_module_starchart extends holonet_module {
 
 				$menus[] = $menu;
 
+				$object = $object->getParent();
+
 			}
 
 		}
