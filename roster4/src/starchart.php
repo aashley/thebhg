@@ -71,6 +71,23 @@ class bhg_starchart extends bhg_entry {
 	}
 
 	// }}}
+	// {{{ getParentObjects()
+	
+	/**
+	 * Get the top level parent objects
+	 *
+	 * @param array Filters
+	 * @return bhg_core_list List of bhg_starchart_objects
+	 */
+	public function getParentObjects($filter = array()) {
+
+		$filter['parent'] = NULL;
+
+		return $this->getObjects($filter);
+
+	}
+
+	// }}}
 	// {{{ getObject() [static]
 	
 	/**
