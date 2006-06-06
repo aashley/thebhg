@@ -101,6 +101,8 @@
 	    $division = $divi->GetID();
 	    $position = $posi->GetID();
 	    
+	    mysql_select_db('thebhg_lyarna', $this->lyarna);
+	    
 	    $tables = array('complex', 'estate', 'hq', 'other', 'personal');
 	    $return = array();
 	    foreach ($tables as $table){
@@ -111,6 +113,8 @@
 			    $return[] = array('name'=>$info['name'], 'posi'=>($info['position'] ? 1 : 0));
 		    }
 	    }
+	    
+	    mysql_select_db('thebhg_holonet', $this->lyarna);
 	    
 	    return $return;
     }
