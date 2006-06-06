@@ -7,11 +7,11 @@
 	var $lyarna;
 
     function Arena(){
+	    $this->lyarna = mysql_connect("localhost", 'thebhg', 'monkey69');
+        mysql_select_db('thebhg_lyarna', $this->lyarna);
+	    
 	    $this->holonet = mysql_connect("localhost", 'thebhg', 'monkey69');
         mysql_select_db('thebhg_holonet', $this->holonet);
-        
-        $this->lyarna = mysql_connect("localhost", 'thebhg', 'monkey69');
-        mysql_select_db('thebhg_lyarna', $this->lyarna);
         
         $this->bastion = mysql_connect("localhost", 'overseer', 'pecesicruf');
         mysql_select_db('overseer', $this->basion);
