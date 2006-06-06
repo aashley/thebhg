@@ -51,6 +51,7 @@ function output() {
 	    $form = new Form($page);
 	    foreach ($_REQUEST['property'] as $id=>$ex){
 		    $form->AddSectionTitle('Set Owner for '.$_REQUEST['name'.$id]);
+		    $GLOBALS['property'] = true;
 		    include_once 'search.php';
 		    $form->StartSelect('Position', 'position');
 		    $form->AddOption(0, 'N/A');
