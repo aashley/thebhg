@@ -176,9 +176,7 @@
 		
 		echo (mysql_error($this->$res) ? mysql_error($this->$res).'<br />' : '');
 		
-		if ($res == 'lyarna'){
-	    	mysql_select_db('thebhg_holonet', $this->holonet);
-    	}
+		mysql_select_db('thebhg_holonet', $this->holonet);
 		
 		if ($count){
 			return mysql_num_rows($query);
