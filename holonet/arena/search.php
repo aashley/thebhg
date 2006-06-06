@@ -41,9 +41,9 @@
 	    		$plebsheet[$kabal->GetID()][] = $person;
     		}
     	}
-    	
+    	print_r($plebsheet);
     	foreach ($kabals_result as $kabal) {
-      
+
 		      if ($kabal->GetID() != 9 && $kabal->GetID() != 16 && count($plebsheet[$kabal->GetID()])) {
 		        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
 		          .$kabal->GetName()."</option>\n";
