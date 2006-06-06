@@ -1,6 +1,6 @@
 <?
 		$kabals_result = $roster->GetDivisions();
-    print_r($kabals_result);
+
 		$kabals = array();		
 		$plebsheet = array();
 		$sheet = new Sheet();
@@ -27,7 +27,6 @@
 		
 		if ($GLOBALS['property']){
 			foreach ($kabals_result as $kabal){
-				echo $kabal->getID();
 				if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
 			        foreach ($kabal->getMembers() as $person){
 				        $plebsheet[$kabal->GetID()][] = $person;
