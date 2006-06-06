@@ -24,7 +24,7 @@
 		} else {
 			$run = $sheet->SheetHolders();
 		}
-		
+		print_r($bar_slut);
     	foreach ($run as $person){
 	    	$person = new Person($person);
 	    	$kabal = $person->GetDivision();
