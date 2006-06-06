@@ -13,8 +13,10 @@ function auth($person) {
 
 function output() {
     global $arena, $auth_data, $hunter, $page, $sheet, $roster;
-
-    $lyarna = $arena->lyarna;
+    
+    $lyarna =& $arena->lyarna;
+    
+    mysql_select_db('thebhg_lyarna', $lyarna);
     
     arena_header();
 
@@ -108,6 +110,8 @@ function output() {
         $form->EndForm();
     }
 
+    mysql_select_db('thebhg_holonet', $lyarna);
+    
     admin_footer($auth_data);
 }
 ?>
