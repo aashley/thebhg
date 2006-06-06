@@ -52,8 +52,6 @@
 	    		}
 	    	}
     	}
-
-    	print_r($plebsheet);
     	
     	foreach ($kabals_result as $kabal) {
 
