@@ -26,6 +26,7 @@
 		}
 		
 		if ($GLOBALS['property']){
+			echo 'hi';
 			foreach ($kabal_result as $kabal){
 				if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
 			        foreach ($kabal->getMembers() as $person){
