@@ -26,14 +26,10 @@
 		}
 		
 		if ($GLOBALS['property']){
-			echo 'hi';
-			foreach ($kabal_result as $kabal){
-				print_r($kabal);
+			foreach ($kabals_result as $kabal){
 				echo $kabal->getID();
 				if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
-					echo ' how are';
 			        foreach ($kabal->getMembers() as $person){
-				        echo ' you';
 				        $plebsheet[$kabal->GetID()][] = $person;
 			        }
 			      }
