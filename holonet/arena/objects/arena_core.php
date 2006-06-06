@@ -103,16 +103,14 @@
 	    
 	    $tables = array('complex', 'estate', 'hq', 'other', 'personal');
 	    $return = array();
-	    mysql_select_db('thebhg_lyarna', $this->holonet);
 	    foreach ($tables as $table){
 		    $sql = "SELECT * FROM `$table` WHERE (`division` = '$division' AND `position` = '$position') OR (`bhg_id` = '$bhg_id')";
-		    $query = mysql_query($sql, $this->holonet);
+		    $query = mysql_query($sql, $this->lyarna);
 		    
 		    while ($info = mysql_fetch_array($query)){
 			    $return[] = array('name'=>$info['name'], 'posi'=>($info['position'] ? 1 : 0));
 		    }
 	    }
-	    mysql_select_db('thebhg_holonet', $this->holonet);
 	    
 	    return $return;
     }

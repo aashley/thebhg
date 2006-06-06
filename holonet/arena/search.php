@@ -35,7 +35,6 @@
 			      }
 		      }
 	      } else {
-
 	    	foreach ($run as $person){
 		    	$person = new Person($person);
 		    	$kabal = $person->GetDivision();
@@ -54,6 +53,8 @@
 	    	}
     	}
 
+    	print_r($plebsheet);
+    	
     	foreach ($kabals_result as $kabal) {
 
 		      if ($kabal->GetID() != 9 && $kabal->GetID() != 16 && count($plebsheet[$kabal->GetID()])) {
