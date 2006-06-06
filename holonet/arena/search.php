@@ -29,27 +29,28 @@
 			foreach ($kabal_result as $kabal){
 				if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
 			        foreach ($kabal->getMembers() as $person){
-				        $run[] = $person->getID();
+				        $plebsheet[$kabal->GetID()][] = $person;
 			        }
 			      }
 		      }
-	      }
+	      } else {
 
-    	foreach ($run as $person){
-	    	$person = new Person($person);
-	    	$kabal = $person->GetDivision();
-	    	$go = true;
-			if (is_array($bar_slut) && count($bar_slut)){
-				foreach ($bar_slut as $course){
-					$sql = "SELECT * FROM `ntc_exam_completed` WHERE `bhg_id` = '".$person->GetID()."' AND `has_passed` = 1 AND `exam` = '$course'";
-					if (!mysql_num_rows(mysql_query($sql, $roster->roster_db))){
-						$go = false;
-					}
-				}					
-			}
-    		if ($go){
-	    		$plebsheet[$kabal->GetID()][] = $person;
-    		}
+	    	foreach ($run as $person){
+		    	$person = new Person($person);
+		    	$kabal = $person->GetDivision();
+		    	$go = true;
+				if (is_array($bar_slut) && count($bar_slut)){
+					foreach ($bar_slut as $course){
+						$sql = "SELECT * FROM `ntc_exam_completed` WHERE `bhg_id` = '".$person->GetID()."' AND `has_passed` = 1 AND `exam` = '$course'";
+						if (!mysql_num_rows(mysql_query($sql, $roster->roster_db))){
+							$go = false;
+						}
+					}					
+				}
+	    		if ($go){
+		    		$plebsheet[$kabal->GetID()][] = $person;
+	    		}
+	    	}
     	}
 
     	foreach ($kabals_result as $kabal) {
