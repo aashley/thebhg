@@ -977,7 +977,11 @@
 		
     	$project = $this->project;
     	
-    	
+    	if ($this->HasValue($look, $col, $id)){
+	    	foreach ($this->ModFields($project) as $i){
+				
+	    	}
+    	}  	
 
 	}
     	
