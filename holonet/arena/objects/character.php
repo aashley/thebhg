@@ -974,26 +974,11 @@
 	
 	function DNA($look = 'values', $id = 0, $col = 'id', $show_anyway = false){
 		$this->UpdateCache();
-		$bio = $this->cs_person->GetBioData();
-		$division = $this->cs_person->GetDivision();
-		$position = $this->cs_person->GetPosition();
-		$rank = $this->cs_person->GetRank();
-    	$url = $bio->GetImageURL();
-		$unk = 'Unknown';
-		$age = $unk;
-		$height = $unk;
-		$homeworld = $unk;
-		$sex = $unk;
-		$species = $unk;
 		
     	$project = $this->project;
     	
     	if ($this->HasValue($look, $col, $id)){
 	    	foreach ($this->ModFields($project) as $i){
-	    		$field = new Field($i);
-		    	$table->StartRow();
-				$table->AddHeader($field->GetName(), 2);
-				$table->EndRow();
 				echo '::STATS';
 		    	foreach($this->GetStats($i) as $stat){
 			    	if ($this->Permit(1, $stat->GetID(), $project)){
@@ -1008,12 +993,8 @@
 		    	}
 	    	}
     	} else {
-	    	$table->StartRow();
-	    	$table->AddCell('This sheet has not yet been created', 2);
-	    	$table->EndRow();
+			echo ''
     	}    	
-    	
-    	$table->EndTable();
 
 	}
     	
