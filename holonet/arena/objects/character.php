@@ -976,7 +976,7 @@
 		$this->UpdateCache();
 		
     	$project = $this->project;
-    	echo '**DNA**';
+    	echo '**DNA**<br />';
     	if ($this->HasValue($look, $col, $id)){
 	    	foreach ($this->ModFields($project) as $i){
 		    	foreach($this->GetStats($i) as $stat){
