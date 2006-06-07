@@ -7,13 +7,9 @@ $include = array('arena_core', 'tournament', 'sheet_module', 'character', 'field
 
 foreach ($include as $pages){
 	$pages = $pages.'.php';
-	echo $pages;
-	echo getcwd();
 	if (file_exists('objects/'.$pages)){
-		echo ' got in.';
-		include_once $pages;
+		include_once 'objects/'.$pages;
 	}
-	echo '<br />';
 }
 
 $character = new Character($_REQUEST['who']); 
