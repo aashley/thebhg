@@ -982,13 +982,13 @@
 			    	echo '::STATS';
 			    	if ($this->Permit(1, $stat->GetID(), $project)){
 				    	if ($stat->isInt())
-			    			echo '::' . $stat->GetName() . '::' . $this->Point($stat->GetID(), 'SYSTEM', $look, $id, $col);
+			    			echo '::' . $stat->GetID() . '::' . $this->Point($stat->GetID(), 'SYSTEM', $look, $id, $col);
 		    		}
 		    	}
 		    	foreach($this->GetSkills($i) as $skill){
 			    	echo '||SKILLS';
 			    	if ($this->Permit(2, $skill->GetID(), $project)){
-			    		echo '||'.$skill->GetName() . '||' . $this->GetValue($skill->GetID(), $look, 'SYSTEM', $id, $col);
+			    		echo '||'.$skill->GetID() . '||' . $this->GetValue($skill->GetID(), $look, 'SYSTEM', $id, $col);
 		    		}
 		    	}
 	    	}
