@@ -979,16 +979,17 @@
     	
     	if ($this->HasValue($look, $col, $id)){
 	    	foreach ($this->ModFields($project) as $i){
-				echo '::STATS';
+				echo '**DNA**::STATS';
 		    	foreach($this->GetStats($i) as $stat){
 			    	if ($this->Permit(1, $stat->GetID(), $project)){
-			    		echo '::' . $stat->GetName() . '::' . $this->Point($stat->GetID(), 'SHEET', $look, $id, $col);
+				    	if ($stat->isInt())
+			    			echo '::' . $stat->GetName() . '::' . $this->Point($stat->GetID(), 'SYSTEM', $look, $id, $col);
 		    		}
 		    	}
 		    	echo '||SKILLS';
 		    	foreach($this->GetSkills($i) as $skill){
 			    	if ($this->Permit(2, $skill->GetID(), $project)){
-			    		echo '||'.$skill->GetName() . '||' . $this->GetValue($skill->GetID(), $look, 'SHEET', $id, $col);
+			    		echo '||'.$skill->GetName() . '||' . $this->GetValue($skill->GetID(), $look, 'SYSTEM', $id, $col);
 		    		}
 		    	}
 	    	}

@@ -9,8 +9,7 @@ function output() {
 
     arena_header();
 	
-    $character = new Character($_REQUEST['who']);
-    print_r($character);    
+    $character = new Character($_REQUEST['who']); 
 	$character->DNA();
 
     arena_footer();
