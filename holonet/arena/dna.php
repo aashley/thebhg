@@ -8,7 +8,7 @@ $include = array('arena_core', 'tournament', 'sheet_module', 'character', 'field
 foreach ($include as $pages){
 	$pages = $pages.'.php';
 	//echo $pages;
-	if (file_exists('objects/'.$pages)){
+	if (file_exists('/objects/'.$pages)){
 		//echo ' got in.';
 		include_once $pages;
 	}
