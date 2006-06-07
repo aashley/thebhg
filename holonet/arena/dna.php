@@ -3,7 +3,7 @@
 include_once('roster.inc');
 include_once('citadel.inc');
 include_once('library.inc');
-include_once('objects/arena.php');
+include_once('/objects/arena.php');
 
 $a = new Arena();
 
