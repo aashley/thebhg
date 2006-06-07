@@ -972,7 +972,14 @@
 
 	}
 	
-	
+	function DNA($look = 'values', $id = 0, $col = 'id', $show_anyway = false){
+		$this->UpdateCache();
+		
+    	$project = $this->project;
+    	
+    	
+
+	}
     	
  }					
 
