@@ -974,24 +974,27 @@
 	
 	function DNA($look = 'values', $id = 0, $col = 'id', $show_anyway = false){
 		$this->UpdateCache();
-		
+		$stats = array();
+		$skills = array();
     	$project = $this->project;
     	if ($this->HasValue($look, $col, $id)){
 	    	foreach ($this->ModFields($project) as $i){
 		    	foreach($this->GetStats($i) as $stat){
-			    	echo '::STATS';
 			    	if ($this->Permit(1, $stat->GetID(), $project)){
 				    	if ($stat->isInt())
-			    			echo '::' . $stat->GetID() . '::' . $this->Point($stat->GetID(), 'SYSTEM', $look, $id, $col);
+			    			$stats[$stat->GetID()] = $this->Point($stat->GetID(), 'SYSTEM', $look, $id, $col);
 		    		}
 		    	}
 		    	foreach($this->GetSkills($i) as $skill){
-			    	echo '||SKILLS';
 			    	if ($this->Permit(2, $skill->GetID(), $project)){
-			    		echo '||'.$skill->GetID() . '||' . $this->GetValue($skill->GetID(), $look, 'SYSTEM', $id, $col);
+			    		$skills[$skill->getID()] = $this->GetValue($skill->GetID(), $look, 'SYSTEM', $id, $col);
 		    		}
 		    	}
 	    	}
+	    	
+	    	$dna = array('stats'=>$stats, 'skills'=>$skills);
+	    	
+	    	echo serialize($dna);
     	}  	
 
 	}
