@@ -2,7 +2,7 @@
   <th colspan="2"><p class="head"><b>%NAME%</b></td>
 </tr>
 <tr>
-  <td colspan="2">%IMG%</td>
+  <td colspan="2"><center>%IMG%</center></td>
 </tr>
 <tr><td class="contrast"><p><b>Type:</b></p></td><td class="contrast"><p>%TYPE%</p></td></tr>
 <tr><td class="contrast"><p><b>Temperature:</b></p></td><td class="contrast"><p>%TEMP%</p></td></tr>
