@@ -27,9 +27,9 @@
       $tech = addslashes($_POST['tech']);
       $imp = addslashes($_POST['imp']);
       $exp = addslashes($_POST['exp']);
-      $misc = nl2br($_POST['misc']);
+      $misc = addslashes(nl2br($_POST['misc']));
       $query = "UPDATE planets SET name='$name', pic='$pic', type='$type', temp='$temp', atmo='$atmo', hydro='$hydro', gravity='$gravity', terrain='$terrain', day='$day', year='$year', species='$species', starport='$starport', pop='$pop', tech='$tech', imp='$imp', exp='$exp', misc='$misc' WHERE id=$id LIMIT 1";
-      echo "<p>$query</p>\n";
+
       if (mysql_query($query)) {
         echo "<p>The planet was successfully modified.</p>\n";
       } else {
