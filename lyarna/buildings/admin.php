@@ -12,14 +12,15 @@
     if (isset($_POST['add_building'])) { // Add a new building
       $bldg_type = $_POST['bldg_type'];
       $planet = $_POST['planet'];
-      $name = $_POST['name'];
-      $misc = nl2br($_POST['misc']);
+      $name = addslashes($_POST['name']);
+      $misc = addslashes(nl2br($_POST['misc']));
       $pic = $_POST['pic'];
-      $owner = $_POST['owner'];
-      $location = $_POST['location'];
-      $type = $_POST['type'];
+      $owner = addslashes($_POST['owner']);
+      $location = addslashes($_POST['location']);
+      $type = addslashes($_POST['type']);
       $arena = (isset($_POST['arena'])) ? $_POST['arena'] : 0;
       $add_query = "INSERT INTO $bldg_type VALUES (NULL, $planet, '$name', '$misc', '$pic', '$owner', '$location', '$type', $arena, 0, 0, 0)";
+     
       if (mysql_query($add_query)) {
         echo "<p>The building was successfully created.</p>\n";
       } else {
@@ -32,15 +33,16 @@
       $old_type = $_POST['old_type'];
       $bldg_type = $_POST['bldg_type'];
       $planet = $_POST['planet'];
-      $name = $_POST['name'];
-      $misc = nl2br($_POST['misc']);
+      $name = addslashes($_POST['name']);
+      $misc = addslashes(nl2br($_POST['misc']));
       $pic = $_POST['pic'];
-      $owner = $_POST['owner'];
-      $location = $_POST['location'];
-      $type = $_POST['type'];
+      $owner = addslashes($_POST['owner']);
+      $location = addslashes($_POST['location']);
+      $type = addslashes($_POST['type']);
       $arena = (isset($_POST['arena'])) ? $_POST['arena'] : 0;
       if ($bldg_type == $old_type) {
-        if (mysql_query("UPDATE $bldg_type SET planet=$planet, name='$name', misc='$misc', pic='$pic', owner='$owner', location='$location', type='$type', arena=$arena WHERE id=$id LIMIT 1")) {
+	      $sql = "UPDATE $bldg_type SET planet=$planet, name='$name', misc='$misc', pic='$pic', owner='$owner', location='$location', type='$type', arena=$arena WHERE id=$id LIMIT 1";
+        if (mysql_query($sql)) {
           echo "<p>The building was successfully modified.</p>\n";
         } else {
           echo "<p>An error occured modifying the building. Please <a href=\"http://bugs.thebhg.org/index.php?page=reportbug\" target=\"_blank\">report a bug</a>.</p>\n";

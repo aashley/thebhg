@@ -14,7 +14,7 @@ if (isset($_REQUEST['id'])) {
 
   $layout = file("layout.php");
   for ($i = 0; $i < sizeof($layout); $i++) {
-    $image = "<img class=\"icon\" src=\"images/".$planet_info['pic']."\" alt=\"".$planet_info['name']."\" />";
+    $image = "<img class=\"icon\" src=\"".$planet_info['pic']."\" alt=\"".$planet_info['name']."\" />";
     $layout[$i] = str_replace("%IMG%", $image, $layout[$i]);
     $layout[$i] = str_replace("%NAME%", $planet_info['name'], $layout[$i]);
     $layout[$i] = str_replace("%TYPE%", $planet_info['type'], $layout[$i]);

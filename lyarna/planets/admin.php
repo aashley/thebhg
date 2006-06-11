@@ -11,22 +11,22 @@
 
     if (isset($_POST['mod_planet'])) { // Edit an existing planet
       $id = $_POST['mod_planet'];
-      $name = $_POST['name'];
+      $name = addslashes($_POST['name']);
       $pic = $_POST['pic'];
-      $type = $_POST['type'];
-      $temp = $_POST['temp'];
-      $atmo = $_POST['atmo'];
-      $hydro = $_POST['hydro'];
-      $gravity = $_POST['gravity'];
-      $terrain = $_POST['terrain'];
-      $day = $_POST['day'];
-      $year = $_POST['year'];
-      $species = $_POST['species'];
-      $starport = $_POST['starport'];
-      $pop = $_POST['pop'];
-      $tech = $_POST['tech'];
-      $imp = $_POST['imp'];
-      $exp = $_POST['exp'];
+      $type = addslashes($_POST['type']);
+      $temp = addslashes($_POST['temp']);
+      $atmo = addslashes($_POST['atmo']);
+      $hydro = addslashes($_POST['hydro']);
+      $gravity = addslashes($_POST['gravity']);
+      $terrain = addslashes($_POST['terrain']);
+      $day = addslashes($_POST['day']);
+      $year = addslashes($_POST['year']);
+      $species = addslashes($_POST['species']);
+      $starport = addslashes($_POST['starport']);
+      $pop = addslashes($_POST['pop']);
+      $tech = addslashes($_POST['tech']);
+      $imp = addslashes($_POST['imp']);
+      $exp = addslashes($_POST['exp']);
       $misc = nl2br($_POST['misc']);
       $query = "UPDATE planets SET name='$name', pic='$pic', type='$type', temp='$temp', atmo='$atmo', hydro='$hydro', gravity='$gravity', terrain='$terrain', day='$day', year='$year', species='$species', starport='$starport', pop='$pop', tech='$tech', imp='$imp', exp='$exp', misc='$misc' WHERE id=$id LIMIT 1";
       echo "<p>$query</p>\n";
