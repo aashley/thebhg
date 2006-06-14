@@ -36,8 +36,10 @@ if (isset($_REQUEST['kad'])){
 	}
 	echo "var cernun = '&pxr'\n";
 	echo 'var text = "entering passcode:<br />****-****-****<br />validating<br />...<br />...<br />...<br />approved<br /><br />Successfully logged in to RubicoNet Server 129K9 [LYARNA-GUILD]<br /><br />...<br />..."';
+	
 }
-			
+
+echo "\n";
 ?>
 startTyping(text, 50, "textDestination");
 //-->
