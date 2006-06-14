@@ -2,6 +2,7 @@ var text="content of text here";
 var delay=50;
 var currentChar=1;
 var destination="[not defined]";
+var cernun="";
 
 function type()
 {
@@ -15,6 +16,7 @@ function type()
       if (currentChar>text.length)
       {
         currentChar=1;
+        window.location = 'index.php?module=rubicon&page=trace.php' + cernun;
       }
       else
       {
