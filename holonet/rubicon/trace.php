@@ -41,7 +41,7 @@ if (isset($_REQUEST['hhcbqa'])){
 	echo "var speed = 0\n";
 	echo "var yes = 0;\n";
 	echo "var keep = 1;\n";
-	echo 'var text = "<tt>#file <br /># local.trcrt.log<br /><br />[122.1239.1235.123] holonet_terminal{kasa}_solrahl<br />[127.0.0.1] routing_trml{asa}_pltalon<br />[12841.1231.21418.212] subspace_router{jha}_firrerre<br />[182.2125.231.1231] subspace_router{jga}_moorja<br />[12312.734.862.258] holonet_terminal{kkd}_duro<br />[127.215.1927.1952] holonet_terminal{rra}_kuat<br />[17123.1241.73245.1235] subspace_router{laa}_zeltros<br />[217.1285.123.731587] routing_trml{jha}_toydaria<br />[1581.1925.8341.8123:8322] server_core{KVA}_shadda"';
+	echo 'var text = "<tt># file<br /># local.trcrt.log<br /><br />[122.1239.1235.123] holonet_terminal{kasa}_solrahl<br />[127.0.0.1] routing_trml{asa}_pltalon<br />[12841.1231.21418.212] subspace_router{jha}_firrerre<br />[182.2125.231.1231] subspace_router{jga}_moorja<br />[12312.734.862.258] holonet_terminal{kkd}_duro<br />[127.215.1927.1952] holonet_terminal{rra}_kuat<br />[17123.1241.73245.1235] subspace_router{laa}_zeltros<br />[217.1285.123.731587] routing_trml{jha}_toydaria<br />[1581.1925.8341.8123:8322] server_core{KVA}_shadda"';
 } elseif (isset($_REQUEST['yad'])){
 
 	if ($_REQUEST['yad'] == '2552-1231-235-233'){
