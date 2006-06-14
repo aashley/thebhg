@@ -25,7 +25,9 @@ function type()
 		    	alert ("Your terminal hack has been spiked.");
 		    	alert ("Specialist has disabled terminal access for 30 minutes.");
 	    	}
-	    	window.location = '?module=holonet';
+	    	if (keep < 1){
+	    		window.location = '?module=holonet';
+    		}
     	}
       }
       else
