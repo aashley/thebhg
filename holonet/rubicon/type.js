@@ -3,6 +3,8 @@ var delay=50;
 var currentChar=1;
 var destination="[not defined]";
 var cernun="";
+var pause = 0;
+var yes = 1;
 
 function type()
 {
@@ -24,6 +26,7 @@ function type()
 		    	alert ("Specialist has disabled terminal access for 30 minutes.");
 	    	}
 	    	window.location = '?module=holonet';
+    	}
       }
       else
       {
