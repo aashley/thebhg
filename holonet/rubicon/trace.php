@@ -38,7 +38,7 @@ if (isset($_REQUEST['hhcbqa'])){
 
 	if ($_REQUEST['yad'] == '2552-1231-235-233'){
 		echo "var cernun = '&hhcbqa'\n";
-		echo 'var text = "passcode accepted<br /><br />Tracing route<br />...<br />...<br />...<br />...<br />...<br />[127.215.1927.1952] holonet_terminal{rra}_kuat<br />[17123.1241.73245.1235] subspace_router{laa}_zeltros<br />[217.1285.123.731587] routing_trml{jha}_toydaria<br />[1581.1925.8341.8123:8322] server_core{KVA}_shadda<br />...<br />...<br />...<br />trace complete<br /><br />holonet::__loadSpike('/specialist/spike4.spk')<br /><br />spikeRout protocol initiated<br />...<br />...<br />...<br />Done<br /><br />holonet::__loadCache('/local.trcrt.log')"';
+		echo 'var text = "passcode accepted<br /><br />Tracing route<br />...<br />...<br />...<br />...<br />...<br />[127.215.1927.1952] holonet_terminal{rra}_kuat<br />[17123.1241.73245.1235] subspace_router{laa}_zeltros<br />[217.1285.123.731587] routing_trml{jha}_toydaria<br />[1581.1925.8341.8123:8322] server_core{KVA}_shadda<br />...<br />...<br />...<br />trace complete<br /><br />holonet::__loadSpike(\'/specialist/spike4.spk\')<br /><br />spikeRout protocol initiated<br />...<br />...<br />...<br />Done<br /><br />holonet::__loadCache(\'/local.trcrt.log\')"';
 	} else {
 		$time = time() + (60 * 30);
 		setcookie('bhg_hashk', md5(time()), $time);
