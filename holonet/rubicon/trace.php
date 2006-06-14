@@ -13,12 +13,12 @@ function reject() {
 
 function output() {
 
-	if (isset($_COOKIE["bhg_hashk"])){
+	/*if (isset($_COOKIE["bhg_hashk"])){
 	
 		echo 'Cannot open terminal. Resource locked out by specialist for endangering guild holonet integrity.';
 		exit;
 		
-	}
+	}*/
 	
 	echo '<script language="javascript" type="text/javascript" src="/rubicon/type.js"></script>';
    
