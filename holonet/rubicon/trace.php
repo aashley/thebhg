@@ -20,6 +20,10 @@ function output() {
 		
 	}
 	
+	if (isset($_COOKIE['bhg_nhashafvasl'])){
+		$_REQUEST['hhcbqa'] = true;
+	}
+	
 	echo '<script language="javascript" type="text/javascript" src="/rubicon/type.js"></script>';
    
 	echo '<DIV style="width: 700; height: 500; background-color: black; color: green;" ID="textDestination"></DIV>';
@@ -33,6 +37,7 @@ var speed = 50;
 <?
 
 if (isset($_REQUEST['hhcbqa'])){
+	setcookie('bhg_nhashafvasl', md5(time()));
 	echo "var speed = 0\n";
 	echo "var yes = 0;\n";
 	echo "var keep = 1;\n";
