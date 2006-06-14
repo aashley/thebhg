@@ -15,7 +15,6 @@ function type()
       if (currentChar>text.length)
       {
         currentChar=1;
-        setTimeout("type()", 5000);
       }
       else
       {
