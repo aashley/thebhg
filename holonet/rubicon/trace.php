@@ -24,17 +24,17 @@ function output() {
 if (isset($_REQUEST['kad'])){
 	
 } elseif (isset($_REQUEST['pxr'])){
-	echo "var id=prompt('Please Enter Local Starting Point for Trace (xxxx)', ' ')";
-	echo "var cernun = '&kad=' + id";
+	echo "var id=prompt('Please Enter Local Starting Point for Trace (xxxx)', ' ')\n";
+	echo "var cernun = '&kad=' + id\n";
 	echo 'var text = "ping resolve on id beginning"';
 } else {
 	if (empty($_SERVER['PHP_AUTH_USER']) || strlen($_SERVER['PHP_AUTH_USER']) == 0)
 		reject();
 	else {
 		if ($_SERVER['PHP_AUTH_PW'] != 'K121-6234-AXJA' || $_SERVER['PHP_AUTH_USER'] != 'root')
-			echo $_SERVER['PHP_AUTH_PW'];
+			reject();
 	}
-	echo "var cernun = '&pxr'";
+	echo "var cernun = '&pxr'\n";
 	echo 'var text = "entering passcode:<br />****-****-****<br />validating<br />...<br />...<br />...<br />approved<br /><br />Successfully logged in to RubicoNet Server 129K9 [LYARNA-GUILD]<br /><br />...<br />..."';
 }
 			
