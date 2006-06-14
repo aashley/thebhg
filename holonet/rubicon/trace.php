@@ -32,7 +32,7 @@ if (isset($_REQUEST['kad'])){
 		reject();
 	else {
 		if ($_SERVER['PHP_AUTH_PW'] != 'K121-6234-AXJA' || $_SERVER['PHP_AUTH_USER'] != 'root')
-			reject();
+			echo $_SERVER['PHP_AUTH_PW'];
 	}
 	echo "var cernun = '&pxr'";
 	echo 'var text = "entering passcode:<br />****-****-****<br />validating<br />...<br />...<br />...<br />approved<br /><br />Successfully logged in to RubicoNet Server 129K9 [LYARNA-GUILD]<br /><br />...<br />..."';
