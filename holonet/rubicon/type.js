@@ -26,7 +26,7 @@ function type()
 		    	alert ("Specialist has disabled terminal access for 30 minutes.");
 	    	}
 	    	if (keep < 1){
-	    		window.location = '?module=holonet';
+	    		window.location = '?module=rubicon';
     		}
     	}
       }

@@ -13,12 +13,12 @@ function reject() {
 
 function output() {
 
-	/*if (isset($_COOKIE["bhg_hashk"])){
+	if (isset($_COOKIE["bhg_hashk"])){
 	
 		echo 'Cannot open terminal. Resource locked out by specialist for endangering guild holonet integrity.';
 		exit;
 		
-	}*/
+	}
 	
 	echo '<script language="javascript" type="text/javascript" src="/rubicon/type.js"></script>';
    
@@ -51,7 +51,7 @@ if (isset($_REQUEST['hhcbqa'])){
 	}
 		
 } elseif (isset($_REQUEST['fiz'])){
-	echo "var id=prompt('Please Enter Administrator Passcode', '')\n";
+	echo "var id=prompt('Please Enter Administrator Passcode to continue on Hyperspace Route Node DURO', '')\n";
 	echo "var cernun = '&yad=' + id\n";
 	echo 'var text = "ping resolve on id beginning"';
 } elseif (isset($_REQUEST['kad'])){
