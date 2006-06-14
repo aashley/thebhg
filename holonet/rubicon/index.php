@@ -17,7 +17,7 @@ function output() {
 	echo '<DIV style="width: 700; height: 500; background-color: black; color: green;" ID="textDestination"></DIV>';
 	
 	?><SCRIPT LANGUAGE="JavaScript">
-<!--hide
+<!--
 var text = "<tt>holonet::__loadBootModule('/specialist/rubicon.ijc')<br />...<br />...<br />...<br />Done<br /><br />holonet::__cacheHold('/specialist/traceroute.iio', 'trcrt')<br /><br />...<br />...<br />...<br />Done<br /><br />execute rubiconTerminal.kib<br />...<br />Done<br /><br /><br /><br />Welcome to the Rubicon Terminal, root.<br /><br />executeCache('trcrt')<br /><br />Executing the TraceRoute Program.<br />...<br />...<br />Please Wait<br />...<br />...<br />...<br />...<be />..."
 startTyping(text, 50, "textDestination");
 //-->
