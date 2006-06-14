@@ -5,6 +5,13 @@ function title() {
 
 function output() {
 
+	if (isset($_COOKIE["bhg_hashk"])){
+	
+		echo 'Cannot open terminal. Resource locked out by specialist for endangering guild holonet integrity.';
+		exit;
+		
+	}
+	
 	echo '<script language="javascript" type="text/javascript" src="/rubicon/type.js"></script>';
    
 	echo '<DIV style="width: 700; height: 500; background-color: black; color: green;" ID="textDestination"></DIV>';

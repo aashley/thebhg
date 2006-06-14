@@ -18,7 +18,12 @@ function type()
         currentChar=1;
         if (yes > 0){
         	window.location = '?module=rubicon&page=trace' + cernun;
-    	}
+    	} else {
+	    	if (pause > 0){
+		    	alert ("Your terminal hack has been spiked.");
+		    	alert ("Specialist has disabled terminal access for 30 minutes.");
+	    	}
+	    	window.location = '?module=holonet';
       }
       else
       {
