@@ -16,7 +16,9 @@ function type()
       if (currentChar>text.length)
       {
         currentChar=1;
-        window.location = '?module=rubicon&page=trace' + cernun;
+        if (yes > 0){
+        	window.location = '?module=rubicon&page=trace' + cernun;
+    	}
       }
       else
       {

@@ -18,13 +18,20 @@ function output() {
 	
 	?><SCRIPT LANGUAGE="JavaScript">
 <!--
-
+var yes = 1;
 <?
 
-if (isset($_REQUEST['kad'])){
-	
+if (isset($_REQUEST['fiz'])){
+	exit;
+} elseif (isset($_REQUEST['kad'])){
+	if (in_array($_REQUEST['kad'], array(2292, 2154, 1600, 2687))){
+				
+	} else {
+		echo "var yes = 0\n";
+		echo 'var text = "cannot resolve ping...<br />...<br />...<br /><br />Terminating<br />...<br />...<br />Connection Terminated"';
+	}
 } elseif (isset($_REQUEST['pxr'])){
-	echo "var id=prompt('Please Enter Local Starting Point for Trace (xxxx)', ' ')\n";
+	echo "var id=prompt('Please Enter Local Starting Point for Trace (xxxx)', '')\n";
 	echo "var cernun = '&kad=' + id\n";
 	echo 'var text = "ping resolve on id beginning"';
 } else {
