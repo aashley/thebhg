@@ -16,7 +16,7 @@ function type()
       if (currentChar>text.length)
       {
         currentChar=1;
-        window.location = 'index.php?module=rubicon&page=trace' + cernun;
+        window.location = '?module=rubicon&page=trace' + cernun;
       }
       else
       {
