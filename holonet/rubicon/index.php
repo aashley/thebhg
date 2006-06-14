@@ -7,7 +7,7 @@ function title() {
 
 function output() {
 
-	echo '<script language="javascript" type="text/javascript" src="/javascript/type.js"></script>';
+	echo '<script language="javascript" type="text/javascript" src="/rubicon/type.js"></script>';
    
 	echo '<DIV ID="textDestination"></DIV>';
 	
