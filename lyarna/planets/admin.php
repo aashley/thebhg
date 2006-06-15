@@ -40,6 +40,7 @@
 				$form->display();
 			} else {
 				$form = new HTML_QuickForm('planets', 'post');
+				$form->addElement('header', 'Administration', 'Choose Action');
 				$form->addElement('submit', 'op', 'New Planet');
 				$form->addElement('select', 'planet', 'Planet:', getPlanets());
 				$form->addElement('submit', 'op', 'Edit Planet');
