@@ -60,7 +60,7 @@
 		$form->addElement('text', 'return[owner]', 'Type', $txt);
 		$form->addElement('text', 'return[location]', 'Temperature', $txt);
 		$form->addElement('text', 'return[type]', 'Atmosphere', $txt);
-		$form->addElement('checkbox', 'return[arena]', 'Allow Arena?', '[x] Yes [ ] No');
+		$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
 		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
 		$form->addElement('hidden', 'op', $_REQUEST['op']);
 		$form->addElement('hidden', 'id', $_REQUEST['location']);
