@@ -33,7 +33,7 @@
 		    	
 		    	if (isset($_REQUEST['planet']) && $_REQUEST['op'] == 'Edit Planet'){
 			    	$planet = getPlanetForm($_REQUEST['planet']);
-			    	$display = 'Edit ' . $planet['name'];
+			    	$display = 'Edit ' . $planet['return[name]'];
 			    	
 			    	$form->setDefaults($planet);
 		    	}
