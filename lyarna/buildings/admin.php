@@ -53,7 +53,7 @@
 		
 		$txt = array('size' => 60);
 		$txta = array('rows' => 20, 'cols'=>50);
-		
+		print_r($planet);
 		$form->addElement('header', 'Planets', $display);
 		$form->addElement('text', 'return[name]', 'Planet Name', $txt);
 		$form->addElement('text', 'return[pic]', 'Image', $txt);
