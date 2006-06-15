@@ -47,7 +47,7 @@
 		if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
 	    	$planet = getLocationForm($_REQUEST['location']);
 	    	$display = 'Edit ' . $planet['return[name]'];
-	    	$planet['return[planet]'] = "7";
+	    	$planet['planet'] = 7;
 	    	$form->setDefaults($planet);
 		}
 		
@@ -60,7 +60,7 @@
 		$form->addElement('text', 'return[owner]', 'Owner', $txt);
 		$form->addElement('text', 'return[location]', 'Location', $txt);
 		$form->addElement('text', 'return[type]', 'Type', $txt);
-		$form->addElement('select', 'return[planet]', 'Planet:', getPlanets());
+		$form->addElement('select', 'planet', 'Planet:', getPlanets());
 		$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
 		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
 		$form->addElement('hidden', 'op', $_REQUEST['op']);
