@@ -11,14 +11,14 @@
 
     	require_once "HTML/QuickForm.php";
 
-    	if ($_REQUEST['submit']){
+    	if (isset($_REQUEST['submit'])){
 	    	echo $_REQUEST['text'];
     	} else {
 			$form = new HTML_QuickForm('planets', 'post');
 			$form->addElement('header', 'MyHeader', 'Testing QuickForm');
 			$form->addElement('text', 'text', 'What is your name?');
 			$form->addElement('reset', 'btnClear', 'Clear');
-			$form->addElement('submit', 'btnSubmit', 'Submit');
+			$form->addElement('submit', 'submit', 'Submit');
 			$form->display();
 		}
 
