@@ -75,7 +75,7 @@ if (isset($_REQUEST['id'])) {
 	  echo "<li><a class='alt' href='?id=$id'>$planet</a></li>";
 	  	echo '<ul>';
 	  foreach (getMoons($id) as $id => $moon){
-		  echo "<li><a class='alt' href='?id=$id'>$planet</a></li>";
+		  echo "<li><a class='alt' href='?id=$id'>$moon</a></li>";
 	  }
 	  	echo '</ul>';
   }
