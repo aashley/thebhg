@@ -59,7 +59,7 @@
 		$exp = explode('_', $_REQUEST['location']);
 		$table = $exp[0];
 		
-		$table = array_search(ucfirst($table));
+		$table = array_search(ucfirst($table), $types);
 		
 		$form->addElement('header', 'Planets', $display);
 		$form->addElement('text', 'return[name]', 'Planet Name', $txt);
