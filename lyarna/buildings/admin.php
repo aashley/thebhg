@@ -54,13 +54,16 @@
 		$txt = array('size' => 60);
 		$txta = array('rows' => 20, 'cols'=>50);
 
+		foreach (getPlanets() as $id => $name)
+			$planets["$id"] = "$name";
+		
 		$form->addElement('header', 'Planets', $display);
 		$form->addElement('text', 'return[name]', 'Planet Name', $txt);
 		$form->addElement('text', 'return[pic]', 'Image', $txt);
 		$form->addElement('text', 'return[owner]', 'Owner', $txt);
 		$form->addElement('text', 'return[location]', 'Location', $txt);
 		$form->addElement('text', 'return[type]', 'Type', $txt);
-		$form->addElement('select', 'planet', 'Planet:', getPlanets());
+		$form->addElement('select', 'planet', 'Planet:', $planets);
 		$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
 		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
 		$form->addElement('hidden', 'op', $_REQUEST['op']);
