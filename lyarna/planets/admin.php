@@ -24,32 +24,29 @@
 			    	$planet = getPlanet($_REQUEST['planet']);
 			    	$display = 'Edit ' . $planet['name'];
 			    	
-			    	$seed = array();
-			    	
-			    	print_r($planet);
-			    	
-			    	$form->setDefaults($seed);
+			    	$form->setDefaults($planet);
 		    	}
 		    	
 				$form->addElement('header', 'Planets', $display);
 				$form->addElement('text', 'name', 'Planet Name');
-				$form->addElement('text', 'image', 'Image');
+				$form->addElement('text', 'pic', 'Image');
 				$form->addElement('text', 'type', 'Type');
 				$form->addElement('text', 'temp', 'Temperature');
 				$form->addElement('text', 'atmo', 'Atmosphere');
 				$form->addElement('text', 'hydro', 'Hydrosphere');
-				$form->addElement('text', 'type', 'Gravity');
+				$form->addElement('text', 'gravity', 'Gravity');
 				$form->addElement('text', 'terrain', 'Terrain');
-				$form->addElement('text', 'rotate', 'Rotational Period');
-				$form->addElement('text', 'orbit', 'Orbital Period');
-				$form->addElement('text', 'indiginous', 'Sapient Species');
-				$form->addElement('text', 'hydro', 'Starport');
+				$form->addElement('text', 'day', 'Rotational Period');
+				$form->addElement('text', 'year', 'Orbital Period');
+				$form->addElement('text', 'species', 'Sapient Species');
+				$form->addElement('text', 'starport', 'Starport');
 				$form->addElement('text', 'pop', 'Population');
 				$form->addElement('text', 'tech', 'Tech Level');
-				$form->addElement('text', 'imports', 'Major Imports');
-				$form->addElement('text', 'exports', 'Major Exports');
-				$form->addElement('textarea', 'description', 'Description');
+				$form->addElement('text', 'imp', 'Major Imports');
+				$form->addElement('text', 'exp', 'Major Exports');
+				$form->addElement('textarea', 'misc', 'Description');
 				$form->addElement('hidden', 'operation', $_REQUEST['op']);
+				$form->addElement('hidden', 'id', $_REQUEST['planet']);
 				//$form->addElement('reset', 'btnClear', 'Clear');
 				$form->addElement('submit', 'submit', 'Submit');
 				$form->display();

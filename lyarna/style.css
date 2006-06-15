@@ -22,6 +22,12 @@ select {
 	color: black;
 	background-color: #666;
 }
+textarea {
+	font-size: x-small;
+	border: 0;
+	color: black;
+	background-color: #666;
+}
 p {
   color: rgb(0,0,0);
   font-size: x-small;
