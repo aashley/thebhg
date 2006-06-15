@@ -15,8 +15,8 @@
 	    	echo $_REQUEST['text'];
     	} else {
 			$form = new HTML_QuickForm('planets', 'post');
-			$form->addElement('header', 'MyHeader', 'Testing QuickForm');
-			$form->addElement('text', 'text', 'What is your name?');
+			$form->addElement('header', 'Planets', 'Create New Planet');
+			$form->addElement('text', 'name', 'Planet Name', 'testname', 'testname');
 			$form->addElement('reset', 'btnClear', 'Clear');
 			$form->addElement('submit', 'submit', 'Submit');
 			$form->display();
