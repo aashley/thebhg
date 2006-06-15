@@ -16,7 +16,7 @@
 		    	$array = array();
 		    	
 		    	foreach ($_REQUEST['return'] as $name => $value)
-		    		$array[$name] = addslashes($value);
+		    		$array[] = "`$name` = '" . addslashes($value) . "'";
 		    		
 		    	if (updatePlanet($_REQUEST['id'], $array))
 		    		echo $array['name'] . ' edited successfully.';
