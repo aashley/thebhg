@@ -61,7 +61,7 @@
 		$form->addElement('text', 'return[location]', 'Location', $txt);
 		$form->addElement('text', 'return[type]', 'Type', $txt);
 		$pnet = $form->addElement('select', 'return[planet]', 'Planet:', getPlanets());
-		print_r($pnet);
+		$pnet->setSelected($planet['return[planet]']);
 		$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
 		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
 		$form->addElement('hidden', 'op', $_REQUEST['op']);
