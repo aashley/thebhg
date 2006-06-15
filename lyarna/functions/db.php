@@ -18,7 +18,7 @@
 	
 	
 	/** Get planet */
-	function getPlanetForm($id){
+	function getPlanet($id){
 		$sql = "SELECT * FROM planets WHERE `id` = '$id'";
 		$query = mysql_query($sql, $GLOBALS['db']);
 		$info = mysql_fetch_assoc($query);
