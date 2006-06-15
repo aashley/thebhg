@@ -21,6 +21,56 @@
 		return $return;
 	}
 	
+	function getLocations(){
+		$tables = array('complex', 'estate', 'hq', 'other', 'personal');
+		$return = array();
+		foreach ($tables as $table){
+			$sql = "SELECT * FROM `$table` ORDER BY `name` ASC";
+			$query = mysql_query($sql, $GLOBALS['db']);
+			
+			while ($info = mysql_fetch_assoc($query)){
+				$planet = getPlanet($info['planet']);
+				$return[$table.'_'.$info['id']] = $planet['name'].': '.stripslashes($info['name']);
+			}
+		}
+		
+		asort($return);
+		
+		return $return;		
+	}
+	
+	/** Get planet */
+	function getLocation($id){
+		$exp = explode('_', $id);
+		$id = $exp[1];
+		$table = $exp[0];
+		$sql = "SELECT * FROM $table WHERE `id` = '$id'";
+		$query = mysql_query($sql, $GLOBALS['db']);
+		$info = mysql_fetch_assoc($query);
+		$return = array();
+		
+		foreach ($info as $name => $value)
+			$return[$name] = stripslashes($value);
+			
+		return $return;
+	}
+	
+	/** Get planet for Form */
+	function getPlanetForm($id){
+		$exp = explode('_', $id);
+		$id = $exp[1];
+		$table = $exp[0];
+		$sql = "SELECT * FROM $table WHERE `id` = '$id'";
+		$query = mysql_query($sql, $GLOBALS['db']);
+		$info = mysql_fetch_assoc($query);
+		$return = array();
+		
+		foreach ($info as $name => $value)
+			$return['return['.$name.']'] = stripslashes($value);
+			
+		return $return;
+	}
+	
 	/** Get moons */
 	function getMoons($id){
 		$sql = "SELECT * FROM moon WHERE `planet` = $id";
@@ -78,6 +128,15 @@
 	
 	function updatePlanet($id, $array){
 		$sql = "UPDATE `planets` SET ".implode(', ', $array)." WHERE `id` = '$id'";
+		
+		return mysql_query($sql, $GLOBALS['db']);		
+	}
+	
+	function updateLocation($id, $array){
+		$exp = explode('_', $id);
+		$id = $exp[1];
+		$table = $exp[0];
+		$sql = "UPDATE `$table` SET ".implode(', ', $array)." WHERE `id` = '$id'";
 		
 		return mysql_query($sql, $GLOBALS['db']);		
 	}

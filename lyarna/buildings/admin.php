@@ -9,6 +9,82 @@
     include("../functions/db.php");
     include("../header.php");
 
+    require_once "HTML/QuickForm.php";
+
+	if (isset($_REQUEST['submit'])){
+    	if ($_REQUEST['op'] == 'Edit Location'){
+	    	$array = array();
+	    	
+	    	foreach ($_REQUEST['return'] as $name => $value)
+	    		$array[] = "`$name` = '" . addslashes($value) . "'";
+	    		
+	    	if (updatePlanet($_REQUEST['id'], $array))
+	    		echo $_REQUEST['return']['name'] . ' edited successfully.';
+	    	else
+	    		echo 'Error updating location: ' . mysql_error($GLOBALS['db']);
+	    	
+    	} elseif ($_REQUEST['op'] == 'New Planet'){
+	    	$array = array();
+	    	$values = array();
+	    	
+	    	foreach ($_REQUEST['return'] as $name => $value){
+	    		$array[] = "'" . addslashes($value) . "'";
+	    		$values[] = "`$name`";
+    		}
+	    		
+	    	if (createPlanet($values, $array))
+	    		echo $_REQUEST['return']['name'] . ' created successfully.';
+	    	else
+	    		echo 'Error creating planet: ' . mysql_error($GLOBALS['db']);
+    	}
+	}
+    
+    if (isset($_REQUEST['op']) && !isset($_REQUEST['submit'])){
+    
+	    $form = new HTML_QuickForm('locations', 'post');	
+		$display = 'Create New Location';
+		
+		if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
+	    	$planet = getLocationForm($_REQUEST['location']);
+	    	$display = 'Edit ' . $planet['return[name]'];
+	    	
+	    	$form->setDefaults($planet);
+		}
+		
+		$txt = array('size' => 60);
+		$txta = array('rows' => 20, 'cols'=>50);
+		
+		$form->addElement('header', 'Planets', $display);
+		$form->addElement('text', 'return[name]', 'Planet Name', $txt);
+		$form->addElement('text', 'return[pic]', 'Image', $txt);
+		$form->addElement('text', 'return[owner]', 'Type', $txt);
+		$form->addElement('text', 'return[location]', 'Temperature', $txt);
+		$form->addElement('text', 'return[type]', 'Atmosphere', $txt);
+		$form->addElement('checkbox', 'return[arena]', 'Allow Arena?', '[x] Yes [ ] No');
+		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
+		$form->addElement('hidden', 'op', $_REQUEST['op']);
+		$form->addElement('hidden', 'id', $_REQUEST['location']);
+		//$form->addElement('reset', 'btnClear', 'Clear');
+		$form->addElement('submit', 'submit', 'Submit');
+		
+	
+		$form->display();
+		
+	}
+	
+	echo '<hr noshade />';
+	$form = new HTML_QuickForm('locations', 'post');
+	$form->addElement('header', 'Administration', 'Choose Action');
+	$form->addElement('submit', 'op', 'New Location');
+	$form->addElement('select', 'location', 'Location:', getLocations());
+	$form->addElement('submit', 'op', 'Edit Location');
+	$form->display();
+    
+    exit;
+    
+    
+    
+    
     if (isset($_POST['add_building'])) { // Add a new building
       $bldg_type = $_POST['bldg_type'];
       $planet = $_POST['planet'];
