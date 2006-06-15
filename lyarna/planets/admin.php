@@ -16,8 +16,11 @@
     	} else {
 			$form = new HTML_QuickForm('planets', 'post');
 			$form->addElement('header', 'Planets', 'Create New Planet');
-			$form->addElement('text', 'name', 'Planet Name', 'testname', 'testname');
-			$form->addElement('reset', 'btnClear', 'Clear');
+			$form->addElement('text', 'name', 'Planet Name');
+			$form->setDefaults(array(
+			    'name' => 'Planet Name';
+			));
+			//$form->addElement('reset', 'btnClear', 'Clear');
 			$form->addElement('submit', 'submit', 'Submit');
 			$form->display();
 		}
