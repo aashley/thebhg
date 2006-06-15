@@ -24,58 +24,58 @@
 		    		echo 'Error updating planet: ' . mysql_error($GLOBALS['db']);
 		    	
 	    	}
-    	} else {
-	    	if (isset($_REQUEST['op'])){
+    	}
+    	
+    	if (isset($_REQUEST['op']) && !isset($_REQUEST['submit'])){
+	    	
+	    	$form = new HTML_QuickForm('planets', 'post');
+	    	
+	    	$display = 'Create New Planet';
+	    	
+	    	if (isset($_REQUEST['planet']) && $_REQUEST['op'] == 'Edit Planet'){
+		    	$planet = getPlanetForm($_REQUEST['planet']);
+		    	$display = 'Edit ' . $planet['return[name]'];
 		    	
-		    	$form = new HTML_QuickForm('planets', 'post');
-		    	
-		    	$display = 'Create New Planet';
-		    	
-		    	if (isset($_REQUEST['planet']) && $_REQUEST['op'] == 'Edit Planet'){
-			    	$planet = getPlanetForm($_REQUEST['planet']);
-			    	$display = 'Edit ' . $planet['return[name]'];
-			    	
-			    	$form->setDefaults($planet);
-		    	}
-		    	
-		    	$txt = array('size' => 60);
-		    	$txta = array('rows' => 20, 'cols'=>50);
-		    	
-				$form->addElement('header', 'Planets', $display);
-				$form->addElement('text', 'return[name]', 'Planet Name', $txt);
-				$form->addElement('text', 'return[pic]', 'Image', $txt);
-				$form->addElement('text', 'return[type]', 'Type', $txt);
-				$form->addElement('text', 'return[temp]', 'Temperature', $txt);
-				$form->addElement('text', 'return[atmo]', 'Atmosphere', $txt);
-				$form->addElement('text', 'return[hydro]', 'Hydrosphere', $txt);
-				$form->addElement('text', 'return[gravity]', 'Gravity', $txt);
-				$form->addElement('text', 'return[terrain]', 'Terrain', $txt);
-				$form->addElement('text', 'return[day]', '<a href=# title="Interger only, number of hours">Rotational Period</a>', $txt);
-				$form->addElement('text', 'return[year]', '<a href=# title="Interger only, number of days">Orbital Period</a>', $txt);
-				$form->addElement('text', 'return[species]', 'Sapient Species', $txt);
-				$form->addElement('text', 'return[starport]', 'Starport', $txt);
-				$form->addElement('text', 'return[pop]', 'Population', $txt);
-				$form->addElement('text', 'return[tech]', 'Tech Level', $txt);
-				$form->addElement('text', 'return[imp]', 'Major Imports', $txt);
-				$form->addElement('text', 'return[exp]', 'Major Exports', $txt);
-				$form->addElement('textarea', 'return[misc]', 'Description', $txta);
-				$form->addElement('hidden', 'op', $_REQUEST['op']);
-				$form->addElement('hidden', 'id', $_REQUEST['planet']);
-				//$form->addElement('reset', 'btnClear', 'Clear');
-				$form->addElement('submit', 'submit', 'Submit');
-				
-
-				$form->display();
-			}
+		    	$form->setDefaults($planet);
+	    	}
+	    	
+	    	$txt = array('size' => 60);
+	    	$txta = array('rows' => 20, 'cols'=>50);
+	    	
+			$form->addElement('header', 'Planets', $display);
+			$form->addElement('text', 'return[name]', 'Planet Name', $txt);
+			$form->addElement('text', 'return[pic]', 'Image', $txt);
+			$form->addElement('text', 'return[type]', 'Type', $txt);
+			$form->addElement('text', 'return[temp]', 'Temperature', $txt);
+			$form->addElement('text', 'return[atmo]', 'Atmosphere', $txt);
+			$form->addElement('text', 'return[hydro]', 'Hydrosphere', $txt);
+			$form->addElement('text', 'return[gravity]', 'Gravity', $txt);
+			$form->addElement('text', 'return[terrain]', 'Terrain', $txt);
+			$form->addElement('text', 'return[day]', '<a href=# title="Interger only, number of hours">Rotational Period</a>', $txt);
+			$form->addElement('text', 'return[year]', '<a href=# title="Interger only, number of days">Orbital Period</a>', $txt);
+			$form->addElement('text', 'return[species]', 'Sapient Species', $txt);
+			$form->addElement('text', 'return[starport]', 'Starport', $txt);
+			$form->addElement('text', 'return[pop]', 'Population', $txt);
+			$form->addElement('text', 'return[tech]', 'Tech Level', $txt);
+			$form->addElement('text', 'return[imp]', 'Major Imports', $txt);
+			$form->addElement('text', 'return[exp]', 'Major Exports', $txt);
+			$form->addElement('textarea', 'return[misc]', 'Description', $txta);
+			$form->addElement('hidden', 'op', $_REQUEST['op']);
+			$form->addElement('hidden', 'id', $_REQUEST['planet']);
+			//$form->addElement('reset', 'btnClear', 'Clear');
+			$form->addElement('submit', 'submit', 'Submit');
 			
-			echo '<hr noshade />';
-			$form = new HTML_QuickForm('planets', 'post');
-			$form->addElement('header', 'Administration', 'Choose Action');
-			$form->addElement('submit', 'op', 'New Planet');
-			$form->addElement('select', 'planet', 'Planet:', getPlanets());
-			$form->addElement('submit', 'op', 'Edit Planet');
+
 			$form->display();
 		}
+		
+		echo '<hr noshade />';
+		$form = new HTML_QuickForm('planets', 'post');
+		$form->addElement('header', 'Administration', 'Choose Action');
+		$form->addElement('submit', 'op', 'New Planet');
+		$form->addElement('select', 'planet', 'Planet:', getPlanets());
+		$form->addElement('submit', 'op', 'Edit Planet');
+		$form->display();
 
     exit;
     
