@@ -21,6 +21,20 @@
 		return $return;
 	}
 	
+	/** Get moons */
+	function getMoons($id){
+		$sql = "SELECT * FROM moon WHERE `planet` = $id";
+		$query = mysql_query($sql, $GLOBALS['db']);
+		$return = array();
+		
+		while ($info = mysql_fetch_assoc($query)){
+			$moon = getPlanet($info['moon']);
+			$return[$info['moon']] = $moon['name'];
+		}
+			
+		return $return;
+	}
+	
 	/** Declare Moon */
 	function makeMoon($planet, $moon){
 		$sql = "INSERT INTO `moon` (`moon`, `planet`) VALUES ('$moon', '$planet')";
