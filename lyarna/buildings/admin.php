@@ -54,10 +54,12 @@
 		$txt = array('size' => 60);
 		$txta = array('rows' => 20, 'cols'=>50);
 		
-		$types = array('complex', 'estate', 'hq', 'other', 'personal');
+		$types = array('Complex', 'Estate', 'Hq', 'Other', 'Personal');
 		
 		$exp = explode('_', $_REQUEST['location']);
 		$table = $exp[0];
+		
+		$table = array_search(ucfirst($table));
 		
 		$form->addElement('header', 'Planets', $display);
 		$form->addElement('text', 'return[name]', 'Planet Name', $txt);
