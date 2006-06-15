@@ -10,6 +10,9 @@ body.frame {
 table {
 	font-size: x-small;
 }
+td {
+	background-color: #aaa;
+}
 input {
 	font-size: x-small;
 	border: 0;
