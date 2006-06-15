@@ -47,13 +47,13 @@
 		if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
 	    	$planet = getLocationForm($_REQUEST['location']);
 	    	$display = 'Edit ' . $planet['return[name]'];
-	    	
+	    	$planet['return[planet]'] = 7;
 	    	$form->setDefaults($planet);
 		}
 		
 		$txt = array('size' => 60);
 		$txta = array('rows' => 20, 'cols'=>50);
-		print_r($planet);
+
 		$form->addElement('header', 'Planets', $display);
 		$form->addElement('text', 'return[name]', 'Planet Name', $txt);
 		$form->addElement('text', 'return[pic]', 'Image', $txt);
