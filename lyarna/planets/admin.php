@@ -18,7 +18,7 @@
 			$form->addElement('header', 'Planets', 'Create New Planet');
 			$form->addElement('text', 'name', 'Planet Name');
 			$form->setDefaults(array(
-			    'name' => 'Planet Name';
+			    'name' => 'Planet Name'
 			));
 			//$form->addElement('reset', 'btnClear', 'Clear');
 			$form->addElement('submit', 'submit', 'Submit');
