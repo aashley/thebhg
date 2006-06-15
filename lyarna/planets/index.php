@@ -67,13 +67,17 @@ if (isset($_REQUEST['id'])) {
   echo "<tr><td class=\"contrast\"><p><b>Star:</b></p></td><td class=\"contrast\"><p>Zahnis</p></td></tr>\n";
   echo "<tr><td class=\"contrast\"><p><b>Government:</b></p></td><td class=\"contrast\"><p><a class=\"alt\" href=\"http://www.thebhg.org/\" target=\"_blank\">The Bounty Hunters Guild</a></p></td></tr>\n";
   echo "<tr><td class=\"contrast\"><p><b>Governing Body:</b></p></td><td class=\"contrast\"><p>BHG Commission</p></td></tr>\n";
-  echo "<tr><td class=\"contrast\"><p><b>Total Population:</b></p></td><td class=\"contrast\"><p>Approx. 500,628,600</p></td></tr>\n";
+  echo "<tr><td class=\"contrast\"><p><b>Total Population:</b></p></td><td class=\"contrast\"><p>Approx. 628,628,600</p></td></tr>\n";
   echo "<tr>\n";
   echo "<td class=\"contrast\"><p><b>Planets:</b></p></td>\n";
   echo "<td class=\"contrast\"><ul>\n";
-  $planets = mysql_query("SELECT id, name FROM planets");
-  while ($planet_info = mysql_fetch_array($planets, MYSQL_ASSOC)) {
-    echo "<li><a class=\"alt\" href=\"?id=".$planet_info['id']."\">".$planet_info['name']."</a></li>\n";
+  foreach (getPlanets(1) as $id => $planet){
+	  echo "<li><a class='alt' href='?id=$id'>$planet</a></li>";
+	  	echo '<ul>';
+	  foreach (getMoons($id) as $id => $moon){
+		  echo "<li><a class='alt' href='?id=$id'>$planet</a></li>";
+	  }
+	  	echo '</ul>';
   }
   echo "</ul></td>\n";
   echo "</tr>\n";
