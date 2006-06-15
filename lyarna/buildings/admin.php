@@ -54,6 +54,11 @@
 		$txt = array('size' => 60);
 		$txta = array('rows' => 20, 'cols'=>50);
 		
+		$types = array('complex', 'estate', 'hq', 'other', 'personal');
+		
+		$exp = explode('_', $_REQUEST['location']);
+		$table = $exp[0];
+		
 		$form->addElement('header', 'Planets', $display);
 		$form->addElement('text', 'return[name]', 'Planet Name', $txt);
 		$form->addElement('text', 'return[pic]', 'Image', $txt);
@@ -61,6 +66,7 @@
 		$form->addElement('text', 'return[location]', 'Location', $txt);
 		$form->addElement('text', 'return[type]', 'Type', $txt);
 		$form->addElement('select', 'return[planet]', 'Planet:', getPlanets())->setSelected($planet['return[planet]']);
+		$form->addElement('select', 'type', 'Location Type:', $types)->setSelected($table);
 		$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
 		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
 		$form->addElement('hidden', 'op', $_REQUEST['op']);
