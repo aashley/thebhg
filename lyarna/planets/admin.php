@@ -51,7 +51,9 @@
 				$form->addElement('text', 'return[gravity]', 'Gravity', $txt);
 				$form->addElement('text', 'return[terrain]', 'Terrain', $txt);
 				$form->addElement('text', 'return[day]', '<a href=# title="Interger only, number of hours">Rotational Period</a>', $txt);
+				$form->addRule('return[day]', 'Rotational Period must be an Interger, and the number of hours it takes to complete a rotation.', 'numeric');
 				$form->addElement('text', 'return[year]', '<a href=# title="Interger only, number of days">Orbital Period</a>', $txt);
+				$form->addRule('return[year]', 'Orbital Period must be an Interger, and the number of days it takes to complete a rotation.', 'numeric');
 				$form->addElement('text', 'return[species]', 'Sapient Species', $txt);
 				$form->addElement('text', 'return[starport]', 'Starport', $txt);
 				$form->addElement('text', 'return[pop]', 'Population', $txt);
@@ -63,6 +65,11 @@
 				$form->addElement('hidden', 'id', $_REQUEST['planet']);
 				//$form->addElement('reset', 'btnClear', 'Clear');
 				$form->addElement('submit', 'submit', 'Submit');
+				
+				if ($form->validate()) {
+					# If the form validates then freeze the data
+					$form->freeze();
+				}
 				$form->display();
 			}
 			
