@@ -27,24 +27,27 @@
 			    	$form->setDefaults($planet);
 		    	}
 		    	
+		    	$txt = array('size' => 60);
+		    	$txta = array('rows' => 20, 'cols'=>50);
+		    	
 				$form->addElement('header', 'Planets', $display);
-				$form->addElement('text', 'name', 'Planet Name');
-				$form->addElement('text', 'pic', 'Image');
-				$form->addElement('text', 'type', 'Type');
-				$form->addElement('text', 'temp', 'Temperature');
-				$form->addElement('text', 'atmo', 'Atmosphere');
-				$form->addElement('text', 'hydro', 'Hydrosphere');
-				$form->addElement('text', 'gravity', 'Gravity');
-				$form->addElement('text', 'terrain', 'Terrain');
-				$form->addElement('text', 'day', 'Rotational Period');
-				$form->addElement('text', 'year', 'Orbital Period');
-				$form->addElement('text', 'species', 'Sapient Species');
-				$form->addElement('text', 'starport', 'Starport');
-				$form->addElement('text', 'pop', 'Population');
-				$form->addElement('text', 'tech', 'Tech Level');
-				$form->addElement('text', 'imp', 'Major Imports');
-				$form->addElement('text', 'exp', 'Major Exports');
-				$form->addElement('textarea', 'misc', 'Description');
+				$form->addElement('text', 'name', 'Planet Name', $txt);
+				$form->addElement('text', 'pic', 'Image', $txt);
+				$form->addElement('text', 'type', 'Type', $txt);
+				$form->addElement('text', 'temp', 'Temperature', $txt);
+				$form->addElement('text', 'atmo', 'Atmosphere', $txt);
+				$form->addElement('text', 'hydro', 'Hydrosphere', $txt);
+				$form->addElement('text', 'gravity', 'Gravity', $txt);
+				$form->addElement('text', 'terrain', 'Terrain', $txt);
+				$form->addElement('text', 'day', 'Rotational Period', $txt);
+				$form->addElement('text', 'year', 'Orbital Period', $txt);
+				$form->addElement('text', 'species', 'Sapient Species', $txt);
+				$form->addElement('text', 'starport', 'Starport', $txt);
+				$form->addElement('text', 'pop', 'Population', $txt);
+				$form->addElement('text', 'tech', 'Tech Level', $txt);
+				$form->addElement('text', 'imp', 'Major Imports', $txt);
+				$form->addElement('text', 'exp', 'Major Exports', $txt);
+				$form->addElement('textarea', 'misc', 'Description', $txta);
 				$form->addElement('hidden', 'operation', $_REQUEST['op']);
 				$form->addElement('hidden', 'id', $_REQUEST['planet']);
 				//$form->addElement('reset', 'btnClear', 'Clear');
