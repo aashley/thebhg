@@ -50,8 +50,8 @@
 				$form->addElement('text', 'return[hydro]', 'Hydrosphere', $txt);
 				$form->addElement('text', 'return[gravity]', 'Gravity', $txt);
 				$form->addElement('text', 'return[terrain]', 'Terrain', $txt);
-				$form->addElement('text', 'return[day]', '<a href="" title="Interger only, number of hours">Rotational Period</a>', $txt);
-				$form->addElement('text', 'return[year]', '<a href="" title="Interger only, number of days">Orbital Period</a>', $txt);
+				$form->addElement('text', 'return[day]', '<a href=# title="Interger only, number of hours">Rotational Period</a>', $txt);
+				$form->addElement('text', 'return[year]', '<a href=# title="Interger only, number of days">Orbital Period</a>', $txt);
 				$form->addElement('text', 'return[species]', 'Sapient Species', $txt);
 				$form->addElement('text', 'return[starport]', 'Starport', $txt);
 				$form->addElement('text', 'return[pop]', 'Population', $txt);
