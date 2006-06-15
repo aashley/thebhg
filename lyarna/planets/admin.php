@@ -1,14 +1,28 @@
 <?php
 
-  $pagename = "Planets Admin";
-
-  include("../functions/auth.php");
+	$pagename = "Planets Admin";
+	
+	include("../functions/auth.php");
   
-  if ($is_authorised) {
+	 if ($is_authorised) {
 
-    include("../functions/db.php");
-    include("../header.php");
+	    include("../functions/db.php");
+	    include("../header.php");
 
+    	require_once "HTML/QuickForm.php";
+
+		$form = new HTML_QuickForm('planets', 'post');
+		$form->addElement('header', 'MyHeader', 'Testing QuickForm');
+		$form->addElement('text', 'MyTextBox', 'What is your name?');
+		$form->addElement('reset', 'btnClear', 'Clear');
+		$form->addElement('submit', 'btnSubmit', 'Submit');
+		$form->display();
+
+    exit;
+    
+    
+    
+    
     if (isset($_POST['mod_planet'])) { // Edit an existing planet
       $id = $_POST['mod_planet'];
       $name = addslashes($_POST['name']);
