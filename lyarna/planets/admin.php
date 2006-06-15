@@ -14,15 +14,37 @@
     	if (isset($_REQUEST['submit'])){
 	    	echo $_REQUEST['text'];
     	} else {
-			$form = new HTML_QuickForm('planets', 'post');
-			$form->addElement('header', 'Planets', 'Create New Planet');
-			$form->addElement('text', 'name', 'Planet Name');
-			$form->setDefaults(array(
-			    'name' => 'Planet Name'
-			));
-			//$form->addElement('reset', 'btnClear', 'Clear');
-			$form->addElement('submit', 'submit', 'Submit');
-			$form->display();
+	    	if ($_REQUEST['op']){
+				$form = new HTML_QuickForm('planets', 'post');
+				$form->addElement('header', 'Planets', 'Create New Planet');
+				$form->addElement('text', 'name', 'Planet Name');
+				$form->addElement('text', 'image', 'Image');
+				$form->addElement('text', 'type', 'Type');
+				$form->addElement('text', 'temp', 'Temperature');
+				$form->addElement('text', 'atmo', 'Atmosphere');
+				$form->addElement('text', 'hydro', 'Hydrosphere');
+				$form->addElement('text', 'type', 'Gravity');
+				$form->addElement('text', 'terrain', 'Terrain');
+				$form->addElement('text', 'rotate', 'Rotational Period');
+				$form->addElement('text', 'orbit', 'Orbital Period');
+				$form->addElement('text', 'indiginous', 'Sapient Species');
+				$form->addElement('text', 'hydro', 'Starport');
+				$form->addElement('text', 'pop', 'Population');
+				$form->addElement('text', 'tech', 'Tech Level');
+				$form->addElement('text', 'imports', 'Major Imports');
+				$form->addElement('text', 'exports', 'Major Exports');
+				$form->addElement('textarea', 'description', 'Description');
+				$form->addElement('hidden', 'operation', $_REQUEST['op']);
+				//$form->addElement('reset', 'btnClear', 'Clear');
+				$form->addElement('submit', 'submit', 'Submit');
+				$form->display();
+			} else {
+				$form = new HTML_QuickForm('planets', 'post');
+				$form->addElement('submit', 'op', 'New Planet');
+				$form->addElement('select', 'planet', 'Planet:', getPlanets());
+				$form->addElement('submit', 'op', 'Edit Planet');
+				$form->display();
+			}
 		}
 
     exit;
