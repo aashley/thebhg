@@ -63,7 +63,7 @@ if (isset($_REQUEST['id'])) {
 } else {
 
   echo "<table align=\"center\">\n";
-  echo "<tr><th colspan=\"2\"><img src=\"../images/lyarna.jpg\" alt=\"The Lyarna System\" /></th></tr>\n";
+  echo "<tr><th colspan=\"2\"><img src=\"http://specialist.thebhg.org/images/lyarna/lyarna.jpg\" alt=\"The Lyarna System\" /></th></tr>\n";
   echo "<tr><td class=\"contrast\"><p><b>Star:</b></p></td><td class=\"contrast\"><p>Zahnis</p></td></tr>\n";
   echo "<tr><td class=\"contrast\"><p><b>Government:</b></p></td><td class=\"contrast\"><p><a class=\"alt\" href=\"http://www.thebhg.org/\" target=\"_blank\">The Bounty Hunters Guild</a></p></td></tr>\n";
   echo "<tr><td class=\"contrast\"><p><b>Governing Body:</b></p></td><td class=\"contrast\"><p>BHG Commission</p></td></tr>\n";
