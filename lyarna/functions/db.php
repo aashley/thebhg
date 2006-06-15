@@ -16,6 +16,7 @@
 					continue;
 			}
 			$return[$info['id']] = ($saymoon ? (isMoon($info['id']) ? 'Satellite: ' : '') : '').stripslashes($info['name']);
+		}
 			
 		return $return;
 	}
