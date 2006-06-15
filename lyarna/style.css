@@ -10,8 +10,11 @@ body.frame {
 table {
 	font-size: x-small;
 }
-form {
+input {
 	font-size: x-small;
+	border: 0;
+	color: black;
+	background-color: #666;
 }
 p {
   color: rgb(0,0,0);
