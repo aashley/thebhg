@@ -19,7 +19,7 @@
 		    		$array[] = "`$name` = '" . addslashes($value) . "'";
 		    		
 		    	if (updatePlanet($_REQUEST['id'], $array))
-		    		echo $array['name'] . ' edited successfully.';
+		    		echo $_REQUEST['return']['name'] . ' edited successfully.';
 		    	else
 		    		echo 'Error updating planet: ' . mysql_error($GLOBALS['db']);
 		    	
