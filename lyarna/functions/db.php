@@ -48,5 +48,11 @@
 		
 		return mysql_query($sql, $GLOBALS['db']);		
 	}
+	
+	function createPlanet($values, $array){
+		$sql = "INSERT INTO `planets` (".implode(', ', $values).") VALUES (".implode(', ', $array).")";
+		
+		return mysql_query($sql, $GLOBALS['db']);
+	}
   
 ?>

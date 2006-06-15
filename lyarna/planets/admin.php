@@ -23,6 +23,19 @@
 		    	else
 		    		echo 'Error updating planet: ' . mysql_error($GLOBALS['db']);
 		    	
+	    	} elseif ($_REQUEST['op'] == 'New Planet'){
+		    	$array = array();
+		    	$values = array();
+		    	
+		    	foreach ($_REQUEST['return'] as $name => $value){
+		    		$array[] = "'" . addslashes($value) . "'";
+		    		$values[] = "`$name`";
+	    		}
+		    		
+		    	if (createPlanet($values, $array))
+		    		echo $_REQUEST['return']['name'] . ' created successfully.';
+		    	else
+		    		echo 'Error creating planet: ' . mysql_error($GLOBALS['db']);
 	    	}
     	}
     	
