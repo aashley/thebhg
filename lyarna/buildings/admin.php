@@ -47,7 +47,7 @@
 		if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
 	    	$planet = getLocationForm($_REQUEST['location']);
 	    	$display = 'Edit ' . $planet['return[name]'];
-	    	$planet['return[planet]'] = 7;
+	    	$planet['return[planet]'] = "7";
 	    	$form->setDefaults($planet);
 		}
 		
