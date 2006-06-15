@@ -15,5 +15,13 @@
 			
 		return $return;
 	}
+	
+	/** Get planet */
+	function getPlanet($id){
+		$sql = "SELECT * FROM planets WHERE `id` = '$id'";
+		$query = mysql_query($sql, $GLOBALS['db']);
+
+		return $info = mysql_fetch_assoc($query);
+	}
   
 ?>

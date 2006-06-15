@@ -15,8 +15,23 @@
 	    	echo $_REQUEST['text'];
     	} else {
 	    	if (isset($_REQUEST['op'])){
-				$form = new HTML_QuickForm('planets', 'post');
-				$form->addElement('header', 'Planets', 'Create New Planet');
+		    	
+		    	$form = new HTML_QuickForm('planets', 'post');
+		    	
+		    	$display = 'Create New Planet';
+		    	
+		    	if (isset($_REQUEST['planet'])){
+			    	$planet = getPlanet($_REQUEST['planet']);
+			    	$display = 'Edit ' . $planet['name'];
+			    	
+			    	$seed = array();
+			    	
+			    	print_r($planet);
+			    	
+			    	$form->setDefaults($seed);
+		    	}
+		    	
+				$form->addElement('header', 'Planets', $display);
 				$form->addElement('text', 'name', 'Planet Name');
 				$form->addElement('text', 'image', 'Image');
 				$form->addElement('text', 'type', 'Type');
