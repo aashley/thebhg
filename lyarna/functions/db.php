@@ -56,7 +56,7 @@
 	}
 	
 	/** Get planet for Form */
-	function getPlanetForm($id){
+	function getLocationForm($id){
 		$exp = explode('_', $id);
 		$id = $exp[1];
 		$table = $exp[0];
