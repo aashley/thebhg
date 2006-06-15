@@ -93,7 +93,7 @@
 		$form = new HTML_QuickForm('planets', 'post');
 		$form->addElement('header', 'Administration', 'Choose Action');
 		$form->addElement('submit', 'op', 'New Planet');
-		$form->addElement('select', 'planet', 'Planet:', getPlanets());
+		$form->addElement('select', 'planet', 'Planet:', getPlanets(0, 1));
 		$form->addElement('submit', 'op', 'Edit Planet');
 		$form->addElement('select', 'moonof', ' is a satellite of:', getPlanets(1));
 		$form->addElement('submit', 'moon', 'Declare Satellite');

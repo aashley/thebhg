@@ -5,7 +5,7 @@
 	mysql_select_db("thebhg_lyarna");
 	
 	/** Get plants */
-	function getPlanets($nomoon = false){
+	function getPlanets($nomoon = false, $saymoon = false){
 		$sql = "SELECT * FROM planets ORDER BY name ASC";
 		$query = mysql_query($sql, $GLOBALS['db']);
 		$return = array();
@@ -15,7 +15,7 @@
 				if (isMoon($info['id']))
 					continue;
 			}
-			$return[$info['id']] = stripslashes($info['name']);
+			$return[$info['id']] = ($saymoon ? (isMoon($info['id']) ? 'Satellite: ' : '') : '').stripslashes($info['name']);
 			
 		return $return;
 	}
