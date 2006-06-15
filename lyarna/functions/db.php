@@ -10,7 +10,7 @@
 		$query = mysql_query($sql, $GLOBALS['db']);
 		$return = array();
 		
-		while ($info = mysql_fetch_assoc($query, $GLOBALS['db']))
+		while ($info = mysql_fetch_assoc($query))
 			$return[$info['id']] = stripslashes($info['name']);
 			
 		return $return;

@@ -14,7 +14,7 @@
     	if (isset($_REQUEST['submit'])){
 	    	echo $_REQUEST['text'];
     	} else {
-	    	if ($_REQUEST['op']){
+	    	if (isset($_REQUEST['op'])){
 				$form = new HTML_QuickForm('planets', 'post');
 				$form->addElement('header', 'Planets', 'Create New Planet');
 				$form->addElement('text', 'name', 'Planet Name');
