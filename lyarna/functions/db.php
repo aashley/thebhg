@@ -44,7 +44,7 @@
 	}
 	
 	function updatePlanet($id, $array){
-		$sql = "UPDATE `planets` SET ".implode(', ', $array)." WHERE `id` = '$id";
+		$sql = "UPDATE `planets` SET ".implode(', ', $array)." WHERE `id` = '$id'";
 		
 		return mysql_query($sql, $GLOBALS['db']);		
 	}
