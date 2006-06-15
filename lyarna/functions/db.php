@@ -138,9 +138,13 @@
 		$table = $exp[0];
 		$sql = "UPDATE `$table` SET ".implode(', ', $array)." WHERE `id` = '$id'";
 		
-		echo $sql;
-		
 		return mysql_query($sql, $GLOBALS['db']);		
+	}
+	
+	function createLocation($table, $values, $array){
+		$sql = "INSERT INTO `$table` (".implode(', ', $values).") VALUES (".implode(', ', $array).")";
+		
+		return mysql_query($sql, $GLOBALS['db']);
 	}
 	
 	function createPlanet($values, $array){

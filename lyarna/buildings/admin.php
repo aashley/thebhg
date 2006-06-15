@@ -18,7 +18,7 @@
 	    	foreach ($_REQUEST['return'] as $name => $value)
 	    		$array[] = "`$name` = '" . addslashes($value) . "'";
 	    		
-	    	if (updatePlanet($_REQUEST['id'], $array))
+	    	if (updateLocation($_REQUEST['id'], $array))
 	    		echo $_REQUEST['return']['name'] . ' edited successfully.';
 	    	else
 	    		echo 'Error updating location: ' . mysql_error($GLOBALS['db']);
@@ -60,6 +60,7 @@
 		$form->addElement('text', 'return[owner]', 'Owner', $txt);
 		$form->addElement('text', 'return[location]', 'Location', $txt);
 		$form->addElement('text', 'return[type]', 'Type', $txt);
+		$form->addElement('select', 'return[planet]', 'Planet:', getPlanets());
 		$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
 		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
 		$form->addElement('hidden', 'op', $_REQUEST['op']);
