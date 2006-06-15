@@ -12,7 +12,7 @@
 		
 		while ($info = mysql_fetch_assoc($query)){
 			if ($nomoon){
-				if (isMoon($info['id'])
+				if (isMoon($info['id']))
 					continue;
 			}
 			$return[$info['id']] = stripslashes($info['name']);
