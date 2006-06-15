@@ -5,17 +5,35 @@
 	mysql_select_db("thebhg_lyarna");
 	
 	/** Get plants */
-	function getPlanets(){
+	function getPlanets($nomoon = false){
 		$sql = "SELECT * FROM planets ORDER BY name ASC";
 		$query = mysql_query($sql, $GLOBALS['db']);
 		$return = array();
 		
-		while ($info = mysql_fetch_assoc($query))
+		while ($info = mysql_fetch_assoc($query)){
+			if ($nomoon){
+				if (isMoon($info['id'])
+					continue;
+			}
 			$return[$info['id']] = stripslashes($info['name']);
 			
 		return $return;
 	}
 	
+	/** Declare Moon */
+	function makeMoon($planet, $moon){
+		$sql = "INSERT INTO `moon` (`moon`, `planet`) VALUES ('$moon', '$planet')";
+		
+		return mysql_query($sql, $GLOBALS['db']);
+	}
+	
+	/** Is a moon? */
+	function isMoon($id){
+		$sql = "SELECT * FROM `moon` WHERE `moon` = $id";
+		$query = mysql_query($sql, $GLOBALS['db']);
+		
+		return (mysql_num_rows($query) >= 1);		
+	}	
 	
 	/** Get planet */
 	function getPlanet($id){
