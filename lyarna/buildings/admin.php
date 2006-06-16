@@ -179,6 +179,8 @@
 				$base = array(-1=>'Select Division');
 			}
 			
+			$attrs = array('onchange' => "swap_kabal(this.form, 'own')");
+			
 			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attr);
 			$form->addElement('select', 'own_person', 'Owner:', $base, $attr);
 			
