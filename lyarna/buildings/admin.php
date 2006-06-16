@@ -129,7 +129,59 @@
 			//$form->addElement('reset', 'btnClear', 'Clear');
 			$form->addElement('submit', 'submit', 'Submit');
 			
-		
+			$GLOBALS['roster'] = new roster();
+			$divi = array();
+			foreach ($GLOBALS['roster']->getDivisions() as $division){
+	            if ($division->GetID() != 16) {
+	                $divi[$division->getID()] = $division->getName();
+	            }
+	        }
+			?>
+			<script language="Javascript" type="text/javascript">
+			<!--
+			function person(id, name) {
+			    this.id = id;
+			    this.name = name;
+			}
+			function swap_kabal(frm, type) {
+			    var kabal_list = eval("frm." + type + "_kabal");
+			    var person_list = eval("frm." + type + "_person");
+			    var kabal = kabal_list.options[kabal_list.options.selectedIndex].value;
+			    var kabal_array = eval("roster" + kabal);
+			    var new_length = kabal_array.length;
+			    person_list.options.length = new_length;
+			    for (i = 0; i < new_length; i++) {
+			        person_list.options[i] = new Option(kabal_array[i].name, kabal_array[i].id, false, false);
+			    }
+			}
+			
+			<?php
+			foreach ($GLOBALS['roster']->getDivisions() as $division) {
+			    if ($division->GetID() != 16) {
+			        $divtitle = "roster".$division->GetID();
+			        echo $divtitle." = new Array();\n";
+			        $members = $division->GetMembers("name");
+			
+			        for($j = 0; $j < $division->GetMemberCount(); $j++) {
+			            $person = $members[$j];
+			            echo $divtitle."[".$j."] = new person(".$person->GetID().", '".str_replace("'", "\'", $person->GetName())."');\n";
+			        }
+			    }
+			}
+			?>
+			
+			// -->
+			</script><?
+			
+			if ($planet['return[bhg_id]']){
+				$base = array($planet['return[bhg_id]']=>$GLOBALS['roster']->getPerson($planet['return[bhg_id]'])->getName());
+			} else {
+				$base = array(-1=>'Select Division');
+			}
+			
+			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attr);
+			$form->addElement('select', 'own_person', 'Owner:', $base, $attr);
+			
 			$form->display();
 			
 		}
