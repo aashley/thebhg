@@ -73,6 +73,8 @@ function confirm_entry(link){
 
 include_once 'roster.inc';
 
+$roster = new roster();
+
 $grav = new person(2650);
 $slag = new person(1187);
 $wee = new person(484);
@@ -80,7 +82,7 @@ $skor = new person(1699);
 $mena = new person(106);
 $main = new position(4);
 
-$search = $roster->SearchPosition('4');
+$search = $roster->SearchPosition('SP');
 $maint = (is_object($search[0]) ? $search[0] : $grav);
 
 function linky($id, $false = false){
