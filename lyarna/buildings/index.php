@@ -46,7 +46,7 @@ if (isset($_REQUEST['type'])) {
 		$roster = new roster();
  		
       if ($building_info['bhg_id']){
-	      $owner = '<a href="property.php?id='.$building_info['bhg_id'].'">'.$roster->getPerson($building_info['bhg_id'])->getName().'</a>';
+	      $owner = '<a style="color: black;" href="property.php?id='.$building_info['bhg_id'].'">'.$roster->getPerson($building_info['bhg_id'])->getName().'</a>';
       } elseif ($building_info['position'] && $building_info['division']){
 	      $owner = 'The ' . $roster->getPosition($building_info['position'])->getName(). ' of ' . 
 	      					$roster->getDivision($building_info['division'])->getName(). '.';
