@@ -12,7 +12,7 @@ table {
 }
 #button {
 	font-size: x-small;
-	border: dashed;
+	border: dashed 1px;
 	color: black;
 	background-color: #555;
 }
