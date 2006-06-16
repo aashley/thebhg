@@ -6,7 +6,7 @@ include_once 'roster.inc';
 
 		$login = new Login_HTTP();
 		
-		$loc = "/buildings/property.php?bhg_id=".$login->getID();
+		$loc = "/buildings/property.php?id=".$login->getID();
  	} else
       	$loc = 'planets/';
       	?>
