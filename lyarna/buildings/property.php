@@ -38,12 +38,6 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
     echo "</table></td></tr>\n";
     echo "<tr><td class=\"contrast\"><table>\n";
     
-    if ($_REQUEST['id']){
-	    $where = "`bhg_id` = '".$_REQUEST['id']."'";
-    } elseif ($_REQUEST['position'] && $_REQUEST['division']){
-	    $where = "`position` = '".$_REQUEST['position']."' AND `division` = '".$_REQUEST['division']."'";
-    }
-    
     foreach ($types as $table){
 	    $sql = "SELECT id, name, owner, planet, arena, bhg_id, position, division FROM ".$table." WHERE ".$where." ORDER BY name";
 	    echo $sql;
