@@ -10,6 +10,12 @@ body.frame {
 table {
 	font-size: x-small;
 }
+#button {
+	font-size: x-small;
+	border: dashed;
+	color: black;
+	background-color: #555;
+}
 input {
 	font-size: x-small;
 	border: 0;

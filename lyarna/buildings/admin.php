@@ -130,7 +130,6 @@
 			$form->addElement('hidden', 'op', $_REQUEST['op']);
 			$form->addElement('hidden', 'id', $_REQUEST['location']);
 			//$form->addElement('reset', 'btnClear', 'Clear');
-			$form->addElement('submit', 'submit', 'Submit');
 			
 			$GLOBALS['roster'] = new roster();
 			$divi = array('-1'=>'');
@@ -194,6 +193,8 @@
 			$form->addElement('select', 'return[position]', 'Position', $posi)->setSelected($planet['return[position]']);
 			$form->addElement('select', 'return[division]', 'Division', $divi)->setSelected($planet['return[division]']);
 			
+			$form->addElement('submit', 'submit', 'Submit', 'id="button"');
+			
 			$form->display();
 			
 		}
@@ -203,10 +204,10 @@
 	echo '<hr noshade />';
 	$form = new HTML_QuickForm('locations', 'post');
 	$form->addElement('header', 'Administration', 'Choose Action');
-	$form->addElement('submit', 'op', 'New Location');
+	$form->addElement('submit', 'op', 'New Location', 'id="button"');
 	$form->addElement('select', 'location', 'Location:', getLocations());
-	$form->addElement('submit', 'op', 'Edit Location');
-	$form->addElement('submit', 'op', 'Delete Location');
+	$form->addElement('submit', 'op', 'Edit Location', 'id="button"');
+	$form->addElement('submit', 'op', 'Delete Location', 'id="button"');
 	$form->display();
 	
 	echo '<div style="height: 50"></div>';
