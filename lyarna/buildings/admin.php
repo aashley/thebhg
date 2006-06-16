@@ -11,7 +11,7 @@
 
     require_once "HTML/QuickForm.php";
 
-	if (isset($_REQUEST['submit']) || in_array($_REQUEST['op'], 'delete', 'Delete Location')){
+	if (isset($_REQUEST['submit']) || in_array($_REQUEST['op'], array('delete', 'Delete Location'))){
     	if ($_REQUEST['op'] == 'Edit Location'){
 	    	$array = array();
 	    	
