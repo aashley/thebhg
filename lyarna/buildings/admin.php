@@ -130,7 +130,7 @@
 			$form->addElement('submit', 'submit', 'Submit');
 			
 			$GLOBALS['roster'] = new roster();
-			$divi = array();
+			$divi = array('-1'=>'');
 			foreach ($GLOBALS['roster']->getDivisions() as $division){
 	            if ($division->GetID() != 16) {
 	                $divi[$division->getID()] = $division->getName();
@@ -181,7 +181,7 @@
 			
 			$attrs = array('onchange' => "swap_kabal(this.form, 'own')");
 			
-			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attr);
+			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attrs);
 			$form->addElement('select', 'own_person', 'Owner:', $base, $attr);
 			
 			$form->display();
