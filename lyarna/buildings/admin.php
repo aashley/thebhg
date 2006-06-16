@@ -131,10 +131,14 @@
 			
 			$GLOBALS['roster'] = new roster();
 			$divi = array('-1'=>'');
+			$posi = array('-1'=>'');
 			foreach ($GLOBALS['roster']->getDivisions() as $division){
 	            if ($division->GetID() != 16) {
 	                $divi[$division->getID()] = $division->getName();
 	            }
+	        }
+	        foreach ($GLOBALS['roster']->getPositions() as $division){
+				$posi[$division->getID()] = $division->getName();
 	        }
 			?>
 			<script language="Javascript" type="text/javascript">
@@ -145,7 +149,7 @@
 			}
 			function swap_kabal(frm, type) {
 			    var kabal_list = eval("frm." + type + "_kabal");
-			    var person_list = eval("frm." + type + "_person");
+			    var person_list = eval("frm." "return[bhg_id]");
 			    var kabal = kabal_list.options[kabal_list.options.selectedIndex].value;
 			    var kabal_array = eval("roster" + kabal);
 			    var new_length = kabal_array.length;
@@ -182,7 +186,10 @@
 			$attrs = array('onchange' => "swap_kabal(this.form, 'own')");
 			
 			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attrs);
-			$form->addElement('select', 'own_person', 'Owner:', $base, $attr);
+			$form->addElement('select', 'return[bhg_id]', 'Owner:', $base, $attr);
+			
+			$form->addElemnt('select', 'return[position]', 'Position', $posi)->setSelected($planet['return[position]']);
+			$form->addElemnt('select', 'return[division]', 'Division', $divi)->setSelected($planet['return[division]']);
 			
 			$form->display();
 			
