@@ -25,5 +25,5 @@
 <td class="contrast"><ul>
 %STRUCT%
 </ul></td>
-%SAT%
 </tr>
+%SAT%

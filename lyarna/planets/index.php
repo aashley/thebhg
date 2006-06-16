@@ -18,8 +18,17 @@ if (isset($_REQUEST['id'])) {
     
     $orb = orbits($_REQUEST['id']);
     $id = $orb['id'];
-    $planet = $orb['planet'];
+    $planet = $orb['name'];
     
+    $moon = '<tr><td class="contrast"><p><b>Satellites:</b></p></td><td class="contrast"><ul>';
+    
+	foreach (getMoons($_REQUEST['id']) as $id => $moon){
+		$moon .= "<li><a class='alt' href='?id=$id'>$moon</a></li>";
+	}
+    
+	$moon .= '</ul></td></tr>';
+	
+	$layout[$i] = str_replace("%SAT%", (sizeof(getMoons($_REQUEST['id'])) ? $moon : ''), $layout[$i]);
     $layout[$i] = str_replace("%ORBIT%", (isMoon($_REQUEST['id']) ? '<tr><td class="contrast"><p><b>Orbits the Planet:</b></p></td><td class="contrast"><p>' . "<a class='alt' href='?id=$id'>$planet</a>" . '</p></td></tr>' : ''), $layout[$i]);
     $layout[$i] = str_replace("%IMG%", $image, $layout[$i]);
     $layout[$i] = str_replace("%NAME%", $planet_info['name'], $layout[$i]);
