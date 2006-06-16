@@ -28,6 +28,8 @@ if (isset($_REQUEST['id'])) {
     
 	$moon .= '</ul></td></tr>';
 	
+	echo $moon;
+	
 	$layout[$i] = str_replace("%SAT%", (sizeof(getMoons($_REQUEST['id'])) ? $moon : ''), $layout[$i]);
     $layout[$i] = str_replace("%ORBIT%", (isMoon($_REQUEST['id']) ? '<tr><td class="contrast"><p><b>Orbits the Planet:</b></p></td><td class="contrast"><p>' . "<a class='alt' href='?id=$id'>$planet</a>" . '</p></td></tr>' : ''), $layout[$i]);
     $layout[$i] = str_replace("%IMG%", $image, $layout[$i]);
