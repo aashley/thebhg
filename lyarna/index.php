@@ -55,7 +55,13 @@ function confirm_entry(link){
         <img src="images/middlebottomleft.jpg" alt="">
       </td>
       <td class="center">
-        <iframe src="planets/" width="483" height="366" frameborder="0" name="iframe"></iframe> 
+      <?php
+      if ($_REQUEST['frame'])
+      	$loc = $_REQUEST['frame'];
+      else
+      	$loc = 'planets/';
+      	?>
+        <iframe src="<?=$loc?>" width="483" height="366" frameborder="0" name="iframe"></iframe> 
       </td>
       <td class="center">
         <img src="images/middlebottomright.jpg" alt="">
