@@ -1,8 +1,8 @@
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <?php
+include_once 'roster.inc';
       if (isset($_REQUEST['me'])){
-      	include_once 'roster.inc';
 
 		$login = new Login_HTTP();
 		
