@@ -15,15 +15,40 @@
     	if ($_REQUEST['op'] == 'Edit Location'){
 	    	$array = array();
 	    	
-	    	foreach ($_REQUEST['return'] as $name => $value)
-	    		$array[] = "`$name` = '" . addslashes($value) . "'";
-	    		
-	    	if (updateLocation($_REQUEST['id'], $array))
-	    		echo $_REQUEST['return']['name'] . ' edited successfully.';
-	    	else
-	    		echo 'Error updating location: ' . mysql_error($GLOBALS['db']);
+	    	$exp = explode('_', $_REQUEST['id']);
+			$id = $exp[1];
+			$table = $exp[0];
 	    	
-    	} elseif ($_REQUEST['op'] == 'New Planet'){
+			if ($table != $_REQUEST['type']){
+				
+				$array = array();
+		    	$values = array();
+		    	
+		    	foreach ($_REQUEST['return'] as $name => $value){
+		    		$array[] = "'" . addslashes($value) . "'";
+		    		$values[] = "`$name`";
+	    		}
+		    		
+		    	if (createLocation($_REQUEST['type'], $values, $array)){
+			    	if (deleteLocation($_REQUEST['id']))
+		    			echo $_REQUEST['return']['name'] . ' updated successfully.';
+		    		else
+		    			echo 'Error updating: ' . mysql_error($GLOBALS['db']);
+	    		} else
+		    		echo 'Error updating location: ' . mysql_error($GLOBALS['db']);
+				
+			} else {
+	    	
+		    	foreach ($_REQUEST['return'] as $name => $value)
+		    		$array[] = "`$name` = '" . addslashes($value) . "'";
+		    		
+		    	if (updateLocation($_REQUEST['id'], $array))
+		    		echo $_REQUEST['return']['name'] . ' edited successfully.';
+		    	else
+		    		echo 'Error updating location: ' . mysql_error($GLOBALS['db']);
+		    		
+    		}
+    	} elseif ($_REQUEST['op'] == 'New Location'){
 	    	$array = array();
 	    	$values = array();
 	    	
@@ -32,10 +57,12 @@
 	    		$values[] = "`$name`";
     		}
 	    		
-	    	if (createPlanet($values, $array))
+	    	if (createLocation($_REQUEST['type'], $values, $array))
 	    		echo $_REQUEST['return']['name'] . ' created successfully.';
 	    	else
-	    		echo 'Error creating planet: ' . mysql_error($GLOBALS['db']);
+	    		echo 'Error creating location: ' . mysql_error($GLOBALS['db']);
+    	} elseif ($_REQUEST['op'] == 'delete'){
+	    	echo $_REQUEST['location'];
     	}
 	}
     
@@ -87,6 +114,11 @@
 	$form->addElement('submit', 'op', 'New Location');
 	$form->addElement('select', 'location', 'Location:', getLocations());
 	$form->addElement('submit', 'op', 'Edit Location');
+	
+	$attrs = array('onclick' => 
+          "javascript:confirm_entry('".$_SERVER['PHP_SELF']."?op=delete&location='+this.locations[this.location].value;");
+	
+	$form->addElement('button', 'delete', 'Delete Location', $attrs);
 	$form->display();
     
     exit;

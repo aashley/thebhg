@@ -141,6 +141,15 @@
 		return mysql_query($sql, $GLOBALS['db']);		
 	}
 	
+	function deleteLocation($id){
+		$exp = explode('_', $id);
+		$id = $exp[1];
+		$table = $exp[0];
+		$sql = "DELETE FROM `$table` WHERE `id` = '$id'";
+		
+		return mysql_query($sql, $GLOBALS['db']);	
+	}
+	
 	function createLocation($table, $values, $array){
 		$sql = "INSERT INTO `$table` (".implode(', ', $values).") VALUES (".implode(', ', $array).")";
 		
