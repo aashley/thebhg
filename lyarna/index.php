@@ -69,10 +69,31 @@ function confirm_entry(link){
 <p class="footer"><b>&lt;<a href="planets/admin.php" target="iframe">Admin Planets</a> | <a href="buildings/admin.php" target="iframe">Admin Buildings</a>&gt;</b></p>
 
 <p class="footer">
-Code and modified layout by <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id=484">Nightweaver</a>.<br>
-Most graphics and original layout by <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id=1699">Skorbacca</a>.<br>
-Original planet content by <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id=106">Menalaus</a>.<br>
-Site maintained and content updated by <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id=45">Ehart Dak`wind</a>.<br>
+<?php
+
+include_once 'roster.inc';
+
+$grav = new person(2650);
+$slag = new person(1187);
+$wee = new person(484);
+$skor = new person(1699);
+$mena = new person(106);
+$main = new position(4);
+
+$search = $roster->SearchPosition('4');
+$maint = (is_object($search[0]) ? $search[0] : $grav);
+
+function linky($id, $false = false){
+	echo ' <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id='.$id->getID().'">'.$id->getName().'</a>' . ($false ? '' : '.<br />');
+}
+
+echo 'Code &copy;'.linky($grav);
+echo 'Most graphics and planetary data by'.linky($slag);
+echo 'Original code &copy;'.linky($wee);
+echo 'Original layout &copy;'.linky($skor);
+echo 'Original planetary data by'.linky($mena);
+echo 'Site maintained by'.linky($grav, true).' and'.linky($slag);
+?>
 All locations created by other various members of the <a href="http://www.thebhg.org/">Bounty Hunters Guild</a>.<br>
 This site is part of the <a href="http://www.thebhg.org/" target="_blank">Bounty Hunters Guild</a>, and is subject to their <a href="http://www.thebhg.org/privacy" target="_blank">privacy policies</a>, <a href="http://www.thebhg.org/disclaimer" target="_blank">copyright disclaimers</a> and other guidelines.
 </p>
