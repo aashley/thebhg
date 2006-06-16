@@ -6,14 +6,15 @@ $roster = new roster();
 
 if ($_REQUEST['id']){
     $where = "`bhg_id` = '".$_REQUEST['id']."'";
-    $name = $roster->getPerson($_REQUEST['id'])->getName();
-    $where .= " OR (`position` = '".$_REQUEST['position']."' AND `division` = '".$_REQUEST['division']."')";
+    $person = $roster->getPerson($_REQUEST['id']);
+    $name = $person->getName();
+    $where .= " OR (`position` = '".$person->getPosition()->getID()."' AND `division` = '".$person->getDivision()->getID()."')";
 } elseif ($_REQUEST['position'] && $_REQUEST['division']){
-    $where = "`position` = '".$_REQUEST['position']."' AND `division` = '".$_REQUEST['division']."'";
+    $where = "(`position` = '".$_REQUEST['position']."' AND `division` = '".$_REQUEST['division']."')";
     $name = "The ".$roster->getPosition($_REQUEST['position'])->getName()." of ".$roster->getDivision($_REQUEST['division'])->getName();
     foreach ($roster->searchPosition($_REQUEST['position']) as $person){
 	    if ($person->getDivision()->getID() == $_REQUEST['division'])
-		    $where .= "`bhg_id` = '".$person->getID()."'";
+		    $where .= " OR `bhg_id` = '".$person->getID()."'";
 	}
 } else {
     exit;
