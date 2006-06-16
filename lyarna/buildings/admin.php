@@ -61,9 +61,15 @@
 	    		echo $_REQUEST['return']['name'] . ' created successfully.';
 	    	else
 	    		echo 'Error creating location: ' . mysql_error($GLOBALS['db']);
-    	} elseif ($_REQUEST['op'] == 'delete'){
-	    	echo $_REQUEST['location'];
-    	}
+    	} elseif ($_REQUEST['op'] == 'Delete Location'){
+	    	?><SCRIPT LANGUAGE="JavaScript">
+			<!--
+			confirm_entry('<?=$_SERVER['PHP_SELF']?>&id=<?=$_REQUEST['location']?>&op=delete');
+	    	-->
+	    	</script><?
+    	} elseif ($_REQUEST['op'] == 'delete') {
+	    	echo $_REQUEST['id'];	
+	    }
 	}
     
     if (isset($_REQUEST['op']) && !isset($_REQUEST['submit'])){
@@ -115,11 +121,7 @@
 	$form->addElement('submit', 'op', 'New Location');
 	$form->addElement('select', 'location', 'Location:', getLocations());
 	$form->addElement('submit', 'op', 'Edit Location');
-	
-	$attrs = array('onclick' => 
-          "javascript:confirm_entry('".$_SERVER['PHP_SELF']."?op=delete&location='+this.locations[this.location].value);");
-	
-	$form->addElement('button', 'delete', 'Delete Location', $attrs);
+	$form->addElement('submit', 'op', 'Delete Location');
 	$form->display();
     
     exit;
