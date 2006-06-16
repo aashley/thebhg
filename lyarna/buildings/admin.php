@@ -117,7 +117,7 @@
 	$form->addElement('submit', 'op', 'Edit Location');
 	
 	$attrs = array('onclick' => 
-          "javascript:confirm_entry('".$_SERVER['PHP_SELF']."?op=delete&location='+this.locations[this.location].value;");
+          "javascript:confirm_entry('".$_SERVER['PHP_SELF']."?op=delete&location='+this.locations[this.location].value;)");
 	
 	$form->addElement('button', 'delete', 'Delete Location', $attrs);
 	$form->display();
