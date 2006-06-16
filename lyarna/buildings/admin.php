@@ -69,6 +69,18 @@
 	    if ($_REQUEST['op'] == 'Delete Location'){
 	    	?><SCRIPT LANGUAGE="JavaScript">
 			<!--
+			function confirm_entry(link){
+	
+				progress = confirm("Are you SURE you want to do that?");
+				
+				if (progress == true){ 
+				window.location = link;
+				} else {
+				alert ("Delete canceled.");
+				}
+			
+			}
+			
 			confirm_entry('<?=$_SERVER['PHP_SELF']?>&id=<?=$_REQUEST['location']?>&op=delete');
 	    	-->
 	    	</script><?
