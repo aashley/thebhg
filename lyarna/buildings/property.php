@@ -49,7 +49,7 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
 	      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
 	      echo "<tr>\n<td>";
 	      echo "<p>\n";
-	      echo "<a class=\"alt\" href=\"/buildings/?type=".$_REQUEST['type']."&amp;id=".$building_info['id']."\">".$building_info['name']."</a> ";
+	      echo "<a class=\"alt\" href=\"/buildings/?type=".$table."&amp;id=".$building_info['id']."\">".$building_info['name']."</a> ";
 	      echo "(<a class=\"alt\" href=\"../planets/?id=".$building_info['planet']."\">".$planet_info['name']."</a>)<br />\n";
 	      
 	      $owner = false;
@@ -82,7 +82,7 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
 		      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
 		      echo "<tr>\n<td>";
 		      echo "<p>\n";
-		      echo "<a class=\"alt\" href=\"/buildings/?type=".$_REQUEST['type']."&amp;id=".$building_info['id']."\">".$building_info['name']."</a> ";
+		      echo "<a class=\"alt\" href=\"/buildings/?type=".$table."&amp;id=".$building_info['id']."\">".$building_info['name']."</a> ";
 		      echo "(<a class=\"alt\" href=\"../planets/?id=".$building_info['planet']."\">".$planet_info['name']."</a>)<br />\n";
 		      
 		      $owner = false;
