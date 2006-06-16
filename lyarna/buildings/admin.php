@@ -91,7 +91,7 @@
 		$table = array_search(ucfirst($table), $types);
 		
 		$form->addElement('header', 'Planets', $display);
-		$form->addElement('text', 'return[name]', 'Planet Name', $txt);
+		$form->addElement('text', 'return[name]', 'Name', $txt);
 		$form->addElement('text', 'return[pic]', 'Image', $txt);
 		$form->addElement('text', 'return[owner]', 'Owner', $txt);
 		$form->addElement('text', 'return[location]', 'Location', $txt);
