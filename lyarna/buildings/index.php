@@ -48,8 +48,9 @@ if (isset($_REQUEST['type'])) {
       if ($building_info['bhg_id']){
 	      $owner = '<a style="color: black;" href="property.php?id='.$building_info['bhg_id'].'">'.$roster->getPerson($building_info['bhg_id'])->getName().'</a>';
       } elseif ($building_info['position'] && $building_info['division']){
-	      $owner = 'The ' . $roster->getPosition($building_info['position'])->getName(). ' of ' . 
-	      					$roster->getDivision($building_info['division'])->getName(). '.';
+	      $owner = 'The <a style="color: black;" href="property.php?position='.$building_info['position'].
+	      			'&division='.$building_info['division'] . '">'. $roster->getPosition($building_info['position'])->getName(). 
+	      			' of ' . $roster->getDivision($building_info['division'])->getName(). '</a>.';
       } else {
 	      $owner = 'Unknown';
       }
