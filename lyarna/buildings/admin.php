@@ -71,7 +71,7 @@
 			<!--
 			function confirm_entry(link){
 	
-				progress = confirm("Are you SURE you want to do that?");
+				progress = confirm("Are you SURE you want to delete this location?");
 				
 				if (progress == true){ 
 				window.location = link;
@@ -81,7 +81,7 @@
 			
 			}
 			
-			confirm_entry('<?=$_SERVER['PHP_SELF']?>&id=<?=$_REQUEST['location']?>&op=delete');
+			confirm_entry('<?=$_SERVER['PHP_SELF']?>?id=<?=$_REQUEST['location']?>&op=delete');
 	    	-->
 	    	</script><?
     	} elseif ($_REQUEST['op'] == 'delete') {
