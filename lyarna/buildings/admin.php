@@ -11,7 +11,7 @@
 
     require_once "HTML/QuickForm.php";
 
-	if (isset($_REQUEST['submit']) || in_array($_REQUEST['op'], array('delete', 'Delete Location'))){
+	if (isset($_REQUEST['submit'])){
     	if ($_REQUEST['op'] == 'Edit Location'){
 	    	$array = array();
 	    	
@@ -61,7 +61,12 @@
 	    		echo $_REQUEST['return']['name'] . ' created successfully.';
 	    	else
 	    		echo 'Error creating location: ' . mysql_error($GLOBALS['db']);
-    	} elseif ($_REQUEST['op'] == 'Delete Location'){
+    	}
+	}
+    
+    if (isset($_REQUEST['op']) && !isset($_REQUEST['submit'])){
+    
+	    if ($_REQUEST['op'] == 'Delete Location'){
 	    	?><SCRIPT LANGUAGE="JavaScript">
 			<!--
 			confirm_entry('<?=$_SERVER['PHP_SELF']?>&id=<?=$_REQUEST['location']?>&op=delete');
@@ -69,49 +74,48 @@
 	    	</script><?
     	} elseif ($_REQUEST['op'] == 'delete') {
 	    	echo $_REQUEST['id'];	
-	    }
-	}
-    
-    if (isset($_REQUEST['op']) && !isset($_REQUEST['submit'])){
-    
-	    $form = new HTML_QuickForm('locations', 'post');	
-		$display = 'Create New Location';
+	    } else {
+	    
+		    $form = new HTML_QuickForm('locations', 'post');	
+			$display = 'Create New Location';
+			
+			$planet = array('return[planet]'=>1, 'return[arena]'=>1);
+			
+			if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
+		    	$planet = getLocationForm($_REQUEST['location']);
+		    	$display = 'Edit ' . $planet['return[name]'];
+		    	
+		    	$form->setDefaults($planet);
+			}
+			
+			$txt = array('size' => 60);
+			$txta = array('rows' => 20, 'cols'=>50);
+			
+			$types = array('complex'=>'BHG Locations', 'estate'=>'Hunter Estates', 'hq'=>'Kabal Headquarters', 
+							'other'=>'Other Locations', 'personal'=>'Personal Sites');
+			
+			$exp = explode('_', $_REQUEST['location']);
+			$table = $exp[0];
+			
+			$form->addElement('header', 'Planets', $display);
+			$form->addElement('text', 'return[name]', 'Name', $txt);
+			$form->addElement('text', 'return[pic]', 'Image', $txt);
+			$form->addElement('text', 'return[owner]', 'Owner', $txt);
+			$form->addElement('text', 'return[location]', 'Location', $txt);
+			$form->addElement('text', 'return[type]', 'Type', $txt);
+			$form->addElement('select', 'return[planet]', 'Planet:', getPlanets())->setSelected($planet['return[planet]']);
+			$form->addElement('select', 'type', 'Location Type:', $types)->setSelected($table);
+			$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
+			$form->addElement('textarea', 'return[misc]', 'Description', $txta);
+			$form->addElement('hidden', 'op', $_REQUEST['op']);
+			$form->addElement('hidden', 'id', $_REQUEST['location']);
+			//$form->addElement('reset', 'btnClear', 'Clear');
+			$form->addElement('submit', 'submit', 'Submit');
+			
 		
-		$planet = array('return[planet]'=>1, 'return[arena]'=>1);
-		
-		if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
-	    	$planet = getLocationForm($_REQUEST['location']);
-	    	$display = 'Edit ' . $planet['return[name]'];
-	    	
-	    	$form->setDefaults($planet);
+			$form->display();
+			
 		}
-		
-		$txt = array('size' => 60);
-		$txta = array('rows' => 20, 'cols'=>50);
-		
-		$types = array('complex'=>'BHG Locations', 'estate'=>'Hunter Estates', 'hq'=>'Kabal Headquarters', 
-						'other'=>'Other Locations', 'personal'=>'Personal Sites');
-		
-		$exp = explode('_', $_REQUEST['location']);
-		$table = $exp[0];
-		
-		$form->addElement('header', 'Planets', $display);
-		$form->addElement('text', 'return[name]', 'Name', $txt);
-		$form->addElement('text', 'return[pic]', 'Image', $txt);
-		$form->addElement('text', 'return[owner]', 'Owner', $txt);
-		$form->addElement('text', 'return[location]', 'Location', $txt);
-		$form->addElement('text', 'return[type]', 'Type', $txt);
-		$form->addElement('select', 'return[planet]', 'Planet:', getPlanets())->setSelected($planet['return[planet]']);
-		$form->addElement('select', 'type', 'Location Type:', $types)->setSelected($table);
-		$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
-		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
-		$form->addElement('hidden', 'op', $_REQUEST['op']);
-		$form->addElement('hidden', 'id', $_REQUEST['location']);
-		//$form->addElement('reset', 'btnClear', 'Clear');
-		$form->addElement('submit', 'submit', 'Submit');
-		
-	
-		$form->display();
 		
 	}
 	
