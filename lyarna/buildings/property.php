@@ -9,6 +9,9 @@ if ($_REQUEST['id']){
     $person = $roster->getPerson($_REQUEST['id']);
     $name = $person->getName();
     $where .= " OR (`position` = '".$person->getPosition()->getID()."' AND `division` = '".$person->getDivision()->getID()."')";
+    if ($person->getDivision()-isKabal())
+    	$divka = "`division` = '".$person->getDivision()->getID()."'";
+    	
 } elseif ($_REQUEST['position'] && $_REQUEST['division']){
     $where = "(`position` = '".$_REQUEST['position']."' AND `division` = '".$_REQUEST['division']."')";
     $name = "The ".$roster->getPosition($_REQUEST['position'])->getName()." of ".$roster->getDivision($_REQUEST['division'])->getName();
@@ -65,6 +68,38 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
 	      if ($building_info['arena'] != 1) { echo "no-"; }
 	      echo "arena.png\" alt=\"Arena OK\" />";
 	      echo "</td>\n</tr>\n";
+	    }
+    }
+    
+    if ($divka){
+	    echo '<hr noshade />';
+	    echo '<h3>Properties Owned By Kabal</h3>';
+	    foreach ($types as $table){
+		    $sql = "SELECT id, name, owner, planet, arena, position, division FROM ".$table." WHERE ".$divka." ORDER BY name";
+		    $buildings_a = mysql_query($sql, $GLOBALS['db']);
+		    while ($building_info = mysql_fetch_array($buildings_a, MYSQL_ASSOC)) {
+		      $planet = mysql_query("SELECT name FROM planets WHERE id=".$building_info['planet'], $GLOBALS['db']);
+		      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
+		      echo "<tr>\n<td>";
+		      echo "<p>\n";
+		      echo "<a class=\"alt\" href=\"?type=".$_REQUEST['type']."&amp;id=".$building_info['id']."\">".$building_info['name']."</a> ";
+		      echo "(<a class=\"alt\" href=\"../planets/?id=".$building_info['planet']."\">".$planet_info['name']."</a>)<br />\n";
+		      
+		      $owner = false;
+		      
+		      if ($building_info['position'] && $building_info['division']){
+			      $owner = 'The '.$roster->getPosition($building_info['position'])->getName(). 
+			      			' of ' . $roster->getDivision($building_info['division'])->getName();
+		      }
+		      
+		      echo "Owned by ".($owner ? $owner : trim($building_info['owner'])).".\n";
+		      echo "</p>\n";
+		      echo "</td>\n<td class=\"right\">";
+		      echo "<img class=\"arena\" src=\"images/";
+		      if ($building_info['arena'] != 1) { echo "no-"; }
+		      echo "arena.png\" alt=\"Arena OK\" />";
+		      echo "</td>\n</tr>\n";
+		    }
 	    }
     }
     echo "</table></td></tr>\n";
