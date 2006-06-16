@@ -188,8 +188,8 @@
 			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attrs);
 			$form->addElement('select', 'return[bhg_id]', 'Owner:', $base, $attr);
 			
-			$form->addElemnt('select', 'return[position]', 'Position', $posi)->setSelected($planet['return[position]']);
-			$form->addElemnt('select', 'return[division]', 'Division', $divi)->setSelected($planet['return[division]']);
+			$form->addElement('select', 'return[position]', 'Position', $posi)->setSelected($planet['return[position]']);
+			$form->addElement('select', 'return[division]', 'Division', $divi)->setSelected($planet['return[division]']);
 			
 			$form->display();
 			
