@@ -71,7 +71,7 @@
 	    $form = new HTML_QuickForm('locations', 'post');	
 		$display = 'Create New Location';
 		
-		$planet = array('return[planet]'=>0, 'return[arena]'=>1);
+		$planet = array('return[planet]'=>1, 'return[arena]'=>1);
 		
 		if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
 	    	$planet = getLocationForm($_REQUEST['location']);
@@ -83,12 +83,11 @@
 		$txt = array('size' => 60);
 		$txta = array('rows' => 20, 'cols'=>50);
 		
-		$types = array('Complex', 'Estate', 'Hq', 'Other', 'Personal');
+		$types = array('complex'=>'BHG Locations', 'estate'=>'Hunter Estates', 'hq'=>'Kabal Headquarters', 
+						'other'=>'Other Locations', 'personal'=>'Personal Sites');
 		
 		$exp = explode('_', $_REQUEST['location']);
 		$table = $exp[0];
-		
-		$table = array_search(ucfirst($table), $types);
 		
 		$form->addElement('header', 'Planets', $display);
 		$form->addElement('text', 'return[name]', 'Name', $txt);
