@@ -29,8 +29,8 @@ if (isset($_REQUEST['id'])) {
     $layout[$i] = str_replace("%HYDRO%", $planet_info['hydro'], $layout[$i]);
     $layout[$i] = str_replace("%GRAV%", $planet_info['gravity'], $layout[$i]);
     $layout[$i] = str_replace("%TERRAIN%", $planet_info['terrain'], $layout[$i]);
-    $layout[$i] = str_replace("%DAY%", trim($planet_info['day']), $layout[$i]);
-    $layout[$i] = str_replace("%YEAR%", trim($planet_info['year']), $layout[$i]);
+    $layout[$i] = str_replace("%DAY%", (is_numeric($planet_info['day']) ? trim($planet_info['day']).' Standard Hours' : trim($planet_info['day'])), $layout[$i]);
+    $layout[$i] = str_replace("%YEAR%", (is_numeric($planet_info['year']) ? trim($planet_info['year']).' Standard Days' : trim($planet_info['year'])), $layout[$i]);
     $layout[$i] = str_replace("%SPECIES%", $planet_info['species'], $layout[$i]);
     $layout[$i] = str_replace("%STARPORT%", $planet_info['starport'], $layout[$i]);
     $layout[$i] = str_replace("%POP%", $planet_info['pop'], $layout[$i]);
