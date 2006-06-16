@@ -38,6 +38,9 @@ if (isset($_REQUEST['type'])) {
         $image = "<img class=\"icon\" src=\"$pic\" alt=\"".$building_info['name']."\" />";
       }
       
+       $planet = mysql_query("SELECT id, name FROM planets WHERE id=".$building_info['planet']);
+      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
+      
  		include_once 'roster.inc';
      
  		$roster = new roster();
@@ -54,8 +57,7 @@ if (isset($_REQUEST['type'])) {
       $layout[$i] = str_replace("%IMG%", $image, $layout[$i]);
       $layout[$i] = str_replace("%OWN%", $owner, $layout[$i]);
       $layout[$i] = str_replace("%NAME%", $building_info['name'], $layout[$i]);
-      $planet = mysql_query("SELECT id, name FROM planets WHERE id=".$building_info['planet']);
-      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
+     
       $location = "<a class=\"alt\" href=\"../planets/?id=".$planet_info['id']."\">".$planet_info['name']."</a>: ".$building_info['location'];
       $layout[$i] = str_replace("%LOCATION%", $location, $layout[$i]);
       $layout[$i] = str_replace("%OWNER%", $building_info['owner'], $layout[$i]);
