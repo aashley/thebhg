@@ -23,6 +23,9 @@ if (isset($_REQUEST['type'])) {
     $building = mysql_query("SELECT * FROM ".$_REQUEST['type']." WHERE id=".$_REQUEST['id']);
     $building_info = mysql_fetch_array($building, MYSQL_ASSOC);
 
+    $planet = mysql_query("SELECT id, name FROM planets WHERE id=".$building_info['planet']);
+      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
+    
     unset($output);
 
     $layout = file("layout.php");
@@ -38,8 +41,7 @@ if (isset($_REQUEST['type'])) {
         $image = "<img class=\"icon\" src=\"$pic\" alt=\"".$building_info['name']."\" />";
       }
       
-       $planet = mysql_query("SELECT id, name FROM planets WHERE id=".$building_info['planet']);
-      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
+       
       
  		include_once 'roster.inc';
      
