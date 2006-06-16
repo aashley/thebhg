@@ -60,12 +60,12 @@ if (isset($_REQUEST['id'])) {
       $struct .= "<li><a class=\"alt\" href=\"../buildings/?type=other&amp;id=".$other_info['id']."\">".$other_info['name']."</a></li>\n";
     }
     
-    $moon = '<tr><td class="contrast" colspan=2><ul><b>Structures:</b>';
+    $moon = '<tr><td class="contrast" colspan=2><b>Structures</b><ul>';
     
 	$moon .= $struct . '</ul>';
     
 	if (sizeof(getMoons($_REQUEST['id']))){
-		$moon .= '<ul><b>Satellites:</b>';
+		$moon .= '<b>Satellites</b><ul>';
 		foreach (getMoons($_REQUEST['id']) as $id => $name){
 			$moon .= "<li><a class='alt' href='?id=$id'>$name</a></li>";
 		}
