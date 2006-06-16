@@ -37,7 +37,22 @@ if (isset($_REQUEST['type'])) {
         }
         $image = "<img class=\"icon\" src=\"$pic\" alt=\"".$building_info['name']."\" />";
       }
+      
+ 		include_once 'roster.inc';
+     
+ 		$roster = new roster();
+ 		
+      if ($building_info['bhg_id']){
+	      $owner = '<a href="property.php?id='.$building_info['bhg_id'].'">'.$roster->getPerson($building_info['bhg_id'])->getName().'</a>';
+      } elseif ($building_info['position'] && $building_info['division']){
+	      $owner = 'The ' . $roster->getPosition($building_info['position'])->getName(). ' of ' . 
+	      					$roster->getDivision($building_info['division'])->getName(). '.';
+      } else {
+	      $owner = 'Unknown';
+      }
+      
       $layout[$i] = str_replace("%IMG%", $image, $layout[$i]);
+      $layout[$i] = str_replace("%OWN%", $owner, $layout[$i]);
       $layout[$i] = str_replace("%NAME%", $building_info['name'], $layout[$i]);
       $planet = mysql_query("SELECT id, name FROM planets WHERE id=".$building_info['planet']);
       $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);

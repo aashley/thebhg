@@ -86,7 +86,7 @@ $search = $roster->SearchPosition('SP');
 $maint = (is_object($search[0]) ? $search[0] : $grav);
 
 function linky($id, $false = false){
-	return ' <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id='.$id->getID().'">'.$id->getName().'</a>' . ($false ? '' : '.<br />');
+	return ' <a href="http://holonet.thebhg.org/index.php?module=roster&page=hunter&id='.$id->getID().'">'.$id->getName().'</a>' . ($false ? '' : '.<br />');
 }
 
 echo 'Code &copy;'.linky($grav, true).' originally by'.linky($wee, true).'; layout &copy;'.linky($skor);
