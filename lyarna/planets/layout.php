@@ -11,8 +11,8 @@
 <tr><td class="contrast"><p><b>Hydrosphere:</b></p></td><td class="contrast"><p>%HYDRO%</p></td></tr>
 <tr><td class="contrast"><p><b>Gravity:</b></p></td><td class="contrast"><p>%GRAV%</p></td></tr>
 <tr><td class="contrast"><p><b>Terrain:</b></p></td><td class="contrast"><p>%TERRAIN%</p></td></tr>
-<tr><td class="contrast"><p><b>Rotational Period:</b></p></td><td class="contrast"><p>%DAY%</p> Ravoin Standard Hours</td></tr>
-<tr><td class="contrast"><p><b>Orbital Period:</b></p></td><td class="contrast"><p>%YEAR%</p> Ravouin Standard Days</td></tr>
+<tr><td class="contrast"><p><b>Rotational Period:</b></p></td><td class="contrast"><p>%DAY% Standard Hours</p></td></tr>
+<tr><td class="contrast"><p><b>Orbital Period:</b></p></td><td class="contrast"><p>%YEAR% Standard Days</p></td></tr>
 <tr><td class="contrast"><p><b>Sapient Species:</b></p></td><td class="contrast"><p>%SPECIES%</p></td></tr>
 <tr><td class="contrast"><p><b>Starport:</b></p></td><td class="contrast"><p>%STARPORT%</p></td></tr>
 <tr><td class="contrast"><p><b>Population:</b></p></td><td class="contrast"><p>%POP%</p></td></tr>
