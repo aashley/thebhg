@@ -1,6 +1,25 @@
 <?php
 
-$pagename = "Property Tracker";
+include_once 'roster.inc';
+
+$roster = new roster();
+
+if ($_REQUEST['id']){
+    $where = "`bhg_id` = '".$_REQUEST['id']."'";
+    $name = $roster->getPerson($_REQUEST['id'])->getName();
+    $where .= " OR (`position` = '".$_REQUEST['position']."' AND `division` = '".$_REQUEST['division']."')";
+} elseif ($_REQUEST['position'] && $_REQUEST['division']){
+    $where = "`position` = '".$_REQUEST['position']."' AND `division` = '".$_REQUEST['division']."'";
+    $name = "The ".$roster->getPosition($_REQUEST['position'])->getName()." of ".$roster->getDivision($_REQUEST['division'])->getName();
+    foreach ($roster->searchPosition($_REQUEST['position']) as $person){
+	    if ($person->getDivision()->getID() == $_REQUEST['division'])
+		    $where .= "`bhg_id` = '".$person->getID()."'";
+	}
+} else {
+    exit;
+}
+
+$pagename = "Property Tracker :: ".$name;
 
 include("../functions/db.php");
 
@@ -22,15 +41,12 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
 	    $where = "`bhg_id` = '".$_REQUEST['id']."'";
     } elseif ($_REQUEST['position'] && $_REQUEST['division']){
 	    $where = "`position` = '".$_REQUEST['position']."' AND `division` = '".$_REQUEST['division']."'";
-    } else {
-	    echo "<tr>\n<td>No records found</td></tr></table></td></tr>\n</table>\n";
-	    exit;
     }
     
     foreach ($types as $table){
-	    $buildings_a = mysql_query("SELECT id, name, owner, planet, arena FROM ".$table." WHERE ".$where." ORDER BY name");
+	    $buildings_a = mysql_query("SELECT id, name, owner, planet, arena FROM ".$table." WHERE ".$where." ORDER BY name", $GLOBALS['db']);
 	    while ($building_info = mysql_fetch_array($buildings_a, MYSQL_ASSOC)) {
-	      $planet = mysql_query("SELECT name FROM planets WHERE id=".$building_info['planet']);
+	      $planet = mysql_query("SELECT name FROM planets WHERE id=".$building_info['planet'], $GLOBALS['db']);
 	      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
 	      echo "<tr>\n<td>";
 	      echo "<p>\n";
