@@ -1,5 +1,15 @@
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+<?php
+      if (isset($_REQUEST['me'])){
+      	include_once 'roster.inc';
+
+		$login = new Login_HTTP();
+		
+		$loc = "/buildings/property.php?bhg_id=".$login->getID();
+ 	} else
+      	$loc = 'planets/';
+      	?>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -55,12 +65,7 @@ function confirm_entry(link){
         <img src="images/middlebottomleft.jpg" alt="">
       </td>
       <td class="center">
-      <?php
-      if ($_REQUEST['frame'])
-      	$loc = $_REQUEST['frame'];
-      else
-      	$loc = 'planets/';
-      	?>
+      
         <iframe src="<?=$loc?>" width="483" height="366" frameborder="0" name="iframe"></iframe> 
       </td>
       <td class="center">
@@ -76,8 +81,6 @@ function confirm_entry(link){
 
 <p class="footer">
 <?php
-
-include_once 'roster.inc';
 
 $roster = new roster();
 
