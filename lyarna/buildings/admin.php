@@ -71,7 +71,7 @@
 	    $form = new HTML_QuickForm('locations', 'post');	
 		$display = 'Create New Location';
 		
-		$planet = array();
+		$planet = array('return[planet]'=>0, 'return[arena]'=>1);
 		
 		if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
 	    	$planet = getLocationForm($_REQUEST['location']);
