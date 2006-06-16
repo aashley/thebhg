@@ -9,7 +9,7 @@ if ($_REQUEST['id']){
     $person = $roster->getPerson($_REQUEST['id']);
     $name = $person->getName();
     $where .= " OR (`position` = '".$person->getPosition()->getID()."' AND `division` = '".$person->getDivision()->getID()."')";
-    if ($person->getDivision()->isKabal())
+    if ($person->getDivision())
     	$divka = "`division` = '".$person->getDivision()->getID()."'";
     	
 } elseif ($_REQUEST['position'] && $_REQUEST['division']){
@@ -76,7 +76,7 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
 	    echo '<h3>Properties Owned By Kabal</h3>';
 	    foreach ($types as $table){
 		    $sql = "SELECT id, name, owner, planet, arena, position, division FROM ".$table." WHERE ".$divka." ORDER BY name";
-		    $buildings_a = mysql_query($sql, $GLOBALS['db']);
+		    $buildings_b = mysql_query($sql, $GLOBALS['db']);
 		    while ($building_info = mysql_fetch_array($buildings_a, MYSQL_ASSOC)) {
 		      $planet = mysql_query("SELECT name FROM planets WHERE id=".$building_info['planet'], $GLOBALS['db']);
 		      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
