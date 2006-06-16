@@ -22,13 +22,11 @@ if (isset($_REQUEST['id'])) {
     
     $moon = '<tr><td class="contrast"><p><b>Satellites:</b></p></td><td class="contrast"><ul>';
     
-	foreach (getMoons($_REQUEST['id']) as $id => $moon){
-		$moon .= "<li><a class='alt' href='?id=$id'>$moon</a></li>";
+	foreach (getMoons($_REQUEST['id']) as $id => $name){
+		$moon .= "<li><a class='alt' href='?id=$id'>$name</a></li>";
 	}
     
 	$moon .= '</ul></td></tr>';
-	
-	echo 'SATELLITE: ' . $moon;
 	
 	$layout[$i] = str_replace("%SAT%", (sizeof(getMoons($_REQUEST['id'])) ? $moon : ''), $layout[$i]);
     $layout[$i] = str_replace("%ORBIT%", (isMoon($_REQUEST['id']) ? '<tr><td class="contrast"><p><b>Orbits the Planet:</b></p></td><td class="contrast"><p>' . "<a class='alt' href='?id=$id'>$planet</a>" . '</p></td></tr>' : ''), $layout[$i]);
