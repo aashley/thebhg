@@ -45,7 +45,9 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
     }
     
     foreach ($types as $table){
-	    $buildings_a = mysql_query("SELECT id, name, owner, planet, arena, bhg_id, position, division FROM ".$table." WHERE ".$where." ORDER BY name", $GLOBALS['db']);
+	    $sql = "SELECT id, name, owner, planet, arena, bhg_id, position, division FROM ".$table." WHERE ".$where." ORDER BY name";
+	    echo $sql;
+	    $buildings_a = mysql_query($sql, $GLOBALS['db']);
 	    while ($building_info = mysql_fetch_array($buildings_a, MYSQL_ASSOC)) {
 	      $planet = mysql_query("SELECT name FROM planets WHERE id=".$building_info['planet'], $GLOBALS['db']);
 	      $planet_info = mysql_fetch_array($planet, MYSQL_ASSOC);
