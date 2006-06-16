@@ -52,7 +52,17 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
 	      echo "<p>\n";
 	      echo "<a class=\"alt\" href=\"?type=".$_REQUEST['type']."&amp;id=".$building_info['id']."\">".$building_info['name']."</a> ";
 	      echo "(<a class=\"alt\" href=\"../planets/?id=".$building_info['planet']."\">".$planet_info['name']."</a>)<br />\n";
-	     // echo "Owned by ".trim($building_info['owner']).".\n";
+	      
+	      $owner = false;
+	      
+	      if ($building_info['bhg_id']){
+		      $owner = $roster->getPerson($building_info['bhg_id'])->getName();
+	      } elseif ($building_info['position'] && $building_info['division']){
+		      $owner = 'The '.$roster->getPosition($building_info['position'])->getName(). 
+		      			' of ' . $roster->getDivision($building_info['division'])->getName(). '.';
+	      }
+	      
+	      echo "Owned by ".($owner ? $owner : trim($building_info['owner'])).".\n";
 	      echo "</p>\n";
 	      echo "</td>\n<td class=\"right\">";
 	      echo "<img class=\"arena\" src=\"images/";
