@@ -149,7 +149,7 @@
 			}
 			function swap_kabal(frm, type) {
 			    var kabal_list = eval("frm." + type + "_kabal");
-			    var person_list = eval("frm.return[bhg_id]");
+			    var person_list = eval("frm." + type + "_person");
 			    var kabal = kabal_list.options[kabal_list.options.selectedIndex].value;
 			    var kabal_array = eval("roster" + kabal);
 			    var new_length = kabal_array.length;
@@ -186,7 +186,7 @@
 			$attrs = array('onchange' => "swap_kabal(this.form, 'own')");
 			
 			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attrs);
-			$form->addElement('select', 'return[bhg_id]', 'Owner:', $base, $attr);
+			$form->addElement('select', 'own_person', 'Owner:', $base, $attr);
 			
 			$form->addElement('select', 'return[position]', 'Position', $posi)->setSelected($planet['return[position]']);
 			$form->addElement('select', 'return[division]', 'Division', $divi)->setSelected($planet['return[division]']);
