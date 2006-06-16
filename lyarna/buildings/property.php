@@ -1,5 +1,7 @@
 <?php
 
+$pagename = "Property Tracker";
+
 include("../functions/db.php");
 
 $types = array('complex', 'estate', 'hq', 'other', 'personal');
@@ -34,7 +36,7 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
 	      echo "<p>\n";
 	      echo "<a class=\"alt\" href=\"?type=".$_REQUEST['type']."&amp;id=".$building_info['id']."\">".$building_info['name']."</a> ";
 	      echo "(<a class=\"alt\" href=\"../planets/?id=".$building_info['planet']."\">".$planet_info['name']."</a>)<br />\n";
-	      echo "Owned by ".trim($building_info['owner']).".\n";
+	     // echo "Owned by ".trim($building_info['owner']).".\n";
 	      echo "</p>\n";
 	      echo "</td>\n<td class=\"right\">";
 	      echo "<img class=\"arena\" src=\"images/";
