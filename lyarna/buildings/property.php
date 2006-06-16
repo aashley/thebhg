@@ -9,7 +9,7 @@ if ($_REQUEST['id']){
     $person = $roster->getPerson($_REQUEST['id']);
     $name = $person->getName();
     $where .= " OR (`position` = '".$person->getPosition()->getID()."' AND `division` = '".$person->getDivision()->getID()."')";
-    if ($person->getDivision())
+    if ($person->getDivision()->isKabal() && $person->getPosition()->getID() != 11)
     	$divka = "`division` = '".$person->getDivision()->getID()."'";
     	
 } elseif ($_REQUEST['position'] && $_REQUEST['division']){
