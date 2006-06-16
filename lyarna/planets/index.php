@@ -75,7 +75,7 @@ if (isset($_REQUEST['id'])) {
 	$moon .= '</td></tr>';
     
     
-    $layout[$i] = str_replace("%SAT%", $struct, $layout[$i]);
+    $layout[$i] = str_replace("%SAT%", $moon, $layout[$i]);
     $output .= $layout[$i];
   }
   echo "<table align=\"center\">\n";
