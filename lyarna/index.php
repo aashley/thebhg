@@ -89,9 +89,8 @@ function linky($id, $false = false){
 	return ' <a href="http://holonet.thebhg.org/index.php?module=3&page=hunter&id='.$id->getID().'">'.$id->getName().'</a>' . ($false ? '' : '.<br />');
 }
 
-echo 'Code &copy;'.linky($grav, true).' originally by'.linky($wee);
-echo 'Most graphics and planetary data by'.linky($slag).' original data by'.linky($mena);
-echo 'Layout &copy;'.linky($skor);
+echo 'Code &copy;'.linky($grav, true).' originally by'.linky($wee, true).'; layout &copy;'.linky($skor);
+echo 'Most graphics and planetary data by'.linky($slag, true).' original data by'.linky($mena);
 echo 'Site maintained by'.linky($grav, true).' and'.linky($slag);
 ?>
 All locations created by other various members of the <a href="http://www.thebhg.org/">Bounty Hunters Guild</a>.<br>
