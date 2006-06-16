@@ -14,19 +14,19 @@ input {
 	font-size: x-small;
 	border: 0;
 	color: black;
-	background-color: #666;
+	background-color: #EEE;
 }
 select {
 	font-size: x-small;
 	border: 0;
 	color: black;
-	background-color: #666;
+	background-color: #EEE;
 }
 textarea {
 	font-size: small;
 	border: 0;
 	color: black;
-	background-color: #666;
+	background-color: #EEE;
 }
 p {
   color: rgb(0,0,0);

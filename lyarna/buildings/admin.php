@@ -12,6 +12,9 @@
     require_once "HTML/QuickForm.php";
 
 	if (isset($_REQUEST['submit'])){
+		if ($_REQUEST['own_person'] > 0)
+			$_REQUEST['return']['bhg_id'] = $_REQUEST['own_person'];
+			
     	if ($_REQUEST['op'] == 'Edit Location'){
 	    	$array = array();
 	    	

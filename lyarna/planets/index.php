@@ -37,7 +37,7 @@ if (isset($_REQUEST['id'])) {
     $layout[$i] = str_replace("%TECH%", $planet_info['tech'], $layout[$i]);
     $layout[$i] = str_replace("%IMP%", $planet_info['imp'], $layout[$i]);
     $layout[$i] = str_replace("%EXP%", $planet_info['exp'], $layout[$i]);
-    $layout[$i] = str_replace("%DESC%", $planet_info['misc'], $layout[$i]);
+    $layout[$i] = str_replace("%DESC%", nl2br($planet_info['misc']), $layout[$i]);
     unset($struct);
     $complexes = mysql_query("SELECT id, name FROM complex WHERE planet=".$_REQUEST['id']);
     while ($complex_info = mysql_fetch_array($complexes, MYSQL_ASSOC)) {
