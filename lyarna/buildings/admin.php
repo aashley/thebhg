@@ -71,6 +71,8 @@
 	    $form = new HTML_QuickForm('locations', 'post');	
 		$display = 'Create New Location';
 		
+		$planet = array();
+		
 		if (isset($_REQUEST['location']) && $_REQUEST['op'] == 'Edit Location'){
 	    	$planet = getLocationForm($_REQUEST['location']);
 	    	$display = 'Edit ' . $planet['return[name]'];
@@ -94,7 +96,7 @@
 		$form->addElement('text', 'return[owner]', 'Owner', $txt);
 		$form->addElement('text', 'return[location]', 'Location', $txt);
 		$form->addElement('text', 'return[type]', 'Type', $txt);
-		$form->addElement('select', 'return[planet]', 'Planet:', getPlanets())->setSelected((is_array($planet) ? $planet['return[planet]'] : ''));
+		$form->addElement('select', 'return[planet]', 'Planet:', getPlanets())->setSelected($planet['return[planet]']);
 		$form->addElement('select', 'type', 'Location Type:', $types)->setSelected($table);
 		$form->addElement('advcheckbox', 'return[arena]', 'Allow Arena?', '', ($planet['return[arena]'] ? 'checked' : ''), array(0,1));
 		$form->addElement('textarea', 'return[misc]', 'Description', $txta);
