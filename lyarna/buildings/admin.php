@@ -149,7 +149,7 @@
 			}
 			function swap_kabal(frm, type) {
 			    var kabal_list = eval("frm." + type + "_kabal");
-			    var person_list = eval("frm." + "return[bhg_id]");
+			    var person_list = eval("frm.return[bhg_id]");
 			    var kabal = kabal_list.options[kabal_list.options.selectedIndex].value;
 			    var kabal_array = eval("roster" + kabal);
 			    var new_length = kabal_array.length;
