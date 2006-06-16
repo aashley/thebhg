@@ -99,6 +99,8 @@
 		$form->addElement('submit', 'moon', 'Declare Satellite');
 		$form->display();
 
+	echo '<div style="height: 50"></div>';
+		
     include("../footer.php");
 
     exit;

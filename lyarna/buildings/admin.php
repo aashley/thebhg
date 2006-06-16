@@ -209,6 +209,8 @@
 	$form->addElement('submit', 'op', 'Delete Location');
 	$form->display();
 	
+	echo '<div style="height: 50"></div>';
+	
     include("../footer.php");
 
     exit;
