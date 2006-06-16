@@ -66,28 +66,33 @@
     
     if (isset($_REQUEST['op']) && !isset($_REQUEST['submit'])){
     
-	    if ($_REQUEST['op'] == 'Delete Location'){
-	    	?><SCRIPT LANGUAGE="JavaScript">
-			<!--
-			function confirm_entry(link){
-	
-				progress = confirm("Are you SURE you want to delete this location?");
-				
-				if (progress == true){ 
-				window.location = link;
-				} else {
-				alert ("Delete canceled.");
-				}
-			
-			}
-			
-			confirm_entry('<?=$_SERVER['PHP_SELF']?>?id=<?=$_REQUEST['location']?>&op=delete');
-	    	-->
-	    	</script><?
-    	} elseif ($_REQUEST['op'] == 'delete') {
-	    	echo $_REQUEST['id'];	
+	    if ($_REQUEST['op'] == 'delete') {
+	    	if (deleteLocation($_REQUEST['id']))
+	    		echo 'Delete successful.';
+	    	else
+	    		echo 'Error deleting location: ' . mysql_error($GLOBALS['db']);
 	    } else {
 	    
+		    if ($_REQUEST['op'] == 'Delete Location'){
+		    	?><SCRIPT LANGUAGE="JavaScript">
+				<!--
+				function confirm_entry(link){
+		
+					progress = confirm("Are you SURE you want to delete this location?");
+					
+					if (progress == true){ 
+					window.location = link;
+					} else {
+					alert ("Delete canceled.");
+					}
+				
+				}
+				
+				confirm_entry('<?=$_SERVER['PHP_SELF']?>?id=<?=$_REQUEST['location']?>&op=delete');
+		    	-->
+		    	</script><?
+	    	}
+		    
 		    $form = new HTML_QuickForm('locations', 'post');	
 			$display = 'Create New Location';
 			
