@@ -27,10 +27,11 @@
 		<directory>boloball</directory>
 		<name>Boloball</name>
 	</module>
-	<module>
+	<modulea>
+		<note>Commented out until needed.</note>
 		<directory>rubicon</directory>
 		<name>Rubicon</name>
-	</module>
+	</modulea>
 	<modulea>
 		<note>Commented out until the proposal module is done.</note>
 		<directory>propose</directory>
