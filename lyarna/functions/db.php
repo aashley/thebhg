@@ -100,6 +100,15 @@
 		return (mysql_num_rows($query) >= 1);		
 	}	
 	
+	/** Is a moon? */
+	function orbits($id){
+		$sql = "SELECT `planet` FROM `moon` WHERE `moon` = $id";
+		$query = mysql_query($sql, $GLOBALS['db']);
+		$info = mysql_fetch_assoc($query);
+		
+		return getPlanet($info['planet']);		
+	}	
+	
 	/** Get planet */
 	function getPlanet($id){
 		$sql = "SELECT * FROM planets WHERE `id` = '$id'";

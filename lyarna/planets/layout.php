@@ -4,14 +4,15 @@
 <tr>
   <td colspan="2"><center>%IMG%</center></td>
 </tr>
+%ORBIT%
 <tr><td class="contrast"><p><b>Type:</b></p></td><td class="contrast"><p>%TYPE%</p></td></tr>
 <tr><td class="contrast"><p><b>Temperature:</b></p></td><td class="contrast"><p>%TEMP%</p></td></tr>
 <tr><td class="contrast"><p><b>Atmosphere:</b></p></td><td class="contrast"><p>%ATM%</p></td></tr>
 <tr><td class="contrast"><p><b>Hydrosphere:</b></p></td><td class="contrast"><p>%HYDRO%</p></td></tr>
 <tr><td class="contrast"><p><b>Gravity:</b></p></td><td class="contrast"><p>%GRAV%</p></td></tr>
 <tr><td class="contrast"><p><b>Terrain:</b></p></td><td class="contrast"><p>%TERRAIN%</p></td></tr>
-<tr><td class="contrast"><p><b>Length of Day:</b></p></td><td class="contrast"><p>%DAY%</p></td></tr>
-<tr><td class="contrast"><p><b>Length of Year:</b></p></td><td class="contrast"><p>%YEAR%</p></td></tr>
+<tr><td class="contrast"><p><b>Rotational Period:</b></p></td><td class="contrast"><p>%DAY%</p></td></tr>
+<tr><td class="contrast"><p><b>Orbital Period:</b></p></td><td class="contrast"><p>%YEAR%</p></td></tr>
 <tr><td class="contrast"><p><b>Sapient Species:</b></p></td><td class="contrast"><p>%SPECIES%</p></td></tr>
 <tr><td class="contrast"><p><b>Starport:</b></p></td><td class="contrast"><p>%STARPORT%</p></td></tr>
 <tr><td class="contrast"><p><b>Population:</b></p></td><td class="contrast"><p>%POP%</p></td></tr>
@@ -24,4 +25,5 @@
 <td class="contrast"><ul>
 %STRUCT%
 </ul></td>
+%SAT%
 </tr>

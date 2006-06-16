@@ -15,6 +15,12 @@ if (isset($_REQUEST['id'])) {
   $layout = file("layout.php");
   for ($i = 0; $i < sizeof($layout); $i++) {
     $image = "<img class=\"icon\" src=\"".$planet_info['pic']."\" alt=\"".$planet_info['name']."\" />";
+    
+    $orb = orbits($_REQUEST['id']);
+    $id = $orb['id'];
+    $planet = $orb['planet'];
+    
+    $layout[$i] = str_replace("%ORBIT%", (isMoon($_REQUEST['id']) ? '<tr><td class="contrast"><p><b>Orbits the Planet:</b></p></td><td class="contrast"><p>' . "<a class='alt' href='?id=$id'>$planet</a>" . '</p></td></tr>' : ''), $layout[$i]);
     $layout[$i] = str_replace("%IMG%", $image, $layout[$i]);
     $layout[$i] = str_replace("%NAME%", $planet_info['name'], $layout[$i]);
     $layout[$i] = str_replace("%TYPE%", $planet_info['type'], $layout[$i]);
@@ -63,7 +69,7 @@ if (isset($_REQUEST['id'])) {
 } else {
 
   echo "<table align=\"center\">\n";
-  echo "<tr><th colspan=\"2\"><img src=\"http://specialist.thebhg.org/images/lyarna/lyarna.jpg\" alt=\"The Lyarna System\" /></th></tr>\n";
+  echo "<tr><th colspan=\"2\"><img src=\"http://specialist.thebhg.org/images/lyarna/lyarna.jpeg\" alt=\"The Lyarna System\" /></th></tr>\n";
   echo "<tr><td class=\"contrast\"><p><b>Star:</b></p></td><td class=\"contrast\"><p>Zahnis</p></td></tr>\n";
   echo "<tr><td class=\"contrast\"><p><b>Government:</b></p></td><td class=\"contrast\"><p><a class=\"alt\" href=\"http://www.thebhg.org/\" target=\"_blank\">The Bounty Hunters Guild</a></p></td></tr>\n";
   echo "<tr><td class=\"contrast\"><p><b>Governing Body:</b></p></td><td class=\"contrast\"><p>BHG Commission</p></td></tr>\n";
