@@ -21,9 +21,4 @@
 <tr><td class="contrast"><p><b>Major Imports:</b></p></td><td class="contrast"><p>%IMP%</p></td></tr>
 <tr><td class="contrast" colspan="2"><p>%DESC%</p></td></tr>
 <tr>
-<td class="contrast"><p><b>Structures:</b></p></td>
-<td class="contrast"><ul>
-%STRUCT%
-</ul></td>
-</tr>
 %SAT%

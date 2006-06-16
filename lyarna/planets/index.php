@@ -19,16 +19,7 @@ if (isset($_REQUEST['id'])) {
     $orb = orbits($_REQUEST['id']);
     $id = $orb['id'];
     $planet = $orb['name'];
-    
-    $moon = '<tr><td class="contrast"><p><b>Satellites:</b></p></td><td class="contrast"><ul>';
-    
-	foreach (getMoons($_REQUEST['id']) as $id => $name){
-		$moon .= "<li><a class='alt' href='?id=$id'>$name</a></li>";
-	}
-    
-	$moon .= '</ul></td></tr>';
 	
-	$layout[$i] = str_replace("%SAT%", (sizeof(getMoons($_REQUEST['id'])) ? $moon : ''), $layout[$i]);
     $layout[$i] = str_replace("%ORBIT%", (isMoon($_REQUEST['id']) ? '<tr><td class="contrast"><p><b>Orbits the Planet:</b></p></td><td class="contrast"><p>' . "<a class='alt' href='?id=$id'>$planet</a>" . '</p></td></tr>' : ''), $layout[$i]);
     $layout[$i] = str_replace("%IMG%", $image, $layout[$i]);
     $layout[$i] = str_replace("%NAME%", $planet_info['name'], $layout[$i]);
@@ -68,7 +59,23 @@ if (isset($_REQUEST['id'])) {
     while ($other_info = mysql_fetch_array($others, MYSQL_ASSOC)) {
       $struct .= "<li><a class=\"alt\" href=\"../buildings/?type=other&amp;id=".$other_info['id']."\">".$other_info['name']."</a></li>\n";
     }
-    $layout[$i] = str_replace("%STRUCT%", $struct, $layout[$i]);
+    
+    $moon = '<tr><td class="contrast" colspan=2><ul><b>Structures:</b>';
+    
+	$moon .= $struct . '</ul>';
+    
+	if (sizeof(getMoons($_REQUEST['id']))){
+		$moon .= '<ul><b>Satellites:</b>';
+		foreach (getMoons($_REQUEST['id']) as $id => $name){
+			$moon .= "<li><a class='alt' href='?id=$id'>$name</a></li>";
+		}
+		$moon .= '</ul>';
+	}
+	
+	$moon .= '</td></tr>';
+    
+    
+    $layout[$i] = str_replace("%SAT%", $struct, $layout[$i]);
     $output .= $layout[$i];
   }
   echo "<table align=\"center\">\n";
