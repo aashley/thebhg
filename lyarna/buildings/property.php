@@ -87,7 +87,7 @@ $types = array('complex', 'estate', 'hq', 'other', 'personal');
 		      
 		      $owner = false;
 		      
-		      if ($building_info['position'] && $building_info['division']){
+		      if ($building_info['division']){
 			      $owner = 'The '.$roster->getPosition($building_info['position'])->getName(). 
 			      			' of ' . $roster->getDivision($building_info['division'])->getName();
 		      }
