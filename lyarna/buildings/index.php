@@ -41,11 +41,9 @@ if (isset($_REQUEST['type'])) {
         $image = "<img class=\"icon\" src=\"$pic\" alt=\"".$building_info['name']."\" />";
       }
       
-       
-      
- 		include_once 'roster.inc';
-     
- 		$roster = new roster();
+		include_once 'roster.inc';
+		
+		$roster = new roster();
  		
       if ($building_info['bhg_id']){
 	      $owner = '<a href="property.php?id='.$building_info['bhg_id'].'">'.$roster->getPerson($building_info['bhg_id'])->getName().'</a>';
