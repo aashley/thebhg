@@ -29,6 +29,9 @@ if (isset($_POST["finish"])) {
         $rewards = $hunttype_obj->GetReward();
         $last_reward = (count($rewards) - 1);
         $kabalrewards = $hunttype_obj->GetKabalRewards();
+        print_r($rewards);
+        print_r($kabalrewards);
+        echo $last_reward;
         //KA hunts credits
         if ($_POST['first']) {
             echo "<label for=\"first_reward\">Reward for first place. (ICs)</label>";
