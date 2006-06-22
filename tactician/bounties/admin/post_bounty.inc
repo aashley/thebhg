@@ -146,6 +146,7 @@ if (isset($_POST["submit"])) {
         $first_reward = $type_obj->GetFirstReward();
         $rewards = $type_obj->GetReward();
     }
+    print_r($rewards);
     if ($first_reward) {
         echo "<label for=\"first_reward\">Reward for first place. (ICs)</label>";
         echo "<input type=\"text\" size=\"30\" id=\"first_reward\" name=\"first_reward\" value=\"$first_reward\"";
