@@ -19,7 +19,7 @@ if (isset($_POST["finish"])) {
     if (!$hunttype_obj->SetNumQuestions($_POST['num_questions'])) $ok = 'Number of Questions';
     if (!$hunttype_obj->SetNumAnswers($_POST['num_answers'])) $ok = 'Number of Answers';
     if (!$hunttype_obj->SetQuestionType($_POST['question_type'])) $ok = 'Question Type';
-    if (!$hunttype_obj->SetDesc(html_entity_decode($_POST['desc']))) $ok = 'Description';
+    if (!$hunttype_obj->SetDesc(html_entity_decode(addslashes(htmlspecialchars($_POST['desc']))))) $ok = 'Description';
     if ($ok == true) echo "<p>This hunt type has been modified successfully.</p>";
     else echo "Error at: ".$ok;
 } elseif (isset($_POST['continue'])) {
@@ -63,7 +63,7 @@ if (isset($_POST["finish"])) {
         echo "<input type=\"hidden\" name=\"num_questions\" value=\"".$_POST['num_questions']."\"></input>";
         echo "<input type=\"hidden\" name=\"num_answers\" value=\"".$_POST['num_answers']."\"></input>";
         echo "<input type=\"hidden\" name=\"question_type\" value=\"".$_POST['question_type']."\"></input>";
-        echo "<input type=\"hidden\" name=\"desc\" value=\"".addslashes(htmlspecialchars(nl2br($_POST['desc'])))."\"></input>";
+        echo "<input type=\"hidden\" name=\"desc\" value=\"".$_POST['desc']."\"></input>";
         ?>
         <br />
         <input type="submit" name="finish" value="Finish" class="submit" />
