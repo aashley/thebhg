@@ -37,7 +37,7 @@ if (isset($_POST["finish"])) {
             echo "<label for=\"first_reward\">Reward for first place. (ICs)</label>";
             echo "<input type=\"text\" size=\"30\" id=\"first_reward\" name=\"first_reward\" value=\"".$hunttype_obj->GetFirstReward()."\"></input>";
         }
-        $toadd = $num_answers - $last_reward;
+        $toadd = $_POST['num_answers'] - $last_reward;
         for ($i = 0; $i < $_POST['num_answers']; $i++) {
             echo "<label for=\"rewards[$i]\">Reward for ".((int) $_POST['num_answers'] - $i)."/".$_POST['num_answers']." correct. (ICs)</label>";
             echo "<input type=\"text\" size=\"30\" id=\"rewards[$i]\" name=\"rewards[$i]\" value=\"";
@@ -51,7 +51,7 @@ if (isset($_POST["finish"])) {
             echo "<label for=\"kabal_first_reward\">Kabal bounty reward for first place. (ICs)</label>";
             echo "<input type=\"text\" size=\"30\" id=\"kabal_first_reward\" name=\"kabal_first_reward\" value=\"".$hunttype_obj->GetKabalFirstReward()."\"></input>";
         }
-        $toadd = $num_answers - $last_reward;
+        $toadd = $_POST['num_answers'] - $last_reward;
         for ($i = 0; $i < $_POST['num_answers']; $i++) {
             echo "<label for=\"kabalrewards[$i]\">Kabal bounty reward for ".((int) $_POST['num_answers'] - $i)."/".$_POST['num_answers']." correct. (ICs)</label>";
             echo "<input type=\"text\" size=\"30\" id=\"kabalrewards[$i]\" name=\"kabalrewards[$i]\" value=\"";
