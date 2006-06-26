@@ -268,7 +268,7 @@ class CG {
 		if (is_a($hunter, 'person')) {
 			$hunter = $hunter->GetID();
 		}
-		$result = mysql_query('SELECT id, event FROM cg_signups WHERE cg=' . $this->id . ' AND person=' . ((int) $hunter) . ' ORDER BY state ASC, points DESC', $this->db);
+		$result = mysql_query('SELECT cg_signups.id, cg_signups.event FROM cg_signups, cg_events WHERE cg_signups.cg=' . $this->id . ' AND cg_signups.person=' . ((int) $hunter) . ' AND cg_events.id = cg_signups.event AND cg_events.team = 0 ORDER BY state ASC, points DESC', $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$signups = array();
 			while ($row = mysql_fetch_array($result)) {
