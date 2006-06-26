@@ -11,6 +11,7 @@ $cg =& $ka->GetCG($_REQUEST['cg']);
 $signups =& $cg->GetHunterSignups($hunter);
 $signup = current($signups);
 $cadre =& $signup->GetCadre();
+$tec = 0;
 page_header('CG ' . roman($cg->GetID()) . ' :: ' . $hunter->GetName());
 add_menu(array('CG ' . roman($cg->GetID())=>'cg/cg.php?id=' . $cg->GetID(), $cadre->GetName() . ' Cadre'=>'cg/cadre.php?cg=' . $cg->GetID() . '&amp;cadre=' . $cadre->GetID(), $hunter->GetName() . '\'s Long-Term Statistics'=>'cg/stats/hunter.php?id=' . $hunter->GetID()));
 
@@ -25,6 +26,7 @@ foreach ($signups as $signup) {
 
 foreach ($cg->GetTeamSignups($cadre) as $signup){
 	$credits += $signup->getCredits();
+	$tec += $signup->getCredits();
 }
 
 $table->AddRow('Unmarked Events:', '<div style="text-align: right">' . number_format($states[0]) . '</div>');
@@ -32,6 +34,7 @@ $table->AddRow('Completed Events:', '<div style="text-align: right">' . number_f
 $table->AddRow('DNPs:', '<div style="text-align: right">' . number_format($states[2]) . '</div>');
 $table->AddRow('No Efforts:', '<div style="text-align: right">' . number_format($states[3]) . '</div>');
 $table->AddRow('Total Credits:', '<div style="text-align: right">' . number_format($credits) . '</div>');
+$table->AddRow('Team Event Credits:', '<div style="text-align: right">' . number_format($tec) . '</div>');
 $table->EndTable();
 
 echo '<br />';
