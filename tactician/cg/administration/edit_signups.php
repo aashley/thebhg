@@ -80,9 +80,12 @@ elseif ($cadre && $cg) {
 		if ($canplay){
 			if ($members[0]->HasEstate()){
 				$form->AddSubmitButton('submit', 'Update Signups');
-			}
-		}
-	}
+			} else
+				$form->addHeader('Cannot Signup: Leader has no estate.');
+		} else
+			$form->addHeader('Cannot Signup: Member ranks are invalid.');
+	} else
+		$form->addHeader('Cannot Signup: Incorrect number of memebers.');
 	$form->EndForm();
 }
 elseif ($level == 3 && $cg) {
