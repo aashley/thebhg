@@ -16,7 +16,7 @@ $table->AddHeader('CGs');
 $table->AddHeader('Completed Events');
 $table->EndRow();
 
-$result = mysql_query('SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events, COUNT(DISTINCT cg) AS cgs FROM cg_signups WHERE state > 0 GROUP BY person ORDER BY points DESC, events ASC LIMIT 10', $db);
+$result = mysql_query('SELECT cg_signups.person, SUM(cg_signups.points) AS points, COUNT(DISTINCT cg_signups.id) AS events, COUNT(DISTINCT cg_signups.cg) AS cgs FROM cg_signups, cg_events WHERE cg_signups.state > 0 AND cg_events.id = cg_signups.event AND cg_events.team = 0 GROUP BY cg_signups.person ORDER BY points DESC, events ASC LIMIT 10', $db);
 if ($result && mysql_num_rows($result)) {
 	$rank = 0;
 	while ($row = mysql_fetch_array($result)) {
