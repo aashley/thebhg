@@ -3,6 +3,8 @@ class CGEvent {
 	var $id;
 	var $cg;
 	var $name;
+	var $type;
+	var $content;
 	var $start;
 	var $end;
 	var $db;
@@ -40,12 +42,30 @@ class CGEvent {
 		return $this->name;
 	}
 
+	function GetTypes(){
+		return new CGType($this->type, $this->db);
+	}
+	
 	function GetStart() {
 		return $this->start;
 	}
 
 	function GetEnd() {
 		return $this->end;
+	}
+	
+	function GetContent(){
+	    return unserialize(base64_decode($this->content));
+    }
+    
+    function SetContent($content) {
+		if (mysql_query('UPDATE cg_events SET content="' . $content . '" WHERE id=' . $this->id, $this->db)) {
+			$this->UpdateCache();
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	function GetSignups() {

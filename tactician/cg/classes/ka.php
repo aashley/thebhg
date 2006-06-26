@@ -40,6 +40,18 @@ class CGBase {
 		}
 	}
 
+	function GetTypes() {
+		$sql = 'SELECT * FROM `cg_types` WHERE `date_deleted` = 0 ORDER BY `name`';
+		$query = mysql_query($sql, $this->db);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$return[] = new KAGType($info['id'], $this->db);
+		}
+		
+		return $return;
+	}
+	
 	function GetSignup($id) {
 		$result = mysql_query('SELECT id FROM cg_signups WHERE id=' . $id, $this->db);
 		if ($result && mysql_num_rows($result)) {
@@ -119,5 +131,9 @@ class CGBase {
 			return false;
 		}
 	}
+	
+	function ConditionContent($string){
+	    return base64_encode(serialize($string));
+    }
 }
 ?>
