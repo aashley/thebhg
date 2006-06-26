@@ -10,14 +10,7 @@ if ($level == 3) {
 		
 	} else {
 	
-		$form = new Form($PHP_SELF);
 		
-		$form->AddSectionTitle('Select Event Type');
-		
-		
-		
-		$form->AddSubmitButton('next', 'Continue to Edit >>');
-		$form->EndForm();
 		
 	}
 	
