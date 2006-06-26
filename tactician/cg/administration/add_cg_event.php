@@ -20,7 +20,7 @@ if ($level == 3) {
 		
     	$CG =& $ka->GetCG($_REQUEST['id']);
     		
-    	$event = $CG->AddEvent($_REQUEST['name'], parse_date_box('start'), parse_date_box('end'), false, isset($_REQUEST['team'] ? 1 : 0), $ka->ConditionContent($content), $type_id);
+    	$event = $CG->AddEvent($_REQUEST['name'], parse_date_box('start'), parse_date_box('end'), false, (isset($_REQUEST['team']) ? 1 : 0), $ka->ConditionContent($content), $type_id);
 
 		if ($event) {
 			if (is_object($type)){
