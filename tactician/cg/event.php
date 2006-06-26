@@ -31,5 +31,87 @@ if ($signups) {
 }
 
 $table->EndTable();
+
+if ($event->IsTimed() && time() >= $event->GetEnd()){
+	$type = $event->GetTypes();
+		
+	$table = new Table('', true);
+	
+	$content = $event->GetContent();
+	$answers = $content['answers'];
+	$questions = $content['questions'];
+	$total_answers = count($answers);
+	$total_questions = count($questions);
+	$signups =& $event->GetSignups();
+	
+	$table->startRow();
+	$table->addHeader($type->GetName() . 'Results', 2);
+	$table->endRow();
+	
+	if ($type->HasImage()){
+		$table->StartRow();
+		$table->AddCell('<center><center><img src="/cg/event_images/'.$type->GetAbbr(). '-'. $cg->GetID() . '-' 
+						. $event->GetID() . '.jpg">', 2);
+		$table->EndRow();
+		for ($i = 1; $i <= $total_answers; $i++) {
+			$table->AddRow('Hunt Answers '.$i.'/'.$total_answers, stripslashes($answers[$i]));
+		}
+	} else {
+		if ($total_questions == $total_answers){
+			for ($i = 1; $i <= $total_answers; $i++) {
+				$table->AddRow('Hunt Question '.$i.'/'.$total_questions, stripslashes($questions[$i]));
+		        $table->AddRow('Hunt Answers '.$i.'/'.$total_answers, stripslashes($answers[$i]));
+	        }
+	    } else {
+	        for ($i = 1; $i <= $total_questions; $i++) {
+				$table->AddRow('Hunt Question '.$i.'/'.$total_questions, stripslashes($questions[$i]));
+	        }
+	        for ($i = 1; $i <= $total_answers; $i++) {
+		        $table->AddRow('Hunt Answers '.$i.'/'.$total_answers, stripslashes($answers[$i]));
+	        }
+	    }
+	}
+	$table->EndTable();
+	$dnp = array();
+	$table = new Table('Hunter Results', true);
+	foreach ($signups as $sub){			
+		$hunter = $sub->GetPerson();
+		$kabal = $sub->GetKabal();
+		$sub_answers = $sub->GetContent();
+		
+		$total_answers = count($sub_answers);
+		
+		if ($sub->GetSubmitted() > 0){
+		
+			$table->startRow();
+			$table->addHeader($hunter->GetName().' for '.$kabal->GetName().' ['.date('l dS \of F Y h:i:s A', $sub->GetSubmitted()).']', 2);
+			$table->endRow();
+		
+			for ($i = 1; $i <= $total_answers; $i++) {
+		        $table->AddRow('Hunt Answers '.$i.'/'.$total_answers, stripslashes($sub_answers[$i]));
+	        }
+	        
+        } else {
+	        
+	        $dnp[] = $sub;
+	        
+        }
+	}
+	
+	$table->EndTable();
+	
+	hr();
+	
+	$table->EndTable();
+	$table = new Table('DNP', true);
+	foreach ($dnp as $sub){			
+		$hunter = $sub->GetPerson();
+		$kabal = $sub->GetKabal();
+		$table->addRow($hunter->GetName().' for '.$kabal->GetName());
+	}
+	
+	$table->EndTable();
+}
+
 page_footer();
 ?>
