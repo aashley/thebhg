@@ -33,8 +33,8 @@ $table->AddRow('Unmarked Events:', '<div style="text-align: right">' . number_fo
 $table->AddRow('Completed Events:', '<div style="text-align: right">' . number_format($states[1] + $states[4]) . '</div>');
 $table->AddRow('DNPs:', '<div style="text-align: right">' . number_format($states[2]) . '</div>');
 $table->AddRow('No Efforts:', '<div style="text-align: right">' . number_format($states[3]) . '</div>');
-$table->AddRow('Total Credits:', '<div style="text-align: right">' . number_format($credits) . '</div>');
 $table->AddRow('Team Event Credits:', '<div style="text-align: right">' . number_format($tec) . '</div>');
+$table->AddRow('Total Credits:', '<div style="text-align: right">' . number_format($credits) . '</div>');
 $table->EndTable();
 
 echo '<br />';

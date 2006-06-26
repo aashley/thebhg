@@ -19,9 +19,15 @@ $table = new Table('', true);
 
 $result = mysql_query('SELECT cadre FROM cg_signups WHERE person=' . $_REQUEST['id'] . ' GROUP BY cadre', $db);
 $cadres = array();
+$credits = 0;
+$tec = 0;
 while ($row = mysql_fetch_array($result)) {
 	$cadre = $roster->GetCadre($row['cadre']);
 	$cadres[$cadre->GetID()] = $cadre->GetName();
+	foreach ($cg->GetTeamSignups($cadre) as $signup){
+		$credits += $signup->getCredits();
+		$tec += $signup->getCredits();
+	}
 }
 asort($cadres);
 $table->StartRow();
@@ -46,7 +52,6 @@ $table->AddRow('Total Points:', '<div style="text-align: right">' . number_forma
 $table->AddRow('Total Events:', '<div style="text-align: right">' . number_format($row['events']) . '</div>');
 
 $states = array();
-$credits = 0;
 $ms = 0;
 foreach ($signups as $signup) {
 	$states[$signup->GetState()]++;
@@ -61,6 +66,7 @@ $table->AddRow('Completed Events:', '<div style="text-align: right">' . number_f
 $table->AddRow('DNPs:', '<div style="text-align: right">' . number_format($states[2]) . '</div>');
 $table->AddRow('No Efforts:', '<div style="text-align: right">' . number_format($states[3]) . '</div>');
 $table->AddRow('Master\'s Shields:', '<div style="text-align: right">' . number_format($ms) . '</div>');
+$table->AddRow('Total Team Event Credits:', '<div style="text-align: right">' . number_format($tec) . '</div>');
 $table->AddRow('Total Credits:', '<div style="text-align: right">' . number_format($credits) . '</div>');
 
 $table->EndTable();
