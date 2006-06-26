@@ -90,7 +90,11 @@ if ($level == 3) {
 		}
 		
 		if ($submit){
-			$form->AddCheckBox('Team Event?', "team", 1);
+			if ($_REQUEST['timed']){
+				$form->AddHidden("team', 0);
+			} else {
+				$form->AddCheckBox('Team Event?', "team', 1, $event->IsTeam());
+			}
 			$form->AddDateBox('Start Date:', 'start', false, true);
 			$form->AddDateBox('End Date:', 'end', false, true);
 			$form->AddSubmitButton('submit', 'Add Event');
