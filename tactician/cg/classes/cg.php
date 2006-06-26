@@ -264,6 +264,23 @@ class CG {
 	 *               false if the hunter doesn't have any signups in this
 	 *               CG.
 	 */
+	function GetHunterSignups($hunter) {
+		if (is_a($hunter, 'person')) {
+			$hunter = $hunter->GetID();
+		}
+		$result = mysql_query('SELECT cg_signups.id, cg_signups.event FROM cg_signups, cg_events WHERE cg_signups.cg=' . $this->id . ' AND cg_signups.person=' . ((int) $hunter) . ' AND cg_events.id = cg_signups.event AND cg_events.team = 0 ORDER BY state ASC, points DESC', $this->db);
+		if ($result && mysql_num_rows($result)) {
+			$signups = array();
+			while ($row = mysql_fetch_array($result)) {
+				$signups[$row['event']] =& new CGSignup($row['id'], $this->db);
+			}
+			return $signups;
+		}
+		else {
+			return false;
+		}
+	}
+	
 	function GetTeamSignups($cadre) {
 		if (is_a($cadre, 'cadre')) {
 			$cadre = $cadre->GetID();
