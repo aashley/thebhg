@@ -50,39 +50,7 @@ if ($level == 3) {
 			$form->table->AddHeader('Event ' . (++$row), 2);
 			$form->table->EndRow();
 
-			if ($event->IsTimed()){
-				$form->AddHidden('events[' . $event->GetID() . ']', 'Die!');
-				$type = $event->GetTypes();
-				$form->table->AddRow('Event Type', $type->GetName().' ('.$type->GetAbbr().')');
-				$content = $event->GetContent();
-				$answer = $content['answers'];
-				$question = $content['questions'];
-				if ($type->HasImage()){
-					$form->table->AddRow('Current Image', '<center><img src="/CG/hunt_images/'.$type->GetAbbr(). '-'. $CG->GetID() . '-' 
-								. $event->GetID() . '.jpg">');
-					$form->AddHidden('MAX_FILE_SIZE', 300000);
-					for ($i = 1; $i <= $type->GetQuestions(); $i++) {
-						$form->AddFile('Upload Picture (.jpg and under 300KB)', 'uploadpic[' . $event->GetID() .']');
-						$form->AddTextBox('Hunt Answer '.$i.'/'.$type->GetAnswers(), 'answer[' . $event->GetID() .']['.$i.']', stripslashes($answer[$i]), 70);
-					}
-				} else {
-					if ($type->GetQuestions() == $type->GetAnswers()){
-						for ($i = 1; $i <= $type->GetAnswers(); $i++) {
-							$form->AddTextBox('Hunt Question '.$i.'/'.$type->GetQuestions(), 'question[' . $event->GetID() .']['.$i.']', stripslashes($question[$i]), 70);
-					        $form->AddTextBox('Hunt Answer '.$i.'/'.$type->GetAnswers(), 'answer[' . $event->GetID() .']['.$i.']', stripslashes($answer[$i]), 70);
-				        }
-			        } else {
-				        for ($i = 1; $i <= $type->GetQuestions(); $i++) {
-							$form->AddTextBox('Hunt Question '.$i.'/'.$type->GetQuestions(), 'question[' . $event->GetID() .']['.$i.']', stripslashes($question[$i]), 70);
-				        }
-				        for ($i = 1; $i <= $type->GetAnswers(); $i++) {
-					        $form->AddTextBox('Hunt Answer '.$i.'/'.$type->GetAnswers(), 'answer[' . $event->GetID() .']['.$i.']', stripslashes($answer[$i]), 70);
-				        }
-			        }
-		        }
-			} else {
-				$form->AddTextBox('Name:', 'events[' . $event->GetID() . ']', $event->GetName());
-			}
+			
 			$form->AddDateBox('Start Date:', 'events' . $event->GetID() . '_start', $event->GetStart(), true);
 			$form->AddDateBox('End Date:', 'events' . $event->GetID() . '_end', $event->GetEnd(), true);
 			$form->AddCheckBox('Team Event?', "teams[" . $event->getID() . ']', 1, $event->IsTeam());
