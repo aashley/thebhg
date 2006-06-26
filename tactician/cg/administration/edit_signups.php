@@ -27,19 +27,10 @@ if ($_REQUEST['submit']) {
 	$events = array();
 	$team = array();
 	foreach ($cg->GetEvents() as $event) {
-		if ($event->isTeam())
-			$team[] = $event;
-		else
-			$events[] = $event;
+		$events[] = $event;
 	}
-	$i = 0;
+
 	foreach ($cadre->GetMembers() as $member) {
-		if ($i == 0){
-			foreach ($team as $event){
-				$event->AddSignup($member);
-			}
-			$i++;
-		}
 		foreach ($events as $event) {
 			$event->AddSignup($member);
 		}
