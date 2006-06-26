@@ -64,9 +64,12 @@ elseif ($cadre && $cg) {
 	foreach (array_slice($members, 1) as $member) {
 		if ($tomeet > $member->getRank()->getWeight())
 			$canplay = false;
-		if ($tomeet == $member->getRank()->getWeight() && $hasmet)
-			$canplay = false;
-		
+		if ($tomeet == $member->getRank()->getWeight()){
+			if ($hasmet)
+				$canplay = false;
+			else
+				$hasmet = true;
+		}		
 			
 		$names[] = $member->GetName();
 	}
