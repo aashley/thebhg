@@ -18,8 +18,7 @@ $table->AddHeader('CGs');
 $table->AddHeader('Completed Events');
 $table->EndRow();
 
-$sql = 'SELECT cg_signups.person, SUM(cg_signups.points) AS points, COUNT(DISTINCT cg_signups.id) AS events, COUNT(DISTINCT cg_signups.cg) AS cgs, SUM(cg_signups.points)/COUNT(DISTINCT cg_signups.id) AS pav FROM cg_signups, cg_events WHERE cg_signups.state > 0 AND cg_events.id = cg_signups.event AND cg_events.team = 1 GROUP BY cg_signups.person ORDER BY pav DESC, points DESC, events ASC, cgs ASC';
-echo $sql;
+$sql = 'SELECT cg_signups.person, SUM(cg_signups.points) AS points, COUNT(DISTINCT cg_signups.id) AS events, COUNT(DISTINCT cg_signups.cg) AS cgs, SUM(cg_signups.points)/COUNT(DISTINCT cg_signups.id) AS pav FROM cg_signups, cg_events WHERE cg_signups.state > 0 AND cg_events.id = cg_signups.event AND cg_events.team = 0 GROUP BY cg_signups.person ORDER BY pav DESC, points DESC, events ASC, cgs ASC';
 $result = mysql_query($sql, $db);
 
 if ($result && mysql_num_rows($result)) {
