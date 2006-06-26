@@ -54,7 +54,7 @@ elseif ($cadre && $cg) {
 	$form->table->AddRow('Cadre:', $cadre->GetName());
 	$form->table->AddRow('Cadre Leader:', $members[0]->GetName());
 	
-	$tomeet = $members[0]->getRank->getWeight();
+	$tomeet = $members[0]->getRank()->getWeight();
 	$hasmet = false;
 	$canplay = true;
 	
