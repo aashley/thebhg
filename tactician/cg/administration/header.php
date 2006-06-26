@@ -6,6 +6,8 @@ $auth_info = auth();
 $level = $auth_info['level'];
 $user =& $auth_info['user'];
 
+$uploaddir = realpath(dirname($_SERVER['SCRIPT_FILENAME']).'/..').'/hunt_images/';
+
 if ($level == 3) {
 	$subarray = array(
 		'<b>CG Administration</b>'=>'',
