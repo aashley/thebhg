@@ -51,6 +51,10 @@ class CGEvent {
 		return ($this->team == 1);
 	}
 	
+	function IsTimed(){
+		return ($this->type > 0);
+	}
+	
 	function GetStart() {
 		return $this->start;
 	}
