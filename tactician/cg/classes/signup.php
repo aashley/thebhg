@@ -8,6 +8,9 @@ class CGSignup {
 	var $state;
 	var $rank;
 	var $points;
+	var $submitted;
+	var $content;
+	var $ip;
 	var $db;
 	
 	function CGSignup($id, $db) {
@@ -17,7 +20,7 @@ class CGSignup {
 	}
 
 	function UpdateCache() {
-		$result = mysql_query('SELECT person, event, cg, cadre, state, rank, points FROM cg_signups WHERE id=' . $this->id, $this->db);
+		$result = mysql_query('SELECT person, event, cg, cadre, state, rank, points, ip, submitted, content FROM cg_signups WHERE id=' . $this->id, $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$row = mysql_fetch_array($result);
 			foreach ($row as $field=>$val) {
@@ -28,6 +31,16 @@ class CGSignup {
 
 	function GetID() {
 		return $this->id;
+	}
+	
+	function GetIP(){
+		return $this->ip;
+	}
+	
+	function Edit($submitted, $content){
+		$sql = "UPDATE `cg_signups` SET `submitted` = '$submitted', `content` = '$content' WHERE id = '".$this->id."'";
+		$query = mysql_query($sql, $this->db);
+		return ($query ? true : false);
 	}
 
 	function GetPerson() {
@@ -58,6 +71,14 @@ class CGSignup {
 		return $this->points;
 	}
 
+	function GetContent(){
+	    return unserialize(base64_decode($this->content));
+    }
+    
+    function GetSubmitted(){
+	    return $this->submitted;
+    }
+	
 	function GetCredits() {
 		$hunter = $this->GetPerson();
 		$rank = $hunter->GetRank();
@@ -96,6 +117,16 @@ class CGSignup {
 			return true;
 		}
 		else {
+			return false;
+		}
+	}
+	
+	function Submit($ip, $answer) {
+		if (mysql_query('UPDATE kag_signups SET content="' . $answer . '", submitted = '. time(). ', ip ="'. $ip .'" WHERE id=' . $this->id, $this->db)) {
+			$this->UpdateCache();
+			return true;
+		}
+		else {			
 			return false;
 		}
 	}
