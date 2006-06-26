@@ -9,7 +9,7 @@ include_once 'roster.inc';
 		$loc = "/buildings/property.php?id=".$login->getID();
  	} elseif (isset($_REQUEST['leader'])){
 
-		header('Location: /buildings/property.php?count=true&id='.$_REQUEST['leader']);
+		header('Location: buildings/property.php?count=true&id='.$_REQUEST['leader']);
  	} else
       	$loc = 'planets/';
       	?>
