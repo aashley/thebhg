@@ -8,6 +8,8 @@ if ($level == 3) {
 		$cg =& $ka->GetCG($_REQUEST['cg']);
 		$awards = array();
 		foreach ($cg->GetEvents() as $event) {
+			if ($event->isTeam())
+				continue;
 			$signups =& $event->GetSignups();
 			if ($signups) {
 				foreach ($event->GetSignups() as $signup) {

@@ -71,6 +71,18 @@ if ($level == 3) {
 						$signup->SetPoints($id['points']);
 						$signup->SetState(1);
 					}
+					
+					$pbuffer = array();
+					$i = 1;
+					
+					foreach ($event->GetSignups() as $signup){
+						if ($signup->getPoints() > 0){
+							if (!isset($pbuffer[$signup->getCadre()->getID()])){
+								$signup->dimRank($i);
+								$i++;
+							}
+						}
+					}
 				}
 			} else {
 				foreach ($_REQUEST['signup'] as $sid=>$info) {

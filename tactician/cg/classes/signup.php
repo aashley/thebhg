@@ -172,6 +172,16 @@ class CGSignup {
 			return false;
 		}
 	}
+	
+	function dimRank($rank) {
+		if (mysql_query('UPDATE cg_signups SET rank=' . ((int) $rank) . ' WHERE id=' . $this->id, $this->db)) {
+			$this->UpdateCache();
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 	function SetPoints($points) {
 		if (mysql_query('UPDATE cg_signups SET points=' . ((int) $points) . ' WHERE id=' . $this->id, $this->db)) {
