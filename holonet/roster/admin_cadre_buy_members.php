@@ -49,7 +49,7 @@ function output() {
 			
 	      if ($m->getRank()->getWeight() > $meet)
 	      	$canJoin = true;
-	      elseif ($m->getRank->getWeight() == $meet && !$hasEqual)
+	      elseif ($m->getRank()->getWeight() == $meet && !$hasEqual)
 	      	$canJoin = true;
 	      
 	      if ($canJoin && !$m->InCadre()){
