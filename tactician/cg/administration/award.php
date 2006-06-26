@@ -6,12 +6,22 @@ page_header('Award CG Credits/Medals');
 if ($level == 3) {
 	if ($_REQUEST['submit']) {
 		$cg =& $ka->GetCG($_REQUEST['cg']);
+		$tec = array();
 		$awards = array();
 		foreach ($cg->GetEvents() as $event) {
-			if ($event->isTeam())
-				continue;
 			$signups =& $event->GetSignups();
 			if ($signups) {
+				if ($event->isTeam()){
+					foreach ($signups as $signup){
+						if ($signup->getRank() > 0){
+							if (!isset($tec[$signup->getCadre()->getID()]))
+								$tec[$signup->getCadre()->getID()] = 0;
+							
+							$tec[$signup->getCadre()->getID()] += $signup->getCredits();
+						}
+					}
+					continue;
+				}
 				foreach ($event->GetSignups() as $signup) {
 					$pleb =& $signup->GetPerson();
 					if (empty($awards[$pleb->GetID()])) {
@@ -27,6 +37,9 @@ if ($level == 3) {
 				}
 			}
 		}
+		
+		foreach ($awards as $person => $info)
+			$awards[$person]['credits'] += $tec[$info['cadre']->getID()];
 
 		// Work out which cadre won the CB.
 		$cadres = $cg->GetCadreTotals();
@@ -58,13 +71,13 @@ if ($level == 3) {
 
 			if ($winner == $award['cadre']->GetID()) {
 				// Award the CB.
-				$mb->AwardMedal($award['person'], $judicator, next_medal($mb, $award['person'], $medal_groups['cb']), $award['cadre']->GetName() . ' coming first in CG ' . roman($_REQUEST['cg']), 0);
+				//$mb->AwardMedal($award['person'], $judicator, next_medal($mb, $award['person'], $medal_groups['cb']), $award['cadre']->GetName() . ' coming first in CG ' . roman($_REQUEST['cg']), 0);
 				echo $mb->Error();
 			}
 
 			// Award the credits.
-			$person =& $roster->GetPerson($award['person']->GetID());
-			$person->AddCredits($award['credits'], 'participation in CG ' . roman($_REQUEST['cg']));
+			//$person =& $roster->GetPerson($award['person']->GetID());
+			//$person->AddCredits($award['credits'], 'participation in CG ' . roman($_REQUEST['cg']));
 		}
 		$table->EndTable();
 	}
