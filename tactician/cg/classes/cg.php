@@ -628,7 +628,7 @@ class CG {
 			$tclass = new CGType($type,$this->db);
 			$name = $tclass->GetName();
 		}
-		$sql = 'INSERT INTO cg_events (kag, name, start, end, team, content, type) VALUES (' . $this->id . ', "' . addslashes($name) . '", ' . ((int) $start) . ', ' . ((int) $end) . ', ' . $team . ', "' . $content . '", ' . $type . ')';
+		$sql = 'INSERT INTO cg_events (cg, name, start, end, team, content, type) VALUES (' . $this->id . ', "' . addslashes($name) . '", ' . ((int) $start) . ', ' . ((int) $end) . ', ' . $team . ', "' . $content . '", ' . $type . ')';
 		if (mysql_query($sql, $this->db)) {
 			return new CGEvent(mysql_insert_id($this->db), $this->db);
 		}
