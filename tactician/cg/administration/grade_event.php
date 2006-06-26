@@ -168,12 +168,12 @@ if ($level == 3) {
 			$form = new Form($_SERVER['PHP_SELF']);
 			$form->table->StartRow();
 			if ($event->isTeam()){
+				$form->table->AddHeader('Cadre');
+				$form->table->AddHeader('Points');
+			} else {
 				$form->table->AddHeader('Name');
 				$form->table->AddHeader('Status');
 				$form->table->AddHeader('Rank');
-			} else {
-				$form->table->AddHeader('Cadre');
-				$form->table->AddHeader('Points');
 			}
 			$form->table->EndRow();
 			$sups = array();
@@ -191,7 +191,7 @@ if ($level == 3) {
 				$pleb = $signup->GetPerson();
 				$cadre = $signup->GetCadre();
 				
-				if ($event->isTeam() && $hunter->getID() != $cadre->getLeader()->getID())
+				if ($event->isTeam() && $pleb->getID() != $cadre->getLeader()->getID())
 					continue;
 				
 				$form->table->StartRow();
