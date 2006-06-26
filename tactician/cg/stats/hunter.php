@@ -24,7 +24,7 @@ $tec = 0;
 while ($row = mysql_fetch_array($result)) {
 	$cadre = $roster->GetCadre($row['cadre']);
 	$cadres[$cadre->GetID()] = $cadre->GetName();
-	$cg =& $ka->GetCG($_REQUEST['cg']);
+	$cg =& $ka->GetCG($row['cg']);
 	foreach ($cg->GetTeamSignups($cadre) as $signup){
 		$credits += $signup->getCredits();
 		$tec += $signup->getCredits();
