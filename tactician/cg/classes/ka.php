@@ -133,6 +133,20 @@ class CGBase {
 			return false;
 		}
 	}
+	
+	function GetActiveCGs() {
+		$result = mysql_query('SELECT id FROM cgs WHERE start<=UNIX_TIMESTAMP() AND end>=UNIX_TIMESTAMP() ORDER BY id ASC', $this->db);
+		if ($result && mysql_num_rows($result)) {
+			$cgs = array();
+			while ($row = mysql_fetch_array($result)) {
+				$cgs[$row['id']] =& new CG($row['id'], $this->db);
+			}
+			return $cgs;
+		}
+		else {
+			return false;
+		}
+	}
 
 	function AddCG($id, $signup_start, $signup_end, $start, $end, $maximum, $minimum, $dnp, $noeffort, $penalty) {
 		if (mysql_query('INSERT INTO cgs (id, signup_start, signup_end, start, end, maximum, minimum, dnp, noeffort, penalty) VALUES ("' . ((int) $id) . '", "' . ((int) $signup_start) . '", "' . ((int) $signup_end) . '", "' . ((int) $start) . '", "' . ((int) $end) . '", "' . ((int) $maximum) . '", "' . ((int) $minimum) . '", "' . ((int) $dnp) . '", "' . ((int) $noeffort) . '", "' . ((int) $penalty) . '")', $this->db)) {
