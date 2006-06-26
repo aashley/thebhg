@@ -37,7 +37,7 @@ if ($hunters) {
 	print_r($cg->GetTeamSignups($cadre));
 	foreach ($cg->GetTeamSignups($cadre) as $signup){
 		foreach ($results as $hunter => $array){
-			print_r($array);
+			print_r($signup->getCredits());
 			$array['credits'] += $signup->getCredits();
 		}
 	}
