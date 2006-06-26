@@ -122,7 +122,7 @@ class CGSignup {
 	}
 	
 	function Submit($ip, $answer) {
-		if (mysql_query('UPDATE kag_signups SET content="' . $answer . '", submitted = '. time(). ', ip ="'. $ip .'" WHERE id=' . $this->id, $this->db)) {
+		if (mysql_query('UPDATE cg_signups SET content="' . $answer . '", submitted = '. time(). ', ip ="'. $ip .'" WHERE id=' . $this->id, $this->db)) {
 			$this->UpdateCache();
 			return true;
 		}
