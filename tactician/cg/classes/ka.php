@@ -65,7 +65,7 @@ class CGBase {
 	}
 	
 	function NewEventType($name, $desc, $abbr, $picture, $questions, $answers){
-		$sql = "INSERT INTO `kag_types` (`name`, `desc`, `abbr`, `picture`, `questions`, `answers`) VALUES "
+		$sql = "INSERT INTO `cg_types` (`name`, `desc`, `abbr`, `picture`, `questions`, `answers`) VALUES "
 				."('".addslashes($name)."', '".addslashes($desc)."', '".addslashes($abbr)."', '$picture', '$questions', '$answers')";
 		$query = mysql_query($sql, $this->db);
 		
