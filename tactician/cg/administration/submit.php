@@ -107,7 +107,7 @@ if ($level <= 3) {
 	} else {
 	
 		$events = array();
-
+print_r($ka->GetOpenCGs());
 		if (is_array($ka->GetOpenCGs())){
 			foreach ($ka->GetOpenCGs() as $CG){
 				if (is_array($CG->GetHunterSignups($user->GetID()))){
