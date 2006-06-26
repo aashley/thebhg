@@ -27,7 +27,7 @@ if ($level == 3) {
 				$form->table->EndRow();
 
 				$form->AddTextBox('Name:', "events[$i]");
-				$form->AddCheckBox('Team Event?', "teams[$i]", 1, $event->IsTeam());
+				$form->AddCheckBox('Team Event?', "teams[$i]", 1);
 				$form->AddDateBox('Start Date:', "events{$i}_start", $start, true);
 				$form->AddDateBox('End Date:', "events{$i}_end", $end, true);
 			}
