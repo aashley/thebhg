@@ -14,7 +14,7 @@ if ($level == 3) {
 			$right = array();
 			$numbers = array();
 			$grading = array();
-			
+					
 			foreach ($_REQUEST['grades'] as $sid=>$info) {
 				$signup = $ka->GetSignup($sid);
 				$signup->SetState($info['state']);
@@ -62,11 +62,23 @@ if ($level == 3) {
 				}
 			}
 		} else {
-			foreach ($_REQUEST['signup'] as $sid=>$info) {
-				$signup =& $ka->GetSignup($sid);
-				$signup->SetState($info['state']);
-				if ($info['state'] == 1 || $info['state'] == 4) {
-					$signup->SetRank($info['rank']);
+			
+			if (isset($_REQUEST['team'])){
+				$event = $ka->GetEvent($_REQUEST['team']);
+				if ($event->isTeam()){
+					foreach ($_REQUEST['signup']['points'] as $sid => $id){
+						$signup = $ka->getSignup($sid);
+						$signup->SetPoints($id);
+						$signup->SetState(1);
+					}
+				}
+			} else {
+				foreach ($_REQUEST['signup'] as $sid=>$info) {
+					$signup =& $ka->GetSignup($sid);
+					$signup->SetState($info['state']);
+					if ($info['state'] == 1 || $info['state'] == 4) {
+						$signup->SetRank($info['rank']);
+					}
 				}
 			}
 		}
@@ -160,6 +172,11 @@ if ($level == 3) {
 			$form->table->AddHeader('Rank');
 			$form->table->EndRow();
 			$sups = array();
+			
+			if ($event->isTeam()){
+				$form->AddHidden('team', $_REQUEST['event']);
+			}
+			
 			foreach ($signups as $signup) {
 				$pleb = $signup->GetPerson();
 				$sups[$pleb->GetName()] = $signup;
@@ -174,8 +191,12 @@ if ($level == 3) {
 				
 				$form->table->StartRow();
 				$form->table->AddCell($pleb->GetName());
-				$form->table->AddCell('<select name="signup[' . $signup->GetID() . '][state]" size="1"><option value="1"' . ($signup->GetState() == 1 ? ' selected="selected"' : '') . '>Use the rank given</option><option value="2"' . ($signup->GetState() == 2 ? ' selected="selected"' : '') . '>DNP</option><option value="3"' . ($signup->GetState() == 3 ? ' selected="selected"' : '') . '>No effort</option><option value="4"' . ($signup->GetState() == 4 ? ' selected="selected"' : '') . '>Use rank with penalty</option></select>');
-				$form->table->AddCell('<input type="text" name="signup[' . $signup->GetID() . '][rank]" size="5"' . (($signup->GetState() == 1 || $signup->GetState() == 4) ? ' value="' . $signup->GetRank() . '"' : '') . ' />');
+				if ($event->isTeam()){
+					$form->table->AddCell('<input type="name" name="signup[' . $signup->GetID() . '][points]">' . ($signup->GetState() == 1 ? ' value="' . $signup->GetPoints() . '"' : ''));
+				} else {
+					$form->table->AddCell('<select name="signup[' . $signup->GetID() . '][state]" size="1"><option value="1"' . ($signup->GetState() == 1 ? ' selected="selected"' : '') . '>Use the rank given</option><option value="2"' . ($signup->GetState() == 2 ? ' selected="selected"' : '') . '>DNP</option><option value="3"' . ($signup->GetState() == 3 ? ' selected="selected"' : '') . '>No effort</option><option value="4"' . ($signup->GetState() == 4 ? ' selected="selected"' : '') . '>Use rank with penalty</option></select>');
+					$form->table->AddCell('<input type="text" name="signup[' . $signup->GetID() . '][rank]" size="5"' . (($signup->GetState() == 1 || $signup->GetState() == 4) ? ' value="' . $signup->GetRank() . '"' : '') . ' />');
+				}
 				$form->table->EndRow();
 			}
 			$form->table->StartRow();
