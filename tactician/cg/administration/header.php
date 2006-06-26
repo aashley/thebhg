@@ -29,18 +29,22 @@ if ($level == 3) {
 		'View Signups'=>'cg/administration/view_signups.php',
 		'<b>E-mail Functions</b>'=>'',
 		'E-mail Hunters By CG'=>'cg/administration/email.php?by=cg',
-		'E-mail Hunters By Event'=>'cg/administration/email.php?by=event'
+		'E-mail Hunters By Event'=>'cg/administration/email.php?by=event',
+		'<b>Test Functions</b>'=>'',
+		'Submit for Event'=>'cg/administration/submit.php'
 	);
 }
 elseif ($level == 2) {
 	$subarray = array(
 		'Edit Signups'=>'cg/administration/edit_signups.php',
-		'View Signups'=>'cg/administration/view_signups.php'
+		'View Signups'=>'cg/administration/view_signups.php',
+		'Submit for Event'=>'cg/administration/submit.php'
 	);
 }
 elseif ($level == 1) {
 	$subarray = array(
-		'Edit Signups'=>'cg/administration/edit_signups.php'
+		'Edit Signups'=>'cg/administration/edit_signups.php',
+		'Submit for Event'=>'cg/administration/submit.php'
 	);
 }
 $subarray['<b>Back To CG Home</b>'] = 'cg/index.php';
