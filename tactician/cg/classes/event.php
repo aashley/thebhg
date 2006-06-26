@@ -17,7 +17,7 @@ class CGEvent {
 	}
 
 	function UpdateCache() {
-		$result = mysql_query('SELECT cg, name, start, end FROM cg_events WHERE id=' . $this->id, $this->db);
+		$result = mysql_query('SELECT cg, name, start, end, type, content, team FROM cg_events WHERE id=' . $this->id, $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$row = mysql_fetch_array($result);
 			foreach ($row as $field=>$val) {
