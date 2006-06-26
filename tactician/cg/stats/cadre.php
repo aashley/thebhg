@@ -43,7 +43,7 @@ $table->StartRow();
 create_sort_headers($table, array('name'=>'Name', 'points'=>'Points', 'events'=>'Completed Events', 'pe'=>'Pts/Event'));
 $table->EndRow();
 
-$result = mysql_query('SELECT person, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM cg_signups WHERE state > 0 AND cadre=' . $_REQUEST['id'] . ' GROUP BY person', $db);
+$result = mysql_query('SELECT cg_signups.person, SUM(cg_signups.points) AS points, COUNT(DISTINCT cg_signups.id) AS events FROM cg_signups, cg_events WHERE cg_signups.state > 0 AND cg_events.id = cg_signups.event AND cg_events.team = 0 AND cg_signups.cadre=' . $_REQUEST['id'] . ' GROUP BY person', $db);
 if ($result && mysql_num_rows($result)) {
 	$hunters = array();
 	while ($row = mysql_fetch_array($result)) {
