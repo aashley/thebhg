@@ -167,9 +167,14 @@ if ($level == 3) {
 		} else {
 			$form = new Form($_SERVER['PHP_SELF']);
 			$form->table->StartRow();
-			$form->table->AddHeader('Name');
-			$form->table->AddHeader('Status');
-			$form->table->AddHeader('Rank');
+			if ($event->isTeam()){
+				$form->table->AddHeader('Name');
+				$form->table->AddHeader('Status');
+				$form->table->AddHeader('Rank');
+			} else {
+				$form->table->AddHeader('Cadre');
+				$form->table->AddHeader('Points');
+			}
 			$form->table->EndRow();
 			$sups = array();
 			
@@ -190,10 +195,12 @@ if ($level == 3) {
 					continue;
 				
 				$form->table->StartRow();
-				$form->table->AddCell($pleb->GetName());
+				
 				if ($event->isTeam()){
+					$form->table->AddCell($cadre->getName());
 					$form->table->AddCell('<input type="name" name="signup[' . $signup->GetID() . '][points]">' . ($signup->GetState() == 1 ? ' value="' . $signup->GetPoints() . '"' : ''));
 				} else {
+					$form->table->AddCell($pleb->GetName());
 					$form->table->AddCell('<select name="signup[' . $signup->GetID() . '][state]" size="1"><option value="1"' . ($signup->GetState() == 1 ? ' selected="selected"' : '') . '>Use the rank given</option><option value="2"' . ($signup->GetState() == 2 ? ' selected="selected"' : '') . '>DNP</option><option value="3"' . ($signup->GetState() == 3 ? ' selected="selected"' : '') . '>No effort</option><option value="4"' . ($signup->GetState() == 4 ? ' selected="selected"' : '') . '>Use rank with penalty</option></select>');
 					$form->table->AddCell('<input type="text" name="signup[' . $signup->GetID() . '][rank]" size="5"' . (($signup->GetState() == 1 || $signup->GetState() == 4) ? ' value="' . $signup->GetRank() . '"' : '') . ' />');
 				}
