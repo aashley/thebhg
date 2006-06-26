@@ -107,7 +107,8 @@ if ($level <= 3) {
 	} else {
 	
 		$events = array();
-
+echo 'active CGs:';
+print_r($ka->GetActiveCGs());
 		if (is_array($ka->GetActiveCGs())){
 			foreach ($ka->GetActiveCGs() as $CG){
 				if (is_array($CG->GetHunterSignups($user->GetID()))){
