@@ -446,7 +446,7 @@ class CG {
 	 *               example code for details.
 	 */
 	function GetHunterTotals($limit = 0) {
-		$result = mysql_query('SELECT SUM(points) AS total, person, cadre FROM cg_signups WHERE cg=' . $this->id . ' GROUP BY person, cadre ORDER BY total DESC' . ($limit > 0 ? ' LIMIT ' . $limit : ''), $this->db);
+		$result = mysql_query('SELECT SUM(cg_signups.points) AS total, cg_signups.person, cg_signups.cadre FROM cg_signups, cg_events WHERE cg_signups.cg=' . $this->id . ' AND cg_events.id = cg_signups.event AND cg_events.team = 0 GROUP BY cg_signups.person, cg_signups.cadre ORDER BY total DESC' . ($limit > 0 ? ' LIMIT ' . $limit : ''), $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$hunters = array();
 			while ($row = mysql_fetch_array($result)) {
