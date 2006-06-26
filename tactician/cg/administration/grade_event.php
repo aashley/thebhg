@@ -64,6 +64,7 @@ if ($level == 3) {
 		} else {
 			
 			if (isset($_REQUEST['team'])){
+				echo 'here';
 				$event = $ka->GetEvent($_REQUEST['team']);
 				if ($event->isTeam()){
 					foreach ($_REQUEST['signup']['points'] as $sid => $id){
