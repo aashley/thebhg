@@ -123,12 +123,12 @@ if ($level == 3) {
 			foreach ($signups as $sub){
 				
 				$hunter = $sub->GetPerson();
-				$kabal = $sub->GetKabal();
+				$cadre = $sub->GetCadre();
 				$sub_answers = $sub->GetContent();
 				
 				$total_answers = count($sub_answers);
 				
-				$form->AddSectionTitle($hunter->GetName().' for '.$kabal->GetName());
+				$form->AddSectionTitle($hunter->GetName().' for '.$cadre->GetName());
 				$form->table->AddRow('IP Address', $sub->GetIP());
 				
 				$form->StartSelect('Status', 'grades['.$sub->GetID().'][state]');
