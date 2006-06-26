@@ -138,6 +138,8 @@ if ($level <= 3) {
 			
 			foreach ($events as $event){
 				$type = $event->GetTypes();
+				if ($event->isTeam() && $cadre->getLeader()->getID() != $user->getID())
+					continue;
 				$table->AddRow(date('j F Y \a\t G:i:s T', $event->GetEnd()), '<a href="'.$PHP_SELF.'?event='.$event->GetID().'">'.$type->GetName().'</a>');
 			}
 			
