@@ -53,15 +53,34 @@ elseif ($cadre && $cg) {
 	$form->AddHidden('id', $cg->GetID());
 	$form->table->AddRow('Cadre:', $cadre->GetName());
 	$form->table->AddRow('Cadre Leader:', $members[0]->GetName());
+	
+	$tomeet = $members[0]->getRank->getWeight();
+	$hasmet = false;
+	$canplay = true;
+	
 	$form->table->StartRow();
 	$form->table->AddCell('Cadre Members:');
 	$names = array();
 	foreach (array_slice($members, 1) as $member) {
+		if ($tomeet > $member->getRank()->getWeight())
+			$canplay = false;
+		if ($tomeet == $member->getRank()->getWeight() && $hasmet)
+			$canplay = false;
+		if ($tomeet == $memeber->getRank()->getWeight() && !$hasmet)
+			$hasmet = true;
+			
 		$names[] = $member->GetName();
 	}
 	$form->table->AddCell(implode(', ', $names));
 	$form->table->EndRow();
-	$form->AddSubmitButton('submit', 'Update Signups');
+	
+	if (count($members) <= 5 && count($members) >= 2){
+		if ($canplay){
+			if ($members[0]->HasEstate()){
+				$form->AddSubmitButton('submit', 'Update Signups');
+			}
+		}
+	}
 	$form->EndForm();
 }
 elseif ($level == 3 && $cg) {
