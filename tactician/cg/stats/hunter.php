@@ -17,13 +17,14 @@ if (!$signups) {
 
 $table = new Table('', true);
 
-$result = mysql_query('SELECT cadre FROM cg_signups WHERE person=' . $_REQUEST['id'] . ' GROUP BY cadre', $db);
+$result = mysql_query('SELECT cadre, cg FROM cg_signups WHERE person=' . $_REQUEST['id'] . ' GROUP BY cadre', $db);
 $cadres = array();
 $credits = 0;
 $tec = 0;
 while ($row = mysql_fetch_array($result)) {
 	$cadre = $roster->GetCadre($row['cadre']);
 	$cadres[$cadre->GetID()] = $cadre->GetName();
+	$cg =& $ka->GetCG($_REQUEST['cg']);
 	foreach ($cg->GetTeamSignups($cadre) as $signup){
 		$credits += $signup->getCredits();
 		$tec += $signup->getCredits();
