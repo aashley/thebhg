@@ -268,7 +268,7 @@ class CG {
 		if (is_a($cadre, 'cadre')) {
 			$cadre = $cadre->GetID();
 		}
-		$result = mysql_query('SELECT cg_signups.id, cg_signups.event FROM cg_signups, cg_events WHERE cg_signups.cg=' . $this->id . ' AND cg_signups.cadre=' . ((int) $cadre) . ' AND cg_events.id = cg_signups.event AND cg_events.team = 1 ORDER BY state ASC, points DESC', $this->db);
+		$result = mysql_query('SELECT cg_signups.id, cg_signups.event FROM cg_signups, cg_events WHERE cg_signups.cg=' . $this->id . ' AND cg_signups.cadre=' . ((int) $cadre) . ' AND cg_events.id = cg_signups.event AND cg_events.team = 1 AND cg_signups.rank > 0 ORDER BY state ASC, points DESC', $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$signups = array();
 			while ($row = mysql_fetch_array($result)) {
