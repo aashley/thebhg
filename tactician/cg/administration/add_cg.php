@@ -9,7 +9,7 @@ if ($level == 3) {
 		foreach ($_REQUEST['events'] as $i=>$name) {
 			$start = parse_date_box("events{$i}_start");
 			$end = parse_date_box("events{$i}_end");
-			if (!$cg->AddEvent($name, $start, $end, false, isset($_REQUEST['teams'][$i] ? 1 : 0))) {
+			if (!$cg->AddEvent($name, $start, $end, false, (isset($_REQUEST['teams'][$i]) ? 1 : 0))) {
 				echo 'Error adding event ' . $i . '.<br />';
 			}
 		}
