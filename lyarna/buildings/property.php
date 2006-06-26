@@ -8,7 +8,7 @@ if ($_REQUEST['id']){
     $where = "`bhg_id` = '".$_REQUEST['id']."'";
     $person = $roster->getPerson($_REQUEST['id']);
     $name = $person->getName();
-    $where .= " OR (`position` = '".$person->getPosition()->getID()."' AND `division` = '".$person->getDivision()->getID()."')";
+    $where .= (isset($_REQUEST['count']) ? '' : " OR (`position` = '".$person->getPosition()->getID()."' AND `division` = '".$person->getDivision()->getID()."')");
     if ($person->getDivision()->isKabal() && $person->getPosition()->getID() != 11)
     	$divka = "`division` = '".$person->getDivision()->getID()."'";
     	
@@ -30,7 +30,12 @@ include("../functions/db.php");
 $types = array('complex', 'estate', 'hq', 'other', 'personal');
 
   include("../header.php");
-
+if ($_REQUEST['count']){
+	$sql = "SELECT id, name, owner, planet, arena, bhg_id, position, division FROM `estate` WHERE ".$where." ORDER BY name";
+	$query = mysql_query($sql, $GLOBALS['db']);
+	echo mysql_num_rows($query);
+	exit;
+}
     echo "<table align=\"center\">\n";
     echo "<tr><td class=\"contrast\"><table>\n";
     echo "<tr><td></td><td><p><b>Legend:</b></p></td></tr>\n";
