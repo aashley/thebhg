@@ -113,7 +113,7 @@ if ($level <= 3) {
 				if (is_array($CG->GetHunterSignups($user->GetID()))){
 					foreach ($CG->GetHunterSignups($user->GetID()) as $signup){
 						if (!$signup->GetSubmitted()){
-							$kabal = $signup->GetKabal();
+							$cadre = $signup->GetCadre();
 							$event = $signup->GetEvent();
 							if ($event->IsTimed()){
 								if ($event->GetStart() < time() && $event->GetEnd() > time()){
@@ -131,7 +131,7 @@ if ($level <= 3) {
 			$table = new Table('', true);
 				
 			$table->StartRow();
-			$table->AddHeader('Events you can Submit for - '.$user->GetName().' of '.$kabal->GetName(), 2);
+			$table->AddHeader('Events you can Submit for - '.$user->GetName().' of '.$cadre->GetName(), 2);
 			$table->EndRow();
 			
 			$table->AddRow('Ends', 'Event');
