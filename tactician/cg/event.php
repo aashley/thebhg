@@ -13,7 +13,7 @@ if (!$event->isTeam()){
 }
 $table->AddHeader('Cadre');
 $table->AddHeader('Points');
-$table->AddHeader('Credits');
+$table->AddHeader(($event->isTeam() ? 'Team ' : '').'Credits');
 $table->EndRow();
 
 $signups =& $event->GetSignups();
@@ -23,6 +23,9 @@ if ($signups) {
 		$person =& $signup->GetPerson();
 		$cadre =& $signup->GetCadre();
 
+		if ($person->getID() != $cadre->getLEader()->getID() && $event->isTeam())
+			continue;
+		
 		$table->StartRow();
 		if (!$event->isTeam()){
 			$table->AddCell('<a href="hunter.php?cg=' . $cg->GetID() . '&amp;id=' . $person->GetID() . '">' . $person->GetName() . '</a>');
