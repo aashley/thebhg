@@ -181,6 +181,12 @@ class Form {
 		$this->table->AddCell($df);
 		$this->table->EndRow();
 	}
+	
+	function AddSectionTitle($title) {
+		$this->table->StartRow();
+		$this->table->AddHeader(htmlspecialchars($title), 2);
+		$this->table->EndRow();
+	}
 
 }
 
