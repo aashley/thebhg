@@ -211,41 +211,53 @@ if ($level == 3) {
 			$form->table->EndRow();
 			$form->EndForm();
 	
-			echo "
-			Notes:
-			<ul>
-				<li><b>Status</b>: This allows you to select whether the hunter had a DNP, a no effort submission, or just a regular submission. If there was a DNP or no effort, then the rank is disregarded. If &quot;Use rank with penalty&quot; is selected, then the rank will be used in the same way as a regular submission, but the points given to the hunter will be reduced by the amount set for the CG (usually 5 points).</li>
-				<li><b>Rank</b>: This is the rank of the participant in the event. First place would be 1, second place is 2, and so on. Ties can be entered as the same event. For example, say you had the following results:
-			";
+			if ($event->isTeam()){
+				echo "
+				Notes:
+				<ul>
+					<li><b>Points</b>: This is the total amount of points issued to a cadre for their team submission. It is the average of the grader scores</li>
+				";						
+				echo "
+				</ul>
+				";
 
-					$table = new Table('', true);
-					$table->StartRow();
-					$table->AddHeader('Name');
-					$table->AddHeader('Score');
-					$table->EndRow();
-					$table->AddRow('Jernai', '40');
-					$table->AddRow('Gravant', '50');
-					$table->AddRow('Koral', '30');
-					$table->AddRow('Ehart', '40');
-					$table->AddRow('Coursca', '10');
-					$table->EndTable();
-					echo '<br />The ranks would be as follows:';
-					$table = new Table('', true);
-					$table->StartRow();
-					$table->AddHeader('Name');
-					$table->AddHeader('Rank');
-					$table->EndRow();
-					$table->AddRow('Gravant', '1');
-					$table->AddRow('Jernai', '2');
-					$table->AddRow('Ehart', '2');
-					$table->AddRow('Koral', '4');
-					$table->AddRow('Coursca', '5');
-					$table->EndTable();
-					
-			echo "
-				<br />This allows for easy recalculation of results in the event that there is a change in maximum or minimum score.</li>
-			</ul>
-			";
+			} else {
+				echo "
+				Notes:
+				<ul>
+					<li><b>Status</b>: This allows you to select whether the hunter had a DNP, a no effort submission, or just a regular submission. If there was a DNP or no effort, then the rank is disregarded. If &quot;Use rank with penalty&quot; is selected, then the rank will be used in the same way as a regular submission, but the points given to the hunter will be reduced by the amount set for the CG (usually 5 points).</li>
+					<li><b>Rank</b>: This is the rank of the participant in the event. First place would be 1, second place is 2, and so on. Ties can be entered as the same event. For example, say you had the following results:
+				";
+	
+						$table = new Table('', true);
+						$table->StartRow();
+						$table->AddHeader('Name');
+						$table->AddHeader('Score');
+						$table->EndRow();
+						$table->AddRow('Jernai', '40');
+						$table->AddRow('Gravant', '50');
+						$table->AddRow('Koral', '30');
+						$table->AddRow('Ehart', '40');
+						$table->AddRow('Coursca', '10');
+						$table->EndTable();
+						echo '<br />The ranks would be as follows:';
+						$table = new Table('', true);
+						$table->StartRow();
+						$table->AddHeader('Name');
+						$table->AddHeader('Rank');
+						$table->EndRow();
+						$table->AddRow('Gravant', '1');
+						$table->AddRow('Jernai', '2');
+						$table->AddRow('Ehart', '2');
+						$table->AddRow('Koral', '4');
+						$table->AddRow('Coursca', '5');
+						$table->EndTable();
+						
+				echo "
+					<br />This allows for easy recalculation of results in the event that there is a change in maximum or minimum score.</li>
+				</ul>
+				";
+			}
 		}
 	}
 	elseif ($_REQUEST['cg']) {
