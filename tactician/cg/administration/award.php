@@ -71,13 +71,13 @@ if ($level == 3) {
 
 			if ($winner == $award['cadre']->GetID()) {
 				// Award the CB.
-				//$mb->AwardMedal($award['person'], $judicator, next_medal($mb, $award['person'], $medal_groups['cb']), $award['cadre']->GetName() . ' coming first in CG ' . roman($_REQUEST['cg']), 0);
+				$mb->AwardMedal($award['person'], $judicator, next_medal($mb, $award['person'], $medal_groups['cb']), $award['cadre']->GetName() . ' coming first in CG ' . roman($_REQUEST['cg']), 0);
 				echo $mb->Error();
 			}
 
 			// Award the credits.
-			//$person =& $roster->GetPerson($award['person']->GetID());
-			//$person->AddCredits($award['credits'], 'participation in CG ' . roman($_REQUEST['cg']));
+			$person =& $roster->GetPerson($award['person']->GetID());
+			$person->AddCredits($award['credits'], 'participation in CG ' . roman($_REQUEST['cg']));
 		}
 		$table->EndTable();
 	}
