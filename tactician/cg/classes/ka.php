@@ -46,7 +46,19 @@ class CGBase {
 		$return = array();
 		
 		while ($info = mysql_fetch_array($query)){
-			$return[] = new KAGType($info['id'], $this->db);
+			$return[] = new CGType($info['id'], $this->db);
+		}
+		
+		return $return;
+	}
+	
+	function AllTypes() {
+		$sql = 'SELECT * FROM `cg_types` ORDER BY `name`';
+		$query = mysql_query($sql, $this->db);
+		$return = array();
+		
+		while ($info = mysql_fetch_array($query)){
+			$return[] = new CGType($info['id'], $this->db);
 		}
 		
 		return $return;
