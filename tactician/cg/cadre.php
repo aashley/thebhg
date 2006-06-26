@@ -37,7 +37,7 @@ if ($hunters) {
 
 	foreach ($cg->GetTeamSignups($cadre) as $signup){
 		foreach ($results as $hunter => $array)
-			$results[$hunter->GetID()]['credits'] += $signup->getCredits();
+			$results[$hunter]['credits'] += $signup->getCredits();
 	}
 	uasort($results, sort_result_array);
 	foreach ($results as $result) {
