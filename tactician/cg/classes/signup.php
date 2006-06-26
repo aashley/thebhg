@@ -87,13 +87,13 @@ class CGSignup {
 			case 1: case 4:
 				switch ($this->rank) {
 					case 1:
-						$credits = ($this->team ? 125000 : 200000);
+						$credits = ($this->getEvent()->isTeam() ? 125000 : 200000);
 						break;
 					case 2:
-						$credits = ($this->team ? 75000 : 150000);
+						$credits = ($this->getEvent()->isTeam() ? 75000 : 150000);
 						break;
 					case 3:
-						$credits = ($this->team ? 50000 : 100000);
+						$credits = ($this->getEvent()->isTeam() ? 50000 : 100000);
 						break;
 					default:
 						$credits = 50000;
