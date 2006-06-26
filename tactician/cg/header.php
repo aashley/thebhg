@@ -70,4 +70,8 @@ function roman($number) {
 		return number_format($number);
 	}
 }
+
+function hr(){
+	echo '<hr noshade />';
+}
 ?>
