@@ -89,11 +89,11 @@ class CGBase {
 		if (is_a($cadre, 'cadre')) {
 			$cadre = $cadre->GetID();
 		}
-		$sql = 'SELECT id FROM cg_signups WHERE person=' . ((int) $hunter);
+		$sql = 'SELECT cg_signups.id FROM cg_signups, cg_events WHERE cg_events.id = cg_signups.event AND cg_events.team = 0 AND cg_signups.person=' . ((int) $hunter);
 		if ($cadre !== false) {
-			$sql .= ' AND cadre=' . ((int) $cadre);
+			$sql .= ' AND cg_signups.cadre=' . ((int) $cadre);
 		}
-		$sql .= ' ORDER BY cg ASC';
+		$sql .= ' ORDER BY cg_signups.cg ASC';
 		$result = mysql_query($sql, $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$signups = array();
