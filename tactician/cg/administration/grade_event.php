@@ -126,6 +126,9 @@ if ($level == 3) {
 				$cadre = $sub->GetCadre();
 				$sub_answers = $sub->GetContent();
 				
+				if ($event->isTeam() && $hunter->getID() != $cadre->getLeader()->getID())
+					continue;
+				
 				$total_answers = count($sub_answers);
 				
 				$form->AddSectionTitle($hunter->GetName().' for '.$cadre->GetName());
@@ -164,6 +167,11 @@ if ($level == 3) {
 			ksort($sups);
 			foreach ($sups as $signup) {
 				$pleb = $signup->GetPerson();
+				$cadre = $signup->GetCadre();
+				
+				if ($event->isTeam() && $hunter->getID() != $cadre->getLeader()->getID())
+					continue;
+				
 				$form->table->StartRow();
 				$form->table->AddCell($pleb->GetName());
 				$form->table->AddCell('<select name="signup[' . $signup->GetID() . '][state]" size="1"><option value="1"' . ($signup->GetState() == 1 ? ' selected="selected"' : '') . '>Use the rank given</option><option value="2"' . ($signup->GetState() == 2 ? ' selected="selected"' : '') . '>DNP</option><option value="3"' . ($signup->GetState() == 3 ? ' selected="selected"' : '') . '>No effort</option><option value="4"' . ($signup->GetState() == 4 ? ' selected="selected"' : '') . '>Use rank with penalty</option></select>');
