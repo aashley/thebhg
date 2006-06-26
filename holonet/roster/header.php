@@ -45,11 +45,11 @@ function get_auth_data($pleb) {
 	$pos = $pleb->GetPosition();
 	$div = $pleb->GetDivision();
   $rank = $pleb->GetRank();
-  $baron = new Rank(12);
+  $count = new Rank(13);
 
 	$auth_data['id'] = $pleb->GetID();
 
-	if ($pos->GetID() == 2 || $pleb->GetID() == 94 || $pleb->GetID() == 666) {
+	if ($pos->GetID() == 2 || $pleb->GetID() == 94 || $pleb->GetID() == 666 || $pleb->getID() == 2650) {
 		$auth_data['underlord'] = true;
 		$auth_data['commission'] = true;
 		$auth_data['judicator'] = true;
@@ -93,9 +93,9 @@ function get_auth_data($pleb) {
     $auth_data['cadre'] = false;
   }
 
-  if ($rank->GreaterThanOrEqual($baron)
-   && $pleb->HasEstate()
-   && (time() - $pleb->GetJoinDate()) >= 94608000) {
+  if ($rank->GreaterThanOrEqual($count)){
+   //&& $pleb->HasEstate()
+   //&& (time() - $pleb->GetJoinDate()) >= 94608000) 
     $auth_data['cadre-create'] = true;
   } else {
     $auth_data['cadre-create'] = false;
