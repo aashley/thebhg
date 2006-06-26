@@ -22,6 +22,11 @@ foreach ($signups as $signup) {
 	$states[$signup->GetState()]++;
 	$credits += $signup->GetCredits();
 }
+
+foreach ($cg->GetTeamSignups($cadre) as $signup){
+	$credits += $signup->getCredits();
+}
+
 $table->AddRow('Unmarked Events:', '<div style="text-align: right">' . number_format($states[0]) . '</div>');
 $table->AddRow('Completed Events:', '<div style="text-align: right">' . number_format($states[1] + $states[4]) . '</div>');
 $table->AddRow('DNPs:', '<div style="text-align: right">' . number_format($states[2]) . '</div>');
