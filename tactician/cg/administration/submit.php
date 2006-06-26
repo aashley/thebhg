@@ -114,10 +114,13 @@ if ($level <= 3) {
 					print_r($CG->GetHunterSignups($user->GetID()));
 					foreach ($CG->GetHunterSignups($user->GetID()) as $signup){
 						if (!$signup->GetSubmitted()){
+							echo 'not submitted to';
 							$cadre = $signup->GetCadre();
 							$event = $signup->GetEvent();
 							if ($event->IsTimed()){
+								echo 'it is timed';
 								if ($event->GetStart() < time() && $event->GetEnd() > time()){
+									echo 'looks fine';
 									$events[] = $event;
 								}
 							}
