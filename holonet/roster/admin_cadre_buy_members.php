@@ -157,11 +157,20 @@ function output() {
     
     while ($member = mysql_fetch_assoc($members)) {
 	    
-	    $temp = true;
+	    $temp = false;
 	    
       $m = $roster->GetPerson($member['person']);
 
+      if ($canJoin){
+	      if ($m->getRank()->getWeight() > $meet)
+	      	$temp = true;
+	      elseif ($m->getRank()->getWeight() == $meet && !$hasEqual)
+	      	$temp = true;	      	
+	  }
       
+	  if ($m->InCadre())
+	  	$temp = false;
+
       $table->AddRow(
           '<a href="'.internal_link('hunter', array('id'=>$m->GetID())).'">'
             .$m->GetName().'</a>',
