@@ -9,7 +9,7 @@ if ($level == 3) {
 		foreach ($_REQUEST['events'] as $i=>$name) {
 			$start = parse_date_box("events{$i}_start");
 			$end = parse_date_box("events{$i}_end");
-			if (!$cg->AddEvent($name, $start, $end)) {
+			if (!$cg->AddEvent($name, $start, $end, false, isset($_REQUEST['teams'][$i] ? 1 : 0))) {
 				echo 'Error adding event ' . $i . '.<br />';
 			}
 		}
@@ -27,6 +27,7 @@ if ($level == 3) {
 				$form->table->EndRow();
 
 				$form->AddTextBox('Name:', "events[$i]");
+				$form->AddCheckBox('Team Event?', "teams[$i]", 1, $event->IsTeam());
 				$form->AddDateBox('Start Date:', "events{$i}_start", $start, true);
 				$form->AddDateBox('End Date:', "events{$i}_end", $end, true);
 			}
@@ -46,7 +47,7 @@ if ($level == 3) {
 		$form->AddTextBox('DNP Points:', 'dnp', '0', 5);
 		$form->AddTextBox('No Effort Points:', 'noeffort', '0', 5);
 		$form->AddTextBox('Penalty Points:', 'penalty', '5', 5);
-		$form->AddTextBox('Number of Events:', 'events', false, 5);
+		$form->AddTextBox('Number of <b>NON-TIMED</b> Events:', 'events', false, 5);
 		$form->AddDateBox('Start of Signup Period:', 'signup_start', 0, true);
 		$form->AddDateBox('End of Signup Period:', 'signup_end', 0, true);
 		$form->AddDateBox('Start of CG:', 'start', 0, true);

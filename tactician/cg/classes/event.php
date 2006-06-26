@@ -6,6 +6,7 @@ class CGEvent {
 	var $type;
 	var $content;
 	var $start;
+	var $team;
 	var $end;
 	var $db;
 
@@ -46,6 +47,10 @@ class CGEvent {
 		return new CGType($this->type, $this->db);
 	}
 	
+	function IsTeam(){
+		return ($this->team == 1);
+	}
+	
 	function GetStart() {
 		return $this->start;
 	}
@@ -84,6 +89,16 @@ class CGEvent {
 
 	function SetName($name) {
 		if (mysql_query('UPDATE cg_events SET name="' . addslashes($name) . '" WHERE id=' . $this->id, $this->db)) {
+			$this->UpdateCache();
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	function SetTeam($name) {
+		if (mysql_query('UPDATE cg_events SET team="' . addslashes($name) . '" WHERE id=' . $this->id, $this->db)) {
 			$this->UpdateCache();
 			return true;
 		}

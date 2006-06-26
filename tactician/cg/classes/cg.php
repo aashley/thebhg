@@ -623,12 +623,12 @@ class CG {
 	 *                        false if not.
 	 * @return boolean True on success, false otherwise.
 	 */
-	function AddEvent($name, $start, $end, $marked = false, $content = '', $type = 0) {
+	function AddEvent($name, $start, $end, $marked = false, $team, $content = '', $type = 0) {
 		if($type != '0') {
 			$tclass = new CGType($type,$this->db);
 			$name = $tclass->GetName();
 		}
-		$sql = 'INSERT INTO cg_events (kag, name, start, end, content, type) VALUES (' . $this->id . ', "' . addslashes($name) . '", ' . ((int) $start) . ', ' . ((int) $end) . ', "' . $content . '", ' . $type . ')';
+		$sql = 'INSERT INTO cg_events (kag, name, start, end, team, content, type) VALUES (' . $this->id . ', "' . addslashes($name) . '", ' . ((int) $start) . ', ' . ((int) $end) . ', ' . $team . ', "' . $content . '", ' . $type . ')';
 		if (mysql_query($sql, $this->db)) {
 			return new CGEvent(mysql_insert_id($this->db), $this->db);
 		}

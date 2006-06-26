@@ -52,6 +52,14 @@ class CGBase {
 		return $return;
 	}
 	
+	function NewEventType($name, $desc, $abbr, $picture, $questions, $answers){
+		$sql = "INSERT INTO `kag_types` (`name`, `desc`, `abbr`, `picture`, `questions`, `answers`) VALUES "
+				."('".addslashes($name)."', '".addslashes($desc)."', '".addslashes($abbr)."', '$picture', '$questions', '$answers')";
+		$query = mysql_query($sql, $this->db);
+		
+		return ($query ? true : false);
+	}
+	
 	function GetSignup($id) {
 		$result = mysql_query('SELECT id FROM cg_signups WHERE id=' . $id, $this->db);
 		if ($result && mysql_num_rows($result)) {

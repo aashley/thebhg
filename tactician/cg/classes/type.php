@@ -9,7 +9,6 @@ class CGType {
 	var $desc;
 	var $picture;
 	var $questions;
-	var $team;
 	var $answers;
 	var $date_deleted;
 	var $fields = array();	
@@ -55,10 +54,6 @@ class CGType {
 	
 	function HasImage(){
 		return ($this->picture == 1);
-	}
-	
-	function IsTeam(){
-		return ($this->team == 1);
 	}
 	
 	function GetQuestions(){

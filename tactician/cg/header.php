@@ -11,6 +11,7 @@ include_once('classes/cg.php');
 include_once('classes/event.php');
 include_once('classes/signup.php');
 include_once('classes/rank.php');
+include_once('classes/type.php');
 
 include_once('Numbers/Roman.php');
 
