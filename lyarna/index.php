@@ -1,16 +1,20 @@
 <!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <?php
-include_once 'roster.inc';
-      if (isset($_REQUEST['me'])){
 
-		$login = new Login_HTTP();
-		
-		$loc = "/buildings/property.php?id=".$login->getID();
- 	} elseif (isset($_REQUEST['leader'])){
+      if (isset($_REQUEST['leader'])){
 
 		header('Location: /buildings/property.php?count=true&id='.$_REQUEST['leader']);
 		exit;
+ 	}
+ 	
+ 	include_once 'roster.inc';
+ 	
+ 	if (isset($_REQUEST['me'])){
+		
+		$login = new Login_HTTP();
+		
+		$loc = "/buildings/property.php?id=".$login->getID();
  	} else
       	$loc = 'planets/';
       	?>
