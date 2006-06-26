@@ -68,7 +68,7 @@ function output() {
 		
 		      }
 	      } else
-	      	print 'User does not meet requirements to be added to cadre.';
+	      	print 'User does not meet requirements to be added to cadre.<br><br>';
       } else
       	print 'Cadre at maximum capacity.';
     
