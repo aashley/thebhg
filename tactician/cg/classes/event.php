@@ -36,7 +36,7 @@ class CGEvent {
 	}
 
 	function isGraded(){
-		$sql = "SELECT `id` FROM `cg_signups` WHERE `rank` > 0 AND `event` = ".$this->id." LIMIT 1";
+		$sql = "SELECT `id` FROM `cg_signups` WHERE `state` > 0 AND `event` = ".$this->id." LIMIT 1";
 		return (mysql_num_rows(mysql_query($sql, $this->db)) == 1);
 	}
 	
