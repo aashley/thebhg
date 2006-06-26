@@ -111,16 +111,12 @@ if ($level <= 3) {
 		if (is_array($ka->GetActiveCGs())){
 			foreach ($ka->GetActiveCGs() as $CG){
 				if (is_array($CG->GetHunterSignups($user->GetID()))){
-					print_r($CG->GetHunterSignups($user->GetID()));
 					foreach ($CG->GetHunterSignups($user->GetID()) as $signup){
 						if (!$signup->GetSubmitted()){
-							echo 'not submitted to';
 							$cadre = $signup->GetCadre();
 							$event = $signup->GetEvent();
 							if ($event->IsTimed()){
-								echo 'it is timed';
 								if ($event->GetStart() < time() && $event->GetEnd() > time()){
-									echo 'looks fine';
 									$events[] = $event;
 								}
 							}
