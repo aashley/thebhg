@@ -85,7 +85,11 @@ if ($level == 3) {
 			}
 			$form->AddDateBox('Start Date:', 'events' . $event->GetID() . '_start', $event->GetStart(), true);
 			$form->AddDateBox('End Date:', 'events' . $event->GetID() . '_end', $event->GetEnd(), true);
-			$form->AddCheckBox('Team Event?', "teams[" . $event->getID() . ']', 1, $event->IsTeam());
+			if ($event->isTeam())
+				echo 'yes';
+			else
+				echo 'no';
+			$form->AddCheckBox('Team Event?', "teams[" . $event->getID() . ']', 1);
 		}
 		$form->AddSubmitButton('submit', 'Save Events');
 		$form->EndForm();
