@@ -28,14 +28,15 @@ $pagename = "Property Tracker :: ".$name;
 include("../functions/db.php");
 
 $types = array('complex', 'estate', 'hq', 'other', 'personal');
-
-  include("../header.php");
+  
 if ($_REQUEST['count']){
 	$sql = "SELECT id, name, owner, planet, arena, bhg_id, position, division FROM `estate` WHERE ".$where." ORDER BY name";
 	$query = mysql_query($sql, $GLOBALS['db']);
 	echo mysql_num_rows($query);
 	exit;
 }
+
+include("../header.php");
     echo "<table align=\"center\">\n";
     echo "<tr><td class=\"contrast\"><table>\n";
     echo "<tr><td></td><td><p><b>Legend:</b></p></td></tr>\n";
