@@ -52,7 +52,7 @@ function output() {
 	      elseif ($m->getRank->getWeight() == $meet && !$hasEqual)
 	      	$canJoin = true;
 	      
-	      if ($canJoin){
+	      if ($canJoin && !$m->InCadre()){
 		      if ($m->setCadre($cadre->getID())) {
 		
 		        print $m->GetName().' added to Cadre roster.<br><br>';
@@ -173,7 +173,7 @@ function output() {
             .$m->GetName().'</a>',
           ($m->InCadre() ? 'Yes' : 'No'),
           ($temp ? 'Yes' : 'No'),
-          ($temp 
+          (($temp && !$m->InCadre())
            ? '<a href="'.internal_link('admin_cadre_buy_members',
                                        array('submit'=>'add',
                                              'hunter'=>$m->GetID()))
