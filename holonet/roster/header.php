@@ -108,8 +108,8 @@ function admin_footer($auth_data) {
 	addMenu('Personal Details',
 			array('Edit My Details' => internal_link('admin_my_details', array()),
 				'Change My Password' => internal_link('admin_change_password', array()),
-				'Edit My IPKC' => internal_link('admin_my_ipkc', array())),
-				'Edit Character Sheet' => internal_link('admin_sheet', array('bhg_id'=>$auth_data['id']), 'arena')),
+				'Edit My IPKC' => internal_link('admin_my_ipkc', array()),
+				'Edit Character Sheet' => internal_link('admin_sheet', array('bhg_id'=>$auth_data['id']), 'arena'),
 				'View My Profile' => internal_link('hunter', array('id'=>$auth_data['id']))));
 	
 	if ($auth_data['underlord']) {
