@@ -15,6 +15,7 @@ $table->AddHeader('KAG');
 $table->AddHeader('Points');
 $table->AddHeader('Signups');
 $table->AddHeader('DNPs');
+$table->AddHeader('Points Per Signup');
 $table->EndRow();
 
 $result = mysql_query('SELECT kag, SUM(points) AS points, COUNT(DISTINCT id) AS signups FROM kag_signups WHERE kabal=' . $_REQUEST['id'] . ' GROUP BY kag ORDER BY kag DESC', $db);
@@ -31,6 +32,7 @@ if ($result && mysql_num_rows($result)) {
 		else {
 			$table->AddCell('0');
 		}
+		$table->AddCell('<div style="text-align: right">' . number_format(round(($row['points']/$row['signups']))) . '</div>');
 		$table->EndRow();
 	}
 }
