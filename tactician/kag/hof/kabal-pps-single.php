@@ -21,11 +21,9 @@ $maxima = GetKAGMaxima();
 $hunters = array();
 foreach (array_unique($maxima) as $points) {
 	$kags = implode(', ', array_keys($maxima, $points));
-	$result = mysql_query("SELECT kabal, SUM(points) AS points, COUNT(DISTINCT id) AS events, kag FROM kag_signups WHERE state > 0 AND kag IN ($kags) GROUP BY kabal, kag ORDER BY points DESC, events ASC LIMIT 10", $db);
+	$result = mysql_query("SELECT kabal, SUM(points) AS points, COUNT(DISTINCT id) AS events, ROUND(SUM(points)/COUNT(DISTINCT id)) as pps, kag FROM kag_signups WHERE state > 0 AND kag IN ($kags) GROUP BY kabal, kag ORDER BY pps DESC, events ASC LIMIT 10", $db);
 	if ($result && mysql_num_rows($result))
 		while ($row = mysql_fetch_array($result)) {
-			$row['points'] = ScalePointsWithMaximum($points, $row['points'], $row['events']);
-			$row['pps'] = round(($row['points']/$row['events']));
 			$hunters[] = $row;
 		}
 }

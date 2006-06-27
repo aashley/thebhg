@@ -2,8 +2,8 @@
 $subarray = array(
 	'Most Points (All-Time)'=>'kag/hof/points-alltime.php',
 	'Most Points (Single KAG)'=>'kag/hof/points-single.php',
-	'Most Points Per Signup (All-Time)'=>'kag/hof/kabal-pps-alltime.php',
-	'Most Points Per Signup (Single KAG)'=>'kag/hof/kabal-pps-single.php',
+	//'Most Points Per Signup (All-Time)'=>'kag/hof/kabal-pps-alltime.php',
+	//'Most Points Per Signup (Single KAG)'=>'kag/hof/kabal-pps-single.php',
 	'Most Master\'s Shields (All-Time)'=>'kag/hof/ms-alltime.php',
 	'Most Master\'s Shields (Single KAG)'=>'kag/hof/ms-single.php',
 	'Highest Point Average'=>'kag/hof/point-average-alltime.php',
