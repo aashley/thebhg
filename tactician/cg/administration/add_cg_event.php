@@ -93,7 +93,7 @@ if ($level == 3) {
 			if ($_REQUEST['timed']){
 				$form->AddHidden('team', 0);
 			} else {
-				$form->AddCheckBox('Team Event?', 'team', 1, $event->IsTeam());
+				$form->AddCheckBox('Team Event?', 'team', 1);
 			}
 			$form->AddDateBox('Start Date:', 'start', false, true);
 			$form->AddDateBox('End Date:', 'end', false, true);
