@@ -272,8 +272,8 @@ function output() {
 	}*/
 	$links[internal_link('atn_general', array('id'=>$pleb->GetID()), 'arena')] = 'View Role Playing Info';
 	
-	$links['http://ka.thebhg.org/cg/stats/hunter.php?id=' . $pleb->GetID()] = 'View CG Statistics';
-	$links['http://ka.thebhg.org/kag/stats/hunter.php?id=' . $pleb->GetID()] = 'View KAG Statistics';
+	$links['http://tactician.thebhg.org/cg/stats/hunter.php?id=' . $pleb->GetID()] = 'View CG Statistics';
+	$links['http://tactician.thebhg.org/kag/stats/hunter.php?id=' . $pleb->GetID()] = 'View KAG Statistics';
 
 	roster_footer(true, $links);
 }
