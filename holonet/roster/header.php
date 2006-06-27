@@ -42,6 +42,7 @@ function roster_footer($show_list = true, $more_items = false) {
 }
 
 function get_auth_data($pleb) {
+	globals $db;
 	$pos = $pleb->GetPosition();
 	$div = $pleb->GetDivision();
   $rank = $pleb->GetRank();
@@ -93,14 +94,21 @@ function get_auth_data($pleb) {
     $auth_data['cadre'] = false;
   }
 
-  if ($rank->GreaterThanOrEqual($count)){
-   //&& $pleb->HasEstate()
+  mysql_select_db('thebhg_lyarna', $db);
+	
+	$sql = "SELECT `id` FROM `estate` WHERE `bhg_id` = ".$members[0]->getID()." LIMIT 1";
+	$query = mysql_query($sql, $db);
+	
+  if ($rank->GreaterThanOrEqual($count)
+   && mysql_num_rows($query)){
    //&& (time() - $pleb->GetJoinDate()) >= 94608000) 
     $auth_data['cadre-create'] = true;
   } else {
     $auth_data['cadre-create'] = false;
   }
 
+  mysql_select_db('thebhg_holonet', $db);
+  
 	return $auth_data;
 }
 
