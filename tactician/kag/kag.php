@@ -23,14 +23,20 @@ $table = new Table('Kabal Standings', true);
 $table->StartRow();
 $table->AddHeader('Kabal');
 $table->AddHeader('Points');
+$table->AddHeader('Signups');
+$table->AddHeader('Points Per Signup');
 $table->EndRow();
 $totals =& $kag->GetKabalTotals();
+
 if (is_array($totals)) {
 	foreach ($totals as $kid=>$total) {
 		$kabal = $roster->GetKabal($kid);
+		$signups = $kag->GetKabalSignups($kabal);
 		$table->StartRow();
 		$table->AddCell('<a href="kabal.php?kag=' . $kag->GetID() . '&amp;kabal=' . $kabal->GetID() . '">' . $kabal->GetName() . '</a>');
 		$table->AddCell('<div style="text-align: right">' . number_format($total) . '</div>');
+		$table->AddCell('<div style="text-align: right">' . number_format($signups) . '</div>');
+		$table->AddCell('<div style="text-align: right">' . number_format(round(($total / $signups))) . '</div>');
 		$table->EndRow();
 	}
 }

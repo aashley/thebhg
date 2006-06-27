@@ -433,6 +433,19 @@ class KAG {
 			return false;
 		}
 	}
+	
+	function GetKabalSignups($kabal) {
+		if (is_a($kabal, 'division')) {
+			$kabal = $kabal->GetID();
+		}
+		$result = mysql_query('SELECT COUNT(distinct id) AS total FROM kag_signups WHERE kabal=' . ((int) $kabal) . ' AND kag=' . $this->id, $this->db);
+		if ($result && mysql_num_rows($result)) {
+			return mysql_result($result, 0, 'total');
+		}
+		else {
+			return 0;
+		}
+	}
 
 	/**
 	 * Changes the dates that hunters can signup in.
