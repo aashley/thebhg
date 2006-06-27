@@ -91,7 +91,7 @@ if ($level == 3) {
 		
 		if ($submit){
 			if ($_REQUEST['timed']){
-				$form->AddHidden("team', 0);
+				$form->AddHidden('team', 0);
 			} else {
 				$form->AddCheckBox('Team Event?', 'team', 1, $event->IsTeam());
 			}
