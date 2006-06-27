@@ -90,55 +90,78 @@ else {
 				$value = 168;
 		}
 
-		$plebs = $roster->SearchPosition($value);
-		if (!$plebs) {
-			$plebs = $roster->SearchName($value);
+		if (strtolower($value) == 'status'){
+			
+			$kags = $ka->GetCGs();
+			$kag = end($kags);
+			
+			echo 'CG ' . roman($kag->getID()) . ': ';
+			
+			$result = mysql_query('SELECT id FROM cg_events WHERE end >= '.time().' AND start <= '.time().' AND cg=' . $kag->GetID() . ' ORDER BY end ASC', $db);
+			
+			if ($result && mysql_num_rows($result)) {
+				while ($info = mysql_fetch_assoc($result)){
+					$event = $ka->getEvent($info['id']);
+					$remain = $event->GetEnd() - time();
+					echo '[' . $event->getName() . ' - ' . format_time($remain, ($remain > '3600' ? FT_HOUR : FT_SECOND)) . '] ';
+				}
+			}
+			else
+				echo 'No events are open.';
+			
+			echo "\n";
+			
+		} else {
+			$plebs = $roster->SearchPosition($value);
 			if (!$plebs) {
-				$plebs = $roster->SearchIRCNick($value);
-			}
-		}
-
-		if (is_array($plebs) && count($plebs) > 0) {
-			foreach ($plebs as $pleb) {
-				$div = $pleb->GetDivision();
-				$result = mysql_query('SELECT person FROM cg_signups WHERE person=' . $pleb->GetID(), $db);
-				if ($result && mysql_num_rows($result) && $div->GetID() != 16 && $div->GetID() != 0) {
-					$new_plebs[] = $pleb;
+				$plebs = $roster->SearchName($value);
+				if (!$plebs) {
+					$plebs = $roster->SearchIRCNick($value);
 				}
 			}
-		}
-
-		$plebs = $new_plebs;
-		
-		if (count($plebs) > 3) {
-			echo 'More than three hunters match the name given.';
-		}
-		elseif (count($plebs) == 0) {
-			echo 'No hunters match the criteria given.';
-		}
-		else {
-			$info = array();
-			foreach ($plebs as $pleb) {
-				$result = mysql_query('SELECT cadre FROM cg_signups WHERE person=' . $pleb->GetID() . ' GROUP BY cadre', $db);
-				$cadres = array();
-				while ($row = mysql_fetch_array($result)) {
-					$cadre = $roster->GetCadre($row['cadre']);
-					$cadres[$cadre->GetID()] = $cadre->GetName();
+	
+			if (is_array($plebs) && count($plebs) > 0) {
+				foreach ($plebs as $pleb) {
+					$div = $pleb->GetDivision();
+					$result = mysql_query('SELECT person FROM cg_signups WHERE person=' . $pleb->GetID(), $db);
+					if ($result && mysql_num_rows($result) && $div->GetID() != 16 && $div->GetID() != 0) {
+						$new_plebs[] = $pleb;
+					}
 				}
-				asort($cadres);
-				$result = mysql_query('SELECT MIN(cg) AS first, MAX(cg) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM cg_signups WHERE person=' . $pleb->GetID(), $db);
-				$row = mysql_fetch_array($result);
-				$hinfo = 'CG History for ' . $pleb->GetName() . ' (' . implode(', ', $cadres) . '): ';
-				if ($row['first'] == $row['last']) {
-					$hinfo .= 'CG ' . roman($row['first']);
-				}
-				else {
-					$hinfo .= 'CG ' . roman($row['first']) . ' - CG ' . roman($row['last']);
-				}
-				$hinfo .= '; ' . number_format($row['points']) . ' points; ' . number_format($row['events']) . ' events; ' . number_format($row['points'] / $row['events'], 1) . ' points per event.';
-				$info[] = $hinfo;
 			}
-			echo implode("\n", $info);
+	
+			$plebs = $new_plebs;
+			
+			if (count($plebs) > 3) {
+				echo 'More than three hunters match the name given.';
+			}
+			elseif (count($plebs) == 0) {
+				echo 'No hunters match the criteria given.';
+			}
+			else {
+				$info = array();
+				foreach ($plebs as $pleb) {
+					$result = mysql_query('SELECT cadre FROM cg_signups WHERE person=' . $pleb->GetID() . ' GROUP BY cadre', $db);
+					$cadres = array();
+					while ($row = mysql_fetch_array($result)) {
+						$cadre = $roster->GetCadre($row['cadre']);
+						$cadres[$cadre->GetID()] = $cadre->GetName();
+					}
+					asort($cadres);
+					$result = mysql_query('SELECT MIN(cg) AS first, MAX(cg) AS last, SUM(points) AS points, COUNT(DISTINCT id) AS events FROM cg_signups WHERE person=' . $pleb->GetID(), $db);
+					$row = mysql_fetch_array($result);
+					$hinfo = 'CG History for ' . $pleb->GetName() . ' (' . implode(', ', $cadres) . '): ';
+					if ($row['first'] == $row['last']) {
+						$hinfo .= 'CG ' . roman($row['first']);
+					}
+					else {
+						$hinfo .= 'CG ' . roman($row['first']) . ' - CG ' . roman($row['last']);
+					}
+					$hinfo .= '; ' . number_format($row['points']) . ' points; ' . number_format($row['events']) . ' events; ' . number_format($row['points'] / $row['events'], 1) . ' points per event.';
+					$info[] = $hinfo;
+				}
+				echo implode("\n", $info);
+			}
 		}
 	}
 }
