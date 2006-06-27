@@ -137,6 +137,7 @@ function admin_footer($auth_data) {
 		
 		addMenu('Underlord: Miscellaneous',
 			array('Edit Hunter Details' => internal_link('admin_their_details', array()),
+				  'Close Cadres' => internal_link('admin_close_cadre', array()),
 			      'Vote Administration' => internal_link('admin_vote_admin', array())));
 	}
 
