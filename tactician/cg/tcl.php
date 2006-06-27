@@ -44,17 +44,22 @@ else {
 	if ($cg) {
 		$cgid = $cg->GetID();
 
-		$names = array();
-		foreach ($cg->GetCadreTotals() as $kid=>$total) {
-			$cadre = $roster->GetCadre($kid);
-			$kname = $cadre->GetName();
-			$names[] = $kname . ': ' . number_format($total);
-		}
+		if ($cg->GetSignupEnd() >= time() && $cg->getSignupStart() <= time()){
+			$remain = $cg->GetSignupEnd() - time();
+			echo 'Signups for CG ' . roman($cgid) . ' end in ' . format_time($remain, ($remain > '3600' ? FT_HOUR : FT_SECOND)) . '.';
+		} else {
+			$names = array();
+			foreach ($cg->GetCadreTotals() as $kid=>$total) {
+				$cadre = $roster->GetCadre($kid);
+				$kname = $cadre->GetName();
+				$names[] = $kname . ': ' . number_format($total);
+			}
 
-		$result = mysql_query("SELECT COUNT(DISTINCT event) AS events FROM cg_signups WHERE cg=$cgid AND state IN (1, 4)", $db);
-		$events = count($cg->GetEvents());
-		$marked = mysql_result($result, 0, 'events');
-		echo 'Results for CG ' . roman($cgid) . ' ' . (($marked == $events) ? '(complete)' : "with $marked of $events events graded") . ': ' . implode(', ', $names) . '.';
+			$result = mysql_query("SELECT COUNT(DISTINCT event) AS events FROM cg_signups WHERE cg=$cgid AND state IN (1, 4)", $db);
+			$events = count($cg->GetEvents());
+			$marked = mysql_result($result, 0, 'events');
+			echo 'Results for CG ' . roman($cgid) . ' ' . (($marked == $events) ? '(complete)' : "with $marked of $events events graded") . ': ' . implode(', ', $names) . '.';
+		}
 	}
 	else {
 		// Look up hunter information.
