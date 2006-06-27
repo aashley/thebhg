@@ -76,9 +76,15 @@ elseif ($cadre && $cg) {
 	$form->table->AddCell(implode(', ', $names));
 	$form->table->EndRow();
 	
+	$hn = mysql_connect('localhost', 'thebhg', 'monkey69');
+	mysql_select_db('thebhg_lyarna', $hn);
+	
+	$sql = "SELECT `id` FROM `estate` WHERE `bhg_id` = ".$members[0]->getID()." LIMIT 1";
+	$query = mysql_query($sql, $hn);
+	
 	if (count($members) <= 5 && count($members) >= 2){
 		if ($canplay){
-			if ($members[0]->HasEstate()){
+			if (mysql_num_rows($query)){
 				$form->AddSubmitButton('submit', 'Update Signups');
 			} else
 				$form->addSectiontitle('Cannot Signup: Leader has no estate.');
