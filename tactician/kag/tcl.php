@@ -12,12 +12,14 @@ if (isset($_REQUEST['event'])) {
 	else {
 		$result = mysql_query('SELECT id FROM kag_events WHERE name LIKE "%' . addslashes($_REQUEST['event']) . '%" AND kag=' . $kag->GetID(), $db);
 		if (strlen($_REQUEST['event']) >= 3 && $result && mysql_num_rows($result)) {
-			$event = $ka->GetEvent(mysql_result($result, 0, 'id'));
-			echo 'KAG ' . roman($kag->GetID()) . ' ' . $event->GetName() . ': Runs from ' . date('j F Y', $event->GetStart()) . ' to ' . date('j F Y', $event->GetEnd()) . '.';
-			if ((time() < $event->GetEnd()) && (time() >= $event->GetStart())) {
-				echo ' Time remaining: ' . format_time($event->GetEnd() - time(), FT_SECOND) . '.';
+			while ($row = mysql_fetch_array($result)) {
+				$event = $ka->GetEvent($row['id']);
+				echo 'KAG ' . roman($kag->GetID()) . ' ' . $event->GetName() . ': Runs from ' . date('j F Y', $event->GetStart()) . ' to ' . date('j F Y', $event->GetEnd()) . '.';
+				if ((time() < $event->GetEnd()) && (time() >= $event->GetStart())) {
+					echo ' Time remaining: ' . format_time($event->GetEnd() - time(), FT_SECOND) . '.';
+				}
+				echo "\n";
 			}
-			echo "\n";
 		}
 		else {
 			echo 'No such event found.';
