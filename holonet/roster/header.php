@@ -96,7 +96,7 @@ function get_auth_data($pleb) {
 
   mysql_select_db('thebhg_lyarna', $db);
 	
-	$sql = "SELECT `id` FROM `estate` WHERE `bhg_id` = ".$members[0]->getID()." LIMIT 1";
+	$sql = "SELECT `id` FROM `estate` WHERE `bhg_id` = ".$pleb->getID()." LIMIT 1";
 	$query = mysql_query($sql, $db);
 	
   if ($rank->GreaterThanOrEqual($count)
