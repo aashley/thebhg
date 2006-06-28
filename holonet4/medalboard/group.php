@@ -61,7 +61,7 @@ class page_medalboard_group extends holonet_page {
 						$recipient,
 						$awarder,
 						holonet::output($award->getMedal()),
-						htmlspecialchars($award->getReason()),
+						htmlspecialchars(ucfirst(preg_replace('/[^\.]$/', '\0.', $award->getReason()))),
 						),
 					array(
 						array(),
