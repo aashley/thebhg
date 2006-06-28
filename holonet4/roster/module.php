@@ -147,6 +147,18 @@ class holonet_module_roster extends holonet_module {
 
 	}
 
+	public function getCadreMenu() {
+
+		$menu = new holonet_menu;
+		$menu->title = 'Cadres';
+
+		foreach ($GLOBALS['bhg']->roster->getCadres() as $cadre)
+			$menu->addItem(new holonet_menu_item($cadre->getName(), '/roster/cadre/'.$cadre->getID()));
+
+		return $menu;
+
+	}
+
 	public function getDivisionMenu() {
 
 		$menus = array();
