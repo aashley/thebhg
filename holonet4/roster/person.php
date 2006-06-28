@@ -118,8 +118,16 @@ class page_roster_person extends holonet_page {
 		$table->addRow(array('Position:', holonet::output($person->getPosition())));
 		$table->addRow(array('Division:', holonet::output($person->getDivision())));
 		
-		if ($person->inCadre())
-			$table->addRow(array('Cadre:', holonet::output($person->getCadre())));
+		if ($person->inCadre()) {
+
+			$cadre = holonet::output($person->getCadre());
+
+			if ($person->getCadre()->getLeader()->isEqualTo($person))
+				$cadre .= ' (Leader)';
+			
+			$table->addRow(array('Cadre:', $cadre));
+
+		}
 
 		if (strlen($quote = $person->getQuote()) > 0)
 			$table->addRow(array('Quote:', '<i>'.htmlspecialchars($quote).'</i>'));
