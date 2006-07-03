@@ -131,7 +131,7 @@ else {
 				while ($info = mysql_fetch_assoc($result)){
 					$event = $ka->getEvent($info['id']);
 					$remain = $event->GetStart();
-					echo '[' . $event->getName() . ' - Starts: ' . date("F j, Y, g:i a", $remain) . '; Ends: ' . date("F j, Y, g:i a", $event->getEnd()) . ' ] ';
+					echo '[' . $event->getName() . ' - Starts: ' . date("F j, Y, g:i a", $remain) . '; Ends: ' . date("F j, Y, g:i a", $event->getEnd()) . '] ';
 				}
 			}
 			else
