@@ -118,6 +118,27 @@ else {
 			
 			echo "\n";
 			
+		} elseif (strtolower($value) == 'events'){
+			
+			$kags = $ka->GetCGs();
+			$kag = end($kags);
+			
+			echo 'CG ' . roman($kag->getID()) . ': ';
+			
+			$result = mysql_query('SELECT id FROM cg_events WHERE cg=' . $kag->GetID() . ' ORDER BY end ASC', $db);
+			
+			if ($result && mysql_num_rows($result)) {
+				while ($info = mysql_fetch_assoc($result)){
+					$event = $ka->getEvent($info['id']);
+					$remain = $event->GetStart();
+					echo '[' . $event->getName() . ' - Starts: ' . format_time($remain, FT_HOUR) . '; Ends: ' . format_time($$event->getEnd(), FT_HOUR) . ' ] ';
+				}
+			}
+			else
+				echo 'No events are open.';
+			
+			echo "\n";
+			
 		} else {
 			$plebs = $roster->SearchPosition($value);
 			if (!$plebs) {
