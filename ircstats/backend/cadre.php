@@ -17,7 +17,7 @@ if (is_array($cadres) && count($cadres) > 0) {
 			$members = $cadre->GetMembers();
 			$leader = array_shift($members);
 			
-			$line = sprintf('Cadre %s: Led by %s (#%d).', $cadre->GetName(), $leader->GetName(), $leader->GetID());
+			$line = sprintf('%s: Led by %s (#%d).', $cadre->GetName(), $leader->GetName(), $leader->GetID());
 
 			if (count($members) > 0) {
 				$names = array();
