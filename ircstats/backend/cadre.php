@@ -15,11 +15,19 @@ if (is_array($cadres) && count($cadres) > 0) {
 		$output = array();
 		foreach ($cadres as $cadre) {
 			$names = array();
+			$leader = true;
 			foreach ($cadre->GetMembers() as $member) {
-				$names[] = sprintf('%s (#%d)', $member->GetName(), $member->GetID());
+				if ($leader) {
+					$name = 'Leader: '.$member->GetName();
+					$leader = false;
+				}
+				else
+					$name = $member->GetName();
+				
+				$names[] = sprintf('%s (#%d)', $name, $member->GetID());
 			}
 			
-			$output[] = sprintf('Cadre %s: %s.', implode('; ', $names));
+			$output[] = sprintf('Cadre %s: %s.', $cadre->GetName(), implode('; ', $names));
 		}
 		echo implode("\n", $output);
 	}
