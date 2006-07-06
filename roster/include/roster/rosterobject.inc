@@ -546,6 +546,57 @@ class Roster extends BHGObject {
 
   // }}}
 
+  // {{{ SearchCadre()
+
+  /**
+	 * Searches for a cadre given a name.
+   *
+   * @access public
+   * @param string  The String to Search for
+   * @param integer Whether to do a wildcard search or to search for the
+   *                exact string
+	 * @param boolean True to include closed cadres.
+   * @return array Array of Person Objects
+   */
+  function SearchCadre($searchfor, $exact = 0, $closed = false) {
+    
+    if ($exact) {
+      
+      $searchfor = str_replace('%', '', $searchfor);
+      
+    } else {
+      
+      $searchfor = str_replace(' ', '%', '%'.$searchfor.'%');
+      
+    }
+    
+    $results = mysql_query("SELECT id "
+                          ."FROM roster_cadres "
+                          ."WHERE name LIKE '".addslashes($searchfor)."' "
+                            .($closed ? ' ' : "AND date_deleted IS NULL ")
+                          ."ORDER BY name", $this->roster_db);
+    
+    $return = array();
+    
+    if ($row = mysql_fetch_array($results)) {
+      
+      do {
+        
+        array_push($return, new Cadre($row["id"], $this->roster_coder));
+        
+      } while ($row = mysql_fetch_array($results));
+      
+      return $return;
+      
+    } else {
+      
+      return false;
+      
+    }
+    
+  }
+
+  // }}}
   // {{{ SearchEmail()
 
   /**
