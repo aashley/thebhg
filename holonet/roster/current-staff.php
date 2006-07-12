@@ -6,14 +6,11 @@ function title() {
 function output() {
 	global $roster;
 
-	$commission = $roster->GetDivision(10);
-	$ca = $roster->GetDivision(9);
-	$members = array_merge($commission->GetMembers(), $ca->GetMembers());
 	$table = new Table();
 	$table->StartRow();
 	$table->AddHeader('<a href="' . internal_link('division', array('id'=>$commission->GetID()), 'roster') . '">' . $commission->GetName() . '</a>', 2);
 	$table->EndRow();
-	foreach ($members as $pleb) {
+	foreach ($roster->GetDivision(10)->GetMembers() as $pleb) {
 		$pos = $pleb->GetPosition();
 		$table->StartRow();
 		$table->AddCell('<a href="' . internal_link('position', array('id'=>$pos->GetID()), 'roster') . '">' . $pos->GetName() . '</a>');
