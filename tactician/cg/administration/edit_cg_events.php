@@ -85,9 +85,7 @@ if ($level == 3) {
 			}
 			$form->AddDateBox('Start Date:', 'events' . $event->GetID() . '_start', $event->GetStart(), true);
 			$form->AddDateBox('End Date:', 'events' . $event->GetID() . '_end', $event->GetEnd(), true);
-			if ($event->IsTimed()){
-				$form->AddHidden("teams[" . $event->getID() . ']', 0);
-			} else {
+			if (!$event->IsTimed()){
 				$form->AddCheckBox('Team Event?', "teams[" . $event->getID() . ']', 1, $event->IsTeam());
 			}
 		}
