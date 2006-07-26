@@ -31,11 +31,11 @@ function coders(){
 }
 
 function mb_link($id){
-	return '<a href="http://boards.thebhg.org/index.php?op=view&topic='.$id.'">'.$id.'</a>';
+	return "<a href='http://boards.thebhg.org/Topic/$id'>$id</a>";
 }
 
 function linky($id){
-	return 'http://boards.thebhg.org/index.php?op=view&topic='.$id;
+	return "http://boards.thebhg.org/Topic/$id";
 }
 
 function from(){
