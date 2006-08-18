@@ -10,8 +10,10 @@
 	<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 </head>
 <body>
-	<h1>Donate to the BHG Server Fund</h1>
-	<h2>(Also known as the Buy Koral A New Bike Fund)</h2>
+	<div class="header">
+		<h1>Donate to the BHG Server Fund</h1>
+		<h2>(Also known as the Buy Koral A New Bike Fund)</h2>
+	</div>
 	<div class="donate">
 		<h2>Paypal</h2>
 		<div class="center">

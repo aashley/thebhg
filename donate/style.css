@@ -1,9 +1,19 @@
 body {
-	font-size: 14pt;
+	font-size: 12pt;
 }
 
 .donate {
 	float: left;
+	clear: left;
 	width: 150px;
 	font-size: 80%;
+	border: 1px solid black;
+	padding: 0;
+}
+
+.donate h2 {
+	width: 100%;
+	background: black;
+	color: white;
+	margin: 0;
 }
