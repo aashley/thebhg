@@ -39,6 +39,15 @@
 		</div>
 		<p>Use this if you just want to donate with a CC without setting up a Paypal account.</p>
 	</div>
+	<div class="donate">
+		<h2>Cafepress</h2>
+		<div class="center">
+			<p>
+				<a href="http://www.cafepress.com/thebhg">Visit Store</a>
+			</p>
+		</div>
+		<p>Use this if you want something physical to call your own for donating.</p>
+	</div>
 	<p>Keeping the server up and running is an expensive and time consuming proposition. Until
 	2004 I had been funding it all myself, at the time it was costing me US$109, approximately
 	10% of my after tax take home pay. I could not keep this up, so started looking for donations.
