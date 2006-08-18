@@ -43,7 +43,7 @@
 		<h2>Cafepress</h2>
 		<div class="center">
 			<p>
-				<a href="http://www.cafepress.com/thebhg">Visit Store</a>
+				<a href="http://www.cafepress.com/thebhg"><img src="http://www.cafepress.com/content/banners/promo_120x60_01.gif" width="120" height="60" alt="Support This Site" border="0"></a>
 			</p>
 		</div>
 		<p>Use this if you want something physical to call your own for donating.</p>
