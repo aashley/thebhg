@@ -27,8 +27,7 @@
 				</p>
 			</form>
 		</div>
-		<p>Those with paypal accounts. I can not accept direct CCs through Paypal. They want
-		money per month for that.</p>
+		<p>Those with paypal accounts. Paypal charges 2.5% fee on transfers so using Paymate gets more funds through.</p>
 	</div>
 	<div class="donate">
 		<h2>Paymate</h2>
@@ -37,7 +36,7 @@
 				<a onclick="self.name = 'parent';" target="_blank" href="https://www.paymate.com.au/PayMate/ExpressPayment?mid=adamashley"><img src="https://www.paymate.com.au/images/DonateNow_btn.gif" border="0" alt="Pay with Paymate Express"></a>
 			</p>
 		</div>
-		<p>Use this if you just want to donate with a CC without setting up a Paypal account.</p>
+		<p>Use this if you just want to donate with a CC without setting up a Paypal account. Also no fees are charged.</p>
 	</div>
 	<div class="donate">
 		<h2>Cafepress</h2>
