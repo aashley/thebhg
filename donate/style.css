@@ -9,6 +9,7 @@ body {
 	font-size: 80%;
 	border: 1px solid black;
 	padding: 0;
+	margin: 5px;
 }
 
 .donate h2 {
@@ -16,4 +17,10 @@ body {
 	background: black;
 	color: white;
 	margin: 0;
+	text-align: center;
+	padding: 5px;
+}
+
+.donate p {
+	padding: 2px;
 }
