@@ -1,5 +1,7 @@
 body {
-	font-size: 10pt;
+	font-size: 11pt;
+	margin: 0;
+	padding: 0;
 }
 
 .center {
@@ -10,14 +12,14 @@ body {
 	float: left;
 	clear: left;
 	width: 150px;
-	font-size: 75%;
+	font-size: 70%;
 	border: 1px solid black;
 	padding: 0;
 	margin: 5px;
 }
 
 .donate h2 {
-	background: black;
+	background-color: black;
 	color: white;
 	margin: 0;
 	text-align: center;
@@ -26,4 +28,14 @@ body {
 
 .donate p {
 	padding: 2px;
+}
+
+.header {
+	background-color: black;
+	border-bottom: 1px solid black;
+	color: white;
+}
+
+.header h2 {
+	font-size: 75%;
 }
