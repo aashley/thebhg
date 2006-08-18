@@ -10,6 +10,7 @@ if [[ $# -eq 0 ]]; then
 	echo " boards-devel    Message Boards Development Site"
 	echo " calypso         BHG Blogs"
 	echo " citadel         Citadel"
+	echo " donate          Donate"
 	echo " holonet         Main Holonet Site"
 	echo " holonet3-devel  Development and testing Holonet Site"
 	echo " holonet4-devel  Development and testing Holonet 4 Site"
@@ -90,6 +91,14 @@ for site in $*; do
 		citadel)
 			echo Updating Citadel...
 			pushd /home/thebhg/domains/citadel.thebhg.org/public_html > /dev/null
+			$SVN update
+			chown -R thebhg:thebhg .
+			popd > /dev/null
+			;;
+
+		donate)
+			echo Updating donate.thebhg.org...
+			pushd /home/thebhg/domains/donate.thebhg.org/public_html > /dev/null
 			$SVN update
 			chown -R thebhg:thebhg .
 			popd > /dev/null
