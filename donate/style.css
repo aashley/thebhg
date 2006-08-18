@@ -1,0 +1,9 @@
+body {
+	font-size: 14pt;
+}
+
+.donate {
+	float: left;
+	width: 150px;
+	font-size: 80%;
+}
