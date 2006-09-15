@@ -27,5 +27,10 @@ document.write ("'><" + "/script>");
 _uacct = "UA-346775-2";
 urchinTracker();
 </script>
+<script type="text/javascript">
+//<![CDATA[
+  document.write('<scr'+'ipt src="http://crazyegg.com/pages/scripts/17327.js?'+(new Date()).getTime()+'" type="text/javascript"></scr'+'ipt>');
+//]]>
+</script>
 </body>
 </html>
