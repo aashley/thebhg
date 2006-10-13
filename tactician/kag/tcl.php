@@ -115,6 +115,28 @@ else {
 				echo 'No events are open.';
 			
 			echo "\n";
+
+		} elseif (strtolower($value) == 'signup' || strtolower($value) == 'signups') {
+
+			$kags = $ka->GetKAGs();
+			$kag = end($kags);
+
+			echo 'KAG ' . roman($kag->GetID()) . ': ';
+
+			$result = mysql_query('SELECT kabal, COUNT(*) AS signups FROM kag_signups WHERE kag = ' . $kag->GetID() . ' GROUP BY kabal ORDER BY signups DESC', $db);
+
+			$kabals = array();
+			if ($result && mysql_num_rows($result)) {
+				while ($row = mysql_fetch_assoc($result)) {
+					$kabal = $roster->GetDivision($row['kabal']);
+					$kabals[] = $kabal->GetName() . ' ' . number_format($row['signups']);
+				}
+				echo implode(', ', $kabals) . '.';
+			}
+			else
+				echo 'No signups have been lodged.';
+
+			echo "\n";
 			
 		} else {
 			$plebs = $roster->SearchPosition($value);
