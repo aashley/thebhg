@@ -121,7 +121,7 @@ else {
 			$kags = $ka->GetKAGs();
 			$kag = end($kags);
 
-			echo 'KAG ' . roman($kag->GetID()) . ': ';
+			echo 'KAG ' . roman($kag->GetID()) . ' signups: ';
 
 			$result = mysql_query('SELECT kabal, COUNT(*) AS signups FROM kag_signups WHERE kag = ' . $kag->GetID() . ' GROUP BY kabal ORDER BY signups DESC', $db);
 
