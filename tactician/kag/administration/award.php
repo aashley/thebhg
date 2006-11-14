@@ -6,17 +6,17 @@ page_header('Award KAG Credits/Medals');
 if ($level == 3) {
 	if ($_REQUEST['submit']) {
 		// Transfer any current Badges to Pins.
-		mysql_query('UPDATE mb_awarded_medals SET medal=' . $medal_groups['pos'] . ' WHERE medal=' . $medal_groups['bos'], $roster->roster_db);
+		$result = mysql_query('UPDATE mb_awarded_medals SET medal=' . $medal_groups['pos'] . ' WHERE medal=' . $medal_groups['bos'], $roster->roster_db);
 
-		$kag =& $ka->GetKAG($_REQUEST['kag']);
+		$kag = $ka->GetKAG($_REQUEST['kag']);
 		$awards = array();
 		foreach ($kag->GetEvents() as $event) {
-			$signups =& $event->GetSignups();
+			$signups = $event->GetSignups();
 			if ($signups) {
 				foreach ($event->GetSignups() as $signup) {
-					$pleb =& $signup->GetPerson();
+					$pleb = $signup->GetPerson();
 					if (empty($awards[$pleb->GetID()])) {
-						$awards[$pleb->GetID()] = array('ms'=>0, 'credits'=>0, 'person'=>&$pleb, 'kabal'=>$signup->GetKabal());
+						$awards[$pleb->GetID()] = array('ms'=>0, 'credits'=>0, 'person'=>$pleb, 'kabal'=>$signup->GetKabal());
 					}
 					$awards[$pleb->GetID()]['credits'] += $signup->GetCredits();
 					if ($signup->GetState() == 1 && $signup->GetRank() == 1) {
@@ -61,7 +61,7 @@ if ($level == 3) {
 			}
 
 			// Award the credits.
-			$person =& $roster->GetPerson($award['person']->GetID());
+			$person = $roster->GetPerson($award['person']->GetID());
 			$person->AddCredits($award['credits'], 'participation in KAG ' . roman($_REQUEST['kag']));
 		}
 		$table->EndTable();
