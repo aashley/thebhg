@@ -452,7 +452,7 @@ class KA extends BHGObject {
         $query = mysql_query($sql, $this->ka_db);
         if (mysql_num_rows($query) > 0) return 2;
 		if ($person->getID() == 2650) return 2;
-        if (!in_array($position->GetID(), array (2, 3, 11, 12))) {
+        if (!in_array($position->GetID(), array (2, 3, 10, 11, 12))) {
             return 0;
         }
         if (in_array($position->GetID(), array (2, 3, 10))) {
