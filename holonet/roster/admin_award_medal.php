@@ -168,8 +168,9 @@ function output() {
 	}
 	else {
 		$plebs = $div->GetMembers('name');
+		$plebOptions = array();
 		foreach ($plebs as $pleb) {
-			$plebs[$pleb->GetName()] = '<option value="' . $pleb->GetID() . '">' . $pleb->GetName() . "</option>\n";
+			$plebOptions[$pleb->GetName()] = '<option value="' . $pleb->GetID() . '">' . $pleb->GetName() . "</option>\n";
 		}
 		ksort($plebs);
 	}
@@ -181,7 +182,7 @@ function output() {
 	if ($pos->GetID() == 11) {
 	?>
 	<br>Dates: <input type="text" name="startdate" size=10>&nbsp;to&nbsp;<input type="text" name="enddate" size=10>
-	<br><br>Hunters Involved: <select name="active[]" size=5 multiple><? echo implode("", $plebs); ?></select><br>(Hold Control to select more than one Hunter.)<br><br>
+	<br><br>Hunters Involved: <select name="active[]" size=5 multiple><? echo implode("", $plebOptions); ?></select><br>(Hold Control to select more than one Hunter.)<br><br>
 	<?php
 	}
 	$table = new Table('', true);
@@ -195,7 +196,7 @@ function output() {
 			$cell .= "<option value=\"-1\">N/A</option>";
 		}
 		else {
-			$cell .= "<option value=\"-1\" selected>N/A</option>\n" . implode("", $plebs);
+			$cell .= "<option value=\"-1\" selected>N/A</option>\n" . implode("", $plebOptions);
 		}
 		$cell .= '</select>';
 		$table->AddCell($cell);
