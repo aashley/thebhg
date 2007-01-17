@@ -283,7 +283,7 @@ function output() {
 		} else {
       
 			$cell .= "<option value=\"-1\" selected>N/A</option>\n" 
-        .implode("", $plebs);
+        .implode("", $plebOptions);
         
 		}
     
