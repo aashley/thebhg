@@ -28,7 +28,7 @@ function timeline_footer() {
 
 	foreach ($timeline->GetCategories() as $cat) {
 
-		$items[str_replace(' ', '&nbsp;', $cat->getName()] = internal_link($page, array('id' => $cat->GetID()));
+		$items[str_replace(' ', '&nbsp;', $cat->getName())] = internal_link($page, array('id' => $cat->GetID()));
 
 	}
 
