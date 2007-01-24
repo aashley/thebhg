@@ -398,6 +398,32 @@ class Citadel_Exam extends BHGObject {
 
     }
 
+		$warden = $GLOBALS['roster']->SearchPosition(10);
+
+		if (count($warden) > 0) {
+
+			if ($idsonly) {
+
+				$return[] = $warden[0]->GetID();
+
+			} else {
+
+				$return = $warden[0];
+
+			}
+
+		}
+
+		if ($idsonly) {
+
+			$return[] = 94;
+
+		}	else {
+
+			$return[] = new Person(94, $this->roster_coder);
+
+		}
+
     return $return;
 
   }
