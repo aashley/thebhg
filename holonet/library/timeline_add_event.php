@@ -5,7 +5,7 @@ function title() {
 
 function auth($user) {
 	$pos = $user->GetPosition();
-	return ($pos->GetID() == 4 || $user->GetID() == 666);
+	return ($pos->GetID() == 4 || $pos->GetID() == 1 || $pos->GetID() == 10 || $user->GetID() == 666);
 }
 
 function output() {
