@@ -85,7 +85,7 @@ function timeline_form_categories($categories, $level, $form) {
 
     }
 
-		$form->addOption($cat->GetID(), '&nbsp;');
+		$form->addOption($cat->GetID(), $prefix.$cat->GetName());
 
 		$subs = $cat->getSubCategories();
 
