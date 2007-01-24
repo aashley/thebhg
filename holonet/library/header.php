@@ -55,7 +55,7 @@ function timeline_items($categories, $level) {
 
 		}
 
-		$items[$prefix.$cat->getName()] = internal_link($page, array('id' => $cat->GetID()));
+		$items[str_replace(' ', '&nbsp;', $prefix.$cat->getName())] = internal_link($page, array('id' => $cat->GetID()));
 
 		$subs = $cat->getSubCategories();
 
@@ -85,7 +85,7 @@ function timeline_form_categories($categories, $level, $form) {
 
     }
 
-		$form->addOption($cat->GetID(), str_replace(' ', '&nbsp;', $prefix.$cat->GetName()));
+		$form->addOption($cat->GetID(), '&nbsp;');
 
 		$subs = $cat->getSubCategories();
 
