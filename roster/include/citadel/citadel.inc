@@ -170,6 +170,7 @@ class Citadel extends BHGObject {
     } elseif (is_numeric($person)) {
 
       $personid = $person;
+			$person = new Person($person, $this->roster_coder);
 
     } else {
 
@@ -179,15 +180,29 @@ class Citadel extends BHGObject {
 
     }
 
-    $sql = 'SELECT ntc_exams.id '
-          .'FROM ntc_exam_markers, '
-               .'ntc_exams '
-          .'WHERE ntc_exam_markers.marker = '.$personid.' '
-            .'AND ntc_exams.id = ntc_exam_markers.exam '
-          .($deleted
-              ? ''
-              : 'AND ntc_exams.date_deleted IS NULL ')
-          .'ORDER BY ntc_exams.id';
+		if ($personid == 94
+				|| $person->GetPosition()->GetID() == 10) {
+
+			$sql = 'SELECT ntc_exams.id '
+						.'FROM ntc_exams '
+						.($deleted
+								? ''
+								: 'WHERE ntc_exams.date_deleted IS NULL ')
+						.'ORDER BY ntc_exams.id';
+
+		} else {
+
+	    $sql = 'SELECT ntc_exams.id '
+  	        .'FROM ntc_exam_markers, '
+    	           .'ntc_exams '
+      	    .'WHERE ntc_exam_markers.marker = '.$personid.' '
+        	    .'AND ntc_exams.id = ntc_exam_markers.exam '
+          	.($deleted
+            	  ? ''
+              	: 'AND ntc_exams.date_deleted IS NULL ')
+	          .'ORDER BY ntc_exams.id';
+
+		}
 
     $result = mysql_query($sql, $this->roster_db);
 
@@ -224,7 +239,7 @@ class Citadel extends BHGObject {
 
     $result = mysql_query($sql, $this->roster_db);
 
-    $return = array();
+    $return = $GLOBALS['roster']->SearchPosition(10);
 
     while ($marker = @mysql_fetch_assoc($result)) {
 
