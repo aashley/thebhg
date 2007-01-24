@@ -15,7 +15,7 @@ function output() {
 
 	if ($_REQUEST['submit']) {
 		$cat = $timeline->GetCategory($_REQUEST['id']);
-		if ($cat->SetName($_REQUEST['name'])) {
+		if ($cat->SetName($_REQUEST['name']) && $cat->SetParent($_REQUEST['parent'])) {
 			echo 'Category saved successfully.';
 		}
 		else {
@@ -26,6 +26,10 @@ function output() {
 		$cat = $timeline->GetCategory($_REQUEST['id']);
 		$form = new Form($page);
 		$form->AddHidden('id', $_REQUEST['id']);
+		$form->StartSelect('Parent Category:', 'parent', $cat->parent);
+		$form->AddOption(0, 'No Parent');
+		timeline_form_categories($timeline->GetCategories(), 0, $form);
+		$form->EndSelect();
 		$form->AddTextBox('Name:', 'name', $cat->GetName());
 		$form->AddSubmitButton('submit', 'Save Category');
 		$form->EndForm();
@@ -33,9 +37,7 @@ function output() {
 	else {
 		$form = new Form($page, 'get');
 		$form->StartSelect('Category:', 'id');
-		foreach ($timeline->GetCategories() as $cat) {
-			$form->AddOption($cat->GetID(), $cat->GetName());
-		}
+		timeline_form_categories($timeline->GetCategories(), 0, $form);
 		$form->EndSelect();
 		$form->AddSubmitButton('', 'Edit Category');
 		$form->EndForm();

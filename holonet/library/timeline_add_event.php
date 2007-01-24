@@ -24,7 +24,7 @@ function output() {
 	else {
 		$form = new Form($page);
 		$form->StartSelect('Category(-ies):', 'category[]', false, 10, true);
-		timeline_cats($timeline->GetCategories(), 0, $form);
+		timeline_form_categories($timeline->GetCategories(), 0, $form);
 		$form->EndSelect();
 		$form->AddDateBox('Date:', 'date');
 		$form->AddTextArea('Content:', 'content', '', 10, 60);
@@ -33,34 +33,6 @@ function output() {
 	}
 
 	timeline_admin_footer();
-}
-
-function timeline_cats($categories, $level, $form) {
-
-	foreach ($categories as $cat) {
-
-		if ($level == 0) {
-
-			$prefix = '';
-
-		} else {
-
-			$prefix = str_repeat(' ', $level - 1).' - ';
-
-    }
-
-		$form->addOption($cat->GetID(), $prefix.$cat->GetName());
-
-		$subs = $cat->getSubCategories();
-
-		if (count($subs) > 0) {
-
-			timeline_cats($subs, $level + 1, $form);
-
-		}
-
-	}
-
 }
 
 ?>

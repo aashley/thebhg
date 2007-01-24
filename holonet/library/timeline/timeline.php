@@ -229,8 +229,8 @@ class Timeline {
 	 * @return object TLCategory A TLCategory object for the new category
 	 *                           on success, false otherwise.
 	 */
-	function AddCategory($name) {
-		if (mysql_query('INSERT INTO timeline_categories (name) VALUES ("' . addslashes($name) . '")', $this->db)) {
+	function AddCategory($name, $parent) {
+		if (mysql_query('INSERT INTO timeline_categories (name, parent) VALUES ("' . addslashes($name) . '", '.$parent.')', $this->db)) {
 			return new TLCategory(mysql_insert_id($this->db), $this->db);
 		}
 		else {

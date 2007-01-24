@@ -25,9 +25,7 @@ function output() {
 	else {
 		$form = new Form($page);
 		$form->StartSelect('Category:', 'id');
-		foreach ($timeline->GetCategories() as $cat) {
-			$form->AddOption($cat->GetID(), $cat->GetName());
-		}
+		timeline_form_categories($timeline->GetCategories(), 0, $form);
 		$form->EndSelect();
 		$form->AddSubmitButton('submit', 'Delete Category');
 		$form->EndForm();

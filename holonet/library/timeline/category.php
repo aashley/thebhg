@@ -13,6 +13,7 @@ class TLCategory {
 	var $id;
 	var $name;
 	var $db;
+  var $parent;
 	/**#@-*/
 
 	/**
@@ -30,6 +31,7 @@ class TLCategory {
 		$result = mysql_query('SELECT * FROM timeline_categories WHERE id=' . $this->id, $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$this->name = stripslashes(mysql_result($result, 0, 'name'));
+			$this->parent = mysql_result($result, 0, 'parent'));
 		}
 	}
 
@@ -91,5 +93,22 @@ class TLCategory {
 
 		return $timeline->GetCategories($sort, $this->GetID());
   }
+
+	function getParent() {
+		global $timeline;
+		if ($this->parent == 0)
+			return false;
+		return $timeline->GetCategory($this->parent);
+	}
+
+	function setParent($parent) {
+		if (mysql_query('UPDATE timeline_categories SET parent='.$parent.' WHERE id=' . $this->id, $this->db)) {
+			$this->name = $name;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }
 ?>

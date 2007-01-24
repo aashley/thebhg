@@ -14,7 +14,7 @@ function output() {
 	menu_header();
 
 	if ($_REQUEST['submit']) {
-		if ($timeline->AddCategory($_REQUEST['name'])) {
+		if ($timeline->AddCategory($_REQUEST['name'], $_REQUEST['parent'])) {
 			echo 'Category added successfully.';
 		}
 		else {
@@ -23,6 +23,10 @@ function output() {
 	}
 	else {
 		$form = new Form($page);
+		$form->StartSelect('Parent Category:', 'parent');
+		$form->AddOption(0, 'No Parent');
+		timeline_form_categories($timeline->GetCategories(), 0, $form);
+		$form->EndSelect();
 		$form->AddTextBox('Name:', 'name');
 		$form->AddSubmitButton('submit', 'Add Category');
 		$form->EndForm();

@@ -39,6 +39,7 @@ function timeline_footer() {
 }
 
 function timeline_items($categories, $level) {
+	global $page;
 
 	$items = array();
 
@@ -69,6 +70,35 @@ function timeline_items($categories, $level) {
 	return $items;
 	
 }
+
+function timeline_form_categories($categories, $level, $form) {
+
+	foreach ($categories as $cat) {
+
+		if ($level == 0) {
+
+			$prefix = '';
+
+		} else {
+
+			$prefix = str_repeat(' ', $level - 1).' - ';
+
+    }
+
+		$form->addOption($cat->GetID(), $prefix.$cat->GetName());
+
+		$subs = $cat->getSubCategories();
+
+		if (count($subs) > 0) {
+
+			timeline_form_categories($subs, $level + 1, $form);
+
+		}
+
+	}
+
+}
+
 
 // Some quote stuff.
 function quote_footer() {
