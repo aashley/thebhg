@@ -26,18 +26,48 @@ function timeline_footer() {
 
 	$items = array('All' => internal_link($page));
 
-	foreach ($timeline->GetCategories() as $cat) {
-
-		$items[str_replace(' ', '&nbsp;', $cat->getName())] = internal_link($page, array('id' => $cat->GetID()));
-
-	}
-
-	$items['Admin'] = internal_link('timeline_admin');
+	$items += timeline_items($timeline->GetCategories(), 0);
 
 	addMenu('Categories', $items);
 
+	$items = array('Admin' => internal_link('timeline_admin'));
+
+	addMenu('Administration', $items);
+
 	menu_footer();
 
+}
+
+function timeline_items($categories, $level) {
+
+	$items = array();
+
+	foreach ($categories as $cat) {
+
+		if ($level > 0) {
+
+			$prefix = str_repeat(' ', $level).' - ';
+
+		} else {
+
+			$prefix = '';
+
+		}
+
+		$items[$prefix.str_replace(' ', '&nbsp;', $cat->getName())] = internal_link($page, array('id' => $cat->GetID()));
+
+		$subs = $cat->getSubCategories();
+
+		if (count($subs) > 0) {
+
+			$items += timeline_items($subs, $level + 1);
+
+		}
+
+  }
+
+	return $items;
+	
 }
 
 // Some quote stuff.

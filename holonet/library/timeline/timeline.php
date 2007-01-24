@@ -34,8 +34,8 @@ class Timeline {
 	 *                    to sort by ID.
 	 * @return array An array of TLCategory objects.
 	 */
-	function GetCategories($sort = 'name') {
-		$result = mysql_query('SELECT id FROM timeline_categories ORDER BY ' . ($sort == 'id' ? 'id' : 'name') . ' ASC', $this->db);
+	function GetCategories($sort = 'name', $parent = 0) {
+		$result = mysql_query('SELECT id FROM timeline_categories WHERE parent = ' . $parent . ' ORDER BY ' . ($sort == 'id' ? 'id' : 'name') . ' ASC', $this->db);
 		$categories = array();
 		if ($result && mysql_num_rows($result)) {
 			while ($row = mysql_fetch_array($result)) {

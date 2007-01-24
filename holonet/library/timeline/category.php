@@ -79,5 +79,17 @@ class TLCategory {
 	function DeleteCategory() {
 		return !!mysql_query('DELETE FROM timeline_categories WHERE id=' . $this->id, $this->db);
 	}
+
+  /**
+   * Get Sub Categories
+   * 
+   * @access public
+   * @return array of categories
+   */
+  function getSubCategories($sort = 'name') {
+		global $timeline;
+
+		return $timeline->GetCategories($sort, $this->GetID());
+  }
 }
 ?>
