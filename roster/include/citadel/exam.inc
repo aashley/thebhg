@@ -408,7 +408,7 @@ class Citadel_Exam extends BHGObject {
 
 			} else {
 
-				$return = $warden[0];
+				$return[] = $warden[0];
 
 			}
 
