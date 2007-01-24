@@ -216,3 +216,13 @@ border: none;
 #sidemenu ul li ul li a:hover {
 background-color: #dddddd;
 }
+
+ul.timeline {
+	list-style-type: disc;
+	margin: 1em 0pt;
+}
+
+ul.timeline li {
+	display: list-item;
+	margin: auto;
+}
