@@ -42,15 +42,8 @@ function output() {
 	else {
 		echo 'There are no events in this category at present.';
 	}
+
+	timeline_footer();
 	
-	menu_sep();
-
-	echo 'Categories<small><br><br><a href="' . internal_link($page) . '">All</a><br>';
-	foreach ($timeline->GetCategories() as $cat) {
-		echo '<a href="' . internal_link($page, array('id'=>$cat->GetID())) . '">' . str_replace(' ', '&nbsp;', $cat->GetName()) . '</a><br>';
-	}
-	echo '<br><a href="' . internal_link('timeline_admin') . '">Admin</a></small>';
-
-	menu_footer();
 }
 ?>

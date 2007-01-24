@@ -21,6 +21,25 @@ function timeline_admin_footer() {
 	menu_footer();
 }
 
+function timeline_footer() {
+	global $timeline, $page;
+
+	$items = array('All' => internal_link($page));
+
+	foreach ($timeline->GetCategories() as $cat) {
+
+		$items[str_replace(' ', '&nbsp;', $cat->getName()] = internal_link($page, array('id' => $cat->GetID()));
+
+	}
+
+	$items['Admin'] = internal_link('timeline_admin');
+
+	addMenu('Categories', $items);
+
+	menu_footer();
+
+}
+
 // Some quote stuff.
 function quote_footer() {
 	global $db, $roster;
