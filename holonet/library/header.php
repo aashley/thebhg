@@ -46,7 +46,7 @@ function timeline_items($categories, $level) {
 
 		if ($level > 0) {
 
-			$prefix = str_repeat(' ', $level).' - ';
+			$prefix = str_repeat(' ', $level - 1).' - ';
 
 		} else {
 
