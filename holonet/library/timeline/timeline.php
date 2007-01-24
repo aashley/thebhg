@@ -21,7 +21,7 @@ class Timeline {
 	 * @param resource db The database connection to use.
 	 */
 	function Timeline() {
-		$this->db = mysql_connect('localhost', 'thebhg_holonet', 'w0rdy');
+		$this->db = mysql_connect('localhost', 'thebhg', 'monkey69');
 		mysql_select_db('thebhg_holonet', $this->db);
 	}
 
