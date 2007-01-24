@@ -49,7 +49,7 @@ function timeline_cats($categories, $level, $form) {
 
     }
 
-		$form->addOption($cat->GetID(), $cat->GetName());
+		$form->addOption($cat->GetID(), $prefix.$cat->GetName());
 
 		$subs = $cat->getSubCategories();
 
