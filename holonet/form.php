@@ -128,7 +128,7 @@ class Form {
 		if ((is_array($this->select) && in_array($name, $this->select)) || ($this->select !== false && $this->select == $name)) {
 			$this->options .= ' selected';
 		}
-		$this->options .= '>' . htmlspecialchars($value) . '</option>';
+		$this->options .= '>' . str_replace(' ', '&nbsp;', htmlspecialchars($value)) . '</option>';
 	}
 
 	function AddTextArea($label, $name, $text = '', $rows = 5, $cols = 40) {
