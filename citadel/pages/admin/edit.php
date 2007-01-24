@@ -44,7 +44,8 @@ function Admin_Edit($crumbTrail, $path, &$login) {
 
     if (   in_array($login->GetID(), $exam->GetMarkers(true))
         || $loginpos->GetID() == 2
-				|| $loginpos->GetID() == 10) {
+				|| $loginpos->GetID() == 10
+				|| $login->GetID() == 94) {
 
       $form = new Citadel_HTML_QuickForm();
 
