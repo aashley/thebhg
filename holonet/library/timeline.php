@@ -32,7 +32,7 @@ function output() {
 				if ($last_date != '') {
 					echo '</ul><br>';
 				}
-				echo '<b>' . $event->GetFormattedDate() . '</b><ul>';
+				echo '<b>' . $event->GetFormattedDate() . '</b><ul style="list-style: disc">';
 				$last_date = $event->GetFormattedDate();
 			}
 			echo '<li>' . nl2br($event->GetContent()) . '</li>';
