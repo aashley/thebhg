@@ -31,7 +31,7 @@ class TLCategory {
 		$result = mysql_query('SELECT * FROM timeline_categories WHERE id=' . $this->id, $this->db);
 		if ($result && mysql_num_rows($result)) {
 			$this->name = stripslashes(mysql_result($result, 0, 'name'));
-			$this->parent = mysql_result($result, 0, 'parent'));
+			$this->parent = mysql_result($result, 0, 'parent');
 		}
 	}
 
