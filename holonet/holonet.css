@@ -225,4 +225,5 @@ ul.timeline {
 ul.timeline li {
 	display: list-item;
 	margin: auto;
+	margin-left: 2em;
 }
