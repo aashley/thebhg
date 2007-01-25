@@ -34,9 +34,7 @@ function output() {
 		$form = new Form($page);
 		$form->AddHidden('id', $_REQUEST['id']);
 		$form->StartSelect('Category(-ies):', 'category[]', $elcid, 10, true);
-		foreach ($timeline->GetCategories() as $cat) {
-			$form->AddOption($cat->GetID(), $cat->GetName());
-		}
+		timeline_form_categories($timeline->GetCategories(), 0, $form);
 		$form->EndSelect();
 		$form->AddDateBox('Date:', 'date', $event->GetTimestamp());
 		$form->AddTextArea('Content:', 'content', $event->GetContent(), 10, 60);
