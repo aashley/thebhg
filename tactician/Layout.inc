@@ -9,9 +9,6 @@
 	require_once 'roster.inc';
 	$roster = new Roster($coder);
 	
-	require_once 'bounties/objects/ka.inc';
-	$ka = new KA ('ka-4-hunt');
-				
 	$results = $roster->SearchPosition('TACT');
 	$judicator = $results[0];
 	
