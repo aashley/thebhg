@@ -1,7 +1,12 @@
 <?php
+ini_set('include_path', '../objects:'.ini_get('include_path'));
 require_once('../../Layout.inc');
 require_once 'HTML/Table.php';
-$site = $_GET['site'];
+
+require_once 'ka.inc';
+$ka = new KA('kabals-4ever');
+
+$site = isset($_GET['site']) ? $_GET['site'] : '';
 $subarray = array(
     'View Bounties'=>'bounties/',
     'Administration'=> ltrim($_SERVER['PHP_SELF'], "/"),

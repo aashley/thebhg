@@ -442,14 +442,13 @@ class KA extends BHGObject {
         $sql = "SELECT `id` FROM `assistant` WHERE `person` = $id AND `date_deleted` = 0 AND `hunts` = 1";
         $query = mysql_query($sql, $this->ka_db);
         if (mysql_num_rows($query) > 0) return 2;
-		if ($person->getID() == 2650) return 2;
-        if (!in_array($position->GetID(), array (2, 3, 10, 11, 12))) {
-            return 0;
-        }
-        if (in_array($position->GetID(), array (2, 3, 10))) {
+        if (in_array($position->GetID(), array (2, 3, 10)) || $id == 94) {
             return 2;
         }
-        else return 1;
+				if (in_array($position->GetID(), array (11, 12))) {
+            return 1;
+        }
+        return 0;
     }
 
     /**
