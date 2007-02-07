@@ -36,7 +36,7 @@
 				<li><a href="<?=$base?>news/" title="Get the latest Kabal Authority news">News</a></li>
 				<li><a href="<?=$base?>headquarters/" title="Headquarters">Headquarters</a></li>
 				<li><a href="<?=$base?>kabals/" title="Kabals">Kabals</a></li>
-				<li><a href="<?=$base?>hsc/" title="The Head Start Center">Head Start Center</a></li>
+				<li><a href="<?=$base?>bounties/" title="Bounties">Bounties</a></li>
 				<li><a href="http://citadel.thebhg.org/" title="The Citadel">The Citadel</a></li>
 			</ol>
 		</div>
