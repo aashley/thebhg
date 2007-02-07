@@ -76,6 +76,8 @@
 			$class = ' class="first"';
 		elseif ($counter == sizeof($kabals))
 			$class = ' class="last"';
+		else
+			$class = '';
 ?>
 					<li<?=$class?>><a href="<?=$div->GetURL()?>" title="Visit the <?php echo iconv('ISO-8859-1', 'UTF-8', $div->GetName()) ?> Kabal website"><?php echo iconv('ISO-8859-1', 'UTF-8', $div->GetName()); ?></a></li>
 <? } ?>
