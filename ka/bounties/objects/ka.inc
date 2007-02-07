@@ -509,7 +509,7 @@ class KA extends BHGObject {
                                 $subs = $grade_obj->GetCorrect($num, 1);
                                 for ($j = 0; $j < count($subs); $j++) {
                                     $sub = $subs[$j];
-                                    if ($sub->GetID() != $first) { //Make sure its not the first place submission
+                                    if (isset($first) && $sub->GetID() != $first) { //Make sure its not the first place submission
                                         $total += $rewards[$i];
                                     }
                                 }
