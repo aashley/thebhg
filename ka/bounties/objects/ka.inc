@@ -20,15 +20,6 @@
  */
 
 /**
- * The actual including of files.
- * @access private
- */
-require_once('hunts/hunt.inc');
-require_once('hunts/hunt_type.inc');
-require_once('hunts/submission.inc');
-require_once('hunts/grades.inc');
-
-/**
  * KA class
  *
  * This is the main object to include, will automatically include all other needed files.
@@ -664,4 +655,14 @@ class KA extends BHGObject {
         }
     }
 }
+
+/**
+ * The actual including of files.
+ * @access private
+ */
+require_once('hunts/hunt.inc');
+require_once('hunts/hunt_type.inc');
+require_once('hunts/submission.inc');
+require_once('hunts/grades.inc');
+
 ?>
