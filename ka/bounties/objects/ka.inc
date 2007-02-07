@@ -495,7 +495,7 @@ class KA extends BHGObject {
                                 //Find the first place submission in the grades array
                                 $full = $grade_obj->GetCorrect($hunt_type->GetNumAnswers());
 																if ($full === false)
-																	print $grade_obj->roster_error.' '.$grade_obj->roster_coder;
+																	print $grade_obj->roster_error;
                                 if (count($full) > 0 && array_key_exists(0, $full)) {
                                     $first = $full[0]->GetID();
                                 }

@@ -4,7 +4,7 @@ require_once '../Layout.inc';
 require_once 'HTML/Table.php';
 
 require_once 'ka.inc';
-$ka = new KA('kabals-4ever');
+$ka = new KA('ka-4-hunt');
 
 $subarray = array(
                     'View Bounties' => 'bounties/index.php?site=index',
