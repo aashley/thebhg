@@ -27,12 +27,15 @@ if ($access == 2) {
 $login_position = $login->GetPosition();
 $login_division = $login->GetDivision();
 $login_division = $login_division->GetID();
-if (!$_POST['division']) {
+if (!isset($_REQUEST['division'])) {
     //$division has not been set, setting defaults
     if ($access == 2) $division = -1;
     else $division = $login_division;
 } else {
-    $division = $_POST['division'];
+		if ($access == 2)
+			$division = $_REQUEST['division'];
+		else
+			$division = $login_division;
 }
 $uploaddir = realpath(dirname($_SERVER['SCRIPT_FILENAME']).'/..').'/hunt_images/';
 if($site == "") {
