@@ -15,7 +15,7 @@ $subarray = array(	'BHG Overview'=>'hsc/?sec=1',
 					'Choosing a Kabal'=>'hsc/?sec=14',
 					'Links'=>'hsc/?sec=15');
 $go = false;
-if ($_REQUEST['sec']){
+if (isset($_REQUEST['sec'])){
 	$page = 's'.$_REQUEST['sec'].'.php';
 	if (file_exists($page))
 		include_once $page;
