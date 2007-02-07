@@ -42,7 +42,7 @@ $table = new HTML_Table();
 if ($grade_obj) {
     if ($grades['status'] == 0) $table->AddRow( array("This summary was marked as a No Effort submission."),
                                                 array("colspan"=>"3"));
-    if ($grades['status'] == -1) $table->AddRow(array("This summary was marked as Not Included.<br />This may be for a number of reasons. Please contact the Tactician if you have any questions."),
+    if ($grades['status'] == -1) $table->AddRow(array("This summary was marked as Not Included.<br />This may be for a number of reasons. Please contact the Kabal Authority if you have any questions."),
                                                 array("colspan"=>"3"));
 }
 $sub_answers = $submission->GetAnswer();

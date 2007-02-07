@@ -232,7 +232,7 @@ if (sizeof($submissions) > 0) {
                         date("jS M Y, H:i T", $submission->GetTimestamp())), $center_attr);
   }
 } else {
-  $table->addRow(array('You have not submitted answers to any Tactician '
+  $table->addRow(array('You have not submitted answers to any Kabal Authority '
         .'Bounties'));
 }
 print $table->toHtml();

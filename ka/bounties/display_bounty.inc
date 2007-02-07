@@ -15,8 +15,8 @@ if ($_POST['submit']) {
              echo "<br /><br />Sorry, but you have already submitted an answer for this event."; //Should NEVER get here...
         } else {
             //Email and headers built here
-            $email_headers = "From: KA Hunt Centre <ka_hunts@thebhg.org>\nReply-To: ".$login_email."\nX-Mailer: PHP";
-            $recipient = "ka_hunts@thebhg.org, ".$login_email;
+            $email_headers = "From: KA Hunt Centre <kahunts@thebhg.org>\nReply-To: ".$login_email."\nX-Mailer: PHP";
+            $recipient = "kahunts@thebhg.org, ".$login_email;
             $message = "The following answer(s) has been submitted from this IP: ".$_SERVER['REMOTE_ADDR']."\n\n\n";
             $i = 0;
             foreach ($_POST['answer'] as $answer) {
