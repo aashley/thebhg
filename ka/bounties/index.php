@@ -11,7 +11,7 @@ $subarray = array(
                     'View All Old Bounties' => 'bounties/index.php?site=old_bounties',
                     'Administration' => 'bounties/admin/index.php',
                     'Log out' => 'bounties/index.php?site=logout');
-if($_GET['site'] == "") {
+if(!isset($_GET['site']) || $_GET['site'] == "") {
   $site = "index";
 	include 'index.inc';
 } else {
