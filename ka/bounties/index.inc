@@ -38,16 +38,16 @@ echo "<form action=\"".$_SERVER['REQUEST_URI']."\" method=\"post\">\n";
 if ($access == 2) {
     echo "<select name=\"division_select\" id=\"division_select\">\n";
     echo "<option value=\"-1\"";
-    if ($_POST['division_select'] == -1) echo ' selected="selected"';
+    if (isset($_REQUEST['division_select']) && $_REQUEST['division_select'] == -1) echo ' selected="selected"';
     echo ">Everyone</option>\n";
     echo "<option value=\"18\"";
-    if ($_POST['division_select'] == 18) echo ' selected="selected"';
+    if (isset($_REQUEST['division_select']) && $_REQUEST['division_select'] == 18) echo ' selected="selected"';
     echo ">Citadel</option>\n";
     $divisions = $roster->GetDivisions();
     foreach ($divisions as $division_obj) {
         if ($division_obj->IsKabal()) {
             echo "<option value=\"".$division_obj->GetID()."\"";
-            if ($division_obj->GetID() == $_POST['division_select']) echo ' selected="selected"';
+            if (isset($_REQUEST['division_select']) && $division_obj->GetID() == $_REQUEST['division_select']) echo ' selected="selected"';
             echo ">".$division_obj->GetName()."</option>\n";
         }
     }
