@@ -5,7 +5,7 @@
 	$items = get_news('kabals-4ever');
 	$items = array_merge($items, get_news('citadel-38learn'));
 	
-	usort($items, sort_by_date);
+	usort($items, 'sort_by_date');
 
 	if (count($items) < 10)
 		$num = count($items);
