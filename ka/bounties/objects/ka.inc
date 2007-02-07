@@ -494,7 +494,9 @@ class KA extends BHGObject {
                             if ($hunt->GetHuntFirst()) {
                                 //Find the first place submission in the grades array
                                 $full = $grade_obj->GetCorrect($hunt_type->GetNumAnswers());
-                                if (array_key_exists(0, $full)) {
+																if ($full === false)
+																	print $grade_obj->getErrorMessage();
+                                if (count($full) > 0 && array_key_exists(0, $full)) {
                                     $first = $full[0]->GetID();
                                 }
                                 if (isset($first)) {

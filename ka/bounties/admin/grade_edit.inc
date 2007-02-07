@@ -27,7 +27,7 @@ if ($hunt_obj->GetID() !== $hunt_id) { //Hunt does not exist
     echo 'This bounty does not exist. Please don\'t type in numbers. If you got here through a link, please contact the administrator of the webpage.';
 } elseif ($prev_grades !== false) { //Detects whether or not this hunt is graded yet
     //Hunt has been graded before, starting editing
-    if ($_POST['grade']) {
+    if (isset($_POST['grade'])) {
         $grades = $_POST['grades'];
         $grade_obj = $hunt_obj->ChangeGrades($grades);
         $error = $hunt_obj->ChangeCredits($prev_grades, $grade_obj); //Error checking

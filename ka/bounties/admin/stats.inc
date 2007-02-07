@@ -8,16 +8,16 @@ echo "<table>\n"
    . "<input type=\"hidden\" name=\"site\" value=\"".$_GET['site']."\" />\n"
    . "<select name=\"division_select\" id=\"division_select\">\n"
    . "<option value=\"-1\"";
-if ($_REQUEST['division_select'] == -1) echo " selected";
+if (isset($_REQUEST['division_select']) && $_REQUEST['division_select'] == -1) echo " selected";
 echo ">Everyone</option>\n"
    . "<option value=\"18\"";
-if ($_REQUEST['division_select'] == 18) echo " selected";
+if (isset($_REQUEST['division_select']) && $_REQUEST['division_select'] == 18) echo " selected";
 echo ">Citadel</option>\n";
 $divisions = $roster->GetDivisions();
 foreach ($divisions as $division_obj) {
     if ($division_obj->IsKabal()) {
         echo "<option value=\"".$division_obj->GetID()."\"";
-        if ($division_obj->GetID() == $_REQUEST['division_select']) echo " selected";
+        if (isset($_REQUEST['division_select']) && $division_obj->GetID() == $_REQUEST['division_select']) echo " selected";
         echo ">".$division_obj->GetName()."</option>\n";
     }
 }
