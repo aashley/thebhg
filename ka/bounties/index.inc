@@ -178,6 +178,9 @@ for ($i = 0; $i < count($hunttypes); $i++) {
 
     foreach ($hunts as $hunt) {
 
+				if (!isset($htbody[$i]))
+					$htbody[$i] = '';
+
         $htbody[$i] .= '<a href="'.$_SERVER['PHP_SELF']
           .'?site=display_bounty&id='.$hunt->GetID().'">';
         if ($hunt->GetDivisionID() != -1) {
