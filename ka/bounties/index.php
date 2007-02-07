@@ -1,10 +1,9 @@
 <?
 ini_set('include_path', './objects:'.ini_get('include_path'));
-require_once 'roster.inc';
-require_once 'ka.inc';
 require_once '../Layout.inc';
 require_once 'HTML/Table.php';
 
+require_once 'ka.inc';
 $ka = new KA('kabals-4ever');
 
 $subarray = array(
