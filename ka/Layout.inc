@@ -57,6 +57,8 @@
 				$class = ' class="first"';
 			elseif ($counter == sizeof($subarray))
 				$class = ' class="last"';
+			else
+				$class = '';
 ?>
 					<li<?=$class?>><a href="<?=$base?><?=$value?>" title="<?=$key?>"><?=$key?></a></li>
 <?		} ?>
