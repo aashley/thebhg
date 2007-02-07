@@ -70,11 +70,11 @@
 	foreach ($kabals as $div) {
 		unset($class);
 		$counter++; 
-		if (sizeof($divisions) == 1)
+		if (sizeof($kabals) == 1)
 			$class = ' class="first last"';
 		elseif ($counter == 1)
 			$class = ' class="first"';
-		elseif ($counter == sizeof($divisions))
+		elseif ($counter == sizeof($kabals))
 			$class = ' class="last"';
 ?>
 					<li<?=$class?>><a href="<?=$div->GetURL()?>" title="Visit the <?php echo iconv('ISO-8859-1', 'UTF-8', $div->GetName()) ?> Kabal website"><?php echo iconv('ISO-8859-1', 'UTF-8', $div->GetName()); ?></a></li>
