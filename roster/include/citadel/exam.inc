@@ -405,11 +405,6 @@ class Citadel_Exam extends BHGObject {
 
 		}
 
-		if (!in_array(94, $ids)) {
-			$ids[] = 94;
-			$objects[] = new Person(94, $this->roster_coder);
-		}
-
 		if ($idsonly)
 			return $ids;
 		else
