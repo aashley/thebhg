@@ -5,7 +5,7 @@
 		$plebsheet = array();
 		$sheet = new Sheet();
 		$run = array();
-		if (is_array($bar_whore) && count($bar_whore)){
+		if (isset($bar_whore) && is_array($bar_whore) && count($bar_whore)){
 			$lists = array();
 			$i = 0;
 			foreach ($bar_whore as $list){
@@ -25,7 +25,7 @@
 			$run = $sheet->SheetHolders();
 		}
 		
-		if ($GLOBALS['property']){
+		if (isset($GLOBALS['property'])){
 			foreach ($kabals_result as $kabal){
 				if ($kabal->GetID() != 9 && $kabal->GetID() != 16) {
 			        foreach ($kabal->getMembers() as $person){
@@ -38,7 +38,7 @@
 		    	$person = new Person($person);
 		    	$kabal = $person->GetDivision();
 		    	$go = true;
-				if (is_array($bar_slut) && count($bar_slut)){
+				if (isset($bar_slut) && is_array($bar_slut) && count($bar_slut)){
 					foreach ($bar_slut as $course){
 						$sql = "SELECT * FROM `ntc_exam_completed` WHERE `bhg_id` = '".$person->GetID()."' AND `has_passed` = 1 AND `exam` = '$course'";
 						if (!mysql_num_rows(mysql_query($sql, $roster->roster_db))){
@@ -54,7 +54,7 @@
     	
     	foreach ($kabals_result as $kabal) {
 
-		      if ($kabal->GetID() != 9 && $kabal->GetID() != 16 && count($plebsheet[$kabal->GetID()])) {
+		      if ($kabal->GetID() != 9 && $kabal->GetID() != 16 && isset($plebsheet[$kabal->GetID()]) && count($plebsheet[$kabal->GetID()])) {
 		        $kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">"
 		          .$kabal->GetName()."</option>\n";
 		      }
@@ -150,12 +150,12 @@
 	
 	$bar_scum = "<select name=\"kabal\" onChange=\"swap_kabal(this.form)\"><option value=\"-1\">N/A</option>$kabals</select>";
 	
-    $form->table->AddCell(($ringa_ding ? $ringa_ding : $bar_scum));
+	$form->table->AddCell((isset($ringa_ding) ? $ringa_ding : $bar_scum));
     
 	$cell = "<select name=\"bhg_id\">";
 	$cell .= "<option value=\"-1\" selected>N/A</option>\n";
 	$cell .= "</select>";
 	
-	$form->table->AddCell(($ringa_ding ? $bar_scum.str_repeat('&nbsp;', 3) : '').$cell);
+	$form->table->AddCell((isset($ringa_ding) ? $bar_scum.str_repeat('&nbsp;', 3) : '').$cell);
 	$form->table->EndRow();
 ?>
