@@ -1,6 +1,6 @@
 <?php
 function title() {
-    return 'Administration :: Overseer Utilities :: Property Management';
+    return 'Administration :: Strategist Utilities :: Property Management';
 }
 
 function auth($person) {

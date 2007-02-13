@@ -1,7 +1,7 @@
 <?php
 
 function title() {
-    return 'Administration :: Overseer Utilities :: Manage CS Backups';
+    return 'Administration :: Strategist Utilities :: Manage CS Backups';
 }
 
 function auth($person) {

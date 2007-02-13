@@ -1,7 +1,7 @@
 <?php
 
 function title() {
-    return 'Administration :: Overseer Utilities :: Bonus Points';
+    return 'Administration :: Strategist Utilities :: Bonus Points';
 }
 
 function auth($person) {

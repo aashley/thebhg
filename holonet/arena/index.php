@@ -6,10 +6,10 @@ function title() {
 function output() {
     global $arena;
 
-    $ov = Overseer();
+    $ov = Strategist();
     $aj = Adjunct();
     
-    $overseer = ($ov ? 'Overseer <a href="'.internal_link('atn_general', array('id'=>$ov->GetID())).'">'.$ov->GetName().'</a>' : '');
+    $overseer = ($ov ? 'Strategist <a href="'.internal_link('atn_general', array('id'=>$ov->GetID())).'">'.$ov->GetName().'</a>' : '');
     $adjunct = ($aj ? 'Adjunct <a href="'.internal_link('atn_general', array('id'=>$aj->GetID())).'">'.$aj->GetName().'</a>' : '');
     
     if ($ov && $aj) {
@@ -27,9 +27,9 @@ The cold breeze blows around a lone fighter, who stands amidst of the
 electric glow of the lights in the Gaea Lynn Stadium. With weapons in hand
 he stands silently, waiting for his opponent to appear. Then, with a roar
 from the crowd, his adversary appears, entering the arena from the other
-side. From the middle of the field, the Overseer begins dictating the
+side. From the middle of the field, the Strategist begins dictating the
 stipulations of the match, the crowd listening intently. Finishing, the
-Overseer walks quickly from the field, leaving only the two combatants and
+Strategist walks quickly from the field, leaving only the two combatants and
 the hushed crowd.<br />
 This is the Arena.<p>
 

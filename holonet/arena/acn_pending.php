@@ -104,7 +104,7 @@ function output() {
 					
 					if ($aux){
 						$aj = Adjunct();
-						$ov = Overseer();
+						$ov = Strategist();
 						if ($ov->GetID()){
 							$aide = '-'.$ov->GetID();
 							$pers = new Person($ov->GetID());

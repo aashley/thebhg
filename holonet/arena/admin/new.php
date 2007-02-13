@@ -29,7 +29,7 @@ function display(){
 			
 			if ($aux){
 				$aj = Adjunct();
-				$ov = Overseer();
+				$ov = Strategist();
 				if ($aj->GetID()){
 					$aide = '-'.$aj->GetID();
 					$pers = new Person($aj->GetID());

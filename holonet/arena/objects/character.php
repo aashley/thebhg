@@ -629,7 +629,7 @@
 				}
 			}
 			
-			return 'Your character sheet has been submitted for approval. It is now pending review by the Overseer or Adjunct.';
+			return 'Your character sheet has been submitted for approval. It is now pending review by the Strategist.';
 		} else {
 			return 'Error in update: '.mysql_error($this->holonet);
 		}	   

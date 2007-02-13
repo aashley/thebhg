@@ -19,7 +19,7 @@ Management System Tracking Network (ATN), which monitors and tabulates
 ladder results and tracks all matches, and the Arena Management System
 Challenge Network (ACN), which allows a Hunter to challenge another hunter
 to a match via the BHG Holonet. The AMS is monitored and maintained by the
-Overseer and the Adjunct. It is they who manage and maintain the functions
+Strategist and the Adjunct. It is they who manage and maintain the functions
 of the AMS, to ensure the RP world runs quickly and smoothly.";
     
     hr();
