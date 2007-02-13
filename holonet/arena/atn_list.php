@@ -21,15 +21,16 @@ function title() {
 }
 
 function output() {
-    global $activity, $arena, $type, $match, $mb;
-
-    $sheet = new Sheet();
-    
-    arena_header();
-
-    $current = $arena->Search(array('table'=>'ams_lists', 'search'=>array('list'=>$_REQUEST['id'], 'date_deleted'=>'0')));
-			
+	global $activity, $arena, $type, $match, $mb;
+	
+	$sheet = new Sheet();
+	
+	arena_header();
+	
+	$current = $arena->Search(array('table'=>'ams_lists', 'search'=>array('list'=>$_REQUEST['id'], 'date_deleted'=>'0')));
+	
 	if (count($current)){
+		
 		$table = new Table('', true);
 		
 		$table->StartRow();
@@ -43,10 +44,9 @@ function output() {
 		
 		$table->EndTable();
 		
-		hr();
 	}
 
-    arena_footer();
+  arena_footer();
 }
 
 ?>
