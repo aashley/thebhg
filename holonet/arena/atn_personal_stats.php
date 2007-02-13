@@ -44,23 +44,23 @@ function output() {
 	    $pendings = array();
 	    foreach ($pending as $oba){
 		    if (!count($pendings)){
-			    $first = $oba->Get(id);
+			    $first = $oba->Get('id');
 		    }
-		    $obja = new Obj('ams_match', $oba->Get(match), 'holonet');
-		    $pendings[$obja->Get(type)][] = $obja;
-		    $last = $oba->Get(id);
+		    $obja = new Obj('ams_match', $oba->Get('match'), 'holonet');
+		    $pendings[$obja->Get('type')][] = $obja;
+		    $last = $oba->Get('id');
 	    }
 	    
 	    ksort($pendings);
 	    
 	    foreach ($pendings as $ja=>$jas){
 		    foreach ($jas as $match){
-			    $data = unserialize($match->Get(specifics));
+			    $data = unserialize($match->Get('specifics'));
 			    $table->StartRow();
-			    $table->AddCell(($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
-			    $type = new Obj('ams_activities', $match->Get(type), 'holonet');
-			    $table->AddCell('<a href="'.internal_link(atn_activity, array('id'=>$type->Get(id))).'">'.$type->Get(name).'</a>');
-			    $table->AddCell('<a href="'.internal_link(atn_stats, array('id'=>$match->Get(id))).'">'.($match->Get(name) ? $match->Get(name) : 'No Name').'</a>');
+			    $table->AddCell(($match->Get('mbid') ? mb_link($match->Get('mbid')) : 'Unposted'));
+			    $type = new Obj('ams_activities', $match->Get('type'), 'holonet');
+			    $table->AddCell('<a href="'.internal_link(atn_activity, array('id'=>$type->Get('id'))).'">'.$type->Get('name').'</a>');
+			    $table->AddCell('<a href="'.internal_link(atn_stats, array('id'=>$match->Get('id'))).'">'.($match->Get('name') ? $match->Get('name') : 'No Name').'</a>');
 			    $table->EndRow();
 		    }
 	    }

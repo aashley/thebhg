@@ -44,9 +44,9 @@ function output(){
 				$obj->Edit($return);
 				$show = false;
 			} else {
-				$id = $obj->Get(id);
-				$type = $obj->Get(activity);
-				$aide = $obj->Get(aide);
+				$id = $obj->Get('id');
+				$type = $obj->Get('activity');
+				$aide = $obj->Get('aide');
 				$list = $obj->Get('list');
 			}
 			break;
@@ -80,8 +80,8 @@ function output(){
 				$obj->Edit($return);
 				$show = false;
 			} else {
-				$ida = $obj->Get(id);
-				$aidea = $obj->Get(aide);
+				$ida = $obj->Get('id');
+				$aidea = $obj->Get('aide');
 			}
 			break;
 		}
@@ -124,20 +124,20 @@ function output(){
 			$table->EndRow();
 			
 			foreach ($current as $obj){
-				$type = new Obj('ams_activities', $obj->Get(activity), 'holonet');
+				$type = new Obj('ams_activities', $obj->Get('activity'), 'holonet');
 				$list = new Obj('ams_list_types', $obj->Get('list'), 'holonet');
-				if ($obj->Get(aide) < 0){
-					$aide = $obj->Get(aide)*-1;
+				if ($obj->Get('aide') < 0){
+					$aide = $obj->Get('aide')*-1;
 					$posi = new Position($aide);
 					$position = $posi->GetName();
 				} else {
-					$posi = new Obj('ams_aide_types', $obj->Get(aide), 'holonet');
-					$position = $posi->Get(name);
+					$posi = new Obj('ams_aide_types', $obj->Get('aide'), 'holonet');
+					$position = $posi->Get('name');
 				}
-				$table->AddRow($position, $type->Get(name), $list->Get(name), ($obj->Get(date_deleted) ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get(id))).'">Undelete</a>' : 
-				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Delete</a>'), 
-				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get(id))).'">Edit</a>');
-				$last_type = $obj->Get(type);
+				$table->AddRow($position, $type->Get('name'), $list->Get('name'), ($obj->Get('date_deleted') ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get('id'))).'">Undelete</a>' : 
+				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get('id'))).'">Delete</a>'), 
+				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get('id'))).'">Edit</a>');
+				$last_type = $obj->Get('type');
 			}
 			
 			$table->EndTable();
@@ -155,12 +155,12 @@ function output(){
 			$current = $arena->Search(array('table'=>'ams_cs', 'order'=>array('aide'=>'ASC')));
 			
 			foreach ($current as $obj){
-				$posi = new Obj('ams_aide_types', $obj->Get(aide), 'holonet');
-				$position = $posi->Get(name);
-				$table->AddRow($position, ($obj->Get(date_deleted) ? '<a href="'.internal_link($page, array('csop'=>'ud', 'ida'=>$obj->Get(id))).'">Undelete</a>' : 
-				'<a href="'.internal_link($page, array('csop'=>'de', 'ida'=>$obj->Get(id))).'">Delete</a>'), 
-				'<a href="'.internal_link($page, array('csop'=>'ed', 'ida'=>$obj->Get(id))).'">Edit</a>');
-				$last_type = $obj->Get(type);
+				$posi = new Obj('ams_aide_types', $obj->Get('aide'), 'holonet');
+				$position = $posi->Get('name');
+				$table->AddRow($position, ($obj->Get('date_deleted') ? '<a href="'.internal_link($page, array('csop'=>'ud', 'ida'=>$obj->Get('id'))).'">Undelete</a>' : 
+				'<a href="'.internal_link($page, array('csop'=>'de', 'ida'=>$obj->Get('id'))).'">Delete</a>'), 
+				'<a href="'.internal_link($page, array('csop'=>'ed', 'ida'=>$obj->Get('id'))).'">Edit</a>');
+				$last_type = $obj->Get('type');
 			}
 			
 			$table->EndTable();
@@ -183,7 +183,7 @@ function output(){
 		$form->StartSelect('Aide', 'data[values][]', $aide);
 		echo '<optgroup label="Arena Aides">';
 		foreach ($search as $obj){
-			$form->AddOption($obj->Get(id), $obj->Get(name));
+			$form->AddOption($obj->Get('id'), $obj->Get('name'));
 		}
 		echo '</optgroup>';
 		echo '<optgroup label="BHG Positions">';
@@ -198,7 +198,7 @@ function output(){
 		$form->StartSelect('Event', 'data[values][]', $type);
 		$form->AddOption(0, 'None');
 		foreach ($search as $obj){
-			$form->AddOption($obj->Get(id), $obj->Get(name));
+			$form->AddOption($obj->Get('id'), $obj->Get('name'));
 		}
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'activity');
@@ -207,7 +207,7 @@ function output(){
 		$form->StartSelect('Member Lists', 'data[values][]', $list);
 		$form->AddOption(0, 'None');
 		foreach ($search as $obj){
-			$form->AddOption($obj->Get(id), $obj->Get(name));
+			$form->AddOption($obj->Get('id'), $obj->Get('name'));
 		}
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'list');
@@ -227,7 +227,7 @@ function output(){
 		$form->AddSectionTitle('Character Sheet Access');
 		$form->StartSelect('Aide', 'data[values][]', $aidea);
 		foreach ($search as $obj){
-			$form->AddOption($obj->Get(id), $obj->Get(name));
+			$form->AddOption($obj->Get('id'), $obj->Get('name'));
 		}
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'aide');

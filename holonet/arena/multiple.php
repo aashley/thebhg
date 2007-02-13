@@ -11,7 +11,7 @@
 			$i = 0;
 			foreach ($bar_whore as $list){
 				foreach ($arena->Search(array('table'=>'ams_lists', 'search'=>array('date_deleted'=>'0', 'list'=>$list))) as $search){
-					$lists[$i][] = $search->Get(bhg_id);
+					$lists[$i][] = $search->Get('bhg_id');
 				}
 				$i++;
 			}

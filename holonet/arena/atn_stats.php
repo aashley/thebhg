@@ -2,11 +2,11 @@
 
 if (isset($_REQUEST['id'])){
 	$match = new Obj('ams_match', $_REQUEST['id'], 'holonet');
-	$activity = new Obj('ams_activities', $match->Get(type), 'holonet');
-	if (!$activity->Get(name)){
+	$activity = new Obj('ams_activities', $match->Get('type'), 'holonet');
+	if (!$activity->Get('name')){
 		$activity = false;
 	} else {
-		$type = new Obj('ams_types', $activity->Get(type), 'holonet');
+		$type = new Obj('ams_types', $activity->Get('type'), 'holonet');
 	}
 }
 
@@ -16,7 +16,7 @@ function title() {
     $return = 'AMS Tracking Network';
 
     if (is_object($activity)){
-	    $return .= ' :: Activity :: '.$activity->Get(name);
+	    $return .= ' :: Activity :: '.$activity->Get('name');
     }
     
     return $return;
@@ -33,9 +33,9 @@ function output() {
     
 	    $builds = array();
 	    
-	    foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>0))) as $ob){
-		    $new = new Obj('ams_specifics_types', $ob->Get(resource), 'holonet');
-		    $builds[addslashes($new->Get(name))] = $new;
+	    foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'), 'grade'=>0))) as $ob){
+		    $new = new Obj('ams_specifics_types', $ob->Get('resource'), 'holonet');
+		    $builds[addslashes($new->Get('name'))] = $new;
 		}
 		
 		ksort($builds);
@@ -49,12 +49,12 @@ function output() {
 		    $table->EndRow();
 	    }
 	
-	    if ($match->Get(date_deleted)){
+	    if ($match->Get('date_deleted')){
 		    $stat = 'Denied';
 	    } else {
-		    if ($match->Get(accepted)){
-			    if ($match->Get(started)){
-				    if ($match->Get(completed)){
+		    if ($match->Get('accepted')){
+			    if ($match->Get('started')){
+				    if ($match->Get('completed')){
 					    $stat = 'Finished';
 				    } else {
 					    $stat = 'In Play';						    
@@ -68,49 +68,49 @@ function output() {
 	    }
 	    
 	    if (count($builds)){
-		    $data = unserialize($match->Get(specifics));
-		    $table->AddRow('Topic ID:', ($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
-		    $table->AddRow('Name:', ($match->Get(name) ? $match->Get(name) : 'No Name'));
+		    $data = unserialize($match->Get('specifics'));
+		    $table->AddRow('Topic ID:', ($match->Get('mbid') ? mb_link($match->Get('mbid')) : 'Unposted'));
+		    $table->AddRow('Name:', ($match->Get('name') ? $match->Get('name') : 'No Name'));
 		    $locations = $arena->Locations();
-		    ($match->Get(location) ? $table->AddRow('Location:', $locations[$match->Get(location)]) : '');
+		    ($match->Get('location') ? $table->AddRow('Location:', $locations[$match->Get('location')]) : '');
 		    foreach ($builds as $build){
-			    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get(id)))) as $ob) {
-				    if ($build->Get(multiple)){
+			    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get('id')))) as $ob) {
+				    if ($build->Get('multiple')){
 					    $print = array();
-					    if (is_array($data[$build->Get(id)])){
-						    foreach ($data[$build->Get(id)] as $valu){
+					    if (is_array($data[$build->Get('id')])){
+						    foreach ($data[$build->Get('id')] as $valu){
 							    $info = new Obj('ams_specifics', $valu, 'holonet');
-							    $print[] = $info->Get(name);
+							    $print[] = $info->Get('name');
 						    }
-						    $table->AddRow($ob->Get(name).':', implode("<br />", $print));
+						    $table->AddRow($ob->Get('name').':', implode("<br />", $print));
 					    } else {
-						    $table->AddRow($ob->Get(name).':', 'None');
+						    $table->AddRow($ob->Get('name').':', 'None');
 					    }
 				    } else {
-					    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
-					    $table->AddRow($ob->Get(name).':', $info->Get(name));
+					    $info = new Obj('ams_specifics', $data[$build->Get('id')], 'holonet');
+					    $table->AddRow($ob->Get('name').':', $info->Get('name'));
 				    }
 			    }
 		    }
 		    
-		    $urg = ($match->Get(should_be) <= time() && $match->Get(should_be) > 0);
-		    ($urg ? $table->AddRow('Due By:', $match->Get(should_be, 0, 1)) : '');
+		    $urg = ($match->Get('should_be') <= time() && $match->Get('should_be') > 0);
+		    ($urg ? $table->AddRow('Due By:', $match->Get('should_be', 0, 1)) : '');
 		    $table->AddRow('Status:', $stat);
-		    if ($match->Get(data)){
-			    $ser = unserialize($match->Get(data));
+		    if ($match->Get('data')){
+			    $ser = unserialize($match->Get('data'));
 			    if (is_array($ser)){
 				    $bld = new NPC_Utilities();
 				    foreach ($ser as $npc){
 				    	$table->AddRow('NPC:', $bld->Construct($npc));
 			    	}
-			    } elseif (is_numeric(($match->Get(data)))) {
-				    $cre = new Creature($match->Get(data));
+			    } elseif (is_numeric(($match->Get('data')))) {
+				    $cre = new Creature($match->Get('data'));
 				    $table->AddRow('Creature:', $cre->WriteSheet());
 			    } else {
-				    $table->AddRow('Match Data:', $match->Get(data, 1));
+				    $table->AddRow('Match Data:', $match->Get('data', 1));
 			    }
 		    }
-		    ($match->Get(comments) ? $table->AddRow(($type->Get(submits) ? 'Grading' : 'Introduction').':', $match->Get(comments, 1)) : '');
+		    ($match->Get('comments') ? $table->AddRow(($type->Get('submits') ? 'Grading' : 'Introduction').':', $match->Get('comments', 1)) : '');
 		    
 		    $table->EndRow();
 	    }
@@ -121,24 +121,24 @@ function output() {
 	    
 	    $table = new Table();
 	    
-	    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$match->Get(id)))) as $yarm){		   				    
-			$person = new Person($yarm->Get(bhg_id));
+	    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$match->Get('id')))) as $yarm){		   				    
+			$person = new Person($yarm->Get('bhg_id'));
 			$table->StartRow();
 			$table->AddHeader($person->GetName(), 2);
 			$table->EndRow();
 			$c = 0;
-			if ($yarm->Get(outcome) > 0){
-				$spec = new Obj('ams_specifics', $yarm->Get(outcome), 'holonet');
-				$table->AddRow('Outcome:', $spec->Get(name));
+			if ($yarm->Get('outcome') > 0){
+				$spec = new Obj('ams_specifics', $yarm->Get('outcome'), 'holonet');
+				$table->AddRow('Outcome:', $spec->Get('name'));
 			} else {
 				$table->AddRow('Result Data:', 'Pending');
 			}
-			if ($yarm->Get(medal)){
-				$medal = new MedalGroup($yarm->Get(medal));
+			if ($yarm->Get('medal')){
+				$medal = new MedalGroup($yarm->Get('medal'));
 				$table->AddRow('Medal:', $medal->GetName());
 			}
-			($yarm->Get(creds) ? $table->AddRow('Credits', $yarm->Get(creds, 0, 0, 1)) : '');
-			($yarm->Get(xp) ? $table->AddRow('Experience Points', $yarm->Get(xp, 0, 0, 1)) : '');
+			($yarm->Get('creds') ? $table->AddRow('Credits', $yarm->Get('creds', 0, 0, 1)) : '');
+			($yarm->Get('xp') ? $table->AddRow('Experience Points', $yarm->Get('xp', 0, 0, 1)) : '');
 	    }
 	    
 	    $table->EndTable();

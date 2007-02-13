@@ -23,19 +23,19 @@ function output() {
     $at = new Tournament($_REQUEST['act']);
 
     $activity = new Obj('ams_activities', $_REQUEST['act'], 'holonet');
-	$type = new Obj('ams_types', $activity->Get(type), 'holonet');
+	$type = new Obj('ams_types', $activity->Get('type'), 'holonet');
     
     if (isset($_REQUEST['submit'])) {
 	    $_REQUEST['data']['values'][] = addslashes(serialize($_REQUEST['serialize']));
 	    $chal = false;
 
 	    $aux = false;
-	    $aide_types = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id))));
+	    $aide_types = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'))));
 	    if (is_object($aide_types[0])){
-			$aides = $arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$aide_types[0]->Get(aide))));
+			$aides = $arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$aide_types[0]->Get('aide'))));
 			if (count($aides)){
-				$aide = $aides[0]->Get(id);
-				$pers = new Person($aides[0]->Get(bhg_id));
+				$aide = $aides[0]->Get('id');
+				$pers = new Person($aides[0]->Get('bhg_id'));
 			} else {
 				$aux = true;
 			}
@@ -90,7 +90,7 @@ function output() {
 
 		$form->AddSectionTitle('Add Data');
 		    
-		if ($type->Get(opponent)){
+		if ($type->Get('opponent')){
 		    $form->StartSelect('Location:', 'data[values][]');
 		    foreach ($arena->Locations() as $lid=>$lname) {
 		        $form->AddOption($lid, $lname);
@@ -110,23 +110,23 @@ function output() {
 		
 		$builds = array();
 		
-		foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>0))) as $obj){
-		    $new = new Obj('ams_specifics_types', $obj->Get(resource), 'holonet');
-		    $builds[addslashes($new->Get(name))] = $new;
+		foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'), 'grade'=>0))) as $obj){
+		    $new = new Obj('ams_specifics_types', $obj->Get('resource'), 'holonet');
+		    $builds[addslashes($new->Get('name'))] = $new;
 		}
 		
 		ksort($builds);
 		
 		foreach ($builds as $build){
-		    if ($build->Get(multiple)){
-			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
-				    $form->AddSectionTitle($obj->Get(name));
-			        $form->AddCheckBox($obj->Get(name), 'serialize['.$build->Get(id).'][]', $obj->Get(id));
+		    if ($build->Get('multiple')){
+			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $obj) {
+				    $form->AddSectionTitle($obj->Get('name'));
+			        $form->AddCheckBox($obj->Get('name'), 'serialize['.$build->Get('id').'][]', $obj->Get('id'));
 			    }
 		    } else {
-			    $form->StartSelect($build->Get(name), 'serialize['.$build->Get(id).']');
-			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
-			        $form->AddOption($obj->Get(id), $obj->Get(name));
+			    $form->StartSelect($build->Get('name'), 'serialize['.$build->Get('id').']');
+			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $obj) {
+			        $form->AddOption($obj->Get('id'), $obj->Get('name'));
 			    }
 			    $form->EndSelect();
 		    }

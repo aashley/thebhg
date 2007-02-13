@@ -43,9 +43,9 @@ function output() {
 		$search = $arena->Search(array('table'=>'ams_activities', 'search'=>array('ladder` > 0 AND `date_deleted'=>'0')));
 		$lrs = array();
 		foreach ($search as $obj){
-			$ladr = $arena->Ladder($obj->Get(id), $hunter->GetID());
+			$ladr = $arena->Ladder($obj->Get('id'), $hunter->GetID());
 			if ($ladr){
-				$lrs[$obj->Get(name)][$obj->Get(id)] = $ladr;
+				$lrs[$obj->Get('name')][$obj->Get('id')] = $ladr;
 			}
 		}
 		

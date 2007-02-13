@@ -2,14 +2,14 @@
 
 if ($_REQUEST['id']){
 	$list = new Obj('ams_list_types', $_REQUEST['id'], 'holonet');
-	if ($list->Get(date_deleted)){
+	if ($list->Get('date_deleted')){
 		$list = 0;
 	}
 }
 
 function title(){
 	global $list;
-	return 'Administration :: List Management'.(is_object($list) ? ($list->Get(name) ? ' :: '.$list->Get(name) : '') : '');
+	return 'Administration :: List Management'.(is_object($list) ? ($list->Get('name') ? ' :: '.$list->Get('name') : '') : '');
 }
 
 function auth($person) {
@@ -27,7 +27,7 @@ function output(){
 	$show = true;
 	$sql = 'ams_lists';
 	
-	if ((is_object($list) ? (in_array($list->Get(id), $auth_data['lists'])) : 0)){
+	if ((is_object($list) ? (in_array($list->Get('id'), $auth_data['lists'])) : 0)){
 		if ($_REQUEST['op']){
 			$obj = new Obj($sql, $_REQUEST['go'], 'holonet');
 			switch ($_REQUEST['op']){			
@@ -64,9 +64,9 @@ function output(){
 				$table->EndRow();
 				
 				foreach ($current as $obj){
-					$hunter = new Person($obj->Get(bhg_id));
-					$table->AddRow($hunter->GetName(), '<a href="'.internal_link($page, array('op'=>'de', 'go'=>$obj->Get(id), 'id'=>$_REQUEST['id'])).'">Remove</a>');
-					$last_type = $obj->Get(type);
+					$hunter = new Person($obj->Get('bhg_id'));
+					$table->AddRow($hunter->GetName(), '<a href="'.internal_link($page, array('op'=>'de', 'go'=>$obj->Get('id'), 'id'=>$_REQUEST['id'])).'">Remove</a>');
+					$last_type = $obj->Get('type');
 				}
 				
 				$table->EndTable();

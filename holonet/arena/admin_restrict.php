@@ -44,13 +44,13 @@ function output(){
 				$obj->Edit($return);
 				$show = false;
 			} else {
-				$id = $obj->Get(id);
-				$activity = $obj->Get(activity);
+				$id = $obj->Get('id');
+				$activity = $obj->Get('activity');
 				$type = $obj->Get('list');
-				$posi = $obj->Get(position);
-				$rank = $obj->Get(rank);
-				$divi = $obj->Get(division);
-				$cour = $obj->Get(course);
+				$posi = $obj->Get('position');
+				$rank = $obj->Get('rank');
+				$divi = $obj->Get('division');
+				$cour = $obj->Get('course');
 			}
 			break;
 		}
@@ -86,26 +86,26 @@ function output(){
 			$table->EndRow();
 			
 			foreach ($current as $obj){
-				$shows = ($_REQUEST['show'] == $obj->Get(activity));
-				if ($last_type != $obj->Get(activity)){
-					$type = new Obj('ams_activities', $obj->Get(activity), 'holonet');
+				$shows = ($_REQUEST['show'] == $obj->Get('activity'));
+				if ($last_type != $obj->Get('activity')){
+					$type = new Obj('ams_activities', $obj->Get('activity'), 'holonet');
 					$table->StartRow();
-					$table->AddHeader('Activity: '.$type->Get(name).($shows ? ' (<a href="'.internal_link($page).'">Hide</a>)' 
-					: ' (<a href="'.internal_link($page, array('show'=>$type->Get(id))).'">Show</a>)'), 7);
+					$table->AddHeader('Activity: '.$type->Get('name').($shows ? ' (<a href="'.internal_link($page).'">Hide</a>)' 
+					: ' (<a href="'.internal_link($page, array('show'=>$type->Get('id'))).'">Show</a>)'), 7);
 					$table->EndRow();
 				}
 				if ($shows){
 					$type = new Obj('ams_list_types', $obj->Get('list'), 'holonet');
-					$posi = new Position($obj->Get(position));
-					$rank = new Rank($obj->Get(rank));
-					$divi = new Division($obj->Get(division));
-					$cour = new Citadel_Exam($obj->Get(course));
-					$table->AddRow($cour->GetAbbrev(), $type->Get(name), $posi->GetName(), $rank->GetName(), $divi->GetName(), 
-					($obj->Get(date_deleted) ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get(id))).'">Undelete</a>' : 
-					'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Delete</a>'), 
-					'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get(id))).'">Edit</a>');
+					$posi = new Position($obj->Get('position'));
+					$rank = new Rank($obj->Get('rank'));
+					$divi = new Division($obj->Get('division'));
+					$cour = new Citadel_Exam($obj->Get('course'));
+					$table->AddRow($cour->GetAbbrev(), $type->Get('name'), $posi->GetName(), $rank->GetName(), $divi->GetName(), 
+					($obj->Get('date_deleted') ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get('id'))).'">Undelete</a>' : 
+					'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get('id'))).'">Delete</a>'), 
+					'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get('id'))).'">Edit</a>');
 				}
-				$last_type = $obj->Get(activity);
+				$last_type = $obj->Get('activity');
 			}
 			
 			$table->EndTable();
@@ -128,7 +128,7 @@ function output(){
 		$form->StartSelect('Activity', 'data[values][]', $activity);
 		$form->AddOption(0, 'None');
 		foreach ($search as $obj){
-			$form->AddOption($obj->Get(id), $obj->Get(name));
+			$form->AddOption($obj->Get('id'), $obj->Get('name'));
 		}
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'activity');
@@ -148,7 +148,7 @@ function output(){
 		$form->StartSelect('Member Lists', 'data[values][]', $type);
 		$form->AddOption(0, 'None');
 		foreach ($search as $obj){
-			$form->AddOption($obj->Get(id), $obj->Get(name));
+			$form->AddOption($obj->Get('id'), $obj->Get('name'));
 		}
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'list');

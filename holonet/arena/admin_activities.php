@@ -43,12 +43,12 @@ function output(){
 				$obj->Edit($return);
 				$show = false;
 			} else {
-				$name = $obj->Get(name);
-				$desc = $obj->Get(desc);
-				$id = $obj->Get(id);
-				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
-				$type = $type->Get(id);
-				$ladder = $obj->Get(ladder);
+				$name = $obj->Get('name');
+				$desc = $obj->Get('desc');
+				$id = $obj->Get('id');
+				$type = new Obj('ams_types', $obj->Get('type'), 'holonet');
+				$type = $type->Get('id');
+				$ladder = $obj->Get('ladder');
 			}
 			break;
 		}
@@ -83,11 +83,11 @@ function output(){
 			$table->EndRow();
 			
 			foreach ($current as $obj){
-				$type = new Obj('ams_types', $obj->Get(type), 'holonet');
-				$table->AddRow($obj->Get(name), $obj->Get(desc, true), $type->Get(name), ($obj->Get(ladder) ? 'Yes' : 'No'), ($obj->Get(date_deleted) ? 
-				'<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get(id))).'">Undelete</a>' : 
-				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Delete</a>'), 
-				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get(id))).'">Edit</a>');
+				$type = new Obj('ams_types', $obj->Get('type'), 'holonet');
+				$table->AddRow($obj->Get('name'), $obj->Get('desc', true), $type->Get('name'), ($obj->Get('ladder') ? 'Yes' : 'No'), ($obj->Get('date_deleted') ? 
+				'<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get('id'))).'">Undelete</a>' : 
+				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get('id'))).'">Delete</a>'), 
+				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get('id'))).'">Edit</a>');
 			}
 			
 			$table->EndTable();
@@ -113,7 +113,7 @@ function output(){
 		
 		$form->StartSelect('Activity Type', 'data[values][]', $type);
 		foreach ($search as $obj){
-			$form->AddOption($obj->Get(id), $obj->Get(name));
+			$form->AddOption($obj->Get('id'), $obj->Get('name'));
 		}
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'type');

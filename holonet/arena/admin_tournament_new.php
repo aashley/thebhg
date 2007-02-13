@@ -21,9 +21,9 @@ function output() {
     arena_header();
     					
     $activity = new Obj('ams_activities', $_REQUEST['act'], 'holonet');
-    $type = new Obj('ams_types', $activity->Get(type), 'holonet');
+    $type = new Obj('ams_types', $activity->Get('type'), 'holonet');
 
-    if ($type->Get(opponent)){
+    if ($type->Get('opponent')){
 	    $at = new Tournament($_REQUEST['act']);
 	    
 	    if (isset($_REQUEST['submit'])) {

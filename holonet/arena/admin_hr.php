@@ -56,10 +56,10 @@ function output(){
 			$table->EndRow();
 			
 			foreach ($current as $obj){
-				$posi = new Obj('ams_aide_types', $obj->Get(aide), 'holonet');
-				$hunter = new Person($obj->Get(bhg_id));
-				$table->AddRow($posi->Get(name), $hunter->GetName(), '<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Dismiss</a>');
-				$last_type = $obj->Get(type);
+				$posi = new Obj('ams_aide_types', $obj->Get('aide'), 'holonet');
+				$hunter = new Person($obj->Get('bhg_id'));
+				$table->AddRow($posi->Get('name'), $hunter->GetName(), '<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get('id'))).'">Dismiss</a>');
+				$last_type = $obj->Get('type');
 			}
 			
 			$table->EndTable();
@@ -77,7 +77,7 @@ function output(){
 		$rows = array();
 		
 		foreach ($search as $obj){
-			if (!$arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$obj->Get(id))), 0, 1)){
+			if (!$arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$obj->Get('id'))), 0, 1)){
 				$rows[] = $obj;
 			}
 		}
@@ -90,7 +90,7 @@ function output(){
 			$form->AddHidden('stage', '2');
 			$form->StartSelect('Aide', 'data[values][]', $aide);
 			foreach ($rows as $obj){
-				$form->AddOption($obj->Get(id), $obj->Get(name));
+				$form->AddOption($obj->Get('id'), $obj->Get('name'));
 			}
 			$form->EndSelect();
 			$form->AddHidden('data[fields][]', 'aide');

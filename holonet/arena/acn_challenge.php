@@ -3,15 +3,15 @@
 if ($_REQUEST['id']){
 	$activity = new Obj('ams_activities', $_REQUEST['id'], 'holonet');
 
-	if (!$activity->Get(name)){
+	if (!$activity->Get('name')){
 		$activity = false;
 	}
-	$type = new Obj('ams_types', $activity->Get(type), 'holonet');
+	$type = new Obj('ams_types', $activity->Get('type'), 'holonet');
 }
 
 function title() {
 	global $activity;
-    return 'AMS Challenge Network :: Transmit Request'.(is_object($activity) ? ' :: '.$activity->Get(name) : '');
+    return 'AMS Challenge Network :: Transmit Request'.(is_object($activity) ? ' :: '.$activity->Get('name') : '');
 }
 
 function auth($person) {
@@ -21,7 +21,7 @@ function auth($person) {
     $hunter = $roster->GetPerson($person->GetID());
     $div = $person->GetDivision();
 
-    if (is_object($activity) && $div->GetID() != 0 && $div->GetID() != 16 && $type->Get(request)){		
+    if (is_object($activity) && $div->GetID() != 0 && $div->GetID() != 16 && $type->Get('request')){		
 		return true;
 	} else {
 		return false;
@@ -57,13 +57,13 @@ function output() {
 		   $lists[] = $list->Get('list');
 	    }
 	    
-	    foreach ($arena->Search(array('table'=>'ams_restrict', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id)))) as $obj){
-		    if ($obj->Get(course) > 0){
-				if (!in_array($obj->Get(course), $exams)){
+	    foreach ($arena->Search(array('table'=>'ams_restrict', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id')))) as $obj){
+		    if ($obj->Get('course') > 0){
+				if (!in_array($obj->Get('course'), $exams)){
 					echo 'You do not possess the necessary Citadel Courses to use this activity.<br />';
 					$err = 1;
 				}
-				$bar_slut[] = $obj->Get(course);
+				$bar_slut[] = $obj->Get('course');
 			}
 			
 			if ($obj->Get('list') > 0){
@@ -85,7 +85,7 @@ function output() {
 		    $_REQUEST['data']['values'][] = addslashes(serialize($_REQUEST['serialize']));
 		    $auth = false;
 		    $chal = false;
-		    if ($type->Get(opponent)){
+		    if ($type->Get('opponent')){
 			    if ($_REQUEST['bhg_id'] > 0){
 				    $auth = true;
 				    $chal = true;
@@ -102,38 +102,38 @@ function output() {
 			    
 			    if ($id){
 				    $arena->NewRow(array('table'=>'ams_records', 'values'=>array($id, $hunter->GetID(), 1), 'fields'=>array('match', 'bhg_id', 'challenger')));
-				    $info = 'Type: '.$activity->Get(name)."\n";
-				    if ($type->Get(opponent)){
+				    $info = 'Type: '.$activity->Get('name')."\n";
+				    if ($type->Get('opponent')){
 					    $opp = new Person($_REQUEST['bhg_id']);
 					    $info .= 'Opponent: '.$opp->GetName()."\n";
 				    }
 				    foreach ($_REQUEST['serialize'] as $dab=>$data){
 					    $name = new Obj('ams_specifics_types', $dab, 'holonet');
-					    $info .= $name->Get(name).': ';
+					    $info .= $name->Get('name').': ';
 					    if (is_array($data)){
 						    foreach ($data as $dab){
 							    $name = new Obj('ams_specifics', $dab, 'holonet');
-							    $info .= $name->Get(name)."\n";
+							    $info .= $name->Get('name')."\n";
 						    }
 					    } else {
 						    $name = new Obj('ams_specifics', $data, 'holonet');
-							$info .= $name->Get(name)."\n";
+							$info .= $name->Get('name')."\n";
 						}
 					}
 
-				    $hunter->SendEmail(from(), 'ACN Request', "You have requested a ".($type->Get(opponent) ? ' Match' : ' Mission').". \n\n[Info]\n".$info);
+				    $hunter->SendEmail(from(), 'ACN Request', "You have requested a ".($type->Get('opponent') ? ' Match' : ' Mission').". \n\n[Info]\n".$info);
 				    
 				    if ($chal){
 					    $arena->NewRow(array('table'=>'ams_records', 'values'=>array($id, $_REQUEST['bhg_id']), 'fields'=>array('match', 'bhg_id')));
 					    $opp->SendEmail(from(), 'ACN Request', "You have been challenged to a match. \n\n[Info]\n".$info);
 				    } else {
 					    $aux = false;
-					    $aide_types = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id))));
+					    $aide_types = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'))));
 					    if (is_object($aide_types[0])){
-							$aides = $arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$aide_types[0]->Get(aide))));
+							$aides = $arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$aide_types[0]->Get('aide'))));
 							if (count($aides)){
-								$aide = $aides[0]->Get(id);
-								$pers = new Person($aides[0]->Get(bhg_id));
+								$aide = $aides[0]->Get('id');
+								$pers = new Person($aides[0]->Get('bhg_id'));
 							} else {
 								$aux = true;
 							}
@@ -159,7 +159,7 @@ function output() {
 						}
 						$match = new Obj('ams_match', $id, 'holonet');
 						$match->Edit(array('aide'=>$aide), 1);
-						$pers->SendEmail(from(), 'New '.$activity->Get(name).' Mission', "A new ".$activity->Get(name).' Mission'." has been requested. Go to the Holonet to process it.");
+						$pers->SendEmail(from(), 'New '.$activity->Get('name').' Mission', "A new ".$activity->Get('name').' Mission'." has been requested. Go to the Holonet to process it.");
 					}
 				    echo 'Request sent.';
 			    } else {
@@ -173,7 +173,7 @@ function output() {
 		    
 		    $form->AddHidden('data[table]', 'ams_match');
 		    
-		    if ($type->Get(opponent)){		    
+		    if ($type->Get('opponent')){		    
 			    $form->AddSectionTitle('Issue Challenge');
 			    $ringa_ding = 'Hunter to Challenge:';
 			    $huid = $hunter->GetID();
@@ -187,7 +187,7 @@ function output() {
 			    $form->AddHidden('data[fields][]', 'location');
 		    }
 		    
-		    if ($type->Get(submit)){		    
+		    if ($type->Get('submit')){		    
 			    $form->AddTextArea('Match Data:', 'data[values][]');
 			    $form->AddHidden('data[fields][]', 'data');
 			    
@@ -203,23 +203,23 @@ function output() {
 		    
 		    $builds = array();
 		    
-		    foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>0))) as $obj){
-			    $new = new Obj('ams_specifics_types', $obj->Get(resource), 'holonet');
-			    $builds[addslashes($new->Get(name))] = $new;
+		    foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'), 'grade'=>0))) as $obj){
+			    $new = new Obj('ams_specifics_types', $obj->Get('resource'), 'holonet');
+			    $builds[addslashes($new->Get('name'))] = $new;
 		    }
 		    
 		    ksort($builds);
 		    
 		    foreach ($builds as $build){
-			    if ($build->Get(multiple)){
-				    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
-					    $form->AddSectionTitle($obj->Get(name));
-				        $form->AddCheckBox($obj->Get(name), 'serialize['.$build->Get(id).'][]', $obj->Get(id));
+			    if ($build->Get('multiple')){
+				    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $obj) {
+					    $form->AddSectionTitle($obj->Get('name'));
+				        $form->AddCheckBox($obj->Get('name'), 'serialize['.$build->Get('id').'][]', $obj->Get('id'));
 				    }
 			    } else {
-				    $form->StartSelect($build->Get(name), 'serialize['.$build->Get(id).']');
-				    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
-				        $form->AddOption($obj->Get(id), $obj->Get(name));
+				    $form->StartSelect($build->Get('name'), 'serialize['.$build->Get('id').']');
+				    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $obj) {
+				        $form->AddOption($obj->Get('id'), $obj->Get('name'));
 				    }
 				    $form->EndSelect();
 			    }
@@ -234,15 +234,15 @@ function output() {
 		    $table->AddRow('Name', 'Rules', 'Description');
 		    foreach ($builds as $build){
 			    $work = array();
-			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
-				    if ($obj->Get(rules) || $obj->Get(description)){
-					    $work[] = array('name'=>$obj->Get(name), 'desc'=>$obj->Get(description, 1), 'rules'=>$obj->Get(rules, 1));
+			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $obj) {
+				    if ($obj->Get('rules') || $obj->Get('description')){
+					    $work[] = array('name'=>$obj->Get('name'), 'desc'=>$obj->Get('description', 1), 'rules'=>$obj->Get('rules', 1));
 				    }
 			    }
 			    
 			    if (count($work)){
 				    $table->StartRow();
-				    $table->AddHeader($build->Get(name), 3);
+				    $table->AddHeader($build->Get('name'), 3);
 				    $table->EndRow();
 				    
 				    foreach ($work as $bld){

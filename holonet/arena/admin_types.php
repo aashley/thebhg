@@ -44,14 +44,14 @@ function output(){
 				$obj->Edit($return);
 				$show = false;
 			} else {
-				$name = $obj->Get(name);
-				$opp = $obj->Get(opponent);
-				$req = $obj->Get(request);
-				$sub = $obj->Get(submit);
-				$npc = $obj->Get(npc);
-				$cre = $obj->Get(creature);
-				$mul = $obj->Get(multiple);
-				$id = $obj->Get(id);
+				$name = $obj->Get('name');
+				$opp = $obj->Get('opponent');
+				$req = $obj->Get('request');
+				$sub = $obj->Get('submit');
+				$npc = $obj->Get('npc');
+				$cre = $obj->Get('creature');
+				$mul = $obj->Get('multiple');
+				$id = $obj->Get('id');
 			}
 			break;
 		}
@@ -89,11 +89,11 @@ function output(){
 			$table->EndRow();
 			
 			foreach ($current as $obj){
-				$table->AddRow($obj->Get(name), ($obj->Get(opponent) ? 'Yes' : 'No'), ($obj->Get(request) ? 'Yes' : 'No'), ($obj->Get(submit) ? 'Yes' : 'No'), 
-				($obj->Get(npc) ? 'Yes' : 'No'), ($obj->Get(creature) ? 'Yes' : 'No'), ($obj->Get(multiple) ? 'Yes' : 'No'),
-				($obj->Get(date_deleted) ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get(id))).'">Undelete</a>' : 
-				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Delete</a>'), 
-				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get(id))).'">Edit</a>');
+				$table->AddRow($obj->Get('name'), ($obj->Get('opponent') ? 'Yes' : 'No'), ($obj->Get('request') ? 'Yes' : 'No'), ($obj->Get('submit') ? 'Yes' : 'No'), 
+				($obj->Get('npc') ? 'Yes' : 'No'), ($obj->Get('creature') ? 'Yes' : 'No'), ($obj->Get('multiple') ? 'Yes' : 'No'),
+				($obj->Get('date_deleted') ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get('id'))).'">Undelete</a>' : 
+				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get('id'))).'">Delete</a>'), 
+				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get('id'))).'">Edit</a>');
 			}
 			
 			$table->EndTable();

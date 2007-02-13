@@ -44,9 +44,9 @@ function output(){
 				$obj->Edit($return);
 				$show = false;
 			} else {
-				$name = $obj->Get(name);
-				$desc = $obj->Get(description);
-				$id = $obj->Get(id);
+				$name = $obj->Get('name');
+				$desc = $obj->Get('description');
+				$id = $obj->Get('id');
 			}
 			break;
 		}
@@ -79,9 +79,9 @@ function output(){
 			$table->EndRow();
 			
 			foreach ($current as $obj){
-				$table->AddRow($obj->Get(name), $obj->Get(description, 1), ($obj->Get(date_deleted) ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get(id))).'">Undelete</a>' : 
-				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Delete</a>'), 
-				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get(id))).'">Edit</a>');
+				$table->AddRow($obj->Get('name'), $obj->Get('description', 1), ($obj->Get('date_deleted') ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get('id'))).'">Undelete</a>' : 
+				'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get('id'))).'">Delete</a>'), 
+				'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get('id'))).'">Edit</a>');
 			}
 			
 			$table->EndTable();

@@ -44,13 +44,13 @@ function output(){
 				$obj->Edit($return);
 				$show = false;
 			} else {
-				$name = $obj->Get(name);
-				$id = $obj->Get(id);
-				$desc = $obj->Get(description);
-				$type = $obj->Get(type);
-				$rules = $obj->Get(rules);
-				$points = $obj->Get(points);
-				$medal = $obj->Get(medal);
+				$name = $obj->Get('name');
+				$id = $obj->Get('id');
+				$desc = $obj->Get('description');
+				$type = $obj->Get('type');
+				$rules = $obj->Get('rules');
+				$points = $obj->Get('points');
+				$medal = $obj->Get('medal');
 			}
 			break;
 		}
@@ -85,20 +85,20 @@ function output(){
 			$table->EndRow();
 			
 			foreach ($current as $obj){
-				$shows = ($_REQUEST['show'] == $obj->Get(type));
-				if ($last_type != $obj->Get(type)){
-					$type = new Obj('ams_specifics_types', $obj->Get(type), 'holonet');
+				$shows = ($_REQUEST['show'] == $obj->Get('type'));
+				if ($last_type != $obj->Get('type')){
+					$type = new Obj('ams_specifics_types', $obj->Get('type'), 'holonet');
 					$table->StartRow();
-					$table->AddHeader('Type: '.$type->Get(name).($shows ? ' (<a href="'.internal_link($page).'">Hide</a>)' 
-					: ' (<a href="'.internal_link($page, array('show'=>$type->Get(id))).'">Show</a>)'), 6);
+					$table->AddHeader('Type: '.$type->Get('name').($shows ? ' (<a href="'.internal_link($page).'">Hide</a>)' 
+					: ' (<a href="'.internal_link($page, array('show'=>$type->Get('id'))).'">Show</a>)'), 6);
 					$table->EndRow();
 				}
 				if ($shows){
-					$table->AddRow($obj->Get(name), $obj->Get(description, 1), $obj->Get(rules, 1), $obj->Get(points, 0, 0, 1), ($obj->Get(date_deleted) ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get(id))).'">Undelete</a>' : 
-					'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get(id))).'">Delete</a>'), 
-					'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get(id))).'">Edit</a>');
+					$table->AddRow($obj->Get('name'), $obj->Get('description', 1), $obj->Get('rules', 1), $obj->Get('points', 0, 0, 1), ($obj->Get('date_deleted') ? '<a href="'.internal_link($page, array('op'=>'ud', 'id'=>$obj->Get('id'))).'">Undelete</a>' : 
+					'<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get('id'))).'">Delete</a>'), 
+					'<a href="'.internal_link($page, array('op'=>'ed', 'id'=>$obj->Get('id'))).'">Edit</a>');
 				}
-				$last_type = $obj->Get(type);
+				$last_type = $obj->Get('type');
 			}
 			
 			$table->EndTable();
@@ -143,7 +143,7 @@ function output(){
 		
 		$form->StartSelect('Type', 'data[values][]', $type);
 		foreach ($search as $obj){
-			$form->AddOption($obj->Get(id), $obj->Get(name));
+			$form->AddOption($obj->Get('id'), $obj->Get('name'));
 		}
 		$form->EndSelect();
 		$form->AddHidden('data[fields][]', 'type');

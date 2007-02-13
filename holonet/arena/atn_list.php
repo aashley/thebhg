@@ -3,7 +3,7 @@
 if (isset($_REQUEST['id'])){
 	$activity = new Obj('ams_list_types', $_REQUEST['id'], 'holonet');
 	
-	if (!$activity->Get(name)){
+	if (!$activity->Get('name')){
 		$activity = false;
 	}
 }
@@ -14,7 +14,7 @@ function title() {
     $return = 'AMS Tracking Network';
 
     if (is_object($activity)){
-	    $return .= ' :: Member List :: '.$activity->Get(name);
+	    $return .= ' :: Member List :: '.$activity->Get('name');
     }
     
     return $return;
@@ -37,7 +37,7 @@ function output() {
 		$table->EndRow();
 		
 		foreach ($current as $obj){
-			$hunter = new Person($obj->Get(bhg_id));
+			$hunter = new Person($obj->Get('bhg_id'));
 			$table->AddRow('<a href="'.internal_link('atn_general', array('id'=>$hunter->GetID())).'">'.$hunter->GetName().'</a>');
 		}
 		
