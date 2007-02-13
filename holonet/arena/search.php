@@ -80,11 +80,8 @@ $commindex = 0;
 
 foreach ($kabals_result as $kabal) {
 	
-	if ($kabal->GetID() == 16) {
-		
+	if ($kabal->GetID() == 16 || !isset($plebsheet[$kabal->GetID()]))
 		continue;
-		
-	}
 	
 	echo 'roster' . $kabal->GetID() . " = new Array();\n";
 	$div_peeps = array();
