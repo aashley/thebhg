@@ -49,7 +49,7 @@ function output() {
 	    hr();		     
     }
     
-    if ($_REQUEST['goload']){
+    if (isset($_REQUEST['goload'])){
 	    if ($character->IsNew()){
 			if (!$character->NewSheet()){
 				NEC(161);
@@ -110,7 +110,7 @@ function output() {
     }
     
     if ($show){
-	    if ($_REQUEST['load']){
+	    if (isset($_REQUEST['load'])){
 	    
 		    if ($character->ValidLoad($_REQUEST['sheet']) || $_REQUEST['prompt'] == 'core' || $_REQUEST['prompt'] == 'saves'){
 		    
@@ -145,7 +145,7 @@ function output() {
 			    echo 'This is an invlaid load. You can only load your own Backup sheets.';
 		    }
 		    
-	    } elseif ($_REQUEST['view']){
+	    } elseif (isset($_REQUEST['view'])){
 		    
 		    $show = true;
 		    
@@ -220,7 +220,13 @@ function output() {
 			    $table->AddHeader('Sheet Backups', 5);
 			    $table->EndRow();
 			    
-			    $table->AddRow('Save Name', 'Date', '&nbsp', '&nbsp', '&nbsp');
+					$table->StartRow();
+					$table->AddHeader('Save Name');
+					$table->AddHeader('Date');
+					$table->AddHeader('&nbsp;');
+					$table->AddHeader('&nbsp;');
+					$table->AddHeader('&nbsp;');
+					$table->EndRow();
 			    
 			    foreach ($saves as $data){
 				    $table->AddRow($data['name'], $data['date'], 
@@ -241,7 +247,11 @@ function output() {
 			    $table->AddHeader('Shared Sheets', 5);
 			    $table->EndRow();
 			    
-			    $table->AddRow('Sheet', 'Person', '&nbsp');
+					$table->StartRow();
+					$table->AddHeader('Sheet');
+					$table->AddHeader('Person');
+					$table->AddHeader('&nbsp;');
+					$table->EndRow();
 			    
 			    foreach ($shares as $data){
 				    $hunt = new Person($data['hunter']);
@@ -261,7 +271,11 @@ function output() {
 			    $table->AddHeader('Last 20 Auto-Saves', 5);
 			    $table->EndRow();
 			    
-			    $table->AddRow('Save ID', 'Date', '&nbsp');
+					$table->StartRow();
+					$table->AddHeader('Save ID');
+					$table->AddHeader('Date');
+					$table->AddHeader('&nbsp');
+					$table->EndRow();
 			    
 			    foreach ($saves as $data){
 				    $table->AddRow($data['id'], $data['date'], 
