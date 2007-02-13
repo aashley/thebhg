@@ -35,6 +35,8 @@
 	    
 	    while ($info = mysql_fetch_assoc($query)){
 		    $outcome = new Obj('ams_specifics', $info['outcome'], 'holonet');
+				if (!isset($work[$info['bhg_id']]))
+					$work[$info['bhg_id']] = 0;
 		    $work[$info['bhg_id']] += $outcome->Get('points');
 		    $work[$info['bhg_id']] += round($info['xp']/5, 2);
 		    $work[$info['bhg_id']] += round($info['creds']/10, 2);
