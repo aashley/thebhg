@@ -19,7 +19,7 @@ function output(){
 	$show = true;
 	$sql = 'ams_aides';
 	
-	if ($_REQUEST['op']){
+	if (isset($_REQUEST['op'])){
 		$obj = new Obj($sql, $_REQUEST['id'], 'holonet');
 		switch ($_REQUEST['op']){			
 			case 'de':
@@ -32,7 +32,7 @@ function output(){
 			echo '<p><a href="'.internal_link($page).'">View All</a>';
 			hr();
 		}
-	} elseif ($_REQUEST['submit']){
+	} elseif (isset($_REQUEST['submit'])){
 		$_REQUEST['data']['values'][] = $_REQUEST['bhg_id'];
 		if ($arena->NewRow($_REQUEST['data'])){
 			echo 'Addition performed.';
@@ -59,7 +59,7 @@ function output(){
 				$posi = new Obj('ams_aide_types', $obj->Get('aide'), 'holonet');
 				$hunter = new Person($obj->Get('bhg_id'));
 				$table->AddRow($posi->Get('name'), $hunter->GetName(), '<a href="'.internal_link($page, array('op'=>'de', 'id'=>$obj->Get('id'))).'">Dismiss</a>');
-				$last_type = $obj->Get('type');
+				$last_type = $obj->Get('aide');
 			}
 			
 			$table->EndTable();
@@ -83,12 +83,12 @@ function output(){
 		}
 		
 		if (count($rows)){		
-			$form->AddSectionTitle(($_REQUEST['op'] ? 'Edit' : 'Add New'));
-			($_REQUEST['op'] ? $form->AddHidden('op', 'ed') : '');
+			$form->AddSectionTitle((isset($_REQUEST['op']) ? 'Edit' : 'Add New'));
+			(isset($_REQUEST['op']) ? $form->AddHidden('op', 'ed') : '');
 			$form->AddHidden('id', $id);
 			$form->AddHidden('data[table]', $sql);
 			$form->AddHidden('stage', '2');
-			$form->StartSelect('Aide', 'data[values][]', $aide);
+			$form->StartSelect('Aide', 'data[values][]');
 			foreach ($rows as $obj){
 				$form->AddOption($obj->Get('id'), $obj->Get('name'));
 			}

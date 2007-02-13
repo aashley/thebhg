@@ -26,6 +26,9 @@ Class Obj extends Arena {
     }
     
     function Get($name, $nl = 0, $date = 0, $number = 0){
+			if (!isset($this->data[$name]))
+				return '';
+
 	    $ret = stripslashes($this->data[$name]);
 	    
 	    if ($date){
