@@ -16,8 +16,6 @@ foreach ($kabals_result as $kabal) {
 	
 }
 
-$kabals = implode('', $kabals);
-
 if (isset($bar_whore) && is_array($bar_whore) && count($bar_whore)){
 	$lists = array();
 	$i = 0;
@@ -65,6 +63,7 @@ if (isset($GLOBALS['property'])){
 	}
 }
 
+$kabals = implode('', $kabals);
 
 ?>
 <script language="JavaScript1.1" type="text/javascript">
