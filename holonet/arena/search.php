@@ -7,15 +7,6 @@ $plebsheet = array();
 $sheet = new Sheet();
 $run = array();
 
-foreach ($kabals_result as $kabal) {
-	
-	if ($kabal->GetID() != 9 && $kabal->GetID() != 16 && isset($plebsheet[$kabal->GetID()]) && count($plebsheet[$kabal->GetID()])) {
-		$kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">".$kabal->GetName()."</option>\n";
-		$plebsheet[$kabal->GetID()] = array();
-	}
-	
-}
-
 if (isset($bar_whore) && is_array($bar_whore) && count($bar_whore)){
 	$lists = array();
 	$i = 0;
@@ -61,6 +52,14 @@ if (isset($GLOBALS['property'])){
 			$plebsheet[$kabal->GetID()][] = $person;
 		}
 	}
+}
+
+foreach ($kabals_result as $kabal) {
+	
+	if ($kabal->GetID() != 9 && $kabal->GetID() != 16 && isset($plebsheet[$kabal->GetID()]) && count($plebsheet[$kabal->GetID()])) {
+		$kabals[$kabal->GetName()] = "<option value=\"".$kabal->GetID()."\">".$kabal->GetName()."</option>\n";
+	}
+	
 }
 
 $kabals = implode('', $kabals);
