@@ -32,16 +32,16 @@ function output() {
 		
 	    $at = new Tournament($activity->Get('id'));
 	    
-		$table = new Table('', true);
+			$table = new Table('', true);
 	    $table->StartRow();
 	    $table->AddCell('Topic ID');
 	    $table->AddCell('Name');
 	    $table->EndRow();
 	    
-	    if ($_REQUEST['nexter']){
+	    if (isset($_REQUEST['nexter'])) {
 		    $grtrt = $_REQUEST['last'];
 		    $fst = 'id` > \''.$grtrt.'\' AND `';
-	    } elseif ($_REQUEST['nextdw']){
+	    } elseif (isset($_REQUEST['nextdw'])) {
 		    $grtrt = $_REQUEST['first'];
 		    $fst = 'id` < \''.$grtrt.'\' AND `';
 	    } 
@@ -65,7 +65,7 @@ function output() {
 		    $data = unserialize($match->Get('specifics'));
 		    $table->StartRow();
 		    $table->AddCell(($match->Get('mbid') ? mb_link($match->Get('mbid')) : 'Unposted'));
-		    $table->AddCell('<a href="'.internal_link(atn_stats, array('id'=>$match->Get('id'))).'">'.($match->Get('name') ? $match->Get('name') : 'No Name').'</a>');
+		    $table->AddCell('<a href="'.internal_link('atn_stats', array('id'=>$match->Get('id'))).'">'.($match->Get('name') ? $match->Get('name') : 'No Name').'</a>');
 		    $table->EndRow();
 	    }
 	    
@@ -75,24 +75,32 @@ function output() {
 	    $denbo = $arena->Search(array('table'=>'ams_match', 'search'=>array('id` < \''.$first.'\' AND `started` > 0 AND `type'=>$activity->Get('id'), 'date_deleted'=>0), 'limit'=>20), 0, 1);
 
 	    $table->EndTable();
-	    if ($pending || $denbo){
-		    hr();
-		    $form = new Form($page);
-		    
-		    $form->AddHidden('id', $_REQUEST['id']);
-			$form->AddHidden('op', $_REQUEST['op']);
-			$form->table->StartRow();
-			if ($denbo){
-				$form->AddHidden('first', $first);
-				$form->table->AddCell('<input type="submit" name="nextdw" value="<< Last 20">');
-			}
-			
-			if ($pending){
-				$form->AddHidden('last', $last);
-				$form->table->AddCell('<input type="submit" name="nexter" value="Next 20 >>">');
-			} 
+
+			if ($pending || $denbo) {
+				
+				hr();
+				
+				$form = new Form($page);
+				
+				$form->AddHidden('id', $_REQUEST['id']);
+
+				if (isset($_REQUEST['op']))
+					$form->AddHidden('op', $_REQUEST['op']);
+				
+				$form->table->StartRow();
+				
+				if ($denbo){
+					$form->AddHidden('first', $first);
+					$form->table->AddCell('<input type="submit" name="nextdw" value="<< Last 20">');
+				}
+				
+				if ($pending){
+					$form->AddHidden('last', $last);
+					$form->table->AddCell('<input type="submit" name="nexter" value="Next 20 >>">');
+				} 
 		    $form->table->EndRow();
 		    $form->EndForm();
+
 	    }
 	    
 	    hr();

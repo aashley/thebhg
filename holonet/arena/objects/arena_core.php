@@ -31,7 +31,7 @@
 	    $return = array();
 	    $work = array();
 	    
-	    echo mysql_error($this->holonet);
+//	    echo mysql_error($this->holonet);
 	    
 	    while ($info = mysql_fetch_assoc($query)){
 		    $outcome = new Obj('ams_specifics', $info['outcome'], 'holonet');
@@ -47,12 +47,12 @@
 	    $i = 1;
 	    $return = array();
 	    
-	    foreach ($work as $id=>$points){
-			$return[$id] = $i;
-		    $i++;
+	    foreach ($work as $id => $points) {
+				$return[$id] = $i;
+				$i++;
 	    }
 	    
-			if (isset($bhg_id)) {
+			if (isset($bhg_id) && $bhg_id > 0) {
 
 				if (isset($return[$bhg_id])) {
 
