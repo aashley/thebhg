@@ -1333,10 +1333,6 @@ class Roster extends BHGObject {
 
           $underlord = $search[0];
 
-          $search = $this->SearchPosition('X');
-
-          $executor = $search[0];
-
 					$search = $this->SearchPosition('WARD');
 
 					$warden = $search[0];
@@ -1361,15 +1357,6 @@ class Roster extends BHGObject {
                              "[Roster] Welcome to the Bounty Hunter's Guild, "
                              .$person->GetName(),
                              $message);
-
-          if ($this->GetSetting('newmemberemailexecutor') == 1) {
-
-            $executor->SendEmail("roster@thebhg.org",
-                                 "[Roster] Welcome to the Bounty Hunter's Guild, "
-                                 .$person->GetName(),
-                                 $message);
-
-          }
 
           unset($underlord, $search, $warden, $div, $replace);
 
