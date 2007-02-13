@@ -382,19 +382,15 @@ class Citadel_Exam extends BHGObject {
 
     $result = mysql_query($sql, $this->roster_db);
 
-    $return = array();
+		$ids = array();
+    $objects = array();
 
     while ($marker = @mysql_fetch_assoc($result)) {
 
-      if ($idsonly) {
-
-        $return[] = $marker['marker'];
-
-      } else {
-
-        $return[] = new Person($marker['marker'], $this->roster_coder);
-
-      }
+			if (!in_array($marker['marker'], $ids)) {
+	      $ids[] = $marker['marker'];
+		    $objects[] = new Person($marker['marker'], $this->roster_coder);
+			}
 
     }
 
@@ -402,29 +398,22 @@ class Citadel_Exam extends BHGObject {
 
 		if (count($warden) > 0) {
 
-			if ($idsonly) {
-
-				$return[] = $warden[0]->GetID();
-
-			} else {
-
-				$return[] = $warden[0];
-
+			if (!in_array($marker['marker'], $ids)) {
+				$ids[] = $warden[0]->GetID();
+				$objects[] = $warden[0];
 			}
 
 		}
 
-		if ($idsonly) {
-
-			$return[] = 94;
-
-		}	else {
-
-			$return[] = new Person(94, $this->roster_coder);
-
+		if (!in_array($marker['marker'], $ids)) {
+			$ids[] = 94;
+			$objects[] = new Person(94, $this->roster_coder);
 		}
 
-    return $return;
+		if ($idsonly)
+			return $ids;
+		else
+			return $objects;
 
   }
 
