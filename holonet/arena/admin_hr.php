@@ -85,7 +85,7 @@ function output(){
 		if (count($rows)){		
 			$form->AddSectionTitle((isset($_REQUEST['op']) ? 'Edit' : 'Add New'));
 			(isset($_REQUEST['op']) ? $form->AddHidden('op', 'ed') : '');
-			$form->AddHidden('id', (isset($_REQUEST['id']) ? $_REQUEST['id'] : '');
+			$form->AddHidden('id', (isset($_REQUEST['id']) ? $_REQUEST['id'] : ''));
 			$form->AddHidden('data[table]', $sql);
 			$form->AddHidden('stage', '2');
 			$form->StartSelect('Aide', 'data[values][]');
