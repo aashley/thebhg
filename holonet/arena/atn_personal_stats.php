@@ -27,9 +27,9 @@ function output() {
 		
 		$table = new Table('', true);
 	    $table->StartRow();
-	    $table->AddCell('Topic ID');
-	    $table->AddCell('Type');
-	    $table->AddCell('Name');
+	    $table->AddHeader('Topic ID');
+	    $table->AddHeader('Type');
+	    $table->AddHeader('Name');
 	    $table->EndRow();
 	    
 	    if ($_REQUEST['nexter']){

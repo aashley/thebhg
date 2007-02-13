@@ -34,8 +34,8 @@ function output() {
 	    
 			$table = new Table('', true);
 	    $table->StartRow();
-	    $table->AddCell('Topic ID');
-	    $table->AddCell('Name');
+	    $table->AddHeader('Topic ID');
+	    $table->AddHeader('Name');
 	    $table->EndRow();
 	    
 	    if (isset($_REQUEST['nexter'])) {
@@ -77,8 +77,6 @@ function output() {
 	    $table->EndTable();
 
 			if ($pending || $denbo) {
-				
-				hr();
 				
 				$form = new Form($page);
 				
