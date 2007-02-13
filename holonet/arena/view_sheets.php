@@ -46,10 +46,14 @@ function output() {
 	
 	$table = new Table('', true);
 	$table->StartRow();
-	$table->AddHeader('Character Sheets', 6);
+	$table->AddHeader('Character Sheets', 3);
 	$table->EndRow();
 	
-	$table->AddRow('Hunter Name', 'Date Submitted', 'Status');
+	$table->StartRow();
+	$table->AddHeader('Hunter Name');
+	$table->AddHeader('Date Submitted');
+	$table->AddHeader('Status');
+	$table->EndRow();
 	
 	foreach ($sheet->SheetHolders() as $character){
 		$person = new Person($character);
