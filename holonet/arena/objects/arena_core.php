@@ -52,7 +52,24 @@
 		    $i++;
 	    }
 	    
-	    return ($bhg_id ? $return[$bhg_id] : $return);
+			if (isset($bhg_id)) {
+
+				if (isset($return[$bhg_id])) {
+
+					return $return[$bhg_id];
+
+				} else {
+
+					return 0;
+
+				}
+
+			} else {
+
+				return $return;
+
+			}
+
     }	    
     
     function GetPayData($start, $end){
