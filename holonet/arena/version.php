@@ -33,6 +33,10 @@ of the AMS, to ensure the RP world runs quickly and smoothly.";
     hr();
     
    	echo "The Arena Management System is &copy; Ric Gravant, 2004-2005.";
+
+		hr();
+
+		echo "<b>2007-02-13 Note:</b> The above is all complete bull. After 4 hrs work I've squashed at least a couple of thousand bugs and security holes in the arena code. And those are just the minor ones so I can find the actual critical bugs within the error log.";
 	
     arena_footer();
 }
