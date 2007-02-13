@@ -14,7 +14,7 @@
         mysql_select_db('thebhg_holonet', $this->holonet);
         
         $this->bastion = mysql_connect("localhost", 'overseer', 'pecesicruf');
-        mysql_select_db('overseer', $this->basion);
+        mysql_select_db('overseer', $this->bastion);
     }
     
     function StorePendingXP($bhg_id, $reason, $xp, $by){
