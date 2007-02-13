@@ -27,7 +27,7 @@ function arena_header() {
 }
 
 function coders(){
-	return array(2650);
+	return array(94);
 }
 
 function mb_link($id){
@@ -171,7 +171,7 @@ function get_auth_data($hunter) {
 
     $auth_data['id'] = $hunter->GetID();
 
-    if ($hunter->GetID() == 2650){
+    if ($hunter->GetID() == 94){
 	    $auth_data['coder'] = true;
 	    $auth_data['sheet'] = true;
     } else {
@@ -179,7 +179,7 @@ function get_auth_data($hunter) {
 	    $auth_data['sheet'] = false;
     }
     
-    if ($pos->GetID() == 29 || $hunter->GetID() == 2650){
+    if ($pos->GetID() == 29 || $hunter->GetID() == 94){
 	    $auth_data['coder'] = true;
     	$auth_data['overseer'] = true;
     	$auth_data['sheet'] = true;
@@ -225,7 +225,7 @@ function get_auth_data($hunter) {
     $auth_data['aide'] = $aide;
     $auth_data['list'] = $list;
     
-    if ($pos->GetID() == 9 || $pos->GetID() == 29 || $hunter->GetID() == 2650) {
+    if ($pos->GetID() == 9 || $pos->GetID() == 29 || $hunter->GetID() == 94) {
         $auth_data['rp'] = true;
         $auth_data['aide'] = true;
         $auth_data['list'] = true;
@@ -306,8 +306,8 @@ function admin_footer($auth_data) {
 		$tests = $citadel->GetExamsMarkedBy(Overseer());
 	} elseif ($posi->GetID() == 9){
 		$tests = $citadel->GetExamsMarkedBy(Adjunct());
-	} elseif ($person->GetID() == 2650){
-		$tests = $citadel->GetExamsMarkedBy(2650);
+	} elseif ($person->GetID() == 94){
+		$tests = $citadel->GetExamsMarkedBy(94);
 	}
 	
 	external($auth_data);
