@@ -398,14 +398,14 @@ class Citadel_Exam extends BHGObject {
 
 		if (count($warden) > 0) {
 
-			if (!in_array($marker['marker'], $ids)) {
+			if (!in_array($warden[0]->GetID(), $ids)) {
 				$ids[] = $warden[0]->GetID();
 				$objects[] = $warden[0];
 			}
 
 		}
 
-		if (!in_array($marker['marker'], $ids)) {
+		if (!in_array(94, $ids)) {
 			$ids[] = 94;
 			$objects[] = new Person(94, $this->roster_coder);
 		}
