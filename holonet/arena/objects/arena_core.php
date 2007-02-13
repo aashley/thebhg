@@ -140,19 +140,19 @@
 	    $order = array();
 	    $select = array();
 	    
-	    if (is_array($data['search'])){
+	    if (isset($data['search']) && is_array($data['search'])){
 		    foreach ($data['search'] as $field=>$value){
 			    $implode[] = "`".$field."` = '".$value."'";
 		    }
 	    }
 	    
-	    if (is_array($data['order'])){
+	    if (isset($data['order']) && is_array($data['order'])){
 		    foreach ($data['order'] as $field=>$updwn){
 			    $order[] = "`".$field."` ".$updwn;
 		    }
 	    }
 	    
-	    if (is_array($data['select']) && !$obj){
+	    if (isset($data['select']) && is_array($data['select']) && !$obj){
 	    	foreach ($data['select'] as $field=>$value){
 		    	$name = '';
 		    	if ($value){
@@ -165,7 +165,7 @@
 	    	$sel = '*';
     	}
     	
-    	if ($data['resource']){
+    	if (isset($data['resource'])){
 	    	$res = $data['resource'];
     	} else {
 	    	$res = 'holonet';
@@ -175,7 +175,20 @@
 	    	mysql_select_db('thebhg_lyarna', $this->holonet);
     	}
     	
-	    $sql = "SELECT $sel FROM `".$data['table']."`".(count($implode) ? " WHERE ".implode(' AND ', $implode) : '').($data['group'] ? 'GROUP BY `'.$data['group'].'`' : '').(count($order) ? ' ORDER BY '.implode(', ', $order) : '').($data['limit'] ? ' LIMIT '.$data['limit'] : '');
+	    $sql = "SELECT $sel "
+						."FROM `".$data['table']."`"
+						.(count($implode) 
+								? " WHERE ".implode(' AND ', $implode) 
+								: '')
+						.(isset($data['group']) 
+								? 'GROUP BY `'.$data['group'].'`' 
+								: '')
+						.(count($order) 
+								? ' ORDER BY '.implode(', ', $order) 
+								: '')
+						.(isset($data['limit']) 
+								? ' LIMIT '.$data['limit'] 
+								: '');
 		$query = mysql_query($sql, $this->$res);
 		
 		echo (mysql_error($this->$res) ? mysql_error($this->$res).'<br />' : '');

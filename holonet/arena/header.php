@@ -105,7 +105,7 @@ function atn_nav(){
     foreach ($cats as $dc) {
         $divs = $dc->GetDivisions();
         foreach ($divs as $div) {
-	        if ($div != 16){
+	        if ($div->GetID() != 16){
             	$app[$div->GetName()] = internal_link('atn_division', array('id' => $div->GetID()));
         	}
         }
@@ -122,9 +122,9 @@ function atn_nav(){
 	    $gblname = ($id ? 'Activities' : 'Lists');
 	    foreach ($arena->Search(array('table'=>$table, 'search'=>array('date_deleted'=>'0'))) as $axs){		    
 		    if ($id){
-			    $app[$axs->Get(name)] = internal_link('atn_activity', array('id'=>$axs->Get(id)));
+			    $app[$axs->Get('name')] = internal_link('atn_activity', array('id'=>$axs->Get('id')));
 	    	} else {
-		    	$app[$axs->Get(name)] = internal_link('atn_list', array('id'=>$axs->Get(id)));
+		    	$app[$axs->Get('name')] = internal_link('atn_list', array('id'=>$axs->Get('id')));
 	    	}
 	    }
 	    addMenu($gblname, $app);
@@ -203,16 +203,16 @@ function get_auth_data($hunter) {
     
     $search = $arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'bhg_id'=>$hunter->GetID())));
     foreach ($search as $obj){
-	    $access = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'aide'=>$obj->Get(aide))));
+	    $access = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'aide'=>$obj->Get('aide'))));
 	    foreach ($access as $axs){
-		    $ac = new Obj('ams_activities', $axs->Get(activity), 'holonet');
-		    if (!$ac->Get(date_deleted)){
+		    $ac = new Obj('ams_activities', $axs->Get('activity'), 'holonet');
+		    if (!$ac->Get('date_deleted')){
 			    if (!$aide){
 				    $aide = true;
 			    }
 			    if ($axs->Get('list')){
 				    $li = new Obj('ams_list_types', $axs->Get('list'), 'holonet');
-				    if (!$li->Get(date_deleted) && !$list){
+				    if (!$li->Get('date_deleted') && !$list){
 					    $list = true;
 				    }
 				    $lists[] = $li;
@@ -245,10 +245,10 @@ function get_auth_data($hunter) {
 	    $auth_data['sheet'] = true;
     }
     foreach($lists as $list){
-	    $auth_data['lists'][] = $list->Get(id);
+	    $auth_data['lists'][] = $list->Get('id');
     }
     foreach($activities as $act){
-	    $auth_data['activities'][] = $act->Get(id);
+	    $auth_data['activities'][] = $act->Get('id');
     }
     
     return $auth_data;
@@ -348,7 +348,7 @@ function admin_footer($auth_data) {
 		if (count($activities)) { 
 			$app = array();
 			foreach ($activities as $obj){
-				$app[$obj->Get(name)] = internal_link('admin_activity', array('id'=>$obj->Get(id)));
+				$app[$obj->Get('name')] = internal_link('admin_activity', array('id'=>$obj->Get('id')));
 			}
 			addMenu('Activities', $app);
 			
@@ -360,7 +360,7 @@ function admin_footer($auth_data) {
 		if (count($lists)) { 
 			$app = array();
 			foreach ($lists as $obj){
-				$app[$obj->Get(name)] = internal_link('admin_list', array('id'=>$obj->Get(id)));
+				$app[$obj->Get('name')] = internal_link('admin_list', array('id'=>$obj->Get('id')));
 			}
 			addMenu('Member Lists', $app);
 		}
