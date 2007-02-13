@@ -12,6 +12,7 @@ include('header.php');
 <a href="overall.php">Overall Stats</a><br>
 <a href="person.php">Person-Specific</a><br>
 <hr>
+<?php if (0): ?>
 <b>PISG Stats</b><br>
 <a href="../current.php">Current Stats</a><br>
 <?php
@@ -34,6 +35,7 @@ for ($i = 0; $i < 5; $i++) {
 if ($cfiles > 5) echo "<A HREF=\"oldmonth-menu.php\" TARGET=\"menu\">Older Months</A><BR>";
 ?>
 <hr>
+<?php endif; ?>
 <b>Meetings</b><br>
 <?php
 $dir = opendir('/home/thebhg/domains/ircstats.thebhg.org/irc/meetings');

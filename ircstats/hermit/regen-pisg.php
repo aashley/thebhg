@@ -1,6 +1,6 @@
 <?php
-$db = mysql_connect('localhost', 'thebhg_lawngnome', 'thej3rchr0nicles');
-mysql_select_db('thebhg_lawngnome', $db);
+$db = mysql_connect('localhost', 'thebhg', 'monkey69');
+mysql_select_db('ircstats', $db);
 
 ini_set('include_path', ini_get('include_path') . ':/var/www/html/include');
 include('roster.inc');
@@ -34,7 +34,7 @@ echo <<<EOC
 # </channel>
 #
 <channel="#bhg">
-  LogDir="/home/anya/eggdrop/logs/bhg/"
+  LogDir="/home/thebhg/domains/ircstats.thebhg.org/irc/bhg/"
   LogPrefix="$year$mstr.."
   Format="eggdrop"
   Maintainer="Jernai Teifsel"

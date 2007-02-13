@@ -1,6 +1,6 @@
 <?php
-$db = mysql_connect('localhost', 'thebhg_lawngnome', 'thej3rchr0nicles');
-mysql_select_db('thebhg_lawngnome', $db);
+$db = mysql_connect('localhost', 'thebhg', 'monkey69');
+mysql_select_db('ircstats', $db);
 
 ini_set('include_path', ini_get('include_path') . ':jpgraph:/var/www/html/include');
 include('jpgraph.php');

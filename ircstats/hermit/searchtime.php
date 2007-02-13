@@ -55,7 +55,7 @@ else {
 	echo '<table cellspacing=0 cellpadding=2>';
 	for ($i = $start; $i <= $end; $i += 86400) {
 		// Load the file.
-		$log = @file('/home/anya/eggdrop/logs/bhg/bhg.log.' . date('Ymd', $i));
+		$log = @file('/home/thebhg/domains/ircstats.thebhg.org/irc/bhg/bhg.log.' . date('Ymd', $i));
 		if (!$log) {
 			continue;
 		}
