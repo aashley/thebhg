@@ -623,8 +623,8 @@
             $subject = "Character Pending Approval";
             
             foreach ($this->Search(array('table'=>'ams_cs', 'search'=>array('date_deleted'=>'0'))) as $info){
-	            foreach ($this->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$info->Get(aide)))) as $aide){
-		            $person = new Person($aide->Get(bhg_id));
+	            foreach ($this->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$info->Get('aide')))) as $aide){
+		            $person = new Person($aide->Get('bhg_id'));
 					$person->SendEmail($from, $subject, $text);
 				}
 			}

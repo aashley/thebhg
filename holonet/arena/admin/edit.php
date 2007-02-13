@@ -16,7 +16,7 @@ if ($_REQUEST['match']){
 			if ($_REQUEST['serialize']){
 				$_REQUEST['data']['values'][] = addslashes(serialize($_REQUEST['serialize']));
 			}
-			if (!$type->Get(opponent)){
+			if (!$type->Get('opponent')){
 				$_REQUEST['data'][values][] = parse_date_box('should_be');
 				$_REQUEST['data'][fields][] = 'should_be';
 			}
@@ -27,7 +27,7 @@ if ($_REQUEST['match']){
 			//When PHP 5:
 			$return = array_combine($_REQUEST['data'][fields], $_REQUEST['data'][values]);
 			if (in_array('date_deleted', $_REQUEST['data']['values'])){
-				$search = $arena->Search(array('table'=>'ams_records', 'search'=>array('match'=>$match->Get(id), 'date_deleted'=>0)));
+				$search = $arena->Search(array('table'=>'ams_records', 'search'=>array('match'=>$match->Get('id'), 'date_deleted'=>0)));
 				foreach ($search as $mtc){
 					$mtc->Edit($return, 1);
 				}
@@ -49,32 +49,32 @@ if ($_REQUEST['match']){
 		    $form->AddHidden('data[table]', 'ams_match');
 		    $form->AddSectionTitle('Edit Match');
 		    
-		    if ($type->Get(opponent)){
-			    $form->StartSelect('Location:', 'data[values][]', $obj->Get(location));
+		    if ($type->Get('opponent')){
+			    $form->StartSelect('Location:', 'data[values][]', $obj->Get('location'));
 			    foreach ($arena->Locations() as $lid=>$lname) {
 			        $form->AddOption($lid, $lname);
 			    }
 			    $form->EndSelect();
 			    $form->AddHidden('data[fields][]', 'location');
-		    } elseif ($type->Get(request)) {
-			    $form->AddDateBox('Target Completion', 'should_be', $obj->Get(should_be));
+		    } elseif ($type->Get('request')) {
+			    $form->AddDateBox('Target Completion', 'should_be', $obj->Get('should_be'));
 		    }
 		    
-		    if ($type->Get(submit)){		    
-			    $form->AddTextArea('Match Data:', 'data[values][]', $obj->Get(data));
+		    if ($type->Get('submit')){		    
+			    $form->AddTextArea('Match Data:', 'data[values][]', $obj->Get('data'));
 			    $form->AddHidden('data[fields][]', 'data');
 		    }
 		    
-		    $form->AddTextArea(($type->Get(submit) ? 'Grade' : 'Comment').':', 'data[values][]', $obj->Get(comments));
+		    $form->AddTextArea(($type->Get('submit') ? 'Grade' : 'Comment').':', 'data[values][]', $obj->Get('comments'));
 			$form->AddHidden('data[fields][]', 'comments');
 		    
-		    $form->StartSelect('Accepted', 'data[values][]', $obj->Get(accepted));
+		    $form->StartSelect('Accepted', 'data[values][]', $obj->Get('accepted'));
 			$form->AddOption(0, 'No');
 			$form->AddOption(1, 'Yes');
 			$form->EndSelect();
 		    $form->AddHidden('data[fields][]', 'accepted');
 		    
-		    $form->AddTextBox('Name', 'data[values][]', $obj->Get(name));
+		    $form->AddTextBox('Name', 'data[values][]', $obj->Get('name'));
 		    $form->AddHidden('data[fields][]', 'name');
 		    
 		    $form->AddHidden('id', $_REQUEST['id']);
@@ -83,24 +83,24 @@ if ($_REQUEST['match']){
 		    
 		    $builds = array();
 		    
-		    foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>0))) as $bojj){
-			    $new = new Obj('ams_specifics_types', $bojj->Get(resource), 'holonet');
-			    $builds[addslashes($new->Get(name))] = $new;
+		    foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'), 'grade'=>0))) as $bojj){
+			    $new = new Obj('ams_specifics_types', $bojj->Get('resource'), 'holonet');
+			    $builds[addslashes($new->Get('name'))] = $new;
 		    }
 		    
 		    ksort($builds);
 		    
-		    $data = unserialize($obj->Get(specifics));
+		    $data = unserialize($obj->Get('specifics'));
 		    foreach ($builds as $build){
-			    if ($build->Get(multiple)){
-				    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $joj) {
-					    $form->AddSectionTitle($build->Get(name));
-				        $form->AddCheckBox($joj->Get(name), 'serialize['.$build->Get(id).'][]', $joj->Get(id), in_array($obj->Get(id), $data[$build->Get(id)]));
+			    if ($build->Get('multiple')){
+				    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $joj) {
+					    $form->AddSectionTitle($build->Get('name'));
+				        $form->AddCheckBox($joj->Get('name'), 'serialize['.$build->Get('id').'][]', $joj->Get('id'), in_array($obj->Get('id'), $data[$build->Get('id')]));
 				    }
 			    } else {
-				    $form->StartSelect($build->Get(name), 'serialize['.$build->Get(id).']', $data[$build->Get(id)]);
-				    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $jobj) {
-				        $form->AddOption($jobj->Get(id), $jobj->Get(name));
+				    $form->StartSelect($build->Get('name'), 'serialize['.$build->Get('id').']', $data[$build->Get('id')]);
+				    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $jobj) {
+				        $form->AddOption($jobj->Get('id'), $jobj->Get('name'));
 				    }
 				    $form->EndSelect();
 			    }
@@ -108,14 +108,14 @@ if ($_REQUEST['match']){
 		    
 		    $form->AddSectionTitle('Edit NPCs');
 
-		    $ser = unserialize($obj->Get(data));
+		    $ser = unserialize($obj->Get('data'));
 		    if (is_array($ser)){
 			    $form->AddHidden('data[fields][]', 'data');
 			    $bld = new NPC_Utilities();
 			    $i = 0;
 			    foreach ($ser as $npc){
 				    $i++;
-				    $form->AddHidden('Test', $obj->Get(data));
+				    $form->AddHidden('Test', $obj->Get('data'));
 				    $npc = unserialize($npc);
 			    	$form->AddTextBox('First Name:', 'npc['.$i.'][first]', $npc[first]);
 			    	$form->AddTextBox('Last Name:', 'npc['.$i.'][last]', $npc[last]);

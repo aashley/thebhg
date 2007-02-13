@@ -5,9 +5,9 @@ function display(){
 	
 	$builds = array();
 			    
-	foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>0))) as $ob){
-	    $new = new Obj('ams_specifics_types', $ob->Get(resource), 'holonet');
-	    $builds[addslashes($new->Get(name))] = $new;
+	foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'), 'grade'=>0))) as $ob){
+	    $new = new Obj('ams_specifics_types', $ob->Get('resource'), 'holonet');
+	    $builds[addslashes($new->Get('name'))] = $new;
 	}
 	
 	ksort($builds);
@@ -16,13 +16,13 @@ function display(){
 	
 	if (count($builds)){
 	    $table->StartRow();
-	    ($type->Get(request) ? $table->AddCell('Requester') : '');
-	    ($type->Get(opponent) ? $table->AddCell('Opponent') : '');
+	    ($type->Get('request') ? $table->AddCell('Requester') : '');
+	    ($type->Get('opponent') ? $table->AddCell('Opponent') : '');
 	    $table->AddCell('Topic ID');
 	    $table->AddCell('Name');
 	    foreach ($builds as $build){
-		    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get(id)))) as $ob) {
-		        $table->AddCell($ob->Get(name));
+		    foreach ($arena->Search(array('table'=>'ams_specifics_types', 'search'=>array('date_deleted'=>'0', 'id'=>$build->Get('id')))) as $ob) {
+		        $table->AddCell($ob->Get('name'));
 		    }
 	    }
 	    $table->AddCell('&nbsp;');
@@ -30,44 +30,44 @@ function display(){
 	    $table->EndRow();
     }
     
-    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('type'=>$activity->Get(id), 'accepted'=>1, 'date_deleted'=>0, 'started'=>0, 'completed'=>0)));
+    $pending = $arena->Search(array('table'=>'ams_match', 'search'=>array('type'=>$activity->Get('id'), 'accepted'=>1, 'date_deleted'=>0, 'started'=>0, 'completed'=>0)));
     $pendings = array();
     
     foreach ($pending as $obj){	
 		$pendings[] = $obj;
 
-	    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$obj->Get(id), 'outcome'=>0))) as $yarm){		   				    
-			$chal[$obj->Get(id)][$yarm->Get(challenger)] = new Person($yarm->Get(bhg_id));
+	    foreach ($arena->Search(array('table'=>'ams_records', 'search'=>array('date_deleted'=>'0', 'match'=>$obj->Get('id'), 'outcome'=>0))) as $yarm){		   				    
+			$chal[$obj->Get('id')][$yarm->Get('challenger')] = new Person($yarm->Get('bhg_id'));
 	    }
     }
     
     foreach ($pendings as $ja=>$match){
 	    if (count($builds)){
-		    $data = unserialize($match->Get(specifics));
+		    $data = unserialize($match->Get('specifics'));
 		    $table->StartRow();
-		    ($type->Get(request) ? $table->AddCell((is_object($chal[$match->Get(id)][1]) ? $chal[$match->Get(id)][1]->GetName() : 'ERROR')) : '');
-		    ($type->Get(opponent) ? $table->AddCell((is_object($chal[$match->Get(id)][0]) ? $chal[$match->Get(id)][0]->GetName() : 'ERROR')) : '');
-		    $table->AddCell(($match->Get(mbid) ? mb_link($match->Get(mbid)) : 'Unposted'));
-		    $table->AddCell(($match->Get(name) ? $match->Get(name) : 'No Name'));
+		    ($type->Get('request') ? $table->AddCell((is_object($chal[$match->Get('id')][1]) ? $chal[$match->Get('id')][1]->GetName() : 'ERROR')) : '');
+		    ($type->Get('opponent') ? $table->AddCell((is_object($chal[$match->Get('id')][0]) ? $chal[$match->Get('id')][0]->GetName() : 'ERROR')) : '');
+		    $table->AddCell(($match->Get('mbid') ? mb_link($match->Get('mbid')) : 'Unposted'));
+		    $table->AddCell(($match->Get('name') ? $match->Get('name') : 'No Name'));
 		    foreach ($builds as $build){
-			    if ($build->Get(multiple)){
+			    if ($build->Get('multiple')){
 				    $print = array();
-				    if (is_array($data[$build->Get(id)])){
-					    foreach ($data[$build->Get(id)] as $valu){
+				    if (is_array($data[$build->Get('id')])){
+					    foreach ($data[$build->Get('id')] as $valu){
 						    $info = new Obj('ams_specifics', $valu, 'holonet');
-						    $print[] = $info->Get(name);
+						    $print[] = $info->Get('name');
 					    }
 					    $table->AddCell(implode("<br />", $print));
 				    } else {
 					    $table->AddCell('None');
 				    }
 			    } else {
-				    $info = new Obj('ams_specifics', $data[$build->Get(id)], 'holonet');
-				    $table->AddCell($info->Get(name));
+				    $info = new Obj('ams_specifics', $data[$build->Get('id')], 'holonet');
+				    $table->AddCell($info->Get('name'));
 			    }
 		    }
-		    $table->AddCell('<a href="'.internal_link($page, array('op'=>'edit', 'id'=>$_REQUEST['id'], 'match'=>$match->Get(id))).'">Edit</a>');
-		    $table->AddCell('<a href="'.internal_link($page, array('op'=>'post', 'id'=>$_REQUEST['id'], 'match'=>$match->Get(id))).'">Post</a>');
+		    $table->AddCell('<a href="'.internal_link($page, array('op'=>'edit', 'id'=>$_REQUEST['id'], 'match'=>$match->Get('id'))).'">Edit</a>');
+		    $table->AddCell('<a href="'.internal_link($page, array('op'=>'post', 'id'=>$_REQUEST['id'], 'match'=>$match->Get('id'))).'">Post</a>');
 		    
 		    $table->EndRow();
 	    }

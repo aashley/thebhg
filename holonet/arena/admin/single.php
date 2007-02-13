@@ -11,7 +11,7 @@
 			$i = 0;
 			foreach ($bar_whore as $list){
 				foreach ($arena->Search(array('table'=>'ams_lists', 'search'=>array('date_deleted'=>'0', 'list'=>$list))) as $search){
-					$lists[$i][] = $search->Get(bhg_id);
+					$lists[$i][] = $search->Get('bhg_id');
 				}
 				$i++;
 			}
@@ -139,13 +139,13 @@
 <?php 
 	$form->table->StartRow();
 	
-	foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>1), 'limit'=>1)) as $obj){
-	    $grade = new Obj('ams_specifics_types', $obj->Get(resource), 'holonet');
+	foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'), 'grade'=>1), 'limit'=>1)) as $obj){
+	    $grade = new Obj('ams_specifics_types', $obj->Get('resource'), 'holonet');
 	}
 	
 	$bar_scum = "<select name=\"kabal\" onChange=\"swap_kabal(this.form)\"><option value=\"-1\">N/A</option>$kabals</select>";
 	
-	foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>1), 'limit'=>1)) as $grd){
+	foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'), 'grade'=>1), 'limit'=>1)) as $grd){
 		$grade = $grd;
 	}
 	
@@ -161,8 +161,8 @@
 	$form->AddTextBox('Experience Points:', 'chalr_xp');
 	if (is_object($grade)){
 		$form->StartSelect('Result:', 'chalr_result');
-		foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$grade->Get(resource)))) as $obj) {
-	        $form->AddOption($obj->Get(id), $obj->Get(name));
+		foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$grade->Get('resource')))) as $obj) {
+	        $form->AddOption($obj->Get('id'), $obj->Get('name'));
 	    }
 	    $form->EndSelect();
     } else {

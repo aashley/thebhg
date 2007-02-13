@@ -12,7 +12,7 @@ if ($_REQUEST['match']){
 				$_REQUEST['data']['values'][] = time();
 				$_REQUEST['data']['fields'][] = 'date_deleted';
 				
-				$search = $arena->Search(array('table'=>'ams_records', 'search'=>array('match'=>$obj->Get(id), 'outcome'=>0, 'date_deleted'=>0)));
+				$search = $arena->Search(array('table'=>'ams_records', 'search'=>array('match'=>$obj->Get('id'), 'outcome'=>0, 'date_deleted'=>0)));
 		    	foreach ($search as $ob){
 			    	$ob->Edit(array('date_deleted'=>time(), 'outcome'=>-1), 1);
 		    	}
@@ -32,7 +32,7 @@ if ($_REQUEST['match']){
 		    $form->AddHidden('data[table]', 'ams_match');
 		    $form->AddSectionTitle('Approve Request');
 		    
-		    $form->StartSelect('Approve', 'data[values][]', $obj->Get(accepted));
+		    $form->StartSelect('Approve', 'data[values][]', $obj->Get('accepted'));
 			$form->AddOption(0, 'No');
 			$form->AddOption(1, 'Yes');
 			$form->EndSelect();

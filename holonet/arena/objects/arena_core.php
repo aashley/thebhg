@@ -35,7 +35,7 @@
 	    
 	    while ($info = mysql_fetch_assoc($query)){
 		    $outcome = new Obj('ams_specifics', $info['outcome'], 'holonet');
-		    $work[$info['bhg_id']] += $outcome->Get(points);
+		    $work[$info['bhg_id']] += $outcome->Get('points');
 		    $work[$info['bhg_id']] += round($info['xp']/5, 2);
 		    $work[$info['bhg_id']] += round($info['creds']/10, 2);
 		    $work[$info['bhg_id']] += ($info['medal'] ? 3 : 0);
@@ -225,7 +225,7 @@
 		while ($result = mysql_fetch_assoc($query)){
 			$search = $this->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$result['aide'])));
 			foreach ($search as $obj){
-				if ($obj->Get(bhg_id) == $bhg_id){
+				if ($obj->Get('bhg_id') == $bhg_id){
 					return true;
 				}
 			}

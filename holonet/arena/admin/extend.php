@@ -11,15 +11,15 @@ if ($_REQUEST['match']){
 			$no = false;
 			
 			if ($_REQUEST['data']['values'][0] == 0){
-				$_REQUEST['data']['values'][] = $obj->Get(to_date);
+				$_REQUEST['data']['values'][] = $obj->Get('to_date');
 				$_REQUEST['data']['fields'][] = 'should_be';
 				$no = true;
 			}
 			
-			$search = $arena->Search(array('table'=>'ams_records', 'search'=>array('match'=>$obj->Get(id), 'outcome'=>0, 'date_deleted'=>0)));
+			$search = $arena->Search(array('table'=>'ams_records', 'search'=>array('match'=>$obj->Get('id'), 'outcome'=>0, 'date_deleted'=>0)));
 	    	foreach ($search as $ob){
-		    	$man = new Person($ob->Get(bhg_id));
-		    	$man->SendEmail(from(), 'Event Extension', "Your requested extension for ".$obj->Get(name)." has been ".($no ? 'denied' : 'approved').".");
+		    	$man = new Person($ob->Get('bhg_id'));
+		    	$man->SendEmail(from(), 'Event Extension', "Your requested extension for ".$obj->Get('name')." has been ".($no ? 'denied' : 'approved').".");
 	    	}
 			
 			$return = array();
@@ -36,10 +36,10 @@ if ($_REQUEST['match']){
 		    $form->AddHidden('data[table]', 'ams_match');
 		    $form->AddSectionTitle('Approve Request');
 		    
-		    $form->table->AddRow('Reason', $obj->Get(comments));
-		    $form->table->AddRow('To Date', $obj->Get(to_date, 0, 1));
+		    $form->table->AddRow('Reason', $obj->Get('comments'));
+		    $form->table->AddRow('To Date', $obj->Get('to_date', 0, 1));
 
-		    $form->StartSelect('Approve', 'data[values][]', $obj->Get(accepted));
+		    $form->StartSelect('Approve', 'data[values][]', $obj->Get('accepted'));
 			$form->AddOption(0, 'No');
 			$form->AddOption(1, 'Yes');
 			$form->EndSelect();

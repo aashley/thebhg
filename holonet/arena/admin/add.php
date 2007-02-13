@@ -8,7 +8,7 @@ function display(){
 	    $chal = false;
 	    if ($_REQUEST['name']){
 		    $name = $_REQUEST['name'];
-	    } elseif ($type->Get(opponent)){
+	    } elseif ($type->Get('opponent')){
 		    $chal = true;
 		    $hunter = new Person($_REQUEST['challenger']);
 		    $person = new Person($_REQUEST['challengee']);
@@ -34,12 +34,12 @@ function display(){
 		    }
 		    
 		    $aux = false;
-		    $aide_types = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id))));
+		    $aide_types = $arena->Search(array('table'=>'ams_access', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'))));
 		    if (is_object($aide_types[0])){
-				$aides = $arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$aide_types[0]->Get(aide))));
+				$aides = $arena->Search(array('table'=>'ams_aides', 'search'=>array('end_date'=>'0', 'aide'=>$aide_types[0]->Get('aide'))));
 				if (count($aides)){
-					$aide = $aides[0]->Get(id);
-					$pers = new Person($aides[0]->Get(bhg_id));
+					$aide = $aides[0]->Get('id');
+					$pers = new Person($aides[0]->Get('bhg_id'));
 				} else {
 					$aux = true;
 				}
@@ -76,7 +76,7 @@ function display(){
 		$form->AddTextBox('Name:', 'name');
 			    
 		    $ringa_ding = 'Hunter:';
-		    if ($type->Get(opponent)){
+		    if ($type->Get('opponent')){
 			    $ringa_ding2 = 'Opponent:';
 			    include_once 'double.php';
 		    } else {
@@ -85,7 +85,7 @@ function display(){
 		    
 		    $form->AddSectionTitle('Other Match Data');
 		    
-		if ($type->Get(opponent)){
+		if ($type->Get('opponent')){
 		    $form->StartSelect('Location:', 'data[values][]');
 		    foreach ($arena->Locations() as $lid=>$lname) {
 		        $form->AddOption($lid, $lname);
@@ -111,23 +111,23 @@ function display(){
 		
 		$builds = array();
 		
-		foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get(id), 'grade'=>0))) as $obj){
-		    $new = new Obj('ams_specifics_types', $obj->Get(resource), 'holonet');
-		    $builds[addslashes($new->Get(name))] = $new;
+		foreach ($arena->Search(array('table'=>'ams_event_builds', 'search'=>array('date_deleted'=>'0', 'activity'=>$activity->Get('id'), 'grade'=>0))) as $obj){
+		    $new = new Obj('ams_specifics_types', $obj->Get('resource'), 'holonet');
+		    $builds[addslashes($new->Get('name'))] = $new;
 		}
 		
 		ksort($builds);
 		
 		foreach ($builds as $build){
-		    if ($build->Get(multiple)){
-			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
-				    $form->AddSectionTitle($obj->Get(name));
-			        $form->AddCheckBox($obj->Get(name), 'serialize['.$build->Get(id).'][]', $obj->Get(id));
+		    if ($build->Get('multiple')){
+			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $obj) {
+				    $form->AddSectionTitle($obj->Get('name'));
+			        $form->AddCheckBox($obj->Get('name'), 'serialize['.$build->Get('id').'][]', $obj->Get('id'));
 			    }
 		    } else {
-			    $form->StartSelect($build->Get(name), 'serialize['.$build->Get(id).']');
-			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get(id)))) as $obj) {
-			        $form->AddOption($obj->Get(id), $obj->Get(name));
+			    $form->StartSelect($build->Get('name'), 'serialize['.$build->Get('id').']');
+			    foreach ($arena->Search(array('table'=>'ams_specifics', 'search'=>array('date_deleted'=>'0', 'type'=>$build->Get('id')))) as $obj) {
+			        $form->AddOption($obj->Get('id'), $obj->Get('name'));
 			    }
 			    $form->EndSelect();
 		    }

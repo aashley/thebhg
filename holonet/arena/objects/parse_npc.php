@@ -9,7 +9,7 @@
 		$this->npc_string = array();
         if (!$pure){
 	        $type = new Obj('ams_specifics', $difficulty, 'holonet');
-	        $this->maxv = $type->Get(points);
+	        $this->maxv = $type->Get('points');
         } else {
 	        $this->maxv = $difficulty;
         }
