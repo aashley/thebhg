@@ -275,7 +275,7 @@ function output() {
         $form->table->AddCell('Chief:', 2);
         $form->table->EndRow();
 
-        if (sizeof($data['chiefs']) > 0) {
+        if (isset($data['chiefs']) && sizeof($data['chiefs']) > 0) {
 
           foreach ($data['chiefs'] as $id) {
 
@@ -302,7 +302,7 @@ function output() {
         $form->table->AddCell('CRA:', 2);
         $form->table->EndRow();
 
-        if (sizeof($data['cras']) > 0) {
+        if (isset($data['cras']) && sizeof($data['cras']) > 0) {
 
           foreach ($data['cras'] as $id) {
 
@@ -317,9 +317,11 @@ function output() {
                                 / 9) 
                              * 160000 * 0.25);
 
+						printf("%s: %i", $cra->GetName(), $credits);
+
             $form->AddTextBox($cra->GetName(),
                               'div['.$kabal->getID().']['.$cra->GetID().']',
-                              ($credits ? $credits : '0'));
+                              $credits);
 
           }
 
@@ -340,7 +342,7 @@ function output() {
         $form->table->AddCell('Warden:', 2);
         $form->table->EndRow();
 
-        if (sizeof($data['wardens']) > 0) {
+        if (isset($data['wardens']) && sizeof($data['wardens']) > 0) {
 
           foreach ($data['wardens'] as $id) {
 
