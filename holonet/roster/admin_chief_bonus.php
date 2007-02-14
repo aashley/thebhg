@@ -321,7 +321,7 @@ function output() {
 
             $form->AddTextBox($cra->GetName(),
                               'div['.$kabal->getID().']['.$cra->GetID().']',
-                              $credits);
+                              (string)$credits);
 
           }
 
