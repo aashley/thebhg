@@ -268,18 +268,4 @@ From: Arena Challenge Centre <acc@thebhg.org>
 X-Mailer: PHP
 EOH;
 
-$lyarna_db = mysql_connect("localhost", "thebhg_lyarna", "lyarnasys55");
-mysql_select_db('thebhg_lyarna', $lyarna_db);
-
-function acc_footer() {
-	menu_sep();
-	echo 'ACC&nbsp;Admin<small><br><br>';
-	echo '<a href="' . internal_link('acc_admin_pending') . '">View&nbsp;Pending&nbsp;Challenges</a><br>';
-	echo '<a href="' . internal_link('acc_admin_recent') . '">View&nbsp;Recent&nbsp;Challenges</a><br>';
-	echo '<a href="' . internal_link('acc_admin_locations', array('table'=>'complex')) . '">Add/Remove&nbsp;Locations</a><br>';
-/*	echo '<a href="' . internal_link('acc_admin_rules') . '">Edit&nbsp;Rules</a><br>';
-	echo '<a href="' . internal_link('acc_admin_weapons') . '">Edit&nbsp;Weapon&nbsp;Types</a>';*/
-	echo '</small>';
-	menu_footer();
-}
 ?>
