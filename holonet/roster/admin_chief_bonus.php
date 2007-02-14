@@ -287,7 +287,7 @@ function output() {
                                    + ( $data['activity'] * 3 )
                                    + ( $data['chiefother'] * 3 )
                                    + ( $data['craother'] * 3 ) )
-                                / 10) 
+                                / 9) 
                              * 160000);
 
             $form->AddTextBox($chief->GetName(),
@@ -315,7 +315,7 @@ function output() {
                                    + ( $data['chiefother'] * 3 )
                                    + ( $data['craother'] * 3 ) )
                                 / 9) 
-                             * 160000 * 0.30);
+                             * 160000 * 0.25);
 
             $form->AddTextBox($cra->GetName(),
                               'div['.$kabal->getID().']['.$cra->GetID().']',
