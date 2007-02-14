@@ -34,6 +34,7 @@ function output() {
 
 			case 'image/png':
 				$filename = strtolower($kabal->GetName()).'.png';
+				break;
 
 			default:
 				$filename = strtolower($kabal->GetName());
@@ -41,9 +42,9 @@ function output() {
 
 		}
 
-		$destination = $destination.'/'.$filename;
+		$destination = $destination.'/kabal/'.$filename;
 
-		print 'Moving image to '.$destination.'<br/>';
+		print 'Moving '.$mime.' to '.$destination.'<br/>';
 
 		if (move_uploaded_file($_FILES['logo']['tmp_name'], $destination)) {
 			echo 'New Kabal logo saved.';
