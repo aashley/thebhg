@@ -23,7 +23,7 @@ function output() {
 
 	$results = $citadel->GetPersonsResults($pleb, CITADEL_PASSED);
 	if (count($results)) {
-		usort($results, citadel_recent_sort);
+		usort($results, 'citadel_recent_sort');
 		foreach ($results as $cex) {
 			$exam = $cex->GetExam();
 			$table->AddRow(date('j F Y', $cex->GetDateTaken()), 'Passed ' . html_escape($exam->GetName()) . ' exam with a score of ' . number_format($cex->GetScore(), 0) . '%.');
