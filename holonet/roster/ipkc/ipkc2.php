@@ -84,14 +84,19 @@ if (isset($_REQUEST['mini'])) {
 	imagecopyresampled($thumb, $img, 0, 0, 0, 0, 113, 148, $blank_size[0], $blank_size[1]);
 	$img = $thumb;
 }
-switch (strtolower($_REQUEST['format'])) {
-	case 'png':
-		header('Content-Type: image/png');
-		imagepng($img);
-		break;
-	case 'jpeg': case 'jpg': default:
-		header('Content-Type: image/jpeg');
-		imagejpeg($img, '', 70);
+if (isset($_REQUEST['format'])) {
+	switch (strtolower($_REQUEST['format'])) {
+		case 'png':
+			header('Content-Type: image/png');
+			imagepng($img);
+			break;
+		case 'jpeg': case 'jpg': default:
+			header('Content-Type: image/jpeg');
+			imagejpeg($img, '', 70);
+	}
+} else {
+	header('Content-Type: image/jpeg');
+	imagejpeg($img, '', 70);
 }
 
 exit;
