@@ -46,6 +46,21 @@ function get_div_colour($div) {
 		case 19:
 			return 'chartreuse';
 			break;
+		case 20:
+			return 'lightcyan2';
+			break;
+		case 21:
+			return 'slategrey2';
+			break;
+		case 22:
+			return 'powderblue';
+			break;
+		case 23:
+			return 'honeydew';
+			break;
+		case 24:
+			return 'gold';
+			break;
 		case 16: default:
 			return 'deeppink';
 	}
