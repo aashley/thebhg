@@ -50,7 +50,7 @@ function get_div_colour($div) {
 			return 'lightcyan2';
 			break;
 		case 21:
-			return 'slategrey2';
+			return 'slategray2';
 			break;
 		case 22:
 			return 'powderblue';
