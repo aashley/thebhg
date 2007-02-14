@@ -19,7 +19,7 @@ function output() {
 		$kabal = $roster->GetKabal($_REQUEST['division']);
 		$destination = $roster->GetSetting('imagecache_dir');
 
-		$finfo = finfo_open(FILEINFO_MIME);
+		$finfo = finfo_open(FILEINFO_MIME, '/usr/share/file/magic');
 		$mime = finfo_file($finfo, $_FILES['logo']['tmp_name']);
 		finfo_close($finfo);
 
