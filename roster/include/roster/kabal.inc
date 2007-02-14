@@ -419,7 +419,7 @@ class Kabal extends Division {
   }
 
   // }}}
-  // {{{ TODO: SetLogo()
+  // {{{ SetLogo()
 
   /**
    * Set A Kabal's Logo
@@ -427,11 +427,39 @@ class Kabal extends Division {
    * @access public
    * @param string logo the location of the file on the disc
    * @return boolean whether the update worked
-   * @todo This entire function needs to be done.
    * @uses BHGObject::Allowed()
    */
   function SetLogo($logo) {
-  }
+
+    if ($this->Allowed('kabal')) {
+
+      $sql = "UPDATE roster_divisions "
+            ."SET kabal_logo = '".addslashes($logo)."' "
+            ."WHERE id = ".$this->division_id;
+
+      if (mysql_query($sql, $this->roster_db)) {
+
+        $this->kabal_logo = $logo;
+
+        return true;
+
+      } else {
+
+        $this->roster_error = 'Could not set new Logo file name';
+
+        return false;
+
+      }
+
+    } else {
+
+      $this->roster_error = "The Coder that create this object does not have "
+        ."permission to call this function";
+
+      return false;
+
+    }
+   }
 
   // }}}
 
