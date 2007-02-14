@@ -62,11 +62,11 @@ class Kabal extends Division {
    * Filename of a Kabal's Logo
    *
    * @access protected
-   * @var string $kabal_logo
+   * @var string $logo
    * @see GetLogoURL()
    * @see GetLogoDIR()
    */
-  var $kabal_logo;
+  var $logo;
 
   /**
    * Kabal's Welcome Message
@@ -122,7 +122,7 @@ class Kabal extends Division {
           
           $this->kabal_slogan = $kabal["slogan"];
           
-          $this->kabal_logo = $kabal["logo"];
+          $this->logo = $kabal["logo"];
           
           $this->kabal_welcomemsg = stripslashes($kabal["welcomemessage"]);
           
@@ -256,7 +256,7 @@ class Kabal extends Division {
    * @return string the URL
    */
   function GetLogoURL() {
-    return $this->GetSetting('imagecache_url')."/kabal/".$this->kabal_logo;
+    return $this->GetSetting('imagecache_url')."/kabal/".$this->logo;
   }
 
   // }}}
@@ -269,7 +269,7 @@ class Kabal extends Division {
    * @return string the location of the file
    */
   function GetLogoDIR() {
-    return $this->GetSetting('imagecache_dir')."/kabal/".$this->kabal_logo;
+    return $this->GetSetting('imagecache_dir')."/kabal/".$this->logo;
   }
 
   // }}}
@@ -282,7 +282,7 @@ class Kabal extends Division {
    * @return boolean
    */
   function HasLogo() {
-    return (   $this->kabal_logo > ""
+    return (   $this->logo > ""
             && is_file($this->GetLogoDIR()));
   }
 
@@ -434,12 +434,12 @@ class Kabal extends Division {
     if ($this->Allowed('kabal')) {
 
       $sql = "UPDATE roster_divisions "
-            ."SET kabal_logo = '".addslashes($logo)."' "
+            ."SET logo = '".addslashes($logo)."' "
             ."WHERE id = ".$this->division_id;
 
       if (mysql_query($sql, $this->roster_db)) {
 
-        $this->kabal_logo = $logo;
+        $this->logo = $logo;
 
         return true;
 
