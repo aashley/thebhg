@@ -317,7 +317,7 @@ function output() {
                                 / 9) 
                              * 160000 * 0.25);
 
-						printf("%s: %i", $cra->GetName(), $credits);
+						print $cra->getName().'<br/><pre>'.print_r($credits, true).'</pre>';
 
             $form->AddTextBox($cra->GetName(),
                               'div['.$kabal->getID().']['.$cra->GetID().']',
