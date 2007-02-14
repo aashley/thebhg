@@ -151,7 +151,7 @@ function renderMenu() {
 
 	$output = '';
 
-	if (is_array($GLOBALS['menus'])) {
+	if (isset($GLOBALS['menus']) && is_array($GLOBALS['menus'])) {
 		
 		$output .= '<ul>';
 
@@ -172,9 +172,9 @@ function renderMenu() {
 
 		$output .= '</ul>';
 
-		return $output;
-
 	}
+
+	return $output;
 
 }
 
