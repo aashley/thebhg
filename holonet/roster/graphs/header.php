@@ -1,5 +1,5 @@
 <?php
-ini_set('include_path', ini_get('include_path') . ':/home/virtual/thebhg.org/home/holonet/jpgraph/src');
+ini_set('include_path', ini_get('include_path') . ':/home/thebhg/domains/holonet.thebhg.org/jpgraph-2.1.4/src');
 include('../header.php');
 include('jpgraph.php');
 
