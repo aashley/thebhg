@@ -124,7 +124,7 @@ foreach ($coders as $coder) {
 	$cnames[$coder->GetName()] = '<a href="mailto:' . $coder->GetEmail() . '">' . html_escape($coder->GetName()) . '</a>';
 }
 ksort($cnames);
-echo implode(', ', $cnames) . '.<br>Bugs should be reported at the <a href="http://bugs.thebhg.org/">Bug Tracker</a>.</p';
+echo implode(', ', $cnames) . '.<br>Bugs should be reported in <a href="https://svn.cernun.net/">Trac</a>.</p';
 ?>
 		<p>All rights reserved 1995-2005; original contents are protected by the United States (US) Copyright Act in accordance with the Bounty Hunters Guild <a href="http://www.thebhg.org/disclaimer">Disclaimers and Copyrights</a> detailed herein. This site abides by the Bounty Hunters Guild <a href="http://www.thebhg.org/privacy">Privacy Policy</a>.</p>
 		<p>I hope he tells us to burn our pants.. these things are driving me nuts!</p>
