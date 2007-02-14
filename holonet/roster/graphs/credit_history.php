@@ -55,13 +55,13 @@ $graph->title->SetFont(FF_VERDANA, FS_BOLD, 14);
 
 $graph->xaxis->SetLabelAngle(45);
 $graph->xaxis->SetFont(FF_VERDANA, FS_NORMAL, 8);
-$graph->xaxis->SetLabelFormatCallback(format_month_label);
+$graph->xaxis->SetLabelFormatCallback('format_month_label');
 
 $graph->yaxis->title->Set('Credits');
 $graph->yaxis->title->SetFont(FF_VERDANA, FS_BOLD, 8);
 $graph->yaxis->SetFont(FF_VERDANA, FS_NORMAL, 8);
 $graph->yaxis->SetTitleMargin(45);
-$graph->yaxis->SetLabelFormatCallback(format_credit_label);
+$graph->yaxis->SetLabelFormatCallback('format_credit_label');
 
 $plot = new LinePlot($data, $times);
 $graph->Add($plot);
