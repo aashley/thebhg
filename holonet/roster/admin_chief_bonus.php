@@ -111,45 +111,59 @@ function output() {
 
         $form->StartSelect('Web Site:',
                            'kabal['.$kabal->getID().'][web]');
-        $form->AddOption(1, 'Not Functioning');
-        $form->AddOption(2, 'Out of Date');
-        $form->AddOption(3, 'Up to Date');
-        $form->AddOption(4, 'Site Revamp');
-        $form->AddOption(5, 'New Site');
+				$form->AddOption(0, 'No website');
+        $form->AddOption(1, 'Old Website');
+        $form->AddOption(2, 'Broken Links');
+        $form->AddOption(3, 'Out of Date');
+        $form->AddOption(4, 'Updated');
+        $form->AddOption(5, 'Revamped');
+				$form->AddOption(6, 'New Layout');
         $form->EndSelect();
 
-        $form->StartSelect('Reports:',
+        $form->StartSelect('Report Quantity:',
                            'kabal['.$kabal->getID().'][report]');
-        $form->AddOption(1, '4 Basic Reports');
-        $form->AddOption(2, '5 Basic Reports');
-        $form->AddOption(3, '4 Average Reports');
-        $form->AddOption(4, '5 Average Reports');
-        $form->AddOption(5, '5 Good Reports');
+        $form->AddOption(0, 'No Reports');
+        $form->AddOption(1, '1 to 3 Reports');
+        $form->AddOption(2, '4 to 5 Reports');
+        $form->AddOption(3, '6+ Reports');
         $form->EndSelect();
 
-        $form->StartSelect('Activities:',
+				$form->StartSelect('Report Quality:',
+													 'kabal['.$kabal->getID().'][repqual]');
+				$form->AddOption(0, 'No reports');
+				$form->AddOption(1, 'Lacking vital information');
+				$form->AddOption(2, 'Sub-standard report');
+				$form->AddOption(3, 'Basic report');
+				$form->AddOption(4, 'Informative');
+				$form->AddOption(5, 'Encyclopedia');
+				$form->EndSelect();
+
+        $form->StartSelect('Bounties:',
                            'kabal['.$kabal->getID().'][activity]');
-        $form->AddOption(1, '1-3 Activities');
-        $form->AddOption(2, '4-6 Activities');
-        $form->AddOption(3, '7-10 Activities');
-        $form->AddOption(4, '11-15 Activities');
-        $form->AddOption(5, '15+ Activities');
+				$form->AddOption(0, 'No Bounties');
+        $form->AddOption(1, '1-6 Bounties');
+        $form->AddOption(2, '7-16 Bounties');
+        $form->AddOption(3, '17-27 Bounties');
+        $form->AddOption(4, '28-39 Bounties');
+        $form->AddOption(5, '40+ Bounties');
         $form->EndSelect();
 
         $form->StartSelect('Chief Activity:',
                            'kabal['.$kabal->getID().'][chiefother]');
+				$form->AddOption(0, 'No activity');
         $form->AddOption(1, 'Sub-standard activity');
-        $form->AddOption(2, 'Average activity');
-        $form->AddOption(3, 'Good activity');
+        $form->AddOption(2, 'Basic activity');
+        $form->AddOption(3, 'Ok activity');
         $form->AddOption(4, 'Great activity');
         $form->AddOption(5, 'Excellent activity');
         $form->EndSelect();
 
         $form->StartSelect('CRA Activity:',
                            'kabal['.$kabal->getID().'][craother]');
+				$form->AddOption(0, 'No activity');
         $form->AddOption(1, 'Sub-standard activity');
-        $form->AddOption(2, 'Average activity');
-        $form->AddOption(3, 'Good activity');
+        $form->AddOption(2, 'Basic activity');
+        $form->AddOption(3, 'Ok activity');
         $form->AddOption(4, 'Great activity');
         $form->AddOption(5, 'Excellent activity');
         $form->EndSelect();
@@ -269,6 +283,7 @@ function output() {
 
             $credits = floor(  (  (  ( $data['web'] * 3 )
                                    + ( $data['report'] * 3 )
+																	 + ( $data['repqual'] * 3 )
                                    + ( $data['activity'] * 3 )
                                    + ( $data['chiefother'] * 3 )
                                    + ( $data['craother'] * 3 ) )
@@ -295,6 +310,7 @@ function output() {
 
             $credits = floor(  (  (  ( $data['web'] * 3 )
                                    + ( $data['report'] * 3 )
+																	 + ( $data['repqual'] * 3 )
                                    + ( $data['activity'] * 3 )
                                    + ( $data['chiefother'] * 3 )
                                    + ( $data['craother'] * 3 ) )
