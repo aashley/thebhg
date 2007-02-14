@@ -17,10 +17,35 @@ function output() {
 
 	if ($_REQUEST['submit']) {
 		$kabal = $roster->GetKabal($_REQUEST['division']);
-		$destination = $kabal->GetLogoDIR();
+		$destination = $roster->GetSetting('imagecache_dir');
+
+		$finfo = finfo_open(FILEINFO_MIME);
+		$mime = finfo_file($finfo, $_FILES['logo']['tmp_name']);
+		finfo_close($finfo);
+
+		switch ($mime) {
+			case 'image/gif':
+				$filename = strtolower($kabal->GetName()).'.gif';
+				break;
+
+			case 'image/jpeg':
+				$filename = strtolower($kabal->GetName()).'.jpg';
+				break;
+
+			case 'image/png':
+				$filename = strtolower($kabal->GetName()).'.png';
+
+			default:
+				$filename = strtolower($kabal->GetName());
+				break;
+
+		}
+
+		$destination = $destination.'/'.$filename;
 
 		if (move_uploaded_file($_FILES['logo']['tmp_name'], $destination)) {
 			echo 'New Kabal logo saved.';
+			$kabal->SetLogo($filename);
 		}
 		else {
 			echo 'Error moving logo.';
