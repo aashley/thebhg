@@ -91,6 +91,8 @@ foreach ($ams as $am) {
 	$medal = $am->GetMedal();
 	$group = $medal->GetGroup();
 	if ($group->GetMultiple() && count($group->GetMedals()) == 1) {
+		if (!isset($medals[$group->GetID()]))
+			$medals[$group->GetID()] = 0;
 		$medals[$group->GetID()]++;
 	}
 	elseif (empty($medals[$group->GetID()]) || $morder[$group->GetID()] < $medal->GetOrder()) {
