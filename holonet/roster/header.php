@@ -1,8 +1,8 @@
 <?php
 include_once('roster.inc');
-include_once('sheet.php');
 $roster = new Roster('roster-69god');
 $mb = new MedalBoard('roster-69god');
+include_once('sheet.php');
 
 function roster_header() {}
 
