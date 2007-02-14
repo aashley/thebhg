@@ -43,6 +43,8 @@ function output() {
 
 		$destination = $destination.'/'.$filename;
 
+		print 'Moving image to '.$destination.'<br/>';
+
 		if (move_uploaded_file($_FILES['logo']['tmp_name'], $destination)) {
 			echo 'New Kabal logo saved.';
 			$kabal->SetLogo($filename);
