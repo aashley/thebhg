@@ -81,7 +81,7 @@ function output() {
 			return;
 		}
 	    
-	    if ($_REQUEST['submit']){
+	    if (isset($_REQUEST['submit'])){
 		    $_REQUEST['data']['values'][] = addslashes(serialize($_REQUEST['serialize']));
 		    $auth = false;
 		    $chal = false;
