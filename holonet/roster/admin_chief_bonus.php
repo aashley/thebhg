@@ -292,7 +292,7 @@ function output() {
 
             $form->AddTextBox($chief->GetName(),
                               'div['.$kabal->getID().']['.$chief->GetID().']',
-                              $credits);
+                              (string)$credits);
 
           }
 
@@ -316,8 +316,6 @@ function output() {
                                    + ( $data['craother'] * 3 ) )
                                 / 9) 
                              * 160000 * 0.25);
-
-						print $cra->getName().'<br/><pre>'.print_r($credits, true).'</pre>';
 
             $form->AddTextBox($cra->GetName(),
                               'div['.$kabal->getID().']['.$cra->GetID().']',

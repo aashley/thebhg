@@ -31,7 +31,7 @@ class Form {
 		$this->table->StartRow();
 		$this->table->AddCell('<label for="' . htmlspecialchars($name) . '">' . $label . '</label>');
 		$tb = '<input type="text" id="' . htmlspecialchars($name) . '" name="' . htmlspecialchars($name) . '" size="' . htmlspecialchars($size) . '"';
-		if ($value) {
+		if (strlen($value) > 0) {
 			$tb .= ' value="' . htmlspecialchars($value) . '"';
 		}
 		if ($maxsize) {
