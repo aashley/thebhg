@@ -300,7 +300,7 @@ INSERT INTO `college_reward` (datecreated, dateupdated, exam, rewardtype, requir
 -- College School
 \! echo college_school
 CREATE TABLE `college_school` (
-		`id` INT UNSIGNED NOT NULL AUTO_INCREMENT <
+		`id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
 		`datecreated` DATETIME NOT NULL,
 		`dateupdated` DATETIME NOT NULL,
 		`datedeleted` DATETIME,
