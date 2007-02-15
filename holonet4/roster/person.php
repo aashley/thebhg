@@ -97,7 +97,7 @@ class page_roster_person extends holonet_page {
 		$head->addRow(array('Date', 'Event'), array(), 'TH');
 		foreach ($events as $event) {
 			$table->addRow(array(
-						htmlspecialchars($event->getDateCreated()->getDate()),
+						str_replace(' ', '&nbsp;', htmlspecialchars($event->getDateCreated()->getDate())),
 						htmlspecialchars($event->toString()),
 						));
 		}
