@@ -310,7 +310,7 @@ CREATE TABLE `college_school` (
 		PRIMARY KEY ( `id` )
 		) TYPE = MYISAM, COLLATE = utf8_general_ci ;
 
-INSERT INTO `college_school` (1, NOW(), NOW(), NULL, 'General', 'The first school of the college.', 1);
+INSERT INTO `college_school` VALUES (1, NOW(), NOW(), NULL, 'General', 'The first school of the college.', 1);
 
 -- NTC Exams
 \! echo college_exam
