@@ -78,9 +78,9 @@ ALTER TABLE roster_history RENAME history_event;
 ALTER TABLE `history_event` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 \! echo " - Collation set"
 ALTER TABLE history_event ADD COLUMN datecreated DATETIME NOT NULL AFTER `type`;
-\! echo " - Added date_created"
+\! echo " - Added datecreated"
 UPDATE history_event SET datecreated = FROM_UNIXTIME(`date`);
-\! echo " - Updated date_created"
+\! echo " - Updated datecreated"
 ALTER TABLE history_event DROP COLUMN `date`;
 \! echo " - Dropped date"
 ALTER TABLE history_event ADD COLUMN item4 VARCHAR(250) NOT NULL DEFAULT '' AFTER `item3`;
@@ -307,7 +307,7 @@ CREATE TABLE `college_school` (
 		`name` VARCHAR(250) NOT NULL,
 		`description` TEXT DEFAULT NULL,
 		`weight` INT NOT NULL DEFAULT '1',
-		PRIMARY KEY ( `id` ) ,
+		PRIMARY KEY ( `id` )
 		) TYPE = MYISAM, COLLATE = utf8_general_ci ;
 
 INSERT INTO `college_school (1, NOW(), NOW(), NULL, 'General', 'The first school of the college.', 1);
