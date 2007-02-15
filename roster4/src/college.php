@@ -257,7 +257,7 @@ class bhg_college extends bhg_entry {
 	 * </ul>
 	 * @return object bhg_core_list A list of bhg_college_school objects.
 	 */
-	public function getSubmissions($filter = array()) {
+	public function getSchools($filter = array()) {
 		
 		$sql = 'SELECT id '
 					.'FROM college_school ';
