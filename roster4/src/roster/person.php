@@ -119,6 +119,23 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getExamSubmissions()
+
+	/**
+	 * Get the submissions this person has made to the college
+	 *
+	 * @param array Filters on which submissions to return
+	 * @return bhg_core_list
+	 */
+	public function getExamSubmissions($filter = array()) {
+
+		$filter['submitter'] = $this;
+
+		return $GLOBALS['bhg']->college->getSubmissions($filter);
+
+	}
+
+	// }}}
 	// {{{ getCollegeIDLine()
 
 	/**

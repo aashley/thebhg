@@ -39,7 +39,23 @@ class bhg_college_submission extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getAnswers()
 
+	/**
+	 * Get all the answers related to this submission
+	 *
+	 * @param array Filters for which answers to include
+	 * @return bhg_core_list
+	 */
+	public function getAnswers($filter = array()) {
+
+		$filter['submission'] = $this;
+
+		return $GLOBALS['bhg']->college->getSubmissionAnswers($filter);
+
+	}
+
+	// }}}
 	// {{{ getStatus()
 
 	/**

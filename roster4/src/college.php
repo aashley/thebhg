@@ -45,6 +45,7 @@ class bhg_college extends bhg_entry {
 	 * <li><i>abbrevition</i>: exams that have exactly this abbreviation.</li>
 	 * <li><i>deleted</i>: includes deleted exams.</li>
 	 * <li><i>name</i>: exams that have a name containing this string.</li>
+	 * <li><i>school</i>: exams belonging to a specific school.</li>
 	 * <li><i>search_abbreviation</i>: exams that have an abbreviation containing this string.</li>
 	 * </ul>
 	 * @return object bhg_core_list A list of bhg_college_exam objects.
@@ -66,6 +67,9 @@ class bhg_college extends bhg_entry {
 
 		if (isset($filter['abbreviation']))
 			$sqlfilters[] = 'abbr = '.$this->db->quoteSmart($filter['abbreviation']);
+
+		if (isset($filter['school']) && $filter['school'] instanceof bhg_college_school)
+			$sqlfilters[] = 'school = '.$this->db->quoteSmart($filter['school']->getID());
 
 		if (isset($filter['search_abbreviation']))
 			$sqlfilters[] = 'abbr LIKE "%'
@@ -220,6 +224,63 @@ class bhg_college extends bhg_entry {
 		} else {
 
 			return new bhg_core_list('bhg_college_exam_reward', $results);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ getSchool() [static]
+
+	/**
+	 * Retrieve a specific school
+	 *
+	 * @param integer
+	 * @return bhg_college_school
+	 */
+	static public function getSchool($id) {
+
+		return bhg::loadObject('bhg_college_school', $id);
+
+	}
+
+	// }}}
+	// {{{ getSchools()
+
+	/**
+	 * Retrieves all schools within the college.
+	 *
+	 * @param array Filters for the school list.
+	 * Valid filters include:
+	 * <ul>
+	 * <li><i>deleted</i>: includes deleted submissions.</li>
+	 * </ul>
+	 * @return object bhg_core_list A list of bhg_college_school objects.
+	 */
+	public function getSubmissions($filter = array()) {
+		
+		$sql = 'SELECT id '
+					.'FROM college_school ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = '`datedeleted` IS NULL';
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY `weight` ASC';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of exam submissions.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_college_school', $results);
 
 		}
 

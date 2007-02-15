@@ -278,6 +278,7 @@ ALTER TABLE news_item ADD COLUMN datedeleted DATETIME;
 UPDATE news_item SET datecreated = FROM_UNIXTIME(`timestamp`);
 ALTER TABLE news_item DROP COLUMN `timestamp`;
 
+-- College Reward
 \! echo college_reward
 CREATE TABLE `college_reward` (
 		`id` INT UNSIGNED NOT NULL AUTO_INCREMENT ,
@@ -296,6 +297,21 @@ CREATE TABLE `college_reward` (
 INSERT INTO `college_reward` (datecreated, dateupdated, exam, rewardtype, requiredscore, award) SELECT NOW(), NOW(), id, 'credit', passing_grade, credit_award FROM ntc_exams WHERE credit_award != 0;
 INSERT INTO `college_reward` (datecreated, dateupdated, exam, rewardtype, requiredscore, award) SELECT NOW(), NOW(), id, 'medal', 100, medal_award FROM ntc_exams WHERE medal_award != 0;
 
+-- College School
+\! echo college_school
+CREATE TABLE `college_school` (
+		`id` INT UNSIGNED NOT NULL AUTO_INCREMENT <
+		`datecreated` DATETIME NOT NULL,
+		`dateupdated` DATETIME NOT NULL,
+		`datedeleted` DATETIME,
+		`name` VARCHAR(250) NOT NULL,
+		`description` TEXT DEFAULT NULL,
+		`weight` INT NOT NULL DEFAULT '1',
+		PRIMARY KEY ( `id` ) ,
+		) TYPE = MYISAM, COLLATE = utf8_general_ci ;
+
+INSERT INTO `college_school (1, NOW(), NOW(), NULL, 'General', 'The first school of the college.', 1);
+
 -- NTC Exams
 \! echo college_exam
 ALTER TABLE ntc_exams RENAME college_exam;
@@ -307,6 +323,8 @@ ALTER TABLE college_exam CHANGE num_questions numberofquestions INT(11) NOT NULL
 ALTER TABLE college_exam CHANGE passing_grade passinggrade DOUBLE NOT NULL;
 ALTER TABLE college_exam DROP COLUMN medal_award;
 ALTER TABLE college_exam DROP COLUMN credit_award;
+ALTER TABLE college_exam ADD COLUMN school INT(11) NOT NULL;
+UPDATE college_exam SET school = 1;
 
 -- NTC Questions
 \! echo college_exam_question

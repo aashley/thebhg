@@ -37,6 +37,40 @@ class bhg_college_exam extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getQuestions()
+
+	/**
+	 * Get all the questions related to this exam
+	 *
+	 * @param array Filters to select which questions to return
+	 * @return bhg_core_list
+	 */
+	public function getQuestions($filter = array()) {
+
+		$filter['exam'] = $this;
+
+		return $GLOBALS['bhg']->college->getQuestions($filter);
+
+	}
+
+	// }}}
+	// {{{ getSubmissions()
+
+	/**
+	 * Get all the submissions to this exam
+	 *
+	 * @param array Filters to select which submissions to return
+	 * @return bhg_core_list
+	 */
+	public function getSubmissions($filter = array()) {
+
+		$filter['exam'] = $this;
+
+		return $GLOBALS['bhg']->college->getSubmissions($filter);
+
+	}
+
+	// }}}
 
 }
 
