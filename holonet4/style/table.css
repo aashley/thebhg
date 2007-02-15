@@ -8,6 +8,7 @@ table,td
 	border               : 1px solid #CCC;
 	border-collapse      : collapse;
   font                 : small/1.5 "Bitstream Vera Sans", "Tahoma", Verdana, Helvetica, sans-serif;
+	vertical-align       : top;
 }
 table
 {
