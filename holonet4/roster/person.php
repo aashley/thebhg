@@ -49,7 +49,7 @@ class page_roster_person extends holonet_page {
 		$head = $table->getHeader();
 		$head->addRow(array('Date', 'Course', 'Status', 'Score'), array(), 'TH');
 		foreach ($submissions as $submission)
-			$table->addRow(array(htmlspecialchars($submission->getDateCreated()->format('%B %e, %Y')),
+			$table->addRow(array(str_replace(' ', '&nbsp;', htmlspecialchars($submission->getDateCreated()->format('%B %e, %Y'))),
 					     htmlspecialchars($submission->getExam()->getName()),
 					     $submission->getStatus(),
 					     $submission->isGraded() ? number_format($submission->getScore()) : 'N/A'));
@@ -77,7 +77,7 @@ class page_roster_person extends holonet_page {
 					$reason .= '.';
 			}
 			
-			$table->addRow(array(htmlspecialchars($award->getDateCreated()->format('%B %e, %Y')),
+			$table->addRow(array(str_replace(' ', '&nbsp;', htmlspecialchars($award->getDateCreated()->format('%B %e, %Y'))),
 					     holonet::output($award->getAwarder()),
 					     $reason));
 		}
