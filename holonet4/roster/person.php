@@ -16,7 +16,7 @@ class page_roster_person extends holonet_page {
 		$bar->addTab($this->buildPersonal($person));
 		$bar->addTab($this->buildMedals($person));
 		$bar->addTab($this->buildCollege($person));
-		//$bar->addTab($this->buildArmour($person));
+		$bar->addTab($this->buildArmour($person));
 		$bar->addTab($this->buildHistory($person));
 
 		$this->addBodyContent($bar);
@@ -112,7 +112,7 @@ class page_roster_person extends holonet_page {
 		$tab = new holonet_tab('personal', 'Dossier');
 		$table = new HTML_Table(null, null, true);
 
-		$table->addRow(array('ID Number:', $person->getID()));
+		$table->addRow(array('ID&nbsp;Number:', $person->getID()));
 		$table->addRow(array('Name:', htmlspecialchars($person->getName())));
 		$table->addRow(array('Rank:', holonet::output($person->getRank())));
 		$table->addRow(array('Position:', holonet::output($person->getPosition())));
@@ -133,25 +133,25 @@ class page_roster_person extends holonet_page {
 			$table->addRow(array('Quote:', '<i>'.htmlspecialchars($quote).'</i>'));
 
 		if (!$person->isDeleted())
-			$table->addRow(array('E-mail Address:', str_replace(array('@', '.'), array(' [at] ', ' [dot] '), $person->getEmail())));
+			$table->addRow(array('E-mail&nbsp;Address:', str_replace(array('@', '.'), array(' [at] ', ' [dot] '), $person->getEmail())));
 
 		if (strlen($homepage = $person->getURL()) > 0)
-			$table->addRow(array('Home Page:', '<a href="'.htmlspecialchars($homepage).'">'.htmlspecialchars($homepage).'</a>'));
+			$table->addRow(array('Home&nbsp;Page:', '<a href="'.htmlspecialchars($homepage).'">'.htmlspecialchars($homepage).'</a>'));
 
 		if (strlen($nicks = $person->getIRCNicks()) > 0)
-			$table->addRow(array('IRC Nicks:', htmlspecialchars($nicks)));
+			$table->addRow(array('IRC&nbsp;Nicks:', htmlspecialchars($nicks)));
 
-		$table->addRow(array('Rank Credits:', holonet::formatCredits($person->getRankCredits())));
-		$table->addRow(array('Account Balance:', holonet::formatCredits($person->getAccountBalance())));
+		$table->addRow(array('Rank&nbsp;Credits:', holonet::formatCredits($person->getRankCredits())));
+		$table->addRow(array('Account&nbsp;Balance:', holonet::formatCredits($person->getAccountBalance())));
 
 		$joined = $person->getDateCreated();
 		$timein = time() - $joined->getDate(DATE_FORMAT_UNIXTIME);
-		$table->addRow(array('Time in the BHG:', holonet::formatDuration($timein)));
-		$table->addRow(array('Join Date:', $joined->format('%A, %B %e, %Y')));
+		$table->addRow(array('Time&nbsp;in&nbsp;the&nbsp;BHG:', holonet::formatDuration($timein)));
+		$table->addRow(array('Join&nbsp;Date:', $joined->format('%A, %B %e, %Y')));
 
 		// XXX Implement last promotion code here, once we have object support.
 
-		$table->addRow(array('ID Line:', htmlspecialchars($person->getIDLine(true))));
+		$table->addRow(array('ID&nbsp;Line:', htmlspecialchars($person->getIDLine(true))));
 
 		$tab->addContent($table);
 		return $tab;
