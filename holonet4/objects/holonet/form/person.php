@@ -119,7 +119,7 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 			$cacheKey .= '-'.implode('-', sort($valid));
 
 		$cache = new Cache_Lite(array(
-					'cacheDir'	=> bhg::getSettingValue('imagecache_dir'),
+					'cacheDir'	=> bhg::getSettingValue('imagecache_dir').'/',
 					'lifeTime'	=> 180,
 					));
 
