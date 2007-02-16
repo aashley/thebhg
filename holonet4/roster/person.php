@@ -122,7 +122,8 @@ class page_roster_person extends holonet_page {
 		if (strlen($aim = $person->getAIM()) > 0)
 			$table->addRow(array('AIM&nbsp;Screen&nbsp;Name:', htmlspecialchars($aim)
 						.' <a href="aim:GoIM?screenname='.htmlspecialchars($aim).'">'
-						.'<img src="http://api.oscar.aol.com/SOA/key=fr1Ko8PmeyVjPiv0/presence/'.htmlspecialchars($aim).'" border="0"/></a>'));
+						.'<img class="inline" src="http://api.oscar.aol.com/SOA/key=fr1Ko8PmeyVjPiv0/presence/'
+						.htmlspecialchars($aim).'" border="0"/></a>'));
 
 		if (strlen($icq = $person->getICQ()) > 0)
 			$table->addRow(array('ICQ&nbsp;Number:', htmlspecialchars($icq)
