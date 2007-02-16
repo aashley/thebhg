@@ -148,8 +148,16 @@ class page_roster_person extends holonet_page {
 		$timein = time() - $joined->getDate(DATE_FORMAT_UNIXTIME);
 		$table->addRow(array('Time&nbsp;in&nbsp;the&nbsp;BHG:', holonet::formatDuration($timein)));
 		$table->addRow(array('Join&nbsp;Date:', $joined->format('%A, %B %e, %Y')));
+		
+		try {
 
-		// XXX Implement last promotion code here, once we have object support.
+			$table->addRow(array('Last&nbsp;Promotion:', $person->getDateLastPromotion()->format('%A, %B %e, %Y')));
+
+		} catch (bhg_not_found $e) {
+
+			$table->addRow(array('Last&nbsp;Promotion:', $e->getMessage()));
+
+		}
 
 		$table->addRow(array('ID&nbsp;Line:', htmlspecialchars($person->getIDLine(true))));
 
