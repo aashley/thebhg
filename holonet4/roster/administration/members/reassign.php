@@ -110,6 +110,52 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 				foreach ($values['reassign'] as $id => $data) {
 
+					if (!($data['position'] == 0 && $data['division'] == 0)) {
+
+						$person = bhg_roster::getPerson($data['person']);
+
+						if ($data['division'] != 0) {
+
+							$division = bhg_roster::getDivision($data['division']);
+
+							$this->addBodyContent('Transfering '.$person->getName().' from '
+									.$person->getDivision()->getName().' to '
+									.$division->getName().'... ');
+
+							if ($person->transfer($division)) {
+
+								$this->addBodyContent('Success.<br/>');
+
+							} else {
+
+								$this->addBodyContent('Failure.<br/>');
+
+							}
+
+						}
+
+						if ($data['position'] != 0) {
+
+							$position = bhg_roster::getPosition($data['position']);
+
+							$this->addBodyContent('Transfering '.$person->getName().' from '
+									.$person->getPosition()->getName().' to '
+									.$position->getName().'... ');
+
+							if ($person->setPosition($position)) {
+
+								$this->addBodyContent('Success.<br/>');
+
+							} else {
+
+								$this->addBodyContent('Failure.<br/>');
+
+							}
+
+						}
+
+					}
+
 				}
 
 			}
