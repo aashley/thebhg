@@ -102,8 +102,6 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 			$values = $form->exportValues();
 
-			$this->addBodyContent('<pre>'.print_r($values, true).'</pre>');
-
 			$this->addBodyContent('<p>');
 
 			if (isset($values['reassign']) && is_array($values['reassign'])) {
