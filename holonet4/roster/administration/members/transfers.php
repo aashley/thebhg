@@ -120,7 +120,7 @@ class page_roster_administration_members_transfers extends holonet_page {
 
 			$tab->addContent('<p>');
 
-			if (isset(is_array($values['pendingTransfer'])) {
+			if (is_array($values['pendingTransfer'])) {
 
 				foreach ($values['pendingTransfer'] as $id => $data) {
 
