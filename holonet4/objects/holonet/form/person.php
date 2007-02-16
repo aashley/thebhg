@@ -4,26 +4,85 @@ require_once 'HTML/QuickForm/hierselect.php';
 
 class holonet_form_person extends HTML_QuickForm_hierselect {
 
+	// {{{ properties
+
+	protected $divisions = null;
+
+	// }}}
+	// {{{ holonet_form_person()
+
 	public function holonet_form_person($elementName=null, $elementLabel=null, $attributes=null, $separator=null, $divisions=null) {
 
 		parent::HTML_QuickForm_hierselect($elementName, $elementLabel, $attributes, $separator);
 
 		$this->_type = 'hierselect_person';
 		$this->_appendName = true;
+		$this->_divisions = $divisions;
 
-		if (is_null($divisions)) {
+	}
+
+	// }}}
+	// {{{ setValue()
+
+	public function setValue($value) {
+
+		if ($value instanceof bhg_roster_person) {
+
+			$raw = array(
+					$value->getDivision()->getID(),
+					$value->getID(),
+					);
+
+			parent::setValue($raw);
+
+		} else {
+
+			parent::setValue($value);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ toHtml()
+
+	public function toHtml() {
+
+		$this->buildOptions();
+
+		return parent::toHtml();
+
+	}
+
+	// }}}
+	// {{{ accept()
+
+	public function accept(&$renderer, $required = false, $error = null) {
+
+		$this->buildOptions();
+
+		return parent::accept($renderer, $required, $error);
+
+	}
+
+	// }}}
+	// {{{ buildOptions [protected]
+
+	protected function buildOptions() {
+
+		if (is_null($this->divisions)) {
 
 			$valid = null;
 
 		} else {
 
-			if ($divisions instanceof bhg_core_list) {
+			if ($this->divisions instanceof bhg_core_list) {
 
-				$valid = $divisions->items;
+				$valid = $this->divisions->items;
 
-			} elseif (is_array($divisions)) {
+			} elseif (is_array($this->divisions)) {
 
-				foreach ($divisions as $division) {
+				foreach ($this->divisions as $division) {
 
 					if ($division instanceof bhg_roster_division) {
 						
@@ -79,24 +138,7 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 
 	}
 
-	public function setValue($value) {
-
-		if ($value instanceof bhg_roster_person) {
-
-			$raw = array(
-					$value->getDivision()->getID(),
-					$value->getID(),
-					);
-
-			parent::setValue($raw);
-
-		} else {
-
-			parent::setValue($value);
-
-		}
-
-	}
+	// }}}
 
 }
 
