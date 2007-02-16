@@ -120,7 +120,7 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 
 		$cache = new Cache_Lite(array(
 					'cacheDir'	=> bhg::getSettingValue('imagecache_dir'),
-					'lifeTime'	=> 3600,
+					'lifeTime'	=> 180,
 					));
 
 		if ($data = $cache->get($cacheKey, 'person-select')) {
