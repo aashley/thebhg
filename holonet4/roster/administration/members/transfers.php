@@ -1,6 +1,6 @@
 <?php
 
-class page_roster_administration_members_transfer extends holonet_page {
+class page_roster_administration_members_transfers extends holonet_page {
 
 	public function __construct($trail) {
 
