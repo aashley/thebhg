@@ -451,6 +451,8 @@ class bhg_roster_person extends bhg_core_base {
 
 			$this->__recordHistoryEvent(BHG_HISTORY_CREDIT, $this, $awarder->getID(), $credits, $this->getRankCredits(), $reason);
 
+			$this->handleRank();
+
 			return $result;
 
 		} else {
