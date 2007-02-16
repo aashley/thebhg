@@ -120,7 +120,9 @@ class page_roster_person extends holonet_page {
 			$table->addRow(array('Home&nbsp;Page:', '<a href="'.htmlspecialchars($homepage).'">'.htmlspecialchars($homepage).'</a>'));
 
 		if (strlen($aim = $person->getAIM()) > 0)
-			$table->addRow(array('AIM&nbsp;Screen&nbsp;Name:', htmlspecialchars($aim)));
+			$table->addRow(array('AIM&nbsp;Screen&nbsp;Name:', htmlspecialchars($aim)
+						.' <a href="aim:GoIM?screenname='.htmlspecialchars($aim).'">'
+						.'<img src="http://api.oscar.aol.com/SOA/key=fr1Ko8PmeyVjPiv0/presence/'.htmlspecialchars($aim).'" border="0"/></a>'));
 
 		if (strlen($icq = $person->getICQ()) > 0)
 			$table->addRow(array('ICQ&nbsp;Number:', htmlspecialchars($icq)
