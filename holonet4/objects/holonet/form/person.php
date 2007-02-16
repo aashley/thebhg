@@ -82,6 +82,8 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 
 			} elseif (is_array($this->divisions)) {
 
+				$valid = array();
+
 				foreach ($this->divisions as $division) {
 
 					if ($division instanceof bhg_roster_division) {
@@ -96,6 +98,10 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 
 				}
 
+			} elseif ($this->divisions instanceof bhg_roster_division) {
+
+				$valid = array($division->getID());
+				
 			} else {
 
 				$valid = null;
