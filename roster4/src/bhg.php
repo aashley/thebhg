@@ -339,6 +339,25 @@ class bhg extends bhg_core_base {
 
 	// }}}
 
+	// {{{ getSetting()
+
+	static public function getSetting($name) {
+
+		return bhg::loadObject('bhg_core_setting', $name);
+
+	}
+
+	// }}}
+	// {{{ getSettingValue()
+
+	static public function getSettingValue($name) {
+
+		return bhg::getSetting($name)->getValue();
+
+	}
+
+	// }}}
+
 }
 
 /**
