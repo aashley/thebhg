@@ -24,6 +24,14 @@ ALTER TABLE core_code CHANGE md5 hash CHAR(32) NOT NULL;
 UPDATE core_code SET hash = LOWER(hash);
 ALTER TABLE core_code ADD UNIQUE KEY(hash);
 
+-- Roster Settings
+\! echo core_setting
+ALTER TABLE roster_settings RENAME core_setting;
+ALTER TABLE core_setting DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER TABLE `core_setting` CHANGE `name` `id` VARCHAR( 200 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+			CHANGE `humanname` `humanname` VARCHAR( 255 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+			CHANGE `value` `value` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NUL
+
 -- Roster Bio Data
 \! echo roster_biographical_data
 ALTER TABLE `roster_biographical_data` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
@@ -147,7 +155,7 @@ CREATE TABLE `roster_pending_transfer` (
 		`datedeleted` DATETIME ,
 		`person` INT( 11 ) UNSIGNED NOT NULL ,
 		`target` INT( 11 ) UNSIGNED NOT NULL
-		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Pending Transfer Requests';
+		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT = 'Pending Transfer Requests';
 
 
 -- Roster Credit Award Request
@@ -162,7 +170,7 @@ CREATE TABLE `roster_pending_credit` (
 		`amount` INT( 11 ) NOT NULL ,
 		`reason` TEXT NOT NULL ,
 		`approved` INT( 1 ) UNSIGNED NOT NULL DEFAULT '0'
-		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Pending Credit Awards';
+		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT = 'Pending Credit Awards';
 
 
 -- Roster Medal Award Request
@@ -178,7 +186,7 @@ CREATE TABLE `roster_pending_medal` (
 		`medal` INT( 11 ) UNSIGNED NOT NULL ,
 		`reason` TEXT NOT NULL ,
 		`approved` INT( 1 ) NOT NULL
-		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Pending Medal Awards';
+		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_general_ci COMMENT = 'Pending Medal Awards';
 
 
 -- MedalBoard Awarded Medals
@@ -362,6 +370,12 @@ ALTER TABLE `college_submission_answer` DEFAULT CHARACTER SET utf8 COLLATE utf8_
 ALTER TABLE college_submission_answer ADD COLUMN datecreated DATETIME NOT NULL;
 ALTER TABLE college_submission_answer ADD COLUMN dateupdated DATETIME NOT NULL;
 ALTER TABLE college_submission_answer CHANGE result submission INT(11) NOT NULL;
+
+-- Hosting Account
+ALTER TABLE hosting_account DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+-- Hosting Rule
+ALTER TABLE hosting_rule DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 -- Star Chart Object
 \! echo starchart_object
