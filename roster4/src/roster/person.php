@@ -105,6 +105,35 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getDateLastPromotion()
+	
+	/**
+	 * Retrieve the Date of this person's last rank change
+	 *
+	 * @return object Date
+	 */
+	public function getDateLastPromotion() {
+
+		$events = $GLOBALS['bhg']->history->getEvents(array(
+					'person'	=> $this,
+					'type'		=> BHG_HISTORY_RANK,
+					'limit'		=> 1,
+					)
+				);
+
+		if ($events->count() > 0) {
+
+			return $events->getItem()->getDateCreated();
+
+		} else {
+
+			throw bhg_not_found('This person has not yet received a transfer.');
+
+		}
+
+	}
+
+	// }}}
 	// {{{ getDisplayName()
 	
 	/**
