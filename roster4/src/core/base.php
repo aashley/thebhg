@@ -376,7 +376,7 @@ class bhg_core_base {
 
 				}
 
-				if (is_null($params[0]->getID())) {
+				if (is_null($params[0])) {
 
 					$oldvalue = $this->data[$varname];
 					if ($oldvalue == $params[0]->getID()) {
