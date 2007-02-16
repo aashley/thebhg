@@ -18,6 +18,7 @@ class page_roster_person extends holonet_page {
 		$bar->addTab($this->buildCollege($person));
 		$bar->addTab($this->buildArmour($person));
 		$bar->addTab($this->buildHistory($person));
+		$bar->addTab($this->buildOnline($person));
 
 		$this->addBodyContent($bar);
 
@@ -107,6 +108,41 @@ class page_roster_person extends holonet_page {
 
 	}
 
+	private function buildOnline(bhg_roster_person $person) {
+
+		$tab = new holonet_tab('online', 'Contact');
+		$table = new HTML_Table(null, null, true);
+
+		if (!$person->isDeleted())
+			$table->addRow(array('E-mail&nbsp;Address:', str_replace(array('@', '.'), array(' [at] ', ' [dot] '), $person->getEmail())));
+
+		if (strlen($homepage = $person->getURL()) > 0)
+			$table->addRow(array('Home&nbsp;Page:', '<a href="'.htmlspecialchars($homepage).'">'.htmlspecialchars($homepage).'</a>'));
+
+		if (strlen($aim = $person->getAIM()) > 0)
+			$table->addRow(array('AIM&nbsp;Screen&nbsp;Name:', htmlspecialchars($aim)));
+
+		if (strlen($icq = $person->getICQ()) > 0)
+			$table->addRow(array('ICQ&nbsp;Number:', htmlspecialchars($icq)));
+
+		if (strlen($nicks = $person->getIRCNicks()) > 0)
+			$table->addRow(array('IRC&nbsp;Nicks:', htmlspecialchars($nicks)));
+
+		if (strlen($jabber = $person->getJabber()) > 0)
+			$table->addRow(array('Jabber&nbsp;ID:', htmlspecialchars($jabber)));
+
+		if (strlen($msn = $person->getMSN()) > 0)
+			$table->addRow(array('MSN&nbsp;Passport&nbsp;Name:', htmlspecialchars($msn)));
+
+		if (strlen($yahoo = $person->getYahoo()) > 0)
+			$table->addRow(array('Yahoo&nbsp;Messager&nbsp;ID:', htmlspecialchars($yahoo)));
+
+		$tab->addContent($table);
+
+		return $tab;
+
+	}
+
 	private function buildPersonal(bhg_roster_person $person) {
 
 		$tab = new holonet_tab('personal', 'Dossier');
@@ -134,12 +170,6 @@ class page_roster_person extends holonet_page {
 
 		if (!$person->isDeleted())
 			$table->addRow(array('E-mail&nbsp;Address:', str_replace(array('@', '.'), array(' [at] ', ' [dot] '), $person->getEmail())));
-
-		if (strlen($homepage = $person->getURL()) > 0)
-			$table->addRow(array('Home&nbsp;Page:', '<a href="'.htmlspecialchars($homepage).'">'.htmlspecialchars($homepage).'</a>'));
-
-		if (strlen($nicks = $person->getIRCNicks()) > 0)
-			$table->addRow(array('IRC&nbsp;Nicks:', htmlspecialchars($nicks)));
 
 		$table->addRow(array('Rank&nbsp;Credits:', holonet::formatCredits($person->getRankCredits())));
 		$table->addRow(array('Account&nbsp;Balance:', holonet::formatCredits($person->getAccountBalance())));
