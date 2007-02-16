@@ -108,7 +108,7 @@ class page_roster_administration_members_transfers extends holonet_page {
 		$renderer->setElementTemplate("\n"
 				."\t<tr>\n"
 				."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
-				."\t\t<td colspan=\"5\">{element}</td>\n"
+				."\t\t<td colspan=\"4\">{element}</td>\n"
 				."\t</tr>",
 				'__submit_group');
 
@@ -149,6 +149,8 @@ class page_roster_administration_members_transfers extends holonet_page {
 				}
 
 			}
+
+			$tab->addContent('<p>');
 
 		} else {
 			
