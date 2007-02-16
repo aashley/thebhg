@@ -699,7 +699,7 @@ class bhg_core_base {
 
 			$table = $this->table;
 
-			$fields = array($this->data['id']);
+			$iref = array($this->data['id']);
 
 		}
 
