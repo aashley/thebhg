@@ -131,7 +131,7 @@ class bhg_core_base {
 
 			if (!is_null($table) && !is_null($id)) {
 
-				$sql = 'SELECT * FROM `'.$table.'` WHERE `id` = '.$id;
+				$sql = 'SELECT * FROM `'.$table.'` WHERE `id` = '.$this->db->quoteSmart($id);
 
 				$this->data = $this->db->getRow($sql);
 
@@ -789,7 +789,7 @@ class bhg_core_base {
 		$sql = 'UPDATE `'.$table.'` '
 					.'SET '
 					.implode(', ', $f).' '
-					.'WHERE `'.$iref_field.'` = '.$id;
+					.'WHERE `'.$iref_field.'` = '.$this->db->quoteSmart($id);
 
 		$result = $this->db->query($sql);
 
