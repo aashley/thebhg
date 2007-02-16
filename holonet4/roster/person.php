@@ -14,11 +14,11 @@ class page_roster_person extends holonet_page {
 		$bar = new holonet_tab_bar;
 
 		$bar->addTab($this->buildPersonal($person));
+		$bar->addTab($this->buildOnline($person));
 		$bar->addTab($this->buildMedals($person));
 		$bar->addTab($this->buildCollege($person));
 		$bar->addTab($this->buildArmour($person));
 		$bar->addTab($this->buildHistory($person));
-		$bar->addTab($this->buildOnline($person));
 
 		$this->addBodyContent($bar);
 
