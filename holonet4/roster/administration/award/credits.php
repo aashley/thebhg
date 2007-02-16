@@ -88,7 +88,7 @@ class page_roster_administration_award_credits extends holonet_page {
 						'cols' => 20,
 						));
 
-			$form->addGroup($fields, 'credit['.$i.']', $i);
+			$form->addGroup($fields, 'credit['.$i.']', ($i + 1));
 
 			$renderer->setElementTemplate("\n"
 					."\t<tr>\n"
