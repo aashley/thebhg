@@ -31,7 +31,7 @@ class bhg_roster_pending_transfer extends bhg_core_base {
 		parent::__construct('roster_pending_transfer', $id);
 		$this->__addFieldMap(array(
 					'person' => 'bhg_roster_person',
-					'target' => 'bhg_roster_person',
+					'target' => 'bhg_roster_division',
 					));
 		$this->__addDefaultCodePermissions('set', 'god');
 	}
