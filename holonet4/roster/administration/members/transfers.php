@@ -120,27 +120,31 @@ class page_roster_administration_members_transfers extends holonet_page {
 
 			$tab->addContent('<p>');
 
-			foreach ($values['pendingTransfer'] as $id => $data) {
+			if (isset(is_array($values['pendingTransfer'])) {
 
-				$pendingTransfer = bhg_roster::getPendingTransfer($id);
+				foreach ($values['pendingTransfer'] as $id => $data) {
 
-				if ($data['approve'] == 'approve') {
+					$pendingTransfer = bhg_roster::getPendingTransfer($id);
 
-					$tab->addContent('Approving pending transfer #'.$pendingTransfer->getID().' of '
-							.$pendingTransfer->getPerson()->getName().' from '
-							.$pendingTransfer->getPerson()->getDivision()->getName().' to '
-							.$pendingTransfer->getTarget()->getName().'<br/>');
+					if ($data['approve'] == 'approve') {
 
-					$pendingTransfer->approve();
+						$tab->addContent('Approving pending transfer #'.$pendingTransfer->getID().' of '
+								.$pendingTransfer->getPerson()->getName().' from '
+								.$pendingTransfer->getPerson()->getDivision()->getName().' to '
+								.$pendingTransfer->getTarget()->getName().'<br/>');
 
-				} elseif ($data['approve'] == 'deny') {
+						$pendingTransfer->approve();
 
-					$tab->addContent('Deny pending transfer #'.$pendingTransfer->getID().'<br/>');
-					$pendingTransfer->deny();
+					} elseif ($data['approve'] == 'deny') {
 
-				} else {
+						$tab->addContent('Deny pending transfer #'.$pendingTransfer->getID().'<br/>');
+						$pendingTransfer->deny();
 
-					$tab->addContent('Holding pending transfer #'.$pendingTransfer->getID().'<br/>');
+					} else {
+
+						$tab->addContent('Holding pending transfer #'.$pendingTransfer->getID().'<br/>');
+
+					}
 
 				}
 
