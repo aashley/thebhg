@@ -144,7 +144,7 @@ CREATE TABLE `roster_pending_transfer` (
 		`id` INT( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 		`datecreated` DATETIME NOT NULL ,
 		`dateupdated` DATETIME NOT NULL ,
-		`datedeleted` DATETIME NOT NULL ,
+		`datedeleted` DATETIME ,
 		`person` INT( 11 ) UNSIGNED NOT NULL ,
 		`target` INT( 11 ) UNSIGNED NOT NULL
 		) TYPE = MYISAM CHARACTER SET utf8 COLLATE utf8_unicode_ci COMMENT = 'Pending Transfer Requests';
@@ -156,7 +156,7 @@ CREATE TABLE `roster_pending_credit` (
 		`id` INT( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 		`datecreated` DATETIME NOT NULL ,
 		`dateupdated` DATETIME NOT NULL ,
-		`datedeleted` DATETIME NOT NULL ,
+		`datedeleted` DATETIME ,
 		`recipient` INT( 11 ) UNSIGNED NOT NULL ,
 		`awarder` INT( 11 ) UNSIGNED NOT NULL ,
 		`amount` INT( 11 ) NOT NULL ,
@@ -171,7 +171,7 @@ CREATE TABLE `roster_pending_medal` (
 		`id` INT( 11 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
 		`datecreated` DATETIME NOT NULL ,
 		`dateupdated` DATETIME NOT NULL ,
-		`datedeleted` DATETIME NOT NULL ,
+		`datedeleted` DATETIME ,
 		`recipient` INT( 11 ) UNSIGNED NOT NULL ,
 		`awarder` INT( 11 ) NOT NULL ,
 		`medaltype` ENUM( 'group', 'medal' ) NOT NULL ,
