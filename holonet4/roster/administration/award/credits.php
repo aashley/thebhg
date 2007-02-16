@@ -28,6 +28,12 @@ class page_roster_administration_award_credits extends holonet_page {
 					'awarder',
 					'Awarder:');
 			$defaults['awarder'] = array($user->getDivision()->getID(), $user->getID());
+			$renderer->setElementTemplate("\n"
+					."\t<tr>\n"
+					."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
+					."\t\t<td colspan=\"2\">{element}</td>\n"
+					."\t</tr>",
+					'awarder');
 		}
 
 		$form->addElement('textarea',
@@ -38,13 +44,19 @@ class page_roster_administration_award_credits extends holonet_page {
 					'cols' => 40,
 					));
 
+		$renderer->setElementTemplate("\n"
+				."\t<tr>\n"
+				."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
+				."\t\t<td colspan=\"2\">{element}</td>\n"
+				."\t</tr>",
+				'reason');
+
 		$form->addElement('static',
 				'credits_header',
 				array(
 					'&nbsp;',
 					'Recipient',
 					'Amount',
-					'Reason',
 					));
 
 		$renderer->setElementTemplate("\n"
@@ -52,7 +64,6 @@ class page_roster_administration_award_credits extends holonet_page {
 				."\t\t<th class=\"label\">{label}</th>\n"
 				."\t\t<th class=\"label_2\">{label_2}</th>\n"
 				."\t\t<th class=\"label_3\">{label_3}</th>\n"
-				."\t\t<th class=\"label_4\">{label_4}</th>\n"
 				."\t</tr>",
 				'credits_header');
 
@@ -80,14 +91,6 @@ class page_roster_administration_award_credits extends holonet_page {
 						'maxlength'	=> 15,
 						));
 
-			$fields[] = $form->createElement('textarea',
-					'reason',
-					null,
-					array(
-						'rows' => 2,
-						'cols' => 20,
-						));
-
 			$form->addGroup($fields, 'credit['.$i.']', ($i + 1));
 
 			$renderer->setElementTemplate("\n"
@@ -109,7 +112,7 @@ class page_roster_administration_award_credits extends holonet_page {
 		$renderer->setElementTemplate("\n"
 				."\t<tr>\n"
 				."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
-				."\t\t<td colspan=\"5\">{element}</td>\n"
+				."\t\t<td colspan=\"2\">{element}</td>\n"
 				."\t</tr>",
 				'__submit_group');
 
