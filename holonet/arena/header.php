@@ -179,7 +179,7 @@ function get_auth_data($hunter) {
 	    $auth_data['sheet'] = false;
     }
     
-    if ($pos->GetID() == 29 || $hunter->GetID() == 94){
+    if ($pos->GetID() == 29 || $hunter->GetID() == 94 || $pos->GetID() == 2){
 	    $auth_data['coder'] = true;
     	$auth_data['overseer'] = true;
     	$auth_data['sheet'] = true;
