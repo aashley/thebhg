@@ -1,6 +1,7 @@
 <?php
 
 require_once 'HTML/QuickForm/hierselect.php';
+require_once 'Cache/Lite.php';
 
 class holonet_form_person extends HTML_QuickForm_hierselect {
 
@@ -113,32 +114,51 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 		if (is_array($valid) && sizeof($valid) == 0)
 			$valid = null;
 
-		$a = $b = array();
+		$cacheKey = 'person-select';
+		if (!is_null($valid))
+			$cacheKey .= '-'.implode('-', sort($valid));
 
-		foreach ($GLOBALS['bhg']->roster->getDivisionCategories() as $category) {
+		$cache = new Cache_Lite(array(
+					'cacheDir'	=> bhg::getSettingValue('imagecache_dir'),
+					'lifeTime'	=> 3600,
+					));
 
-			foreach ($category->getDivisions() as $division) {
+		if ($data = $cache->get($cacheKey, 'person-select')) {
 
-				if (	 is_null($valid)
-						|| in_array($division->getID(), $valid)) {
+			$options = unserialize($data);
 
-					foreach ($division->getPeople() as $person) {
+		} else {
 
-						$b[$division->getID()][$person->getID()] = $person->getName();
+			$a = $b = array();
+
+			foreach ($GLOBALS['bhg']->roster->getDivisionCategories() as $category) {
+	
+				foreach ($category->getDivisions() as $division) {
+
+					if (	 is_null($valid)
+							|| in_array($division->getID(), $valid)) {
+
+						foreach ($division->getPeople() as $person) {
+
+							$b[$division->getID()][$person->getID()] = $person->getName();
+
+						}
+
+						if (isset($b[$division->getID()]) && sizeof($b[$division->getID()]) > 0)
+							$a[$division->getID()] = $division->getName();
 
 					}
-
-					if (isset($b[$division->getID()]) && sizeof($b[$division->getID()]) > 0)
-						$a[$division->getID()] = $division->getName();
 
 				}
 
 			}
 
-		}
+			$options[] = &$a;
+			$options[] = &$b;
 
-		$options[] = &$a;
-		$options[] = &$b;
+			$cache->save(serialize($options));
+
+		}
 
 		$this->setOptions($options);
 
