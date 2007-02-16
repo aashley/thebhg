@@ -123,7 +123,8 @@ class page_roster_person extends holonet_page {
 			$table->addRow(array('AIM&nbsp;Screen&nbsp;Name:', htmlspecialchars($aim)));
 
 		if (strlen($icq = $person->getICQ()) > 0)
-			$table->addRow(array('ICQ&nbsp;Number:', htmlspecialchars($icq)));
+			$table->addRow(array('ICQ&nbsp;Number:', htmlspecialchars($icq)
+						.' <img src="http://status.icq.com/online.gif?icq=.'.htmlspecialchars($icq).'&img=5">'));
 
 		if (strlen($nicks = $person->getIRCNicks()) > 0)
 			$table->addRow(array('IRC&nbsp;Nicks:', htmlspecialchars($nicks)));
