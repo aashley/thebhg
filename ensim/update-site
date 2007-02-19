@@ -197,6 +197,7 @@ for site in $*; do
 			pushd /home/thebhg/public_html > /dev/null
 			$SVN update
 			chown -R thebhg:thebhg .
+			chown -R apache:thebhg cache/
 			popd > /dev/null
 			;;
 
