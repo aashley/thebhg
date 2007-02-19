@@ -50,5 +50,6 @@ checkUpdate projects/trunk/roster roster-devel
 checkUpdate projects/trunk/scum scum-devel
 checkUpdate projects/trunk/tactician tactician-devel
 checkUpdate projects/trunk/donate donate
+checkUpdate projects/trunk/citadel citadel-devel
 
 LogMsg "Revision $REV complete"

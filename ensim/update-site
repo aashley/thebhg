@@ -10,6 +10,7 @@ if [[ $# -eq 0 ]]; then
 	echo " boards-devel    Message Boards Development Site"
 	echo " calypso         BHG Blogs"
 	echo " citadel         Citadel"
+	echo " citadel-devel   Citadel Development Site"
 	echo " donate          Donate"
 	echo " holonet         Main Holonet Site"
 	echo " holonet3-devel  Development and testing Holonet Site"
@@ -32,6 +33,7 @@ for site in $*; do
 	case $site in
 		webmin)
 			echo "citadel"
+			echo "citadel-devel"
 			echo "holonet"
 			echo "holonet3-devel"
 			echo "holonet4-devel"
@@ -93,6 +95,14 @@ for site in $*; do
 			pushd /home/thebhg/domains/citadel.thebhg.org/public_html > /dev/null
 			$SVN update
 			chown -R thebhg:thebhg .
+			popd > /dev/null
+			;;
+
+		citadel-devel)
+			echo Updating Citadel Devel Site...
+			pushd /home/bhgdevel/domains/citadel.devel.thebhg.org/public_html > /dev/null
+			$SVN update
+			chown -R bhgdevel:bhgdevel .
 			popd > /dev/null
 			;;
 
