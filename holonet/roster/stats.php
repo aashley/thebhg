@@ -93,7 +93,7 @@ function output() {
 	$table->AddHeader('Total Members');
 	$table->AddHeader('Percentage');
 	$table->EndRow();
-	while ($row = mysql_fetch_array($result) && $active = mysql_fetch_array($activeResult)) {
+	while (($row = mysql_fetch_array($result)) && ($active = mysql_fetch_array($activeResult))) {
 		$table->AddRow('<a href="' . internal_link('rank', array('id'=>$row['id'])) . '">' . stripslashes($row['name']) . '</a>', '<div style="text-align: right">' . number_format($active['num']) . '</div>', '<div style="text-align: right">' . number_format(100 * $active['num'] / $amc, 1) . '%</div>', '<div style="text-align: right">' . number_format($row['num']) . '</div>', '<div style="text-align: right">' . number_format(100 * $row['num'] / $tmc, 1) . '%</div>');
 	}
 	$table->EndTable();
