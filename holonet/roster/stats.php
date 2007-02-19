@@ -84,14 +84,17 @@ function output() {
 	echo '<table border=0 width="100%"><tr valign="top"><td>';
 
 	$result = mysql_query('SELECT roster_rank.name, roster_rank.id, COUNT(*) AS num FROM roster_roster, roster_rank WHERE roster_roster.rank=roster_rank.id AND roster_roster.division NOT IN (0, 16) GROUP BY roster_rank.id ORDER BY roster_rank.order ASC', $roster->roster_db);
+	$activeResult = mysql_query('SELECT roster_rank.name, roster_rank.id, COUNT(*) AS num FROM roster_roster, roster_rank WHERE roster_roster.rank=roster_rank.id AND roster_roster.division NOT IN (0, 12, 16) GROUP BY roster_rank.id ORDER BY roster_rank.order ASC', $roster->roster_db);
 	$table = new Table('Rank Statistics');
 	$table->StartRow();
 	$table->AddHeader('Rank');
-	$table->AddHeader('Members');
+	$table->AddHeader('Active Members');
+	$table->AddHeader('Percentage');
+	$table->AddHeader('Total Members');
 	$table->AddHeader('Percentage');
 	$table->EndRow();
-	while ($row = mysql_fetch_array($result)) {
-		$table->AddRow('<a href="' . internal_link('rank', array('id'=>$row['id'])) . '">' . stripslashes($row['name']) . '</a>', '<div style="text-align: right">' . number_format($row['num']) . '</div>', '<div style="text-align: right">' . number_format(100 * $row['num'] / $tmc, 1) . '%</div>');
+	while ($row = mysql_fetch_array($result) && $active = mysql_fetch_array($activeResult)) {
+		$table->AddRow('<a href="' . internal_link('rank', array('id'=>$row['id'])) . '">' . stripslashes($row['name']) . '</a>', '<div style="text-align: right">' . number_format($active['num']) . '</div>', '<div style="text-align: right">' . number_format(100 * $active['num'] / $amc, 1) . '%</div>', '<div style="text-align: right">' . number_format($row['num']) . '</div>', '<div style="text-align: right">' . number_format(100 * $row['num'] / $tmc, 1) . '%</div>');
 	}
 	$table->EndTable();
 
