@@ -64,7 +64,7 @@ require_once "citadel.inc";
 $roster = new Roster('citadel-38learn');
 $citadel = new Citadel('citadel-38learn');
 
-  if (!isset($_SESSION['user'])) {
+  if (!isset($_SESSION['user']) && isset($login)) {
 
     $_SESSION['user'] = array();
 
