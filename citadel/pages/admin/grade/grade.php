@@ -219,7 +219,7 @@ function ProcessGrade($results) {
 
     }
 
-    if (!$answer->SetComments($values['comments'])) {
+    if (!$answer->SetComments($values['comment'])) {
 
       print 'Could not save comments for answer #'.$id.'<br />';
 
