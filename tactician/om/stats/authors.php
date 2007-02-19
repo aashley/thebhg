@@ -4,7 +4,8 @@ page_header('Writer Statistics');
 
 // Array of all tacticians: key is the last mission set, value the roster ID.
 $tacticians = array(9=>106, 12=>183, 18=>160, 19=>95, 22=>108, 28=>257, 31=>1622, 
-		33=>135, 51=>666, 63=>275, 67=>1829, 68=>666, 76=>2815, 88=>1187, 1000=>2006);
+		33=>135, 51=>666, 63=>275, 67=>1829, 68=>666, 76=>2815, 88=>1187, 90=>2006,
+		1000=>2978);
 
 function mission_total($missions, $start, $end) {
 	$total = 0;
