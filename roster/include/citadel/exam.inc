@@ -1360,7 +1360,7 @@ class Citadel_Exam extends BHGObject {
    * @uses Person::GetID()
    * @uses Citadel_CompletedExam
    */
-  function &TakeExam($person) {
+  function TakeExam($person) {
 
     if ($this->Allowed('citadel')) {
 
