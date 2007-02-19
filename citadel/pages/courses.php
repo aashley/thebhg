@@ -50,11 +50,11 @@ function Courses($crumbTrail, $path) {
 
     $table->addRow(
         array($exams[$i]->GetName().' ['.$exams[$i]->GetAbbrev().']',
-              '<a href="'.$GLOBALS['file_root'].'notes/'
+              '<a href="'.$GLOBALS['site']['file_root'].'notes/'
               .strtolower($exams[$i]->GetAbbrev()).'" target="_blank">View '
               .'Course Notes</a> '
               .'| '
-              .'<a href="'.$GLOBALS['file_root'].'exams/take/'
+              .'<a href="'.$GLOBALS['site']['file_root'].'exams/take/'
               .strtolower($exams[$i]->GetAbbrev()).'">Take Exam</a>'),
         array(),
         'TH');
