@@ -120,6 +120,70 @@ class page_roster_administration_award_credits extends holonet_page {
 
 		if ($form->validate()) {
 
+			$values = $form->exportValues();
+
+			$reason = $values['reason'];
+
+			if (isset($values['awarder']) && is_array($values['awarder'])) {
+
+				$awarder = bhg_roster::getPerson($values['awarder'][1]);
+
+			} else {
+
+				$awarder = $user;
+
+			}
+
+			$awards = array();
+
+			foreach ($values['credit'] as $id => $data) {
+
+				if ($data['amount'] > 0) {
+
+					$recipient = bhg_roster::getPerson($data['recipient'][1]);
+
+					$awards[] = $recipient->requestCreditAward($awarder, $data['amount'], $reason);
+
+				}
+
+			}
+
+			foreach ($awards as $award) {
+
+				$this->addBodyContent('<p>');
+
+				if (	 $user->getPosition()->isEqualTo(bhg_roster::getPosition(2))
+						|| $user->getID() == 94) {
+
+					if ($award->approve()) {
+
+						$this->addBodyContent('Awarded '.number_format($award->getAmount())
+								.' credits to '.$award->getRecipient()->getName()
+								.' of '.$award->getRecipient()->getDivision()->getName()
+								.'.')
+
+					} else {
+
+						$this->addBodyContent('Failed to awarded '.number_format($award->getAmount())
+								.' credits to '.$award->getRecipient()->getName()
+								.' of '.$award->getRecipient()->getDivision()->getName()
+								.'.')
+
+					}
+					
+				} else {
+					
+					$this->addBodyContent('Requested awarding of '.number_format($award->getAmount())
+							.' credits to '.$award->getRecipient()->getName()
+							.' of '.$award->getRecipient()->getDivision()->getName()
+							.'.')
+
+				}
+
+				$this->addBodyContent('</p>');
+
+			}
+				
 		} else {
 
 			$this->addBodyContent($form);
