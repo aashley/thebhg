@@ -169,9 +169,9 @@ include_once 'header.php';
                echo "Whoa! Letters like 'u' and 'r' can mean words like 'you' and 'are'!";
                
 				?>
-               <br /><br />This site conforms to the Emperors Hammer 
-               <a href=\"http://www.emperorshammer.org/privacy.htm\">Privacy Policy</a> and 
-               <a href=\"http://www.emperorshammer.org/irc.htm\">Codes of Conduct</a>.
+               <br /><br />This site conforms to the Bounty Hunters Guild 
+               <a href="http://www.thebhg.org/privacy">Privacy Policy</a> and 
+               <a href="http://www.thebhg.org/disclaimer">Disclaimer</a>.
         </p>
     </body>
 </html>

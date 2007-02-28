@@ -6,8 +6,8 @@ class Fiction extends BHGObject {
 	
 	function Fiction(){
 		$this->BHGObject('fight-51-me');
-		$this->connect = mysql_connect("localhost", "thebhg_fiction", "c80509a2");
-		mysql_select_db('thebhg_fiction', $this->connect);
+		$this->connect = mysql_connect("localhost", "fiction", "vaestiowip");
+		mysql_select_db('fiction', $this->connect);
 	}
 	
 	function MedalBoard(){
