@@ -2489,7 +2489,7 @@ function output(){
 			break;
 			
 			default:
-				if ($login->GetID() == 2650 || $pos->GetID() == 5){
+				if ($login->GetID() == 2650 || $login->GetID() == 94 || $pos->GetID() == 5 || $pos->GetID() == 3 || $pos->GetID() == 5){
 					$table = new Table();
 					$table->StartRow();
 					$table->AddHeader('Library Control Options', 3);
@@ -2507,7 +2507,7 @@ function output(){
 					
 				}
 				
-				if ($login->GetID() == 2650 || $fiction->FAMod($login->GetID()) || $pos->GetID() == 5){
+				if ($login->GetID() == 2650 || $fiction->FAMod($login->GetID()) || $login->GetID() == 94 || $pos->GetID() == 5 || $pos->GetID() == 3 || $pos->GetID() == 5){
 					$table = new Table();
 					$table->StartRow();
 					$table->AddHeader('Archive Moderator Options', 3);
@@ -2550,6 +2550,7 @@ function output(){
 				
 				if ($login->GetID() == 2650 || (count($access) && !$fiction->FAMod($login->GetID()))){
 					$table = new Table();
+					$liba = false;
 					$librar = false;
 					$compep = false;
 					
