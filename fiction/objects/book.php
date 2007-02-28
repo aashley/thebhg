@@ -123,7 +123,6 @@ class Book extends Fiction {
 		while ($info = mysql_fetch_assoc($query)){
 			$fic = $this->GetFiction($info['fiction']);
 			$return[$fic->GetID()] = $fic->GetTitle();
-			$i++;
 		}
 		
 		return $return;
