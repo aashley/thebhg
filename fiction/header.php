@@ -150,8 +150,17 @@ function output(){
 		$com = array();
 		$acc_check = array();
 	
-		$FAMOD = ($login->GetID() == 2650 || $pos->GetID() == 5 || $fiction->FAMod($login->GetID()));
-		$X = ($login->GetID() == 2650 || $pos->GetID() == 5);
+		$FAMOD = ($login->GetID() == 2650
+				|| $login->GetID() == 94
+				|| $pos->GetID() == 3
+				|| $pos->GetID() == 5
+				|| $pos->GetID() == 10
+				|| $fiction->FAMod($login->GetID()));
+		$X = ($login->GetID() == 2650 
+				|| $login->GetID() == 94
+				|| $pos->GetID() == 3
+				|| $pos->GetID() == 5
+				|| $pos->GetID() == 10);
 		
 		foreach ($access as $arr){
 			if ($arr['mod']){
