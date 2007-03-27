@@ -2328,8 +2328,8 @@ function output(){
 						}
 					}
 				}
-				$lib = $fiction->GetComp($_REQUEST['edit_id']);
-				if ($_REQUEST['schupa_grade']){
+				if (isset($_REQUEST['schupa_grade'])){
+					$lib = $fiction->GetComp($_REQUEST['edit_id']);
 					$lib->ReRank();
 					if ($lib->CanGrade()){
 						$q = $lib->Grade();
@@ -2337,11 +2337,13 @@ function output(){
 					} else {
 						echo 'Already graded.';
 					}
-				} elseif ($_REQUEST['post']){
+				} elseif (isset($_REQUEST['post'])){
+					$lib = $fiction->GetComp($_REQUEST['edit_id']);
 					$q = $lib->GradeComp($_REQUEST['grade'], $login->GetID());
 					echo 'Competition was '.($q ? 'graded.' : ' not graded, due to errors.');
 					$lib->ReRank();
 				} elseif ($_REQUEST['cmp-edt']) {
+					$lib = $fiction->GetComp($_REQUEST['edit_id']);
 					$views = false;
 					if ($lib->CanGrade($login->GetID()) || isset($_REQUEST['fskup'])){
 						echo '<h4 align=center>Notice</h4>Submit your grades at your convenience. However, if you do not finish completely, be sure to inform the Moderator of this library, so they do not close the competition before your grades are in.';
@@ -2362,7 +2364,7 @@ function output(){
 								$roll['fic']->GetTitle().'</a>');
 							$ar = array();
 							foreach ($pack->PackContents() as $id=>$cnt){
-								if (is_array($base)){
+								if (isset($base) && is_array($base)){
 									$ar[$cnt['points']][] = 1;
 									$i = (count($ar[$cnt['points']])-1);
 									$def = $base[$cnt['points']][$roll['fic']->GetID()][$i];

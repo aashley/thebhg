@@ -94,6 +94,8 @@ class Form {
 		}
 		if ($show){
 			$rb = '<input type="reset">';
+		} else {
+			$rb = '';
 		}
 		$this->table->AddCell('<div style="text-align: right">' . $rb . '&nbsp;&nbsp;&nbsp;' . $sb . '></div>', 2);
 		$this->table->EndRow();
