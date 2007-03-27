@@ -185,7 +185,7 @@ function output(){
 		echo 'Your rating has '.($q ? '' : '<b>not</b> ').'been saved.<br />';
 		echo '<a href="?fiction='.$art->GetID().'">Return to <i>'.$art->GetTitle().'</i></a>';
 	} elseif (isset($_REQUEST['view_comp_results'])){
-		if ($_REQUEST['comp_id']){
+		if (isset($_REQUEST['comp_id'])){
 			$lib = new Competition($_REQUEST['comp_id']);
 			$table = new Table();
 			$table->StartRow();
@@ -215,7 +215,7 @@ function output(){
 			$form->EndForm();
 		}
 	} elseif (isset($_REQUEST['fiction'])){
-		if ($_REQUEST['fiction']){
+		if (isset($_REQUEST['fiction'])){
 			$art = $_REQUEST['fiction'];
 		} else {
 			$art = $fiction->RandomFiction();
@@ -302,7 +302,7 @@ function output(){
 	}
 	//Comment Handlinig
 	elseif (isset($_REQUEST['comment'])){
-		if ($_REQUEST['comment']){
+		if (isset($_REQUEST['comment'])){
 			$art = $_REQUEST['comment'];
 		} else {
 			echo 'You do not have a fiction to comment on, motard';
@@ -310,7 +310,7 @@ function output(){
 		}
 		$art = $fiction->GetFiction($art);
 		if ((($art->Published() > 0) && !$art->DateDeleted()) || $admin){
-			if ($_REQUEST['submit']){
+			if (isset($_REQUEST['submit'])){
 				$q = $art->NewComment($login->GetID(), $_REQUEST['comments']);
 				echo 'Comment left '.($q ? 'successfully.' : 'in limbo, due to errors');
 				
@@ -331,7 +331,7 @@ function output(){
 		}
 	}
 	elseif (isset($_REQUEST['book'])){
-		if ($_REQUEST['book']){
+		if (isset($_REQUEST['book'])){
 			$art = $_REQUEST['book'];
 		} else {
 			$art = $fiction->RandomBook();
@@ -382,7 +382,7 @@ function output(){
 		}
 	}
 	elseif (isset($_REQUEST['commentb'])){
-		if ($_REQUEST['commentb']){
+		if (isset($_REQUEST['commentb'])){
 			$art = $_REQUEST['commentb'];
 		} else {
 			echo 'You do not have a book to comment on, motard';
@@ -390,7 +390,7 @@ function output(){
 		}
 		$art = $fiction->GetBook($art);
 		if ((($art->Published() > 0) && !$art->DateDeleted()) || $admin){
-			if ($_REQUEST['submit']){
+			if (isset($_REQUEST['submit'])){
 				$q = $art->NewComment($login->GetID(), $_REQUEST['comments']);
 				echo 'Comment left '.($q ? 'successfully.' : 'in limbo, due to errors');
 				
@@ -411,7 +411,7 @@ function output(){
 		}
 	}
 	elseif (isset($_REQUEST['compview'])){
-		if ($_REQUEST['compview']){
+		if (isset($_REQUEST['compview'])){
 			$art = $_REQUEST['compview'];
 			$art = $fiction->GetFiction($art);
 		} else {
@@ -440,7 +440,7 @@ function output(){
 			$table->EndTable();
 		}	
 	} elseif (isset($_REQUEST['newb'])){
-		if ($_REQUEST['post']){
+		if (isset($_REQUEST['post'])){
 			$q = $fiction->NewBook($login->GetID(), $_REQUEST['title'], $_REQUEST['publish'], $_REQUEST['libr']);
 			echo $_REQUEST['title'].' was '.($q ? ($_REQUEST['publish'] ? 'published' : 'logged').' into your library.' 
 				: ' not submitted, due to errors. ');
@@ -461,7 +461,7 @@ function output(){
 		$art = $fiction->GetBook($_REQUEST['fiction_id']);
 		$p = $art->GetPerson();
 		$cnfrm = ($login->GetID() == $p->GetID());
-		if ($_REQUEST['post']){
+		if (isset($_REQUEST['post'])){
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -470,7 +470,7 @@ function output(){
 			$q = $art->Edit($_REQUEST['title'], $_REQUEST['publish'], $lib->GetID());
 			echo $_REQUEST['title'].' was '.($q ? 'edited and '.($_REQUEST['publish'] ? 'published' : 'logged').' into your library.' 
 				: ' not edited, due to errors. ');
-		} elseif ($_REQUEST['newch']){
+		} elseif (isset($_REQUEST['newch'])){
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -478,7 +478,7 @@ function output(){
 			$q = $art->NewChapter($_REQUEST['ch_id']);
 			$fic = $fiction->GetFiction($_REQUEST['ch_id']);
 			echo $fic->GetTitle().' was '.($q ? 'added as a chapter.' : 'not added, due to errors.');
-		} elseif ($_REQUEST['updwn']){
+		} elseif (isset($_REQUEST['updwn'])){
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -505,7 +505,7 @@ function output(){
 				}
 				echo 'Chapter was '.($q ? 'deleted.' : 'not deleted, due to errors.');
 			}
-		} elseif ($_REQUEST['fiction_id']) {
+		} elseif (isset($_REQUEST['fiction_id'])) {
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -583,7 +583,7 @@ function output(){
 		$art = $fiction->GetBook($_REQUEST['fiction_id']);
 		$p = $art->GetPerson();
 		$cnfrm = ($login->GetID() == $p->GetID());
-		if ($_REQUEST['post']){
+		if (isset($_REQUEST['post'])){
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -592,7 +592,7 @@ function output(){
 			$lib = new Library($_REQUEST['libr']);
 			echo $art->GetName().' was '.($q ? 'moved to the '.$lib->GetName().' library.' 
 				: ' not moved, due to errors. ');
-		} elseif ($_REQUEST['fiction_id']) {
+		} elseif (isset($_REQUEST['fiction_id'])) {
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -625,7 +625,7 @@ function output(){
 		}
 	}
 	elseif (isset($_REQUEST['library'])){
-		if ($_REQUEST['library']){
+		if (isset($_REQUEST['library'])){
 			$lib = $_REQUEST['library'];
 		} else {
 			$lib = $fiction->RandomLibrary();
@@ -745,7 +745,7 @@ function output(){
 		$table->EndRow();
 		$table->EndTable();
 	} elseif (isset($_REQUEST['new'])){
-		if ($_REQUEST['post']){
+		if (isset($_REQUEST['post'])){
 			$q = $fiction->NewFiction($login->GetID(), $_REQUEST['title'], $_REQUEST['text'], $_REQUEST['publish'], $_REQUEST['libr']);
 			echo $_REQUEST['title'].' was '.($q ? ($_REQUEST['publish'] ? 'published' : 'logged').' into your library.' 
 				: ' not submitted, due to errors. ');
@@ -767,7 +767,7 @@ function output(){
 		$art = $fiction->GetFiction($_REQUEST['fiction_id']);
 		$p = $art->GetPerson();
 		$cnfrm = ($login->GetID() == $p->GetID());
-		if ($_REQUEST['post']){
+		if (isset($_REQUEST['post'])){
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -789,7 +789,7 @@ function output(){
 			} else {
 				echo 'You cannot edit this fiction';
 			}			
-		} elseif ($_REQUEST['fiction_id']) {
+		} elseif (isset($_REQUEST['fiction_id'])) {
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -828,7 +828,7 @@ function output(){
 		$art = $fiction->GetFiction($_REQUEST['fiction_id']);
 		$p = $art->GetPerson();
 		$cnfrm = ($login->GetID() == $p->GetID());
-		if ($_REQUEST['post']){
+		if (isset($_REQUEST['post'])){
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -837,7 +837,7 @@ function output(){
 			$lib = new Library($_REQUEST['libr']);
 			echo $art->GetTitle().' was '.($q ? 'moved to the '.$lib->GetName().' library.' 
 				: ' not moved, due to errors. ');
-		} elseif ($_REQUEST['fiction_id']) {
+		} elseif (isset($_REQUEST['fiction_id'])) {
 			if (!$cnfrm){
 				echo 'You are not cleared to access this page';
 				exit;
@@ -871,7 +871,7 @@ function output(){
 	} elseif (isset($_REQUEST['view-comp'])){
 		$art = $fiction->GetComp($_REQUEST['comp_id']);
 		if ($art->CanSubmit($login->GetID())){
-			if ($_REQUEST['post']){
+			if (isset($_REQUEST['post'])){
 				$lib = $art->GetLibrary();
 				$q = $fiction->NewFiction($login->GetID(), $_REQUEST['title'], $_REQUEST['text'], -1, $lib->GetID());
 				$a = $art->Submit($login->GetID(), $q);
@@ -901,7 +901,7 @@ function output(){
 					echo 'You are not cleared to use this page';
 					exit;
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $fiction->NewLibrary($_REQUEST['name'], $_REQUEST['key'], $_REQUEST['text'], $_REQUEST['all']);
 					echo $_REQUEST['name'].' was '.($q ? 'added as a'.($_REQUEST['all'] ? 'n all access' 
 						: ' restricted').' library.' : ' not created, due to errors.');
@@ -925,7 +925,7 @@ function output(){
 					echo 'You are not cleared to use this page';
 					exit;
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $fiction->NewFiction($_REQUEST['person'], $_REQUEST['title'], $_REQUEST['text'], $_REQUEST['publish'], $_REQUEST['libr']);
 					$p = new Person($_REQUEST['person']);
 					echo $_REQUEST['title'].' was '.($q ? ($_REQUEST['publish'] ? 'published' : 'logged').' into '.$p->GetName().'\'s library.' 
@@ -953,10 +953,10 @@ function output(){
 					exit;
 				}
 				$lib = $fiction->GetLibrary($_REQUEST['library_id']);
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $lib->SetKey($_REQUEST['key']);
 					echo 'Library Key was '.($q ? 'edited successfully. ' : 'not edited, due to errors.');
-				} elseif ($_REQUEST['lib-edt']) {
+				} elseif (isset($_REQUEST['lib-edt'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Library Key');
 
@@ -988,11 +988,11 @@ function output(){
 					exit;
 				}
 				$lib = $fiction->GetLibrary($_REQUEST['library_id']);
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $lib->Edit($_REQUEST['name'], $_REQUEST['text'], $_REQUEST['all']);
 					echo $_REQUEST['name'].' was '.($q ? 'edited to a'.($_REQUEST['all'] ? 'n all access' 
 						: ' restricted').' library.' : ' not edited, due to errors.');
-				} elseif ($_REQUEST['lib-edt']) {
+				} elseif (isset($_REQUEST['lib-edt'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Library');
 
@@ -1025,7 +1025,7 @@ function output(){
 					echo 'You are not cleared to use this page';
 					exit;
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					if ($_REQUEST['person'] || $_REQUEST['position'] || ($_REQUEST['division'] && $_REQUEST['position'])){
 						if ($_REQUEST['person'] && ($_REQUEST['position'] || ($_REQUEST['division'] && $_REQUEST['position']))){
 							echo 'You cannot set that many options for an admin. Person only, Position only, or Position/Division';
@@ -1038,7 +1038,7 @@ function output(){
 					} else {
 						echo 'You must set either a Person, a Position, or a Position/Division combination';
 					}
-				} elseif ($_REQUEST['view']){
+				} elseif (isset($_REQUEST['view'])){
 					$form = new Form($_SERVER['PHP_SELF']);
 
 					$i = 1;
@@ -1071,7 +1071,7 @@ function output(){
 					echo '<input type=submit name=fix0r value="Alter Administrators">';
 					echo '</td></tr></table>';
 					$form->EndForm();
-				} elseif ($_REQUEST['fix0r']){
+				} elseif (isset($_REQUEST['fix0r'])){
 					$error = 0;
 					if (is_array($_REQUEST['del'])){
 						foreach ($_REQUEST['del'] as $id=>$a){
@@ -1116,13 +1116,13 @@ function output(){
 						}
 					}
 					echo ($error ? 'Errors occured. Admin not' : 'All edits successfully').' processed.';	
-				} elseif ($_REQUEST['newsa']) {
+				} elseif (isset($_REQUEST['newsa'])) {
 					if ($X){
 						$q = $fiction->AddFaMod($_REQUEST['person']);
 						$p = new Person($_REQUEST['person']);
 						echo $p->GetName().($q ? ' was added as a SuperAdmin.' : ' was not added, due to errors.');	
 					}			
-				} elseif ($_REQUEST['delsa']) {
+				} elseif (isset($_REQUEST['delsa'])) {
 					if ($X){
 						$q = $fiction->RemoveFaMod($_REQUEST['sup_id']);
 						$p = new Person($_REQUEST['sup_id']);
@@ -1213,10 +1213,10 @@ function output(){
 					echo 'You are not cleared to use this page';
 					exit;
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $fiction->NewRestriction($_REQUEST['library_id'], $_REQUEST['division']);
 					echo 'New Library Restriction was '.($q ? ' added.' : ' not added, due to errors.');
-				} elseif ($_REQUEST['view']){
+				} elseif (isset($_REQUEST['view'])){
 					$form = new Form($_SERVER['PHP_SELF']);
 
 					$i = 1;
@@ -1245,7 +1245,7 @@ function output(){
 					echo '<input type=submit name=fix0r value="Make Edits">';
 					echo '</td></tr></table>';
 					$form->EndForm();
-				} elseif ($_REQUEST['fix0r']){
+				} elseif (isset($_REQUEST['fix0r'])){
 					$error = 0;
 					if (is_array($_REQUEST['del'])){
 						foreach ($_REQUEST['del'] as $id=>$a){
@@ -1301,7 +1301,7 @@ function output(){
 					echo 'You are not cleared to use this page';
 					exit;
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $fiction->NewsPost($_REQUEST['news-post']);
 					echo 'News was '.($q ? ' posted successfully.' : ' not posted, due to errors.');	
 				} else {
@@ -1329,7 +1329,7 @@ function output(){
 				}
 				$art = $fiction->GetFiction($_REQUEST['fiction_id']);
 				
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$go = true;
 					if ($art->date == -1){
 						$comp = $art->Competition();
@@ -1348,7 +1348,7 @@ function output(){
 						echo 'You cannot edit this fiction';
 					}
 					
-				} elseif ($_REQUEST['fiction_id']) {
+				} elseif (isset($_REQUEST['fiction_id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Fiction');
 					$form->AddHidden('id', $_REQUEST['id']);
@@ -1367,7 +1367,7 @@ function output(){
 					$form->AddSubmitButton('post', 'Edit Fiction');
 					
 					$form->EndForm();
-				} elseif ($_REQUEST['hunter_id']) {
+				} elseif (isset($_REQUEST['hunter_id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Fiction');
 					$form->AddHidden('id', $_REQUEST['id']);
@@ -1381,7 +1381,7 @@ function output(){
 					$form->AddSubmitButton('eddt', 'Edit Fiction');
 					
 					$form->EndForm();
-				} elseif ($_REQUEST['library_id'] || $_REQUEST['id']) {
+				} elseif (isset($_REQUEST['library_id']) || isset($_REQUEST['id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Fiction');
 					
@@ -1425,13 +1425,13 @@ function output(){
 						}
 					}
 				}
-				if ($_REQUEST['edtb']){
+				if (isset($_REQUEST['edtb'])){
 					$art = $fiction->GetBook($_REQUEST['fiction_id']);
 				} else {
 					$art = $fiction->GetFiction($_REQUEST['fiction_id']);
 				}
 				
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$errors = 0;
 					if (is_array($_REQUEST['del'])){
 						foreach ($_REQUEST['del'] as $id=>$a){
@@ -1440,7 +1440,7 @@ function output(){
 						}
 					}
 					echo $errors.' comment'.(($errors != 1) ? 's ' : ' ').($errors ? 'successfully deleted.' : 'not deleted, due to errors.');
-				} elseif ($_REQUEST['fiction_id']) {
+				} elseif (isset($_REQUEST['fiction_id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Delete Comments');
 					$form->AddHidden('id', $_REQUEST['id']);
@@ -1458,7 +1458,7 @@ function output(){
 					$form->AddSubmitButton('post', 'Delete Checked Comments');
 					
 					$form->EndForm();
-				} elseif ($_REQUEST['hunter_id']) {
+				} elseif (isset($_REQUEST['hunter_id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Comments - Fictions');
 					$form->AddHidden('id', $_REQUEST['id']);
@@ -1487,7 +1487,7 @@ function output(){
 					$form->AddSubmitButton('edtb', 'View Books');
 					
 					$form->EndForm();
-				} elseif ($_REQUEST['library_id'] || $_REQUEST['id']) {
+				} elseif (isset($_REQUEST['library_id']) || isset($_REQUEST['id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Comments');
 					
@@ -1533,12 +1533,12 @@ function output(){
 				}
 				$art = $fiction->GetFiction($_REQUEST['fiction_id']);
 				
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $art->Edit($_REQUEST['title'], $_REQUEST['text'], $_REQUEST['publish'], $_REQUEST['libr']);
 					$lib = $fiction->GetLibrary($_REQUEST['libr']);
 					echo $_REQUEST['title'].' was '.($q ? 'moved into the '.$lib->GetName().' library.' 
 					: ' not moved, due to errors. ');
-				} elseif ($_REQUEST['fiction_id']) {
+				} elseif (isset($_REQUEST['fiction_id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Move Fiction');
 					$form->AddHidden('id', $_REQUEST['id']);
@@ -1571,7 +1571,7 @@ function output(){
 					$form->AddSubmitButton('post', 'Set Library');
 					
 					$form->EndForm();
-				} elseif ($_REQUEST['hunter_id']) {
+				} elseif (isset($_REQUEST['hunter_id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Move Fiction');
 					$form->AddHidden('id', $_REQUEST['id']);
@@ -1585,7 +1585,7 @@ function output(){
 					$form->AddSubmitButton('eddt', 'Edit Fiction');
 					
 					$form->EndForm();
-				} elseif ($_REQUEST['library_id'] || $_REQUEST['id']) {
+				} elseif (isset($_REQUEST['library_id']) || isset($_REQUEST['id'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Move Fiction');
 
@@ -1630,7 +1630,7 @@ function output(){
 						}
 					}
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					if ($_REQUEST['person'] || $_REQUEST['position'] || ($_REQUEST['division'] && $_REQUEST['position'])){
 						if ($_REQUEST['person'] && ($_REQUEST['position'] || ($_REQUEST['division'] && $_REQUEST['position']))){
 							echo 'You cannot set that many options for an admin. Person only, Position only, or Position/Division';
@@ -1675,7 +1675,7 @@ function output(){
 					echo '<input type=submit name=fix0r value="Alter Administrators">';
 					echo '</td></tr></table>';
 					$form->EndForm();
-				} elseif ($_REQUEST['fix0r']){
+				} elseif (isset($_REQUEST['fix0r'])){
 					$error = 0;
 					if (is_array($_REQUEST['rlibr'])){
 						foreach ($_REQUEST['rlibr'] as $id=>$a){
@@ -1764,7 +1764,7 @@ function output(){
 						}
 					}
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					if ($_REQUEST['person'] || $_REQUEST['position'] || ($_REQUEST['division'] && $_REQUEST['position'])){
 						if ($_REQUEST['person'] && ($_REQUEST['position'] || ($_REQUEST['division'] && $_REQUEST['position']))){
 							echo 'You cannot set that many options for an admin. Person only, Position only, or Position/Division';
@@ -1809,7 +1809,7 @@ function output(){
 					echo '<input type=submit name=fix0r value="Alter Administrators">';
 					echo '</td></tr></table>';
 					$form->EndForm();
-				} elseif ($_REQUEST['fix0r']){
+				} elseif (isset($_REQUEST['fix0r'])){
 					$error = 0;
 					if (is_array($_REQUEST['rlibr'])){
 						foreach ($_REQUEST['rlibr'] as $id=>$a){
@@ -1899,10 +1899,10 @@ function output(){
 					}
 				}
 				$lib = $fiction->GetLibrary($_REQUEST['library_id']);
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $lib->Edit($_REQUEST['name'], $_REQUEST['text'], $_REQUEST['all']);
 					echo $_REQUEST['name'].' was '.($q ? 'edited.' : ' not edited, due to errors.');
-				} elseif ($_REQUEST['lib-edt']) {
+				} elseif (isset($_REQUEST['lib-edt'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Library');
 
@@ -1944,7 +1944,7 @@ function output(){
 					echo 'You are not cleared to use this page';
 					exit;
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $fiction->NewCompGuide($_REQUEST['name'], $_REQUEST['text']);
 					echo $_REQUEST['name'].' was '.($q ? 'added.' : ' not added, due to errors.');
 				} else {
@@ -1966,10 +1966,10 @@ function output(){
 					exit;
 				}
 				$lib = $fiction->GetGuide($_REQUEST['edit_id']);
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $lib->Edit($_REQUEST['name'], $_REQUEST['text']);
 					echo $_REQUEST['name'].' was '.($q ? 'edited.' : ' not edited, due to errors.');
-				} elseif ($_REQUEST['cmg-edt']) {
+				} elseif (isset($_REQUEST['cmg-edt'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Competition Guide');
 
@@ -2001,11 +2001,11 @@ function output(){
 					echo 'You are not cleared to use this page';
 					exit;
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$lib = $fiction->GetGuide($_REQUEST['edit_id']);
 					$q = $lib->del(1);
 					echo $lib->GetName().' was '.($q ? 'deleted.' : ' not deleted, due to errors.');
-				} elseif ($_REQUEST['post-p']){
+				} elseif (isset($_REQUEST['post-p'])){
 					$lib = $fiction->GetPack($_REQUEST['edit_id']);
 					$q = $lib->del(1);
 					echo $lib->GetName().' was '.($q ? 'deleted.' : ' not deleted, due to errors.');
@@ -2045,7 +2045,7 @@ function output(){
 					echo 'You are not cleared to use this page';
 					exit;
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $fiction->NewCompPack($_REQUEST['name'], $_REQUEST['text']);
 					echo $_REQUEST['name'].' was '.($q ? 'added.' : ' not added, due to errors.');
 				} else {
@@ -2067,10 +2067,10 @@ function output(){
 					exit;
 				}
 				$lib = $fiction->GetPack($_REQUEST['edit_id']);
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $lib->Edit($_REQUEST['name'], $_REQUEST['text']);
 					echo $_REQUEST['name'].' was '.($q ? 'edited.' : ' not edited, due to errors.');
-				} elseif ($_REQUEST['cmp-edt']) {
+				} elseif (isset($_REQUEST['cmp-edt'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Edit Competition Package');
 
@@ -2103,10 +2103,10 @@ function output(){
 					exit;
 				}
 				$lib = $fiction->GetPack($_REQUEST['edit_id']);
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $lib->AddToPack($_REQUEST['guide'], $_REQUEST['points']);
 					echo 'Contents were '.($q ? 'added.' : ' not added, due to errors.');
-				} elseif ($_REQUEST['modify']) {
+				} elseif (isset($_REQUEST['modify'])) {
 					$errors = 0;
 					if (is_array($_REQUEST['del'])){
 						foreach ($_REQUEST['del'] as $id=>$a){
@@ -2121,7 +2121,7 @@ function output(){
 						}
 					}
 					echo ($errors ? 'All edits processed.' : 'Errors occured, some edits may not have processed.');
-				} elseif ($_REQUEST['edt']) {
+				} elseif (isset($_REQUEST['edt'])) {
 					$fa = $lib->PackContents();
 					$form = new Form($_SERVER['PHP_SELF']);
 
@@ -2136,7 +2136,7 @@ function output(){
 					$form->AddSubmitButton('modify', 'Build Pack');
 					
 					$form->EndForm();
-				} elseif ($_REQUEST['pack-view']) {
+				} elseif (isset($_REQUEST['pack-view'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					$form->AddSectionTitle('Add New Guideline');
 
@@ -2193,7 +2193,7 @@ function output(){
 						}
 					}
 				}
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $fiction->NewCompetition($_REQUEST['library_id'], $_REQUEST['package_id'], $_REQUEST['text'],
 						parse_date_box('starts'), parse_date_box('ends'));
 					echo 'Competition was '.($q ? 'added.' : ' not added, due to errors.');
@@ -2242,14 +2242,14 @@ function output(){
 					}
 				}
 				$lib = $fiction->GetComp($_REQUEST['edit_id']);
-				if ($_REQUEST['post']){
+				if (isset($_REQUEST['post'])){
 					$q = $lib->Edit($_REQUEST['library_id'], $_REQUEST['package_id'], $_REQUEST['text'],
 						parse_date_box('starts'), parse_date_box('ends'), 0);
 					echo 'Competition was '.($q ? 'edited.' : ' not edited, due to errors.');
-				} elseif ($_REQUEST['delete']){
+				} elseif (isset($_REQUEST['delete'])){
 					$q = $lib->del(1);
 					echo 'Competition was '.($q ? 'deleted.' : ' not deleted, due to errors.');
-				} elseif ($_REQUEST['cmp-edt']) {
+				} elseif (isset($_REQUEST['cmp-edt'])) {
 					$form = new Form($_SERVER['PHP_SELF']);
 					
 					$form->AddHidden('id', $_REQUEST['id']);
@@ -2342,7 +2342,7 @@ function output(){
 					$q = $lib->GradeComp($_REQUEST['grade'], $login->GetID());
 					echo 'Competition was '.($q ? 'graded.' : ' not graded, due to errors.');
 					$lib->ReRank();
-				} elseif ($_REQUEST['cmp-edt']) {
+				} elseif (isset($_REQUEST['cmp-edt'])) {
 					$lib = $fiction->GetComp($_REQUEST['edit_id']);
 					$views = false;
 					if ($lib->CanGrade($login->GetID()) || isset($_REQUEST['fskup'])){
