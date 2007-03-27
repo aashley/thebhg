@@ -2472,6 +2472,8 @@ function output(){
 					$form->AddSectionTitle('Grade/View Competition');
 					
 					$form->StartSelect('Competition:', 'edit_id');
+					if (!isset($libs))
+						$libs = array();
 					if (!count($libs)){
 						foreach ($fiction->Libraries(true) as $libr){
 							$libs[] = $libr->GetID();
