@@ -45,11 +45,17 @@ foreach ($divisions as $division) {
 // Special case list: reports@thebhg.org.
 $lists['reports'] = array();
 
-$reportees = array_merge($roster->searchPosition('DP'),
-												 $roster->searchPosition('U'),
-												 $roster->searchPosition('WARD'));
+$dp = $roster->searchPosition('DP');
+if (!is_array($dp))
+	$dp = array();
+$u = $roster->searchPosition('U');
+if (!is_array($u))
+	$u = array();
+$ward = $roster->searchPosition('WARD');
+if (!is_array($ward))
+	$ward = array();
 
-foreach ($reportees as $person) {
+foreach (array_merge($dp, $u, $ward) as $person) {
 
 	// Commission only.
 	if ($person->getDivision()->getID() == 10)
