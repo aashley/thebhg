@@ -21,15 +21,15 @@ foreach ($divisions as $division) {
 		$lists[$list] = array();
 
 	print "Processing ".$division->getName()."... ";
-	
+
 	$members = $division->getMembers();
 
 	if (is_array($members)) {
-		
+
 		foreach ($division->getMembers() as $person) {
-			
+
 			$lists[$list][] = $person->getEmail();
-		
+
 		}
 
 		print "$list now contains ".count($lists[$list])." recipients.\n";
@@ -54,8 +54,18 @@ foreach ($reportees as $person) {
 	// Commission only.
 	if ($person->getDivision()->getID() == 10)
 		$lists['reports'][] = $person->getEmail();
-	
+
 }
+
+$lists['chiefs'] = array();
+$chiefs = $roster->searchPosition('CH');
+foreach ($chiefs as $person)
+	$lists['chiefs'][] = $person->getEmail();
+
+$lists['cras'] = array();
+$cras = $roster->searchPosition('CRA');
+foreach ($cras as $person)
+	$lists['cras'][] = $person->getEmail();
 
 foreach ($lists as $name => $addresses) {
 
