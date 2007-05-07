@@ -129,6 +129,12 @@ EOH;
 
 	}
 
+	public function __toString() {
+
+		return $this->toHtml();
+
+	}
+
 }
 
 ?>

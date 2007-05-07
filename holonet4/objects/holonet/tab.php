@@ -92,6 +92,12 @@ class holonet_tab extends HTML_Common2 {
 
 	}
 
+	public function __toString() {
+
+		return $this->toHtml();
+
+	}
+
 }
 
 ?>

@@ -6,7 +6,7 @@ include_once 'Net/UserAgent/Detect.php';
 class holonet_page extends HTML_Page2 {
 
 	private $menus = array();
-	
+
 	private $trail = array();
 
 	protected $pageBuilt = false;
@@ -23,7 +23,7 @@ class holonet_page extends HTML_Page2 {
 					));
 
 		$this->trail = $trail;
-		
+
 		if ( false ) { // strpos($_SERVER['HTTP_ACCEPT'], 'application/xhtml+xml') ) {
 			$this->setDoctype('XHTML 1.0 Strict');
 			$this->setMimeEncoding('application/xhtml+xml');
@@ -148,9 +148,9 @@ EOSCRIPT;
 
 		$this->addBodyContent('</div></div>
 				<div id="footer">
-					<p>All rights reserved 1995-2007; original contents are protected by the 
-					United States (US) Copyright Act in accordance with the Bounty Hunters 
-					Guild <a href="http://www.thebhg.org/disclaimer">Disclaimers and 
+					<p>All rights reserved 1995-2007; original contents are protected by the
+					United States (US) Copyright Act in accordance with the Bounty Hunters
+					Guild <a href="http://www.thebhg.org/disclaimer">Disclaimers and
 					Copyrights</a> detailed herein. This site abides by the Bounty Hunters
 					Guild <a href="http://www.thebhg.org/privacy">Privacy Policy</a>.</p>
 				</div>');
