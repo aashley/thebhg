@@ -18,65 +18,38 @@ function auth($person) {
 }
 
 function output() {
-  global $auth_data, $cadre, $roster, $page, $pleb;
+	global $auth_data, $cadre, $roster, $page, $pleb;
 
-  roster_header();
+	roster_header();
 
-  if (isset($_REQUEST['submit'])) {
+	if (isset($_REQUEST['submit'])) {
 
-    if ($_REQUEST['submit'] == 'add') {
+		if ($_REQUEST['submit'] == 'add') {
 
-      $m = $roster->GetPerson($_REQUEST['hunter']);
+			$m = $roster->GetPerson($_REQUEST['hunter']);
 
-      $canJoin = true;
-    
-	    if (sizeof($cadre->GetMembers()) == 5)
-	    	$canJoin = false;
-	    
-	   if ($canJoin){
-	    		
-		   $meet = $pleb->getRank()->GetWeight(); //The weight of the rank of the owner
-	  		$hasEqual = false; //See if any of the current members equal the rank.
-		    	
-	  		foreach ($cadre->GetMembers() as $member){
-		  		if ($member->getID() != $pleb->getID()){
-		  			if ($member->getRank()->GetWeight() == $meet)
-	    				$hasEqual = true;
-    			}
-			}
-	  		
-			$canJoin = false;
-			
-	      if ($m->getRank()->getWeight() > $meet)
-	      	$canJoin = true;
-	      elseif ($m->getRank()->getWeight() == $meet && !$hasEqual)
-	      	$canJoin = true;
-	      
-	      if ($canJoin && !$m->InCadre()){
-		      if ($m->setCadre($cadre->getID())) {
-		
-		        print $m->GetName().' added to Cadre roster.<br><br>';
-		
-		        $sql = 'DELETE FROM hn_cadre_applications '
-		              .'WHERE person = '.$m->GetID();
-		
-		        mysql_query($sql, $roster->roster_db);
-		
-		      } else {
-		
-		        print 'Could not add '.$m->GetName().' to Cadre roster.<br><br>';
-		
-		      }
-	      } else
-	      	print 'User does not meet requirements to be added to cadre.<br><br>';
-      } else
-      	print 'Cadre at maximum capacity.';
-    
-    } elseif ($_REQUEST['submit'] == 'remove') {
-      
-      $m = $roster->GetPerson($_REQUEST['hunter']);
+			$canJoin = $cadre->CanJoin($m);
 
-      if ($cadre->RemoveMember($m)) {
+      if ($m->setCadre($cadre->getID())) {
+
+        print $m->GetName().' added to Cadre roster.<br><br>';
+
+        $sql = 'DELETE FROM hn_cadre_applications '
+              .'WHERE person = '.$m->GetID();
+
+        mysql_query($sql, $roster->roster_db);
+
+      } else {
+
+        print 'Could not add '.$m->GetName().' to Cadre roster.<br><br>';
+
+      }
+
+		} elseif ($_REQUEST['submit'] == 'remove') {
+
+			$m = $roster->GetPerson($_REQUEST['hunter']);
+
+			if ($cadre->RemoveMember($m)) {
 
         print $m->GetName().' removed from Cadre roster.<br><br>';
 
@@ -88,16 +61,13 @@ function output() {
       }
 
      }
-   
+
   }
 
   print 'Current Members:';
 
   $members = $cadre->GetMembers();
 
-  $meet = $pleb->getRank()->GetWeight(); //The weight of the rank of the owner
-  $hasEqual = false; //See if any of the current members equal the rank.
-  
   $table = new Table();
 
   $table->StartRow();
@@ -107,7 +77,7 @@ function output() {
   $table->EndRow();
 
   foreach ($members as $member) {
-	  
+
     if ($member->GetID() == $pleb->GetID()) {
 
       $table->AddRow('<a href="'.internal_link('hunter', array('id'=>$member->GetID())).'">'.$member->GetName().'</a>',
@@ -116,9 +86,6 @@ function output() {
 
     } else {
 
-	    if ($member->getRank()->GetWeight() == $meet)
-	    	$hasEqual = true;
-	    
       $table->AddRow('<a href="'.internal_link('hunter', array('id'=>$member->GetID())).'">'.$member->GetName().'</a>',
           '<a href="mailto:'.$member->GetEmail().'">'.$member->GetEmail().'</a>',
           '<a href="'.internal_link('admin_cadre_buy_members', array('submit'=>'remove','hunter'=>$member->GetID())).'">Remove</a>');
@@ -150,39 +117,24 @@ function output() {
     $table->AddHeader('');
     $table->EndRow();
 
-    $canJoin = true;
-    
-    if (sizeof($cadre->GetMembers()) == 5)
-    	$canJoin = false;
-    
     while ($member = mysql_fetch_assoc($members)) {
-	    
-	    $temp = false;
-	    
+
       $m = $roster->GetPerson($member['person']);
 
-      if ($canJoin){
-	      if ($m->getRank()->getWeight() > $meet)
-	      	$temp = true;
-	      elseif ($m->getRank()->getWeight() == $meet && !$hasEqual)
-	      	$temp = true;	      	
-	  }
-      
-	  if ($m->InCadre())
-	  	$temp = false;
+			$canJoin = $cadre->CanJoin($m);
 
       $table->AddRow(
           '<a href="'.internal_link('hunter', array('id'=>$m->GetID())).'">'
             .$m->GetName().'</a>',
           ($m->InCadre() ? 'Yes' : 'No'),
-          ($temp ? 'Yes' : 'No'),
-          ($temp
+          ($canJoin ? 'Yes' : 'No'),
+          ($canJoin
            ? '<a href="'.internal_link('admin_cadre_buy_members',
                                        array('submit'=>'add',
                                              'hunter'=>$m->GetID()))
              .'">Add</a>'
            : ''));
-      
+
     }
 
     $table->EndTable();
