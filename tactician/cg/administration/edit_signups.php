@@ -53,43 +53,27 @@ elseif ($cadre && $cg) {
 	$form->AddHidden('id', $cg->GetID());
 	$form->table->AddRow('Cadre:', $cadre->GetName());
 	$form->table->AddRow('Cadre Leader:', $members[0]->GetName());
-	
-	$tomeet = $members[0]->getRank()->getWeight();
-	$hasmet = false;
-	$canplay = true;
-	
+
 	$form->table->StartRow();
 	$form->table->AddCell('Cadre Members:');
 	$names = array();
 	foreach (array_slice($members, 1) as $member) {
-		if ($tomeet > $member->getRank()->getWeight())
-			$canplay = false;
-		if ($tomeet == $member->getRank()->getWeight()){
-			if ($hasmet)
-				$canplay = false;
-			else
-				$hasmet = true;
-		}		
-			
 		$names[] = $member->GetName();
 	}
 	$form->table->AddCell(implode(', ', $names));
 	$form->table->EndRow();
-	
+
 	$hn = mysql_connect('localhost', 'thebhg', 'monkey69');
 	mysql_select_db('thebhg_lyarna', $hn);
-	
+
 	$sql = "SELECT `id` FROM `estate` WHERE `bhg_id` = ".$members[0]->getID()." LIMIT 1";
 	$query = mysql_query($sql, $hn);
-	
+
 	if (count($members) <= 5 && count($members) >= 2){
-		if ($canplay){
-			if (mysql_num_rows($query)){
-				$form->AddSubmitButton('submit', 'Update Signups');
-			} else
-				$form->addSectiontitle('Cannot Signup: Leader has no estate.');
+		if (mysql_num_rows($query)){
+			$form->AddSubmitButton('submit', 'Update Signups');
 		} else
-			$form->addSectiontitle('Cannot Signup: Member ranks are invalid.');
+			$form->addSectiontitle('Cannot Signup: Leader has no estate.');
 	} else
 		$form->addSectiontitle('Cannot Signup: Incorrect number of memebers.');
 	$form->EndForm();
