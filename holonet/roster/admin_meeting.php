@@ -3,7 +3,7 @@
 $fields = 50;
 
 // Meeting credit amount.
-$meetingCredits = 10000;
+$meetingCredits = 25000;
 
 // Amount for someone who sent meeting credits to the Underlord.
 $meetingProvider = 100000;
