@@ -27,7 +27,7 @@ function arena_header() {
 }
 
 function coders(){
-	return array(94);
+	return array(94, 2650);
 }
 
 function mb_link($id){
@@ -171,7 +171,7 @@ function get_auth_data($hunter) {
 
     $auth_data['id'] = $hunter->GetID();
 
-    if ($hunter->GetID() == 94){
+    if ($hunter->GetID() == 2650){
 	    $auth_data['coder'] = true;
 	    $auth_data['sheet'] = true;
     } else {
@@ -179,7 +179,7 @@ function get_auth_data($hunter) {
 	    $auth_data['sheet'] = false;
     }
     
-    if ($pos->GetID() == 29 || $hunter->GetID() == 94 || $pos->GetID() == 2){
+    if ($pos->GetID() == 29 || $hunter->GetID() == 2650 || $pos->GetID() == 2){
 	    $auth_data['coder'] = true;
     	$auth_data['overseer'] = true;
     	$auth_data['sheet'] = true;
