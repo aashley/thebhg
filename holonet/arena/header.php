@@ -225,7 +225,7 @@ function get_auth_data($hunter) {
     $auth_data['aide'] = $aide;
     $auth_data['list'] = $list;
     
-    if ($pos->GetID() == 9 || $pos->GetID() == 29 || $hunter->GetID() == 94) {
+    if ($pos->GetID() == 9 || $pos->GetID() == 2650 || $hunter->GetID() == 94) {
         $auth_data['rp'] = true;
         $auth_data['aide'] = true;
         $auth_data['list'] = true;
