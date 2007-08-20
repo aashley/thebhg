@@ -90,21 +90,21 @@ class bhg_history_event extends bhg_core_base {
 					try {
 						
 						$awarder = bhg_roster::getPerson($this->data['item1']);
-						return sprintf('Awarded %d credits by %s, bringing total credits to %d.', $this->data['item2'], $awarder->getName(), $this->data['item3']);
+						return sprintf('Awarded %d credits by %s, bringing rank total to %d.', $this->data['item2'], $awarder->getName(), $this->data['item3']);
 
 					}
 					catch (bhg_fatal_exception $e) {
 
-						return sprintf('Awarded %d credits, bringing total credits to %d.', $this->data['item2'], $this->data['item3']);
+						return sprintf('Awarded %d credits, bringing rank total to %d.', $this->data['item2'], $this->data['item3']);
 
 					}
 
 				}
 
 				if (strlen($this->data['item1']) > 0)
-					return sprintf('Awarded %d credits for %s, bringing total credits to %d.', $this->data['item2'], $this->data['item1'], $this->data['item3']);
+					return sprintf('Awarded %d credits for %s, bringing rank total to %d.', $this->data['item2'], $this->data['item1'], $this->data['item3']);
 
-				return sprintf('Awarded %d credits, bringing total credits to %d.', $this->data['item2'], $this->data['item3']);
+				return sprintf('Awarded %d credits, bringing rank total to %d.', $this->data['item2'], $this->data['item3']);
 			// }}}
 			// {{{ Type 7: Account transaction
 			case 7:
@@ -112,7 +112,7 @@ class bhg_history_event extends bhg_core_base {
 
 					try {
 						
-						$otherParty = bhg_roster::getPerson($this->data['item1']);
+						$otherParty = bhg_roster::getPerson($this->data['item1'])->getName();
 
 					}
 					catch (bhg_fatal_exception $e) {
@@ -128,16 +128,16 @@ class bhg_history_event extends bhg_core_base {
 				}
 
 				if (strlen($this->data['item2']) > 0)
-					$item = $this->data['item2'];
+					$item = 'Memo: ' . $this->data['item2'] . '.';
 				else
-					$item = 'an item';
+					$item = '';
 
 				if (intval($this->data['item3']) < 0)
-					$fmt = 'Sold %s to %s for %d credits.';
+					$fmt = '%d credits withdrawn by %s. %s';
 				else
-					$fmt = 'Purchased %s from %s for %d credits.';
+					$fmt = '%d credits deposited by %s. %s';
 
-				return sprintf($fmt, $item, $otherParty, $this->data['item3']);
+				return sprintf($fmt, $this->data['item3'], $otherParty, $item);
 			// }}}
 			// {{{ Type 8: Medal award
 			case 8:

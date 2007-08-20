@@ -53,19 +53,19 @@ class bhg_roster_division extends bhg_core_base {
 	}
 
 	// }}}
-	// {{{ isKabal()
+	// {{{ isCadre()
 	
 	/**
-	 * Is this division a Kabal?
+	 * Is this division a Cadre?
 	 *
 	 * @return boolean
 	 */
-	public function isKabal() {
+	public function isCadre() {
 
-		if ($this instanceof bhg_roster_kabal)
+		if ($this instanceof bhg_roster_cadre)
 			return true;
 
-		return $this->getCategory()->hasKabals();
+		return $this->getCategory()->hasCadres();
 
 	}
 

@@ -55,6 +55,13 @@ class bhg_roster_pending_credit extends bhg_core_base {
 					$this->getReason());
 
 			if ($return)
+			$return = $this->getRecipient()->depositAccount($this->getAccount(),
+					$this->getAwarder()->getID(),
+					$this->getReason());
+				
+			$this->getRecipient()->handleRank();
+						
+			if ($return)
 				$this->delete();
 
 			return $return;

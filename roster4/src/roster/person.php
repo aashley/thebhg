@@ -30,18 +30,19 @@ class bhg_roster_person extends bhg_core_base {
 	public function __construct($id) {
 		parent::__construct('roster_person', $id);
 		$this->__blackListVar('get', array('md5password', 'passwd', 'redoranks'));
-		$this->__blackListVar('set', array('md5password', 'passwd', 'redoranks', 'rankcredits', 'accountbalance'));
-		$this->__addBooleanFields(array('ship', 'completedcoreexam'));
+		$this->__blackListVar('set', array('md5password', 'passwd', 'redoranks', 'rankcredits'));
+		$this->__addBooleanFields(array('ship', 'completedcoreexam', 'lha', 'inactive'));
 		$this->__addFieldMap(array(
 					'rank' => 'bhg_roster_rank',
+					'cadrerank' => 'bhg_roster_rank',
 					'division' => 'bhg_roster_division',
 					'position' => 'bhg_roster_position',
-					'cadre' => 'bhg_roster_cadre',
 					'previousdivision' => 'bhg_roster_division',
 					));
 		$this->__addDefaultCodePermissions('set', 'god');
 		$this->__addHistoryMap(array(
 					'rank' => BHG_HISTORY_RANK,
+					'cadrerank' => BHG_HISTORY_RANK,
 					'position' => BHG_HISTORY_POSITION,
 					'division' => BHG_HISTORY_DIVISION,
 					'name' => BHG_HISTORY_NAME,
@@ -98,7 +99,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		} else {
 
-			throw bhg_not_found('This person has not yet been transfered.');
+			throw new bhg_not_found('This person has not yet been transfered.');
 
 		}
 
@@ -127,7 +128,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		} else {
 
-			throw bhg_not_found('This person has not yet received a transfer.');
+			throw new bhg_not_found('This person has not yet received a transfer.');
 
 		}
 
@@ -143,7 +144,7 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function getDisplayName() {
 
-		return $this->getRank()->getAbbrev().' '.$this->getName();
+		return $this->getRank()->getName().' '.$this->getName();
 
 	}
 
@@ -175,7 +176,7 @@ class bhg_roster_person extends bhg_core_base {
 	public function getCollegeIDLine() {
 
 		$submissions = $GLOBALS['bhg']->college->getSubmissions(array('passed'    => true,
-																																	'submitter' => $this));
+			'submitter' => $this));
 
 		if ($submissions->count() > 0) {
 			
@@ -222,16 +223,22 @@ class bhg_roster_person extends bhg_core_base {
 
 		$div = $this->getDivision()->getName();
 
+		$gmt = 'BHG';
+		
+		if ($this->isLHA() && $this->isActive()) $gmt = 'LHA';
+		
+		if ($this->getDivision()->getID() == 10) $gmt = 'Commission';
+		
 		if (strlen($special = $this->getPosition()->getSpecialDivision()) > 0)
 			$div = $special;
 
-		$idline = $this->getRank()->getAbbrev()
-			.'/'
-			.$this->getName()
+		$idline = $this->getDisplayName() .
+			($this->inCadre() ? ', '.$this->getCadreRank()->getAbbrev() : '')
 			.'/'
 			.$div
-			.'/BHG -'
-			.$this->getPosition()->getAbbrev();
+			.'/'
+			.$gmt
+			.' -'.$this->getPosition()->getAbbrev();
 
 		if ($showFull) {
 			$medal = $this->getMedalIDLine();
@@ -381,7 +388,7 @@ class bhg_roster_person extends bhg_core_base {
 		if ($this->isDeleted())
 			return false;
 
-		return !($this->data['division'] == 11 || $this->data['division'] == 12);
+		return !($this->data['division'] == 11 || $this->data['division'] == 12 || $this->data['inactive'] == 1);
 
 	}
 
@@ -398,14 +405,14 @@ class bhg_roster_person extends bhg_core_base {
 
 		if (is_null($cadre)) {
 
-			return $this->data['cadre'] != 0;
+			return $this->data['cadrerank'] != 0;
 
 		} else {
 
-			if ($this->data['cadre'] == 0)
+			if ($this->data['cadrerank'] == 0)
 				return false;
 
-			return $cadre->isEqualTo($this->getCadre());
+			return $cadre->isEqualTo($this->getDivision());
 
 		}
 
@@ -421,10 +428,13 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function isCadreLeader() {
 
-		if ($this->data['cadre'] == 0)
+		if ($this->data['cadrerank'] == 0)
 			return false;
+			
+		if ($this->data['position'] != 34)
+			return false;	
 
-		return $this->isEqualTo($this->getCadre()->getLeader());
+		return true;
 
 	}
 
@@ -475,7 +485,6 @@ class bhg_roster_person extends bhg_core_base {
 			
 			$result = $this->__saveValue(array(
 						'rankcredits' => array("(rankcredits + $credits)", true),
-						'accountbalance' => array("(accountbalance + $credits)", true),
 						));
 
 			$this->__recordHistoryEvent(BHG_HISTORY_CREDIT, $this, $awarder->getID(), $credits, $this->getRankCredits(), $reason);
@@ -516,27 +525,13 @@ class bhg_roster_person extends bhg_core_base {
 	 * Withdraw credits from account balance
 	 *
 	 * @param integer Cost of purchase
-	 * @param string The location that the withdrawl was done
 	 * @param string The reason for the withdrawl
+	 * @param string The location that the withdrawl was done
 	 * @return boolean
 	 */
-	public function withdrawAccount($credits, $from, $for = '') {
+	public function withdrawAccount($credits, $from, $for) {
 
-		if ($GLOBALS['bhg']->hasPerm('purchase')) {
-			
-			$result = $this->__saveValue(array(
-						'accountbalance' => array("(accountbalance - $credits)", true),
-						));
-
-			$this->__recordHistoryEvent(BHG_HISTORY_ACCOUNT, $this, $from, $for, $credits);
-
-			return $result;
-
-		} else {
-
-			throw new bhg_coder_exception();
-
-		}
+		return $this->depositAccount(-$credits, $from, $for);
 
 	}
 
@@ -547,18 +542,68 @@ class bhg_roster_person extends bhg_core_base {
 	 * Make a deposit into the account
 	 *
 	 * @param integer amount of deposit
-	 * @param string The location that the deposit was done
 	 * @param string The reason for the deposit
+	 * @param string The location that the deposit was done
 	 * @return boolean
 	 */
-	public function depositAccount($credits, $from, $for = '') {
+	public function depositAccount($credits, $from, $for) {
 
-		return $this->withdrawAccount(-$credits, $from, $for);
+		if ($GLOBALS['bhg']->hasPerm('purchase')) {
+			
+			$result = $this->__createRecord('roster_person_bank', array(
+						'person' => $this->data['id'],
+						'amount' => $credits,
+						'reason' => $for,
+						'source' => $from,
+						),
+						false);
+
+			$this->__recordHistoryEvent(BHG_HISTORY_ACCOUNT, $this, $from, $for, $credits);
+
+			return $result;
+
+		} else {
+
+			throw new bhg_coder_exception();
+
+		}
+		
+	}
+
+	// }}}
+	// {{{ requestCreditAward()
+	
+	/**
+	 * Request a credit award for this person
+	 *
+	 * @param object bhg_roster_division
+	 * @param integer
+	 * @param integer
+	 * @param string
+	 * @return boolean
+	 */
+	public function requestCreditAward(bhg_roster_person $awarder, $amount, $account, $reason) {
+
+		if ($GLOBALS['bhg']->hasPerm('god')) {
+
+			return $this->__createRecord('roster_pending_credit',
+					array(
+						'recipient' => $this->getID(),
+						'awarder' => $awarder->getID(),
+						'amount' => $amount,
+						'account' => $account,
+						'reason' => $reason,
+						));
+						
+		} else {
+
+			throw new bhg_coder_exception();
+
+		}
 
 	}
 
 	// }}}
-
 	// {{{ requestTransfer()
 	
 	/**
@@ -626,8 +671,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		if ($GLOBALS['bhg']->hasPerm('god')) {
 
-			if (	 (	 $this->getPosition()->isEqualTo(bhg_roster::getPosition(11))
-							|| $this->getPosition()->isEqualTo(bhg_roster::getPosition(12)))
+			if ($this->getPosition()->isEqualTo(bhg_roster::getPosition(34))
 					&& $this->getDivision()->isEqualTo($target, true)) {
 
 				return $this->setPosition(bhg_roster::getPosition(14));
@@ -672,7 +716,20 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ delete()
 
+	/**
+	 * Returns the current credit amount in the person's bank
+	 *
+	 * @return boolean
+	 */
+	public function getAccountBalance(){
+		$sql = 'SELECT SUM(`amount`) FROM `roster_person_bank` '
+					.'WHERE person = "' . $this->data['id'] . '"';
+
+		return $this->db->getOne($sql);
+	}
+	// }}}
 	// {{{ handleRank()
 
 	/**
@@ -705,7 +762,43 @@ class bhg_roster_person extends bhg_core_base {
 			}
 
 		}
+		
+		if ($this->getDivision()->isEqualTo(bhg_roster::getDivision(26))) {
 
+			$this->setLHA(true);
+
+		}
+
+		if ($this->inCadre()) {
+
+			$ranks = bhg_roster::getRank(array('cadre' => 1, 
+					'division' => $this->getDivision(),
+					'manuallyset' => false,
+					));
+
+			$newrank = null;
+			
+			foreach ($ranks as $rank) {
+
+				if ($rank->getRequiredCredits() <= $this->getRankCredits()) {
+
+					$newrank = $rank;
+
+					break;
+
+				}
+
+			}
+
+			if (!is_null($newrank)
+					&& !$rank->isEqualTo($this->getCadreRank())) {
+
+				$this->setCadreRank($rank);
+
+			}
+
+		}
+		
 		if ($this->getRank()->isManuallySet()) {
 
 			if ($this->getPosition()->isTrainee()) {
@@ -713,12 +806,14 @@ class bhg_roster_person extends bhg_core_base {
 				$ranks = $GLOBALS['gen3']->getRanks(array(
 							'alwaysavailable' => true,
 							'manuallyset' => false,
+							'cadre'	=> 0,
 							));
 
 			} else {
 
 				$ranks = $GLOBALS['gen3']->getRanks(array(
 							'manuallyset' => false,
+							'cadre' => 0,
 							));
 
 			}

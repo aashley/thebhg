@@ -29,7 +29,7 @@ class bhg_roster_division_category extends bhg_core_base {
 	 */
 	public function __construct($id) {
 		parent::__construct('roster_division_category', $id);
-		$this->__addBooleanFields(array('kabals'));
+		$this->__addBooleanFields(array('cadres'));
 		$this->__addDefaultCodePermissions('set', 'god');
 	}
 
@@ -59,16 +59,16 @@ class bhg_roster_division_category extends bhg_core_base {
 	 * @param array Filters to select which divisions to load
 	 * @return bhg_core_list
 	 */
-	public function getKabals($filter = array()) {
+	public function getCadres($filter = array()) {
 
-		if (!$this->hasKabals())
-			return new bhg_core_list('bhg_roster_kabal', array());
+		if (!$this->hasCadres())
+			return new bhg_core_list('bhg_roster_cadre', array());
 
 		$filter['category'] = $this;
 
 		$divisions = $GLOBALS['bhg']->roster->getDivisions($filter);
 
-		return new bhg_core_list('bhg_roster_kabal', $divisions->items);
+		return new bhg_core_list('bhg_roster_cadre', $divisions->items);
 
 	}
 

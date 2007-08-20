@@ -28,9 +28,9 @@ class bhg_roster_cadre extends bhg_core_base {
 	 * @return void
 	 */
 	public function __construct($id) {
-		parent::__construct('roster_cadre', $id);
+		parent::__construct('roster_division', $id);
 		$this->__addFieldMap(array(
-					'leader' => 'bhg_roster_person',
+					'category' => 'bhg_roster_division_category',
 					));
 		$this->__addDefaultCodePermissions('set', 'god');
 	}
@@ -53,7 +53,35 @@ class bhg_roster_cadre extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getChief()
+	
+	/**
+	 * Get the Chief of this Kabal
+	 *
+	 * @return mixed bhg_roster_person if there is a Chief else false
+	 */
+	public function getLeader() {
 
+		$filter = array(
+				'division' => $this,
+				'position' => bhg_roster::getPosition(34),
+				);
+
+		$p = $GLOBALS['bhg']->roster->getPeople($filter);
+
+		if ($p->count() >= 1) {
+			
+			return $p->getItem(0);
+
+		} else {
+
+			return false;
+
+		}
+
+	}
+
+	// }}}
 }
 
 ?>

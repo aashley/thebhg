@@ -114,7 +114,7 @@ class bhg_core_base {
 	 */
 	public function __construct($table = null, $id = null) {
 
-		$this->db = DB::connect('mysql://thebhg_rosedit:657cbf05@localhost/thebhg_roster');
+		$this->db = DB::connect('mysql://root:G4rsid3@localhost/bhgdevel');
 
 		if (DB::isError($this->db)) {
 
@@ -308,7 +308,7 @@ class bhg_core_base {
 
 					} else {
 						
-						return $this->data[$varname];
+						return stripslashes($this->data[$varname]);
 
 					}
 
