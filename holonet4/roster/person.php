@@ -156,7 +156,6 @@ class page_roster_person extends holonet_page {
 		$table->addRow(array('Name:', htmlspecialchars($person->getName())));
 		$table->addRow(array('Rank:', holonet::output($person->getRank())));
 		$table->addRow(array('Position:', holonet::output($person->getPosition())));
-		$table->addRow(array('Division:', holonet::output($person->getDivision())));
 		
 		if ($person->inCadre()) {
 
@@ -167,7 +166,8 @@ class page_roster_person extends holonet_page {
 			
 			$table->addRow(array('Cadre:', $cadre));
 
-		}
+		} else
+			$table->addRow(array('Division:', holonet::output($person->getDivision())));
 
 		if (strlen($quote = $person->getQuote()) > 0)
 			$table->addRow(array('Quote:', '<i>'.htmlspecialchars($quote).'</i>'));

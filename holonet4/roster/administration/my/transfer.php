@@ -31,26 +31,34 @@ class page_roster_administration_my_transfer extends holonet_page {
 
 		}
 
-		$lastTransferDate = $user->getDateLastTransfer();
+		$canTransfer = false;
+		
+		try {
+			$lastTransferDate = $user->getDateLastTransfer();
 			
-		$lastTransferDate->addSeconds(86400 * 30);
-
-		if (	 $lastTransferDate->isPast() 
-				|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(10))
-				|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(18))
-				|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(12))) {
-			
-			$targets = $GLOBALS['bhg']->roster->getDivisions(array('category' => bhg_roster::getDivisionCategory(2)));
+			$lastTransferDate->addSeconds(86400 * 30);
+	
+			if (	 $lastTransferDate->isPast() 
+					|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(10))
+					|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(18))
+					|| $user->getDivision()->isEqualTo(bhg_roster::getDivision(12))) {
+				$canTransfer = true;
+			}
+		} catch (Exception $e) {
+			$canTransfer = true;
+		}
+		
+		if ($canTransfer = true){
+			$targets = $GLOBALS['bhg']->roster->getDivisions(array('category' => bhg_roster::getDivisionCategory(5)));
 			$targets->append($retirees);
 			$options = array();
-
+	
 			foreach ($targets as $target) {
-
+	
 				$options[$target->getID()] = $target->getName();
-
+	
 			}
-
-		}
+		}		
 
 		$form = new holonet_form('my_tranfer');
 
@@ -80,7 +88,7 @@ class page_roster_administration_my_transfer extends holonet_page {
 				$user->requestTransfer($target);
 
 				$this->addBodyContent('Success.</p>');
-
+				
 			} catch (bhg_fatal_exception $e) {
 
 				$this->addBodyContent('Failure.</p>');

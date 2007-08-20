@@ -42,7 +42,8 @@ class page_roster_administration_award_approve extends holonet_page {
 					'&nbsp;',
 					'Recipient',
 					'Awarder',
-					'Amount',
+					'Rank Credits',
+					'Account Credits',
 					'Reason',
 					'Approve',
 					));
@@ -55,6 +56,7 @@ class page_roster_administration_award_approve extends holonet_page {
 				."\t\t<th class=\"label_4\">{label_4}</th>\n"
 				."\t\t<th class=\"label_5\">{label_5}</th>\n"
 				."\t\t<th class=\"label_6\">{label_6}</th>\n"
+				."\t\t<th class=\"label_7\">{label_7}</th>\n"
 				."\t</tr>",
 				'credits_header');
 
@@ -78,6 +80,14 @@ class page_roster_administration_award_approve extends holonet_page {
 
 			$fields[] = $form->createElement('text',
 					'amount',
+					null,
+					array(
+						'size'		  => 10,
+						'maxlength' => 15,
+						));
+						
+			$fields[] = $form->createElement('text',
+					'account',
 					null,
 					array(
 						'size'		  => 10,
@@ -115,6 +125,7 @@ class page_roster_administration_award_approve extends holonet_page {
 
 			$defaults['pendingCredit['.$pendingCredit->getID().'][recipient]'] = $pendingCredit->getRecipient();
 			$defaults['pendingCredit['.$pendingCredit->getID().'][amount]'] = $pendingCredit->getAmount();
+			$defaults['pendingCredit['.$pendingCredit->getID().'][account]'] = $pendingCredit->getAccount();
 			$defaults['pendingCredit['.$pendingCredit->getID().'][reason]'] = $pendingCredit->getReason();
 			$defaults['pendingCredit['.$pendingCredit->getID().'][approve]'] = 'approve';
 
@@ -144,10 +155,12 @@ class page_roster_administration_award_approve extends holonet_page {
 				if ($data['approve'] == 'approve') {
 
 					$pendingCredit->setAmount($data['amount']);
+					$pendingCredit->setAccount($data['account']);
 					$pendingCredit->setReason($data['reason']);
 
 					$tab->addContent('Approving pending credit award #'.$pendingCredit->getID().' of '
-							.number_format($pendingCredit->getAmount()).' to '
+							.number_format($pendingCredit->getAmount()).' rank, '
+							.number_format($pendingCredit->getAmount()).' account  to '
 							.$pendingCredit->getRecipient()->getName().'<br/>');
 
 					$pendingCredit->approve();

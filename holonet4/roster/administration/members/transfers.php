@@ -134,7 +134,7 @@ class page_roster_administration_members_transfers extends holonet_page {
 								.$pendingTransfer->getTarget()->getName().'<br/>');
 
 						$pendingTransfer->approve();
-
+						$user->handleRank();
 					} elseif ($data['approve'] == 'deny') {
 
 						$tab->addContent('Deny pending transfer #'.$pendingTransfer->getID().'<br/>');

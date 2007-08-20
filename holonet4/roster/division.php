@@ -9,8 +9,8 @@ class page_roster_division extends holonet_page {
 		list($id) = $this->getTrailingElements();
 		$div = bhg_roster::getDivision($id);
 
-		if ($div->isKabal())
-			$div = bhg_roster::getKabal($id);
+		if ($div->isCadre())
+			$div = bhg_roster::getCadre($id);
 
 		$this->setTitle('Division :: '.$div->getName());
 
@@ -43,38 +43,21 @@ class page_roster_division extends holonet_page {
 												.htmlspecialchars($div->getMailingList())
 												.' at thebhg.org</a>'));
 
-		if ($div->isKabal()) {
+		if ($div->isCadre()) {
 			
 			try {
 
-				$chief = $div->getChief();
+				$leader = $div->getLeader();
 	
 				$body->addRow(array(
-							'Chief:',
-							holonet::output($chief),
+							'Leader:',
+							holonet::output($leader),
 							));
 
 			} catch (bhg_list_exception_notfound $e) {
 
 				$body->addRow(array(
-							'Chief:', 'N/A'
-							));
-
-			}
-
-			try {
-
-				$cra = $div->getCRA();
-
-				$body->addRow(array(
-							'CRA:',
-							holonet::output($cra),
-							));
-
-			} catch (bhg_list_exception_notfound $e) {
-
-				$body->addRow(array(
-							'CRA:', 'N/A'
+							'Leader:', 'N/A'
 							));
 
 			}

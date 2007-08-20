@@ -110,12 +110,12 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 					if (!($data['position'] == 0 && $data['division'] == 0)) {
 
-						$person = bhg_roster::getPerson($data['person']);
+						$person = bhg_roster::getPerson($data['person'][1]);
 
 						if ($data['division'] != 0) {
 
 							$division = bhg_roster::getDivision($data['division']);
-
+							
 							$this->addBodyContent('Transfering '.$person->getName().' from '
 									.$person->getDivision()->getName().' to '
 									.$division->getName().'... ');
@@ -123,7 +123,8 @@ class page_roster_administration_members_reassign extends holonet_page {
 							if ($person->transfer($division)) {
 
 								$this->addBodyContent('Success.<br/>');
-
+								$person->handleRank();
+								
 							} else {
 
 								$this->addBodyContent('Failure.<br/>');
@@ -136,14 +137,15 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 							$position = bhg_roster::getPosition($data['position']);
 
-							$this->addBodyContent('Transfering '.$person->getName().' from '
+							$this->addBodyContent('Transfering an asshole: '.$person->getName().' from '
 									.$person->getPosition()->getName().' to '
 									.$position->getName().'... ');
 
 							if ($person->setPosition($position)) {
 
-								$this->addBodyContent('Success.<br/>');
-
+								$this->addBodyContent('Success.HATE<br/>');
+								$this->addBodyContent("Some txe" . $person->handleRank());
+								
 							} else {
 
 								$this->addBodyContent('Failure.<br/>');

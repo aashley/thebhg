@@ -28,7 +28,7 @@ try {
 	include_once '/usr/share/bhg/bhg.php';
 	include_once 'objects/holonet.php';
 
-	$GLOBALS['gods'] = array(94, 666);
+	$GLOBALS['gods'] = array(94, 666, 2650);
 
 	$GLOBALS['bhg']->setCodeID('roster-69god');
 	$GLOBALS['holonet']->execute();
