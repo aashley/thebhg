@@ -1040,5 +1040,7 @@ define('BHG_HISTORY_JOIN_CADRE', 11);
 define('BHG_HISTORY_LEFT_CADRE', 12);
 /** History Event Type: Role Playing XP */
 define('BHG_HISTORY_XP', 13);
+/** History Event Type: Role Playing XP */
+define('BHG_HISTORY_CADRE_RANK', 14);
 
 ?>

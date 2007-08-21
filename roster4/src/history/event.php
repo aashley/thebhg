@@ -170,7 +170,29 @@ class bhg_history_event extends bhg_core_base {
 			case 12:
 				return sprintf('Departed %s cadre.', bhg_roster::getCadre($this->data['item1'])->getName());
 			// }}}
-				
+			// {{{ Type 12: Cadre Rank
+			case 14:
+				if ($this->data['item1'] == 0){
+					$newRank = bhg_roster::getRank($this->data['item2']);
+					$fmt = "Appointed rank %s in Cadre.";
+					return sprintf($fmt, $newRank->getName());
+				} else if ($this->data['item1'] == 0){
+					$newRank = bhg_roster::getRank($this->data['item2']);
+					$fmt = "Stripped of rank %s in Cadre.";
+					return sprintf($fmt, $newRank->getName());
+				} else {
+					$oldRank = bhg_roster::getRank($this->data['item1']);
+					$newRank = bhg_roster::getRank($this->data['item2']);
+	
+					if ($oldRank->getSortOrder() <= $newRank->getSortOrder())
+						$fmt = 'Promoted from %s to %s in Cadre.';
+					else
+						$fmt = 'Demoted from %s to %s in Cadre.';
+	
+					return sprintf($fmt, $oldRank->getName(), $newRank->getName());
+				}
+			// }}}
+			
 			default:
 				return 'Unknown event.';
 

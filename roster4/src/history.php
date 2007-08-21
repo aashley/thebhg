@@ -57,6 +57,11 @@ class bhg_history extends bhg_entry {
 		if (isset($filter['type']))
 			$sqlfilters[] = '`type` = '.$filter['type'].' ';
 
+		for ($i = 1; $i <= 4; ++$i)
+			if (isset($filter['item'.$i]))
+				$sqlfilters[] = '`item' . $i . '` ' . 
+					(is_array($filter['item'.$i]) ? "IN ('" . implode("','", $filter['item'.$i]) . "') " : '= ' . $filter['item'.$i] .' ');
+			
 		if (isset($filter['before'])
 				&& $filter['before'] instanceof Date)
 			$sqlfilters[] = '`datecreated` < '.$filter['before']->getDate().' ';

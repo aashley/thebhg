@@ -25,11 +25,11 @@ class bhg_roster extends bhg_entry {
 	 * Load a specific Cadre
 	 *
 	 * @param integer
-	 * @return bhg_roster_cadres
+	 * @return bhg_roster_divisions
 	 */
 	static public function getCadre($id) {
 
-		return bhg::loadObject('bhg_roster_cadre', $id);
+		return bhg::loadObject('bhg_roster_division', $id);
 
 	}
 
@@ -65,7 +65,7 @@ class bhg_roster extends bhg_entry {
 
 		} else {
 
-			return new bhg_core_list('bhg_roster_cadre', $results);
+			return new bhg_core_list('bhg_roster_division', $results);
 
 		}
 
@@ -382,24 +382,24 @@ class bhg_roster extends bhg_entry {
 	 */
 	public function getPendingTransfers($filter = array()) {
 
-		$sql = 'SELECT roster_pending_transfer.id '
+		$sql = 'SELECT id '
 					.'FROM roster_pending_transfer ';
 
 		$sqlfilters = array();
 
 		if (!isset($filter['deleted']) || $filter['deleted'] == false)
-			$sqlfilters[] = 'roster_pending_transfer.datedeleted IS NULL ';
+			$sqlfilters[] = 'datedeleted IS NULL ';
 
-		if (isset($filter['recipient']) && $filter['recipient'] instanceof bhg_roster_person)
-			$sqlfilters[] = 'roster_pending_transfer.recipient = '.$filter['recipient']->getID().' ';
+		if (isset($filter['person']) && $filter['person'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'person = '.$filter['person']->getID().' ';
 
-		if (isset($filter['awarder']) && $filter['awarder'] instanceof bhg_roster_person)
-			$sqlfilters[] = 'roster_pending_transfer.awarder = '.$filter['awarder']->getID().' ';
+		if (isset($filter['target']) && $filter['target'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'target = '.$filter['target']->getID().' ';
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
-		$sql .= 'ORDER BY roster_pending_transfer.datecreated ASC ';
+		$sql .= 'ORDER BY datecreated ASC ';
 
 		$results = $this->db->getCol($sql);
 
@@ -410,6 +410,70 @@ class bhg_roster extends bhg_entry {
 		} else {
 
 			return new bhg_core_list('bhg_roster_pending_transfer', $results);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ getPendingCadre() [static]
+
+	/**
+	 * Load a specific pending cadre
+	 *
+	 * @param integer
+	 * @return bhg_roster_pending_cadre
+	 */
+	static public function getPendingCadre($id) {
+
+		return bhg::loadObject('bhg_roster_pending_cadre', $id);
+
+	}
+
+	// }}}
+	// {{{ getPendingCadres()
+
+	/**
+	 * Get all pending_cadres in the system
+	 *
+	 * @param array Filters to select which pending_cadres to load
+	 * @return bhg_core_list
+	 */
+	public function getPendingCadres($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM roster_pending_cadre ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['leader']) && $filter['leader'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'leader = '.$filter['leader']->getID().' ';
+
+		if (isset($filter['member']) && $filter['member'] instanceof bhg_roster_person){
+			$or = array('leader = '.$filter['member']->getID().' ');
+			for ($i = 1; $i <= 6; ++$i)
+				$or[] = 'member' . $i . ' = '.$filter['member']->getID().' ';
+				
+			$sqlfilters[] = '((' . implode(') OR (', $or) . '))';
+		}
+
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY datecreated ASC ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of pending cadres.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_pending_cadre', $results);
 
 		}
 
@@ -463,8 +527,8 @@ class bhg_roster extends bhg_entry {
 			$sqlfilters[] = '`rank` = '.$this->db->quoteSmart($filter['rank']->getID());
 
 		if (isset($filter['cadre'])
-				&& $filter['cadre'] instanceof bhg_roster_cadre)
-			$sqlfilters[] = '`cadre` = '.$this->db->quoteSmart($filter['cadre']->getID());
+				&& $filter['cadre'] instanceof bhg_roster_division)
+			$sqlfilters[] = '`division` = '.$this->db->quoteSmart($filter['cadre']->getID());
 
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
@@ -595,7 +659,7 @@ class bhg_roster extends bhg_entry {
 
 		if (isset($filter['manuallyset']))
 			$sqlfilters[] = 'manuallyset = '.($filter['manuallyset'] ? '1' : '0');
-
+			
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 

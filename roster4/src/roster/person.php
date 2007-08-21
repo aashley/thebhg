@@ -42,7 +42,7 @@ class bhg_roster_person extends bhg_core_base {
 		$this->__addDefaultCodePermissions('set', 'god');
 		$this->__addHistoryMap(array(
 					'rank' => BHG_HISTORY_RANK,
-					'cadrerank' => BHG_HISTORY_RANK,
+					'cadrerank' => BHG_HISTORY_CADRE_RANK,
 					'position' => BHG_HISTORY_POSITION,
 					'division' => BHG_HISTORY_DIVISION,
 					'name' => BHG_HISTORY_NAME,
@@ -77,6 +77,20 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getCadre()
+	
+	/**
+	 * Alias of getDivision
+	 *
+	 * @return object Date
+	 */
+	public function getCadre() {
+
+		return $this->getDivision();
+
+	}
+
+	// }}}
 	// {{{ getDateLastTransfer()
 	
 	/**
@@ -106,6 +120,24 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ pendingCadreRequest()
+	
+	/**
+	 * Retrieve the Date of this person's last division transfer
+	 *
+	 * @return object Date
+	 */
+	public function hasPendingCadreRequest() {
+
+		$filter['member'] = $this;
+
+		$cadres = $GLOBALS['bhg']->roster->getPendingCadres($filter);
+
+		return ($cadres->count() > 0);
+
+	}
+
+	// }}}	
 	// {{{ getDateLastPromotion()
 	
 	/**
@@ -227,10 +259,7 @@ class bhg_roster_person extends bhg_core_base {
 		
 		if ($this->isLHA() && $this->isActive()) $gmt = 'LHA';
 		
-		if ($this->getDivision()->getID() == 10) $gmt = 'Commission';
-		
-		if (strlen($special = $this->getPosition()->getSpecialDivision()) > 0)
-			$div = $special;
+		if (strlen(($special = $this->getPosition()->getSpecialDivision()))) $gmt = $special;
 
 		$idline = $this->getDisplayName() .
 			($this->inCadre() ? ', '.$this->getCadreRank()->getAbbrev() : '')
@@ -398,18 +427,18 @@ class bhg_roster_person extends bhg_core_base {
 	/**
 	 * Is this person in a cadre?
 	 *
-	 * @param bhg_roster_cadre
+	 * @param bhg_roster_division
 	 * @return boolean
 	 */
 	public function inCadre($cadre = null) {
 
 		if (is_null($cadre)) {
 
-			return $this->data['cadrerank'] != 0;
+			return $this->data['cadrerank'] != 25;
 
 		} else {
 
-			if ($this->data['cadrerank'] == 0)
+			if ($this->data['cadrerank'] == 25)
 				return false;
 
 			return $cadre->isEqualTo($this->getDivision());
@@ -428,14 +457,10 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function isCadreLeader() {
 
-		if ($this->data['cadrerank'] == 0)
-			return false;
-			
-		if ($this->data['position'] != 34)
-			return false;	
-
-		return true;
-
+		if ($this->inCadre())
+			return $this->getCadre()->getLeader()->isEqualTo($this);
+		
+		return false;
 	}
 
 	// }}}
@@ -449,7 +474,11 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function inDivision(bhg_roster_division $division) {
 
-		return $division->isEqualTo($this->getDivision());
+		$pure = $this->getDivision()->isEqualTo($division);
+		if ($this->getPosition()->hasPosDiv())
+			$pos = $this->getPosition()->getDivision()->isEqualTo($division);
+			
+		return ($pure || $pos);
 
 	}
 
@@ -519,6 +548,24 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ accountTransfer()
+
+	/**
+	 * Withdraw credits from account balance
+	 *
+	 * @param integer Cost of purchase
+	 * @param string The reason for the withdrawl
+	 * @param string The location that the withdrawl was done
+	 * @return boolean
+	 */
+	public function accountTransfer($credits, $to, $for) {
+
+		$this->withdrawAccount(-$credits, $to->getID(), $for);
+		$to->depositAccount($credits, $this->getID(), $for);
+		
+	}
+
+	// }}}
 	// {{{ withdrawAccount()
 
 	/**
@@ -529,9 +576,9 @@ class bhg_roster_person extends bhg_core_base {
 	 * @param string The location that the withdrawl was done
 	 * @return boolean
 	 */
-	public function withdrawAccount($credits, $from, $for) {
+	public function withdrawAccount($credits, $from, $for, $cadre = 0) {
 
-		return $this->depositAccount(-$credits, $from, $for);
+		return $this->depositAccount(-$credits, $from, $for, $cadre);
 
 	}
 
@@ -546,7 +593,7 @@ class bhg_roster_person extends bhg_core_base {
 	 * @param string The location that the deposit was done
 	 * @return boolean
 	 */
-	public function depositAccount($credits, $from, $for) {
+	public function depositAccount($credits, $from, $for, $cadre = 0) {
 
 		if ($GLOBALS['bhg']->hasPerm('purchase')) {
 			
@@ -555,10 +602,9 @@ class bhg_roster_person extends bhg_core_base {
 						'amount' => $credits,
 						'reason' => $for,
 						'source' => $from,
+						'cadre' => $cadre,
 						),
 						false);
-
-			$this->__recordHistoryEvent(BHG_HISTORY_ACCOUNT, $this, $from, $for, $credits);
 
 			return $result;
 
@@ -567,6 +613,24 @@ class bhg_roster_person extends bhg_core_base {
 			throw new bhg_coder_exception();
 
 		}
+		
+	}
+
+	// }}}
+	// {{{ cadreDeposit()
+
+	/**
+	 * Withdraw credits from account balance
+	 *
+	 * @param integer Cost of purchase
+	 * @param string The reason for the withdrawl
+	 * @param string The location that the withdrawl was done
+	 * @return boolean
+	 */
+	public function cadreDeposit($credits, $for = 'Direct Deposit') {
+
+		$this->withdrawAccount(-$credits, null, $for, $this->getDivision()->getID());
+		$this->getDivision()->depositAccount($credits, $this->getID(), $for);
 		
 	}
 
@@ -631,6 +695,50 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ requestCreateCadre()
+	
+	/**
+	 * Request to create a new cadre
+	 *
+	 * @return boolean
+	 */
+	public function requestCreateCadre($name, $slogan, $logo, $welcome, $confederates = array()) {
+
+		if ($GLOBALS['bhg']->hasPerm('god')) {
+			if (!is_array($confederates)) $confederates = array();
+			
+			$submit = array(
+				'leader' => $this->getID(),
+				'name' => $name,
+				'slogan' => $slogan,
+				'logo' => $logo,
+				'welcome' => $welcome,
+			);
+			
+			if (count($confederates)){
+				$confeds = array(
+					'member1' => $confederates[0]->getID(),
+					'member2' => $confederates[1]->getID(),
+					'member3' => $confederates[2]->getID(),
+					'member4' => $confederates[3]->getID(),
+					'member5' => $confederates[4]->getID(),
+					'member6' => $confederates[5]->getID(),
+				);
+				
+				$submit = array_merge($submit, $confeds);
+			}
+			
+			return $this->__createRecord('roster_pending_cadre', $submit);
+
+		} else {
+
+			throw new bhg_coder_exception();
+
+		}
+
+	}
+
+	// }}}
 	// {{{ setPassword()
 
 	/**
@@ -671,13 +779,11 @@ class bhg_roster_person extends bhg_core_base {
 
 		if ($GLOBALS['bhg']->hasPerm('god')) {
 
-			if ($this->getPosition()->isEqualTo(bhg_roster::getPosition(34))
-					&& $this->getDivision()->isEqualTo($target, true)) {
+			if ($this->isCadreLeader()) return false;
 
-				return $this->setPosition(bhg_roster::getPosition(14));
-
-			}
-
+			if (!$this->getCadre()->isEqualTo($target))
+				$this->setCadreRank($target->getDefaultRank());
+			
 			return $this->setDivision($target);
 
 		} else {
@@ -730,6 +836,22 @@ class bhg_roster_person extends bhg_core_base {
 		return $this->db->getOne($sql);
 	}
 	// }}}
+	// {{{ getDonatedTo()
+
+	/**
+	 * Returns the current credit amount in the cadre's bank
+	 *
+	 * @return boolean
+	 */
+	public function getDonatedTo($to = null){
+		if (is_null($to)) $to = $this->getCadre();
+		
+		$sql = 'SELECT SUM(`amount`) FROM `roster_cadre_bank` '
+					.'WHERE cadre = "' . $to->data['id'] . ' AND `source` = "' . $this->getID() . '"';
+
+		return $this->db->getOne($sql);
+	}
+	// }}}
 	// {{{ handleRank()
 
 	/**
@@ -770,32 +892,8 @@ class bhg_roster_person extends bhg_core_base {
 		}
 
 		if ($this->inCadre()) {
-
-			$ranks = bhg_roster::getRank(array('cadre' => 1, 
-					'division' => $this->getDivision(),
-					'manuallyset' => false,
-					));
-
-			$newrank = null;
 			
-			foreach ($ranks as $rank) {
-
-				if ($rank->getRequiredCredits() <= $this->getRankCredits()) {
-
-					$newrank = $rank;
-
-					break;
-
-				}
-
-			}
-
-			if (!is_null($newrank)
-					&& !$rank->isEqualTo($this->getCadreRank())) {
-
-				$this->setCadreRank($rank);
-
-			}
+			/** Depository Check **/
 
 		}
 		
@@ -846,7 +944,32 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ canCreateCadre()
+	
+	/**
+	 * Evaluates the ability of a hunter's ability to create a cadre
+	 * @param  boolean
+	 * @return boolean
+	 */
+	public function canCreateCadre($confederate = false){
+		if ($this->inCadre() || ($confederate && $this->getAccountBalance() < 2000000) || $this->hasPendingCadreRequest()) return false;
 
+		$search = array(
+			'person'	=> $this,
+			'type'		=> BHG_HISTORY_DIVISION,
+			'item1'		=> 10,
+			'limit'		=> 1,
+			);
+			
+		$commission = $GLOBALS['bhg']->history->getEvents($search)->count() == 1;
+		
+		$search['type'] = BHG_HISTORY_POSITION; 
+		$search['item1'] = array(11,7,36,35,33,32);
+		$position = $GLOBALS['bhg']->history->getEvents($search)->count() == 1;	
+		
+		return (($this->getRank()->getSortOrder() <= 9 || $commission || $position) != $confederate);
+	}
+	// }}}
 }
 
 ?>
