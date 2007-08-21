@@ -660,6 +660,13 @@ class bhg_roster extends bhg_entry {
 		if (isset($filter['manuallyset']))
 			$sqlfilters[] = 'manuallyset = '.($filter['manuallyset'] ? '1' : '0');
 			
+		if (isset($filter['cadre']))
+			$sqlfilters[] = 'cadre = '.($filter['cadre'] ? '1' : '0');
+			
+		if (isset($filter['division'])
+				&& $filter['division'] instanceof bhg_roster_division)
+			$sqlfilters[] = '`division` = '.$this->db->quoteSmart($filter['division']->getID());
+			
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 

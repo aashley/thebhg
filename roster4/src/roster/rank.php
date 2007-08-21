@@ -29,9 +29,12 @@ class bhg_roster_rank extends bhg_core_base {
 	 */
 	public function __construct($id) {
 		parent::__construct('roster_rank', $id);
-		$this->__addBooleanFields(array('alwaysavailable', 'unlimitedcredits', 'manuallyset', 'locked',
+		$this->__addBooleanFields(array('alwaysavailable', 'unlimitedcredits', 'manuallyset', 'locked', 'deposit', 'rank',
 			'cadre', 'core', 'standard', 'initiate', 'inactive',
 		));
+		$this->__addFieldMap(array(
+					'division' => 'bhg_roster_division',
+					));
 		$this->__addDefaultCodePermissions('set', 'god');
 	}
 
