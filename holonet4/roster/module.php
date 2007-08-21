@@ -246,10 +246,7 @@ class holonet_module_roster extends holonet_module {
 		if ($user->isCadreLeader()){
 			$menu = new holonet_menu;
 			$menu->title = $user->getCadre()->getName();
-			if ($perms['underlord'])
-				$menu->addItem(new holonet_menu_item('Approve Awards', '/roster/administration/award/approve'));
-			$menu->addItem(new holonet_menu_item('Award Credits', '/roster/administration/award/credits'));
-			$menu->addItem(new holonet_menu_item('Award Medals', '/roster/administration/award/medals'));
+			$menu->addItem(new holonet_menu_item('Edit Ranks', '/roster/administration/cadre/ranks'));
 
 			$menus[] = $menu;
 		}
