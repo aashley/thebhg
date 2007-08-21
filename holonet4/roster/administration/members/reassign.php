@@ -137,14 +137,14 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 							$position = bhg_roster::getPosition($data['position']);
 
-							$this->addBodyContent('Transfering an asshole: '.$person->getName().' from '
+							$this->addBodyContent('Transfering: '.$person->getName().' from '
 									.$person->getPosition()->getName().' to '
 									.$position->getName().'... ');
 
 							if ($person->setPosition($position)) {
 
-								$this->addBodyContent('Success.HATE<br/>');
-								$this->addBodyContent("Some txe" . $person->handleRank());
+								$this->addBodyContent('Success.<br/>');
+								$person->handleRank();
 								
 							} else {
 

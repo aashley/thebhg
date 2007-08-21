@@ -131,6 +131,8 @@ class holonet_form_person extends HTML_QuickForm_hierselect {
 
 			$a = $b = array();
 
+			$a[-1] = "-- Select Division --";
+			
 			foreach ($GLOBALS['bhg']->roster->getDivisionCategories() as $category) {
 	
 				foreach ($category->getDivisions() as $division) {

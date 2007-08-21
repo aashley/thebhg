@@ -15,10 +15,19 @@ class holonet_module_roster extends holonet_module {
 		$table = new HTML_Table;
 
 		$headings = array('Position',
-											'Rank',
-											'Name',
-											'Rank Credits',
-											'Account Balance');
+							'Rank',
+							'Name',
+							'Rank Credits',
+							'Account Balance');
+		
+		if ($members->getIterator()->current()->getDivision()->isCadre()){
+			$headings = array('Cadre Rank',
+							'Position',
+							'Name',
+							'Rank Credits',
+							'Donated Credits');
+			$cadre = true;
+		}
 
 		$head = $table->getHeader();
 		$body = $table->getBody();
@@ -30,11 +39,18 @@ class holonet_module_roster extends holonet_module {
 
 		foreach ($members as $member) {
 
-			$row = array(holonet::output($member->getPosition()),
+			if ($cadre)
+				$row = array(holonet::output($member->getCadreRank()),
+								 holonet::output($member->getPosition()),
+								 holonet::output($member),
+								 holonet::formatCredits($member->getRankCredits()),
+								 holonet::formatCredits($member->getDonatedTo()));
+			else
+				$row = array(holonet::output($member->getPosition()),
 									 holonet::output($member->getRank()),
 									 holonet::output($member),
-									 number_format($member->getRankCredits()),
-									 number_format($member->getAccountBalance()));
+									 holonet::formatCredits($member->getRankCredits()),
+									 holonet::formatCredits($member->getAccountBalance()));
 
 			if ($showDivisions)
 				array_unshift($row, holonet::output($member->getDivision()));
@@ -147,18 +163,6 @@ class holonet_module_roster extends holonet_module {
 
 	}
 
-	public function getCadreMenu() {
-
-		$menu = new holonet_menu;
-		$menu->title = 'Cadres';
-
-		foreach ($GLOBALS['bhg']->roster->getCadres() as $cadre)
-			$menu->addItem(new holonet_menu_item($cadre->getName(), '/roster/cadre/'.$cadre->getID()));
-
-		return $menu;
-
-	}
-
 	public function getDivisionMenu() {
 
 		$menus = array();
@@ -184,47 +188,39 @@ class holonet_module_roster extends holonet_module {
 		$parts = array(
 				'underlord' 		=> false,
 				'commission'		=> false,
-				'judicator'			=> false,
-				'chief'					=> false,
-				'warden'				=> false,
-				'cs'						=> false,
+				'enforcer'			=> false,
+				'tactician'			=> false,
+				'overseer'			=> false,
+				'specialist'		=> false,
 				'sysadmin'			=> false,
+				'cl'				=> false,
+				'cadre'				=> false,
 				);
 
 		if (	 $user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(2))
 				|| in_array($user->getID(), $GLOBALS['gods'])) {
 
-			foreach ($parts as $key => $value) {
+			foreach ($parts as $key => $value)
 				$parts[$key] = true;
-			}
-
+				
 		} else {
 
-			if ($user->getDivision()->isEqualTo($GLOBALS['bhg']->roster->getDivision(10))) {
-
+			if ($user->inDivision($GLOBALS['bhg']->roster->getDivision(10)))
 				$parts['commission'] = true;
 
-			}
-
-			if ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(6))) {
-
-				$parts['judicator'] = true;
-
-			} elseif (	 $user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(9))
-								|| $user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(29))) {
-
-				$parts['cs'] = true;
-
-			} elseif ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(11))) {
-
-				$parts['chief'] = true;
-
-			} elseif ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(10))) {
-
-				$parts['warden'] = true;
-
-			}
-
+			if ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(33)))
+				$parts['enforcer'] = true;
+			elseif ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(3))){
+				$parts['tactician'] = true; $parts['cs'] = true; }
+			elseif ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(32)))
+				$parts['overseer'] = true;
+			elseif ($user->getPosition()->isEqualTo($GLOBALS['bhg']->roster->getPosition(36)))
+				$parts['specialist'] = true;
+				
+			if ($user->isCadreLeader()){
+				$parts['cl'] = true; $parts['cadre'] = true; }
+			elseif ($user->inCadre())
+				$parts['cadre'] = true;
 		}
 
 		return $parts;
@@ -243,11 +239,26 @@ class holonet_module_roster extends holonet_module {
 		$menu->title = 'Personal Details';
 		$menu->addItem(new holonet_menu_item('My Account', '/roster/administration/my'));
 		$menu->addItem(new holonet_menu_item('Request Transfer', '/roster/administration/my/transfer'));
+		if ($user->canCreateCadre() || $user->canCreateCadre(true))
+			$menu->addItem(new holonet_menu_item('Create Cadre', '/roster/administration/cadre/create'));
 		$menus[] = $menu;
 
+		if ($user->isCadreLeader()){
+			$menu = new holonet_menu;
+			$menu->title = $user->getCadre()->getName();
+			if ($perms['underlord'])
+				$menu->addItem(new holonet_menu_item('Approve Awards', '/roster/administration/award/approve'));
+			$menu->addItem(new holonet_menu_item('Award Credits', '/roster/administration/award/credits'));
+			$menu->addItem(new holonet_menu_item('Award Medals', '/roster/administration/award/medals'));
+
+			$menus[] = $menu;
+		}
+		
+		
+		
 		if (	 $perms['commission']
-				|| $perms['chief']
-				|| $perms['warden']) {
+				|| $perms['specialist']
+				|| $perms['cl']) {
 
 			$menu = new holonet_menu;
 			$menu->title = 'Awards';
@@ -261,23 +272,42 @@ class holonet_module_roster extends holonet_module {
 		}
 
 		if (	 $perms['underlord']
-				|| $perms['chief']
-				|| $perms['warden']) {
+				//|| $perms['enforcer']
+				|| $perms['cl']) {
 
 			$menu = new holonet_menu;
 			$menu->title = 'Membership';
-			if ($perms['underlord']) {
-				$menu->addItem(new holonet_menu_item('Approve Transfers', '/roster/administration/members/transfers'));
-				$menu->addItem(new holonet_menu_item('Reassign Members', '/roster/administration/members/reassign'));
-				$menu->addItem(new holonet_menu_item('Manage AWOLs', '/roster/administration/members/manageawol'));
-				$menu->addItem(new holonet_menu_item('Edit Member', '/roster/administration/members/edit'));
-			}
-			$menu->addItem(new holonet_menu_item('Declare AWOLs', '/roster/administration/members/awol'));
-
+			if ($perms['underlord'])
+				$resolv = array(
+					'trans' => 'Approve Transfers',
+					'reass' => 'Reassign Members',
+					'rank'	=> 'Change Ranks',
+				);
+			elseif ($perms['cl'])
+				$resolv = array(
+					'trans' => 'Join Requests',
+					'reass' => 'Remove Member',
+					'rank'	=> 'Change Ranks',
+				);
+			
+			$menu->addItem(new holonet_menu_item($resolv['trans'], '/roster/administration/members/transfers'));
+			$menu->addItem(new holonet_menu_item($resolv['reass'], '/roster/administration/members/reassign'));
+			$menu->addItem(new holonet_menu_item($resolv['rank'], '/roster/administration/members/rank'));
+			
 			$menus[] = $menu;
 
 		}
 
+		if ($perms['enforcer']) {
+
+			$menu = new holonet_menu;
+			$menu->title = 'The Vanguard';
+			$menu->addItem(new holonet_menu_item('Approve Cadres', '/roster/administration/vanguard/approve'));
+
+			$menus[] = $menu;
+
+		}
+		
 		if ($perms['sysadmin']) {
 
 			$menu = new holonet_menu;

@@ -9,15 +9,23 @@ class page_roster_division extends holonet_page {
 		list($id) = $this->getTrailingElements();
 		$div = bhg_roster::getDivision($id);
 
-		if ($div->isCadre())
+		$title = 'Division';
+		$sort = array(array('getPosition', 'getSortOrder'), 'getRankCredits', 'getName');
+		$by = array('asc', 'desc', 'asc');
+		
+		if ($div->isCadre()){
 			$div = bhg_roster::getCadre($id);
+			$title = 'Cadre';	
+			$sort = array(array('getCadreRank', 'getSortOrder'), 'getRankCredits', 'getName');
+			$by = array('asc', 'desc', 'asc');
+		}
 
-		$this->setTitle('Division :: '.$div->getName());
+		$this->setTitle($title . ' :: '.$div->getName());
 
 		$tabbar = new holonet_tab_bar;
 
 		$people = $div->getPeople();
-		$people->multisort(array(array('getPosition', 'getSortOrder'), 'getRankCredits', 'getName'), array('asc', 'desc', 'asc'));
+		$people->multisort($sort, $by);
 
 		$tabbar->addTab($this->buildMembers($people));
 		$tabbar->addTab($this->buildInformation($div));
@@ -28,7 +36,7 @@ class page_roster_division extends holonet_page {
 
 	}
 
-	private function buildInformation(bhg_roster_division $div) {
+	private function buildInformation($div) {
 
 		$tab = new holonet_tab('info', 'Information');
 
@@ -36,12 +44,13 @@ class page_roster_division extends holonet_page {
 
 		$body = $table->getBody();
 
-		$body->addRow(array('Mailing List:',
-												'<a href="mailto:'
-												.urlencode($div->getMailingList())
-												.'@thebhg.org">'
-												.htmlspecialchars($div->getMailingList())
-												.' at thebhg.org</a>'));
+		if ($div->getMailingList() != 'none')
+			$body->addRow(array('Mailing List:',
+													'<a href="mailto:'
+													.urlencode($div->getMailingList())
+													.'@thebhg.org">'
+													.htmlspecialchars($div->getMailingList())
+													.' at thebhg.org</a>'));
 
 		if ($div->isCadre()) {
 			
@@ -62,14 +71,20 @@ class page_roster_division extends holonet_page {
 
 			}
 
-			$body->addRow(array(
-						'Home Page:',
-						'<a href="'.htmlspecialchars($div->getHomePageURL()).'">'.htmlspecialchars($div->getHomePageURL()).'</a>',
-						));
+			if (strlen($div->getHomePageURL()))
+				$body->addRow(array(
+							'Home Page:',
+							'<a href="'.htmlspecialchars($div->getHomePageURL()).'">'.htmlspecialchars($div->getHomePageURL()).'</a>',
+							));
 
 			$body->addRow(array(
 						'Slogan:',
 						htmlspecialchars($div->getSlogan()),
+						));
+						
+			$body->addRow(array(
+						'Account Balance:',
+						holonet::formatCredits($div->getAccountBalance()),
 						));
 
 		}

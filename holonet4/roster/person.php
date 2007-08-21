@@ -159,13 +159,12 @@ class page_roster_person extends holonet_page {
 		
 		if ($person->inCadre()) {
 
-			$cadre = holonet::output($person->getCadre());
+			$cadre = holonet::output($person->getCadreRank()) . ' of ' . holonet::output($person->getCadre());
 
 			if ($person->getCadre()->getLeader()->isEqualTo($person))
 				$cadre .= ' (Leader)';
 			
 			$table->addRow(array('Cadre:', $cadre));
-
 		} else
 			$table->addRow(array('Division:', holonet::output($person->getDivision())));
 
