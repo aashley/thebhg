@@ -19,6 +19,7 @@ class page_roster_person extends holonet_page {
 		$bar->addTab($this->buildCollege($person));
 		$bar->addTab($this->buildArmour($person));
 		$bar->addTab($this->buildHistory($person));
+		$bar->addTab($this->buildBankHistory($person));
 
 		$this->addBodyContent($bar);
 
@@ -107,6 +108,26 @@ class page_roster_person extends holonet_page {
 		return $tab;
 
 	}
+	
+	private function buildBankHistory(bhg_roster_person $person) {
+
+		$tab = new holonet_tab('bank_history', 'Recent Bank Transactions');
+		$table = new HTML_Table(null, null, true);
+		$events = $person->getBankHistory(array('limit' => 30));
+
+		$head = $table->getHeader();
+		$head->addRow(array('Date', 'Event'), array(), 'TH');
+		foreach ($events as $event) {
+			$table->addRow(array(
+						str_replace(' ', '&nbsp;', htmlspecialchars($event->getDateCreated()->getDate())),
+						htmlspecialchars($event->toString()),
+						));
+		}
+
+		$tab->addContent($table);
+		return $tab;
+
+	}
 
 	private function buildOnline(bhg_roster_person $person) {
 
@@ -125,7 +146,7 @@ class page_roster_person extends holonet_page {
 						.'<img class="inline" src="http://api.oscar.aol.com/SOA/key=fr1Ko8PmeyVjPiv0/presence/'
 						.htmlspecialchars($aim).'" border="0"/></a>'));
 
-		if (strlen($icq = $person->getICQ()) > 0)
+		if (strlen($icq = $person->getICQ()) > 0 && $icq > 0)
 			$table->addRow(array('ICQ&nbsp;Number:', htmlspecialchars($icq)
 						.' <img class="inline" src="http://status.icq.com/online.gif?icq='.htmlspecialchars($icq).'&img=5">'));
 

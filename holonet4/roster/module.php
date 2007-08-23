@@ -243,14 +243,30 @@ class holonet_module_roster extends holonet_module {
 			$menu->addItem(new holonet_menu_item('Create Cadre', '/roster/administration/cadre/create'));
 		$menus[] = $menu;
 
-		if ($user->isCadreLeader()){
+		if ($user->inCadre()){
 			$menu = new holonet_menu;
 			$menu->title = $user->getCadre()->getName();
-			$menu->addItem(new holonet_menu_item('Edit Ranks', '/roster/administration/cadre/ranks'));
-
+			if ($user->isCadreLeader()){
+				$menu->addItem(new holonet_menu_item('Edit Details', '/roster/administration/cadre/details'));
+				$menu->addItem(new holonet_menu_item('Edit Ranks', '/roster/administration/cadre/ranks'));
+			}
+			$menu->addItem(new holonet_menu_item('Donate', '/roster/administration/cadre/donate'));
+			
 			$menus[] = $menu;
 		}
 		
+		if ($perms['cl']) {
+
+			$menu = new holonet_menu;
+			$menu->title = $user->getCadre()->GetName() . ' Members';
+			
+			$menu->addItem(new holonet_menu_item('Invite/Approve', '/roster/administration/cadre/members/approve'));
+			$menu->addItem(new holonet_menu_item('Remove Members', '/roster/administration/cadre/members/remove'));
+			$menu->addItem(new holonet_menu_item('Promote Members', '/roster/administration/cadre/members/promote'));
+			
+			$menus[] = $menu;
+
+		}
 		
 		
 		if (	 $perms['commission']
@@ -268,28 +284,14 @@ class holonet_module_roster extends holonet_module {
 
 		}
 
-		if (	 $perms['underlord']
-				//|| $perms['enforcer']
-				|| $perms['cl']) {
+		if ($perms['underlord']) {
 
 			$menu = new holonet_menu;
-			$menu->title = 'Membership';
-			if ($perms['underlord'])
-				$resolv = array(
-					'trans' => 'Approve Transfers',
-					'reass' => 'Reassign Members',
-					'rank'	=> 'Change Ranks',
-				);
-			elseif ($perms['cl'])
-				$resolv = array(
-					'trans' => 'Join Requests',
-					'reass' => 'Remove Member',
-					'rank'	=> 'Change Ranks',
-				);
+			$menu->title = 'Guild Membership';
 			
-			$menu->addItem(new holonet_menu_item($resolv['trans'], '/roster/administration/members/transfers'));
-			$menu->addItem(new holonet_menu_item($resolv['reass'], '/roster/administration/members/reassign'));
-			$menu->addItem(new holonet_menu_item($resolv['rank'], '/roster/administration/members/rank'));
+			$menu->addItem(new holonet_menu_item('Approve Transfers', '/roster/administration/members/transfers'));
+			$menu->addItem(new holonet_menu_item('Reassign Members', '/roster/administration/members/reassign'));
+			$menu->addItem(new holonet_menu_item('Edit Hunter Details', '/roster/administration/members/edit'));
 			
 			$menus[] = $menu;
 

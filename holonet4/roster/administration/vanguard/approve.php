@@ -14,7 +14,7 @@ class page_roster_administration_vanguard_approve extends holonet_page {
 
 		$this->pageBuilt = true;
 
-		$this->setTitle('Approve Awards');
+		$this->setTitle('Approve Cadres and Confederations');
 
 		$form = new holonet_form('approve_cadres');
 		$renderer =& $form->defaultRenderer();

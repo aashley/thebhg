@@ -29,6 +29,8 @@ class page_roster_division extends holonet_page {
 
 		$tabbar->addTab($this->buildMembers($people));
 		$tabbar->addTab($this->buildInformation($div));
+		IF ($div->isCadre())
+			$tabbar->addTab($this->buildBank($div));
 
 		$this->addBodyContent($tabbar);
 
@@ -83,7 +85,7 @@ class page_roster_division extends holonet_page {
 						));
 						
 			$body->addRow(array(
-						'Account Balance:',
+						'Bank Balance:',
 						holonet::formatCredits($div->getAccountBalance()),
 						));
 
@@ -101,6 +103,26 @@ class page_roster_division extends holonet_page {
 
 		$tab->addContent($GLOBALS['holonet']->roster->buildMemberTable($members, false));
 
+		return $tab;
+
+	}
+	
+	private function buildBank($div) {
+
+		$tab = new holonet_tab('bank_history', 'Recent Bank Transactions');
+		$table = new HTML_Table(null, null, true);
+		$events = $div->getBankHistory(array('limit' => 30));
+
+		$head = $table->getHeader();
+		$head->addRow(array('Date', 'Event'), array(), 'TH');
+		foreach ($events as $event) {
+			$table->addRow(array(
+						str_replace(' ', '&nbsp;', htmlspecialchars($event->getDateCreated()->getDate())),
+						htmlspecialchars($event->toString()),
+						));
+		}
+
+		$tab->addContent($table);
 		return $tab;
 
 	}
