@@ -667,6 +667,9 @@ class bhg_roster extends bhg_entry {
 				&& $filter['division'] instanceof bhg_roster_division)
 			$sqlfilters[] = '`division` = '.$this->db->quoteSmart($filter['division']->getID());
 			
+		if (isset($filter['threshold']))
+			$sqlfilters[] = '`sortorder` > '.$filter['threshold'];
+			
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 
@@ -684,6 +687,22 @@ class bhg_roster extends bhg_entry {
 
 		}
 
+	}
+
+	// }}}
+	// {{{ createRank()
+
+	/**
+	 * Creates a rank
+	 *
+	 * @param array Filters to select which ranks to load
+	 * @return bhg_core_list
+	 */
+	public function createRank($details) {
+		
+		$rank = $this->__createRecord('roster_rank', $details);
+
+		return $rank;
 	}
 
 	// }}}

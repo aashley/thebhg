@@ -243,6 +243,22 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getHistory()
+
+	/**
+	 * Retrieves all history events related to this person.
+	 *
+	 * @return bhg_core_list A list of bhg_history_event objects.
+	 */
+	public function getBankHistory($filter = array()) {
+
+		$filter['person'] = $this;
+
+		return $GLOBALS['bhg']->bank->getEvents($filter);
+
+	}
+
+	// }}}
 	// {{{ getIDLine()
 
 	/**
@@ -606,6 +622,8 @@ class bhg_roster_person extends bhg_core_base {
 						),
 						false);
 
+			$this->handleRank();
+						
 			return $result;
 
 		} else {
@@ -629,7 +647,7 @@ class bhg_roster_person extends bhg_core_base {
 	 */
 	public function cadreDeposit($credits, $for = 'Direct Deposit') {
 
-		$this->withdrawAccount(-$credits, null, $for, $this->getDivision()->getID());
+		$this->withdrawAccount($credits, '', $for, $this->getDivision()->getID());
 		$this->getDivision()->depositAccount($credits, $this->getID(), $for);
 		
 	}
@@ -847,7 +865,7 @@ class bhg_roster_person extends bhg_core_base {
 		if (is_null($to)) $to = $this->getCadre();
 		
 		$sql = 'SELECT SUM(`amount`) FROM `roster_cadre_bank` '
-					.'WHERE cadre = "' . $to->data['id'] . ' AND `source` = "' . $this->getID() . '"';
+					.'WHERE cadre = "' . $to->data['id'] . '" AND `source` = "' . $this->getID() . '"';
 
 		return $this->db->getOne($sql);
 	}
@@ -893,8 +911,25 @@ class bhg_roster_person extends bhg_core_base {
 
 		if ($this->inCadre()) {
 			
-			/** Depository Check **/
+			$filter['division'] = $this->getCadre();
+			$filter['manuallyset'] = false;
+			$ranks = $GLOBALS['bhg']->roster->getRanks($filter);
+			
+			foreach ($ranks as $rank){
+				
+				if ($rank->isDeposit())
+					if ($rank->getRequiredCredits() <= $this->getDonatedTo()){ $newrank = $rank; break; }
+					
+				if ($rank->isRank())
+					if ($rank->getRequiredCredits() <= $this->getRankCredits()){ $newrank = $rank; break; }
+			}
 
+			if (!is_null($newrank)
+					&& !$newrank->isEqualTo($this->getCadreRank())
+					&& (!$this->getCadreRank()->isManuallySet() || $this->getCadre()->getDefaultRank()->isEqualTo($this->getCadreRank()))) {
+
+				$this->setCadreRank($newrank);
+			}
 		}
 		
 		if ($this->getRank()->isManuallySet()) {

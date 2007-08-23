@@ -87,7 +87,7 @@ class bhg_roster_pending_cadre extends bhg_core_base {
 						'locked' => 1,
 						'cadre'	=> 1,
 						'initiate' => 1,
-						'sortorder' => -1,
+						'sortorder' => 0,
 					));
 						
 			$cadre->setDefaultRank($default->getID());

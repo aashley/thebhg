@@ -39,6 +39,22 @@ class bhg_roster_division extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getHistory()
+
+	/**
+	 * Retrieves all history events related to this person.
+	 *
+	 * @return bhg_core_list A list of bhg_history_event objects.
+	 */
+	public function getBankHistory($filter = array()) {
+
+		$filter['cadre'] = $this;
+
+		return $GLOBALS['bhg']->bank->getEvents($filter);
+
+	}
+
+	// }}}
 	// {{{ getPeople()
 
 	/**
