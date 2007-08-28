@@ -29,6 +29,7 @@ class bhg_medalboard_group extends bhg_core_base {
 	 */
 	public function __construct($id) {
 		parent::__construct('medalboard_group', $id);
+		$this->__addBooleanFields(array('multiple', 'displaytype'));
 		$this->__addFieldMap(array(
 					'category' => 'bhg_medalboard_category',
 					));

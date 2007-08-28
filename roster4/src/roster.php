@@ -184,42 +184,76 @@ class bhg_roster extends bhg_entry {
 	}
 
 	// }}}
-	// {{{ getKabal() [static]
+	// {{{ getDivisionCategories()
 
 	/**
-	 * Load a specific Kabal
-	 * 
-	 * @param integer
-	 * @return bhg_roster_kabal
-	 */
-	static public function getKabal($id) {
-
-		return bhg::loadObject('bhg_roster_kabal', $id);
-
-	}
-	
-	// }}}
-	// {{{ getKabals()
-
-	/**
-	 * Get all kabals in the system
+	 * Get all division categories in the system
 	 *
-	 * @param array Filters to select which kabals to load
+	 * @param array Filters to select which division categories to load
 	 * @return bhg_core_list
 	 */
-	public function getKabals($filter = array()) {
+	public function getBiographicalData($filter = array()) {
 
-		try {
+		$sql = 'SELECT id '
+					.'FROM roster_biographical_data ';
 
-			$filter['category'] = bhg_roster::getDivisionCategory(2);
+		$sqlfilters = array();
 
-			return new bhg_core_list('bhg_roster_kabal', $this->getDivisions($filter)->items);
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
 
-		} catch (Exception $e) {
+		if (isset($filter['person']) && $filter['person'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'person = '.$filter['person']->getID().' ';
+			
+		if (isset($filter['homeworld']))
+			$sqlfilters[] = '`homeworld` LIKE "%'
+										 .$this->db->escapeSimple($filter['homeworld'])
+										 .'%"';
+										 
+		if (isset($filter['species']))
+			$sqlfilters[] = '`species` LIKE "%'
+										 .$this->db->escapeSimple($filter['species'])
+										 .'%"';
+		
+		if (isset($filter['height']))
+			$sqlfilters[] = '`height` LIKE "%'
+										 .$this->db->escapeSimple($filter['height'])
+										 .'%"';
+	
+		if (isset($filter['sex']))
+			$sqlfilters[] = '`sex` LIKE "%'
+										 .$this->db->escapeSimple($filter['sex'])
+										 .'%"';
 
-			throw $e;
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of biographical data.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_biographical_data', $results);
 
 		}
+
+	}
+
+	// }}}
+	// {{{ getDivisionCategory() [static]
+
+	/**
+	 * Load a specific Division Category
+	 *
+	 * @param integer
+	 * @return bhg_roster_division_category
+	 */
+	static public function getBiographicalDatum($id) {
+
+		return bhg::loadObject('bhg_roster_biographical_data', $id);
 
 	}
 

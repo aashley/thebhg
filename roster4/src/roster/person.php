@@ -243,6 +243,35 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getBiographicalData()
+
+	/**
+	 * Retrieves all history events related to this person.
+	 *
+	 * @return bhg_core_list A list of bhg_history_event objects.
+	 */
+	public function getBiographicalData($filter = array()) {
+
+		$filter['person'] = $this;
+
+		try {
+			$elem = $GLOBALS['bhg']->roster->getBiographicalData($filter)->getItem();
+		} catch (Exception $e){
+			$u = 'Unknown';
+			$elem = $this->__createRecord('roster_biographical_data', array(
+						'person' 	=> $this->data['id'],
+						'homeworld' => $u,
+						'species' 	=> $u,
+						'height' 	=> $u,
+						'sex' 		=> $u,
+						'age' 		=> -1,
+						));
+		}
+
+		return $elem;
+	}
+
+	// }}}
 	// {{{ getHistory()
 
 	/**
@@ -932,11 +961,11 @@ class bhg_roster_person extends bhg_core_base {
 			}
 		}
 		
-		if ($this->getRank()->isManuallySet()) {
+		if (!$this->getRank()->isManuallySet()) {
 
 			if ($this->getPosition()->isTrainee()) {
 
-				$ranks = $GLOBALS['gen3']->getRanks(array(
+				$ranks = $GLOBALS['bhg']->getRanks(array(
 							'alwaysavailable' => true,
 							'manuallyset' => false,
 							'cadre'	=> 0,
@@ -944,7 +973,7 @@ class bhg_roster_person extends bhg_core_base {
 
 			} else {
 
-				$ranks = $GLOBALS['gen3']->getRanks(array(
+				$ranks = $GLOBALS['bhg']->getRanks(array(
 							'manuallyset' => false,
 							'cadre' => 0,
 							));

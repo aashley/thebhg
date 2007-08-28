@@ -54,7 +54,7 @@ class bhg_history_event extends bhg_core_base {
 				$oldRank = bhg_roster::getRank($this->data['item1']);
 				$newRank = bhg_roster::getRank($this->data['item2']);
 
-				if ($oldRank->getSortOrder() <= $newRank->getSortOrder())
+				if ($oldRank->getSortOrder() >= $newRank->getSortOrder())
 					$fmt = 'Promoted from %s to %s.';
 				else
 					$fmt = 'Demoted from %s to %s.';
@@ -85,26 +85,28 @@ class bhg_history_event extends bhg_core_base {
 			// }}}
 			// {{{ Type 6: Credit award
 			case 6:
+				$creds = number_format($this->data['item3']);
+
 				if (is_numeric($this->data['item1'])) {
 
 					try {
 						
 						$awarder = bhg_roster::getPerson($this->data['item1']);
-						return sprintf('Awarded %d credits by %s, bringing rank total to %d.', $this->data['item2'], $awarder->getName(), $this->data['item3']);
+						return sprintf('Awarded %d credits by %s, bringing rank total to %s.', $this->data['item2'], $awarder->getName(),$creds);
 
 					}
 					catch (bhg_fatal_exception $e) {
 
-						return sprintf('Awarded %d credits, bringing rank total to %d.', $this->data['item2'], $this->data['item3']);
+						return sprintf('Awarded %d credits, bringing rank total to %s.', $this->data['item2'], $creds);
 
 					}
 
 				}
 
 				if (strlen($this->data['item1']) > 0)
-					return sprintf('Awarded %d credits for %s, bringing rank total to %d.', $this->data['item2'], $this->data['item1'], $this->data['item3']);
+					return sprintf('Awarded %d credits for %s, bringing rank total to %d.', $this->data['item2'], $this->data['item1'], $creds);
 
-				return sprintf('Awarded %d credits, bringing rank total to %d.', $this->data['item2'], $this->data['item3']);
+				return sprintf('Awarded %d credits, bringing rank total to %d.', $this->data['item2'], $creds);
 			// }}}
 			// {{{ Type 7: Account transaction
 			case 7:
@@ -174,11 +176,11 @@ class bhg_history_event extends bhg_core_base {
 			case 14:
 				if ($this->data['item1'] == 0){
 					$newRank = bhg_roster::getRank($this->data['item2']);
-					$fmt = "Appointed rank %s in Cadre.";
+					$fmt = "Appointed %s in Cadre.";
 					return sprintf($fmt, $newRank->getName());
 				} else if ($this->data['item1'] == 0){
 					$newRank = bhg_roster::getRank($this->data['item2']);
-					$fmt = "Stripped of rank %s in Cadre.";
+					$fmt = "Removed as a %s in Cadre.";
 					return sprintf($fmt, $newRank->getName());
 				} else {
 					$oldRank = bhg_roster::getRank($this->data['item1']);
