@@ -6,14 +6,6 @@
 			<link>/roster</link>
 		</item>
 		<item>
-			<text>Cadres</text>
-			<link>/roster/cadres</link>
-		</item>
-		<item>
-			<text>Reports</text>
-			<link>/roster/reports</link>
-		</item>
-		<item>
 			<text>Administration</text>
 			<link>/roster/administration</link>
 		</item>

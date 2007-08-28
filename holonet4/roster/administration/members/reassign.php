@@ -26,6 +26,7 @@ class page_roster_administration_members_reassign extends holonet_page {
 					'Person',
 					'New Division',
 					'New Position',
+					'New Rank',
 					));
 
 		$renderer->setElementTemplate("\n"
@@ -34,6 +35,7 @@ class page_roster_administration_members_reassign extends holonet_page {
 				."\t\t<th class=\"label_2\">{label_2}</th>\n"
 				."\t\t<th class=\"label_3\">{label_3}</th>\n"
 				."\t\t<th class=\"label_4\">{label_4}</th>\n"
+				."\t\t<th class=\"label_4\">{label_5}</th>\n"
 				."\t</tr>",
 				'reassign_header');
 
@@ -56,6 +58,14 @@ class page_roster_administration_members_reassign extends holonet_page {
 			$positions[$position->getID()] = $position->getName();
 
 		}
+		
+		$ranks = array(0 => 'No Change');
+
+		foreach ($GLOBALS['bhg']->roster->getRanks(array('cadre' => 0)) as $rank) {
+
+			$ranks[$rank->getID()] = $rank->getName();
+
+		}
 
 		for ($i = 0; $i < 10; $i++) {
 
@@ -74,6 +84,11 @@ class page_roster_administration_members_reassign extends holonet_page {
 					'position',
 					null,
 					$positions);
+					
+			$fields[] = $form->createElement('select',
+					'rank',
+					null,
+					$ranks);
 
 			$form->addGroup($fields, 'reassign['.$i.']', ($i + 1));
 
@@ -108,7 +123,7 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 				foreach ($values['reassign'] as $id => $data) {
 
-					if (!($data['position'] == 0 && $data['division'] == 0)) {
+					if (!($data['position'] == 0 && $data['division'] == 0 && $data['rank'] == 0)) {
 
 						$person = bhg_roster::getPerson($data['person'][1]);
 
@@ -116,7 +131,7 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 							$division = bhg_roster::getDivision($data['division']);
 							
-							$this->addBodyContent('Transfering '.$person->getName().' from '
+							$this->addBodyContent('Division '.$person->getName().' from '
 									.$person->getDivision()->getName().' to '
 									.$division->getName().'... ');
 
@@ -137,11 +152,32 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 							$position = bhg_roster::getPosition($data['position']);
 
-							$this->addBodyContent('Transfering: '.$person->getName().' from '
+							$this->addBodyContent('Position: '.$person->getName().' from '
 									.$person->getPosition()->getName().' to '
 									.$position->getName().'... ');
 
 							if ($person->setPosition($position)) {
+
+								$this->addBodyContent('Success.<br/>');
+								$person->handleRank();
+								
+							} else {
+
+								$this->addBodyContent('Failure.<br/>');
+
+							}
+
+						}
+						
+						if ($data['rank'] != 0) {
+
+							$rank = bhg_roster::getRank($data['rank']);
+
+							$this->addBodyContent('Rank: '.$person->getName().' from '
+									.$person->getRank()->getName().' to '
+									.$rank->getName().'... ');
+
+							if ($person->setRank($rank)) {
 
 								$this->addBodyContent('Success.<br/>');
 								$person->handleRank();

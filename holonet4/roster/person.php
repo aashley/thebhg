@@ -31,7 +31,7 @@ class page_roster_person extends holonet_page {
 		
 		$tab = new holonet_tab('armour', 'Armour');
 
-		$tab->addContent('<img src="http://holonet.thebhg.org/roster/armour/armour.php?id='
+		$tab->addContent('<img src="/armour/armour.php?person='
 				.$person->getID()
 				.'" alt="Armour for '
 				.htmlspecialchars($person->getName())
@@ -111,7 +111,7 @@ class page_roster_person extends holonet_page {
 	
 	private function buildBankHistory(bhg_roster_person $person) {
 
-		$tab = new holonet_tab('bank_history', 'Recent Bank Transactions');
+		$tab = new holonet_tab('bank_history', 'Bank Transactions');
 		$table = new HTML_Table(null, null, true);
 		$events = $person->getBankHistory(array('limit' => 30));
 
@@ -195,7 +195,8 @@ class page_roster_person extends holonet_page {
 		if (!$person->isDeleted())
 			$table->addRow(array('E-mail&nbsp;Address:', str_replace(array('@', '.'), array(' [at] ', ' [dot] '), $person->getEmail())));
 
-		$table->addRow(array('Rank&nbsp;Credits:', holonet::formatCredits($person->getRankCredits())));
+		$table->addRow(array('Rank&nbsp;Credits:', $person->getRank()->hasUnlimitedCredits() ? 'N/A' : 
+						holonet::formatCredits($person->getRankCredits())));
 		$table->addRow(array('Account&nbsp;Balance:', holonet::formatCredits($person->getAccountBalance())));
 
 		$joined = $person->getDateCreated();
@@ -214,8 +215,15 @@ class page_roster_person extends holonet_page {
 		}
 
 		$table->addRow(array('ID&nbsp;Line:', htmlspecialchars($person->getIDLine(true))));
-
-		$tab->addContent($table);
+		
+		$tab->addContent('<div style="float:left;"><div style="float:right">' . 
+			'<img class="ipkc" src="/ipkc/ipkc.php?person='
+			.$person->getID()
+			.'" alt="IPKC for '
+			.htmlspecialchars($person->getName())
+			.'" />'
+		.'</div>' . $table->toHTML() . '</div>');
+		
 		return $tab;
 		
 	}

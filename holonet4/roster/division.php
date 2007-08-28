@@ -27,12 +27,15 @@ class page_roster_division extends holonet_page {
 		$people = $div->getPeople();
 		$people->multisort($sort, $by);
 
-		$tabbar->addTab($this->buildMembers($people));
-		$tabbar->addTab($this->buildInformation($div));
-		IF ($div->isCadre())
-			$tabbar->addTab($this->buildBank($div));
-
-		$this->addBodyContent($tabbar);
+		if ($people->count()){
+			$tabbar->addTab($this->buildMembers($people));
+			$tabbar->addTab($this->buildInformation($div));
+			if ($div->isCadre())
+				$tabbar->addTab($this->buildBank($div));
+	
+			$this->addBodyContent($tabbar);
+		} else 
+			$this->addBodyContent('This division has no active members.');
 
 		$this->addSideMenu($GLOBALS['holonet']->roster->getDivisionMenu());
 

@@ -237,6 +237,7 @@ class holonet_module_roster extends holonet_module {
 
 		$menu = new holonet_menu;
 		$menu->title = 'Personal Details';
+		$menu->addItem(new holonet_menu_item('View Account', '/roster/person/' . $user->getID()));
 		$menu->addItem(new holonet_menu_item('My Account', '/roster/administration/my'));
 		$menu->addItem(new holonet_menu_item('Request Transfer', '/roster/administration/my/transfer'));
 		if ($user->canCreateCadre() || $user->canCreateCadre(true))

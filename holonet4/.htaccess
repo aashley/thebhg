@@ -1,5 +1,7 @@
 RewriteEngine On
 RewriteRule ^images - [L]
+RewriteRule ^armour - [L]
+RewriteRule ^ipkc - [L]
 RewriteRule ^js - [L]
 RewriteRule ^layout - [L]
 RewriteRule ^style - [L]
