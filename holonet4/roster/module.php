@@ -238,8 +238,8 @@ class holonet_module_roster extends holonet_module {
 
 		$menu = new holonet_menu;
 		$menu->title = 'Personal Details';
-		$menu->addItem(new holonet_menu_item('View Account', '/roster/person/' . $user->getID()));
-		$menu->addItem(new holonet_menu_item('My Account', '/roster/administration/my'));
+		$menu->addItem(new holonet_menu_item('View My Account', '/roster/person/' . $user->getID()));
+		$menu->addItem(new holonet_menu_item('Edit My Account', '/roster/administration/my'));
 		$pending = $GLOBALS['bhg']->roster->getPendingTransfers(array('person' => $user));
 		if (!$user->isCadreLeader())
 			$menu->addItem(new holonet_menu_item(($pending->count() ? 'My Pending Transfer' : 'Request Transfer'), '/roster/administration/my/transfer'));

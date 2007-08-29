@@ -339,15 +339,18 @@ class page_roster_administration_members_my extends holonet_page {
 
 		$user = $GLOBALS['bhg']->roster->getPerson(isset($_POST['editUser']) ? $_POST['editUser'] : $_POST['edit'][0]['person'][1]);
 
+		$bio = $user->getBiographicalData();
+		
 		$tab = new holonet_tab('ipkc_tab', 'My IPKC');
 
 		$form = new holonet_form('my_ipkc_'.$user->getID());
 
-		$form->addElement('hidden',	'tabBar', 'ipkc_tab');
 		$form->addElement('hidden',	'editUser', $_POST['edit'][0]['person'][1]);
+		
+		$form->addElement('hidden',	'tabBar', 'ipkc_tab');
 
 		$form->addElement('text',
-				'homeworld',
+				'_home',
 				'Homeworld:',
 				array(
 					'maxlength' => 250,
@@ -355,15 +358,16 @@ class page_roster_administration_members_my extends holonet_page {
 				);
 
 		$form->addElement('text',
-				'age',
+				'_ages',
 				'Age:',
 				array(
 					'maxlength' => 250,
+					'size' 		=> 8,
 					)
 				);
 
 		$form->addElement('text',
-				'species',
+				'_specie',
 				'Species:',
 				array(
 					'maxlength' => 250,
@@ -371,7 +375,7 @@ class page_roster_administration_members_my extends holonet_page {
 				);
 
 		$form->addElement('text',
-				'height',
+				'_hei',
 				'Height:',
 				array(
 					'maxlength' => 250,
@@ -379,7 +383,7 @@ class page_roster_administration_members_my extends holonet_page {
 				);
 
 		$form->addElement('text',
-				'sex',
+				'_sex',
 				'Sex:',
 				array(
 					'maxlength' => 250,
@@ -387,13 +391,29 @@ class page_roster_administration_members_my extends holonet_page {
 				);
 
 		$form->addElement('text',
-				'imageurl',
+				'_image',
 				'Image URL:',
 				array(
 					'maxlength' => 200,
+					'size'		=> 35,
 					)
 				);
 
+		$form->addRule('_ages',
+				'Your Age must be a number.',
+				'numeric');
+				
+		$form->setDefaults(
+				array(
+					'_home'		=> $bio->getHomeworld(),
+					'_image'	=> $bio->getImageURL(),
+					'_hei'		=> $bio->getHeight(),
+					'_specie'	=> $bio->getSpecies(),
+					'_sex'		=> $bio->getSex(),
+					'_ages'		=> $bio->getAge(),
+					)
+				);
+				
 		$form->addButtons('Save Changes');
 
 		if ($form->validate()) {
@@ -401,8 +421,21 @@ class page_roster_administration_members_my extends holonet_page {
 			$values = $form->exportValues();
 
 			try {
-				
-				$tab->addContent('<p>Bio Data Systems Unavailable</p>');
+
+				$tab->addContent('<p>Saving Changes...</p><ul>');
+				$bio->setHomeworld($values['_home']);
+				$tab->addContent('<li>Homeworld saved.</li>');
+				$bio->setAge($values['_ages']);
+				$tab->addContent('<li>Age saved.</li>');
+				$bio->setSpecies($values['_specie']);
+				$tab->addContent('<li>Species saved.</li>');
+				$bio->setHeight($values['_hei']);
+				$tab->addContent('<li>Height saved.</li>');
+				$bio->setSex($values['_sex']);
+				$tab->addContent('<li>Sex saved.</li>');
+				$bio->setImageURL($values['_image']);
+				$tab->addContent('<li>Image URL saved.</li>');
+				$tab->addContent('</ul>');
 
 			} catch (bhg_fatal_exception $e) {
 

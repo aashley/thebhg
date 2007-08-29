@@ -12,7 +12,7 @@ $serial = str_split(md5($person->GetID()), 4);
 $serial = ($person->isLHA() ? 'LHA' : 'BHG') . '-' . $serial[0] . str_pad($person->getID(), 5, 0, STR_PAD_LEFT) . $serial[1];
 imagestring($img, 2, 170, 78, $person->getName(), $white);
 imagestring($img, 2, 210, 94, $bio->getHomeworld(), $white);
-imagestring($img, 2, 159, 109, ($bio->getAge() < 0 ? 'Unknown' : $bio->getAge() . ' Standard Galactic Years'), $white);
+imagestring($img, 2, 159, 109, ($bio->getAge() < 0 ? 'Unknown' : $bio->getAge() . ' Galactic Years'), $white);
 imagestring($img, 2, 180, 125, $bio->getSpecies(), $white);
 imagestring($img, 2, 172, 140, $bio->getHeight(), $white);
 imagestring($img, 2, 154, 156, $bio->getSex(), $white);
