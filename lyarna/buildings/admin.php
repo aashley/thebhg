@@ -166,9 +166,9 @@
 			foreach ($GLOBALS['roster']->getDivisions() as $division) {
 			    if ($division->GetID() != 16) {
 			        $divtitle = "roster".$division->GetID();
-			        echo $divtitle." = new Array();\n";
+			        echo $divtitle." = new Array('None');\n";
 			        $members = $division->GetMembers("name");
-					echo $divtitle."[] = ''";
+
 			        for($j = 0; $j < $division->GetMemberCount(); $j++) {
 			            $person = $members[$j];
 			            echo $divtitle."[".$j."] = new person(".$person->GetID().", '".str_replace("'", "\'", $person->GetName())."');\n";
