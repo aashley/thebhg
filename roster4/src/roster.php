@@ -27,6 +27,186 @@ class bhg_roster extends bhg_entry {
 	 * @param integer
 	 * @return bhg_roster_divisions
 	 */
+	static public function getCommitteePosition($id) {
+
+		return bhg::loadObject('bhg_roster_committee_position', $id);
+
+	}
+
+	// }}}
+	// {{{ getCadres()
+
+	/**
+	 * Get all cadres in the system
+	 *
+	 * @param array Filters to select which cadres to load
+	 * @return bhg_core_list
+	 */
+	public function getCommitteePositions($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM roster_committee_position ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+			
+		if (isset($filter['committee']) && $filter['committee'] instanceof bhg_roster_committee)
+			$sqlfilters[] = 'committee = '.$filter['committee']->getID().' ';
+				
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY name ASC';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of committee positions.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_committee_position', $results);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ getCadre() [static]
+
+	/**
+	 * Load a specific Cadre
+	 *
+	 * @param integer
+	 * @return bhg_roster_divisions
+	 */
+	static public function getCommitteeMember($id) {
+
+		return bhg::loadObject('bhg_roster_committee_member', $id);
+
+	}
+
+	// }}}
+	// {{{ getCadres()
+
+	/**
+	 * Get all cadres in the system
+	 *
+	 * @param array Filters to select which cadres to load
+	 * @return bhg_core_list
+	 */
+	public function getCommitteeMembers($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM roster_committee_member ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['person']) && $filter['person'] instanceof bhg_roster_person)
+			$sqlfilters[] = 'person = '.$filter['person']->getID().' ';
+			
+		if (isset($filter['committee']) && $filter['committee'] instanceof bhg_roster_committee)
+			$sqlfilters[] = 'committee = '.$filter['committee']->getID().' ';
+			
+		if (isset($filter['position']) && $filter['position'] instanceof bhg_roster_committee_position)
+			$sqlfilters[] = 'position = '.$filter['position']->getID().' ';
+				
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY name ASC';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of committee members.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_committee_member', $results);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ getCadre() [static]
+
+	/**
+	 * Load a specific Cadre
+	 *
+	 * @param integer
+	 * @return bhg_roster_divisions
+	 */
+	static public function getCommittee($id) {
+
+		return bhg::loadObject('bhg_roster_committee', $id);
+
+	}
+
+	// }}}
+	// {{{ getCadres()
+
+	/**
+	 * Get all cadres in the system
+	 *
+	 * @param array Filters to select which cadres to load
+	 * @return bhg_core_list
+	 */
+	public function getCommittees($filter = array()) {
+
+		$sql = 'SELECT id '
+					.'FROM roster_committee ';
+
+		$sqlfilters = array();
+
+		if (!isset($filter['deleted']) || $filter['deleted'] == false)
+			$sqlfilters[] = 'datedeleted IS NULL ';
+
+		if (isset($filter['standing']))
+			$sqlfilters[] = 'standing = '.($filter['standing'] ? '1' : '0');
+			
+		if (isset($filter['insession']))
+			$sqlfilters[] = 'insession = '.($filter['insession'] ? '1' : '0');
+			
+		if (isset($filter['chair']) && $filter['chair'] instanceof bhg_roster_position)
+			$sqlfilters[] = 'chair = '.$filter['chair']->getID().' ';
+			
+		if (sizeof($sqlfilters) > 0)
+			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+
+		$sql .= 'ORDER BY name ASC';
+
+		$results = $this->db->getCol($sql);
+
+		if (DB::isError($results)) {
+
+			throw new bhg_db_exception('Could not load list of committees.', $results);
+
+		} else {
+
+			return new bhg_core_list('bhg_roster_committee', $results);
+
+		}
+
+	}
+
+	// }}}
+	// {{{ getCadre() [static]
+
+	/**
+	 * Load a specific Cadre
+	 *
+	 * @param integer
+	 * @return bhg_roster_divisions
+	 */
 	static public function getCadre($id) {
 
 		return bhg::loadObject('bhg_roster_division', $id);
@@ -45,7 +225,7 @@ class bhg_roster extends bhg_entry {
 	public function getCadres($filter = array()) {
 
 		$sql = 'SELECT id '
-					.'FROM roster_cadre ';
+					.'FROM roster_division ';
 
 		$sqlfilters = array();
 
@@ -53,7 +233,7 @@ class bhg_roster extends bhg_entry {
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
 		if (sizeof($sqlfilters) > 0)
-			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
+			$sql .= 'WHERE cadre = 1 AND '.implode(' AND ', $sqlfilters).' ';
 
 		$sql .= 'ORDER BY name ASC';
 
@@ -110,6 +290,9 @@ class bhg_roster extends bhg_entry {
 		if (isset($filter['category']) && $filter['category'] instanceof bhg_roster_division_category)
 			$sqlfilters[] = 'roster_division.category = '.$filter['category']->getID().' ';
 
+		if (isset($filter['cadre']))
+			$sqlfilters[] = 'roster_division.cadre = '.($filter['cadre'] ? '1 ' : '0 ');
+			
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'AND '.implode(' AND ', $sqlfilters).' ';
 
@@ -415,7 +598,6 @@ class bhg_roster extends bhg_entry {
 	 * @return bhg_core_list
 	 */
 	public function getPendingTransfers($filter = array()) {
-
 		$sql = 'SELECT id '
 					.'FROM roster_pending_transfer ';
 
@@ -423,11 +605,20 @@ class bhg_roster extends bhg_entry {
 
 		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
+			
+		if (!isset($filter['invite']) || $filter['invite'] == false)
+			$sqlfilters[] = 'invite = 0 ';
+			
+		if (isset($filter['invite']) && $filter['invite'] == true)
+			$sqlfilters[] = 'invite = 1 ';
+			
+		if (isset($filter['invite']) && $filter['invite'] == -1)
+			$sqlfilters[] = '((invite = 1) OR (invite = 0)) ';
 
 		if (isset($filter['person']) && $filter['person'] instanceof bhg_roster_person)
 			$sqlfilters[] = 'person = '.$filter['person']->getID().' ';
 
-		if (isset($filter['target']) && $filter['target'] instanceof bhg_roster_person)
+		if (isset($filter['target']) && $filter['target'] instanceof bhg_roster_division)
 			$sqlfilters[] = 'target = '.$filter['target']->getID().' ';
 
 		if (sizeof($sqlfilters) > 0)
@@ -549,9 +740,14 @@ class bhg_roster extends bhg_entry {
 										 .'%"';
 
 		if (isset($filter['division'])
-		 && $filter['division'] instanceof bhg_roster_division)
-			$sqlfilters[] = '`division` = '.$this->db->quoteSmart($filter['division']->getID());
+		 && $filter['division'] instanceof bhg_roster_division){
+			$division = '`division` = '.$this->db->quoteSmart($filter['division']->getID());
 
+		 	foreach ($this->getPositions(array('division' => $filter['division'])) as $position)
+				$positions[] = $this->db->quoteSmart($position->getID());
+			$sqlfilters[] = (count($positions) ? '((position IN ('.implode(', ', $positions).')) OR (' . $division . '))' : $division);
+		 }
+			
 		if (isset($filter['position'])
 		 && $filter['position'] instanceof bhg_roster_position)
 			$sqlfilters[] = '`position` = '.$this->db->quoteSmart($filter['position']->getID());
@@ -632,6 +828,10 @@ class bhg_roster extends bhg_entry {
 		if (!isset($filter['deleted']) || $filter['deleted'] == false)
 			$sqlfilters[] = 'datedeleted IS NULL ';
 
+		if (isset($filter['division'])
+		 && $filter['division'] instanceof bhg_roster_division)
+			$sqlfilters[] = '`division` = '.$this->db->quoteSmart($filter['division']->getID());
+			
 		if (sizeof($sqlfilters) > 0)
 			$sql .= 'WHERE '.implode(' AND ', $sqlfilters).' ';
 

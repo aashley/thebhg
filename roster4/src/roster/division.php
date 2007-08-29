@@ -65,7 +65,7 @@ class bhg_roster_division extends bhg_core_base {
 	 */
 	public function getPeople($filter = array()) {
 
-		$filter['cadre'] = $this;
+		$filter['division'] = $this;
 
 		return $GLOBALS['bhg']->roster->getPeople($filter);
 

@@ -29,6 +29,7 @@ class bhg_roster_pending_transfer extends bhg_core_base {
 	 */
 	public function __construct($id) {
 		parent::__construct('roster_pending_transfer', $id);
+		$this->__addBooleanFields(array('invite'));
 		$this->__addFieldMap(array(
 					'person' => 'bhg_roster_person',
 					'target' => 'bhg_roster_division',

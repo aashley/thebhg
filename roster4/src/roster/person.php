@@ -77,6 +77,23 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ getPeople()
+
+	/**
+	 * Get all people in this cadre
+	 *
+	 * @param array Filters to select which people to load
+	 * @return bhg_core_list
+	 */
+	public function getCommittees($filter = array()) {
+
+		$filter['person'] = $this;
+
+		return $GLOBALS['bhg']->roster->getCommitteeMembers($filter);
+
+	}
+
+	// }}}
 	// {{{ getCadre()
 	
 	/**
@@ -352,8 +369,7 @@ class bhg_roster_person extends bhg_core_base {
 					$groupout = array();
 					foreach ($group->getMedals() as $medal) {
 						
-						$awards = $GLOBALS['bhg']->medalboard->getAwards(array('medal'     => $medal,
-																																	 'recipient' => $this));
+						$awards = $GLOBALS['bhg']->medalboard->getAwards(array('medal' => $medal, 'recipient' => $this));
 
 						$pos = 0;
 						foreach ($awards as $award) {
@@ -479,11 +495,11 @@ class bhg_roster_person extends bhg_core_base {
 
 		if (is_null($cadre)) {
 
-			return $this->data['cadrerank'] != 25;
+			return $this->getDivision()->isCadre();
 
 		} else {
 
-			if ($this->data['cadrerank'] == 25)
+			if (!$this->getDivision()->isCadre())
 				return false;
 
 			return $cadre->isEqualTo($this->getDivision());
@@ -682,6 +698,51 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ awardMedal()
+	/**
+	 * Awards the appropriate medal
+	 *
+	 * @return mixed
+	 */
+	public function awardMedal($medal, $awarder, $reason){
+		switch (get_class($medal)){
+			case 'bhg_medalboard_group':
+					$award = $medal->getMedals();
+					if ($medal->getDisplayType() != 0){
+						$medal = $award->getItem(); break;}
+					
+					$medals = $GLOBALS['bhg']->medalboard->getAwards(array('group' => $medal, 'recipient' => $this));
+					
+					try {
+						$current = $award->gotoItemByValue($medals->getItem($medals->last())->getMedal());
+						if (($current + 1) == $award->count())
+							$current = 0;
+						else ++$current;
+					} catch (Exception $e){
+						$current = 0;
+					}
+					
+					$medal = $award->getItem($current);					
+				break;
+				
+			case 'bhg_medalboard_medal':
+				//Current medal is the medal to award.
+				break;
+		}
+		
+		$result = $this->__createRecord('medalboard_award', array(
+						'recipient' => $this->data['id'],
+						'medal' => $medal->getID(),
+						'reason' => $reason,
+						'awarder' => $awarder->getID(),
+						));
+
+		$this->handleRank();
+					
+		return $result;
+	}
+	
+	// }}}
 	// {{{ requestCreditAward()
 	
 	/**
@@ -715,6 +776,39 @@ class bhg_roster_person extends bhg_core_base {
 	}
 
 	// }}}
+	// {{{ requestCreditAward()
+	
+	/**
+	 * Request a credit award for this person
+	 *
+	 * @param object bhg_roster_division
+	 * @param integer
+	 * @param integer
+	 * @param string
+	 * @return boolean
+	 */
+	public function requestMedalAward(bhg_roster_person $awarder, $medal, $reason, $isMedal = false) {
+
+		if ($GLOBALS['bhg']->hasPerm('god')) {
+
+			return $this->__createRecord('roster_pending_medal',
+					array(
+						'recipient' => $this->getID(),
+						'awarder' => $awarder->getID(),
+						'medal' => $medal,
+						'medaltype' => ($isMedal ? 'medal' : 'group'),
+						'reason' => $reason,
+						));
+						
+		} else {
+
+			throw new bhg_coder_exception();
+
+		}
+
+	}
+
+	// }}}
 	// {{{ requestTransfer()
 	
 	/**
@@ -723,7 +817,7 @@ class bhg_roster_person extends bhg_core_base {
 	 * @param object bhg_roster_division
 	 * @return boolean
 	 */
-	public function requestTransfer(bhg_roster_division $target) {
+	public function requestTransfer(bhg_roster_division $target, $invite = 0) {
 
 		if ($GLOBALS['bhg']->hasPerm('god')) {
 
@@ -731,6 +825,7 @@ class bhg_roster_person extends bhg_core_base {
 					array(
 						'person' => $this->getID(),
 						'target' => $target->getID(),
+						'invite' => $invite,
 						));
 
 		} else {
@@ -828,10 +923,21 @@ class bhg_roster_person extends bhg_core_base {
 
 			if ($this->isCadreLeader()) return false;
 
-			if (!$this->getCadre()->isEqualTo($target))
-				$this->setCadreRank($target->getDefaultRank());
+			if ($target->isCadre()){
+				if ($this->inCadre()){
+					if (!$this->getCadreRank()->getDivision()->isEqualTo($target)){
+						if (!$this->getCadre()->isEqualTo($target))
+							$this->setCadreRank($target->getDefaultRank());
+						}
+				} else
+					$this->setCadreRank($target->getDefaultRank());
+			}		
 			
-			return $this->setDivision($target);
+			$division = $this->setDivision($target);
+
+			$this->handleRank();
+			
+			return $division;
 
 		} else {
 
@@ -899,6 +1005,17 @@ class bhg_roster_person extends bhg_core_base {
 		return $this->db->getOne($sql);
 	}
 	// }}}
+	
+	public function hasMedal(bhg_medalboard_medal $medal){
+		try {
+			$return = bhg_medalboard::getAwards(array('recipient' => $this, 'medal' => $medal));
+			if ($return->count()) return true; 
+			else return false;
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+	
 	// {{{ handleRank()
 
 	/**
@@ -912,14 +1029,39 @@ class bhg_roster_person extends bhg_core_base {
 
 			if ($this->hasShip() && $this->hasCompletedCoreExam()) {
 
-				$this->setPosition(bhg_roster::getPosition(14));
+				$makehunter = true;
 
 			}
 
 		}
+		
+		if ($this->getDivision()->isCadre() && (
+			$this->getPosition()->isEqualTo(bhg_roster::getPosition(14)) ||
+			$this->getPosition()->isEqualTo(bhg_roster::getPosition(22)) ||
+			$this->getPosition()->isEqualTo(bhg_roster::getPosition(19)))){
+			
+			if (!($this->getPosition()->isEqualTo(bhg_roster::getPosition(13)) || 
+				$this->getPosition()->isEqualTo(bhg_roster::getPosition(28)))){
+				
+				$makehunter = true;
+				
+			}
+			
+		} elseif ($this->getDivision()->isEqualTo(bhg_roster::getDivision(12)) && 
+				!$this->getPosition()->isEqualTo(bhg_roster::getPosition(19))){
+			
+			$this->setPosition(bhg_roster::getPosition(19));
+			$this->setCadreRank(bhg_roster::getRank(25));
+			
+		} elseif ($this->getDivision()->isEqualTo(bhg_roster::getDivision(16)) && 
+				!$this->getPosition()->isEqualTo(bhg_roster::getPosition(22))) {
+			
+			$this->setPosition(bhg_roster::getPosition(22));
+			$this->setCadreRank(bhg_roster::getRank(25));
+			
+		}
 
-		if ($this->getPosition()->isEqualTo(bhg_roster::getPosition(14))) {
-
+		if ($makehunter === true || $this->getPosition()->isEqualTo(bhg_roster::getPosition(14))){
 			if ($this->hasMedal(bhg_medalboard::getMedal(68))) {
 
 				$this->setPosition(bhg_roster::getPosition(28));
@@ -928,8 +1070,11 @@ class bhg_roster_person extends bhg_core_base {
 
 				$this->setPosition(bhg_roster::getPosition(13));
 
+			} elseif (!$this->getPosition()->isEqualTo(bhg_roster::getPosition(14))){
+				
+				$this->setPosition(bhg_roster::getPosition(14));
+				
 			}
-
 		}
 		
 		if ($this->getDivision()->isEqualTo(bhg_roster::getDivision(26))) {
@@ -951,6 +1096,7 @@ class bhg_roster_person extends bhg_core_base {
 					
 				if ($rank->isRank())
 					if ($rank->getRequiredCredits() <= $this->getRankCredits()){ $newrank = $rank; break; }
+					
 			}
 
 			if (!is_null($newrank)
@@ -962,22 +1108,17 @@ class bhg_roster_person extends bhg_core_base {
 		}
 		
 		if (!$this->getRank()->isManuallySet()) {
-
 			if ($this->getPosition()->isTrainee()) {
-
-				$ranks = $GLOBALS['bhg']->getRanks(array(
+				$ranks = $GLOBALS['bhg']->roster->getRanks(array(
 							'alwaysavailable' => true,
 							'manuallyset' => false,
-							'cadre'	=> 0,
+							'cadre'	=> false,
 							));
-
 			} else {
-
-				$ranks = $GLOBALS['bhg']->getRanks(array(
+				$ranks = $GLOBALS['bhg']->roster->getRanks(array(
 							'manuallyset' => false,
-							'cadre' => 0,
+							'cadre' => false,
 							));
-
 			}
 
 			$newrank = null;

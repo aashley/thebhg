@@ -991,6 +991,7 @@ class bhg_core_base {
 			switch ($this->historyMap[$field]) {
 
 				case BHG_HISTORY_RANK:
+				case BHG_HISTORY_CADRE_RANK:
 				case BHG_HISTORY_POSITION:
 				case BHG_HISTORY_DIVISION:
 				case BHG_HISTORY_NAME:
