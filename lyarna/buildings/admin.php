@@ -42,6 +42,9 @@
 				
 			} else {
 	    	
+				if ($_REQUEST['return']['position'] != -1 && $_REQUEST['return']['position'] != -1)
+					unset($_REQUEST['return']['bhg_id']);
+				
 		    	foreach ($_REQUEST['return'] as $name => $value)
 		    		$array[] = "`$name` = '" . addslashes($value) . "'";
 		    		
@@ -157,7 +160,7 @@
 			    var kabal_array = eval("roster" + kabal);
 			    var new_length = kabal_array.length;
 			    person_list.options.length = new_length;
-			    person_list.options[i] = new Option('None', 0, false, false);
+
 			    for (i = 1; i <= new_length; i++) {
 			        person_list.options[i] = new Option(kabal_array[i].name, kabal_array[i].id, false, false);
 			    }
