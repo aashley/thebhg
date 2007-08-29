@@ -172,7 +172,7 @@
 			        $divtitle = "roster".$division->GetID();
 			        echo $divtitle." = new Array();\n";
 			        $members = $division->GetMembers("name");
-
+print_r($members);
 			        for($j = 0; $j < $division->GetMemberCount(); $j++) {
 			            $person = $members[$j];
 			            echo $divtitle."[".$j."] = new person(".$person->GetID().", '".str_replace("'", "\'", $person->GetName())."');\n";
