@@ -67,7 +67,7 @@ if (isset($_REQUEST['type'])) {
       $arena = ($building_info['arena'] == 1) ? "can" : "can't";
       $layout[$i] = str_replace("%ARENA%", $arena, $layout[$i]);
       $layout[$i] = str_replace("%DESC%", nl2br($building_info['misc']), $layout[$i]);
-      $output .= $layout[$i];
+      $output = $layout[$i];
     }
 
     echo "<table align=\"center\">\n";
