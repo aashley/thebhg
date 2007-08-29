@@ -22,7 +22,7 @@ class page_roster_administration_award_credits extends holonet_page {
 
 		$defaults = array();
 
-		if (	 $user->getID() == 94
+		if (	 $user->getID() == 2650
 				|| $user->getPosition()->isEqualTo(bhg_roster::getPosition(2))) {
 			$form->addElement('personselect',
 					'awarder',
@@ -91,7 +91,7 @@ class page_roster_administration_award_credits extends holonet_page {
 					'amount',
 					null,
 					array(
-						'size'			=> 10,
+						'size'		=> 10,
 						'maxlength'	=> 15,
 						));
 			
@@ -103,7 +103,7 @@ class page_roster_administration_award_credits extends holonet_page {
 					'account',
 					null,
 					array(
-						'size'			=> 5,
+						'size'		=> 5,
 						'maxlength'	=> 15,
 						));
 
@@ -173,7 +173,7 @@ class page_roster_administration_award_credits extends holonet_page {
 				$this->addBodyContent('<p>');
 
 				if (	 $user->getPosition()->isEqualTo(bhg_roster::getPosition(2))
-						|| $user->getID() == 94) {
+						|| $user->getID() == 2650) {
 
 					if ($award->approve()) {
 
@@ -217,9 +217,8 @@ class page_roster_administration_award_credits extends holonet_page {
 
 	public function canAccessPage(bhg_roster_person $user) {
 
-		if (	 $user->getID() == 94
-				|| $user->getDivision()->getCategory()->isEqualTo(bhg_roster::getDivisionCategory(3))
-				|| $user->getPosition()->isEqualTo(bhg_roster::getPosition(11))) {
+		if (	 $user->getID() == 2650
+				|| $user->inDivision($GLOBALS['bhg']->roster->getDivision(10))) {
 
 			return true;
 

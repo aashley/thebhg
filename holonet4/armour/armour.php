@@ -96,16 +96,25 @@ if ($person->inDivision($GLOBALS['bhg']->roster->getDivision(10))){
 
 switch (true){
 	case ($person->inDivision($GLOBALS['bhg']->roster->getDivision(10))):
-		$temp_img = imagecreatefrompng('division/commission.png');
-	case ($person->isLHA()):
-		$temp_img = isset($temp_img) ? $temp_img : imagecreatefrompng('division/lha.png');
-	case ($person->inCadre()):
-		$temp_img = isset($temp_img) ? $temp_img : imagecreatefrompng('division/cl.png');
-	case ($person->inCadre()):
-		$temp_img = isset($temp_img) ? $temp_img : imagecreatefrompng('division/cadre.png');
-		imagecopy($img, $temp_img, 101, 157, 0, 0, 82, 34);
-		imagedestroy($temp_img);
+		$div = imagecreatefrompng('division/commission.png');
 		break;
+		
+	case ($person->isLHA()):
+		$div = imagecreatefrompng('division/lha.png');
+		break;
+		
+	case ($person->isCadreLeader()):
+		$div = imagecreatefrompng('division/cl.png');
+		break;
+		
+	case ($person->inCadre()):
+		$div = imagecreatefrompng('division/cadre.png');
+		break;
+}
+
+if (isset($div)){
+	imagecopy($img, $div, 101, 157, 0, 0, 82, 34);
+	imagedestroy($div);
 }
 
 $medals = $person->getMedals();

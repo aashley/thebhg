@@ -1,6 +1,6 @@
 <?php
 
-class page_roster_administration_award_credits extends holonet_page {
+class page_roster_administration_award_medals extends holonet_page {
 
 	public function __construct($trail) {
 
@@ -14,10 +14,10 @@ class page_roster_administration_award_credits extends holonet_page {
 
 		$this->pageBuilt = true;
 
-		$this->setTitle('Award Credits');
+		$this->setTitle('Award Medals');
 
 		$user = $GLOBALS['bhg']->user;
-		$form = new holonet_form('award_credits');
+		$form = new holonet_form('award_medals');
 		$renderer =& $form->defaultRenderer();
 
 		$defaults = array();
@@ -31,34 +31,18 @@ class page_roster_administration_award_credits extends holonet_page {
 			$renderer->setElementTemplate("\n"
 					."\t<tr>\n"
 					."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
-					."\t\t<td colspan=\"2\">{element}</td>\n"
+					."\t\t<td colspan=\"3\">{element}</td>\n"
 					."\t</tr>",
 					'awarder');
 		}
 
-		$form->addElement('textarea',
-				'reason',
-				'Reason:',
-				array(
-					'rows' => 4,
-					'cols' => 40,
-					));
-
-		$renderer->setElementTemplate("\n"
-				."\t<tr>\n"
-				."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
-				."\t\t<td colspan=\"4\">{element}</td>\n"
-				."\t</tr>",
-				'reason');
-
 		$form->addElement('static',
-				'credits_header',
+				'medals_header',
 				array(
 					'&nbsp;',
 					'Recipient',
-					'Rank Credits',
-					'Rank -> Account',
-					'Account Credits',
+					'Award',
+					'Reason',
 					));
 
 		$renderer->setElementTemplate("\n"
@@ -67,9 +51,8 @@ class page_roster_administration_award_credits extends holonet_page {
 				."\t\t<th class=\"label_2\">{label_2}</th>\n"
 				."\t\t<th class=\"label_3\">{label_3}</th>\n"
 				."\t\t<th class=\"label_4\">{label_4}</th>\n"
-				."\t\t<th class=\"label_5\">{label_5}</th>\n"
 				."\t</tr>",
-				'credits_header');
+				'medals_header');
 
 		for ($i = 0; $i < 10; $i++) {
 
@@ -87,47 +70,47 @@ class page_roster_administration_award_credits extends holonet_page {
 					null,
 					$divisions);
 					
+			$medals = array(0 => '-- Select Medal --');
+
+			foreach ($GLOBALS['bhg']->medalboard->getGroups() as $group) {
+	
+				$medals[$group->getID()] = $group->getName();
+	
+			}
+			
+			$fields[] = $form->createElement('select',
+					'award',
+					null,
+					$medals);
+					
 			$fields[] = $form->createElement('text',
-					'amount',
+					'reason',
 					null,
 					array(
-						'size'			=> 10,
-						'maxlength'	=> 15,
+						'size'		=> 40,
+						'maxlength'	=> 150,
 						));
 			
-			$fields[] = $form->createElement('checkbox',
-					'combine',
-					null);
-						
-			$fields[] = $form->createElement('text',
-					'account',
-					null,
-					array(
-						'size'			=> 5,
-						'maxlength'	=> 15,
-						));
 
-			$form->addGroup($fields, 'credit['.$i.']', ($i + 1));
+			$form->addGroup($fields, 'medal['.$i.']', ($i + 1));
 
 			$renderer->setElementTemplate("\n"
 					."\t<tr>\n"
 					."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
 					."\t\t{element}\n"
 					."\t</tr>",
-					'credit['.$i.']');
+					'medal['.$i.']');
 					
-			$renderer->setGroupTemplate("\n{content}", 'credit['.$i.']');
-			$renderer->setGroupElementTemplate("\n<td valign=\"top\">{element}</td>", 'credit['.$i.']');
-
-			$defaults['credit['.$i.'][combine]'] = 0;
+			$renderer->setGroupTemplate("\n{content}", 'medal['.$i.']');
+			$renderer->setGroupElementTemplate("\n<td valign=\"top\">{element}</td>", 'medal['.$i.']');
 		}
 
-		$form->addButtons('Award Credits');
+		$form->addButtons('Award Medals');
 
 		$renderer->setElementTemplate("\n"
 				."\t<tr>\n"
 				."\t\t<td class=\"label\"><!-- BEGIN required --><span style=\"color: #ff0000\">*</span><!-- END required -->{label}</td>\n"
-				."\t\t<td colspan=\"2\">{element}</td>\n"
+				."\t\t<td colspan=\"3\">{element}</td>\n"
 				."\t</tr>",
 				'__submit_group');
 
@@ -136,8 +119,6 @@ class page_roster_administration_award_credits extends holonet_page {
 		if ($form->validate()) {
 
 			$values = $form->exportValues();
-
-			$reason = $values['reason'];
 
 			if (isset($values['awarder']) && is_array($values['awarder'])) {
 
@@ -151,18 +132,13 @@ class page_roster_administration_award_credits extends holonet_page {
 
 			$awards = array();
 
-			foreach ($values['credit'] as $id => $data) {
+			foreach ($values['medal'] as $id => $data) {
 
-				if ($data['amount'] > 0 || $data['account'] > 1) {
+				if ($data['award'] > 0) {
 
 					$recipient = bhg_roster::getPerson($data['recipient'][1]);
 
-					$amount = $data['amount'];
-					$account = $data['account'];
-					
-					if (isset($data['combine'])) $account = $amount;
-					
-					$awards[] = $recipient->requestCreditAward($awarder, $amount, $account, $reason);
+					$awards[] = $recipient->requestMedalAward($awarder, $data['award'], $data['reason']);
 
 				}
 
@@ -173,31 +149,27 @@ class page_roster_administration_award_credits extends holonet_page {
 				$this->addBodyContent('<p>');
 
 				if (	 $user->getPosition()->isEqualTo(bhg_roster::getPosition(2))
-						|| $user->getID() == 94) {
+						|| $user->getID() == 2650) {
 
 					if ($award->approve()) {
 
-						$this->addBodyContent('Awarded '.number_format($award->getAmount())
-								.' rank credits, '. number_format($award->getAccount()) .' credit to '.
-								$award->getRecipient()->getName()
-								.' of '.$award->getRecipient()->getDivision()->getName()
+						$this->addBodyContent('Awarded '.$award->getMedal()->getName().' to '.
+								$award->getRecipient()->getName().' of '.$award->getRecipient()->getDivision()->getName()
 								.'.');
 
 					} else {
 
-						$this->addBodyContent('Failed to awarded credits to '.$award->getRecipient()->getName()
-								.' of '.$award->getRecipient()->getDivision()->getName()
+						$this->addBodyContent('Failed to awarded '.$award->getMedal()->getName().' to '.
+								$award->getRecipient()->getName().' of '.$award->getRecipient()->getDivision()->getName()
 								.'.');
 
 					}
 					
 				} else {
 					
-					$this->addBodyContent('Requested awarding of '.number_format($award->getAmount())
-								.' rank credits, '. number_format($award->getAccount()) .' account credits to '.
-								$award->getRecipient()->getName()
-							.' of '.$award->getRecipient()->getDivision()->getName()
-							.'.');
+					$this->addBodyContent('Requesting '.$award->getMedal()->getName().' for '.
+								$award->getRecipient()->getName().' of '.$award->getRecipient()->getDivision()->getName()
+								.'.');
 
 				}
 
@@ -217,9 +189,8 @@ class page_roster_administration_award_credits extends holonet_page {
 
 	public function canAccessPage(bhg_roster_person $user) {
 
-		if (	 $user->getID() == 94
-				|| $user->getDivision()->getCategory()->isEqualTo(bhg_roster::getDivisionCategory(3))
-				|| $user->getPosition()->isEqualTo(bhg_roster::getPosition(11))) {
+		if (	 $user->getID() == 2650
+				|| $user->inDivision($GLOBALS['bhg']->roster->getDivision(10))) {
 
 			return true;
 

@@ -194,15 +194,9 @@ class page_roster_administration_cadre_ranks extends holonet_page {
 
 	public function canAccessPage(bhg_roster_person $user) {
 
-		return true;
+		return $user->isCadreLeader();
 
 	}
-
-}
-
-function _checkOldPassword($value, $limit = null) {
-
-	return $GLOBALS['bhg']->user->checkPassword($value);
 
 }
 

@@ -49,7 +49,8 @@ class holonet_module_roster extends holonet_module {
 				$row = array(holonet::output($member->getPosition()),
 									 holonet::output($member->getRank()),
 									 holonet::output($member),
-									 holonet::formatCredits($member->getRankCredits()),
+									 ($member->getRank()->hasUnlimitedCredits() ? 'N/A' : 
+										holonet::formatCredits($member->getRankCredits())),
 									 holonet::formatCredits($member->getAccountBalance()));
 
 			if ($showDivisions)
@@ -239,7 +240,13 @@ class holonet_module_roster extends holonet_module {
 		$menu->title = 'Personal Details';
 		$menu->addItem(new holonet_menu_item('View Account', '/roster/person/' . $user->getID()));
 		$menu->addItem(new holonet_menu_item('My Account', '/roster/administration/my'));
-		$menu->addItem(new holonet_menu_item('Request Transfer', '/roster/administration/my/transfer'));
+		$pending = $GLOBALS['bhg']->roster->getPendingTransfers(array('person' => $user));
+		if (!$user->isCadreLeader())
+			$menu->addItem(new holonet_menu_item(($pending->count() ? 'My Pending Transfer' : 'Request Transfer'), '/roster/administration/my/transfer'));
+		
+		if ($GLOBALS['bhg']->roster->getPendingTransfers(array('person' => $user, 'invite' => 1))->count())
+			$menu->addItem(new holonet_menu_item('Pending Invites', '/roster/administration/my/invites'));
+			
 		if ($user->canCreateCadre() || $user->canCreateCadre(true))
 			$menu->addItem(new holonet_menu_item('Create Cadre', '/roster/administration/cadre/create'));
 		$menus[] = $menu;
@@ -250,23 +257,12 @@ class holonet_module_roster extends holonet_module {
 			if ($user->isCadreLeader()){
 				$menu->addItem(new holonet_menu_item('Edit Details', '/roster/administration/cadre/details'));
 				$menu->addItem(new holonet_menu_item('Edit Ranks', '/roster/administration/cadre/ranks'));
+				$menu->addItem(new holonet_menu_item('Invite/Approve', '/roster/administration/cadre/members/approve'));
+				$menu->addItem(new holonet_menu_item('Manage Members', '/roster/administration/cadre/members/manage'));
 			}
 			$menu->addItem(new holonet_menu_item('Donate', '/roster/administration/cadre/donate'));
 			
 			$menus[] = $menu;
-		}
-		
-		if ($perms['cl']) {
-
-			$menu = new holonet_menu;
-			$menu->title = $user->getCadre()->GetName() . ' Members';
-			
-			$menu->addItem(new holonet_menu_item('Invite/Approve', '/roster/administration/cadre/members/approve'));
-			$menu->addItem(new holonet_menu_item('Remove Members', '/roster/administration/cadre/members/remove'));
-			$menu->addItem(new holonet_menu_item('Promote Members', '/roster/administration/cadre/members/promote'));
-			
-			$menus[] = $menu;
-
 		}
 		
 		

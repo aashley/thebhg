@@ -203,7 +203,7 @@ class page_roster_administration_award_approve extends holonet_page {
 					'&nbsp;',
 					'Recipient',
 					'Awarder',
-					'Amount',
+					'Medal',
 					'Reason',
 					'Approve',
 					));
@@ -237,13 +237,11 @@ class page_roster_administration_award_approve extends holonet_page {
 					null,
 					$pendingMedal->getAwarder()->getName());
 
-			$fields[] = $form->createElement('text',
-					'medal',
+			
+			$fields[] = $form->createElement('static',
 					null,
-					array(
-						'size'		  => 10,
-						'maxlength' => 15,
-						));
+					null,
+					$pendingMedal->getMedal()->getName());
 
 			$fields[] = $form->createElement('textarea',
 					'reason',
@@ -274,8 +272,6 @@ class page_roster_administration_award_approve extends holonet_page {
 			$renderer->setGroupTemplate("\n{content}", 'pendingMedal['.$pendingMedal->getID().']');
 			$renderer->setGroupElementTemplate("\n<td valign=\"top\">{element}</td>", 'pendingMedal['.$pendingMedal->getID().']');
 
-			$defaults['pendingMedal['.$pendingMedal->getID().'][recipient]'] = $pendingMedal->getRecipient();
-			$defaults['pendingMedal['.$pendingMedal->getID().'][medal]'] = $pendingMedal->getMedal();
 			$defaults['pendingMedal['.$pendingMedal->getID().'][reason]'] = $pendingMedal->getReason();
 			$defaults['pendingMedal['.$pendingMedal->getID().'][approve]'] = 'approve';
 
@@ -304,11 +300,10 @@ class page_roster_administration_award_approve extends holonet_page {
 
 				if ($data['approve'] == 'approve') {
 
-					$pendingMedal->setAmount($data['amount']);
 					$pendingMedal->setReason($data['reason']);
 
 					$tab->addContent('Approving pending medal award #'.$pendingMedal->getID().' of '
-							.number_format($pendingMedal->getAmount()).' to '
+							.$pendingMedal->getMedal()->getName().' to '
 							.$pendingMedal->getRecipient()->getName().'<br/>');
 
 					$pendingMedal->approve();
@@ -338,7 +333,7 @@ class page_roster_administration_award_approve extends holonet_page {
 
 	public function canAccessPage(bhg_roster_person $user) {
 
-		if (	 $user->getID() == 94
+		if (	 $user->getID() == 2650
 				|| $user->getPosition()->isEqualTo(bhg_roster::getPosition(2))) {
 
 			return true;

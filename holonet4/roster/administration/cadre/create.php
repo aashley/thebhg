@@ -141,10 +141,4 @@ class page_roster_administration_cadre_create extends holonet_page {
 
 }
 
-function _checkOldPassword($value, $limit = null) {
-
-	return $GLOBALS['bhg']->user->checkPassword($value);
-
-}
-
 ?>

@@ -131,14 +131,13 @@ class page_roster_administration_members_reassign extends holonet_page {
 
 							$division = bhg_roster::getDivision($data['division']);
 							
-							$this->addBodyContent('Division '.$person->getName().' from '
+							$this->addBodyContent('Division: '.$person->getName().' from '
 									.$person->getDivision()->getName().' to '
 									.$division->getName().'... ');
 
 							if ($person->transfer($division)) {
 
 								$this->addBodyContent('Success.<br/>');
-								$person->handleRank();
 								
 							} else {
 
@@ -159,7 +158,6 @@ class page_roster_administration_members_reassign extends holonet_page {
 							if ($person->setPosition($position)) {
 
 								$this->addBodyContent('Success.<br/>');
-								$person->handleRank();
 								
 							} else {
 
@@ -180,7 +178,6 @@ class page_roster_administration_members_reassign extends holonet_page {
 							if ($person->setRank($rank)) {
 
 								$this->addBodyContent('Success.<br/>');
-								$person->handleRank();
 								
 							} else {
 

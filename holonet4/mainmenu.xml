@@ -14,6 +14,12 @@
 			<link>/medalboard/</link>
 		</item>
 		<item>
+			<text>Logout</text>
+			<link>/logout/</link>
+		</item>
+	</items>
+	<inactive>
+		<item>
 			<text>Library</text>
 			<link>/library/</link>
 		</item>
@@ -25,9 +31,5 @@
 			<text>Arena</text>
 			<link>/arena/</link>
 		</item>
-		<item>
-			<text>Logout</text>
-			<link>/logout/</link>
-		</item>
-	</items>
+	</inactive>
 </menu>

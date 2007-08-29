@@ -18,6 +18,7 @@ class page_roster_person extends holonet_page {
 		$bar->addTab($this->buildMedals($person));
 		$bar->addTab($this->buildCollege($person));
 		$bar->addTab($this->buildArmour($person));
+		$bar->addTab($this->buildIPKC($person));
 		$bar->addTab($this->buildHistory($person));
 		$bar->addTab($this->buildBankHistory($person));
 
@@ -37,6 +38,20 @@ class page_roster_person extends holonet_page {
 				.htmlspecialchars($person->getName())
 				.'" />');
 		
+		return $tab;
+		
+	}
+	
+	private function buildIPKC(bhg_roster_person $person) {
+		
+		$tab = new holonet_tab('ipkc', 'IPKC');
+
+		$tab->addContent('<img src="/ipkc/ipkc.php?person='
+			.$person->getID()
+			.'" alt="IPKC for '
+			.htmlspecialchars($person->getName())
+			.'" />');
+			
 		return $tab;
 		
 	}
@@ -91,7 +106,7 @@ class page_roster_person extends holonet_page {
 
 	private function buildHistory(bhg_roster_person $person) {
 
-		$tab = new holonet_tab('history', 'Recent History');
+		$tab = new holonet_tab('history', 'History');
 		$table = new HTML_Table(null, null, true);
 		$events = $person->getHistory(array('limit' => 30));
 
@@ -111,7 +126,7 @@ class page_roster_person extends holonet_page {
 	
 	private function buildBankHistory(bhg_roster_person $person) {
 
-		$tab = new holonet_tab('bank_history', 'Bank Transactions');
+		$tab = new holonet_tab('bank_history', 'Bank');
 		$table = new HTML_Table(null, null, true);
 		$events = $person->getBankHistory(array('limit' => 30));
 
@@ -177,7 +192,7 @@ class page_roster_person extends holonet_page {
 		$table->addRow(array('Name:', htmlspecialchars($person->getName())));
 		$table->addRow(array('Rank:', holonet::output($person->getRank())));
 		$table->addRow(array('Position:', holonet::output($person->getPosition())));
-		
+
 		if ($person->inCadre()) {
 
 			$cadre = holonet::output($person->getCadreRank()) . ' of ' . holonet::output($person->getCadre());
@@ -216,13 +231,7 @@ class page_roster_person extends holonet_page {
 
 		$table->addRow(array('ID&nbsp;Line:', htmlspecialchars($person->getIDLine(true))));
 		
-		$tab->addContent('<div style="float:left;"><div style="float:right">' . 
-			'<img class="ipkc" src="/ipkc/ipkc.php?person='
-			.$person->getID()
-			.'" alt="IPKC for '
-			.htmlspecialchars($person->getName())
-			.'" />'
-		.'</div>' . $table->toHTML() . '</div>');
+		$tab->addContent($table);
 		
 		return $tab;
 		
