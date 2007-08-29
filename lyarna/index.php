@@ -97,9 +97,9 @@ $slag = new person(1187);
 $wee = new person(484);
 $skor = new person(1699);
 $mena = new person(106);
-$main = new position(4);
+$main = new position(3);
 
-$search = $roster->SearchPosition('SP');
+$search = $roster->SearchPosition('T');
 $maint = (is_object($search[0]) ? $search[0] : $grav);
 
 function linky($id, $false = false){
@@ -108,7 +108,7 @@ function linky($id, $false = false){
 
 echo 'Code &copy;'.linky($grav, true).' originally by'.linky($wee, true).'; layout &copy;'.linky($skor);
 echo 'Most graphics and planetary data by'.linky($slag, true).' original data by'.linky($mena);
-echo 'Site maintained by'.linky($grav, true).' and'.linky($slag);
+echo 'Site maintained by'.linky($maint, true).' and the Rubicon Property and Assets Committee.<br />';
 ?>
 All locations created by other various members of the <a href="http://www.thebhg.org/">Bounty Hunters Guild</a>.<br>
 This site is part of the <a href="http://www.thebhg.org/" target="_blank">Bounty Hunters Guild</a>, and is subject to their <a href="http://www.thebhg.org/privacy" target="_blank">privacy policies</a>, <a href="http://www.thebhg.org/disclaimer" target="_blank">copyright disclaimers</a> and other guidelines.

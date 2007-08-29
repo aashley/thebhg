@@ -63,6 +63,7 @@ if (isset($_REQUEST['type'])) {
       $layout[$i] = str_replace("%LOCATION%", $location, $layout[$i]);
       $layout[$i] = str_replace("%OWNER%", $building_info['owner'], $layout[$i]);
       $layout[$i] = str_replace("%TYPE%", $building_info['type'], $layout[$i]);
+      $layout[$i] = str_replace("%VALUE%", $building_info['value'], $layout[$i]);
       $arena = ($building_info['arena'] == 1) ? "can" : "can't";
       $layout[$i] = str_replace("%ARENA%", $arena, $layout[$i]);
       $layout[$i] = str_replace("%DESC%", nl2br($building_info['misc']), $layout[$i]);

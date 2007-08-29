@@ -180,7 +180,7 @@
 			// -->
 			</script><?
 			
-			if ($planet['return[bhg_id]']){
+			if (isset($planet['return[bhg_id]'])){
 				$base = array($planet['return[bhg_id]']=>$GLOBALS['roster']->getPerson($planet['return[bhg_id]'])->getName());
 			} else {
 				$base = array(-1=>'Select Division');
@@ -189,11 +189,15 @@
 			$attrs = array('onchange' => "swap_kabal(this.form, 'own')");
 			
 			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attrs);
-			$form->addElement('select', 'own_person', 'Owner:', $base, $attr);
+			$form->addElement('select', 'own_person', 'Owner:', $base, $attrs);
 			
-			$form->addElement('select', 'return[position]', 'Position', $posi)->setSelected($planet['return[position]']);
-			$form->addElement('select', 'return[division]', 'Division', $divi)->setSelected($planet['return[division]']);
-			
+			$posi = $form->addElement('select', 'return[position]', 'Position', $posi);
+			if (isset($planet['return[position]']))
+				$posi->setSelected($planet['return[position]']);
+			$divi = $form->addElement('select', 'return[division]', 'Division', $divi);
+			if (isset($planet['return[division']))
+				$divi->setSelected($planet['return[division]']);
+				
 			$form->addElement('submit', 'submit', 'Submit', 'id="button"');
 			
 			$form->display();
