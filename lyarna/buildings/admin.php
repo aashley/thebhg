@@ -168,7 +168,7 @@
 			        $divtitle = "roster".$division->GetID();
 			        echo $divtitle." = new Array();\n";
 			        $members = $division->GetMembers("name");
-			
+					echo $divtitle."[] = ''";
 			        for($j = 0; $j < $division->GetMemberCount(); $j++) {
 			            $person = $members[$j];
 			            echo $divtitle."[".$j."] = new person(".$person->GetID().", '".str_replace("'", "\'", $person->GetName())."');\n";
@@ -189,7 +189,7 @@
 			$attrs = array('onchange' => "swap_kabal(this.form, 'own')");
 			
 			$form->addElement('select', 'own_kabal', 'Owner\'s Division:', $divi, $attrs);
-			$form->addElement('select', 'own_person', 'Owner:', $base, $attrs);
+			$form->addElement('select', 'own_person', 'Owner:', $base);
 			
 			$posi = $form->addElement('select', 'return[position]', 'Position', $posi);
 			if (isset($planet['return[position]']))
