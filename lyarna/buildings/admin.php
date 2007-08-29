@@ -43,7 +43,7 @@
 			} else {
 	    	
 				if ($_REQUEST['return']['position'] != -1 && $_REQUEST['return']['position'] != -1)
-					unset($_REQUEST['return']['bhg_id']);
+					$_REQUEST['return']['bhg_id'] = 0;
 				
 		    	foreach ($_REQUEST['return'] as $name => $value)
 		    		$array[] = "`$name` = '" . addslashes($value) . "'";
