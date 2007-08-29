@@ -161,7 +161,7 @@
 			    var new_length = kabal_array.length;
 			    person_list.options.length = new_length;
 
-			    for (i = 1; i <= new_length; i++) {
+			    for (i = 0; i <= new_length; i++) {
 			        person_list.options[i] = new Option(kabal_array[i].name, kabal_array[i].id, false, false);
 			    }
 			}
@@ -172,7 +172,7 @@
 			        $divtitle = "roster".$division->GetID();
 			        echo $divtitle." = new Array();\n";
 			        $members = $division->GetMembers("name");
-print_r($members);
+
 			        for($j = 0; $j < $division->GetMemberCount(); $j++) {
 			            $person = $members[$j];
 			            echo $divtitle."[".$j."] = new person(".$person->GetID().", '".str_replace("'", "\'", $person->GetName())."');\n";
