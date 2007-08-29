@@ -157,7 +157,8 @@
 			    var kabal_array = eval("roster" + kabal);
 			    var new_length = kabal_array.length;
 			    person_list.options.length = new_length;
-			    for (i = 0; i < new_length; i++) {
+			    person_list.options[i] = new Option('None', 0, false, false);
+			    for (i = 1; i <= new_length; i++) {
 			        person_list.options[i] = new Option(kabal_array[i].name, kabal_array[i].id, false, false);
 			    }
 			}
@@ -166,7 +167,7 @@
 			foreach ($GLOBALS['roster']->getDivisions() as $division) {
 			    if ($division->GetID() != 16) {
 			        $divtitle = "roster".$division->GetID();
-			        echo $divtitle." = new Array('None');\n";
+			        echo $divtitle." = new Array();\n";
 			        $members = $division->GetMembers("name");
 
 			        for($j = 0; $j < $division->GetMemberCount(); $j++) {
