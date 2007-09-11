@@ -20,8 +20,8 @@ function reject_auth() {
 }
 
 // Establish the Holonet database connection.
-$db = mysql_connect('localhost', 'thebhg', 'monkey69');
-mysql_select_db('thebhg_holonet', $db);
+$db = mysql_connect('localhost', 'thebhg', '1IHfHTsAmILMwpP');
+mysql_select_db('holonet', $db);
 
 // Handle Path Info
 if (   isset($_SERVER['PATH_INFO'])
