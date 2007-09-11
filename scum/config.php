@@ -3,7 +3,7 @@
 define('SCUM_CODER', 'www-42scum');
 
 // Database connection string.
-define('SCUM_DSN', 'mysql://thebhg:monkey69@localhost/thebhg');
+define('SCUM_DSN', 'mysql://thebhg:1IHfHTsAmILMwpP@localhost/thebhg');
 
 // Database table prefix.
 define('SCUM_PREFIX', 'scum_');
