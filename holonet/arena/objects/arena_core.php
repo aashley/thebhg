@@ -8,10 +8,10 @@
 
     function Arena(){
 	    $this->lyarna = mysql_connect("localhost", 'thebhg', '1IHfHTsAmILMwpP');
-        mysql_select_db('thebhg_lyarna', $this->lyarna);
+        mysql_select_db('lyarna', $this->lyarna);
 	    
 	    $this->holonet = mysql_connect("localhost", 'thebhg', '1IHfHTsAmILMwpP');
-        mysql_select_db('thebhg_holonet', $this->holonet);
+        mysql_select_db('holonet', $this->holonet);
         
         $this->bastion = mysql_connect("localhost", 'overseer', 'pecesicruf');
         mysql_select_db('overseer', $this->bastion);
@@ -120,7 +120,7 @@
 	    $division = $divi->GetID();
 	    $position = $posi->GetID();
 	    
-	    mysql_select_db('thebhg_lyarna', $this->lyarna);
+	    mysql_select_db('lyarna', $this->lyarna);
 	    
 	    $tables = array('complex', 'estate', 'hq', 'other', 'personal');
 	    $return = array();
@@ -133,7 +133,7 @@
 		    }
 	    }
 	    
-	    mysql_select_db('thebhg_holonet', $this->lyarna);
+	    mysql_select_db('holonet', $this->lyarna);
 	    
 	    return $return;
     }
@@ -191,7 +191,7 @@
     	}
     	
     	if ($res == 'lyarna'){
-	    	mysql_select_db('thebhg_lyarna', $this->holonet);
+	    	mysql_select_db('lyarna', $this->holonet);
     	}
     	
 	    $sql = "SELECT $sel "
@@ -212,7 +212,7 @@
 		
 		echo (mysql_error($this->$res) ? mysql_error($this->$res).'<br />' : '');
 		
-		mysql_select_db('thebhg_holonet', $this->holonet);
+		mysql_select_db('holonet', $this->holonet);
 		
 		if ($count){
 			return mysql_num_rows($query);
@@ -260,7 +260,7 @@
         foreach ($locations as $location){ 
         
         	$sql = "SELECT * FROM `$location` WHERE `arena` = 1";
-			mysql_select_db('thebhg_lyarna', $this->holonet);
+			mysql_select_db('lyarna', $this->holonet);
         	$query = mysql_query($sql, $this->holonet);
 
 	        while ($info = mysql_fetch_array($query)){
@@ -272,7 +272,7 @@
 	            $return[$new] = $exp[0] . ' - ' . $info['name'];
             }
         }
-        mysql_select_db('thebhg_holonet', $this->holonet);
+        mysql_select_db('holonet', $this->holonet);
         asort($return);
 
         return $return;

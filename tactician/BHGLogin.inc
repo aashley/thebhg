@@ -66,8 +66,8 @@
 		function BHGLogin ($coder_id = "")
 		{
 			$this->coder_id = $coder_id;
-			$this->db_connection = @mysql_connect ("localhost", "thebhg_blogs", "blogm3up");
-			@mysql_select_db ("thebhg_blogs");
+			$this->db_connection = @mysql_connect ("localhost", "blogs", "blogm3up");
+			@mysql_select_db ("blogs");
 			if ($this->IsValid())
 				parent::Person($_COOKIE["BHGLogin_id"], $this->coder_id);
 			else

@@ -3,8 +3,8 @@
 Class Arena extends Roster {
 
     function Arena(){   
-		$this->connect = mysql_connect('localhost', 'thebhg_holonet', 'w0rdy');
-			mysql_select_db('thebhg_holonet', $this->connect);
+		$this->connect = mysql_connect('localhost', 'holonet', 'w0rdy');
+			mysql_select_db('holonet', $this->connect);
     }
     
     function GetXP($id) {       

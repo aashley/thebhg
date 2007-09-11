@@ -16,7 +16,7 @@ function output() {
     
     $lyarna =& $arena->lyarna;
     
-    mysql_select_db('thebhg_lyarna', $lyarna);
+    mysql_select_db('lyarna', $lyarna);
     
     arena_header();
 
@@ -110,7 +110,7 @@ function output() {
         $form->EndForm();
     }
 
-    mysql_select_db('thebhg_holonet', $lyarna);
+    mysql_select_db('holonet', $lyarna);
     
     admin_footer($auth_data);
 }

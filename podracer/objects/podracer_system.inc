@@ -5,8 +5,8 @@ class Podracer extends Roster {
 	var $connect;
 
     function Podracer() {   
-		$this->connect = mysql_connect('localhost', 'thebhg_executor', 'ecd5786b');
-			mysql_select_db('thebhg_executor', $this->connect);
+		$this->connect = mysql_connect('localhost', 'executor', 'ecd5786b');
+			mysql_select_db('executor', $this->connect);
     }
 
 	function CreateTeam($name, $credits, $leader, $slogan, $url, $image) {

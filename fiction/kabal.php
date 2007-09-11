@@ -9,8 +9,8 @@ class Fiction extends BHGObject {
 	var $coder;
 	
 	function Fiction($code_string){
-		$this->connect = mysql_connect("localhost", "thebhg_fiction", "c80509a2");
-		mysql_select_db('thebhg_fiction', $this->connect);
+		$this->connect = mysql_connect("localhost", "fiction", "c80509a2");
+		mysql_select_db('fiction', $this->connect);
 		
 		$sql = "SELECT `id` FROM `libraries` WHERE `key` = '".strtoupper(md5($code_string))."' AND `date_deleted` = 0";
 		$query = mysql_query($sql, $this->connect);

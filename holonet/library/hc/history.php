@@ -7,8 +7,8 @@ class History {
 	var $admin;
 	
 	function History($admin_id = '') {
-		$this->database = 'thebhg_holonet';
-		$this->connection = mysql_connect("localhost", "thebhg_holonet", "w0rdy");
+		$this->database = 'holonet';
+		$this->connection = mysql_connect("localhost", "holonet", "w0rdy");
 		mysql_select_db($this->database,$this->connection);
 		
 		$this->admin_id = $admin_id;

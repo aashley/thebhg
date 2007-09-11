@@ -4,9 +4,9 @@
 
 // Database connection details.
 $db_host = 'localhost';
-$db_user = 'thebhg_mall';
+$db_user = 'mall';
 $db_pass = 'reta1lth3rapy';
-$db_name = 'thebhg_mall';
+$db_name = 'mall';
 
 // This defines the prefix for the store's tables.
 $prefix = 'kiw_';

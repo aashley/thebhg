@@ -24,7 +24,7 @@
  * @param integer The ID Number of the person who's items we are to delete
  */
 function deleteitems($id) {
-  $mall_db = mysql_connect('localhost', 'thebhg_mall', 'reta1lth3rapy');
+  $mall_db = mysql_connect('localhost', 'mall', 'reta1lth3rapy');
   $result = mysql_query('SELECT * FROM ssl_sales WHERE owner=' . $id, $mall_db);
   while ($row = @mysql_fetch_array($result)) {
     mysql_query('DELETE FROM ssl_partsales WHERE sale=' . $row['id'], $mall_db);

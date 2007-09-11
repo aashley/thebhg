@@ -35,8 +35,8 @@ class QuoteBlock extends Block {
 	}
 
 	function UpdateCache() {
-		$db = mysql_connect('localhost', 'thebhg_holonet', 'w0rdy');
-		mysql_select_db('thebhg_holonet', $db);
+		$db = mysql_connect('localhost', 'holonet', 'w0rdy');
+		mysql_select_db('holonet', $db);
 		$result = mysql_query('SELECT * FROM irc_quotes ORDER BY RAND() LIMIT 1', $db);
 		$row = mysql_fetch_array($result);
 		$this->html = nl2br(htmlspecialchars(stripslashes($row['quote'])));

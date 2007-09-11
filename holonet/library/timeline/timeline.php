@@ -22,7 +22,7 @@ class Timeline {
 	 */
 	function Timeline() {
 		$this->db = mysql_connect('localhost', 'thebhg', '1IHfHTsAmILMwpP');
-		mysql_select_db('thebhg_holonet', $this->db);
+		mysql_select_db('holonet', $this->db);
 	}
 
 	/**

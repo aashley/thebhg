@@ -2,7 +2,7 @@
 
 	// Connect to DB
 	$GLOBALS['db'] = mysql_connect("localhost", "thebhg", "1IHfHTsAmILMwpP");
-	mysql_select_db("thebhg_lyarna");
+	mysql_select_db("lyarna");
 	
 	/** Get plants */
 	function getPlanets($nomoon = false, $saymoon = false){

@@ -1,6 +1,6 @@
 <?php
 $db = mysql_connect('localhost', 'thebhg', '1IHfHTsAmILMwpP');
-mysql_select_db('thebhg_holonet', $db);
+mysql_select_db('holonet', $db);
 
 if (isset($_GET['id']) && strlen($_GET['id']) > 0)
 	$res = mysql_query('SELECT quote FROM irc_quotes WHERE quote_id = '.((int) $_GET['id']), $db);

@@ -1002,7 +1002,7 @@ class Person extends BHGObject {
 	 */
 	function HasEstate() {
 		$sql = 'SELECT COUNT(*) AS estates '
-					.'FROM thebhg_lyarna.estate '
+					.'FROM lyarna.estate '
 					.'WHERE bhg_id = "'.intval($this->person_id).'" ';
 
 		$result = mysql_query($sql, $this->roster_db);
