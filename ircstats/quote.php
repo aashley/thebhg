@@ -1,5 +1,5 @@
 <?php
-$db = mysql_connect('localhost', 'thebhg', 'monkey69');
+$db = mysql_connect('localhost', 'thebhg', '1IHfHTsAmILMwpP');
 mysql_select_db('thebhg_holonet', $db);
 
 if (isset($_GET['id']) && strlen($_GET['id']) > 0)

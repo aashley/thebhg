@@ -2,7 +2,7 @@
 $title = 'Administration :: Import Old News';
 include('../../header.php');
 
-$global_db = mysql_connect('localhost', 'thebhg', 'monkey69');
+$global_db = mysql_connect('localhost', 'thebhg', '1IHfHTsAmILMwpP');
 
 if (empty($my_user) || !check_auth($my_user, 2)) {
 	echo 'Sorry, but you are not authorised to view this page.';

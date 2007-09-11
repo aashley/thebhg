@@ -212,6 +212,7 @@ class Fiction extends BHGObject {
 		$sql = "SELECT `id` FROM `fiction` WHERE `date_deleted` = 0 AND `date` > 0";
 		$query = mysql_query($sql, $this->connect);
 		
+		print_r($query);
 		return mysql_num_rows($query);
 	}
 	

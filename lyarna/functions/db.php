@@ -1,7 +1,7 @@
 <?php
 
 	// Connect to DB
-	$GLOBALS['db'] = mysql_connect("localhost", "thebhg", "monkey69");
+	$GLOBALS['db'] = mysql_connect("localhost", "thebhg", "1IHfHTsAmILMwpP");
 	mysql_select_db("thebhg_lyarna");
 	
 	/** Get plants */

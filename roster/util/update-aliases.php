@@ -16,7 +16,7 @@ function updateAlias($alias_name, $target) {
 	$curl->verifyPeer = false;
 	$curl->followLocation = false;
 	$curl->username = "thebhg";
-	$curl->password = "monkey69";
+	$curl->password = "1IHfHTsAmILMwpP";
 	
 	$curl->fields = array(
 		'new'		=> '',

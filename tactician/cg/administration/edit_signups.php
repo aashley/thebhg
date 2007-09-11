@@ -63,7 +63,7 @@ elseif ($cadre && $cg) {
 	$form->table->AddCell(implode(', ', $names));
 	$form->table->EndRow();
 
-	$hn = mysql_connect('localhost', 'thebhg', 'monkey69');
+	$hn = mysql_connect('localhost', 'thebhg', '1IHfHTsAmILMwpP');
 	mysql_select_db('thebhg_lyarna', $hn);
 
 	$sql = "SELECT `id` FROM `estate` WHERE `bhg_id` = ".$members[0]->getID()." LIMIT 1";

@@ -1,5 +1,5 @@
 <?php
-$db = mysql_connect('localhost', 'thebhg', 'monkey69');
+$db = mysql_connect('localhost', 'thebhg', '1IHfHTsAmILMwpP');
 mysql_select_db('ircstats', $db);
 
 ini_set('include_path', ini_get('include_path') . ':jpgraph:/var/www/html/include');
