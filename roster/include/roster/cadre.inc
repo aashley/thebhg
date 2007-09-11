@@ -478,12 +478,12 @@ class Cadre extends BHGObject {
       return false;
 
     return true;
-    
+
   }
 
   // }}}
   // {{{ HasHighRank()
-  
+
   /**
    * Checks if the cadre has a member of higher rank than the leader.
    *
@@ -507,9 +507,9 @@ class Cadre extends BHGObject {
       }
 
     return false;
-    
+
   }
-  
+
   // }}}
   // {{{ IsActive()
 
@@ -587,11 +587,11 @@ class Cadre extends BHGObject {
       }
 
       if ($this->CanJoin($person)) {
-  
+
         return $person->SetCadre($this->cadre_id);
 
       } else {
-      
+
         return false;
 
       }
