@@ -9,7 +9,7 @@ if (!function_exists('constructlayout')) {
 
 $roster = new Roster();
 
-$om = mysql_connect('localhost', 'tactician', 'thidrithow');
+$om = mysql_connect('localhost', 'tactician', 'QTvIFQOwUNLSL9V');
 mysql_select_db('tactician', $om);
 
 $dm = date('m');
