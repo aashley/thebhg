@@ -1802,7 +1802,7 @@ class Person extends BHGObject {
       // do it
 
       $sql = "UPDATE roster_roster "
-            ."SET passwd = PASSWORD('".$password."') "
+            ."SET passwd = OLD_PASSWORD('".$password."') "
             ."WHERE id = ".$this->person_id;
 
       if (mysql_query($sql, $this->roster_db)) {

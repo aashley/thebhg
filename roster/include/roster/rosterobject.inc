@@ -1307,7 +1307,7 @@ class Roster extends BHGObject {
                     ."0, "
                     .$div.", "
                     ."18, "
-                    ."PASSWORD('".$password."'), "
+                    ."OLD_PASSWORD('".$password."'), "
                     ."NOW())";
 
       if (mysql_query($sql, $this->roster_db)) {

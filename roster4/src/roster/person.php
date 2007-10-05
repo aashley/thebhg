@@ -64,7 +64,7 @@ class bhg_roster_person extends bhg_core_base {
 
 		if (is_null($this->data['md5Password'])) {
 
-			$hash = $this->db->getOne('SELECT PASSWORD(?)', array($password));
+			$hash = $this->db->getOne('SELECT OLD_PASSWORD(?)', array($password));
 
 			return (strtolower($hash) == strtolower($this->data['passwd']));
 

@@ -60,7 +60,7 @@ class Login extends Person {
   function Login($username, $password, $coder = '') {
     Person::Person($username, $coder);
     
-    $sql = "SELECT id FROM roster_roster WHERE id != '' AND passwd != '' AND id = $username AND passwd = PASSWORD('$password')";
+    $sql = "SELECT id FROM roster_roster WHERE id != '' AND passwd != '' AND id = $username AND passwd = OLD_PASSWORD('$password')";
     $dbdetails = mysql_query($sql, $this->roster_db);
 
     if (@mysql_num_rows($dbdetails) == 1) {
